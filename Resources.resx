@@ -3687,7 +3687,10 @@
         lHzf6E294mooorgKCiiigD//2Q==
 </value>
   </data>
-  <data name="SSloggo_gul_76x31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="SSloggo_gul_76x31 old2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\resized Figure Skating Italia Final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SSloggo_gul_76x31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\resized thumb_cns_libertas_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

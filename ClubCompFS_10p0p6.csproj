@@ -167,5 +167,8 @@
   <ItemGroup>
     <None Include="Resources\resized Figure Skating Italia Final.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resized thumb_cns_libertas_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
