@@ -3936,11 +3936,15 @@ label_8:
         XFont xfont3 = new XFont("ARIAL", 6.0, XFontStyle.Regular);
         XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
         XImage image = XImage.FromFile("IE_Logo_HD.png");
+        XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
         double pointWidth = image.PointWidth;
         double pointHeight = image.PointHeight;
         double num7 = pointWidth / pointHeight;
         XRect rect = new XRect(10.0, 10.0, pointWidth, pointHeight);
+        XRect rect2 = new XRect(480.0, 10.0, 100, pointHeight);
         xgraphics1.DrawImage(image, rect);
+        xgraphics1.DrawImage(image2, rect2);
+
         switch (nocol)
         {
           case 3:

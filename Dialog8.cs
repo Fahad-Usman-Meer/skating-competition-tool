@@ -2220,11 +2220,14 @@ label_69:
         XFont xfont2 = new XFont("ARIAL", 6.0, XFontStyle.Regular);
         XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
         XImage image = XImage.FromFile("IE_Logo_HD.png");
+        XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
         double pointWidth = image.PointWidth;
         double pointHeight = image.PointHeight;
         double num6 = pointWidth / pointHeight;
         XRect rect = new XRect(10.0, 10.0, pointWidth, pointHeight);
+        XRect rect2 = new XRect(480.0, 10.0, 100, pointHeight);
         xgraphics1.DrawImage(image, rect);
+        xgraphics1.DrawImage(image2, rect2);
         int x2 = checked ((int) Math.Round(unchecked ((double) x1 + (double) numArray[0] * (double) width1 / 100.0)));
         int y1 = num5;
         int height1 = checked ((int) Math.Round(font1.GetHeight()));
