@@ -3941,7 +3941,7 @@ label_8:
         double pointHeight = image.PointHeight;
         double num7 = pointWidth / pointHeight;
         XRect rect = new XRect(10.0, 10.0, pointWidth, pointHeight);
-        XRect rect2 = new XRect(480.0, 10.0, 100, pointHeight);
+        XRect rect2 = new XRect(480.0, 10.0, 100, 80);
         xgraphics1.DrawImage(image, rect);
         xgraphics1.DrawImage(image2, rect2);
 
