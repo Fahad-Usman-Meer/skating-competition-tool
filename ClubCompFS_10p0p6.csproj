@@ -9,9 +9,23 @@
     <AssemblyName>ClubCompFS_10p0p6</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>ClubCompFS</RootNamespace>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.6</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +45,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -139,7 +160,9 @@
     <EmbeddedResource Include="Form11.resx" />
     <EmbeddedResource Include="Form12.resx" />
     <EmbeddedResource Include="Form13.resx" />
-    <EmbeddedResource Include="Form2.resx" />
+    <EmbeddedResource Include="Form2.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx" />
     <EmbeddedResource Include="Form4.resx" />
     <EmbeddedResource Include="Form5.resx" />
@@ -150,6 +173,8 @@
     <EmbeddedResource Include="Resources.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="LICENSE" />
+    <None Include="Resources\compulsory\CLUBCOMP.INI" />
     <None Include="Resources\Figure Skating Italia_Final - Copy.png" />
   </ItemGroup>
   <ItemGroup>
@@ -170,5 +195,28 @@
   <ItemGroup>
     <None Include="Resources\resized thumb_cns_libertas_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\compulsory\ElementDB.xml" />
+    <Content Include="Resources\compulsory\FSI_Logo_HD.png" />
+    <Content Include="Resources\compulsory\Icon.ico" />
+    <Content Include="Resources\compulsory\IE_Logo_HD.png" />
+    <Content Include="Resources\compulsory\OpenDB.xml" />
+    <Content Include="Resources\FSI_Logo_HD - Copy.png" />
+    <Content Include="Resources\IE_Logo_HD old.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)\Resources\compulsory\FSI_Logo_HD.png" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\IE_Logo_HD.png" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\ElementDB.xml" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\OpenDB.xml" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\CLUBCOMP.INI" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -3584,6 +3584,7 @@ label_25:
               Module1.JDarr[checked (R + index + 8), 1] = Conversions.ToString(index);
               str = Module1.Vek[Module1.PNo].SSS_Seg2[index];
             }
+            //TODO: character combinations to add in excel sheet
             if (str.Contains("*"))
               Module1.JDarr[checked (R + index + 8), 3] = "*";
             else if (str.Contains("V"))
@@ -3604,6 +3605,8 @@ label_25:
               Module1.JDarr[checked (R + index + 8), 3] = "<<";
             else if (str.Contains("<"))
               Module1.JDarr[checked (R + index + 8), 3] = "<";
+            else if (str.Contains("q"))
+              Module1.JDarr[checked (R + index + 8), 3] = "q";
             int num5 = Microsoft.VisualBasic.Strings.InStr(1, str, " !", CompareMethod.Text);
             if (num5 > 0)
               str = Microsoft.VisualBasic.Strings.Left(str, checked (num5 - 1));
