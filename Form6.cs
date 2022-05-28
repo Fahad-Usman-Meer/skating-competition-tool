@@ -1190,6 +1190,7 @@ label_33:
             break;
         }
         int num8 = norow;
+        string samePosition = string.Empty;
         int index1 = 0;
         while (index1 <= num8)
         {
@@ -1204,6 +1205,18 @@ label_33:
           {
             int width2 = checked ((int) Math.Round(unchecked ((double) numArray[index2] * (double) width1 / 100.0)));
             string str4 = Strings.Left(Strings.Len(RuntimeHelpers.GetObjectValue(this.TDA[index1, index2])) <= 0 ? " " : Conversions.ToString(this.TDA[index1, index2]), Length);
+            
+            if( (index1 > 3) && (index1 > (norow - 2)) && index2 == 0)
+            {
+              if (string.IsNullOrWhiteSpace(samePosition) ) // position column
+              {
+                samePosition = str4;  // store current position
+              }
+              else
+              {
+                str4 = samePosition; // replace with previous position
+              }
+            }
             switch (index2)
             {
               case 0:
