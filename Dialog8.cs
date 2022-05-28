@@ -2444,7 +2444,7 @@ label_69:
         XSolidBrush brush14 = black14;
         XRect layoutRectangle14 = xrect14;
         XStringFormat format14 = topLeft14;
-        xgraphics15.DrawString("Ice Emotion ", font16, (XBrush) brush14, layoutRectangle14, format14);
+        xgraphics15.DrawString("Figure Skating Italia ", font16, (XBrush) brush14, layoutRectangle14, format14);
         XGraphics xgraphics16 = xgraphics1;
         string str10 = "Created: " + Module1.DateTimeToStr(DateTime.Now);
         XFont xfont17 = xfont2;
