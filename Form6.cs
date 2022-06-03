@@ -1125,8 +1125,11 @@ namespace ClubCompFS
                 XFont xfont2 = new XFont("ARIAL", 6.0, XFontStyle.Regular);
                 XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
                 XImage image = XImage.FromFile("IE_Logo_HD.png");
+                XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
                 XRect rect = new XRect(10.0, 10.0, image.PointWidth, image.PointHeight);
+                XRect rect2 = new XRect(480.0, 10.0, 100, 80);
                 xgraphics1.DrawImage(image, rect);
+                xgraphics1.DrawImage(image2, rect2);
                 int y1 = 110;
                 int height1 = checked((int)Math.Round(font1.GetHeight()));
                 xgraphics1.DrawString("RESULTS", font1, (XBrush)XBrushes.Black, new XRect((double)num3, (double)y1, (double)width1, (double)height1), XStringFormats.TopLeft);

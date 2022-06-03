@@ -1131,8 +1131,11 @@ namespace ClubCompFS
                 do
                 {
                     XImage image = XImage.FromFile("IE_Logo_HD.png");
+                    XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
                     XRect rect = new XRect(10.0, 10.0, image.PointWidth, image.PointHeight);
+                    XRect rect2 = new XRect(480.0, 10.0, 100, 80);
                     xgraphics1.DrawImage(image, rect);
+                    xgraphics1.DrawImage(image, rect2);
                     int num5 = 0;
                     int num6 = 0;
                     int height = 0;

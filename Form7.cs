@@ -1451,8 +1451,11 @@ namespace ClubCompFS
                 XFont xfont4 = new XFont("ARIAL", 6.0, XFontStyle.Regular);
                 XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
                 XImage image = XImage.FromFile("IE_Logo_HD.png");
+                XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
                 XRect rect = new XRect(10.0, 10.0, image.PointWidth, image.PointHeight);
+                XRect rect2 = new XRect(480.0, 10.0, 100, 80);
                 xgraphics1.DrawImage(image, rect);
+                xgraphics1.DrawImage(image2, rect2);
                 float[] numArray = new float[7]
                 {
           7f,
