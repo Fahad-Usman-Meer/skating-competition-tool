@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48507ACC-3EA9-4BED-BDCD-36558CBD2455}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>ClubCompFS_10p0p6</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <ApplicationVersion>1.0.0.6</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>ClubCompFS</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PdfSharp">
+      <HintPath>lib\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialog1.cs" />
+    <Compile Include="Dialog10.cs" />
+    <Compile Include="Dialog11.cs" />
+    <Compile Include="CustDialog.cs" />
+    <Compile Include="Dialog2.cs" />
+    <Compile Include="Dialog3.cs" />
+    <Compile Include="Dialog4.cs" />
+    <Compile Include="Dialog5.cs" />
+    <Compile Include="Dialog7.cs" />
+    <Compile Include="Dialog8.cs" />
+    <Compile Include="Form1.cs" />
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="Form10.cs" />
+    <Compile Include="Form11.cs" />
+    <Compile Include="Form12.cs" />
+    <Compile Include="Form13.cs" />
+    <Compile Include="Form2.cs" />
+    <Compile Include="Form3.cs" />
+    <Compile Include="Form4.cs" />
+    <Compile Include="Form5.cs" />
+    <Compile Include="Form6.cs" />
+    <Compile Include="Form7.cs" />
+    <Compile Include="Form8.cs" />
+    <Compile Include="Form9.cs" />
+    <Compile Include="Module1.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="My\MyApplication.cs" />
+    <Compile Include="My\MyComputer.cs" />
+    <Compile Include="My\MyProject.cs" />
+    <Compile Include="My\MySettings.cs" />
+    <Compile Include="My\MySettingsProperty.cs" />
+    <Compile Include="My\Resources\Resources.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustDialog.resx" />
+    <EmbeddedResource Include="Dialog1.resx" />
+    <EmbeddedResource Include="Dialog10.resx" />
+    <EmbeddedResource Include="Dialog11.resx" />
+    <EmbeddedResource Include="Dialog2.resx" />
+    <EmbeddedResource Include="Dialog3.resx" />
+    <EmbeddedResource Include="Dialog4.resx" />
+    <EmbeddedResource Include="Dialog5.resx" />
+    <EmbeddedResource Include="Dialog7.resx" />
+    <EmbeddedResource Include="Dialog8.resx" />
+    <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Form10.resx" />
+    <EmbeddedResource Include="Form11.resx" />
+    <EmbeddedResource Include="Form12.resx" />
+    <EmbeddedResource Include="Form13.resx" />
+    <EmbeddedResource Include="Form2.resx" />
+    <EmbeddedResource Include="Form3.resx" />
+    <EmbeddedResource Include="Form4.resx" />
+    <EmbeddedResource Include="Form5.resx" />
+    <EmbeddedResource Include="Form6.resx" />
+    <EmbeddedResource Include="Form7.resx" />
+    <EmbeddedResource Include="Form8.resx" />
+    <EmbeddedResource Include="Form9.resx" />
+    <EmbeddedResource Include="Resources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
