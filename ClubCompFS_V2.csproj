@@ -80,7 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustDialog.resx" />
-    <EmbeddedResource Include="Dialog1.resx" />
+    <EmbeddedResource Include="Dialog1.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog10.resx" />
     <EmbeddedResource Include="Dialog11.resx" />
     <EmbeddedResource Include="Dialog2.resx" />
@@ -111,6 +113,10 @@
     <Content Include="Resources\compulsory\ElementDB.xml" />
     <Content Include="Resources\compulsory\IE_Logo_HD.png" />
     <Content Include="Resources\compulsory\OpenDB.xml" />
+    <None Include="Resources\resized Figure Skating Italia Final111.png" />
+    <None Include="Resources\resized Figure Skating Italia Final11.png" />
+    <None Include="Resources\resized thumb_cns_libertas_logo.png" />
+    <None Include="Resources\resized Figure Skating Italia Final1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

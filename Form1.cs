@@ -1680,10 +1680,10 @@ namespace ClubCompFS
             this.lblCC_El.Text = "CC_Elements";
             this.lblCC_El.TextAlign = ContentAlignment.MiddleLeft;
             this.PictureBox1.Image = (Image)ClubCompFS.My.Resources.Resources.SSloggo_gul_76x31;
-            this.PictureBox1.Location = new Point(682, 12);
+            this.PictureBox1.Location = new Point(670, 15);
             this.PictureBox1.Name = "PictureBox1";
             PictureBox pictureBox1 = this.PictureBox1;
-            size1 = new Size(79, 90);
+            size1 = new Size(91, 90);
             Size size131 = size1;
             pictureBox1.Size = size131;
             this.PictureBox1.TabIndex = 71;
