@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<OpenDBSettings>
+    <OpenDBversion>
+        <Version>Open DB ver. 2020-10-07</Version>
+    </OpenDBversion>
+    <Category>
+        <Name>Livello1 - Venere</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|2</HalfTimeCalc>
+        <ElementTest>1|4|1|1|2|0|0</ElementTest>
+		<AllowedJump>1S|1W|1T</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Terra</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|1|1|2|0|0</ElementTest>
+		<AllowedJump>1S|1W|1T</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Marte</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|1|1|2|0|0</ElementTest>
+		<AllowedJump>1S|1W|1T</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Giove</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|1|1|2|0|0</ElementTest>
+		<AllowedJump>1S|1W|1T</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Mercurio</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|2|1|1|1|0|0</ElementTest>
+		<AllowedJump>1W</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Pulcini</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <DedFall>0,50</DedFall>
+        <DedInter>0,50</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>0|4|0|0|0|0|0</ElementTest>
+		<AllowedJump>1W</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello1 - Adulti</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|1|1|2|0|0</ElementTest>
+		<AllowedJump>1S|1W|1T</AllowedJump>
+		<AllowedSpin>USp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Stelline</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:00|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin></AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Luna</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:00|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|4|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin>SSp|CSp</AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Saturno</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|5|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin></AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Urano</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|5|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin>SSp|SSpB|CSp|CSpB|CCoSp-2|CCoSp-3|CCoSpB-2|CCoSpB-3|USp|USpB|CoSp-2|CoSp-3|CoSpB-2|CoSpB-3</AllowedSpin>
+		<AllowedStep>StSq|StSqB</AllowedStep>
+    </Category>
+    <Category>
+        <Name>Livello2 - Nettuno</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|5|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin></AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Plutone</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|5|2|2|2|0|0</ElementTest>
+		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
+		<AllowedSpin></AllowedSpin>
+    </Category>
+    <Category>
+        <Name>Livello2 - Europa</Name>
+        <Warmup>00:04:00</Warmup>
+        <Segments>0|F</Segments>
+        <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
+        <GrSize>68</GrSize>
+        <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
+        <PCFactorsSeg2>3,3|0|3,3|0|1</PCFactorsSeg2>
+        <DedFall>0,5</DedFall>
+        <DedInter>0,5</DedInter>
+        <HalfTimeCalc>0|0</HalfTimeCalc>
+        <ElementTest>1|5|2|2|2|0|0</ElementTest>
+		<AllowedJump></AllowedJump>
+		<AllowedSpin></AllowedSpin>
+       
+        
+    
+    </Category>
+        
+</OpenDBSettings>

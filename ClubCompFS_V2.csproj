@@ -104,5 +104,20 @@
     <EmbeddedResource Include="Form9.resx" />
     <EmbeddedResource Include="Resources.resx" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compulsory\CLUBCOMP.INI" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\compulsory\ElementDB.xml" />
+    <Content Include="Resources\compulsory\IE_Logo_HD.png" />
+    <Content Include="Resources\compulsory\OpenDB.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)\Resources\compulsory\FSI_Logo_HD.png" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\IE_Logo_HD.png" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\ElementDB.xml" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\OpenDB.xml" "$(TargetDir)"
+copy "$(ProjectDir)\Resources\compulsory\CLUBCOMP.INI" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
