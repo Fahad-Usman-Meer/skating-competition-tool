@@ -1448,7 +1448,7 @@ namespace ClubCompFS
                     }
                     while (!(num5 == 2 | index1 >= norow | (double)integer2 != Conversions.ToDouble(Module1.F4arr[checked(index1 + 1), 0])));
                     XGraphics xgraphics15 = xgraphics1;
-                    string str17 = "Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                    string str17 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
                     XFont xfont19 = font1;
                     XSolidBrush black = XBrushes.Black;
                     XRect xrect = new XRect((double)x1, (double)num6 + 40.0, (double)width1, (double)num6 + 45.0);

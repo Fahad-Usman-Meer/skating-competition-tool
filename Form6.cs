@@ -1440,7 +1440,7 @@ namespace ClubCompFS
                 }
                 int y8 = checked(y7 + 2 * height2);
                 XGraphics xgraphics16 = xgraphics1;
-                string str14 = "Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                string str14 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
                 XFont xfont18 = xfont2;
                 XSolidBrush black15 = XBrushes.Black;
                 XRect xrect15 = new XRect((double)num3, (double)y8, (double)width1, (double)height2);
@@ -2693,7 +2693,7 @@ namespace ClubCompFS
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     e.Graphics.DrawString(Module1.Referee.Seg2.Name, font3, Brushes.Black, (float)x1, y7, new StringFormat());
                 float y8 = y7 + 20f;
-                e.Graphics.DrawString("Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y8, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y8, new StringFormat());
                 goto label_154;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)

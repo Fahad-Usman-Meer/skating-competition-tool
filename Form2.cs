@@ -3895,7 +3895,7 @@ namespace ClubCompFS
                 }
                 int y6 = checked(num7 + 2 * height2);
                 XGraphics xgraphics13 = xgraphics1;
-                string str15 = "Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                string str15 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
                 XFont xfont16 = xfont3;
                 XSolidBrush black12 = XBrushes.Black;
                 XRect xrect12 = new XRect((double)num4, (double)y6, (double)width1, (double)height2);
@@ -4074,7 +4074,7 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 float y6 = y5 + 20f;
-                e.Graphics.DrawString("Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -4632,7 +4632,7 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 float y6 = y5 + 20f;
-                e.Graphics.DrawString("Ice Emotion | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
                 goto label_26;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)

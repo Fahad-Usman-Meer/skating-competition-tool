@@ -2040,7 +2040,7 @@ namespace ClubCompFS
                 e.Graphics.DrawString("Created: " + Module1.DateTimeToStr(Module1.ElementDBLastWriteTime), font4, Brushes.Black, layoutRectangle, format);
                 float y79 = y78 + layoutRectangle.Height;
                 float num10 = (float)x1;
-                e.Graphics.DrawString("Ice Emotion", font4, Brushes.Black, (float)x1, y79, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia ", font4, Brushes.Black, (float)x1, y79, new StringFormat());
                 layoutRectangle = new RectangleF(num10 + (float)(200.0 * num3), y79, (float)(400.0 * num3), height3);
                 e.Graphics.DrawString("Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, layoutRectangle, format);
                 goto label_69;
@@ -2342,7 +2342,7 @@ namespace ClubCompFS
                 XSolidBrush brush14 = black14;
                 XRect layoutRectangle14 = xrect14;
                 XStringFormat format14 = topLeft14;
-                xgraphics15.DrawString("Ice Emotion", font16, (XBrush)brush14, layoutRectangle14, format14);
+                xgraphics15.DrawString("Figure Skating Italia ", font16, (XBrush)brush14, layoutRectangle14, format14);
                 XGraphics xgraphics16 = xgraphics1;
                 string str10 = "Created: " + Module1.DateTimeToStr(DateTime.Now);
                 XFont xfont17 = xfont2;
