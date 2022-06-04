@@ -1206,6 +1206,9 @@ namespace ClubCompFS
                         break;
                 }
                 int num7 = norow;
+                
+                bool isLastRows = false; // to check last 2 same positions
+
                 int index1 = 0;
                 while (index1 <= num7)
                 {
@@ -1215,6 +1218,27 @@ namespace ClubCompFS
                         xgraphics1.DrawLine(XPens.Gray, num3, num6, checked(num3 + width1), num6);
                     int y5 = checked(num6 + 1);
                     int num9 = checked(nocol - 1);
+
+                    if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows) // last rows
+                    {
+                        isLastRows = true;
+                        //TODO: Add logic to swap last 2 rows
+                        for (int i = 0; i < 9; i++)
+                        {
+                            var val1 = this.TDA[index1, i];
+
+                            if (i == 0) // position # column
+                            {
+                                this.TDA[index1 + 1, i] = val1;
+                            }
+                            else  // swapping value
+                            {
+                                this.TDA[index1, i] = this.TDA[index1 + 1, i];
+                                this.TDA[index1 + 1, i] = val1;
+                            }
+                        }
+                    }
+
                     int index2 = 0;
                     while (index2 <= num9)
                     {
