@@ -1561,7 +1561,6 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    //TODO: handle here to show only 2 fields
                     string key3 = "PC" + Strings.Trim(Conversions.ToString(index2));
                     string key4 = "txtPC" + Strings.Trim(Conversions.ToString(index2));
                     string segment3 = Module1.Segment;
@@ -1668,14 +1667,15 @@ namespace ClubCompFS
                 do
                 {
                     string key = "PC" + Strings.Trim(Conversions.ToString(index2));
+                    var eneteredValue = dialog10.Controls[key].Text.Replace(".", ",");
                     string segment = Module1.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
+                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(eneteredValue);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
-                    checked { ++index2; }
+                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(eneteredValue);
+                    checked { index2 += 2; } // skipping txtPC2 & PC2 (because it has been removed)
                 }
-                while (index2 <= 5);
+                while (index2 <= 3);
                 int num3 = !this.chD1.Checked ? 0 : 1;
                 int num4 = !this.chD2.Checked ? 0 : 2;
                 string segment1 = Module1.Segment;
@@ -2028,9 +2028,9 @@ namespace ClubCompFS
                 num1 = 1;
                 Dialog10 dialog10 = this;
                 string key = "PC" + Strings.Trim(Conversions.ToString(no));
-                if (!(!Versioned.IsNumeric((object)dialog10.Controls[key].Text) | Conversion.Val(dialog10.Controls[key].Text) < 0.0 | Conversion.Val(dialog10.Controls[key].Text) > 10.0))
+                if (!(!Versioned.IsNumeric((object)dialog10.Controls[key].Text) | Conversion.Val(dialog10.Controls[key].Text) < 0.0 | Conversion.Val(dialog10.Controls[key].Text) > 5.0))
                     return;
-                int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 dialog10.Controls[key].Text = "";
                 dialog10.Controls[key].Select();
             }
@@ -2045,13 +2045,20 @@ namespace ClubCompFS
             string Expression = this.PC1.Text.Replace(".", ",");
             if (!Versioned.IsNumeric((object)Expression))
             {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 this.PC1.Text = "0";
             }
             else
             {
-                this.PC1.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(1);
+                var enteredValue = Conversions.ToDouble(Expression);
+                if(enteredValue < 0 || enteredValue > 5)
+                {
+                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    this.Controls["PC1"].Text = "";
+                    this.Controls["PC1"].Select();
+                }
+                //this.PC1.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+                //this.PCtest(1);
             }
         }
 
@@ -2075,13 +2082,21 @@ namespace ClubCompFS
             string Expression = this.PC3.Text.Replace(".", ",");
             if (!Versioned.IsNumeric((object)Expression))
             {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 this.PC3.Text = "0";
             }
             else
             {
-                this.PC3.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(3);
+                var enteredValue = Conversions.ToDouble(Expression);
+                if (enteredValue < 0 || enteredValue > 5)
+                {
+                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    this.Controls["PC3"].Text = "";
+                    this.Controls["PC3"].Select();
+                }
+
+                //this.PC3.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+                //this.PCtest(3);
             }
         }
 

@@ -1222,7 +1222,7 @@ namespace ClubCompFS
                     if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows) // last rows
                     {
                         isLastRows = true;
-                        //TODO: Add logic to swap last 2 rows
+                        //TODO: logic to swap last 2 rows
                         for (int i = 0; i < 9; i++)
                         {
                             var val1 = this.TDA[index1, i];
