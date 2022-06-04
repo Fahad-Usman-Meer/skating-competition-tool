@@ -3607,6 +3607,8 @@ namespace ClubCompFS
                             Module1.JDarr[checked(R + index + 8), 3] = "<<";
                         else if (str.Contains("<"))
                             Module1.JDarr[checked(R + index + 8), 3] = "<";
+                        else if (!str.Contains("Sq") && str.Contains("q")) // Exclude Sequence Element (Sq)
+                            Module1.JDarr[checked(R + index + 8), 3] = "q";
                         int num5 = Strings.InStr(1, str, " !", CompareMethod.Text);
                         if (num5 > 0)
                             str = Strings.Left(str, checked(num5 - 1));

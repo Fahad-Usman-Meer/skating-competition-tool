@@ -63,6 +63,8 @@ namespace ClubCompFS
         private Button _OpCOMBO;
         [AccessedThroughProperty("OpDG")]
         private Button _OpDG;
+        [AccessedThroughProperty("OpQ")]
+        private Button _OpQ;
         [AccessedThroughProperty("Edge")]
         private Button _Edge;
         [AccessedThroughProperty("Zero")]
@@ -339,6 +341,7 @@ namespace ClubCompFS
             this.OpSEQ = new Button();
             this.OpCOMBO = new Button();
             this.OpDG = new Button();
+            this.OpQ = new Button();
             this.Edge = new Button();
             this.Zero = new Button();
             this.Sit = new Button();
@@ -625,17 +628,31 @@ namespace ClubCompFS
             this.OpDG.TabIndex = 22;
             this.OpDG.Text = "D-GRADE\r\n<<";
             this.OpDG.UseVisualStyleBackColor = false;
-            this.Edge.BackColor = Color.FromArgb(128, 64, 0);
+            //this.Edge.BackColor = Color.FromArgb(128, 64, 0);
+            
+            this.OpQ.BackColor = Color.FromArgb(128, 64, 0);
+            this.OpQ.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.OpQ.ForeColor = Color.White;
+            this.OpQ.Location = new Point(450, 1);
+            this.OpQ.Name = "QUART";
+            Button opQ = this.OpQ;
+            opQ.Size = new Size(37, 37); // (74, 37)
+            this.OpQ.TabIndex = 168;
+            this.OpQ.Text = "q";
+            this.OpQ.UseVisualStyleBackColor = false;
+
+            this.Edge.BackColor = Color.Yellow;// FromArgb(128, 64, 0);
+
             this.Edge.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.Edge.ForeColor = Color.White;
-            this.Edge.Location = new Point(450, 1);
+            //this.Edge.ForeColor = Color.White;
+            this.Edge.Location = new Point(488, 1);
             this.Edge.Name = "Edge";
             Button edge = this.Edge;
-            size1 = new Size(74, 37);
+            size1 = new Size(37, 37); // 47 , 37
             Size size16 = size1;
             edge.Size = size16;
             this.Edge.TabIndex = 23;
-            this.Edge.Text = "EDGE\r\ne";
+            this.Edge.Text = "e";  // "EDGE\r\ne";
             this.Edge.UseVisualStyleBackColor = false;
             this.Zero.BackColor = SystemColors.Control;
             this.Zero.Font = new Font("Microsoft Sans Serif", 20f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -1940,6 +1957,7 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.Zero);
             this.Controls.Add((Control)this.Edge);
             this.Controls.Add((Control)this.OpDG);
+            this.Controls.Add((Control)this.OpQ);
             this.Controls.Add((Control)this.OpCOMBO);
             this.Controls.Add((Control)this.OpSEQ);
             this.Controls.Add((Control)this.OpUR);
@@ -1964,7 +1982,7 @@ namespace ClubCompFS
             this.MaximizeBox = false;
             this.Name = nameof(Form5);
             this.Text = "Element Input";
-            this.TopMost = true;
+            this.TopMost = false; // true;
             ((ISupportInitialize)this.DataGridView1).EndInit();
             ((ISupportInitialize)this.PictureBox16).EndInit();
             ((ISupportInitialize)this.PictureBox13).EndInit();
@@ -2232,6 +2250,21 @@ namespace ClubCompFS
                 if (this._OpDG == null)
                     return;
                 this._OpDG.Click += eventHandler;
+            }
+        }
+        internal virtual Button OpQ
+        {
+            get => this._OpQ;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                EventHandler eventHandler = new EventHandler(this.OpQ_Click);
+                if (this._OpQ != null)
+                    this._OpQ.Click -= eventHandler;
+                this._OpQ = value;
+                if (this._OpQ == null)
+                    return;
+                this._OpQ.Click += eventHandler;
             }
         }
 
@@ -4125,7 +4158,7 @@ namespace ClubCompFS
                     {
                         case 0:
                         case 1:
-                            MyProject.Forms.Form2.TopMost = true;
+                            MyProject.Forms.Form2.TopMost = false; // true;
                             break;
                         case 2:
                             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
@@ -4136,7 +4169,7 @@ namespace ClubCompFS
                             Module1.CreateJudgesDetails(0, ref rowDed1);
                             MyProject.Forms.Form4.ShowJD(rowDed1);
                             MyProject.Forms.Form4.Show();
-                            MyProject.Forms.Form4.TopMost = true;
+                            MyProject.Forms.Form4.TopMost = false; // true;
                             MyProject.Forms.Form1.MakeJudgeTxtFile(-1);
                             break;
                         case 3:
@@ -4147,7 +4180,7 @@ namespace ClubCompFS
                             Module1.CreateJudgesDetails(0, ref rowDed2);
                             MyProject.Forms.Form4.ShowJD(rowDed2);
                             MyProject.Forms.Form4.Show();
-                            MyProject.Forms.Form4.TopMost = true;
+                            MyProject.Forms.Form4.TopMost = false; // true;
                             break;
                     }
                     Module1.SaveCategoryFile(Module1.CategoryFileName);
@@ -6450,6 +6483,7 @@ namespace ClubCompFS
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                         this.Falls_out.Text = "FALLS  " + Conversions.ToString(Module1.Vek[Module1.PNo].Falls_seg2);
                     this.OpDG.Visible = true;
+                    this.OpQ.Visible = true;
                     this.OpUR.Visible = true;
                     this.Edge.Visible = true;
                     this.OpExcl.Visible = true;
@@ -6491,6 +6525,7 @@ namespace ClubCompFS
                     this.Bonus_minus.Visible = false;
                     this.Bonus_plus.Visible = false;
                     this.OpDG.Visible = false;
+                    this.OpQ.Visible = false;
                     this.OpUR.Visible = false;
                     this.Edge.Visible = false;
                     this.OpExcl.Visible = false;
@@ -7578,6 +7613,107 @@ namespace ClubCompFS
             if (num1 == 2)
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpDG_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+            }
+            label_31:
+            if (num2 == 0)
+                return;
+            ProjectData.ClearProjectError();
+        }
+
+        private void OpQ_Click(object sender, EventArgs e)
+        {
+            int num1 = 0;
+            int num2 = 0;
+            try
+            {
+                string str1 = "";
+                bool flag = false;
+                ProjectData.ClearProjectError();
+                num1 = 2;
+                this.index = this.DataGridView1.CurrentCellAddress.Y;
+                if (this.index > -1 & Strings.Len(Module1.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Module1.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                {
+                    string str2 = Module1.OpArr[checked(this.index + 1)].element;
+                    if (str2.Contains("+SEQ"))
+                    {
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
+                        {
+                            str1 = "+SEQ";
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
+                        }
+                        else
+                        {
+                            int Length = str2.LastIndexOf("+");
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
+                            flag = true;
+                        }
+                    }
+                    else if (str2.Contains("+COMBO"))
+                    {
+                        if (Operators.CompareString(Strings.Right(str2, 6), "+COMBO", false) == 0)
+                        {
+                            str1 = "+COMBO";
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 6));
+                        }
+                        else
+                        {
+                            int Length = str2.LastIndexOf("+");
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
+                            flag = true;
+                        }
+                    }
+                    else if (str2.Contains("+REP"))
+                    {
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+REP", false) == 0)
+                        {
+                            str1 = "+REP";
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
+                        }
+                        else
+                        {
+                            int Length = str2.LastIndexOf("+");
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
+                            flag = true;
+                        }
+                    }
+                    if (this.TstJump(str2))
+                    {
+                        if (Operators.CompareString(Strings.Right(str2, 1), "q", false) == 0)
+                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 3), "q e", false) == 0)
+                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
+                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
+                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "q" : str2 + "q" + str1;
+                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        goto label_31;
+                    }
+                    else
+                    {
+                        Interaction.Beep();
+                        this.OplistaSelect();
+                        goto label_31;
+                    }
+                }
+                else
+                {
+                    Interaction.Beep();
+                    this.OplistaSelect();
+                    goto label_31;
+                }
+            }
+            catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
+            {
+                ProjectData.SetProjectError(ex);
+            }
+            num2 = -1;
+            if (num1 == 2)
+            {
+                int num3 = (int)Interaction.MsgBox((object)("OpQ_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_31:
             if (num2 == 0)
