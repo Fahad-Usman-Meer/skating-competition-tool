@@ -1421,7 +1421,7 @@ namespace ClubCompFS
                         xgraphics1.DrawLine(XPens.Gray, checked(x1 + width2 + 1), checked(num7 - 1), checked(x1 + width2 + 1), checked(num6 + 1));
                         xgraphics1.DrawLine(XPens.Gray, checked(x1 - 1), checked(num6 + 1), checked(x1 + width2 + 1), checked(num6 + 1));
                         XGraphics xgraphics13 = xgraphics1;
-                        string str15 = "Attenzione, il seguente \"Judges details\" non è confrontabile con quelli delle gare di fascia (interregionale, nazionale ed elite) o internazionali, ";
+                        string str15 = "Attenzione, il seguente \"Judges details\" non è confrontabile con quelli delle gare di fascia silver, gold, elite o internazionali. ";
                         XFont xfont17 = xfont2;
                         XSolidBrush black12 = XBrushes.Black;
                         XRect xrect12 = new XRect((double)x1, (double)num6 + 5.0, (double)checked(x1 + width2), (double)num6 + 7.0);
