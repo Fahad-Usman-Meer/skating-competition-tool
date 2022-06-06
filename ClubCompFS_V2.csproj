@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>thumb_cns_libertas_logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PdfSharp">
@@ -113,6 +116,7 @@
     <Content Include="Resources\compulsory\ElementDB.xml" />
     <Content Include="Resources\compulsory\IE_Logo_HD.png" />
     <Content Include="Resources\compulsory\OpenDB.xml" />
+    <Content Include="thumb_cns_libertas_logo.ico" />
     <None Include="Resources\resized Figure Skating Italia Final111.png" />
     <None Include="Resources\resized Figure Skating Italia Final11.png" />
     <None Include="Resources\resized thumb_cns_libertas_logo.png" />
