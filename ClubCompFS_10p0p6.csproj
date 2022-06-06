@@ -50,8 +50,7 @@
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>thumb_cns_libertas_logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -203,6 +202,7 @@
     <Content Include="Resources\compulsory\OpenDB.xml" />
     <Content Include="Resources\FSI_Logo_HD - Copy.png" />
     <Content Include="Resources\IE_Logo_HD old.png" />
+    <Content Include="thumb_cns_libertas_logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
