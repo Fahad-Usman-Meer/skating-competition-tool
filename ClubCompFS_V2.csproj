@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Dialog1.cs" />
     <Compile Include="Dialog10.cs" />
     <Compile Include="Dialog11.cs" />
