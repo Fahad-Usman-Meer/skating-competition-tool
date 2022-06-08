@@ -1312,7 +1312,7 @@ namespace ClubCompFS
                         x += layoutRectangle.Width;
                         num4 = Math.Max(num4, layoutRectangle.Height);
                     }
-                    dataGridView1?.Dispose();
+                    
                     y4 += num4;
                     checked { ++index; }
                     if ((double)y4 + (double)num4 > (double)e.MarginBounds.Bottom)
@@ -1322,6 +1322,7 @@ namespace ClubCompFS
                         goto label_29;
                     }
                 }
+                dataGridView1?.Dispose();
                 float y5 = y4 + 20f;
                 e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y5, new StringFormat());
                 goto label_29;

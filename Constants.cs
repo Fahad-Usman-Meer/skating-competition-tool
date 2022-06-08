@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ClubCompFS
+﻿namespace ClubCompFS
 {
     public static class Constants
     {
@@ -19,8 +14,7 @@ namespace ClubCompFS
                 case ';':
                 case '<':
                 case '>':
-                    //e.Handled = true;
-                    isValidCharForClubName = false;
+                    isValidCharForClubName = false;  //e.Handled = true;
                     break;
             }
             return isValidCharForClubName;
