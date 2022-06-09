@@ -2120,12 +2120,19 @@ namespace ClubCompFS
                 float[] numArray = new float[3] { 33f, 33f, 33f };
                 xunit = page.Height;
                 int num4 = checked((int)Math.Round(xunit.Point));
-                int num5 = 60;
+                int num5 = 90; //60
                 XFont font1 = new XFont("ARIAL", 12.0, XFontStyle.Bold);
                 XFont font2 = new XFont("ARIAL", 10.0, XFontStyle.Bold);
                 XFont xfont1 = new XFont("ARIAL", 10.0, XFontStyle.Regular);
                 XFont xfont2 = new XFont("ARIAL", 6.0, XFontStyle.Regular);
                 XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
+                XImage image = XImage.FromFile("IE_Logo_HD.png");
+                XImage image2 = XImage.FromFile("FSI_Logo_HD.png");
+                XRect rect = new XRect(10.0, 10.0, image.PointWidth, image.PointHeight);
+                XRect rect2 = new XRect(480.0, 10.0, 100, 80);
+                xgraphics1.DrawImage(image, rect);
+                xgraphics1.DrawImage(image2, rect2);
+                
                 int x2 = checked((int)Math.Round(unchecked((double)x1 + (double)numArray[0] * (double)width1 / 100.0)));
                 int y1 = num5;
                 int height1 = checked((int)Math.Round(font1.GetHeight()));
@@ -2430,24 +2437,24 @@ namespace ClubCompFS
                 this.HDA[index11, 2] = "";
                 int index12 = checked(index11 + 1);
                 this.HDA[index12, 0] = "Program Component Factors:";
-                this.HDA[index12, 1] = "Impostazione di base";
+                this.HDA[index12, 1] = "Skating Skills";  // "Impostazione di base";
                 this.HDA[index12, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index13 = checked(index12 + 1);
                 this.HDA[index13, 0] = "";
-                this.HDA[index13, 1] = "Scorrevolezza";
-                this.HDA[index13, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
+                this.HDA[index13, 1] = ""; // "Scorrevolezza";
+                this.HDA[index13, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
                 int index14 = checked(index13 + 1);
                 this.HDA[index14, 0] = "";
-                this.HDA[index14, 1] = "";
+                this.HDA[index14, 1] = "Performance/Execution";
                 this.HDA[index14, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3]);
                 int index15 = checked(index14 + 1);
                 this.HDA[index15, 0] = "";
-                this.HDA[index15, 1] = "Coreografia";
-                this.HDA[index15, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
+                this.HDA[index15, 1] = ""; // "Coreografia";
+                this.HDA[index15, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
                 index1 = checked(index15 + 1);
                 this.HDA[index1, 0] = "";
                 this.HDA[index1, 1] = "";
-                this.HDA[index1, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
+                this.HDA[index1, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
             }
             else if (Operators.CompareString(seg, "0F", false) == 0)
             {
@@ -2493,24 +2500,24 @@ namespace ClubCompFS
                 this.HDA[index25, 2] = "";
                 int index26 = checked(index25 + 1);
                 this.HDA[index26, 0] = "Program Component Factors:";
-                this.HDA[index26, 1] = "Impostazione di base";
+                this.HDA[index26, 1] = "Skating Skills";  // "Impostazione di base";
                 this.HDA[index26, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index27 = checked(index26 + 1);
                 this.HDA[index27, 0] = "";
-                this.HDA[index27, 1] = "Scorrevolezza";
-                this.HDA[index27, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
+                this.HDA[index27, 1] = ""; // "Scorrevolezza";
+                this.HDA[index27, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
                 int index28 = checked(index27 + 1);
                 this.HDA[index28, 0] = "";
-                this.HDA[index28, 1] = "";
+                this.HDA[index28, 1] = "Performance/Execution";
                 this.HDA[index28, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[3]);
                 int index29 = checked(index28 + 1);
                 this.HDA[index29, 0] = "";
-                this.HDA[index29, 1] = "Coreografia";
-                this.HDA[index29, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
+                this.HDA[index29, 1] = ""; //"Coreografia";
+                this.HDA[index29, 2] = "";// Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
                 index1 = checked(index29 + 1);
                 this.HDA[index1, 0] = "";
                 this.HDA[index1, 1] = "";
-                this.HDA[index1, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
+                this.HDA[index1, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "SF", false) == 0)
             {
@@ -2560,24 +2567,24 @@ namespace ClubCompFS
                 this.HDA[index40, 2] = "";
                 int index41 = checked(index40 + 1);
                 this.HDA[index41, 0] = "Program Component Factors:";
-                this.HDA[index41, 1] = "Impostazione di base";
+                this.HDA[index41, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index41, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index42 = checked(index41 + 1);
                 this.HDA[index42, 0] = "";
-                this.HDA[index42, 1] = "Scorrevolezza";
-                this.HDA[index42, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
+                this.HDA[index42, 1] = ""; // "Scorrevolezza";
+                this.HDA[index42, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
                 int index43 = checked(index42 + 1);
                 this.HDA[index43, 0] = "";
-                this.HDA[index43, 1] = "";
+                this.HDA[index43, 1] = "Performance/Execution";
                 this.HDA[index43, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3]);
                 int index44 = checked(index43 + 1);
                 this.HDA[index44, 0] = "";
-                this.HDA[index44, 1] = "Coreografia";
-                this.HDA[index44, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
+                this.HDA[index44, 1] = ""; // "Coreografia";
+                this.HDA[index44, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
                 int index45 = checked(index44 + 1);
                 this.HDA[index45, 0] = "";
                 this.HDA[index45, 1] = "";
-                this.HDA[index45, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
+                this.HDA[index45, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
                 int index46 = checked(index45 + 1);
                 int index47 = 0;
                 do
@@ -2596,24 +2603,24 @@ namespace ClubCompFS
                 this.HDA[index49, 2] = "";
                 int index50 = checked(index49 + 1);
                 this.HDA[index50, 0] = "Program Component Factors:";
-                this.HDA[index50, 1] = "Impostazione di base";
+                this.HDA[index50, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index50, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index51 = checked(index50 + 1);
                 this.HDA[index51, 0] = "";
-                this.HDA[index51, 1] = "Scorrevolezza";
-                this.HDA[index51, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
+                this.HDA[index51, 1] = ""; // "Scorrevolezza";
+                this.HDA[index51, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
                 int index52 = checked(index51 + 1);
                 this.HDA[index52, 0] = "";
-                this.HDA[index52, 1] = "";
+                this.HDA[index52, 1] = "Performance/Execution";
                 this.HDA[index52, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[3]);
                 int index53 = checked(index52 + 1);
                 this.HDA[index53, 0] = "";
-                this.HDA[index53, 1] = "Coreografia";
-                this.HDA[index53, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
+                this.HDA[index53, 1] = ""; // "Coreografia";
+                this.HDA[index53, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
                 index1 = checked(index53 + 1);
                 this.HDA[index1, 0] = "";
                 this.HDA[index1, 1] = "";
-                this.HDA[index1, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
+                this.HDA[index1, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "FF", false) == 0)
             {
@@ -2663,24 +2670,24 @@ namespace ClubCompFS
                 this.HDA[index64, 2] = "";
                 int index65 = checked(index64 + 1);
                 this.HDA[index65, 0] = "Program Component Factors:";
-                this.HDA[index65, 1] = "Impostazione di base";
+                this.HDA[index65, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index65, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index66 = checked(index65 + 1);
                 this.HDA[index66, 0] = "";
-                this.HDA[index66, 1] = "Scorrevolezza";
-                this.HDA[index66, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
+                this.HDA[index66, 1] = ""; // "Scorrevolezza";
+                this.HDA[index66, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
                 int index67 = checked(index66 + 1);
                 this.HDA[index67, 0] = "";
-                this.HDA[index67, 1] = "";
+                this.HDA[index67, 1] = "Performance/Execution";
                 this.HDA[index67, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3]);
                 int index68 = checked(index67 + 1);
                 this.HDA[index68, 0] = "";
-                this.HDA[index68, 1] = "Coreografia";
-                this.HDA[index68, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
+                this.HDA[index68, 1] = ""; // "Coreografia";
+                this.HDA[index68, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
                 int index69 = checked(index68 + 1);
                 this.HDA[index69, 0] = "";
                 this.HDA[index69, 1] = "";
-                this.HDA[index69, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
+                this.HDA[index69, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
                 int index70 = checked(index69 + 1);
                 int index71 = 0;
                 do
@@ -2699,24 +2706,24 @@ namespace ClubCompFS
                 this.HDA[index73, 2] = "";
                 int index74 = checked(index73 + 1);
                 this.HDA[index74, 0] = "Program Component Factors:";
-                this.HDA[index74, 1] = "Impostazione di base";
+                this.HDA[index74, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index74, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index75 = checked(index74 + 1);
                 this.HDA[index75, 0] = "";
-                this.HDA[index75, 1] = "Scorrevolezza";
-                this.HDA[index75, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
+                this.HDA[index75, 1] = ""; // "Scorrevolezza";
+                this.HDA[index75, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
                 int index76 = checked(index75 + 1);
                 this.HDA[index76, 0] = "";
-                this.HDA[index76, 1] = "";
+                this.HDA[index76, 1] = "Performance/Execution";
                 this.HDA[index76, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[3]);
                 int index77 = checked(index76 + 1);
                 this.HDA[index77, 0] = "";
-                this.HDA[index77, 1] = "Coreografia";
-                this.HDA[index77, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
+                this.HDA[index77, 1] = ""; // "Coreografia";
+                this.HDA[index77, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
                 index1 = checked(index77 + 1);
                 this.HDA[index1, 0] = "";
                 this.HDA[index1, 1] = "";
-                this.HDA[index1, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
+                this.HDA[index1, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "SS", false) == 0)
             {
@@ -2766,24 +2773,24 @@ namespace ClubCompFS
                 this.HDA[index88, 2] = "";
                 int index89 = checked(index88 + 1);
                 this.HDA[index89, 0] = "Program Component Factors:";
-                this.HDA[index89, 1] = "Impostazione di base";
+                this.HDA[index89, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index89, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index90 = checked(index89 + 1);
                 this.HDA[index90, 0] = "";
-                this.HDA[index90, 1] = "Scorrevolezza";
-                this.HDA[index90, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
+                this.HDA[index90, 1] = ""; // "Scorrevolezza";
+                this.HDA[index90, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
                 int index91 = checked(index90 + 1);
                 this.HDA[index91, 0] = "";
-                this.HDA[index91, 1] = "";
+                this.HDA[index91, 1] = "Performance/Execution";
                 this.HDA[index91, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3]);
                 int index92 = checked(index91 + 1);
                 this.HDA[index92, 0] = "";
-                this.HDA[index92, 1] = "Coreografia";
-                this.HDA[index92, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
+                this.HDA[index92, 1] = ""; // "Coreografia";
+                this.HDA[index92, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4]);
                 int index93 = checked(index92 + 1);
                 this.HDA[index93, 0] = "";
                 this.HDA[index93, 1] = "";
-                this.HDA[index93, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
+                this.HDA[index93, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5]);
                 int index94 = checked(index93 + 1);
                 int index95 = 0;
                 do
@@ -2802,24 +2809,24 @@ namespace ClubCompFS
                 this.HDA[index97, 2] = "";
                 int index98 = checked(index97 + 1);
                 this.HDA[index98, 0] = "Program Component Factors:";
-                this.HDA[index98, 1] = "Impostazione di base";
+                this.HDA[index98, 1] = "Skating Skills"; // "Impostazione di base";
                 this.HDA[index98, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index99 = checked(index98 + 1);
                 this.HDA[index99, 0] = "";
-                this.HDA[index99, 1] = "Scorrevolezza";
-                this.HDA[index99, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
+                this.HDA[index99, 1] = ""; // "Scorrevolezza";
+                this.HDA[index99, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2]);
                 int index100 = checked(index99 + 1);
                 this.HDA[index100, 0] = "";
-                this.HDA[index100, 1] = "";
+                this.HDA[index100, 1] = "Performance/Execution";
                 this.HDA[index100, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[3]);
                 int index101 = checked(index100 + 1);
                 this.HDA[index101, 0] = "";
-                this.HDA[index101, 1] = "Coreografia";
-                this.HDA[index101, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
+                this.HDA[index101, 1] = ""; // "Coreografia";
+                this.HDA[index101, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4]);
                 index1 = checked(index101 + 1);
                 this.HDA[index1, 0] = "";
                 this.HDA[index1, 1] = "";
-                this.HDA[index1, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
+                this.HDA[index1, 2] = ""; // Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5]);
             }
             int index102 = checked(index1 + 1);
             int index103 = 0;
