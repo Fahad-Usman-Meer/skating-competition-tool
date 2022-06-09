@@ -1346,8 +1346,8 @@ namespace ClubCompFS
                 dialog8.Height = 520;
                 dialog8.TxtDate1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
                 dialog8.txtLblDate1.Text = "Segment 2";
-                dialog8.txtArea.Text = "30m*60m";
-                dialog8.txtIceCondition.Text = "Very Good";
+                dialog8.txtArea.Text = string.IsNullOrWhiteSpace(Module1.IceArea) ? "30m*60m" : Module1.IceArea;
+                dialog8.txtIceCondition.Text = string.IsNullOrWhiteSpace(Module1.IceCondition) ?  "Very Good" : Module1.IceCondition;
                 dialog8.txtNoParticipants.Text = Conversions.ToString(Module1.TNop);
                 dialog8.lblProg1.Text = "SEGMENT 2 - " + Strings.UCase(str);
                 dialog8.txtDuration1.Text = Module1.OpenDB[Module1.PcIndex].Seg2Time;
