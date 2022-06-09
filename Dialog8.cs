@@ -133,7 +133,10 @@ namespace ClubCompFS
         [AccessedThroughProperty("lblElementDBCreation")]
         private Label _lblElementDBCreation;
         private string[,] HDA;
-
+        
+        private string IceArea => (string.IsNullOrWhiteSpace(Module1.IceArea)) ? "30m*60m" : Module1.IceArea;
+        private string IceCondition => (string.IsNullOrWhiteSpace(Module1.IceCondition)) ? "Very Good" : Module1.IceCondition;
+        
         public Dialog8()
         {
             this.Load += new EventHandler(this.Dialog8_Load);
@@ -1305,8 +1308,8 @@ namespace ClubCompFS
                 dialog8.Height = 520;
                 dialog8.TxtDate1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
                 dialog8.txtLblDate1.Text = "Segment 2";
-                dialog8.txtArea.Text = string.IsNullOrWhiteSpace(Module1.IceArea) ? "30m*60m" : Module1.IceArea;
-                dialog8.txtIceCondition.Text = string.IsNullOrWhiteSpace(Module1.IceCondition) ? "Very Good" : Module1.IceCondition;
+                dialog8.txtArea.Text = this.IceArea;
+                dialog8.txtIceCondition.Text = this.IceCondition;
                 dialog8.txtNoParticipants.Text = Conversions.ToString(Module1.TNop);
                 dialog8.lblProg1.Text = "SEGMENT 2 - " + Strings.UCase(str);
                 dialog8.txtDuration1.Text = Module1.OpenDB[Module1.PcIndex].Seg2Time;
@@ -1418,13 +1421,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x4, y4, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x4 + (float)(200.0 * num3), y4, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y5 = y4 + height3;
                     float x5 = (float)x1;
                     layoutRectangle = new RectangleF(x5, y5, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x5 + (float)(200.0 * num3), y5, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y6 = y5 + height3;
                     float x6 = (float)x1;
                     layoutRectangle = new RectangleF(x6, y6, (float)(200.0 * num3), height3);
@@ -1477,13 +1480,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x13, y12, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x13 + (float)(200.0 * num3), y12, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y13 = y12 + height3;
                     float x14 = (float)x1;
                     layoutRectangle = new RectangleF(x14, y13, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x14 + (float)(200.0 * num3), y13, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y14 = y13 + height3;
                     float x15 = (float)x1;
                     layoutRectangle = new RectangleF(x15, y14, (float)(200.0 * num3), height3);
@@ -1537,13 +1540,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x22, y20, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x22 + (float)(200.0 * num3), y20, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y21 = y20 + height3;
                     float x23 = (float)x1;
                     layoutRectangle = new RectangleF(x23, y21, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x23 + (float)(200.0 * num3), y21, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y22 = y21 + height3;
                     float x24 = (float)x1;
                     layoutRectangle = new RectangleF(x24, y22, (float)(200.0 * num3), height3);
@@ -1602,13 +1605,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x32, y29, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x32 + (float)(200.0 * num3), y29, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y30 = y29 + height3;
                     float x33 = (float)x1;
                     layoutRectangle = new RectangleF(x33, y30, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x33 + (float)(200.0 * num3), y30, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y31 = y30 + height3;
                     float x34 = (float)x1;
                     layoutRectangle = new RectangleF(x34, y31, (float)(200.0 * num3), height3);
@@ -1697,13 +1700,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x47, y43, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x47 + (float)(200.0 * num3), y43, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y44 = y43 + height3;
                     float x48 = (float)x1;
                     layoutRectangle = new RectangleF(x48, y44, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x48 + (float)(200.0 * num3), y44, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y45 = y44 + height3;
                     float x49 = (float)x1;
                     layoutRectangle = new RectangleF(x49, y45, (float)(200.0 * num3), height3);
@@ -1792,13 +1795,13 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x62, y57, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Size of Skating Area:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x62 + (float)(200.0 * num3), y57, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("30m*60m", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceArea, font3, Brushes.Black, layoutRectangle, format);
                     float y58 = y57 + height3;
                     float x63 = (float)x1;
                     layoutRectangle = new RectangleF(x63, y58, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("Ice Condition:", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x63 + (float)(200.0 * num3), y58, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Very Good", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString(this.IceCondition, font3, Brushes.Black, layoutRectangle, format);
                     float y59 = y58 + height3;
                     float x64 = (float)x1;
                     layoutRectangle = new RectangleF(x64, y59, (float)(200.0 * num3), height3);
@@ -2409,11 +2412,11 @@ namespace ClubCompFS
                 while (index4 <= 2);
                 int index5 = checked(index3 + 1);
                 this.HDA[index5, 0] = "Size of Skating Area:";
-                this.HDA[index5, 1] = "30m*60m";
+                this.HDA[index5, 1] = this.IceArea;
                 this.HDA[index5, 2] = "";
                 int index6 = checked(index5 + 1);
                 this.HDA[index6, 0] = "Ice Condition:";
-                this.HDA[index6, 1] = "Very Good";
+                this.HDA[index6, 1] = this.IceCondition;
                 this.HDA[index6, 2] = "";
                 int index7 = checked(index6 + 1);
                 this.HDA[index7, 0] = "Number of Participants";
@@ -2472,11 +2475,11 @@ namespace ClubCompFS
                 while (index18 <= 2);
                 int index19 = checked(index17 + 1);
                 this.HDA[index19, 0] = "Size of Skating Area:";
-                this.HDA[index19, 1] = "30m*60m";
+                this.HDA[index19, 1] = this.IceArea;
                 this.HDA[index19, 2] = "";
                 int index20 = checked(index19 + 1);
                 this.HDA[index20, 0] = "Ice Condition:";
-                this.HDA[index20, 1] = "Very Good";
+                this.HDA[index20, 1] = this.IceCondition;
                 this.HDA[index20, 2] = "";
                 int index21 = checked(index20 + 1);
                 this.HDA[index21, 0] = "Number of Participants";
@@ -2539,11 +2542,11 @@ namespace ClubCompFS
                 while (index33 <= 2);
                 int index34 = checked(index32 + 1);
                 this.HDA[index34, 0] = "Size of Skating Area:";
-                this.HDA[index34, 1] = "30m*60m";
+                this.HDA[index34, 1] = this.IceArea;
                 this.HDA[index34, 2] = "";
                 int index35 = checked(index34 + 1);
                 this.HDA[index35, 0] = "Ice Condition:";
-                this.HDA[index35, 1] = "Very Good";
+                this.HDA[index35, 1] = this.IceCondition;
                 this.HDA[index35, 2] = "";
                 int index36 = checked(index35 + 1);
                 this.HDA[index36, 0] = "Number of Participants";
@@ -2642,11 +2645,11 @@ namespace ClubCompFS
                 while (index57 <= 2);
                 int index58 = checked(index56 + 1);
                 this.HDA[index58, 0] = "Size of Skating Area:";
-                this.HDA[index58, 1] = "30m*60m";
+                this.HDA[index58, 1] = this.IceArea;
                 this.HDA[index58, 2] = "";
                 int index59 = checked(index58 + 1);
                 this.HDA[index59, 0] = "Ice Condition:";
-                this.HDA[index59, 1] = "Very Good";
+                this.HDA[index59, 1] = this.IceCondition;
                 this.HDA[index59, 2] = "";
                 int index60 = checked(index59 + 1);
                 this.HDA[index60, 0] = "Number of Participants";
@@ -2745,11 +2748,11 @@ namespace ClubCompFS
                 while (index81 <= 2);
                 int index82 = checked(index80 + 1);
                 this.HDA[index82, 0] = "Size of Skating Area:";
-                this.HDA[index82, 1] = "30m*60m";
+                this.HDA[index82, 1] = this.IceArea;
                 this.HDA[index82, 2] = "";
                 int index83 = checked(index82 + 1);
                 this.HDA[index83, 0] = "Ice Condition:";
-                this.HDA[index83, 1] = "Very Good";
+                this.HDA[index83, 1] = this.IceCondition;
                 this.HDA[index83, 2] = "";
                 int index84 = checked(index83 + 1);
                 this.HDA[index84, 0] = "Number of Participants";
