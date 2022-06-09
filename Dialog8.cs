@@ -1412,7 +1412,7 @@ namespace ClubCompFS
                 double num3 = Module1.Page_Size * 1.0 / 100.0;
                 double x1 = (double)Module1.Page_Left_Margin + num3 * 30.0;
                 float num4 = (float)x1;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                float pageTopMargin = (float)Module1.Page_Top_Margin + 50;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 StringFormat stringFormat1 = new StringFormat(StringFormatFlags.LineLimit)
@@ -1430,6 +1430,14 @@ namespace ClubCompFS
                 Font font3 = new Font("ARIAL", emSize, FontStyle.Regular, GraphicsUnit.Pixel);
                 Font font4 = new Font("ARIAL", 8f, FontStyle.Regular, GraphicsUnit.Pixel);
                 double height1 = (double)font1.GetHeight(e.Graphics);
+                
+                Image image = Image.FromFile("IE_Logo_HD.png");
+                Image image2 = Image.FromFile("FSI_Logo_HD.png");
+                float pointWidth = image.Width;// PointWidth;
+                float pointHeight = image.Height; // PointHeight;
+                double num_ = pointWidth / pointHeight;
+                e.Graphics.DrawImage(image, 10, 10, pointWidth, pointHeight);
+                e.Graphics.DrawImage(image2, 480, 10, 100, 80);
                 e.Graphics.DrawString("HEAD PAGE", font1, Brushes.Black, (float)x1, pageTopMargin, new StringFormat());
                 float height2 = (float)font1.Height;
                 float y1 = (float)((double)pageTopMargin + (double)font1.GetHeight(e.Graphics) + 10.0);
@@ -2465,7 +2473,7 @@ namespace ClubCompFS
                 xgraphics12.DrawString(text10, font13, (XBrush)brush11, layoutRectangle11, format11);
                 int y6 = checked(y5 + height2);
                 XGraphics xgraphics13 = xgraphics1;
-                string elementDbver = Module1.ElementDBver;
+                string elementDbver = string.IsNullOrWhiteSpace(Module1.ElementDBver)? "Element DB" : Module1.ElementDBver;
                 XFont xfont14 = xfont2;
                 XSolidBrush black12 = XBrushes.Black;
                 XRect xrect12 = new XRect((double)x1, (double)y6, (double)width1, (double)height2);
@@ -2594,7 +2602,7 @@ namespace ClubCompFS
                 this.HDA[index13, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2]);
                 int index14 = checked(index13 + 1);
                 this.HDA[index14, 0] = "";
-                this.HDA[index14, 1] = "Performance";
+                this.HDA[index14, 1] = "Performance";  
                 this.HDA[index14, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3]);
                 int index15 = checked(index14 + 1);
                 this.HDA[index15, 0] = "";
