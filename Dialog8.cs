@@ -403,7 +403,7 @@ namespace ClubCompFS
             Size size20 = size1;
             label8.Size = size20;
             this.Label8.TabIndex = 14;
-            this.Label8.Text = "Impostazione di base";
+            this.Label8.Text = "Skating Skills"; // "Impostazione di base";
             this.Label10.AutoSize = true;
             this.Label10.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.Label10.Location = new Point(185, 288);
@@ -413,7 +413,7 @@ namespace ClubCompFS
             Size size21 = size1;
             label10.Size = size21;
             this.Label10.TabIndex = 16;
-            this.Label10.Text = "Performance";
+            this.Label10.Text = "Performance/Execution"; // "Performance";
             this.txtSkatingSkills1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.txtSkatingSkills1.Location = new Point(371, 245);
             this.txtSkatingSkills1.Name = "txtSkatingSkills1";
@@ -612,7 +612,7 @@ namespace ClubCompFS
             Size size40 = size1;
             lbl25.Size = size40;
             this.lbl25.TabIndex = 35;
-            this.lbl25.Text = "Performance";
+            this.lbl25.Text = "Performance/Execution";
             this.lbl25.Visible = false;
             this.lbl24.AutoSize = true;
             this.lbl24.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -634,7 +634,7 @@ namespace ClubCompFS
             Size size42 = size1;
             lbl23.Size = size42;
             this.lbl23.TabIndex = 33;
-            this.lbl23.Text = "Impostazione di base";
+            this.lbl23.Text = "Skating Skills";
             this.lbl23.Visible = false;
             this.lbl22.AutoSize = true;
             this.lbl22.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -789,7 +789,7 @@ namespace ClubCompFS
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "HEAD PAGE";
-            this.TopMost = true;
+            this.TopMost = false;
             this.TableLayoutPanel1.ResumeLayout(false);
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
@@ -1256,7 +1256,7 @@ namespace ClubCompFS
         {
             this.Top = MyProject.Forms.Form1.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
-            this.TopMost = true;
+            this.TopMost = false;
             this.CreateHeadPage();
         }
 
@@ -1305,8 +1305,8 @@ namespace ClubCompFS
                 dialog8.Height = 520;
                 dialog8.TxtDate1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
                 dialog8.txtLblDate1.Text = "Segment 2";
-                dialog8.txtArea.Text = "30m*60m";
-                dialog8.txtIceCondition.Text = "Very Good";
+                dialog8.txtArea.Text = string.IsNullOrWhiteSpace(Module1.IceArea) ? "30m*60m" : Module1.IceArea;
+                dialog8.txtIceCondition.Text = string.IsNullOrWhiteSpace(Module1.IceCondition) ? "Very Good" : Module1.IceCondition;
                 dialog8.txtNoParticipants.Text = Conversions.ToString(Module1.TNop);
                 dialog8.lblProg1.Text = "SEGMENT 2 - " + Strings.UCase(str);
                 dialog8.txtDuration1.Text = Module1.OpenDB[Module1.PcIndex].Seg2Time;
@@ -1446,7 +1446,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x9 = x8 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x9, y9, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x9 + (float)(200.0 * num3), y9, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y10 = y9 + height3;
@@ -1505,7 +1505,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x18 = x17 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x18, y17, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x18 + (float)(200.0 * num3), y17, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y18 = y17 + height3;
@@ -1565,7 +1565,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x27 = x26 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x27, y25, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x27 + (float)(200.0 * num3), y25, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y26 = y25 + height3;
@@ -1630,7 +1630,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x37 = x36 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x37, y34, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x37 + (float)(200.0 * num3), y34, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y35 = y34 + height3;
@@ -1660,7 +1660,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x42 = x41 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x42, y39, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x42 + (float)(200.0 * num3), y39, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y40 = y39 + height3;
@@ -1725,7 +1725,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x52 = x51 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x52, y48, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x52 + (float)(200.0 * num3), y48, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y49 = y48 + height3;
@@ -1755,7 +1755,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x57 = x56 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x57, y53, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x57 + (float)(200.0 * num3), y53, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y54 = y53 + height3;
@@ -1820,7 +1820,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x67 = x66 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x67, y62, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x67 + (float)(200.0 * num3), y62, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y63 = y62 + height3;
@@ -1850,7 +1850,7 @@ namespace ClubCompFS
                     e.Graphics.DrawString("Program Component Factors:", font3, Brushes.Black, layoutRectangle, format);
                     float x72 = x71 + (float)(200.0 * num3);
                     layoutRectangle = new RectangleF(x72, y67, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Impostazione di base", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Skating Skills", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x72 + (float)(200.0 * num3), y67, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]), font3, Brushes.Black, layoutRectangle, format);
                     float y68 = y67 + height3;
@@ -2062,7 +2062,7 @@ namespace ClubCompFS
 
         private void PRINTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.PrintPreviewDialog1.TopMost = true;
+            this.PrintPreviewDialog1.TopMost = false;
             this.PrintPreviewDialog1.Document = this.PrintDocument1;
             int num = (int)this.PrintPreviewDialog1.ShowDialog();
         }
@@ -2437,7 +2437,7 @@ namespace ClubCompFS
                 this.HDA[index11, 2] = "";
                 int index12 = checked(index11 + 1);
                 this.HDA[index12, 0] = "Program Component Factors:";
-                this.HDA[index12, 1] = "Skating Skills";  // "Impostazione di base";
+                this.HDA[index12, 1] = "Skating Skills";  // "Skating Skills";
                 this.HDA[index12, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index13 = checked(index12 + 1);
                 this.HDA[index13, 0] = "";
@@ -2500,7 +2500,7 @@ namespace ClubCompFS
                 this.HDA[index25, 2] = "";
                 int index26 = checked(index25 + 1);
                 this.HDA[index26, 0] = "Program Component Factors:";
-                this.HDA[index26, 1] = "Skating Skills";  // "Impostazione di base";
+                this.HDA[index26, 1] = "Skating Skills";  // "Skating Skills";
                 this.HDA[index26, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index27 = checked(index26 + 1);
                 this.HDA[index27, 0] = "";
@@ -2567,7 +2567,7 @@ namespace ClubCompFS
                 this.HDA[index40, 2] = "";
                 int index41 = checked(index40 + 1);
                 this.HDA[index41, 0] = "Program Component Factors:";
-                this.HDA[index41, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index41, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index41, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index42 = checked(index41 + 1);
                 this.HDA[index42, 0] = "";
@@ -2603,7 +2603,7 @@ namespace ClubCompFS
                 this.HDA[index49, 2] = "";
                 int index50 = checked(index49 + 1);
                 this.HDA[index50, 0] = "Program Component Factors:";
-                this.HDA[index50, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index50, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index50, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index51 = checked(index50 + 1);
                 this.HDA[index51, 0] = "";
@@ -2670,7 +2670,7 @@ namespace ClubCompFS
                 this.HDA[index64, 2] = "";
                 int index65 = checked(index64 + 1);
                 this.HDA[index65, 0] = "Program Component Factors:";
-                this.HDA[index65, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index65, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index65, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index66 = checked(index65 + 1);
                 this.HDA[index66, 0] = "";
@@ -2706,7 +2706,7 @@ namespace ClubCompFS
                 this.HDA[index73, 2] = "";
                 int index74 = checked(index73 + 1);
                 this.HDA[index74, 0] = "Program Component Factors:";
-                this.HDA[index74, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index74, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index74, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index75 = checked(index74 + 1);
                 this.HDA[index75, 0] = "";
@@ -2773,7 +2773,7 @@ namespace ClubCompFS
                 this.HDA[index88, 2] = "";
                 int index89 = checked(index88 + 1);
                 this.HDA[index89, 0] = "Program Component Factors:";
-                this.HDA[index89, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index89, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index89, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1]);
                 int index90 = checked(index89 + 1);
                 this.HDA[index90, 0] = "";
@@ -2809,7 +2809,7 @@ namespace ClubCompFS
                 this.HDA[index97, 2] = "";
                 int index98 = checked(index97 + 1);
                 this.HDA[index98, 0] = "Program Component Factors:";
-                this.HDA[index98, 1] = "Skating Skills"; // "Impostazione di base";
+                this.HDA[index98, 1] = "Skating Skills"; // "Skating Skills";
                 this.HDA[index98, 2] = Conversions.ToString(Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1]);
                 int index99 = checked(index98 + 1);
                 this.HDA[index99, 0] = "";
