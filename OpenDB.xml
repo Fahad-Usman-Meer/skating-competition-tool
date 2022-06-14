@@ -199,7 +199,7 @@
 		<AllowedJump>1W|1S|1T|1Lo|1F|1Lz</AllowedJump>
 		<AllowedSpin></AllowedSpin>
     </Category>
-    <Category>
+    <!--<Category>
         <Name>Livello2 - Europa</Name>
         <Warmup>00:04:00</Warmup>
         <Segments>0|F</Segments>
@@ -213,9 +213,6 @@
         <ElementTest>1|5|2|2|2|0|0</ElementTest>
 		<AllowedJump></AllowedJump>
 		<AllowedSpin></AllowedSpin>
-       
-        
-    
-    </Category>
+    </Category>-->
         
 </OpenDBSettings>
