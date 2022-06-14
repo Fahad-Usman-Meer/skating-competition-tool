@@ -3734,7 +3734,7 @@ namespace ClubCompFS
                     Module1.JDarr[checked(R + row + 1), 13] = "Ref";
                 Module1.JDarr[checked(R + row + 2), 2] = "Skating Skills";
                 Module1.JDarr[checked(R + row + 2), 4] = Conversions.ToString(Module1.PC_Factor(1));
-                Module1.JDarr[checked(R + row + 4), 2] = "Performance";
+                Module1.JDarr[checked(R + row + 4), 2] = "Performance/Execution";
                 Module1.JDarr[checked(R + row + 4), 4] = Conversions.ToString(Module1.PC_Factor(3));
                 goto label_16;
             }
