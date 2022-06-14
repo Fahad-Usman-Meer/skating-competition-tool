@@ -468,10 +468,10 @@ namespace ClubCompFS
                                         e.Graphics.DrawString("\r\nPROGRAM COMPONENTS", font2, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 2:
-                                        int num23 = 140;
+                                        int num23 = 150;
                                         layoutRectangle = new RectangleF(x10, y5, (float)num23 * (float)num3, height5);
                                         e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nImpostazione di base", font2, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString("\r\nSkating Skills", font2, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 3:
                                         int num24 = 180;
@@ -486,52 +486,62 @@ namespace ClubCompFS
                                     case 16:
                                         break;
                                     case 5:
-                                        int num25 = 140;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num25 * (float)num3, height5);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nScorrevolezza", font2, Brushes.Black, layoutRectangle, format2);
-                                        break;
-                                    case 6:
-                                        int num26 = 180;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num26 * (float)num3, height5 * 2f);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("Connection, Skating movements, Linking of elements", font4, Brushes.Black, layoutRectangle, format2);
-                                        break;
-                                    case 8:
-                                        int num27 = 140;
+                                        int num27 = 150;
                                         layoutRectangle = new RectangleF(x10, y5, (float)num27 * (float)num3, height5);
                                         e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nPerformance", font2, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString("\r\nPerformance/Execution", font2, Brushes.Black, layoutRectangle, format2);
+                                        
+                                        //int num25 = 140;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num25 * (float)num3, height5);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("\r\nScorrevolezza", font2, Brushes.Black, layoutRectangle, format2);
                                         break;
-                                    case 9:
+                                    case 6:
                                         int num28 = 180;
                                         layoutRectangle = new RectangleF(x10, y5, (float)num28 * (float)num3, height5 * 2f);
                                         e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
                                         e.Graphics.DrawString("Delivery, Projection, Personality/Style", font4, Brushes.Black, layoutRectangle, format2);
+                                        
+                                        //int num26 = 180;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num26 * (float)num3, height5 * 2f);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("Connection, Skating movements, Linking of elements", font4, Brushes.Black, layoutRectangle, format2);
+                                        break;
+                                    case 8:
+                                        //int num27 = 140;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num27 * (float)num3, height5);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("\r\nPerformance/Execution", font2, Brushes.Black, layoutRectangle, format2);
+                                        break;
+                                    case 9:
+                                        //int num28 = 180;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num28 * (float)num3, height5 * 2f);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("Delivery, Projection, Personality/Style", font4, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 11:
-                                        int num29 = 140;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num29 * (float)num3, height5);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nCoreografia", font2, Brushes.Black, layoutRectangle, format2);
+                                        //int num29 = 140;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num29 * (float)num3, height5);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("\r\nCoreografia", font2, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 12:
-                                        int num30 = 180;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num30 * (float)num3, height5 * 2f);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("Design, Pattern and Structure, Ice coverage", font4, Brushes.Black, layoutRectangle, format2);
+                                        //int num30 = 180;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num30 * (float)num3, height5 * 2f);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("Design, Pattern and Structure, Ice coverage", font4, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 14:
-                                        int num31 = 140;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num31 * (float)num3, height5);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nInterpretation", font2, Brushes.Black, layoutRectangle, format2);
+                                        //int num31 = 140;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num31 * (float)num3, height5);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("\r\nInterpretation", font2, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 15:
-                                        int num32 = 180;
-                                        layoutRectangle = new RectangleF(x10, y5, (float)num32 * (float)num3, height5 * 2f);
-                                        e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("Feeling, Delivery, Translation of music details", font4, Brushes.Black, layoutRectangle, format2);
+                                        //int num32 = 180;
+                                        //layoutRectangle = new RectangleF(x10, y5, (float)num32 * (float)num3, height5 * 2f);
+                                        //e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
+                                        //e.Graphics.DrawString("Feeling, Delivery, Translation of music details", font4, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     default:
                                         int num33 = 180;
@@ -541,14 +551,14 @@ namespace ClubCompFS
                                 }
                                 break;
                             case 8:
-                                if (index <= 5)
-                                {
+                                //if (index <= 5)
+                                //{
                                     if (index != 2 && index != 5)
                                         break;
-                                }
-                                else if (index != 8 && index != 11 && index != 14)
-                                    break;
-                                int num34 = 40;
+                                //}
+                                //else if (index != 8 && index != 11 && index != 14)
+                                //    break;
+                                int num34 = 30;
                                 layoutRectangle = new RectangleF(x10, y5, (float)num34 * (float)num3, height5);
                                 e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
                                 break;
