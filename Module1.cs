@@ -3092,7 +3092,7 @@ namespace ClubCompFS
                                     while (index42 <= noJGoe10)
                                     {
                                         int index43 = checked(6 - Module1.J_GOE[index42]);
-                                        Right6 = index43 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[index38, index43], (object)Right6)) : 0.0 + Right6;
+                                        Right6 = index43 != 6 ? (double.TryParse(Module1.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
                                         checked { ++index42; }
                                     }
                                     if (Module1.NoJ_GOE != 0)
