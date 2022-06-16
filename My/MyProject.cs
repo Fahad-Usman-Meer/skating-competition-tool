@@ -66,7 +66,7 @@ namespace ClubCompFS.My
     internal sealed class MyForms
     {
       public CustDialog m_CustDialog;
-      public Dialog1 m_Dialog1;
+      public CategoryDialog m_CategoryDialog;
       public Dialog10 m_Dialog10;
       public Dialog11 m_Dialog11;
       public Dialog2 m_Dialog2;
@@ -108,20 +108,20 @@ namespace ClubCompFS.My
         }
       }
 
-      public Dialog1 Dialog1
+      public CategoryDialog CategoryDialog
       {
         get
         {
-          this.m_Dialog1 = MyProject.MyForms.Create__Instance__<Dialog1>(this.m_Dialog1);
-          return this.m_Dialog1;
+          this.m_CategoryDialog = MyProject.MyForms.Create__Instance__<CategoryDialog>(this.m_CategoryDialog);
+          return this.m_CategoryDialog;
         }
         set
         {
-          if (value == this.m_Dialog1)
+          if (value == this.m_CategoryDialog)
             return;
           if (value != null)
             throw new ArgumentException("Property can only be set to Nothing");
-          this.Dispose__Instance__<Dialog1>(ref this.m_Dialog1);
+          this.Dispose__Instance__<CategoryDialog>(ref this.m_CategoryDialog);
         }
       }
 

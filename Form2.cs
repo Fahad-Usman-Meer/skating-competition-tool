@@ -1446,8 +1446,8 @@ namespace ClubCompFS
                 MyProject.Forms.Form7.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
                 MyProject.Forms.Form8.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog1))
-                MyProject.Forms.Dialog1.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
+                MyProject.Forms.CategoryDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog2))
                 MyProject.Forms.Dialog2.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog4))

@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog1
+// Type: ClubCompFS.CategoryDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -18,7 +18,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog1 : Form
+    public class CategoryDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -89,9 +89,9 @@ namespace ClubCompFS
         private bool OldRemWarmupTimeSeg2;
         private string MaxDateD1;
 
-        public Dialog1()
+        public CategoryDialog()
         {
-            this.Load += new EventHandler(this.Dialog1_Load);
+            this.Load += new EventHandler(this.CategoryDialog_Load);
             this.MaxDateD1 = "736973632000000000";
             this.InitializeComponent();
         }
@@ -116,7 +116,7 @@ namespace ClubCompFS
         {
             DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Dialog1));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(CategoryDialog));
             this.TableLayoutPanel1 = new TableLayoutPanel();
             this.OK_Button = new Button();
             this.Cancel_Button = new Button();
@@ -451,7 +451,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog1);
+            this.Name = nameof(CategoryDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "Select Category, Program, Start time and Date";
@@ -925,7 +925,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void Dialog1_Load(object sender, EventArgs e)
+        private void CategoryDialog_Load(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
@@ -1001,7 +1001,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Dialog1_Load - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("CategoryDialog_Load - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_28:
             if (num2 == 0)
