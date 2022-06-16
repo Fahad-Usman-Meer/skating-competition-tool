@@ -2098,7 +2098,7 @@ namespace ClubCompFS
             MyProject.Forms.Form5.Close();
             MyProject.Forms.Form6.Close();
             MyProject.Forms.Form7.Close();
-            MyProject.Forms.Dialog1.Close();
+            MyProject.Forms.CategoryDialog.Close();
             MyProject.Forms.Dialog4.Close();
             MyProject.Forms.Dialog3.Close();
             MyProject.Forms.Dialog5.Close();
