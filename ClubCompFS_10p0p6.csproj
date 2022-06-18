@@ -108,7 +108,7 @@
     <Compile Include="IndTAEntriesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form13.cs">
+    <Compile Include="ElementDBDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2.cs">
@@ -159,7 +159,7 @@
     <EmbeddedResource Include="PrinterForm.resx" />
     <EmbeddedResource Include="PrinterMessageForm.resx" />
     <EmbeddedResource Include="IndTAEntriesForm.resx" />
-    <EmbeddedResource Include="Form13.resx" />
+    <EmbeddedResource Include="ElementDBDisplayForm.resx" />
     <EmbeddedResource Include="Form2.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

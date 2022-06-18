@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form13
+// Type: ClubCompFS.ElementDBDisplayForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -18,7 +18,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form13 : Form
+    public class ElementDBDisplayForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("DataGridView1")]
@@ -57,10 +57,10 @@ namespace ClubCompFS
         private int DGW1width;
         private bool widthcorr;
 
-        public Form13()
+        public ElementDBDisplayForm()
         {
-            this.Load += new EventHandler(this.Form13_Load);
-            this.SizeChanged += new EventHandler(this.Form13_SizeChanged1);
+            this.Load += new EventHandler(this.ElementDBDisplayForm_Load);
+            this.SizeChanged += new EventHandler(this.ElementDBDisplayForm_SizeChanged1);
             this.widthcorr = false;
             this.InitializeComponent();
         }
@@ -84,7 +84,7 @@ namespace ClubCompFS
         private void InitializeComponent()
         {
             DataGridViewCellStyle gridViewCellStyle = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form13));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ElementDBDisplayForm));
             this.DataGridView1 = new DataGridView();
             this.Column1 = new DataGridViewTextBoxColumn();
             this.Column2 = new DataGridViewTextBoxColumn();
@@ -200,8 +200,8 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form13);
-            this.Text = nameof(Form13);
+            this.Name = nameof(ElementDBDisplayForm);
+            this.Text = nameof(ElementDBDisplayForm);
             this.TopMost = true;
             ((ISupportInitialize)this.DataGridView1).EndInit();
             this.MenuStrip1.ResumeLayout(false);
@@ -331,7 +331,7 @@ namespace ClubCompFS
             set => this._Column13 = value;
         }
 
-        private void Form13_Load(object sender, EventArgs e)
+        private void ElementDBDisplayForm_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.MainForm.Top;
             this.Left = MyProject.Forms.MainForm.Left;
@@ -412,7 +412,7 @@ namespace ClubCompFS
 
         private void EXITToolStripMenuItem_Click(object sender, EventArgs e) => this.Close();
 
-        private void Form13_SizeChanged1(object sender, EventArgs e)
+        private void ElementDBDisplayForm_SizeChanged1(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;

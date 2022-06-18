@@ -1434,8 +1434,8 @@ namespace ClubCompFS
         {
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
                 MyProject.Forms.Form3.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form13))
-                MyProject.Forms.Form13.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+                MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
                 MyProject.Forms.Form4.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))

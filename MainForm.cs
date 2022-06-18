@@ -4103,8 +4103,8 @@ namespace ClubCompFS
                 MyProject.Forms.Form2.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
                 MyProject.Forms.Form3.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form13))
-                MyProject.Forms.Form13.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+                MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
                 MyProject.Forms.Form4.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
@@ -4372,9 +4372,9 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.TopMost = false;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form13))
-                MyProject.Forms.Form13.Close();
-            int num = (int)MyProject.Forms.Form13.ShowDialog();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+                MyProject.Forms.ElementDBDisplayForm.Close();
+            int num = (int)MyProject.Forms.ElementDBDisplayForm.ShowDialog();
         }
 
         public void LoadElementDB(string File)
