@@ -1479,8 +1479,8 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 Form2 form2 = this;
-                form2.Left = MyProject.Forms.Form1.Left;
-                form2.Top = MyProject.Forms.Form1.Top;
+                form2.Left = MyProject.Forms.MainForm.Left;
+                form2.Top = MyProject.Forms.MainForm.Top;
                 Module1.ScanJudges = 0;
                 this.WillExitForm2 = false;
                 if (Module1.WorkMode > 1)
@@ -4712,7 +4712,7 @@ namespace ClubCompFS
                     this.CreateStartList(Module1.TNop);
                     if (Module1.WorkMode == 1)
                         Module1.SaveCategoryFile(Module1.CategoryFileName);
-                    MyProject.Forms.Form1.txtParticipants.Text = Conversions.ToString(Module1.TNop);
+                    MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
                     goto label_19;
                 }
                 else
@@ -4760,7 +4760,7 @@ namespace ClubCompFS
                         if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                             MyProject.Forms.ParticipantInputDialog.Close();
                         int num4 = (int)MyProject.Forms.ParticipantInputDialog.ShowDialog();
-                        MyProject.Forms.Form1.txtParticipants.Text = Conversions.ToString(Module1.IndexEmptyRow());
+                        MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.IndexEmptyRow());
                         goto label_12;
                     }
                     else
@@ -5070,7 +5070,7 @@ namespace ClubCompFS
             this.WillExitForm2 = true;
             this.CloseFormsDialogs();
             this.Close();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
             Module1.SaveCategoryFile(Module1.CategoryFileName);
         }
 
@@ -5093,7 +5093,7 @@ namespace ClubCompFS
             this.WillExitForm2 = true;
             this.CloseFormsDialogs();
             this.Close();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
             Module1.SaveCategoryFile(Module1.CategoryFileName);
         }
 

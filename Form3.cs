@@ -359,8 +359,8 @@ namespace ClubCompFS
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form1.Top;
-            this.Left = MyProject.Forms.Form1.Left;
+            this.Top = MyProject.Forms.MainForm.Top;
+            this.Left = MyProject.Forms.MainForm.Left;
             this.SAVEOPENDBToolStripMenuItem1.Visible = true;
             this.CereateOpenDBDisplay();
         }
@@ -828,8 +828,8 @@ namespace ClubCompFS
                 else if (Operators.CompareString(seg, "F0", false) == 0)
                     Module1.Segment = "Seg1";
             }
-            Module1.CreateForm1();
-            MyProject.Forms.Form1.btnSeg1Seg2();
+            Module1.CreateMainForm();
+            MyProject.Forms.MainForm.btnSeg1Seg2();
         }
 
         private void SAVEOPENDBToolStripMenuItem1_Click(object sender, EventArgs e) => this.SaveOpenDB();

@@ -719,7 +719,7 @@ namespace ClubCompFS
         {
             if (value != System.Windows.Forms.Keys.F12)
                 return;
-            MyProject.Forms.Form1.SendMessage(Module1.LastOutTxt);
+            MyProject.Forms.MainForm.SendMessage(Module1.LastOutTxt);
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -787,7 +787,7 @@ namespace ClubCompFS
                     int judgeNo = Module1.GetJudgeNo((object)index2);
                     if (judgeNo > 0 & (judgeNo <= checked(Module1.NoJ_GOE + Module1.NoTrj) | judgeNo == checked(Module1.JudgeSel * 7)))
                     {
-                        if (MyProject.Forms.Form1.Controls["lblJ" + Conversions.ToString(judgeNo)].ForeColor == Color.Red)
+                        if (MyProject.Forms.MainForm.Controls["lblJ" + Conversions.ToString(judgeNo)].ForeColor == Color.Red)
                         {
                             this.SetCreateResultsRed(judgeNo);
                         }
@@ -841,7 +841,7 @@ namespace ClubCompFS
                                 if (ErrReturn == 0)
                                 {
                                     Module1.UpdStr[Cno] = "";
-                                    MyProject.Forms.Form1.MakeJudgeTxtFile(Cno);
+                                    MyProject.Forms.MainForm.MakeJudgeTxtFile(Cno);
                                 }
                                 else
                                     goto label_16;

@@ -80,7 +80,7 @@ namespace ClubCompFS.My
             public ParticipantInputDialog m_ParticipantInputDialog;
             public IceResurfacingMealBreakDialog m_IceResurfacingMealBreakDialog;
             public HeadPageDialog m_HeadPageDialog;
-            public Form1 m_Form1;
+            public MainForm m_MainForm;
             public Form10 m_Form10;
             public Form11 m_Form11;
             public Form12 m_Form12;
@@ -266,20 +266,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form1 Form1
+            public MainForm MainForm
             {
                 get
                 {
-                    this.m_Form1 = MyProject.MyForms.Create__Instance__<Form1>(this.m_Form1);
-                    return this.m_Form1;
+                    this.m_MainForm = MyProject.MyForms.Create__Instance__<MainForm>(this.m_MainForm);
+                    return this.m_MainForm;
                 }
                 set
                 {
-                    if (value == this.m_Form1)
+                    if (value == this.m_MainForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form1>(ref this.m_Form1);
+                    this.Dispose__Instance__<MainForm>(ref this.m_MainForm);
                 }
             }
 

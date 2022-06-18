@@ -801,7 +801,7 @@ namespace ClubCompFS
                             this.txtIndTAClass.Text = this.OldIndTAClass;
                             goto label_22;
                         case MsgBoxResult.Yes:
-                            MyProject.Forms.Form1.InitVariables();
+                            MyProject.Forms.MainForm.InitVariables();
                             break;
                     }
                 }
@@ -839,13 +839,13 @@ namespace ClubCompFS
                     if (this.btnSeg2.BackColor == Color.Green)
                         Module1.Segment = "Seg2";
                     this.Close();
-                    MyProject.Forms.Form1.txtCompetitionName.Enabled = false;
-                    MyProject.Forms.Form1.btnSeg1Seg2();
+                    MyProject.Forms.MainForm.txtCompetitionName.Enabled = false;
+                    MyProject.Forms.MainForm.btnSeg1Seg2();
                     Module1.SetNoJ();
-                    Module1.CreateForm1();
+                    Module1.CreateMainForm();
                     Module1.SaveCategoryFile(Module1.CategoryFileName);
-                    MyProject.Forms.Form1.txtCompetitionName.Enabled = true;
-                    MyProject.Forms.Form1.txtCompetitionName.Select();
+                    MyProject.Forms.MainForm.txtCompetitionName.Enabled = true;
+                    MyProject.Forms.MainForm.txtCompetitionName.Select();
                     goto label_22;
                 }
                 else
@@ -876,8 +876,8 @@ namespace ClubCompFS
             if (Operators.CompareString(Nu, Right, false) <= 0)
                 return;
             int num = (int)Interaction.MsgBox((object)Prompt, MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
-            MyProject.Forms.Form1.WillExit = true;
-            MyProject.Forms.Form1.Close();
+            MyProject.Forms.MainForm.WillExit = true;
+            MyProject.Forms.MainForm.Close();
         }
 
         private void Cancel_Button_Click(object sender, EventArgs e)
@@ -933,9 +933,9 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.Top = MyProject.Forms.Form1.Top;
+                this.Top = MyProject.Forms.MainForm.Top;
                 this.TopMost = true;
-                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
+                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
                 this.DateTimePicker1.Format = DateTimePickerFormat.Short;
                 this.OldCategory = Module1.Category.Name;
                 this.OldCategoryID = Module1.Category.ID;

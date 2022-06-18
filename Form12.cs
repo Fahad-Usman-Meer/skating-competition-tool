@@ -1431,7 +1431,7 @@ namespace ClubCompFS
                                 }
                                 checked { ++index1; }
                             }
-                            MyProject.Forms.Form1.txtParticipants.Text = Conversions.ToString(Module1.TNop);
+                            MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
                             goto label_25;
                         default:
                             flag = false;
@@ -1530,7 +1530,7 @@ namespace ClubCompFS
             if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
                 Module1.Competition.Name = this.MyCompetitionName;
-                MyProject.Forms.Form1.txtCompetitionName.Text = this.MyCompetitionName;
+                MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
             MyProject.Forms.Form2.TopMost = true;
             MyProject.Forms.Form2.Show();
@@ -1544,22 +1544,22 @@ namespace ClubCompFS
                 MyProject.Forms.Form2.WillExitForm2 = true;
                 MyProject.Forms.Form2.Close();
             }
-            Form1 form1 = MyProject.Forms.Form1;
-            this.UpdateForm1();
+            MainForm form1 = MyProject.Forms.MainForm;
+            this.UpdateMainForm();
             MyProject.Forms.Form2.TopMost = true;
             MyProject.Forms.Form2.Show();
         }
 
-        private void UpdateForm1()
+        private void UpdateMainForm()
         {
-            Form1 form1 = MyProject.Forms.Form1;
-            form1.txtOrganizerName.Text = Module1.Organizer.Name;
-            form1.txtOrganizerID.Text = Module1.Organizer.ID;
-            form1.txtCompetitionID.Text = Module1.Competition.ID;
-            form1.txtType.Text = Module1.Competition.Type;
-            form1.txtCategoryID.Text = Module1.Category.ID;
-            form1.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
-            form1.txtIndTAClass.Text = Module1.Category.IndTAClass;
+            MainForm mainForm = MyProject.Forms.MainForm;
+            mainForm.txtOrganizerName.Text = Module1.Organizer.Name;
+            mainForm.txtOrganizerID.Text = Module1.Organizer.ID;
+            mainForm.txtCompetitionID.Text = Module1.Competition.ID;
+            mainForm.txtType.Text = Module1.Competition.Type;
+            mainForm.txtCategoryID.Text = Module1.Category.ID;
+            mainForm.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
+            mainForm.txtIndTAClass.Text = Module1.Category.IndTAClass;
         }
 
         public void Sort_IndTA_Klass(int No)
@@ -1874,7 +1874,7 @@ namespace ClubCompFS
             if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
                 Module1.Competition.Name = this.MyCompetitionName;
-                MyProject.Forms.Form1.txtCompetitionName.Text = this.MyCompetitionName;
+                MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
             MyProject.Forms.Form2.TopMost = true;
             MyProject.Forms.Form2.Show();
