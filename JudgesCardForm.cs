@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form8
+// Type: ClubCompFS.JudgesCardForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form8 : Form
+    public class JudgesCardForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("PrintPreviewDialog1")]
@@ -46,7 +46,7 @@ namespace ClubCompFS
         private bool newpage;
         public int JudgeNo;
 
-        public Form8()
+        public JudgesCardForm()
         {
             this.mRow = 1;
             this.newpage = true;
@@ -72,7 +72,7 @@ namespace ClubCompFS
         [DebuggerStepThrough]
         private void InitializeComponent()
         {
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form8));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(JudgesCardForm));
             this.PrintDocument1 = new PrintDocument();
             this.PrintPreviewDialog1 = new PrintPreviewDialog();
             this.MenuStrip1 = new MenuStrip();
@@ -189,7 +189,7 @@ namespace ClubCompFS
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Form8);
+            this.Name = nameof(JudgesCardForm);
             this.Text = "JUDGES CARD";
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
@@ -616,7 +616,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num45 = (int)Interaction.MsgBox((object)("Form8, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num45 = (int)Interaction.MsgBox((object)("JudgesCardForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_48:
             if (num2 == 0)
@@ -644,7 +644,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form8, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("JudgesCardForm, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_7:
             if (num2 == 0)
@@ -672,7 +672,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form8, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("JudgesCardForm, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_7:
             if (num2 == 0)
@@ -945,7 +945,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num35 = (int)Interaction.MsgBox((object)("Form8, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num35 = (int)Interaction.MsgBox((object)("JudgesCardForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_32:
             if (num2 == 0)
