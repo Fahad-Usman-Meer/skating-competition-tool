@@ -132,7 +132,7 @@
     <Compile Include="JudgesCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form9.cs">
+    <Compile Include="ElementIncorrectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.cs" />
@@ -169,7 +169,7 @@
     <EmbeddedResource Include="ResultsForm.resx" />
     <EmbeddedResource Include="WarmupGroupsForm.resx" />
     <EmbeddedResource Include="JudgesCardForm.resx" />
-    <EmbeddedResource Include="Form9.resx" />
+    <EmbeddedResource Include="ElementIncorrectForm.resx" />
     <EmbeddedResource Include="Resources.resx" />
   </ItemGroup>
   <ItemGroup>
