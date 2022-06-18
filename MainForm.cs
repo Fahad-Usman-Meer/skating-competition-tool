@@ -4125,8 +4125,8 @@ namespace ClubCompFS
                 MyProject.Forms.ConfigurationDataDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                 MyProject.Forms.ParticipantInputDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
-                MyProject.Forms.Form12.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                MyProject.Forms.IndTAEntriesForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
@@ -6941,7 +6941,7 @@ namespace ClubCompFS
         public bool MenuPossible()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the IndTA ENTRIES!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;

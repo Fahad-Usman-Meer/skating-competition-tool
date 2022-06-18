@@ -1456,8 +1456,8 @@ namespace ClubCompFS
                 MyProject.Forms.ConfigurationDataDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                 MyProject.Forms.ParticipantInputDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
-                MyProject.Forms.Form12.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                MyProject.Forms.IndTAEntriesForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
@@ -3039,7 +3039,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form12.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntriesForm.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -3189,13 +3189,13 @@ namespace ClubCompFS
                 if (this.MenuPossibleForm2())
                 {
                     int num3 = Module1.IndexEmptyRow();
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
-                        MyProject.Forms.Form12.Close();
+                    if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                        MyProject.Forms.IndTAEntriesForm.Close();
                     if (num3 < 42)
                     {
-                        MyProject.Forms.Form12.txtIndTAGet.Text = "1";
+                        MyProject.Forms.IndTAEntriesForm.txtIndTAGet.Text = "1";
                         this.TopMost = false;
-                        MyProject.Forms.Form12.Show();
+                        MyProject.Forms.IndTAEntriesForm.Show();
                         goto label_12;
                     }
                     else
@@ -3233,13 +3233,13 @@ namespace ClubCompFS
                 if (this.MenuPossibleForm2())
                 {
                     int num3 = Module1.IndexEmptyRow();
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
-                        MyProject.Forms.Form12.Close();
+                    if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                        MyProject.Forms.IndTAEntriesForm.Close();
                     if (num3 < 42)
                     {
-                        MyProject.Forms.Form12.txtIndTAGet.Text = "2";
+                        MyProject.Forms.IndTAEntriesForm.txtIndTAGet.Text = "2";
                         this.TopMost = false;
-                        MyProject.Forms.Form12.Show();
+                        MyProject.Forms.IndTAEntriesForm.Show();
                         goto label_12;
                     }
                     else
@@ -4126,7 +4126,7 @@ namespace ClubCompFS
         public bool MenuPossibleForm2()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the IndTA ENTRIES!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
