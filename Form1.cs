@@ -4123,8 +4123,8 @@ namespace ClubCompFS
                 MyProject.Forms.JudgesSetupDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                 MyProject.Forms.ConfigurationDataDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
-                MyProject.Forms.Dialog5.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                MyProject.Forms.ParticipantInputDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
                 MyProject.Forms.Form12.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))

@@ -86,7 +86,7 @@
     <Compile Include="JudgesSetupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog5.cs">
+    <Compile Include="ParticipantInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog7.cs">
@@ -152,7 +152,7 @@
     <EmbeddedResource Include="NetworkStatusDialog.resx" />
     <EmbeddedResource Include="ConfigurationDataDialog.resx" />
     <EmbeddedResource Include="JudgesSetupDialog.resx" />
-    <EmbeddedResource Include="Dialog5.resx" />
+    <EmbeddedResource Include="ParticipantInputDialog.resx" />
     <EmbeddedResource Include="Dialog7.resx" />
     <EmbeddedResource Include="Dialog8.resx" />
     <EmbeddedResource Include="Form1.resx" />
@@ -212,9 +212,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dialogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(ProjectDir)\Resources\compulsory\FSI_Logo_HD.png" "$(TargetDir)"
