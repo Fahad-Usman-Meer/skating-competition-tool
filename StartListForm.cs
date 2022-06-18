@@ -1436,8 +1436,8 @@ namespace ClubCompFS
                 MyProject.Forms.DBForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
-                MyProject.Forms.Form4.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                MyProject.Forms.JudgesDetailsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
                 MyProject.Forms.Form5.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
@@ -4146,7 +4146,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the JUDGES DETAILS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -4166,8 +4166,8 @@ namespace ClubCompFS
                 {
                     if (this.TestNoOfPart())
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
-                            MyProject.Forms.Form4.Close();
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                            MyProject.Forms.JudgesDetailsForm.Close();
                         int index = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
                         switch (Module1.WorkMode)
                         {
@@ -4192,7 +4192,7 @@ namespace ClubCompFS
                                 else
                                     break;
                         }
-                        MyProject.Forms.Form4.txtIndex.Text = Conversions.ToString(index);
+                        MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(index);
                         if (index > 0 & index <= Module1.TNop)
                         {
                             Module1.F4arr = (string[,])null;
@@ -4201,8 +4201,8 @@ namespace ClubCompFS
                             int rowDed = 0;
                             Module1.CreateJudgesDetails(0, ref rowDed);
                             this.TopMost = false;
-                            MyProject.Forms.Form4.ShowJD(rowDed);
-                            MyProject.Forms.Form4.Show();
+                            MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
+                            MyProject.Forms.JudgesDetailsForm.Show();
                             goto label_19;
                         }
                         else

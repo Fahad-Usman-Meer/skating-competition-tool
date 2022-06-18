@@ -100,7 +100,7 @@
     <Compile Include="DBForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="JudgesDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form5.cs">
@@ -148,7 +148,7 @@
     <EmbeddedResource Include="ElementDBDisplayForm.resx" />
     <EmbeddedResource Include="StartListForm.resx" />
     <EmbeddedResource Include="DBForm.resx" />
-    <EmbeddedResource Include="Form4.resx" />
+    <EmbeddedResource Include="JudgesDetailsForm.resx" />
     <EmbeddedResource Include="Form5.resx" />
     <EmbeddedResource Include="Form6.resx" />
     <EmbeddedResource Include="Form7.resx" />

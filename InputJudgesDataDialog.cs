@@ -1494,8 +1494,8 @@ namespace ClubCompFS
 
         private void InputJudgesDataDialog_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form4.Top;
-            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form4.Left + (double)MyProject.Forms.Form4.Width / 2.0 - (double)this.Width / 2.0)));
+            this.Top = MyProject.Forms.JudgesDetailsForm.Top;
+            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.JudgesDetailsForm.Left + (double)MyProject.Forms.JudgesDetailsForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = true;
             this.Text = "INPUT JUDGES DATA - " + Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
             this.JudgeManualInput();
@@ -1687,8 +1687,8 @@ namespace ClubCompFS
                 this.Close();
                 int rowDed = 0;
                 Module1.CreateJudgesDetails(0, ref rowDed);
-                MyProject.Forms.Form4.ShowJD(rowDed);
-                MyProject.Forms.Form4.Show();
+                MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
+                MyProject.Forms.JudgesDetailsForm.Show();
                 if (Module1.WorkMode == 3)
                 {
                     Module1.SaveCategoryFile(Module1.CategoryFileName);

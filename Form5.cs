@@ -4161,26 +4161,26 @@ namespace ClubCompFS
                             MyProject.Forms.StartListForm.TopMost = false; // true;
                             break;
                         case 2:
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
-                                MyProject.Forms.Form4.Close();
-                            MyProject.Forms.Form4.txtIndex.Text = Conversions.ToString(Module1.PNo);
+                            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                                MyProject.Forms.JudgesDetailsForm.Close();
+                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Module1.PNo);
                             Module1.ScanJudges = 1;
                             int rowDed1 = 0;
                             Module1.CreateJudgesDetails(0, ref rowDed1);
-                            MyProject.Forms.Form4.ShowJD(rowDed1);
-                            MyProject.Forms.Form4.Show();
-                            MyProject.Forms.Form4.TopMost = false; // true;
+                            MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed1);
+                            MyProject.Forms.JudgesDetailsForm.Show();
+                            MyProject.Forms.JudgesDetailsForm.TopMost = false; // true;
                             MyProject.Forms.MainForm.MakeJudgeTxtFile(-1);
                             break;
                         case 3:
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
-                                MyProject.Forms.Form4.Close();
-                            MyProject.Forms.Form4.txtIndex.Text = Conversions.ToString(Module1.PNo);
+                            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                                MyProject.Forms.JudgesDetailsForm.Close();
+                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Module1.PNo);
                             int rowDed2 = 0;
                             Module1.CreateJudgesDetails(0, ref rowDed2);
-                            MyProject.Forms.Form4.ShowJD(rowDed2);
-                            MyProject.Forms.Form4.Show();
-                            MyProject.Forms.Form4.TopMost = false; // true;
+                            MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed2);
+                            MyProject.Forms.JudgesDetailsForm.Show();
+                            MyProject.Forms.JudgesDetailsForm.TopMost = false; // true;
                             break;
                     }
                     Module1.SaveCategoryFile(Module1.CategoryFileName);

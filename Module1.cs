@@ -259,7 +259,7 @@ namespace ClubCompFS
                         mainForm.txtNonJudgingReferee.ForeColor = Color.Black;
                         break;
                 }
-                label_15:
+            label_15:
                 string segment2 = Module1.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
@@ -401,7 +401,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("CreateMainForm - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_52:
+        label_52:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -504,7 +504,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("LoadXML_DB - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_28:
+        label_28:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -683,7 +683,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseSegment - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_33:
+        label_33:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -823,7 +823,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOfficials - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_35:
+        label_35:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -963,7 +963,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOfficials2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_35:
+        label_35:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1014,7 +1014,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseCompetitionHeader - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1235,7 +1235,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParsePerson - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_39:
+        label_39:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1456,7 +1456,7 @@ namespace ClubCompFS
                     Module1.CategoryFileSaved = true;
                     goto case 2;
             }
-            label_47:
+        label_47:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1516,7 +1516,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1560,7 +1560,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1589,7 +1589,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode3 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1618,7 +1618,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode4 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1706,7 +1706,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode5 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1886,7 +1886,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode6 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1938,7 +1938,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("LoadOpenDB - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_18:
+        label_18:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1965,7 +1965,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOpenDBVersion - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2066,7 +2066,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOpenDBCategory - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_18:
+        label_18:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2094,7 +2094,7 @@ namespace ClubCompFS
         {
             MyProject.Forms.DBForm.Close();
             MyProject.Forms.ElementDBDisplayForm.Close();
-            MyProject.Forms.Form4.Close();
+            MyProject.Forms.JudgesDetailsForm.Close();
             MyProject.Forms.Form5.Close();
             MyProject.Forms.Form6.Close();
             MyProject.Forms.Form7.Close();
@@ -2114,153 +2114,153 @@ namespace ClubCompFS
                     break;
                 case 1:
                     Module1.WorkMode = 1;
-                    MainForm form1_1 = MyProject.Forms.MainForm;
-                    form1_1.Mode.Text = "Prepare mode";
-                    form1_1.ClearDataToolStripMenuItem.Visible = true;
-                    form1_1.CategorySelectionToolStripMenuItem.Visible = true;
-                    form1_1.HeadPageToolStripMenuItem1.Visible = true;
-                    form1_1.EntriesToolStripMenuItem.Visible = true;
-                    form1_1.JudgesSetupToolStripMenuItem.Visible = true;
-                    form1_1.OpenDBToolStripMenuItem.Visible = true;
-                    form1_1.DBToolStripMenuItem.Visible = true;
-                    form1_1.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = true;
-                    form1_1.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = true;
-                    form1_1.JudgeCardForAllSkatersToolStripMenuItem.Visible = true;
-                    form1_1.ToolStripSeparator3.Visible = true;
-                    form1_1.TCTSCardToolStripMenuItem.Visible = true;
-                    form1_1.TCSCardForBothTCAndTCToolStripMenuItem.Visible = true;
-                    form1_1.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = true;
-                    form1_1.ToolStripSeparator4.Visible = true;
-                    form1_1.ToolStripSeparator5.Visible = false;
-                    form1_1.ToolStripSeparator6.Visible = false;
-                    form1_1.HeadPageToolStripMenuItem.Visible = true;
-                    form1_1.WarmupGroupsToolStripMenuItem.Visible = true;
-                    form1_1.JudgesDetailsToolStripMenuItem.Visible = false;
-                    form1_1.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = false;
-                    form1_1.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = false;
-                    form1_1.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = false;
-                    form1_1.ResultsToolStripMenuItem.Visible = false;
-                    form1_1.CREATEFILESToolStripMenuItem.Visible = false;
-                    form1_1.CREATEPDFFILESToolStripMenuItem.Visible = true;
-                    form1_1.SHOWRESULTSToolStripMenuItem.Visible = false;
+                    MainForm mainForm_1 = MyProject.Forms.MainForm;
+                    mainForm_1.Mode.Text = "Prepare mode";
+                    mainForm_1.ClearDataToolStripMenuItem.Visible = true;
+                    mainForm_1.CategorySelectionToolStripMenuItem.Visible = true;
+                    mainForm_1.HeadPageToolStripMenuItem1.Visible = true;
+                    mainForm_1.EntriesToolStripMenuItem.Visible = true;
+                    mainForm_1.JudgesSetupToolStripMenuItem.Visible = true;
+                    mainForm_1.OpenDBToolStripMenuItem.Visible = true;
+                    mainForm_1.DBToolStripMenuItem.Visible = true;
+                    mainForm_1.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = true;
+                    mainForm_1.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = true;
+                    mainForm_1.JudgeCardForAllSkatersToolStripMenuItem.Visible = true;
+                    mainForm_1.ToolStripSeparator3.Visible = true;
+                    mainForm_1.TCTSCardToolStripMenuItem.Visible = true;
+                    mainForm_1.TCSCardForBothTCAndTCToolStripMenuItem.Visible = true;
+                    mainForm_1.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = true;
+                    mainForm_1.ToolStripSeparator4.Visible = true;
+                    mainForm_1.ToolStripSeparator5.Visible = false;
+                    mainForm_1.ToolStripSeparator6.Visible = false;
+                    mainForm_1.HeadPageToolStripMenuItem.Visible = true;
+                    mainForm_1.WarmupGroupsToolStripMenuItem.Visible = true;
+                    mainForm_1.JudgesDetailsToolStripMenuItem.Visible = false;
+                    mainForm_1.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = false;
+                    mainForm_1.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = false;
+                    mainForm_1.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = false;
+                    mainForm_1.ResultsToolStripMenuItem.Visible = false;
+                    mainForm_1.CREATEFILESToolStripMenuItem.Visible = false;
+                    mainForm_1.CREATEPDFFILESToolStripMenuItem.Visible = true;
+                    mainForm_1.SHOWRESULTSToolStripMenuItem.Visible = false;
                     string seg = Module1.GetSeg();
                     if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0)
-                        form1_1.COPYOFFICIALSToolStripMenuItem.Visible = true;
+                        mainForm_1.COPYOFFICIALSToolStripMenuItem.Visible = true;
                     else
-                        form1_1.COPYOFFICIALSToolStripMenuItem.Visible = false;
-                    form1_1.ToolStripSeparator1.Visible = false;
-                    form1_1.PingTheNetworkToolStripMenuItem.Visible = false;
-                    form1_1.lblCC_El.Visible = false;
-                    form1_1.lblCC_Info.Visible = false;
-                    form1_1.lblCC_MP.Visible = false;
-                    StartListForm form2_1 = MyProject.Forms.StartListForm;
-                    form2_1.Mode.Text = "Prepare mode";
-                    form2_1.Menu_Workmode_1();
-                    form2_1.Panel1.Visible = false;
-                    form2_1.DataGridView1.ContextMenuStrip = form2_1.ContextMenuStrip1;
-                    Form4 form4_1 = MyProject.Forms.Form4;
-                    form4_1.INPUTELEMENTToolStripMenuItem.Visible = false;
-                    form4_1.CREATERESULTSToolStripMenuItem.Visible = false;
-                    form4_1.EDITJUDGEDATAToolStripMenuItem.Visible = false;
+                        mainForm_1.COPYOFFICIALSToolStripMenuItem.Visible = false;
+                    mainForm_1.ToolStripSeparator1.Visible = false;
+                    mainForm_1.PingTheNetworkToolStripMenuItem.Visible = false;
+                    mainForm_1.lblCC_El.Visible = false;
+                    mainForm_1.lblCC_Info.Visible = false;
+                    mainForm_1.lblCC_MP.Visible = false;
+                    StartListForm startListForm_1 = MyProject.Forms.StartListForm;
+                    startListForm_1.Mode.Text = "Prepare mode";
+                    startListForm_1.Menu_Workmode_1();
+                    startListForm_1.Panel1.Visible = false;
+                    startListForm_1.DataGridView1.ContextMenuStrip = startListForm_1.ContextMenuStrip1;
+                    JudgesDetailsForm judgesDetailsForm_1 = MyProject.Forms.JudgesDetailsForm;
+                    judgesDetailsForm_1.INPUTELEMENTToolStripMenuItem.Visible = false;
+                    judgesDetailsForm_1.CREATERESULTSToolStripMenuItem.Visible = false;
+                    judgesDetailsForm_1.EDITJUDGEDATAToolStripMenuItem.Visible = false;
                     MyProject.Forms.Form5.Panel1.Visible = false;
                     break;
                 case 2:
                     Module1.WorkMode = 2;
                     MyProject.Forms.MainForm.Mode.Text = "Network mode";
-                    MainForm form1_2 = MyProject.Forms.MainForm;
-                    form1_2.StartServer();
-                    form1_2.Mode.Text = "Network mode";
-                    form1_2.ClearDataToolStripMenuItem.Visible = false;
-                    form1_2.CategorySelectionToolStripMenuItem.Visible = false;
-                    form1_2.HeadPageToolStripMenuItem1.Visible = true;
-                    form1_2.EntriesToolStripMenuItem.Visible = false;
-                    form1_2.JudgesSetupToolStripMenuItem.Visible = false;
-                    form1_2.OpenDBToolStripMenuItem.Visible = false;
-                    form1_2.DBToolStripMenuItem.Visible = false;
-                    form1_2.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = false;
-                    form1_2.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = false;
-                    form1_2.JudgeCardForAllSkatersToolStripMenuItem.Visible = false;
-                    form1_2.ToolStripSeparator3.Visible = false;
-                    form1_2.TCTSCardToolStripMenuItem.Visible = false;
-                    form1_2.TCSCardForBothTCAndTCToolStripMenuItem.Visible = false;
-                    form1_2.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = false;
-                    form1_2.ToolStripSeparator4.Visible = false;
-                    form1_2.ToolStripSeparator5.Visible = true;
-                    form1_2.ToolStripSeparator6.Visible = true;
-                    form1_2.HeadPageToolStripMenuItem.Visible = false;
-                    form1_2.WarmupGroupsToolStripMenuItem.Visible = true;
-                    form1_2.JudgesDetailsToolStripMenuItem.Visible = true;
-                    form1_2.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = true;
-                    form1_2.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = true;
-                    form1_2.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = true;
-                    form1_2.ResultsToolStripMenuItem.Visible = true;
-                    form1_2.CREATEFILESToolStripMenuItem.Visible = true;
-                    form1_2.CREATEPDFFILESToolStripMenuItem.Visible = false;
-                    form1_2.SHOWRESULTSToolStripMenuItem.Visible = true;
-                    form1_2.COPYOFFICIALSToolStripMenuItem.Visible = false;
-                    form1_2.ToolStripSeparator1.Visible = true;
-                    form1_2.PingTheNetworkToolStripMenuItem.Visible = true;
-                    form1_2.lblCC_El.Visible = true;
-                    form1_2.lblCC_Info.Visible = true;
-                    form1_2.lblCC_MP.Visible = true;
-                    StartListForm form2_2 = MyProject.Forms.StartListForm;
-                    form2_2.Mode.Text = "Network mode";
-                    form2_2.Menu_Workmode_2_and_3();
-                    form2_2.Panel1.Visible = true;
-                    form2_2.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
-                    Form4 form4_2 = MyProject.Forms.Form4;
-                    form4_2.INPUTELEMENTToolStripMenuItem.Visible = true;
-                    form4_2.CREATERESULTSToolStripMenuItem.Visible = true;
-                    form4_2.EDITJUDGEDATAToolStripMenuItem.Visible = false;
+                    MainForm mainForm_2 = MyProject.Forms.MainForm;
+                    mainForm_2.StartServer();
+                    mainForm_2.Mode.Text = "Network mode";
+                    mainForm_2.ClearDataToolStripMenuItem.Visible = false;
+                    mainForm_2.CategorySelectionToolStripMenuItem.Visible = false;
+                    mainForm_2.HeadPageToolStripMenuItem1.Visible = true;
+                    mainForm_2.EntriesToolStripMenuItem.Visible = false;
+                    mainForm_2.JudgesSetupToolStripMenuItem.Visible = false;
+                    mainForm_2.OpenDBToolStripMenuItem.Visible = false;
+                    mainForm_2.DBToolStripMenuItem.Visible = false;
+                    mainForm_2.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = false;
+                    mainForm_2.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = false;
+                    mainForm_2.JudgeCardForAllSkatersToolStripMenuItem.Visible = false;
+                    mainForm_2.ToolStripSeparator3.Visible = false;
+                    mainForm_2.TCTSCardToolStripMenuItem.Visible = false;
+                    mainForm_2.TCSCardForBothTCAndTCToolStripMenuItem.Visible = false;
+                    mainForm_2.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = false;
+                    mainForm_2.ToolStripSeparator4.Visible = false;
+                    mainForm_2.ToolStripSeparator5.Visible = true;
+                    mainForm_2.ToolStripSeparator6.Visible = true;
+                    mainForm_2.HeadPageToolStripMenuItem.Visible = false;
+                    mainForm_2.WarmupGroupsToolStripMenuItem.Visible = true;
+                    mainForm_2.JudgesDetailsToolStripMenuItem.Visible = true;
+                    mainForm_2.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = true;
+                    mainForm_2.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = true;
+                    mainForm_2.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = true;
+                    mainForm_2.ResultsToolStripMenuItem.Visible = true;
+                    mainForm_2.CREATEFILESToolStripMenuItem.Visible = true;
+                    mainForm_2.CREATEPDFFILESToolStripMenuItem.Visible = false;
+                    mainForm_2.SHOWRESULTSToolStripMenuItem.Visible = true;
+                    mainForm_2.COPYOFFICIALSToolStripMenuItem.Visible = false;
+                    mainForm_2.ToolStripSeparator1.Visible = true;
+                    mainForm_2.PingTheNetworkToolStripMenuItem.Visible = true;
+                    mainForm_2.lblCC_El.Visible = true;
+                    mainForm_2.lblCC_Info.Visible = true;
+                    mainForm_2.lblCC_MP.Visible = true;
+                    StartListForm startListForm_2 = MyProject.Forms.StartListForm;
+                    startListForm_2.Mode.Text = "Network mode";
+                    startListForm_2.Menu_Workmode_2_and_3();
+                    startListForm_2.Panel1.Visible = true;
+                    startListForm_2.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
+                    JudgesDetailsForm judgesDetailsForm_2 = MyProject.Forms.JudgesDetailsForm;
+                    judgesDetailsForm_2.INPUTELEMENTToolStripMenuItem.Visible = true;
+                    judgesDetailsForm_2.CREATERESULTSToolStripMenuItem.Visible = true;
+                    judgesDetailsForm_2.EDITJUDGEDATAToolStripMenuItem.Visible = false;
                     MyProject.Forms.Form5.Panel1.Visible = true;
                     break;
                 case 3:
                     Module1.WorkMode = 3;
                     MyProject.Forms.MainForm.Mode.Text = "Manual mode";
-                    MainForm form1_3 = MyProject.Forms.MainForm;
-                    form1_3.Mode.Text = "Manual mode";
-                    form1_3.ClearDataToolStripMenuItem.Visible = false;
-                    form1_3.CategorySelectionToolStripMenuItem.Visible = false;
-                    form1_3.HeadPageToolStripMenuItem1.Visible = true;
-                    form1_3.EntriesToolStripMenuItem.Visible = false;
-                    form1_3.JudgesSetupToolStripMenuItem.Visible = false;
-                    form1_3.OpenDBToolStripMenuItem.Visible = false;
-                    form1_3.DBToolStripMenuItem.Visible = false;
-                    form1_3.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = false;
-                    form1_3.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = false;
-                    form1_3.JudgeCardForAllSkatersToolStripMenuItem.Visible = false;
-                    form1_3.ToolStripSeparator3.Visible = false;
-                    form1_3.TCTSCardToolStripMenuItem.Visible = false;
-                    form1_3.TCSCardForBothTCAndTCToolStripMenuItem.Visible = false;
-                    form1_3.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = false;
-                    form1_3.ToolStripSeparator4.Visible = false;
-                    form1_3.ToolStripSeparator5.Visible = true;
-                    form1_3.ToolStripSeparator6.Visible = true;
-                    form1_3.HeadPageToolStripMenuItem.Visible = false;
-                    form1_3.WarmupGroupsToolStripMenuItem.Visible = true;
-                    form1_3.JudgesDetailsToolStripMenuItem.Visible = true;
-                    form1_3.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = true;
-                    form1_3.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = true;
-                    form1_3.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = true;
-                    form1_3.ResultsToolStripMenuItem.Visible = true;
-                    form1_3.CREATEFILESToolStripMenuItem.Visible = true;
-                    form1_3.CREATEPDFFILESToolStripMenuItem.Visible = false;
-                    form1_3.SHOWRESULTSToolStripMenuItem.Visible = true;
-                    form1_3.COPYOFFICIALSToolStripMenuItem.Visible = false;
-                    form1_3.ToolStripSeparator1.Visible = false;
-                    form1_3.PingTheNetworkToolStripMenuItem.Visible = false;
-                    form1_3.lblCC_El.Visible = false;
-                    form1_3.lblCC_Info.Visible = true;
-                    form1_3.lblCC_MP.Visible = true;
-                    StartListForm form2_3 = MyProject.Forms.StartListForm;
-                    form2_3.Mode.Text = "Manual mode";
-                    form2_3.Menu_Workmode_2_and_3();
-                    form2_3.Panel1.Visible = true;
-                    form2_3.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
-                    Form4 form4_3 = MyProject.Forms.Form4;
-                    form4_3.INPUTELEMENTToolStripMenuItem.Visible = true;
-                    form4_3.CREATERESULTSToolStripMenuItem.Visible = true;
-                    form4_3.EDITJUDGEDATAToolStripMenuItem.Visible = true;
+                    MainForm mainForm_3 = MyProject.Forms.MainForm;
+                    mainForm_3.Mode.Text = "Manual mode";
+                    mainForm_3.ClearDataToolStripMenuItem.Visible = false;
+                    mainForm_3.CategorySelectionToolStripMenuItem.Visible = false;
+                    mainForm_3.HeadPageToolStripMenuItem1.Visible = true;
+                    mainForm_3.EntriesToolStripMenuItem.Visible = false;
+                    mainForm_3.JudgesSetupToolStripMenuItem.Visible = false;
+                    mainForm_3.OpenDBToolStripMenuItem.Visible = false;
+                    mainForm_3.DBToolStripMenuItem.Visible = false;
+                    mainForm_3.JudgeCardsFörOneJudgeToolStripMenuItem.Visible = false;
+                    mainForm_3.JusgeCardsForASelectedSkaterToolStripMenuItem.Visible = false;
+                    mainForm_3.JudgeCardForAllSkatersToolStripMenuItem.Visible = false;
+                    mainForm_3.ToolStripSeparator3.Visible = false;
+                    mainForm_3.TCTSCardToolStripMenuItem.Visible = false;
+                    mainForm_3.TCSCardForBothTCAndTCToolStripMenuItem.Visible = false;
+                    mainForm_3.TCTSCardForASelectedSkaterToolStripMenuItem.Visible = false;
+                    mainForm_3.ToolStripSeparator4.Visible = false;
+                    mainForm_3.ToolStripSeparator5.Visible = true;
+                    mainForm_3.ToolStripSeparator6.Visible = true;
+                    mainForm_3.HeadPageToolStripMenuItem.Visible = false;
+                    mainForm_3.WarmupGroupsToolStripMenuItem.Visible = true;
+                    mainForm_3.JudgesDetailsToolStripMenuItem.Visible = true;
+                    mainForm_3.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = true;
+                    mainForm_3.JudgesDetailsForTheCategoryWithOneSkaterPerPageToolStripMenuItem.Visible = true;
+                    mainForm_3.PrintAllResultDocumentsCategoryToolStripMenuItem.Visible = true;
+                    mainForm_3.ResultsToolStripMenuItem.Visible = true;
+                    mainForm_3.CREATEFILESToolStripMenuItem.Visible = true;
+                    mainForm_3.CREATEPDFFILESToolStripMenuItem.Visible = false;
+                    mainForm_3.SHOWRESULTSToolStripMenuItem.Visible = true;
+                    mainForm_3.COPYOFFICIALSToolStripMenuItem.Visible = false;
+                    mainForm_3.ToolStripSeparator1.Visible = false;
+                    mainForm_3.PingTheNetworkToolStripMenuItem.Visible = false;
+                    mainForm_3.lblCC_El.Visible = false;
+                    mainForm_3.lblCC_Info.Visible = true;
+                    mainForm_3.lblCC_MP.Visible = true;
+                    StartListForm startListForm_3 = MyProject.Forms.StartListForm;
+                    startListForm_3.Mode.Text = "Manual mode";
+                    startListForm_3.Menu_Workmode_2_and_3();
+                    startListForm_3.Panel1.Visible = true;
+                    startListForm_3.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
+                    JudgesDetailsForm judgesDetailsForm_3 = MyProject.Forms.JudgesDetailsForm;
+                    judgesDetailsForm_3.INPUTELEMENTToolStripMenuItem.Visible = true;
+                    judgesDetailsForm_3.CREATERESULTSToolStripMenuItem.Visible = true;
+                    judgesDetailsForm_3.EDITJUDGEDATAToolStripMenuItem.Visible = true;
                     MyProject.Forms.Form5.Panel1.Visible = true;
                     break;
             }
@@ -2319,9 +2319,9 @@ namespace ClubCompFS
                 if (Module1.PNo > 0 & Module1.PNo <= Module1.TNop & Module1.PNo <= 42)
                 {
                     Module1.A_Calc_Sum(0, 1);
-                    Form4 form4 = MyProject.Forms.Form4;
+                    JudgesDetailsForm judgesDetailsForm = MyProject.Forms.JudgesDetailsForm;
                     if (R == 0)
-                        form4.DataGridView1.Rows.Clear();
+                        judgesDetailsForm.DataGridView1.Rows.Clear();
                     Module1.B_Init_SheetText(0);
                     Module1.RowJD = Module1.B_SSS_data(0);
                     int num3 = checked(Module1.RowJD - 8);
@@ -2370,7 +2370,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("CreateJudgesDetails - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_20:
+        label_20:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2450,7 +2450,7 @@ namespace ClubCompFS
             {
                 int num9 = (int)Interaction.MsgBox((object)("A_Calc_Sum - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2490,7 +2490,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("Test_SEQ_COMBO_REP - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_9:
+        label_9:
             string str2 = str1;
             if (num2 == 0)
                 return str2;
@@ -2537,7 +2537,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindJumpEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -3147,7 +3147,7 @@ namespace ClubCompFS
             {
                 int num30 = (int)Interaction.MsgBox((object)("A_Calc_BV_GOE - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_225:
+        label_225:
             double num31 = num2;
             if (num3 == 0)
                 return num31;
@@ -3280,7 +3280,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindJumpEl1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3324,7 +3324,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("A_CalcNoOfEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_14:
+        label_14:
             int num5 = num2;
             if (num3 == 0)
                 return num5;
@@ -3417,7 +3417,7 @@ namespace ClubCompFS
             {
                 int num7 = (int)Interaction.MsgBox((object)("A_CalcPC - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_34:
+        label_34:
             double num8 = num2;
             if (num3 == 0)
                 return num8;
@@ -3544,7 +3544,7 @@ namespace ClubCompFS
             {
                 int num10 = (int)Interaction.MsgBox((object)("B_Init_SheetText - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_25:
+        label_25:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3635,7 +3635,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("B_SSS_data - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_38:
+        label_38:
             int num7 = num2;
             if (num3 == 0)
                 return num7;
@@ -3696,7 +3696,7 @@ namespace ClubCompFS
             {
                 int num9 = (int)Interaction.MsgBox((object)("B_Show_GOEdata - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_24:
+        label_24:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3747,7 +3747,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("B_Show_PCfactors - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3814,7 +3814,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("B_Show_PCdata - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_26:
+        label_26:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3852,7 +3852,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("B_Calc_BaseSum - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3986,7 +3986,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("B_Show_Deductions - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_52:
+        label_52:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4026,7 +4026,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("GetArr - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_11:
+        label_11:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4109,7 +4109,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("MV_Ded - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             long num7 = num2;
             if (num3 == 0)
                 return num7;
@@ -4170,7 +4170,7 @@ namespace ClubCompFS
             {
                 int num7 = (int)Interaction.MsgBox((object)("JDED - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             int num8 = num2;
             if (num3 == 0)
                 return num8;
@@ -4225,7 +4225,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("B_Show_Scores - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4306,7 +4306,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("DedSeg1Seg2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             double num12 = num2;
             if (num3 == 0)
                 return num12;
@@ -4402,7 +4402,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("SetDed - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_34:
+        label_34:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4465,7 +4465,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("TstElPP - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_22:
+        label_22:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -4533,7 +4533,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("TstOneEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_20:
+        label_20:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -4896,7 +4896,7 @@ namespace ClubCompFS
                 flag = false;
                 int num4 = (int)Interaction.MsgBox((object)("GetIniData - Error reading CLUBCOMP.INI!" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_70:
+        label_70:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -4985,7 +4985,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("SaveIniData - Error exporting " + IniFile + "\r\nDescription : " + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5074,7 +5074,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("PCSel -Description : " + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_28:
+        label_28:
             string str2 = str1;
             if (num2 == 0)
                 return str2;
@@ -5675,7 +5675,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("MakeScoreBoard_12 - " + Information.Err().Description + "\r\n"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_105:
+        label_105:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -6102,7 +6102,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("MakeScoreBoard_34 - " + Information.Err().Description + "\r\n"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_105:
+        label_105:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -6188,7 +6188,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("MakeTEScore - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -7031,7 +7031,7 @@ namespace ClubCompFS
                 flag = false;
                 int num6 = (int)Interaction.MsgBox((object)("MakeResultHTM - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_66:
+        label_66:
             int num7 = flag ? 1 : 0;
             if (num2 == 0)
                 return num7 != 0;
@@ -7214,7 +7214,7 @@ namespace ClubCompFS
                 flag = false;
                 int num5 = (int)Interaction.MsgBox((object)("MakeSpeakerHTM - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_36:
+        label_36:
             int num6 = flag ? 1 : 0;
             if (num2 == 0)
                 return num6 != 0;
@@ -7474,7 +7474,7 @@ namespace ClubCompFS
                 flag = false;
                 int num5 = (int)Interaction.MsgBox((object)("MakeCSS - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_60:
+        label_60:
             int num6 = flag ? 1 : 0;
             if (num2 == 0)
                 return num6 != 0;
@@ -8704,7 +8704,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("MakeDir - Error in the folder or file name!\r\n" + Path + "\r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_17:
+        label_17:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -9339,7 +9339,7 @@ namespace ClubCompFS
                 }
                 judgeNo = index;
             }
-            label_5:
+        label_5:
             return judgeNo;
         }
 
