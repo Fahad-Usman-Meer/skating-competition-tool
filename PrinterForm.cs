@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form10
+// Type: ClubCompFS.PrinterForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form10 : Form
+    public class PrinterForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("txtPrint")]
@@ -25,9 +25,9 @@ namespace ClubCompFS
         [AccessedThroughProperty("Label1")]
         private Label _Label1;
 
-        public Form10()
+        public PrinterForm()
         {
-            this.Load += new EventHandler(this.Form10_Load);
+            this.Load += new EventHandler(this.PrinterForm_Load);
             this.InitializeComponent();
         }
 
@@ -84,7 +84,7 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.Label1);
             this.Controls.Add((Control)this.txtPrint);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.Name = nameof(Form10);
+            this.Name = nameof(PrinterForm);
             this.ShowIcon = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Susanne Software";
@@ -128,7 +128,7 @@ namespace ClubCompFS
             this.Timer1.Enabled = false;
         }
 
-        private void Form10_Load(object sender, EventArgs e)
+        private void PrinterForm_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
             this.Timer1.Enabled = true;

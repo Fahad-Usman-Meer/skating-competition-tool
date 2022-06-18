@@ -81,7 +81,7 @@ namespace ClubCompFS.My
             public IceResurfacingMealBreakDialog m_IceResurfacingMealBreakDialog;
             public HeadPageDialog m_HeadPageDialog;
             public MainForm m_MainForm;
-            public Form10 m_Form10;
+            public PrinterForm m_PrinterForm;
             public Form11 m_Form11;
             public Form12 m_Form12;
             public Form13 m_Form13;
@@ -283,20 +283,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form10 Form10
+            public PrinterForm PrinterForm
             {
                 get
                 {
-                    this.m_Form10 = MyProject.MyForms.Create__Instance__<Form10>(this.m_Form10);
-                    return this.m_Form10;
+                    this.m_PrinterForm = MyProject.MyForms.Create__Instance__<PrinterForm>(this.m_PrinterForm);
+                    return this.m_PrinterForm;
                 }
                 set
                 {
-                    if (value == this.m_Form10)
+                    if (value == this.m_PrinterForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form10>(ref this.m_Form10);
+                    this.Dispose__Instance__<PrinterForm>(ref this.m_PrinterForm);
                 }
             }
 
