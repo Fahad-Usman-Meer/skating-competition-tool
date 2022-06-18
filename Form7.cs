@@ -640,10 +640,10 @@ namespace ClubCompFS
             else
             {
                 this.TopMost = false;
-                MyProject.Forms.Dialog7.txtNoSkater.Text = this.txtPartNo.Text;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
-                    MyProject.Forms.Dialog7.Close();
-                int num = (int)MyProject.Forms.Dialog7.ShowDialog();
+                MyProject.Forms.IceResurfacingMealBreakDialog.txtNoSkater.Text = this.txtPartNo.Text;
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                    MyProject.Forms.IceResurfacingMealBreakDialog.Close();
+                int num = (int)MyProject.Forms.IceResurfacingMealBreakDialog.ShowDialog();
             }
         }
 
@@ -1044,15 +1044,15 @@ namespace ClubCompFS
                                     if (num5 <= num4)
                                     {
                                         num3 = 35;
-                                        MyProject.Forms.Dialog7.Controls[key].Visible = true;
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = true;
                                     }
                                     else
                                     {
                                         num3 = 37;
                                         num3 = 38;
-                                        MyProject.Forms.Dialog7.Controls[key].Visible = false;
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = false;
                                         num3 = 39;
-                                        MyProject.Forms.Dialog7.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
                                     }
                                 }
                                 else
@@ -1062,15 +1062,15 @@ namespace ClubCompFS
                                     if (checked(num5 - 10) <= num4)
                                     {
                                         num3 = 44;
-                                        MyProject.Forms.Dialog7.Controls[key].Visible = true;
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = true;
                                     }
                                     else
                                     {
                                         num3 = 46;
                                         num3 = 47;
-                                        MyProject.Forms.Dialog7.Controls[key].Visible = false;
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = false;
                                         num3 = 48;
-                                        MyProject.Forms.Dialog7.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
+                                        MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
                                     }
                                 }
                             }
@@ -1293,8 +1293,8 @@ namespace ClubCompFS
             else
             {
                 Module1.SaveCategoryFile(Module1.CategoryFileName);
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
-                    MyProject.Forms.Dialog7.Close();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                    MyProject.Forms.IceResurfacingMealBreakDialog.Close();
                 this.Close();
                 if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
                 {
@@ -1413,7 +1413,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_24;
@@ -1480,7 +1480,7 @@ namespace ClubCompFS
 
         private void CREATEPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            if (!Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 return;
             int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
         }
@@ -1751,7 +1751,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_13;
@@ -1855,7 +1855,7 @@ namespace ClubCompFS
 
         private void StartlistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
@@ -1876,7 +1876,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_14;

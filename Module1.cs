@@ -2093,7 +2093,7 @@ namespace ClubCompFS
             MyProject.Forms.ConfigurationDataDialog.Close();
             MyProject.Forms.ParticipantInputDialog.Close();
             MyProject.Forms.Form12.Close();
-            MyProject.Forms.Dialog7.Close();
+            MyProject.Forms.IceResurfacingMealBreakDialog.Close();
             MyProject.Forms.Dialog8.Close();
             switch (mode)
             {

@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog7
+// Type: ClubCompFS.IceResurfacingMealBreakDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog7 : Form
+    public class IceResurfacingMealBreakDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -78,9 +78,9 @@ namespace ClubCompFS
         private int OldWupG_Seg1;
         private int OldWupG_Seg2;
 
-        public Dialog7()
+        public IceResurfacingMealBreakDialog()
         {
-            this.Load += new EventHandler(this.Dialog7_Load);
+            this.Load += new EventHandler(this.IceResurfacingMealBreakDialog_Load);
             this.OldIceArr_Seg1 = new int[8];
             this.OldIceArr_Seg2 = new int[8];
             this.OldLunchArr_Seg1 = new int[8];
@@ -106,7 +106,7 @@ namespace ClubCompFS
         [DebuggerStepThrough]
         private void InitializeComponent()
         {
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Dialog7));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(IceResurfacingMealBreakDialog));
             this.TableLayoutPanel1 = new TableLayoutPanel();
             this.Cancel_Button = new Button();
             this.OK_Button = new Button();
@@ -426,7 +426,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog7);
+            this.Name = nameof(IceResurfacingMealBreakDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "Select Ice resurfacing and Meal break";
@@ -773,7 +773,7 @@ namespace ClubCompFS
             set => this._lblRemWT = value;
         }
 
-        private void Dialog7_Load(object sender, EventArgs e)
+        private void IceResurfacingMealBreakDialog_Load(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
@@ -958,7 +958,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Dialog7, OK_Button_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("IceResurfacingMealBreakDialog, OK_Button_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_21:
             if (num2 == 0)
@@ -1045,7 +1045,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num5 = (int)Interaction.MsgBox((object)("Dialog7, ClearButtons - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num5 = (int)Interaction.MsgBox((object)("IceResurfacingMealBreakDialog, ClearButtons - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_10:
             if (num2 == 0)
