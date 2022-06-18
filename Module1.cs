@@ -2100,7 +2100,7 @@ namespace ClubCompFS
             MyProject.Forms.Form7.Close();
             MyProject.Forms.CategoryDialog.Close();
             MyProject.Forms.Dialog4.Close();
-            MyProject.Forms.Dialog3.Close();
+            MyProject.Forms.ConfigurationDataDialog.Close();
             MyProject.Forms.Dialog5.Close();
             MyProject.Forms.Form12.Close();
             MyProject.Forms.Dialog7.Close();

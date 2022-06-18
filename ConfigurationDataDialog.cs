@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog3
+// Type: ClubCompFS.ConfigurationDataDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog3 : Form
+    public class ConfigurationDataDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -148,9 +148,9 @@ namespace ClubCompFS
         private int Old_PingClients;
         private int Old_PingTimeout;
 
-        public Dialog3()
+        public ConfigurationDataDialog()
         {
-            this.Load += new EventHandler(this.Dialog3_Load);
+            this.Load += new EventHandler(this.ConfigurationDataDialog_Load);
             this.InitializeComponent();
         }
 
@@ -172,7 +172,7 @@ namespace ClubCompFS
         [DebuggerStepThrough]
         private void InitializeComponent()
         {
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Dialog3));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ConfigurationDataDialog));
             this.TableLayoutPanel1 = new TableLayoutPanel();
             this.OK_Button = new Button();
             this.Cancel_Button = new Button();
@@ -865,7 +865,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog3);
+            this.Name = nameof(ConfigurationDataDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "CONFIGURATION DATA";
@@ -1514,7 +1514,7 @@ namespace ClubCompFS
             this.Close();
         }
 
-        private void Dialog3_Load(object sender, EventArgs e)
+        private void ConfigurationDataDialog_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.Form1.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));

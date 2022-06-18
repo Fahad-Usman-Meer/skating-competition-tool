@@ -4121,8 +4121,8 @@ namespace ClubCompFS
                 MyProject.Forms.NetworkStatusDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog4))
                 MyProject.Forms.Dialog4.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog3))
-                MyProject.Forms.Dialog3.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
+                MyProject.Forms.ConfigurationDataDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
                 MyProject.Forms.Dialog5.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
@@ -4770,9 +4770,9 @@ namespace ClubCompFS
             }
             else
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog3))
-                    MyProject.Forms.Dialog3.Close();
-                int num = (int)MyProject.Forms.Dialog3.ShowDialog();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
+                    MyProject.Forms.ConfigurationDataDialog.Close();
+                int num = (int)MyProject.Forms.ConfigurationDataDialog.ShowDialog();
             }
         }
 
