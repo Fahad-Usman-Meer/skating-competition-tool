@@ -1496,7 +1496,7 @@ namespace ClubCompFS
             this.Top = MyProject.Forms.JudgesDetailsForm.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.JudgesDetailsForm.Left + (double)MyProject.Forms.JudgesDetailsForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = true;
-            this.Text = "INPUT JUDGES DATA - " + Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
+            this.Text = "INPUT JUDGES DATA - " + Program.Vek[Program.PNo].Name.FName + " " + Program.Vek[Program.PNo].Name.LName;
             this.JudgeManualInput();
             this.JI1.Select();
         }
@@ -1511,11 +1511,11 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 InputJudgesDataDialog dialog10 = this;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
                     this.NoEl = 1;
-                    while (Strings.Len(Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg1[this.NoEl]) != 0)
+                    while (Strings.Len(Program.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg1[this.NoEl]) != 0)
                     {
                         checked { ++this.NoEl; }
                         if (this.NoEl > 15)
@@ -1525,7 +1525,7 @@ namespace ClubCompFS
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
                     this.NoEl = 1;
-                    while (Strings.Len(Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg2[this.NoEl]) != 0)
+                    while (Strings.Len(Program.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg2[this.NoEl]) != 0)
                     {
                         checked { ++this.NoEl; }
                         if (this.NoEl > 15)
@@ -1540,18 +1540,18 @@ namespace ClubCompFS
                 {
                     string key1 = "EL" + Strings.Trim(Conversions.ToString(index1));
                     string key2 = "JI" + Strings.Trim(Conversions.ToString(index1));
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
-                        dialog10.Controls[key1].Text = Strings.Trim(Conversions.ToString(index1)) + "  " + Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg1[index1];
-                        dialog10.Controls[key2].Text = Conversions.ToString(Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)]);
+                        dialog10.Controls[key1].Text = Strings.Trim(Conversions.ToString(index1)) + "  " + Program.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg1[index1];
+                        dialog10.Controls[key2].Text = Conversions.ToString(Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)]);
                         dialog10.Controls[key1].Visible = true;
                         dialog10.Controls[key2].Visible = true;
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
-                        dialog10.Controls[key1].Text = Strings.Trim(Conversions.ToString(index1)) + "  " + Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg2[index1];
-                        dialog10.Controls[key2].Text = Conversions.ToString(Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)]);
+                        dialog10.Controls[key1].Text = Strings.Trim(Conversions.ToString(index1)) + "  " + Program.Vek[Conversions.ToInteger(this.txtPno.Text)].SSS_Seg2[index1];
+                        dialog10.Controls[key2].Text = Conversions.ToString(Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)]);
                         dialog10.Controls[key1].Visible = true;
                         dialog10.Controls[key2].Visible = true;
                     }
@@ -1562,10 +1562,10 @@ namespace ClubCompFS
                 {
                     string key3 = "PC" + Strings.Trim(Conversions.ToString(index2));
                     string key4 = "txtPC" + Strings.Trim(Conversions.ToString(index2));
-                    string segment3 = Module1.Segment;
+                    string segment3 = Program.Segment;
                     if (Operators.CompareString(segment3, "Seg1", false) == 0)
                     {
-                        if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[index2] > 0.0)
+                        if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[index2] > 0.0)
                         {
                             dialog10.Controls[key3].Visible = true;
                             dialog10.Controls[key4].Visible = true;
@@ -1575,11 +1575,11 @@ namespace ClubCompFS
                             dialog10.Controls[key3].Visible = false;
                             dialog10.Controls[key4].Visible = false;
                         }
-                        dialog10.Controls[key3].Text = Strings.Format((object)Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)], "0.00");
+                        dialog10.Controls[key3].Text = Strings.Format((object)Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)], "0.00");
                     }
                     else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                     {
-                        if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[index2] > 0.0)
+                        if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[index2] > 0.0)
                         {
                             dialog10.Controls[key3].Visible = true;
                             dialog10.Controls[key4].Visible = true;
@@ -1589,16 +1589,16 @@ namespace ClubCompFS
                             dialog10.Controls[key3].Visible = false;
                             dialog10.Controls[key4].Visible = false;
                         }
-                        dialog10.Controls[key3].Text = Strings.Format((object)Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)], "0.00");
+                        dialog10.Controls[key3].Text = Strings.Format((object)Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)], "0.00");
                     }
                     checked { ++index2; }
                 }
                 while (index2 <= 5);
-                string segment4 = Module1.Segment;
+                string segment4 = Program.Segment;
                 if (Operators.CompareString(segment4, "Seg1", false) == 0)
-                    num3 = checked((int)Module1.Vek[Module1.PNo].J_Seg1.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)]);
+                    num3 = checked((int)Program.Vek[Program.PNo].J_Seg1.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)]);
                 else if (Operators.CompareString(segment4, "Seg2", false) == 0)
-                    num3 = checked((int)Module1.Vek[Module1.PNo].J_Seg2.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)]);
+                    num3 = checked((int)Program.Vek[Program.PNo].J_Seg2.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)]);
                 if (num3 >= 4)
                 {
                     this.chD3.Checked = true;
@@ -1655,41 +1655,41 @@ namespace ClubCompFS
                 {
                     string str = "EL" + Strings.Trim(Conversions.ToString(index1));
                     string key = "JI" + Strings.Trim(Conversions.ToString(index1));
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
                     checked { ++index1; }
                 }
                 int index2 = 1;
                 do
                 {
                     string key = "PC" + Strings.Trim(Conversions.ToString(index2));
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
                     checked { ++index2; }
                 }
                 while (index2 <= 5);
                 int num3 = !this.chD1.Checked ? 0 : 1;
                 int num4 = !this.chD2.Checked ? 0 : 2;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                    Module1.Vek[Module1.PNo].J_Seg1.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)] = (long)checked(num3 + num4);
+                    Program.Vek[Program.PNo].J_Seg1.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)] = (long)checked(num3 + num4);
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                    Module1.Vek[Module1.PNo].J_Seg2.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)] = (long)checked(num3 + num4);
+                    Program.Vek[Program.PNo].J_Seg2.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)] = (long)checked(num3 + num4);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 int rowDed = 0;
-                Module1.CreateJudgesDetails(0, ref rowDed);
+                Program.CreateJudgesDetails(0, ref rowDed);
                 MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
                 MyProject.Forms.JudgesDetailsForm.Show();
-                if (Module1.WorkMode == 3)
+                if (Program.WorkMode == 3)
                 {
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                     goto label_25;
                 }
                 else

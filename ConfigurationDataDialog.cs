@@ -1482,34 +1482,34 @@ namespace ClubCompFS
         private void OK_Button_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            Module1.PathCompFile = this.txtComp.Text;
-            Module1.PathResultsFile = this.txtResults.Text;
-            Module1.CreateResultsPhone = Conversions.ToInteger(this.txtResultsPhone.Text);
-            Module1.CreateTEScores = Conversions.ToInteger(this.txtTEScores.Text);
-            Module1.IceLeaveTime = this.txtIceleave.Text;
-            Module1.ResurfacingTime = this.txtResurfacing.Text;
-            Module1.LunchTime = this.txtMeal.Text;
-            Module1.ShowJudgeDed = Conversions.ToInteger(this.txtShowJDed.Text);
-            Module1.NoJudgeTMV = Conversions.ToDouble(this.txtNoJudgeTMV.Text) != 0.0 ? Conversions.ToInteger(this.txtNoJudgeTMV.Text) : 9;
-            Module1.CreateScoreBoard = Conversions.ToInteger(this.txtScoreBoard.Text);
-            Module1.ScoreBoardDelay = !(Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 60M) > 0) ? Convert.ToInt32(Conversions.ToDecimal(this.txtDelay.Text)) : this.OldScoreboardDelay;
-            Module1.PortNo = Conversions.ToInteger(this.txtPort.Text);
-            Module1.PingClients = Conversions.ToInteger(this.txtPingClients.Text);
-            MyProject.Forms.MainForm.Timer3.Enabled = Module1.PingClients == 1;
-            Module1.PingTimeout = Conversions.ToInteger(this.txtPingTimeout.Text);
-            if (Module1.PingTimeout < 500 | Module1.PingTimeout > 1500)
-                Module1.PingTimeout = 1000;
-            Module1.AdjustToScreen = Operators.CompareString(this.txtAdjust.Text, "ON", false) != 0 ? 0 : 1;
-            Module1.Page_Size = !(Decimal.Compare(Convert.ToDecimal(this.txtSize.Text), 75M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtSize.Text), 125M) > 0) ? Convert.ToDouble(Conversions.ToDecimal(this.txtSize.Text)) : Convert.ToDouble(this.OldSize);
-            Module1.Page_Left_Margin = !(Decimal.Compare(Convert.ToDecimal(this.txtLeftMargin.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtLeftMargin.Text), 100M) > 0) ? Conversions.ToInteger(this.txtLeftMargin.Text) : this.OldLeftMargin;
-            Module1.Page_Top_Margin = !(Decimal.Compare(Convert.ToDecimal(this.txtTopMargin.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtTopMargin.Text), 100M) > 0) ? Conversions.ToInteger(this.txtTopMargin.Text) : this.OldTopMargin;
-            Module1.SaveIniData("CLUBCOMP.INI");
+            Program.PathCompFile = this.txtComp.Text;
+            Program.PathResultsFile = this.txtResults.Text;
+            Program.CreateResultsPhone = Conversions.ToInteger(this.txtResultsPhone.Text);
+            Program.CreateTEScores = Conversions.ToInteger(this.txtTEScores.Text);
+            Program.IceLeaveTime = this.txtIceleave.Text;
+            Program.ResurfacingTime = this.txtResurfacing.Text;
+            Program.LunchTime = this.txtMeal.Text;
+            Program.ShowJudgeDed = Conversions.ToInteger(this.txtShowJDed.Text);
+            Program.NoJudgeTMV = Conversions.ToDouble(this.txtNoJudgeTMV.Text) != 0.0 ? Conversions.ToInteger(this.txtNoJudgeTMV.Text) : 9;
+            Program.CreateScoreBoard = Conversions.ToInteger(this.txtScoreBoard.Text);
+            Program.ScoreBoardDelay = !(Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 60M) > 0) ? Convert.ToInt32(Conversions.ToDecimal(this.txtDelay.Text)) : this.OldScoreboardDelay;
+            Program.PortNo = Conversions.ToInteger(this.txtPort.Text);
+            Program.PingClients = Conversions.ToInteger(this.txtPingClients.Text);
+            MyProject.Forms.MainForm.Timer3.Enabled = Program.PingClients == 1;
+            Program.PingTimeout = Conversions.ToInteger(this.txtPingTimeout.Text);
+            if (Program.PingTimeout < 500 | Program.PingTimeout > 1500)
+                Program.PingTimeout = 1000;
+            Program.AdjustToScreen = Operators.CompareString(this.txtAdjust.Text, "ON", false) != 0 ? 0 : 1;
+            Program.Page_Size = !(Decimal.Compare(Convert.ToDecimal(this.txtSize.Text), 75M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtSize.Text), 125M) > 0) ? Convert.ToDouble(Conversions.ToDecimal(this.txtSize.Text)) : Convert.ToDouble(this.OldSize);
+            Program.Page_Left_Margin = !(Decimal.Compare(Convert.ToDecimal(this.txtLeftMargin.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtLeftMargin.Text), 100M) > 0) ? Conversions.ToInteger(this.txtLeftMargin.Text) : this.OldLeftMargin;
+            Program.Page_Top_Margin = !(Decimal.Compare(Convert.ToDecimal(this.txtTopMargin.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtTopMargin.Text), 100M) > 0) ? Conversions.ToInteger(this.txtTopMargin.Text) : this.OldTopMargin;
+            Program.SaveIniData("CLUBCOMP.INI");
             this.Close();
         }
 
         private void Cancel_Button_Click(object sender, EventArgs e)
         {
-            Module1.AdjustToScreen = this.Old_AdjustToScreen;
+            Program.AdjustToScreen = this.Old_AdjustToScreen;
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
@@ -1519,37 +1519,37 @@ namespace ClubCompFS
             this.Top = MyProject.Forms.MainForm.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = true;
-            this.txtComp.Text = Module1.PathCompFile;
-            this.txtResults.Text = Module1.PathResultsFile;
-            this.txtResultsPhone.Text = Conversions.ToString(Module1.CreateResultsPhone);
-            this.txtTEScores.Text = Conversions.ToString(Module1.CreateTEScores);
-            this.txtIceleave.Text = Module1.IceLeaveTime;
-            this.OldIceLeave = Module1.IceLeaveTime;
-            this.txtResurfacing.Text = Module1.ResurfacingTime;
-            this.OldResurfacing = Module1.ResurfacingTime;
-            this.txtMeal.Text = Module1.LunchTime;
-            this.OldMeal = Module1.LunchTime;
-            this.txtShowJDed.Text = Conversions.ToString(Module1.ShowJudgeDed);
-            this.OldShowJDed = Conversions.ToString(Module1.ShowJudgeDed);
-            this.txtNoJudgeTMV.Text = Module1.NoJudgeTMV != 9 ? Conversions.ToString(Module1.NoJudgeTMV) : Conversions.ToString(0);
-            this.OldNoJudgeTMV = Conversions.ToString(Module1.NoJudgeTMV);
-            this.txtScoreBoard.Text = Conversions.ToString(Module1.CreateScoreBoard);
-            this.OldCreateScoreBoard = Conversions.ToString(Module1.CreateScoreBoard);
-            this.txtDelay.Text = Conversions.ToString(Module1.ScoreBoardDelay);
-            this.OldScoreboardDelay = Module1.ScoreBoardDelay;
-            this.txtPort.Text = Conversions.ToString(Module1.PortNo);
-            this.txtPingClients.Text = Conversions.ToString(Module1.PingClients);
-            this.Old_PingClients = Module1.PingClients;
-            this.txtPingTimeout.Text = Conversions.ToString(Module1.PingTimeout);
-            this.Old_PingTimeout = Module1.PingTimeout;
-            this.txtSize.Text = Conversions.ToString(Module1.Page_Size);
-            this.OldSize = new Decimal(Module1.Page_Size);
-            this.txtLeftMargin.Text = Conversions.ToString(Module1.Page_Left_Margin);
-            this.OldLeftMargin = Module1.Page_Left_Margin;
-            this.txtTopMargin.Text = Conversions.ToString(Module1.Page_Top_Margin);
-            this.OldTopMargin = Module1.Page_Top_Margin;
-            this.Old_AdjustToScreen = Module1.AdjustToScreen;
-            switch (Module1.AdjustToScreen)
+            this.txtComp.Text = Program.PathCompFile;
+            this.txtResults.Text = Program.PathResultsFile;
+            this.txtResultsPhone.Text = Conversions.ToString(Program.CreateResultsPhone);
+            this.txtTEScores.Text = Conversions.ToString(Program.CreateTEScores);
+            this.txtIceleave.Text = Program.IceLeaveTime;
+            this.OldIceLeave = Program.IceLeaveTime;
+            this.txtResurfacing.Text = Program.ResurfacingTime;
+            this.OldResurfacing = Program.ResurfacingTime;
+            this.txtMeal.Text = Program.LunchTime;
+            this.OldMeal = Program.LunchTime;
+            this.txtShowJDed.Text = Conversions.ToString(Program.ShowJudgeDed);
+            this.OldShowJDed = Conversions.ToString(Program.ShowJudgeDed);
+            this.txtNoJudgeTMV.Text = Program.NoJudgeTMV != 9 ? Conversions.ToString(Program.NoJudgeTMV) : Conversions.ToString(0);
+            this.OldNoJudgeTMV = Conversions.ToString(Program.NoJudgeTMV);
+            this.txtScoreBoard.Text = Conversions.ToString(Program.CreateScoreBoard);
+            this.OldCreateScoreBoard = Conversions.ToString(Program.CreateScoreBoard);
+            this.txtDelay.Text = Conversions.ToString(Program.ScoreBoardDelay);
+            this.OldScoreboardDelay = Program.ScoreBoardDelay;
+            this.txtPort.Text = Conversions.ToString(Program.PortNo);
+            this.txtPingClients.Text = Conversions.ToString(Program.PingClients);
+            this.Old_PingClients = Program.PingClients;
+            this.txtPingTimeout.Text = Conversions.ToString(Program.PingTimeout);
+            this.Old_PingTimeout = Program.PingTimeout;
+            this.txtSize.Text = Conversions.ToString(Program.Page_Size);
+            this.OldSize = new Decimal(Program.Page_Size);
+            this.txtLeftMargin.Text = Conversions.ToString(Program.Page_Left_Margin);
+            this.OldLeftMargin = Program.Page_Left_Margin;
+            this.txtTopMargin.Text = Conversions.ToString(Program.Page_Top_Margin);
+            this.OldTopMargin = Program.Page_Top_Margin;
+            this.Old_AdjustToScreen = Program.AdjustToScreen;
+            switch (Program.AdjustToScreen)
             {
                 case 0:
                     this.txtAdjust.Text = "OFF";
@@ -1772,15 +1772,15 @@ namespace ClubCompFS
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            switch (Module1.AdjustToScreen)
+            switch (Program.AdjustToScreen)
             {
                 case 0:
                     this.txtAdjust.Text = "ON";
-                    Module1.AdjustToScreen = 1;
+                    Program.AdjustToScreen = 1;
                     break;
                 case 1:
                     this.txtAdjust.Text = "OFF";
-                    Module1.AdjustToScreen = 0;
+                    Program.AdjustToScreen = 0;
                     break;
             }
         }

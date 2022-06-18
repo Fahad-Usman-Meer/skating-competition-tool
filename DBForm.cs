@@ -368,9 +368,9 @@ namespace ClubCompFS
         public void CereateOpenDBDisplay()
         {
             this.CreatingOpenDB = true;
-            this.Text = Module1.OpenDBver + ", Created: " + Module1.DateTimeToStr(DateTime.Now);
+            this.Text = Program.OpenDBver + ", Created: " + Program.DateTimeToStr(DateTime.Now);
             DataGridView dataGridView1 = this.DataGridView1;
-            dataGridView1.RowCount = Module1.NoOfCategory;
+            dataGridView1.RowCount = Program.NoOfCategory;
             dataGridView1.ColumnHeadersVisible = true;
             dataGridView1.ColumnCount = 15;
             dataGridView1.Columns[0].HeaderText = "Category";
@@ -390,7 +390,7 @@ namespace ClubCompFS
             dataGridView1.Columns[14].HeaderText = "Warmup";
             dataGridView1.Width = 1100;
             this.DGW1width = dataGridView1.Width;
-            this.Width = checked(this.DGW1width + Module1.WC);
+            this.Width = checked(this.DGW1width + Program.WC);
             dataGridView1.Columns[0].Width = 200;
             dataGridView1.Columns[1].Width = 50;
             dataGridView1.Columns[2].Width = 50;
@@ -436,21 +436,21 @@ namespace ClubCompFS
             dataGridView1.Columns[13].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[14].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             int index1 = 0;
-            while (Microsoft.VisualBasic.Strings.Len(Module1.OpenDB[index1].Category) > 2)
+            while (Microsoft.VisualBasic.Strings.Len(Program.OpenDB[index1].Category) > 2)
             {
-                dataGridView1.Rows[index1].Cells[0].Value = (object)Module1.OpenDB[index1].Category;
-                dataGridView1.Rows[index1].Cells[1].Value = (object)Module1.OpenDB[index1].Segment_1;
-                dataGridView1.Rows[index1].Cells[2].Value = (object)Module1.OpenDB[index1].Segment_2;
-                dataGridView1.Rows[index1].Cells[3].Value = (object)Module1.OpenDB[index1].Seg1Time;
-                dataGridView1.Rows[index1].Cells[4].Value = (object)Module1.OpenDB[index1].Seg2Time;
-                dataGridView1.Rows[index1].Cells[5].Value = (object)Module1.OpenDB[index1].JudgeSeg1Time;
-                dataGridView1.Rows[index1].Cells[6].Value = (object)Module1.OpenDB[index1].JudgeSeg2Time;
-                dataGridView1.Rows[index1].Cells[7].Value = (object)Module1.OpenDB[index1].GrSize;
+                dataGridView1.Rows[index1].Cells[0].Value = (object)Program.OpenDB[index1].Category;
+                dataGridView1.Rows[index1].Cells[1].Value = (object)Program.OpenDB[index1].Segment_1;
+                dataGridView1.Rows[index1].Cells[2].Value = (object)Program.OpenDB[index1].Segment_2;
+                dataGridView1.Rows[index1].Cells[3].Value = (object)Program.OpenDB[index1].Seg1Time;
+                dataGridView1.Rows[index1].Cells[4].Value = (object)Program.OpenDB[index1].Seg2Time;
+                dataGridView1.Rows[index1].Cells[5].Value = (object)Program.OpenDB[index1].JudgeSeg1Time;
+                dataGridView1.Rows[index1].Cells[6].Value = (object)Program.OpenDB[index1].JudgeSeg2Time;
+                dataGridView1.Rows[index1].Cells[7].Value = (object)Program.OpenDB[index1].GrSize;
                 string Left1 = "";
                 int index2 = 1;
                 do
                 {
-                    Left1 += Conversions.ToString(Module1.OpenDB[index1].PCFactorsSeg1[index2]);
+                    Left1 += Conversions.ToString(Program.OpenDB[index1].PCFactorsSeg1[index2]);
                     if (index2 < 5)
                         Left1 += " ";
                     checked { ++index2; }
@@ -466,7 +466,7 @@ namespace ClubCompFS
                 int index3 = 1;
                 do
                 {
-                    Left2 += Conversions.ToString(Module1.OpenDB[index1].PCFactorsSeg2[index3]);
+                    Left2 += Conversions.ToString(Program.OpenDB[index1].PCFactorsSeg2[index3]);
                     if (index3 < 5)
                         Left2 += " ";
                     checked { ++index3; }
@@ -478,13 +478,13 @@ namespace ClubCompFS
                     dataGridView1.Rows[index1].Cells[2].ReadOnly = false;
                     dataGridView1.Rows[index1].Cells[6].ReadOnly = false;
                 }
-                dataGridView1.Rows[index1].Cells[10].Value = (object)Module1.OpenDB[index1].DedFall;
-                dataGridView1.Rows[index1].Cells[11].Value = (object)Module1.OpenDB[index1].DedInter;
+                dataGridView1.Rows[index1].Cells[10].Value = (object)Program.OpenDB[index1].DedFall;
+                dataGridView1.Rows[index1].Cells[11].Value = (object)Program.OpenDB[index1].DedInter;
                 string str1 = "";
                 int index4 = 1;
                 do
                 {
-                    str1 += Conversions.ToString(Module1.OpenDB[index1].HT_Bonus_Calc[index4]);
+                    str1 += Conversions.ToString(Program.OpenDB[index1].HT_Bonus_Calc[index4]);
                     if (index4 < 2)
                         str1 += " ";
                     checked { ++index4; }
@@ -495,19 +495,19 @@ namespace ClubCompFS
                 int index5 = 1;
                 do
                 {
-                    str2 += Conversions.ToString(Module1.OpenDB[index1].ElementTest[index5]);
+                    str2 += Conversions.ToString(Program.OpenDB[index1].ElementTest[index5]);
                     if (index5 < 7)
                         str2 += " ";
                     checked { ++index5; }
                 }
                 while (index5 <= 7);
                 dataGridView1.Rows[index1].Cells[13].Value = (object)str2;
-                dataGridView1.Rows[index1].Cells[14].Value = (object)Module1.OpenDB[index1].Warmup;
+                dataGridView1.Rows[index1].Cells[14].Value = (object)Program.OpenDB[index1].Warmup;
                 if ((double)index1 == Conversion.Int((double)index1 / 2.0) * 2.0)
                     dataGridView1.Rows[index1].DefaultCellStyle.BackColor = Color.LightGray;
                 checked { ++index1; }
             }
-            this.F3Height = checked(dataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+            this.F3Height = checked(dataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
             int f3Height = this.F3Height;
             Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
             int num = checked(workingArea.Height - 100);
@@ -515,14 +515,14 @@ namespace ClubCompFS
             {
                 this.Height = this.F3Height;
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
             else
             {
                 workingArea = Screen.PrimaryScreen.WorkingArea;
                 this.Height = checked(workingArea.Height - 100);
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             this.widthcorr = true;
             this.CreatingOpenDB = false;
@@ -536,10 +536,10 @@ namespace ClubCompFS
             switch (e.ColumnIndex)
             {
                 case 1:
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (object)Module1.OpenDB[e.RowIndex].Segment_1;
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (object)Program.OpenDB[e.RowIndex].Segment_1;
                     break;
                 case 2:
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (object)Module1.OpenDB[e.RowIndex].Segment_2;
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (object)Program.OpenDB[e.RowIndex].Segment_2;
                     break;
                 case 5:
                 case 6:
@@ -549,10 +549,10 @@ namespace ClubCompFS
                         switch (e.ColumnIndex)
                         {
                             case 5:
-                                Module1.OpenDB[e.RowIndex].JudgeSeg1Time = s;
+                                Program.OpenDB[e.RowIndex].JudgeSeg1Time = s;
                                 return;
                             case 6:
-                                Module1.OpenDB[e.RowIndex].JudgeSeg2Time = s;
+                                Program.OpenDB[e.RowIndex].JudgeSeg2Time = s;
                                 return;
                             default:
                                 return;
@@ -603,7 +603,7 @@ namespace ClubCompFS
                         {
                             case '0':
                             case 'S':
-                                Module1.OpenDB[dataGridView1.CurrentCell.RowIndex].Segment_1 = Conversions.ToString(e.KeyChar);
+                                Program.OpenDB[dataGridView1.CurrentCell.RowIndex].Segment_1 = Conversions.ToString(e.KeyChar);
                                 goto label_15;
                             default:
                                 int num3 = (int)Interaction.MsgBox((object)"Wrong input!\r\nOnly 0 or S are allowed!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -615,7 +615,7 @@ namespace ClubCompFS
                         {
                             case '0':
                             case 'F':
-                                Module1.OpenDB[dataGridView1.CurrentCell.RowIndex].Segment_2 = Conversions.ToString(e.KeyChar);
+                                Program.OpenDB[dataGridView1.CurrentCell.RowIndex].Segment_2 = Conversions.ToString(e.KeyChar);
                                 goto label_15;
                             default:
                                 int num4 = (int)Interaction.MsgBox((object)"Wrong input!\r\nOnly 0 or F are allowed!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -805,30 +805,30 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F3Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
 
         private void EXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            string seg = Module1.GetSeg();
+            string seg = Program.GetSeg();
             if (Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 && Operators.CompareString(seg, "SS", false) != 0)
             {
                 if (Operators.CompareString(seg, "S0", false) == 0)
-                    Module1.Segment = "Seg1";
+                    Program.Segment = "Seg1";
                 else if (Operators.CompareString(seg, "0F", false) == 0)
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                 else if (Operators.CompareString(seg, "F0", false) == 0)
-                    Module1.Segment = "Seg1";
+                    Program.Segment = "Seg1";
             }
-            Module1.CreateMainForm();
+            Program.CreateMainForm();
             MyProject.Forms.MainForm.btnSeg1Seg2();
         }
 

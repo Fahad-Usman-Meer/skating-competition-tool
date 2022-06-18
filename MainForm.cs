@@ -4003,7 +4003,7 @@ namespace ClubCompFS
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!Module1.CategoryFileSaved | !this.completed5)
+            if (!Program.CategoryFileSaved | !this.completed5)
             {
                 if (Interaction.MsgBox((object)"All started jobs are not yet finished!\r\nDo you really want to exit?", MsgBoxStyle.Exclamation | MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                 {
@@ -4033,22 +4033,22 @@ namespace ClubCompFS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Module1.Vek = new Module1.Participant[43];
+            Program.Vek = new Program.Participant[43];
             Application.CurrentCulture = new CultureInfo("sv-SE");
             this.Text = "ClubCompFS Single ver. 10.0.6, 2019-01-12";
             if (MyProject.Computer.Info.OSFullName.Contains("XP"))
             {
-                Module1.HC = 39;
-                Module1.WC = 10;
-                Module1.WC1 = 15;
-                Module1.WC2 = 25;
+                Program.HC = 39;
+                Program.WC = 10;
+                Program.WC1 = 15;
+                Program.WC2 = 25;
             }
             else
             {
-                Module1.HC = 42;
-                Module1.WC = 20;
-                Module1.WC1 = 20;
-                Module1.WC2 = 40;
+                Program.HC = 42;
+                Program.WC = 20;
+                Program.WC1 = 20;
+                Program.WC2 = 40;
             }
             int num1 = 0;
             int num2 = 0;
@@ -4059,24 +4059,24 @@ namespace ClubCompFS
             }
             if (num1 != 96 | num2 != 96 && Interaction.MsgBox((object)"Please change the font scale to 100% (96 DPI)!\r\nDo you want to quit?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
                 this.Close();
-            Module1.TimeLimit(File.GetCreationTime(Application.ExecutablePath).ToString("yyyy-MM-dd"));
-            Module1.TimeLimit(File.GetLastWriteTime(Application.ExecutablePath).ToString("yyyy-MM-dd"));
+            Program.TimeLimit(File.GetCreationTime(Application.ExecutablePath).ToString("yyyy-MM-dd"));
+            Program.TimeLimit(File.GetLastWriteTime(Application.ExecutablePath).ToString("yyyy-MM-dd"));
             DateTime dateTime = DateTime.Now;
             dateTime = dateTime.Date;
-            Module1.TimeLimit(dateTime.ToString("yyyy-MM-dd"));
+            Program.TimeLimit(dateTime.ToString("yyyy-MM-dd"));
             this.InitJudgeComp();
-            if (Module1.GetIniData("CLUBCOMP.INI"))
+            if (Program.GetIniData("CLUBCOMP.INI"))
             {
                 this.InitVariables();
-                Module1.CreateMainForm();
-                Module1.LoadOpenDB("OpenDB.xml");
+                Program.CreateMainForm();
+                Program.LoadOpenDB("OpenDB.xml");
                 this.LoadElementDB("ElementDB.xml");
-                Module1.SetWorkMode(2);
+                Program.SetWorkMode(2);
                 this.EnableTextboxes(false);
                 this.btnSeg1Seg2();
                 this.KeyPreview = true;
                 this.StartServer();
-                this.Timer3.Enabled = Module1.PingClients == 1;
+                this.Timer3.Enabled = Program.PingClients == 1;
             }
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.Top = 0;
@@ -4087,8 +4087,8 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                Module1.JudgeCompNo[index] = index;
-                Module1.JudgeCompFunc[index] = 2;
+                Program.JudgeCompNo[index] = index;
+                Program.JudgeCompFunc[index] = 2;
                 checked { ++index; }
             }
             while (index <= 7);
@@ -4099,41 +4099,41 @@ namespace ClubCompFS
             MyProject.Forms.StartListForm.WillExitStartListForm = true;
             MyProject.Forms.JudgesDetailsForm.WillExitJudgesDetailsForm = true;
             MyProject.Forms.ElementInputForm.WillExit = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 MyProject.Forms.StartListForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.DBForm))
                 MyProject.Forms.DBForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                 MyProject.Forms.JudgesDetailsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 MyProject.Forms.ElementInputForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                 MyProject.Forms.ResultsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
                 MyProject.Forms.JudgesCardForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                 MyProject.Forms.CategoryDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
                 MyProject.Forms.NetworkStatusDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
                 MyProject.Forms.JudgesSetupDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                 MyProject.Forms.ConfigurationDataDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                 MyProject.Forms.ParticipantInputDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
                 MyProject.Forms.IndTAEntriesForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
                 MyProject.Forms.HeadPageDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                 MyProject.Forms.InputJudgesDataDialog.Close();
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+            if (!Program.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                 return;
             MyProject.Forms.DeductionsDialog.Close();
         }
@@ -4151,12 +4151,12 @@ namespace ClubCompFS
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
                 openFileDialog.Title = "LOAD A COMPETITION FILE";
-                openFileDialog.InitialDirectory = Module1.PathCompFile;
+                openFileDialog.InitialDirectory = Program.PathCompFile;
                 openFileDialog.Filter = "Competition files (*.xml)|*.xml|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -4165,22 +4165,22 @@ namespace ClubCompFS
                 {
                     try
                     {
-                        if (Module1.WorkMode == 1)
+                        if (Program.WorkMode == 1)
                         {
                             this.txtCompetitionName.Select();
-                            if (Strings.Len(Module1.Competition.Name) > 0 & Strings.Len(Module1.Category.Name) > 0)
-                                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                            if (Strings.Len(Program.Competition.Name) > 0 & Strings.Len(Program.Category.Name) > 0)
+                                Program.SaveCategoryFile(Program.CategoryFileName);
                         }
                         this.CloseFormsDialogs();
                         this.InitVariables();
                         stream = openFileDialog.OpenFile();
                         if (stream != null)
                         {
-                            Module1.CategoryFileName = openFileDialog.FileName;
-                            Module1.TimeLimit(File.GetCreationTime(Module1.CategoryFileName).ToString("yyyy-MM-dd"));
-                            Module1.LoadXML_DB(openFileDialog.FileName);
-                            Module1.CalcPCindex();
-                            switch (Module1.WorkMode)
+                            Program.CategoryFileName = openFileDialog.FileName;
+                            Program.TimeLimit(File.GetCreationTime(Program.CategoryFileName).ToString("yyyy-MM-dd"));
+                            Program.LoadXML_DB(openFileDialog.FileName);
+                            Program.CalcPCindex();
+                            switch (Program.WorkMode)
                             {
                                 case 1:
                                     this.EnableTextboxes(true);
@@ -4193,35 +4193,35 @@ namespace ClubCompFS
                                     this.EnableTextboxes(false);
                                     break;
                             }
-                            string seg = Module1.GetSeg();
+                            string seg = Program.GetSeg();
                             if (Operators.CompareString(seg, "SF", false) == 0)
                             {
-                                Module1.Segment = this.Testsegment();
+                                Program.Segment = this.Testsegment();
                                 this.TestOfficials();
                             }
                             else if (Operators.CompareString(seg, "FF", false) == 0)
                             {
-                                Module1.Segment = this.Testsegment();
+                                Program.Segment = this.Testsegment();
                                 this.TestOfficials();
                             }
                             else if (Operators.CompareString(seg, "SS", false) == 0)
                             {
-                                Module1.Segment = this.Testsegment();
+                                Program.Segment = this.Testsegment();
                                 this.TestOfficials();
                             }
                             else if (Operators.CompareString(seg, "S0", false) == 0)
-                                Module1.Segment = "Seg1";
+                                Program.Segment = "Seg1";
                             else if (Operators.CompareString(seg, "0F", false) == 0)
-                                Module1.Segment = "Seg2";
+                                Program.Segment = "Seg2";
                             else if (Operators.CompareString(seg, "F0", false) == 0)
-                                Module1.Segment = "Seg1";
-                            Module1.SetNoJ();
-                            Module1.CreateMainForm();
+                                Program.Segment = "Seg1";
+                            Program.SetNoJ();
+                            Program.CreateMainForm();
                             this.btnSeg1Seg2();
-                            if (Module1.CreateTEScores > 0)
+                            if (Program.CreateTEScores > 0)
                             {
-                                Module1.TE_Leader = "0";
-                                Module1.MakeTEScore(Module1.TE_Leader, "0", "0");
+                                Program.TE_Leader = "0";
+                                Program.MakeTEScore(Program.TE_Leader, "0", "0");
                             }
                         }
                     }
@@ -4242,13 +4242,13 @@ namespace ClubCompFS
 
         public void TestOfficials()
         {
-            if (Strings.Len(Module1.Referee.Seg1.Name) == 0 & Strings.Len(Module1.Referee.Seg2.Name) > 0 | Strings.Len(Module1.Controller.Seg1.Name) == 0 & Strings.Len(Module1.Controller.Seg2.Name) > 0 | Strings.Len(Module1.Techspec.Seg1.Name) == 0 & Strings.Len(Module1.Techspec.Seg2.Name) > 0)
+            if (Strings.Len(Program.Referee.Seg1.Name) == 0 & Strings.Len(Program.Referee.Seg2.Name) > 0 | Strings.Len(Program.Controller.Seg1.Name) == 0 & Strings.Len(Program.Controller.Seg2.Name) > 0 | Strings.Len(Program.Techspec.Seg1.Name) == 0 & Strings.Len(Program.Techspec.Seg2.Name) > 0)
             {
                 int num1 = (int)Interaction.MsgBox((object)"Don´t forget to copy the officials name to segment 1?", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             else
             {
-                if (!(Strings.Len(Module1.Referee.Seg1.Name) > 0 & Strings.Len(Module1.Referee.Seg2.Name) == 0 | Strings.Len(Module1.Controller.Seg1.Name) > 0 & Strings.Len(Module1.Controller.Seg2.Name) == 0 | Strings.Len(Module1.Techspec.Seg1.Name) > 0 & Strings.Len(Module1.Techspec.Seg2.Name) == 0))
+                if (!(Strings.Len(Program.Referee.Seg1.Name) > 0 & Strings.Len(Program.Referee.Seg2.Name) == 0 | Strings.Len(Program.Controller.Seg1.Name) > 0 & Strings.Len(Program.Controller.Seg2.Name) == 0 | Strings.Len(Program.Techspec.Seg1.Name) > 0 & Strings.Len(Program.Techspec.Seg2.Name) == 0))
                     return;
                 int num2 = (int)Interaction.MsgBox((object)"Don´t forget to copy the officials name to segment 2?", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
@@ -4256,12 +4256,12 @@ namespace ClubCompFS
 
         public string Testsegment()
         {
-            string str = Module1.TNop != 0 ? "Seg2" : "Seg1";
-            int tnop = Module1.TNop;
+            string str = Program.TNop != 0 ? "Seg2" : "Seg1";
+            int tnop = Program.TNop;
             int index = 1;
             while (index <= tnop)
             {
-                if (Module1.Vek[index].Finished_Seg1 == 0 & Module1.Vek[index].DNS_Seg1 == 0)
+                if (Program.Vek[index].Finished_Seg1 == 0 & Program.Vek[index].DNS_Seg1 == 0)
                     str = "Seg1";
                 checked { ++index; }
             }
@@ -4270,7 +4270,7 @@ namespace ClubCompFS
 
         public void EnableTextboxes(bool blnLock)
         {
-            Module1.MainForm_TxtBoxEnabled = blnLock;
+            Program.MainForm_TxtBoxEnabled = blnLock;
             int num1 = 1;
             do
             {
@@ -4309,21 +4309,21 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.CloseFormsDialogs();
-            if (!Module1.TestStart())
+            if (!Program.TestStart())
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
                 this.EnableTextboxes(false);
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
                     this.GetInputMainForm();
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                 }
-                Module1.SetWorkMode(2);
+                Program.SetWorkMode(2);
             }
         }
 
@@ -4333,13 +4333,13 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
                 this.CloseFormsDialogs();
                 this.EnableTextboxes(true);
-                Module1.SetWorkMode(1);
+                Program.SetWorkMode(1);
                 this.txtCompetitionName.Select();
             }
         }
@@ -4349,21 +4349,21 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.CloseFormsDialogs();
-            if (!Module1.TestStart())
+            if (!Program.TestStart())
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
                 this.EnableTextboxes(false);
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
                     this.GetInputMainForm();
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                 }
-                Module1.SetWorkMode(3);
+                Program.SetWorkMode(3);
             }
         }
 
@@ -4372,7 +4372,7 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.TopMost = false;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
             int num = (int)MyProject.Forms.ElementDBDisplayForm.ShowDialog();
         }
@@ -4385,11 +4385,11 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElementDBLastWriteTime = new FileInfo(File).LastWriteTime;
+                Program.ElementDBLastWriteTime = new FileInfo(File).LastWriteTime;
                 int i;
                 using (XmlReader MyReader = XmlReader.Create(File))
                 {
-                    Module1.Jumpmin = 0;
+                    Program.Jumpmin = 0;
                     i = 0;
                     while (MyReader.Read())
                     {
@@ -4401,27 +4401,27 @@ namespace ClubCompFS
                             else if (Operators.CompareString(name, "Jump", false) == 0)
                             {
                                 this.ParseJump(MyReader, i);
-                                Module1.JumpMax = i;
+                                Program.JumpMax = i;
                                 checked { ++i; }
                             }
                             else if (Operators.CompareString(name, "Spin", false) == 0)
                             {
                                 this.ParseSpin(MyReader, i);
-                                Module1.Spinmax = i;
+                                Program.Spinmax = i;
                                 checked { ++i; }
                             }
                             else if (Operators.CompareString(name, "Step", false) == 0)
                             {
                                 this.ParseStep(MyReader, i);
-                                Module1.Stepmax = i;
+                                Program.Stepmax = i;
                                 checked { ++i; }
                             }
                         }
                     }
                 }
-                Module1.SpinMin = checked(Module1.JumpMax + 1);
-                Module1.Stepmin = checked(Module1.Spinmax + 1);
-                Module1.ElDBmax = i;
+                Program.SpinMin = checked(Program.JumpMax + 1);
+                Program.Stepmin = checked(Program.Spinmax + 1);
+                Program.ElDBmax = i;
                 goto label_22;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -4448,7 +4448,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 MyReader.ReadToFollowing("Version");
-                Module1.ElementDBver = MyReader.ReadString();
+                Program.ElementDBver = MyReader.ReadString();
                 goto label_7;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -4474,18 +4474,18 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
-                Module1.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
-                Module1.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
-                Module1.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
-                Module1.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
-                Module1.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
-                Module1.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
-                Module1.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
-                Module1.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
-                Module1.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
-                Module1.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
-                Module1.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
+                Program.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
+                Program.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
+                Program.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
+                Program.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
+                Program.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
+                Program.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
+                Program.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
+                Program.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
+                Program.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
+                Program.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
+                Program.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
+                Program.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
                 MyReader.MoveToElement();
                 goto label_7;
             }
@@ -4512,18 +4512,18 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
-                Module1.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
-                Module1.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
-                Module1.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
-                Module1.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
-                Module1.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
-                Module1.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
-                Module1.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
-                Module1.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
-                Module1.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
-                Module1.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
-                Module1.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
+                Program.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
+                Program.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
+                Program.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
+                Program.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
+                Program.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
+                Program.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
+                Program.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
+                Program.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
+                Program.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
+                Program.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
+                Program.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
+                Program.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
                 MyReader.MoveToElement();
                 goto label_7;
             }
@@ -4550,18 +4550,18 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
-                Module1.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
-                Module1.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
-                Module1.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
-                Module1.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
-                Module1.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
-                Module1.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
-                Module1.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
-                Module1.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
-                Module1.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
-                Module1.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
-                Module1.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
+                Program.ElDB[i, 0] = (object)MyReader.GetAttribute(0);
+                Program.ElDB[i, 1] = (object)MyReader.GetAttribute(1);
+                Program.ElDB[i, 2] = (object)MyReader.GetAttribute(2);
+                Program.ElDB[i, 3] = (object)MyReader.GetAttribute(3);
+                Program.ElDB[i, 4] = (object)MyReader.GetAttribute(4);
+                Program.ElDB[i, 5] = (object)MyReader.GetAttribute(5);
+                Program.ElDB[i, 6] = (object)MyReader.GetAttribute(6);
+                Program.ElDB[i, 7] = (object)MyReader.GetAttribute(7);
+                Program.ElDB[i, 8] = (object)MyReader.GetAttribute(8);
+                Program.ElDB[i, 9] = (object)MyReader.GetAttribute(9);
+                Program.ElDB[i, 10] = (object)MyReader.GetAttribute(10);
+                Program.ElDB[i, 11] = (object)MyReader.GetAttribute(11);
                 MyReader.MoveToElement();
                 goto label_7;
             }
@@ -4586,11 +4586,11 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                     MyProject.Forms.CategoryDialog.Close();
                 int num = (int)MyProject.Forms.CategoryDialog.ShowDialog();
             }
@@ -4602,11 +4602,11 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
                     MyProject.Forms.JudgesSetupDialog.Close();
                 int num = (int)MyProject.Forms.JudgesSetupDialog.ShowDialog();
             }
@@ -4629,17 +4629,17 @@ namespace ClubCompFS
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.TestStart())
+                if (Program.TestStart())
                 {
                     saveFileDialog.Title = "SAVE A COMPETITION FILE";
                     if (this.SaveDir(ref Path))
                     {
                         saveFileDialog.InitialDirectory = Path;
-                        string categoryFileName = Module1.CategoryFileName;
-                        string str = Strings.UCase(Module1.StrConv(Module1.Competition.Name + "_" + Module1.Category.Name + Module1.SubCat_()));
-                        if (!Strings.UCase(Module1.CategoryFileName).Contains(str))
-                            Module1.CategoryFileName = Module1.StrConv(Strings.Trim(Module1.Competition.Name) + "_" + Module1.Category.Name + Module1.SubCat_() + ".xml");
-                        saveFileDialog.FileName = Module1.CategoryFileName;
+                        string categoryFileName = Program.CategoryFileName;
+                        string str = Strings.UCase(Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_()));
+                        if (!Strings.UCase(Program.CategoryFileName).Contains(str))
+                            Program.CategoryFileName = Program.StrConv(Strings.Trim(Program.Competition.Name) + "_" + Program.Category.Name + Program.SubCat_() + ".xml");
+                        saveFileDialog.FileName = Program.CategoryFileName;
                         saveFileDialog.Filter = "Competition files (*.xml)|*.xml|All files (*.*)|*.*";
                         saveFileDialog.FilterIndex = 1;
                         saveFileDialog.RestoreDirectory = true;
@@ -4648,17 +4648,17 @@ namespace ClubCompFS
                             Stream stream = saveFileDialog.OpenFile();
                             if (stream != null)
                             {
-                                Module1.CategoryFileName = saveFileDialog.FileName;
+                                Program.CategoryFileName = saveFileDialog.FileName;
                                 stream.Close();
                             }
-                            if (Module1.WorkMode == 1)
+                            if (Program.WorkMode == 1)
                                 this.GetInputMainForm();
-                            Module1.CreateCategoryFile(Module1.CategoryFileName);
+                            Program.CreateCategoryFile(Program.CategoryFileName);
                             goto label_17;
                         }
                         else
                         {
-                            Module1.CategoryFileName = categoryFileName;
+                            Program.CategoryFileName = categoryFileName;
                             int num3 = (int)Interaction.MsgBox((object)"The file is not saved?", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             goto label_17;
                         }
@@ -4694,12 +4694,12 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 flag = false;
-                string pathCompFile = Module1.PathCompFile;
+                string pathCompFile = Program.PathCompFile;
                 if (Operators.CompareString(pathCompFile, "", false) != 0)
                 {
-                    if (Operators.CompareString(Strings.Right(Module1.PathCompFile, 1), "\\", false) != 0)
+                    if (Operators.CompareString(Strings.Right(Program.PathCompFile, 1), "\\", false) != 0)
                         pathCompFile += "\\";
-                    Path = Module1.StrConv(pathCompFile + Module1.Competition.Name + "\\");
+                    Path = Program.StrConv(pathCompFile + Program.Competition.Name + "\\");
                     if (!MyProject.Computer.FileSystem.DirectoryExists(Path))
                     {
                         if (Interaction.MsgBox((object)("The folder:\r\n" + Path + "\r\ndoes not exist!\r\nDo you want to create it?"), MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
@@ -4753,11 +4753,11 @@ namespace ClubCompFS
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart() || Interaction.MsgBox((object)"Do you want to save everything in the the database?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
+            if (!this.MenuPossible() || !Program.TestStart() || Interaction.MsgBox((object)"Do you want to save everything in the the database?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
                 return;
-            if (Module1.WorkMode == 1)
+            if (Program.WorkMode == 1)
                 this.GetInputMainForm();
-            Module1.SaveCategoryFile(Module1.CategoryFileName);
+            Program.SaveCategoryFile(Program.CategoryFileName);
         }
 
         private void NetworkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4766,11 +4766,11 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                     MyProject.Forms.ConfigurationDataDialog.Close();
                 int num = (int)MyProject.Forms.ConfigurationDataDialog.ShowDialog();
             }
@@ -5067,17 +5067,17 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
-                    Module1.Organizer.Name = this.txtOrganizerName.Text;
-                    Module1.Organizer.ID = this.txtOrganizerID.Text;
-                    Module1.Competition.Name = this.txtCompetitionName.Text;
-                    Module1.Competition.ID = this.txtCompetitionID.Text;
-                    string segment = Module1.Segment;
+                    Program.Organizer.Name = this.txtOrganizerName.Text;
+                    Program.Organizer.ID = this.txtOrganizerID.Text;
+                    Program.Competition.Name = this.txtCompetitionName.Text;
+                    Program.Competition.ID = this.txtCompetitionID.Text;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         this.GetSeg1Officials();
-                        if (Operators.CompareString(Module1.GetSeg(), "S0", false) == 0 | Operators.CompareString(Module1.GetSeg(), "F0", false) == 0)
+                        if (Operators.CompareString(Program.GetSeg(), "S0", false) == 0 | Operators.CompareString(Program.GetSeg(), "F0", false) == 0)
                         {
                             this.GetSeg2Officials();
                             goto label_13;
@@ -5088,7 +5088,7 @@ namespace ClubCompFS
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
                         this.GetSeg2Officials();
-                        if (Operators.CompareString(Module1.GetSeg(), "0F", false) == 0 | Operators.CompareString(Module1.GetSeg(), "0S", false) == 0)
+                        if (Operators.CompareString(Program.GetSeg(), "0F", false) == 0 | Operators.CompareString(Program.GetSeg(), "0S", false) == 0)
                         {
                             this.GetSeg1Officials();
                             goto label_13;
@@ -5125,19 +5125,19 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.Techspec.Seg1.Name = this.TechSpecName.Text;
-                Module1.Techspec.Seg1.Club = this.TechSpecClub.Text;
-                Module1.Controller.Seg1.Name = this.ControllerName.Text;
-                Module1.Controller.Seg1.Club = this.ControllerClub.Text;
-                Module1.Referee.Seg1.Name = this.RefereeName.Text;
-                Module1.Referee.Seg1.Club = this.RefereeClub.Text;
+                Program.Techspec.Seg1.Name = this.TechSpecName.Text;
+                Program.Techspec.Seg1.Club = this.TechSpecClub.Text;
+                Program.Controller.Seg1.Name = this.ControllerName.Text;
+                Program.Controller.Seg1.Club = this.ControllerClub.Text;
+                Program.Referee.Seg1.Name = this.RefereeName.Text;
+                Program.Referee.Seg1.Club = this.RefereeClub.Text;
                 int index1 = 1;
                 do
                 {
                     string key1 = "JudgeName" + Strings.Trim(Conversions.ToString(index1));
-                    Module1.Judge[index1].Seg1.Name = this.Controls[key1].Text;
+                    Program.Judge[index1].Seg1.Name = this.Controls[key1].Text;
                     string key2 = "JudgeClub" + Strings.Trim(Conversions.ToString(index1));
-                    Module1.Judge[index1].Seg1.Club = this.Controls[key2].Text;
+                    Program.Judge[index1].Seg1.Club = this.Controls[key2].Text;
                     checked { ++index1; }
                 }
                 while (index1 <= 7);
@@ -5145,9 +5145,9 @@ namespace ClubCompFS
                 do
                 {
                     string key3 = "DVOName" + Strings.Trim(Conversions.ToString(index2));
-                    Module1.DVO[index2].Seg1.Name = this.Controls[key3].Text;
+                    Program.DVO[index2].Seg1.Name = this.Controls[key3].Text;
                     string key4 = "DVOClub" + Strings.Trim(Conversions.ToString(index2));
-                    Module1.DVO[index2].Seg1.Club = this.Controls[key4].Text;
+                    Program.DVO[index2].Seg1.Club = this.Controls[key4].Text;
                     checked { ++index2; }
                 }
                 while (index2 <= 3);
@@ -5176,19 +5176,19 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.Techspec.Seg2.Name = this.TechSpecName.Text;
-                Module1.Techspec.Seg2.Club = this.TechSpecClub.Text;
-                Module1.Controller.Seg2.Name = this.ControllerName.Text;
-                Module1.Controller.Seg2.Club = this.ControllerClub.Text;
-                Module1.Referee.Seg2.Name = this.RefereeName.Text;
-                Module1.Referee.Seg2.Club = this.RefereeClub.Text;
+                Program.Techspec.Seg2.Name = this.TechSpecName.Text;
+                Program.Techspec.Seg2.Club = this.TechSpecClub.Text;
+                Program.Controller.Seg2.Name = this.ControllerName.Text;
+                Program.Controller.Seg2.Club = this.ControllerClub.Text;
+                Program.Referee.Seg2.Name = this.RefereeName.Text;
+                Program.Referee.Seg2.Club = this.RefereeClub.Text;
                 int index1 = 1;
                 do
                 {
                     string key1 = "JudgeName" + Strings.Trim(Conversions.ToString(index1));
-                    Module1.Judge[index1].Seg2.Name = this.Controls[key1].Text;
+                    Program.Judge[index1].Seg2.Name = this.Controls[key1].Text;
                     string key2 = "JudgeClub" + Strings.Trim(Conversions.ToString(index1));
-                    Module1.Judge[index1].Seg2.Club = this.Controls[key2].Text;
+                    Program.Judge[index1].Seg2.Club = this.Controls[key2].Text;
                     checked { ++index1; }
                 }
                 while (index1 <= 7);
@@ -5196,9 +5196,9 @@ namespace ClubCompFS
                 do
                 {
                     string key3 = "DVOName" + Strings.Trim(Conversions.ToString(index2));
-                    Module1.DVO[index2].Seg2.Name = this.Controls[key3].Text;
+                    Program.DVO[index2].Seg2.Name = this.Controls[key3].Text;
                     string key4 = "DVOClub" + Strings.Trim(Conversions.ToString(index2));
-                    Module1.DVO[index2].Seg2.Club = this.Controls[key4].Text;
+                    Program.DVO[index2].Seg2.Club = this.Controls[key4].Text;
                     checked { ++index2; }
                 }
                 while (index2 <= 3);
@@ -5221,98 +5221,98 @@ namespace ClubCompFS
 
         public void InitVariables()
         {
-            Module1.Vek = (Module1.Participant[])null;
-            Module1.Vek = new Module1.Participant[43];
+            Program.Vek = (Program.Participant[])null;
+            Program.Vek = new Program.Participant[43];
             int index = 1;
             do
             {
-                Module1.Vek[index].J_Seg1.EE = new int[16, 8];
-                Module1.Vek[index].J_Seg2.EE = new int[16, 8];
-                Module1.Vek[index].J_Seg1.PC = new double[16, 8];
-                Module1.Vek[index].J_Seg2.PC = new double[16, 8];
-                Module1.Vek[index].J_Seg1.Deduction = new long[8];
-                Module1.Vek[index].J_Seg2.Deduction = new long[8];
-                Module1.Vek[index].SSS_Seg1 = (string[])null;
-                Module1.Vek[index].SSS_Seg1 = new string[16];
-                Module1.Vek[index].SSS_Seg2 = (string[])null;
-                Module1.Vek[index].SSS_Seg2 = new string[16];
-                Module1.Vek[index].Falls_seg1 = 0;
-                Module1.Vek[index].Falls_seg2 = 0;
+                Program.Vek[index].J_Seg1.EE = new int[16, 8];
+                Program.Vek[index].J_Seg2.EE = new int[16, 8];
+                Program.Vek[index].J_Seg1.PC = new double[16, 8];
+                Program.Vek[index].J_Seg2.PC = new double[16, 8];
+                Program.Vek[index].J_Seg1.Deduction = new long[8];
+                Program.Vek[index].J_Seg2.Deduction = new long[8];
+                Program.Vek[index].SSS_Seg1 = (string[])null;
+                Program.Vek[index].SSS_Seg1 = new string[16];
+                Program.Vek[index].SSS_Seg2 = (string[])null;
+                Program.Vek[index].SSS_Seg2 = new string[16];
+                Program.Vek[index].Falls_seg1 = 0;
+                Program.Vek[index].Falls_seg2 = 0;
                 checked { ++index; }
             }
             while (index <= 42);
-            Module1.CategoryFileName = "";
-            Module1.Category.Name = "";
-            Module1.SubCategory = "";
-            Module1.WarmUpTime = "";
-            Module1.PcIndex = -1;
-            Module1.TNop = 0;
-            Module1.WupG_Seg1 = 0;
-            Module1.WupG_Seg2 = 0;
-            Module1.IceArr_Seg1 = (int[])null;
-            Module1.IceArr_Seg1 = new int[8];
-            Module1.LunchArr_Seg1 = (int[])null;
-            Module1.LunchArr_Seg1 = new int[8];
-            Module1.Segment = "";
-            Module1.Datum.Seg1 = DateTime.Today;
-            Module1.Datum.Seg2 = DateTime.Today;
-            Module1.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
-            Module1.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
+            Program.CategoryFileName = "";
+            Program.Category.Name = "";
+            Program.SubCategory = "";
+            Program.WarmUpTime = "";
+            Program.PcIndex = -1;
+            Program.TNop = 0;
+            Program.WupG_Seg1 = 0;
+            Program.WupG_Seg2 = 0;
+            Program.IceArr_Seg1 = (int[])null;
+            Program.IceArr_Seg1 = new int[8];
+            Program.LunchArr_Seg1 = (int[])null;
+            Program.LunchArr_Seg1 = new int[8];
+            Program.Segment = "";
+            Program.Datum.Seg1 = DateTime.Today;
+            Program.Datum.Seg2 = DateTime.Today;
+            Program.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
+            Program.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
         }
 
         private void InitChategory()
         {
-            Module1.Vek = (Module1.Participant[])null;
-            Module1.Vek = new Module1.Participant[43];
+            Program.Vek = (Program.Participant[])null;
+            Program.Vek = new Program.Participant[43];
             int index = 1;
             do
             {
-                Module1.Vek[index].J_Seg1.EE = new int[16, 8];
-                Module1.Vek[index].J_Seg2.EE = new int[16, 8];
-                Module1.Vek[index].J_Seg1.PC = new double[16, 8];
-                Module1.Vek[index].J_Seg2.PC = new double[16, 8];
-                Module1.Vek[index].J_Seg1.Deduction = new long[8];
-                Module1.Vek[index].J_Seg2.Deduction = new long[8];
-                Module1.Vek[index].SSS_Seg1 = new string[16];
-                Module1.Vek[index].SSS_Seg2 = new string[16];
+                Program.Vek[index].J_Seg1.EE = new int[16, 8];
+                Program.Vek[index].J_Seg2.EE = new int[16, 8];
+                Program.Vek[index].J_Seg1.PC = new double[16, 8];
+                Program.Vek[index].J_Seg2.PC = new double[16, 8];
+                Program.Vek[index].J_Seg1.Deduction = new long[8];
+                Program.Vek[index].J_Seg2.Deduction = new long[8];
+                Program.Vek[index].SSS_Seg1 = new string[16];
+                Program.Vek[index].SSS_Seg2 = new string[16];
                 checked { ++index; }
             }
             while (index <= 42);
-            Module1.CategoryFileName = "";
-            Module1.Category.Name = "";
-            Module1.SubCategory = "";
-            Module1.PcIndex = -1;
-            Module1.TNop = 0;
-            Module1.WupG_Seg1 = 0;
-            Module1.WupG_Seg2 = 0;
-            Module1.IceArr_Seg1 = (int[])null;
-            Module1.IceArr_Seg1 = new int[7];
-            Module1.LunchArr_Seg1 = (int[])null;
-            Module1.LunchArr_Seg1 = new int[7];
-            Module1.Segment = "";
-            Module1.Datum.Seg1 = DateTime.Today;
-            Module1.Datum.Seg2 = DateTime.Today;
-            Module1.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
-            Module1.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
+            Program.CategoryFileName = "";
+            Program.Category.Name = "";
+            Program.SubCategory = "";
+            Program.PcIndex = -1;
+            Program.TNop = 0;
+            Program.WupG_Seg1 = 0;
+            Program.WupG_Seg2 = 0;
+            Program.IceArr_Seg1 = (int[])null;
+            Program.IceArr_Seg1 = new int[7];
+            Program.LunchArr_Seg1 = (int[])null;
+            Program.LunchArr_Seg1 = new int[7];
+            Program.Segment = "";
+            Program.Datum.Seg1 = DateTime.Today;
+            Program.Datum.Seg2 = DateTime.Today;
+            Program.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
+            Program.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
         }
 
         private void ClearDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || Module1.WorkMode != 1)
+            if (!this.MenuPossible() || Program.WorkMode != 1)
                 return;
-            Module1.ClearOfficials();
-            Module1.CreateMainForm();
+            Program.ClearOfficials();
+            Program.CreateMainForm();
         }
 
         public void ClearOff()
         {
-            Module1.ClearOfficials();
-            Module1.CreateMainForm();
+            Program.ClearOfficials();
+            Program.CreateMainForm();
         }
 
         private void HeadPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             int num = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Number of copies, 0-9?", "Susanne SW", Conversions.ToString(1)))));
             if (!(num > 0 & num < 10))
@@ -5327,9 +5327,9 @@ namespace ClubCompFS
         {
             if (!this.MenuPossible())
                 return;
-            if (Strings.Len(Module1.Category.Name) > 2)
+            if (Strings.Len(Program.Category.Name) > 2)
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
                     MyProject.Forms.HeadPageDialog.Close();
                 int num = (int)MyProject.Forms.HeadPageDialog.ShowDialog();
             }
@@ -5363,25 +5363,25 @@ namespace ClubCompFS
         public bool TstStartNo()
         {
             bool flag = true;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if (Module1.Vek[index].Startno_Seg1 == 0 & Module1.Vek[index].DNS_Seg1 == 0)
+                    if (Program.Vek[index].Startno_Seg1 == 0 & Program.Vek[index].DNS_Seg1 == 0)
                         flag = false;
                     checked { ++index; }
                 }
             }
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if (Module1.Vek[index].Startno_Seg2 == 0 & Module1.Vek[index].DNS_Seg1 == 0 & Module1.Vek[index].DNS_Seg2 == 0)
+                    if (Program.Vek[index].Startno_Seg2 == 0 & Program.Vek[index].DNS_Seg1 == 0 & Program.Vek[index].DNS_Seg2 == 0)
                         flag = false;
                     checked { ++index; }
                 }
@@ -5393,26 +5393,26 @@ namespace ClubCompFS
         {
             if (!this.MenuPossible())
                 return;
-            if (Module1.TestStart())
+            if (Program.TestStart())
             {
                 if (!this.completed5)
                 {
-                    Module1.PrinterMessage();
+                    Program.PrinterMessage();
                 }
                 else
                 {
-                    if (Strings.Len(Module1.CategoryFileName) > 1)
+                    if (Strings.Len(Program.CategoryFileName) > 1)
                     {
-                        if (Module1.WorkMode == 1)
+                        if (Program.WorkMode == 1)
                         {
                             this.GetInputMainForm();
-                            Module1.SaveCategoryFile(Module1.CategoryFileName);
+                            Program.SaveCategoryFile(Program.CategoryFileName);
                         }
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                             MyProject.Forms.ResultsForm.Close();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
                             MyProject.Forms.StartListForm.Close();
-                        if (Module1.WorkMode == 2)
+                        if (Program.WorkMode == 2)
                             this.UnhudeJudgesDisplayToolStripMenuItem.PerformClick();
                     }
                     MyProject.Forms.StartListForm.TopMost = true;
@@ -5428,7 +5428,7 @@ namespace ClubCompFS
         private void ExitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.WillExit = true;
-            if (Operators.CompareString(Module1.Competition.Name, (string)null, false) == 0 & Operators.CompareString(Module1.Category.Name, (string)null, false) == 0)
+            if (Operators.CompareString(Program.Competition.Name, (string)null, false) == 0 & Operators.CompareString(Program.Category.Name, (string)null, false) == 0)
             {
                 this.WillExit = true;
                 this.CloseFormsDialogs();
@@ -5436,8 +5436,8 @@ namespace ClubCompFS
             }
             else
             {
-                string str = Strings.UCase(Module1.StrConv(Module1.Competition.Name + "_" + Module1.Category.Name + Module1.SubCat_() + ".xml"));
-                if (!Strings.UCase(Module1.CategoryFileName).Contains(str))
+                string str = Strings.UCase(Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_() + ".xml"));
+                if (!Strings.UCase(Program.CategoryFileName).Contains(str))
                 {
                     if (Interaction.MsgBox((object)"This is a new Category which isn't saved!\r\nDo you really want to Exit ClubCompFS without saving?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
                     {
@@ -5462,14 +5462,14 @@ namespace ClubCompFS
 
         private void BackgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (Module1.WorkMode == 1)
+            if (Program.WorkMode == 1)
                 this.GetInputMainForm();
-            Module1.SaveCategoryFile(Module1.CategoryFileName);
+            Program.SaveCategoryFile(Program.CategoryFileName);
         }
 
         private void BackgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (Module1.CategoryFileSaved & this.completed5)
+            if (Program.CategoryFileSaved & this.completed5)
             {
                 this.CloseFormsDialogs();
                 this.Close();
@@ -5501,7 +5501,7 @@ namespace ClubCompFS
                 return;
             if (this.TstStartNo())
             {
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
                     if (!this.OnlyDNSSeg1() && !this.FinishedSeg1())
@@ -5518,7 +5518,7 @@ namespace ClubCompFS
                 int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Number of copies, 0-9?", "Susanne SW", Conversions.ToString(1)))));
                 if (!(num1 > 0 & num1 < 10))
                     return;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 2:
                     case 3:
@@ -5530,7 +5530,7 @@ namespace ClubCompFS
                         {
                             this.Qprint.Enqueue(11);
                             this.Qprint.Enqueue(801);
-                            string segment2 = Module1.Segment;
+                            string segment2 = Program.Segment;
                             if (Operators.CompareString(segment2, "Seg1", false) == 0)
                             {
                                 if (!this.OnlyDNSSeg1())
@@ -5552,10 +5552,10 @@ namespace ClubCompFS
 
         private void HeadPageToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             if (!this.completed5)
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             else
                 MyProject.Forms.HeadPageDialog.CreateHP_PDFfile(1);
         }
@@ -5566,11 +5566,11 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
                     if (!this.OnlyDNSSeg1() && !this.FinishedSeg1())
@@ -5585,7 +5585,7 @@ namespace ClubCompFS
                     return;
                 }
                 this.CloseFormsDialogs();
-                string segment2 = Module1.Segment;
+                string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
                     MyProject.Forms.ResultsForm.CreateResultsPDF("Seg1", 1);
@@ -5594,7 +5594,7 @@ namespace ClubCompFS
                 {
                     if (Operators.CompareString(segment2, "Seg2", false) != 0)
                         return;
-                    if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FS", false) == 0)
+                    if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0 | Operators.CompareString(Program.GetSeg(), "FS", false) == 0)
                     {
                         MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
                         MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 2);
@@ -5615,11 +5615,11 @@ namespace ClubCompFS
             {
                 if (!this.completed5)
                 {
-                    Module1.PrinterMessage();
+                    Program.PrinterMessage();
                 }
                 else
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         if (!this.FinishedSeg1())
@@ -5648,11 +5648,11 @@ namespace ClubCompFS
         {
             if (!this.MenuPossible() || !this.ActivPossible())
                 return;
-            switch (Module1.WorkMode)
+            switch (Program.WorkMode)
             {
                 case 2:
                 case 3:
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         if (!this.OnlyDNSSeg1() && !this.FinishedSeg1())
@@ -5685,11 +5685,11 @@ namespace ClubCompFS
             {
                 if (!this.completed5)
                 {
-                    Module1.PrinterMessage();
+                    Program.PrinterMessage();
                 }
                 else
                 {
-                    string segment1 = Module1.Segment;
+                    string segment1 = Program.Segment;
                     if (Operators.CompareString(segment1, "Seg1", false) == 0)
                     {
                         if (!this.OnlyDNSSeg1() && !this.FinishedSeg1())
@@ -5705,7 +5705,7 @@ namespace ClubCompFS
                     }
                     this.CloseFormsDialogs();
                     MyProject.Forms.HeadPageDialog.CreateHP_PDFfile(0);
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
                         if (!this.OnlyDNSSeg1())
@@ -5724,12 +5724,12 @@ namespace ClubCompFS
                         if (!this.OnlyDNSSeg2())
                         {
                             MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
-                            if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
+                            if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
                                 MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 0);
                             MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
                             MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(2);
                         }
-                        else if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
+                        else if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
                         {
                             MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
                             MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 2);
@@ -5751,12 +5751,12 @@ namespace ClubCompFS
                 return;
             if (!this.completed5)
             {
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             }
             else
             {
                 this.CloseFormsDialogs();
-                if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                if (Program.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                     MyProject.Forms.ResultsForm.Close();
                 MyProject.Forms.ResultsForm.Show();
             }
@@ -5799,20 +5799,20 @@ namespace ClubCompFS
         public int MaxStartNo()
         {
             int num = 0;
-            if (Module1.TNop > 0)
+            if (Program.TNop > 0)
             {
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        if (Module1.Vek[index].Startno_Seg1 > num)
-                            num = Module1.Vek[index].Startno_Seg1;
+                        if (Program.Vek[index].Startno_Seg1 > num)
+                            num = Program.Vek[index].Startno_Seg1;
                     }
-                    else if (Operators.CompareString(segment, "Seg2", false) == 0 && Module1.Vek[index].Startno_Seg2 > num)
-                        num = Module1.Vek[index].Startno_Seg2;
+                    else if (Operators.CompareString(segment, "Seg2", false) == 0 && Program.Vek[index].Startno_Seg2 > num)
+                        num = Program.Vek[index].Startno_Seg2;
                     checked { ++index; }
                 }
             }
@@ -5825,8 +5825,8 @@ namespace ClubCompFS
                 return;
             if (this.MaxStartNo() > 0)
             {
-                int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Print TC/TS cards for the skater\r\nwith serial number = 1 to " + Conversions.ToString(Module1.TNop), "Susanne SW", Conversions.ToString(1)))));
-                if (num1 > 0 & num1 <= Module1.TNop)
+                int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Print TC/TS cards for the skater\r\nwith serial number = 1 to " + Conversions.ToString(Program.TNop), "Susanne SW", Conversions.ToString(1)))));
+                if (num1 > 0 & num1 <= Program.TNop)
                 {
                     int num2 = checked(num1 + 600);
                     this.Qprint.Enqueue(num2);
@@ -5836,7 +5836,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    int num3 = (int)Interaction.MsgBox((object)("Only serial numbers 1 - " + Conversions.ToString(Module1.TNop) + " are possible!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num3 = (int)Interaction.MsgBox((object)("Only serial numbers 1 - " + Conversions.ToString(Program.TNop) + " are possible!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 }
             }
             else
@@ -5852,7 +5852,7 @@ namespace ClubCompFS
             if (this.MaxStartNo() > 0)
             {
                 int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Print Judge cards for the given\r\nJudge with no. 1 to 7", "Susanne SW", Conversions.ToString(1)))));
-                if (num1 > 0 & num1 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num1 == 7)
+                if (num1 > 0 & num1 <= checked(Program.NoJ_GOE + Program.NoTrj) | Program.JudgeSel == 1 & num1 == 7)
                 {
                     int num2 = checked(200 + num1);
                     this.Qprint.Enqueue(num2);
@@ -5877,8 +5877,8 @@ namespace ClubCompFS
                 return;
             if (this.MaxStartNo() > 0)
             {
-                int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Print Judge cards for the skater\r\nwith serial number = 1 to " + Conversions.ToString(Module1.TNop), "Susanne SW", Conversions.ToString(1)))));
-                if (num1 > 0 & num1 <= Module1.TNop)
+                int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Print Judge cards for the skater\r\nwith serial number = 1 to " + Conversions.ToString(Program.TNop), "Susanne SW", Conversions.ToString(1)))));
+                if (num1 > 0 & num1 <= Program.TNop)
                 {
                     int num2 = checked(num1 + 300);
                     this.Qprint.Enqueue(num2);
@@ -5888,7 +5888,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    int num3 = (int)Interaction.MsgBox((object)("Only serial numbers 1 - " + Conversions.ToString(Module1.TNop) + " are possible!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num3 = (int)Interaction.MsgBox((object)("Only serial numbers 1 - " + Conversions.ToString(Program.TNop) + " are possible!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 }
             }
             else
@@ -5903,7 +5903,7 @@ namespace ClubCompFS
                 return;
             if (this.MaxStartNo() > 0)
             {
-                if (checked(Module1.NoJ_GOE + Module1.NoTrj) > 0)
+                if (checked(Program.NoJ_GOE + Program.NoTrj) > 0)
                 {
                     this.Qprint.Enqueue(100);
                     MyProject.Forms.PrinterForm.txtPrint.Text = "The Judge cards for all skaters!";
@@ -5945,11 +5945,11 @@ namespace ClubCompFS
         public bool FinishedSeg1()
         {
             bool flag = false;
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = 1;
             while (index <= tnop)
             {
-                if (Module1.Vek[index].Finished_Seg1 == 1)
+                if (Program.Vek[index].Finished_Seg1 == 1)
                 {
                     flag = true;
                     break;
@@ -5962,11 +5962,11 @@ namespace ClubCompFS
         public bool OnlyDNSSeg1()
         {
             bool flag = true;
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = 1;
             while (index <= tnop)
             {
-                if (Module1.Vek[index].DNS_Seg1 == 0)
+                if (Program.Vek[index].DNS_Seg1 == 0)
                 {
                     flag = false;
                     break;
@@ -5979,11 +5979,11 @@ namespace ClubCompFS
         public bool FinishedSeg2()
         {
             bool flag = false;
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = 1;
             while (index <= tnop)
             {
-                if (Module1.Vek[index].Finished_Seg2 == 1)
+                if (Program.Vek[index].Finished_Seg2 == 1)
                 {
                     flag = true;
                     break;
@@ -5996,11 +5996,11 @@ namespace ClubCompFS
         public bool OnlyDNSSeg2()
         {
             bool flag = true;
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = 1;
             while (index <= tnop)
             {
-                if (Module1.Vek[index].DNS_Seg2 == 0)
+                if (Program.Vek[index].DNS_Seg2 == 0)
                 {
                     flag = false;
                     break;
@@ -6049,29 +6049,29 @@ namespace ClubCompFS
                     }
                     else if (num4 >= 40 && num4 <= 49)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                             MyProject.Forms.WarmupGroupsForm.Close();
                         int num8 = checked(num3 - 40);
                         int num9 = 1;
                         while (num9 <= num8)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                             {
-                                if (Operators.CompareString(Module1.Datum.Seg1Start, "", false) == 0)
-                                    Module1.Datum.Seg1Start = Conversions.ToString(1E-05);
+                                if (Operators.CompareString(Program.Datum.Seg1Start, "", false) == 0)
+                                    Program.Datum.Seg1Start = Conversions.ToString(1E-05);
                                 int DNSnono = 0;
-                                MyProject.Forms.StartListForm.SortWSListSeg1(Module1.TNop, ref DNSnono);
-                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNSnono));
+                                MyProject.Forms.StartListForm.SortWSListSeg1(Program.TNop, ref DNSnono);
+                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Program.TNop - DNSnono));
                             }
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
-                                if (Operators.CompareString(Module1.Datum.Seg2Start, "", false) == 0)
-                                    Module1.Datum.Seg2Start = Conversions.ToString(1E-05);
+                                if (Operators.CompareString(Program.Datum.Seg2Start, "", false) == 0)
+                                    Program.Datum.Seg2Start = Conversions.ToString(1E-05);
                                 int DNS_Seg1 = 0;
                                 int DNSnono = 0;
-                                MyProject.Forms.StartListForm.SortWSListSeg2(Module1.TNop, ref DNS_Seg1, ref DNSnono);
-                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNS_Seg1 - DNSnono));
+                                MyProject.Forms.StartListForm.SortWSListSeg2(Program.TNop, ref DNS_Seg1, ref DNSnono);
+                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Program.TNop - DNS_Seg1 - DNSnono));
                             }
                             MyProject.Forms.WarmupGroupsForm.txtPar.Text = Conversions.ToString(3);
                             MyProject.Forms.WarmupGroupsForm.CreateWarmUp();
@@ -6082,12 +6082,12 @@ namespace ClubCompFS
                     }
                     else if (num4 >= 100 && num4 <= 199)
                     {
-                        string segment1 = Module1.Segment;
+                        string segment1 = Program.Segment;
                         if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                         else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
-                        int num10 = checked(Module1.NoJ_GOE + Module1.NoTrj);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
+                        int num10 = checked(Program.NoJ_GOE + Program.NoTrj);
                         int num11 = 1;
                         while (num11 <= num10)
                         {
@@ -6096,32 +6096,32 @@ namespace ClubCompFS
                             int i = 1;
                             while (i <= num12)
                             {
-                                string segment2 = Module1.Segment;
+                                string segment2 = Program.Segment;
                                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                                 {
-                                    if (Module1.Vek[i].Startno_Seg1 > 0)
+                                    if (Program.Vek[i].Startno_Seg1 > 0)
                                         this.JudgesCardFormPrintPnoDoc1(i);
                                 }
-                                else if (Operators.CompareString(segment2, "Seg2", false) == 0 && Module1.Vek[i].Startno_Seg2 > 0)
+                                else if (Operators.CompareString(segment2, "Seg2", false) == 0 && Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                             checked { ++num11; }
                         }
-                        if (Module1.JudgeSel == 1)
+                        if (Program.JudgeSel == 1)
                         {
                             MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(7);
                             int num13 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num13)
                             {
-                                string segment3 = Module1.Segment;
+                                string segment3 = Program.Segment;
                                 if (Operators.CompareString(segment3, "Seg1", false) == 0)
                                 {
-                                    if (Module1.Vek[i].Startno_Seg1 > 0)
+                                    if (Program.Vek[i].Startno_Seg1 > 0)
                                         this.JudgesCardFormPrintPnoDoc1(i);
                                 }
-                                else if (Operators.CompareString(segment3, "Seg2", false) == 0 && Module1.Vek[i].Startno_Seg2 > 0)
+                                else if (Operators.CompareString(segment3, "Seg2", false) == 0 && Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
@@ -6130,27 +6130,27 @@ namespace ClubCompFS
                     else if (num4 >= 200 && num4 <= 299)
                     {
                         MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(checked(num3 - 200));
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                             int num14 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num14)
                             {
-                                if (Module1.Vek[i].Startno_Seg1 > 0)
+                                if (Program.Vek[i].Startno_Seg1 > 0)
                                     this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
                         {
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
                             int num15 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num15)
                             {
-                                if (Module1.Vek[i].Startno_Seg2 > 0)
+                                if (Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
@@ -6159,49 +6159,49 @@ namespace ClubCompFS
                     else if (num4 >= 300 && num4 <= 399)
                     {
                         MyProject.Forms.JudgesCardForm.txtPno.Text = Conversions.ToString(checked(num3 - 300));
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
-                        int num16 = checked(Module1.NoJ_GOE + Module1.NoTrj);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
+                        int num16 = checked(Program.NoJ_GOE + Program.NoTrj);
                         int i = 1;
                         while (i <= num16)
                         {
                             this.JudgesCardFormPrintJnoDoc1(i);
                             checked { ++i; }
                         }
-                        if (Module1.JudgeSel == 1)
+                        if (Program.JudgeSel == 1)
                             this.JudgesCardFormPrintJnoDoc1(7);
                     }
                     else if (num4 >= 400 && num4 <= 499)
                     {
-                        string segment4 = Module1.Segment;
+                        string segment4 = Program.Segment;
                         if (Operators.CompareString(segment4, "Seg1", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg1.Name;
                         else if (Operators.CompareString(segment4, "Seg2", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
-                        string segment5 = Module1.Segment;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg2.Name;
+                        string segment5 = Program.Segment;
                         if (Operators.CompareString(segment5, "Seg1", false) == 0)
                         {
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                             int num17 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num17)
                             {
-                                if (Module1.Vek[i].Startno_Seg1 > 0)
+                                if (Program.Vek[i].Startno_Seg1 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
                         else if (Operators.CompareString(segment5, "Seg2", false) == 0)
                         {
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
                             int num18 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num18)
                             {
-                                if (Module1.Vek[i].Startno_Seg2 > 0)
+                                if (Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
@@ -6209,62 +6209,62 @@ namespace ClubCompFS
                     }
                     else if (num4 >= 500 && num4 <= 599)
                     {
-                        string segment6 = Module1.Segment;
+                        string segment6 = Program.Segment;
                         if (Operators.CompareString(segment6, "Seg1", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg1.Name;
                         else if (Operators.CompareString(segment6, "Seg2", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
-                        string segment7 = Module1.Segment;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg2.Name;
+                        string segment7 = Program.Segment;
                         if (Operators.CompareString(segment7, "Seg1", false) == 0)
                         {
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                             int num19 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num19)
                             {
-                                if (Module1.Vek[i].Startno_Seg1 > 0)
+                                if (Program.Vek[i].Startno_Seg1 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
                         else if (Operators.CompareString(segment7, "Seg2", false) == 0)
                         {
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
                             int num20 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num20)
                             {
-                                if (Module1.Vek[i].Startno_Seg2 > 0)
+                                if (Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
-                        string segment8 = Module1.Segment;
+                        string segment8 = Program.Segment;
                         if (Operators.CompareString(segment8, "Seg1", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Techspec.Seg1.Name;
                         else if (Operators.CompareString(segment8, "Seg2", false) == 0)
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
-                        string segment9 = Module1.Segment;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Techspec.Seg2.Name;
+                        string segment9 = Program.Segment;
                         if (Operators.CompareString(segment9, "Seg1", false) == 0)
                         {
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                             int num21 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num21)
                             {
-                                if (Module1.Vek[i].Startno_Seg1 > 0)
+                                if (Program.Vek[i].Startno_Seg1 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
                         else if (Operators.CompareString(segment9, "Seg2", false) == 0)
                         {
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
                             int num22 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num22)
                             {
-                                if (Module1.Vek[i].Startno_Seg2 > 0)
+                                if (Program.Vek[i].Startno_Seg2 > 0)
                                     this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
@@ -6273,23 +6273,23 @@ namespace ClubCompFS
                     else if (num4 >= 600 && num4 <= 699)
                     {
                         int i = checked(num3 - 600);
-                        string segment10 = Module1.Segment;
+                        string segment10 = Program.Segment;
                         if (Operators.CompareString(segment10, "Seg1", false) == 0)
-                            Module1.SortListStartNo(Module1.TNop);
+                            Program.SortListStartNo(Program.TNop);
                         else if (Operators.CompareString(segment10, "Seg2", false) == 0)
-                            Module1.SortStartNoSeg2(Module1.TNop, ref Module1.DNS_Seg1);
-                        string segment11 = Module1.Segment;
+                            Program.SortStartNoSeg2(Program.TNop, ref Program.DNS_Seg1);
+                        string segment11 = Program.Segment;
                         if (Operators.CompareString(segment11, "Seg1", false) == 0)
                         {
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg1.Name;
                             this.JudgesCardFormPrintPnoDoc2(i);
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Techspec.Seg1.Name;
                         }
                         else if (Operators.CompareString(segment11, "Seg2", false) == 0)
                         {
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Controller.Seg2.Name;
                             this.JudgesCardFormPrintPnoDoc2(i);
-                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Program.Techspec.Seg2.Name;
                         }
                         this.JudgesCardFormPrintPnoDoc2(i);
                     }
@@ -6297,7 +6297,7 @@ namespace ClubCompFS
                     {
                         this.CloseFormsDialogs();
                         int num23 = checked(num3 - 800);
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
                             MyProject.Forms.ResultsForm.printSeg = "Seg1";
@@ -6311,7 +6311,7 @@ namespace ClubCompFS
                             MyProject.Forms.ResultsForm.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
                             MyProject.Forms.ResultsForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
                             MyProject.Forms.ResultsForm.PrintDocument1.Print();
-                            if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
+                            if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
                             {
                                 MyProject.Forms.ResultsForm.printSeg = "Final";
                                 MyProject.Forms.ResultsForm.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
@@ -6323,7 +6323,7 @@ namespace ClubCompFS
                     else if (num4 >= 900 && num4 <= 909)
                     {
                         this.CloseFormsDialogs();
-                        Module1.JDperPage = 2;
+                        Program.JDperPage = 2;
                         MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
                         MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "1";
                         MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
@@ -6334,7 +6334,7 @@ namespace ClubCompFS
                     else if (num4 >= 910 && num4 <= 919)
                     {
                         this.CloseFormsDialogs();
-                        Module1.JDperPage = 2;
+                        Program.JDperPage = 2;
                         MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
                         MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
                         MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
@@ -6345,7 +6345,7 @@ namespace ClubCompFS
                     else if (num4 >= 920 && num4 <= 929)
                     {
                         this.CloseFormsDialogs();
-                        Module1.JDperPage = 1;
+                        Program.JDperPage = 1;
                         MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
                         MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
                         MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
@@ -6374,12 +6374,12 @@ namespace ClubCompFS
         private void BackgroundWorker5_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.EnableMenu();
-            if (Module1.WorkMode == 1)
+            if (Program.WorkMode == 1)
                 this.EnableTextboxes(true);
             this.completed5 = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.PrinterForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.PrinterForm))
                 MyProject.Forms.PrinterForm.Close();
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
+            if (!Program.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
                 return;
             MyProject.Forms.PrinterMessageForm.Close();
         }
@@ -6389,7 +6389,7 @@ namespace ClubCompFS
             if (!this.completed5)
                 return;
             this.DisableMenu();
-            if (Module1.WorkMode == 1)
+            if (Program.WorkMode == 1)
                 this.EnableTextboxes(false);
             this.BackgroundWorker5.RunWorkerAsync();
         }
@@ -6426,9 +6426,9 @@ namespace ClubCompFS
 
         private void PRINTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Module1.WorkMode <= 1)
+            if (Program.WorkMode <= 1)
                 return;
-            if (Module1.NoTrj > 0 | Module1.JudgeSel > 0)
+            if (Program.NoTrj > 0 | Program.JudgeSel > 0)
             {
                 this.JudgesDetailsToolStripMenuItem.Visible = true;
                 this.JudgesDetailsForTheCategoryWithoutTRJudgesToolStripMenuItem.Visible = true;
@@ -6446,7 +6446,7 @@ namespace ClubCompFS
                 return;
             if (this.TstStartNo())
             {
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
                     if (!this.FinishedSeg1())
@@ -6463,7 +6463,7 @@ namespace ClubCompFS
                 int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Number of copies, 0-9?", "Susanne SW", Conversions.ToString(1)))));
                 if (!(num1 > 0 & num1 < 10))
                     return;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 2:
                     case 3:
@@ -6488,7 +6488,7 @@ namespace ClubCompFS
                 return;
             if (this.TstStartNo())
             {
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
                     if (!this.FinishedSeg1())
@@ -6505,7 +6505,7 @@ namespace ClubCompFS
                 int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Number of copies, 0-9?", "Susanne SW", Conversions.ToString(1)))));
                 if (!(num1 > 0 & num1 < 10))
                     return;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 2:
                     case 3:
@@ -6540,10 +6540,10 @@ namespace ClubCompFS
             }
             else
             {
-                if (e.KeyCode != Keys.S || e.Modifiers != Keys.Control || Strings.Len(Module1.CategoryFileName) <= 1)
+                if (e.KeyCode != Keys.S || e.Modifiers != Keys.Control || Strings.Len(Program.CategoryFileName) <= 1)
                     return;
                 if (Interaction.MsgBox((object)"Do you want to save everything in the the database?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                 e.Handled = true;
             }
         }
@@ -6608,13 +6608,13 @@ namespace ClubCompFS
                 int ind = 1;
                 do
                 {
-                    if (Strings.Len(Module1.IPArr[ind]) > 3)
+                    if (Strings.Len(Program.IPArr[ind]) > 3)
                     {
-                        this.GetIP(Module1.IPArr[ind], ref strArray2[ind]);
+                        this.GetIP(Program.IPArr[ind], ref strArray2[ind]);
                         if (this.PingOne(strArray2[ind], ref strArray3[ind]))
                         {
                             strArray1[ind] = "True";
-                            strArray4[ind] = Conversions.ToString(Module1.GetJudgeNo((object)ind));
+                            strArray4[ind] = Conversions.ToString(Program.GetJudgeNo((object)ind));
                         }
                         else
                             strArray1[ind] = "False";
@@ -6641,7 +6641,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 while (index <= 11);
-                if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
                     MyProject.Forms.NetworkStatusDialog.Close();
                 int num3 = (int)MyProject.Forms.NetworkStatusDialog.ShowDialog();
                 goto label_19;
@@ -6701,7 +6701,7 @@ namespace ClubCompFS
                 num1 = 2;
                 DateTime now1 = DateAndTime.Now;
                 DateTime now2;
-                if (MyProject.Computer.Network.Ping(IpAdr, Module1.PingTimeout))
+                if (MyProject.Computer.Network.Ping(IpAdr, Program.PingTimeout))
                 {
                     now2 = DateAndTime.Now;
                     flag = true;
@@ -6737,7 +6737,7 @@ namespace ClubCompFS
         private void btnSeg1_Click(object sender, EventArgs e)
         {
             if (!this.completed5)
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             else
                 this.btnSeg1_1();
         }
@@ -6745,82 +6745,82 @@ namespace ClubCompFS
         private void btnSeg2_Click(object sender, EventArgs e)
         {
             if (!this.completed5)
-                Module1.PrinterMessage();
+                Program.PrinterMessage();
             else
                 this.btnSeg2_1();
         }
 
         private void btnSeg1_1()
         {
-            if (Module1.PcIndex < 0)
+            if (Program.PcIndex < 0)
                 return;
-            string segment1 = Module1.OpenDB[Module1.PcIndex].Segment_1;
+            string segment1 = Program.OpenDB[Program.PcIndex].Segment_1;
             if (Operators.CompareString(segment1, "S", false) == 0)
             {
-                if ((Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_2, "F", false) == 0 | Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_2, "S", false) == 0) & Operators.CompareString(Module1.Segment, "Seg2", false) == 0)
+                if ((Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_2, "F", false) == 0 | Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_2, "S", false) == 0) & Operators.CompareString(Program.Segment, "Seg2", false) == 0)
                 {
                     this.CloseFormsDialogs();
                     this.btnSeg1.BackColor = Color.Green;
                     this.btnSeg2.BackColor = SystemColors.Control;
                 }
-                Module1.Segment = "Seg1";
+                Program.Segment = "Seg1";
             }
             else if (Operators.CompareString(segment1, "F", false) == 0)
             {
-                if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_2, "F", false) == 0 & Operators.CompareString(Module1.Segment, "Seg2", false) == 0)
+                if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_2, "F", false) == 0 & Operators.CompareString(Program.Segment, "Seg2", false) == 0)
                 {
                     this.CloseFormsDialogs();
                     this.btnSeg1.BackColor = Color.Green;
                     this.btnSeg2.BackColor = SystemColors.Control;
                 }
-                Module1.Segment = "Seg1";
+                Program.Segment = "Seg1";
             }
-            Module1.SetNoJ();
-            Module1.CreateMainForm();
+            Program.SetNoJ();
+            Program.CreateMainForm();
         }
 
         private void btnSeg2_1()
         {
-            if (Module1.PcIndex < 0)
+            if (Program.PcIndex < 0)
                 return;
-            string segment2 = Module1.OpenDB[Module1.PcIndex].Segment_2;
+            string segment2 = Program.OpenDB[Program.PcIndex].Segment_2;
             if (Operators.CompareString(segment2, "S", false) == 0)
             {
-                if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.Segment, "Seg1", false) == 0)
+                if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Program.Segment, "Seg1", false) == 0)
                 {
                     this.CloseFormsDialogs();
                     this.btnSeg1.BackColor = SystemColors.Control;
                     this.btnSeg2.BackColor = Color.Green;
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                 }
             }
             else if (Operators.CompareString(segment2, "F", false) == 0)
             {
-                if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.Segment, "Seg1", false) == 0)
+                if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Program.Segment, "Seg1", false) == 0)
                 {
                     this.CloseFormsDialogs();
                     this.btnSeg1.BackColor = SystemColors.Control;
                     this.btnSeg2.BackColor = Color.Green;
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                 }
-                if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "F", false) == 0 & Operators.CompareString(Module1.Segment, "Seg1", false) == 0)
+                if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "F", false) == 0 & Operators.CompareString(Program.Segment, "Seg1", false) == 0)
                 {
                     this.CloseFormsDialogs();
                     this.btnSeg1.BackColor = SystemColors.Control;
                     this.btnSeg2.BackColor = Color.Green;
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                 }
             }
-            Module1.SetNoJ();
-            Module1.CreateMainForm();
+            Program.SetNoJ();
+            Program.CreateMainForm();
         }
 
         public void btnSeg1Seg2()
         {
             MainForm form1 = this;
-            if (Module1.PcIndex >= 0)
+            if (Program.PcIndex >= 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) == 0)
                 {
                     form1.lblSeg1.Visible = false;
@@ -6859,7 +6859,7 @@ namespace ClubCompFS
                     form1.btnSeg1.Visible = true;
                     form1.lblSeg2.Visible = true;
                     form1.btnSeg2.Visible = true;
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         form1.btnSeg1.BackColor = Color.Green;
@@ -6881,7 +6881,7 @@ namespace ClubCompFS
                     form1.btnSeg1.Visible = true;
                     form1.btnSeg2.Text = "SHORT PROGRAM";
                     form1.btnSeg2.Visible = true;
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         form1.btnSeg1.BackColor = Color.Green;
@@ -6907,7 +6907,7 @@ namespace ClubCompFS
                     form1.btnSeg2.Text = "FREE SKATING";
                     form1.btnSeg2.Visible = true;
                     form1.lblSeg2.Visible = true;
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         form1.btnSeg1.BackColor = Color.Green;
@@ -6938,9 +6938,9 @@ namespace ClubCompFS
         public bool ActivPossible()
         {
             bool flag = false;
-            if (Module1.TestStart())
+            if (Program.TestStart())
             {
-                if (Module1.ScanJudges == 0 & !Module1.IsFormOpen((Form)MyProject.Forms.StartListForm) & !Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                if (Program.ScanJudges == 0 & !Program.IsFormOpen((Form)MyProject.Forms.StartListForm) & !Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 {
                     flag = true;
                 }
@@ -6956,32 +6956,32 @@ namespace ClubCompFS
         public bool MenuPossible()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the IndTA ENTRIES!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the JUDGES DETAILS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the START LIST!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -7019,25 +7019,25 @@ namespace ClubCompFS
         public bool TstWarmupGr()
         {
             bool flag = true;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if (Module1.Vek[index].WarmUp_Seg1 == 0 & Module1.Vek[index].DNS_Seg1 == 0)
+                    if (Program.Vek[index].WarmUp_Seg1 == 0 & Program.Vek[index].DNS_Seg1 == 0)
                         flag = false;
                     checked { ++index; }
                 }
             }
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if (Module1.Vek[index].WarmUp_Seg2 == 0 & Module1.Vek[index].DNS_Seg1 == 0 & Module1.Vek[index].DNS_Seg2 == 0)
+                    if (Program.Vek[index].WarmUp_Seg2 == 0 & Program.Vek[index].DNS_Seg1 == 0 & Program.Vek[index].DNS_Seg2 == 0)
                         flag = false;
                     checked { ++index; }
                 }
@@ -7047,15 +7047,15 @@ namespace ClubCompFS
 
         private void LeavedCompetition()
         {
-            if (Module1.WorkMode != 1 || this.Loading | this.WillExit | !Module1.MainForm_TxtBoxEnabled)
+            if (Program.WorkMode != 1 || this.Loading | this.WillExit | !Program.MainForm_TxtBoxEnabled)
                 return;
-            if (!this.Loading & Strings.Len(Module1.Category.Name) > 0)
+            if (!this.Loading & Strings.Len(Program.Category.Name) > 0)
             {
-                string str = Module1.StrConv(Module1.Competition.Name + "_" + Module1.Category.Name + Module1.SubCat_() + ".xml");
-                if (Module1.CategoryFileName.Contains(str))
+                string str = Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_() + ".xml");
+                if (Program.CategoryFileName.Contains(str))
                     return;
                 this.GetInputMainForm();
-                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                Program.SaveCategoryFile(Program.CategoryFileName);
             }
             else
             {
@@ -7066,9 +7066,9 @@ namespace ClubCompFS
 
         private void txtCompetitionName_TextChanged(object sender, EventArgs e)
         {
-            if (Module1.WorkMode != 1)
+            if (Program.WorkMode != 1)
                 return;
-            Module1.Competition.Name = this.txtCompetitionName.Text;
+            Program.Competition.Name = this.txtCompetitionName.Text;
         }
 
         private void txtCompetitionName_Leave(object sender, EventArgs e)
@@ -7080,9 +7080,9 @@ namespace ClubCompFS
 
         private void txtType_TextChanged(object sender, EventArgs e)
         {
-            if (Module1.WorkMode != 1)
+            if (Program.WorkMode != 1)
                 return;
-            Module1.Competition.Type = this.txtType.Text;
+            Program.Competition.Type = this.txtType.Text;
         }
 
         private void txtType_Leave(object sender, EventArgs e) => this.Leaved();
@@ -7132,9 +7132,9 @@ namespace ClubCompFS
 
         private void txtOrganizerName_TextChanged(object sender, EventArgs e)
         {
-            if (Module1.WorkMode != 1)
+            if (Program.WorkMode != 1)
                 return;
-            Module1.Organizer.Name = this.txtOrganizerName.Text;
+            Program.Organizer.Name = this.txtOrganizerName.Text;
         }
 
         private void txtOrganizerID_KeyPress(object sender, KeyPressEventArgs e)
@@ -7148,10 +7148,10 @@ namespace ClubCompFS
 
         private void Leaved()
         {
-            if (!Module1.MainForm_TxtBoxEnabled || !(Module1.WorkMode == 1 & !this.Loading & Strings.Len(Module1.CategoryFileName) > 0))
+            if (!Program.MainForm_TxtBoxEnabled || !(Program.WorkMode == 1 & !this.Loading & Strings.Len(Program.CategoryFileName) > 0))
                 return;
             this.GetInputMainForm();
-            Module1.SaveCategoryFile(Module1.CategoryFileName);
+            Program.SaveCategoryFile(Program.CategoryFileName);
         }
 
         private void TechSpecName_Leave(object sender, EventArgs e) => this.Leaved();
@@ -7208,97 +7208,97 @@ namespace ClubCompFS
 
         private void COPYOFFICIALSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "SS", false) != 0 && Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 || Interaction.MsgBox((object)"Do you want to copy the officals to segment 2?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
                     return;
                 this.CopyOfficialsTo2();
-                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                Program.SaveCategoryFile(Program.CategoryFileName);
             }
             else
             {
                 if (Operators.CompareString(segment, "Seg2", false) != 0)
                     return;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "SS", false) != 0 && Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 || Interaction.MsgBox((object)"Do you want to copy the officals to segment 1?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
                     return;
                 this.CopyOfficialsTo1();
-                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                Program.SaveCategoryFile(Program.CategoryFileName);
             }
         }
 
         public void CopyOfficialsTo1()
         {
-            Module1.Techspec.Seg1.Name = Module1.Techspec.Seg2.Name;
-            Module1.Techspec.Seg1.Club = Module1.Techspec.Seg2.Club;
-            Module1.Controller.Seg1.Name = Module1.Controller.Seg2.Name;
-            Module1.Controller.Seg1.Club = Module1.Controller.Seg2.Club;
-            Module1.Referee.Seg1.Name = Module1.Referee.Seg2.Name;
-            Module1.Referee.Seg1.Club = Module1.Referee.Seg2.Club;
+            Program.Techspec.Seg1.Name = Program.Techspec.Seg2.Name;
+            Program.Techspec.Seg1.Club = Program.Techspec.Seg2.Club;
+            Program.Controller.Seg1.Name = Program.Controller.Seg2.Name;
+            Program.Controller.Seg1.Club = Program.Controller.Seg2.Club;
+            Program.Referee.Seg1.Name = Program.Referee.Seg2.Name;
+            Program.Referee.Seg1.Club = Program.Referee.Seg2.Club;
             int index1 = 1;
             do
             {
-                Module1.Judge[index1].Seg1.Name = Module1.Judge[index1].Seg2.Name;
-                Module1.Judge[index1].Seg1.Club = Module1.Judge[index1].Seg2.Club;
+                Program.Judge[index1].Seg1.Name = Program.Judge[index1].Seg2.Name;
+                Program.Judge[index1].Seg1.Club = Program.Judge[index1].Seg2.Club;
                 checked { ++index1; }
             }
             while (index1 <= 7);
             int index2 = 1;
             do
             {
-                Module1.DVO[index2].Seg1.Name = Module1.DVO[index2].Seg2.Name;
-                Module1.DVO[index2].Seg1.Club = Module1.DVO[index2].Seg2.Club;
+                Program.DVO[index2].Seg1.Name = Program.DVO[index2].Seg2.Name;
+                Program.DVO[index2].Seg1.Club = Program.DVO[index2].Seg2.Club;
                 checked { ++index2; }
             }
             while (index2 <= 3);
-            Module1.NoJ_Seg1 = Module1.NoJ_Seg2;
-            Module1.NoTrJ_Seg1 = Module1.NoTrJ_Seg2;
-            Module1.JudgeSel_Seg1 = Module1.JudgeSel_Seg2;
+            Program.NoJ_Seg1 = Program.NoJ_Seg2;
+            Program.NoTrJ_Seg1 = Program.NoTrJ_Seg2;
+            Program.JudgeSel_Seg1 = Program.JudgeSel_Seg2;
         }
 
         public void CopyOfficialsTo2()
         {
-            Module1.Techspec.Seg2.Name = Module1.Techspec.Seg1.Name;
-            Module1.Techspec.Seg2.Club = Module1.Techspec.Seg1.Club;
-            Module1.Controller.Seg2.Name = Module1.Controller.Seg1.Name;
-            Module1.Controller.Seg2.Club = Module1.Controller.Seg1.Club;
-            Module1.Referee.Seg2.Name = Module1.Referee.Seg1.Name;
-            Module1.Referee.Seg2.Club = Module1.Referee.Seg1.Club;
+            Program.Techspec.Seg2.Name = Program.Techspec.Seg1.Name;
+            Program.Techspec.Seg2.Club = Program.Techspec.Seg1.Club;
+            Program.Controller.Seg2.Name = Program.Controller.Seg1.Name;
+            Program.Controller.Seg2.Club = Program.Controller.Seg1.Club;
+            Program.Referee.Seg2.Name = Program.Referee.Seg1.Name;
+            Program.Referee.Seg2.Club = Program.Referee.Seg1.Club;
             int index1 = 1;
             do
             {
-                Module1.Judge[index1].Seg2.Name = Module1.Judge[index1].Seg1.Name;
-                Module1.Judge[index1].Seg2.Club = Module1.Judge[index1].Seg1.Club;
+                Program.Judge[index1].Seg2.Name = Program.Judge[index1].Seg1.Name;
+                Program.Judge[index1].Seg2.Club = Program.Judge[index1].Seg1.Club;
                 checked { ++index1; }
             }
             while (index1 <= 7);
             int index2 = 1;
             do
             {
-                Module1.DVO[index2].Seg2.Name = Module1.DVO[index2].Seg1.Name;
-                Module1.DVO[index2].Seg2.Club = Module1.DVO[index2].Seg1.Club;
+                Program.DVO[index2].Seg2.Name = Program.DVO[index2].Seg1.Name;
+                Program.DVO[index2].Seg2.Club = Program.DVO[index2].Seg1.Club;
                 checked { ++index2; }
             }
             while (index2 <= 3);
-            Module1.NoJ_Seg2 = Module1.NoJ_Seg1;
-            Module1.NoTrJ_Seg2 = Module1.NoTrJ_Seg1;
-            Module1.JudgeSel_Seg2 = Module1.JudgeSel_Seg1;
+            Program.NoJ_Seg2 = Program.NoJ_Seg1;
+            Program.NoTrJ_Seg2 = Program.NoTrJ_Seg1;
+            Program.JudgeSel_Seg2 = Program.JudgeSel_Seg1;
         }
 
         private void EntriesToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             MyProject.Forms.StartListForm.CreateEntriesPDF();
         }
 
         private void StartListToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             MyProject.Forms.StartListForm.CreateStartListPDF(1);
         }
@@ -7312,16 +7312,16 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                int judgeNo = Module1.GetJudgeNo((object)Module1.JudgeCompNo[index]);
-                string segment = Module1.Segment;
+                int judgeNo = Program.GetJudgeNo((object)Program.JudgeCompNo[index]);
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg1.Name;
+                    Left = Program.Judge[judgeNo].Seg1.Name;
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg2.Name;
+                    Left = Program.Judge[judgeNo].Seg2.Name;
                 if (Operators.CompareString(Left, "", false) == 0)
                     Left = "-";
-                string str2 = Conversions.ToString(Module1.JudgeCompNo[index]);
-                string str3 = Conversions.ToString(Module1.JudgeCompFunc[index]);
+                string str2 = Conversions.ToString(Program.JudgeCompNo[index]);
+                string str3 = Conversions.ToString(Program.JudgeCompFunc[index]);
                 str1 = str1 + str2 + ";" + Conversions.ToString(index) + ";" + str3 + ";" + Left + ";";
                 checked { ++index; }
             }
@@ -7339,16 +7339,16 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                int judgeNo = Module1.GetJudgeNo((object)Module1.JudgeCompNo[index]);
-                string segment = Module1.Segment;
+                int judgeNo = Program.GetJudgeNo((object)Program.JudgeCompNo[index]);
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg1.Name;
+                    Left = Program.Judge[judgeNo].Seg1.Name;
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg2.Name;
+                    Left = Program.Judge[judgeNo].Seg2.Name;
                 if (Operators.CompareString(Left, "", false) == 0)
                     Left = "-";
-                string str2 = Conversions.ToString(Module1.JudgeCompNo[index]);
-                string str3 = Conversions.ToString(Module1.JudgeCompFunc[index]);
+                string str2 = Conversions.ToString(Program.JudgeCompNo[index]);
+                string str3 = Conversions.ToString(Program.JudgeCompFunc[index]);
                 str1 = str1 + str2 + ";" + Conversions.ToString(index) + ";" + str3 + ";" + Left + ";";
                 checked { ++index; }
             }
@@ -7366,16 +7366,16 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                int judgeNo = Module1.GetJudgeNo((object)Module1.JudgeCompNo[index]);
-                string segment = Module1.Segment;
+                int judgeNo = Program.GetJudgeNo((object)Program.JudgeCompNo[index]);
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg1.Name;
+                    Left = Program.Judge[judgeNo].Seg1.Name;
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    Left = Module1.Judge[judgeNo].Seg2.Name;
+                    Left = Program.Judge[judgeNo].Seg2.Name;
                 if (Operators.CompareString(Left, "", false) == 0)
                     Left = "-";
-                string str2 = Conversions.ToString(Module1.JudgeCompNo[index]);
-                string str3 = Conversions.ToString(Module1.JudgeCompFunc[index]);
+                string str2 = Conversions.ToString(Program.JudgeCompNo[index]);
+                string str3 = Conversions.ToString(Program.JudgeCompFunc[index]);
                 str1 = str1 + str2 + ";" + Conversions.ToString(index) + ";" + str3 + ";" + Left + ";";
                 checked { ++index; }
             }
@@ -7386,7 +7386,7 @@ namespace ClubCompFS
 
         private void Timer3_Tick(object sender, EventArgs e)
         {
-            if (!(this.completed3 & Module1.PingClients == 1))
+            if (!(this.completed3 & Program.PingClients == 1))
                 return;
             this.BackgroundWorker3.RunWorkerAsync();
         }
@@ -7403,9 +7403,9 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    if (Strings.Len(Module1.IPArr[index]) > 3)
+                    if (Strings.Len(Program.IPArr[index]) > 3)
                     {
-                        if (MyProject.Computer.Network.Ping(this.GetIPadr(Module1.IPArr[index]), Module1.PingTimeout))
+                        if (MyProject.Computer.Network.Ping(this.GetIPadr(Program.IPArr[index]), Program.PingTimeout))
                         {
                             this.Msg[index] = 0;
                         }
@@ -7413,7 +7413,7 @@ namespace ClubCompFS
                         {
                             this.Msg[index] = checked(this.Msg[index] + 1);
                             if (this.Msg[index] > 4)
-                                Module1.IPArr[index] = "";
+                                Program.IPArr[index] = "";
                         }
                     }
                     checked { ++index; }
@@ -7472,14 +7472,14 @@ namespace ClubCompFS
 
         private void EntriesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             MyProject.Forms.StartListForm.CreateEntriesPDF();
         }
 
         private void StartListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossible() || !Module1.TestStart())
+            if (!this.MenuPossible() || !Program.TestStart())
                 return;
             MyProject.Forms.StartListForm.CreateStartListPDF(1);
         }
@@ -7489,7 +7489,7 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.TopMost = false;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.DBForm))
                 MyProject.Forms.DBForm.Close();
             int num = (int)MyProject.Forms.DBForm.ShowDialog();
         }
@@ -7505,15 +7505,15 @@ namespace ClubCompFS
         {
             this.completed10 = false;
             this.Timer10.Enabled = false;
-            switch (Module1.CreateScoreBoard)
+            switch (Program.CreateScoreBoard)
             {
                 case 1:
                 case 2:
-                    Module1.MakeScoreBoard_12(Module1.MakesScoreBoard_StNo);
+                    Program.MakeScoreBoard_12(Program.MakesScoreBoard_StNo);
                     break;
                 case 3:
                 case 4:
-                    Module1.MakeScoreBoard_34(Module1.MakesScoreBoard_StNo);
+                    Program.MakeScoreBoard_34(Program.MakesScoreBoard_StNo);
                     break;
             }
         }
@@ -7558,19 +7558,19 @@ namespace ClubCompFS
                 string str2 = "0";
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.PNo > 0)
+                if (Program.PNo > 0)
                 {
-                    int Number1 = Module1.NoOfElement();
-                    string progType = Module1.GetProgType(Module1.Segment);
+                    int Number1 = Program.NoOfElement();
+                    string progType = Program.GetProgType(Program.Segment);
                     if (Operators.CompareString(progType, "Short", false) == 0)
                     {
                         str1 = "11";
-                        num3 = Module1.Vek[Module1.PNo].Startno_Seg1;
+                        num3 = Program.Vek[Program.PNo].Startno_Seg1;
                     }
                     else if (Operators.CompareString(progType, "Free", false) == 0)
                     {
                         str1 = "12";
-                        num3 = Module1.Vek[Module1.PNo].Startno_Seg2;
+                        num3 = Program.Vek[Program.PNo].Startno_Seg2;
                     }
                     else
                         Operators.CompareString(progType, "Free", false);
@@ -7589,16 +7589,16 @@ namespace ClubCompFS
                         case 5:
                         case 6:
                         case 7:
-                            Module1.JCStatus[CompNo] = 1;
+                            Program.JCStatus[CompNo] = 1;
                             str2 = "1";
                             break;
                     }
-                    Outtxt = Strings.Trim(Strings.Trim(Module1.Vek[Module1.PNo].Name.FName) + " " + Strings.Trim(Module1.Vek[Module1.PNo].Name.LName)) + ";" + Strings.Trim(Module1.Vek[Module1.PNo].Club) + ";" + Strings.Trim(Module1.Category.Name) + Strings.Trim(Module1.SubCat()) + ";" + Module1.Segment + ";" + Strings.Trim(Conversions.ToString(num3)) + ";" + Strings.Trim(str2) + ";" + Strings.Trim(Conversion.Str((object)Number1)) + ";" + Strings.Trim(Module1.PCSel()) + ";";
+                    Outtxt = Strings.Trim(Strings.Trim(Program.Vek[Program.PNo].Name.FName) + " " + Strings.Trim(Program.Vek[Program.PNo].Name.LName)) + ";" + Strings.Trim(Program.Vek[Program.PNo].Club) + ";" + Strings.Trim(Program.Category.Name) + Strings.Trim(Program.SubCat()) + ";" + Program.Segment + ";" + Strings.Trim(Conversions.ToString(num3)) + ";" + Strings.Trim(str2) + ";" + Strings.Trim(Conversion.Str((object)Number1)) + ";" + Strings.Trim(Program.PCSel()) + ";";
                     int index1 = 1;
                     do
                     {
-                        int index2 = Module1.JudgeCompNo[index1];
-                        string str3 = Module1.JCStatus[index2] != 1 ? "0" : "1";
+                        int index2 = Program.JudgeCompNo[index1];
+                        string str3 = Program.JCStatus[index2] != 1 ? "0" : "1";
                         Outtxt += str3;
                         checked { ++index1; }
                     }
@@ -7611,21 +7611,21 @@ namespace ClubCompFS
                         while (index3 <= num4)
                         {
                             string str4 = "";
-                            string str5 = Operators.CompareString(Module1.OpArr[index3].replay, "R", false) != 0 ? "" : "?";
-                            string segment = Module1.Segment;
+                            string str5 = Operators.CompareString(Program.OpArr[index3].replay, "R", false) != 0 ? "" : "?";
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
-                                str4 = Module1.Vek[Module1.PNo].SSS_Seg1[index3] + str5;
+                                str4 = Program.Vek[Program.PNo].SSS_Seg1[index3] + str5;
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                                str4 = Module1.Vek[Module1.PNo].SSS_Seg2[index3] + str5;
+                                str4 = Program.Vek[Program.PNo].SSS_Seg2[index3] + str5;
                             Outtxt = Outtxt + str4 + ";";
                             checked { ++index3; }
                         }
                     }
-                    Outtxt = Module1.CC_Time + ";" + Outtxt;
+                    Outtxt = Program.CC_Time + ";" + Outtxt;
                     Outtxt = str1 + ";" + Outtxt;
                     int Number2 = Strings.Len(Outtxt);
                     Outtxt = Strings.Trim(Conversion.Str((object)Number2)) + ";" + Outtxt;
-                    Module1.LastOutTxt = Outtxt;
+                    Program.LastOutTxt = Outtxt;
                     goto label_27;
                 }
                 else
@@ -7660,16 +7660,16 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        InElement = Module1.Vek[Module1.PNo].SSS_Seg1[index];
-                        AfterHalfTime = Module1.Vek[Module1.PNo].HTIndSeg1 > 0 & index >= Module1.Vek[Module1.PNo].HTIndSeg1;
+                        InElement = Program.Vek[Program.PNo].SSS_Seg1[index];
+                        AfterHalfTime = Program.Vek[Program.PNo].HTIndSeg1 > 0 & index >= Program.Vek[Program.PNo].HTIndSeg1;
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        InElement = Module1.Vek[Module1.PNo].SSS_Seg2[index];
-                        AfterHalfTime = Module1.Vek[Module1.PNo].HTIndSeg2 > 0 & index >= Module1.Vek[Module1.PNo].HTIndSeg2;
+                        InElement = Program.Vek[Program.PNo].SSS_Seg2[index];
+                        AfterHalfTime = Program.Vek[Program.PNo].HTIndSeg2 > 0 & index >= Program.Vek[Program.PNo].HTIndSeg2;
                     }
                     if (!string.IsNullOrEmpty(InElement))
                         Expression += this.Calc_BV(InElement, AfterHalfTime);
@@ -7677,15 +7677,15 @@ namespace ClubCompFS
                 }
                 while (index <= 15);
                 BVScore = Strings.Format((object)Expression, "0.00");
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    TEScore = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg1, "0.00");
+                    TEScore = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg1, "0.00");
                     goto label_18;
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    TEScore = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg2, "0.00");
+                    TEScore = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg2, "0.00");
                     goto label_18;
                 }
                 else
@@ -7713,7 +7713,7 @@ namespace ClubCompFS
             int num3 = 0;
             try
             {
-                int elDbmax = Module1.ElDBmax;
+                int elDbmax = Program.ElDBmax;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 num2 = 0.0;
@@ -7723,7 +7723,7 @@ namespace ClubCompFS
                     int num4 = Strings.InStr(1, str1, " !", CompareMethod.Text);
                     if (num4 > 0)
                         str1 = Strings.Left(str1, checked(num4 - 1));
-                    string str2 = Module1.Test_SEQ_COMBO_REP(str1);
+                    string str2 = Program.Test_SEQ_COMBO_REP(str1);
                     if (Strings.Len(str2) >= 1)
                     {
                         int num5 = Strings.InStr(1, str2, "+COMBO", CompareMethod.Text);
@@ -7734,38 +7734,38 @@ namespace ClubCompFS
                         {
                             int num6 = Strings.InStr(str2, "+SEQ");
                             int Eno = 0;
-                            Module1.FindJumpEl1(Strings.Left(str2, checked(num6 - 1)), ref Eno);
+                            Program.FindJumpEl1(Strings.Left(str2, checked(num6 - 1)), ref Eno);
                             int num7 = checked(Eno - 1);
                             int index1 = 1;
                             while (index1 <= num7)
                             {
-                                string elstr = Module1.ElArr[index1].Elstr;
+                                string elstr = Program.ElArr[index1].Elstr;
                                 if (elstr.Contains("*"))
                                 {
-                                    Module1.ElArr[index1].Value = 0.0;
-                                    Module1.ElArr[index1].BaseValue = 0.0;
-                                    Module1.ElArr[index1].row = 0;
+                                    Program.ElArr[index1].Value = 0.0;
+                                    Program.ElArr[index1].BaseValue = 0.0;
+                                    Program.ElArr[index1].row = 0;
                                 }
                                 else
                                 {
-                                    int jumpmin = Module1.Jumpmin;
-                                    int jumpMax = Module1.JumpMax;
+                                    int jumpmin = Program.Jumpmin;
+                                    int jumpMax = Program.JumpMax;
                                     int index2 = jumpmin;
                                     while (index2 <= jumpMax)
                                     {
-                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index2, 0], false))
+                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index2, 0], false))
                                         {
-                                            Module1.ElArr[index1].row = index2;
+                                            Program.ElArr[index1].row = index2;
                                             int index3 = 6;
-                                            Module1.ElArr[index1].Value = Conversions.ToDouble(Module1.ElDB[index2, index3]);
-                                            Module1.ElArr[index1].BaseValue = Conversions.ToDouble(Module1.ElDB[index2, 6]);
-                                            if (Module1.ElArr[index1].Value != 0.0)
+                                            Program.ElArr[index1].Value = Conversions.ToDouble(Program.ElDB[index2, index3]);
+                                            Program.ElArr[index1].BaseValue = Conversions.ToDouble(Program.ElDB[index2, 6]);
+                                            if (Program.ElArr[index1].Value != 0.0)
                                                 break;
                                             break;
                                         }
                                         checked { ++index2; }
                                     }
-                                    if (index2 > Module1.JumpMax)
+                                    if (index2 > Program.JumpMax)
                                         this.ErrMessage_1(InElement);
                                 }
                                 checked { ++index1; }
@@ -7774,70 +7774,70 @@ namespace ClubCompFS
                             int index4 = 1;
                             while (index4 <= num8)
                             {
-                                Module1.El_type elType = Module1.ElArr[index4];
+                                Program.El_type elType = Program.ElArr[index4];
                                 int index5 = index4;
                                 int num9 = checked(index4 + 1);
                                 int num10 = checked(Eno - 1);
                                 int index6 = num9;
                                 while (index6 <= num10)
                                 {
-                                    if (Module1.ElArr[index6].BaseValue > elType.BaseValue)
+                                    if (Program.ElArr[index6].BaseValue > elType.BaseValue)
                                     {
-                                        elType = Module1.ElArr[index6];
+                                        elType = Program.ElArr[index6];
                                         index5 = index6;
                                     }
                                     checked { ++index6; }
                                 }
-                                Module1.ElArr[index5] = Module1.ElArr[index4];
-                                Module1.ElArr[index4] = elType;
+                                Program.ElArr[index5] = Program.ElArr[index4];
+                                Program.ElArr[index4] = elType;
                                 checked { ++index4; }
                             }
-                            int row = Module1.ElArr[1].row;
-                            double num11 = Module1.ElArr[2].row != 0 ? Module1.ElArr[2].Value : 0.0;
-                            num2 = row <= 0 ? 0.0 : Conversion.Int(100.0 * (num11 + Module1.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right;
+                            int row = Program.ElArr[1].row;
+                            double num11 = Program.ElArr[2].row != 0 ? Program.ElArr[2].Value : 0.0;
+                            num2 = row <= 0 ? 0.0 : Conversion.Int(100.0 * (num11 + Program.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right;
                         }
                         else if (Strings.InStr(1, str2, "+REP", CompareMethod.Text) > 0)
                         {
                             double num12 = 0.0;
                             int num13 = Strings.InStr(str2, "+REP");
                             int Eno = 0;
-                            Module1.FindJumpEl1(Strings.Left(str2, checked(num13 - 1)), ref Eno);
+                            Program.FindJumpEl1(Strings.Left(str2, checked(num13 - 1)), ref Eno);
                             int num14 = checked(Eno - 1);
                             int index7 = 1;
                             while (index7 <= num14)
                             {
-                                string elstr = Module1.ElArr[index7].Elstr;
+                                string elstr = Program.ElArr[index7].Elstr;
                                 if (elstr.Contains("*"))
                                 {
-                                    Module1.ElArr[index7].Value = 0.0;
-                                    Module1.ElArr[index7].BaseValue = 0.0;
-                                    Module1.ElArr[index7].row = 0;
+                                    Program.ElArr[index7].Value = 0.0;
+                                    Program.ElArr[index7].BaseValue = 0.0;
+                                    Program.ElArr[index7].row = 0;
                                 }
                                 else
                                 {
-                                    int jumpmin = Module1.Jumpmin;
-                                    int jumpMax = Module1.JumpMax;
+                                    int jumpmin = Program.Jumpmin;
+                                    int jumpMax = Program.JumpMax;
                                     int index8 = jumpmin;
                                     while (index8 <= jumpMax)
                                     {
-                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index8, 0], false))
+                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index8, 0], false))
                                         {
-                                            Module1.ElArr[index7].row = index8;
+                                            Program.ElArr[index7].row = index8;
                                             int index9 = 6;
-                                            Module1.ElArr[index7].Value = Conversions.ToDouble(Operators.MultiplyObject(Operators.MultiplyObject(Module1.ElDB[index8, index9], (object)Right), (object)0.7));
-                                            Module1.ElArr[index7].BaseValue = Conversions.ToDouble(Module1.ElDB[index8, 6]);
-                                            if (Module1.ElArr[index7].Value != 0.0)
+                                            Program.ElArr[index7].Value = Conversions.ToDouble(Operators.MultiplyObject(Operators.MultiplyObject(Program.ElDB[index8, index9], (object)Right), (object)0.7));
+                                            Program.ElArr[index7].BaseValue = Conversions.ToDouble(Program.ElDB[index8, 6]);
+                                            if (Program.ElArr[index7].Value != 0.0)
                                                 break;
                                             break;
                                         }
                                         checked { ++index8; }
                                     }
-                                    if (index8 > Module1.JumpMax)
+                                    if (index8 > Program.JumpMax)
                                         this.ErrMessage_1(InElement);
                                 }
                                 checked { ++index7; }
                             }
-                            Module1.El_type elType;
+                            Program.El_type elType;
                             elType.Value = 0.0;
                             elType.BaseValue = 0.0;
                             elType.row = 0;
@@ -7845,9 +7845,9 @@ namespace ClubCompFS
                             int index10 = 1;
                             while (index10 <= num15)
                             {
-                                num12 += Module1.ElArr[index10].Value;
-                                if (Module1.ElArr[index10].BaseValue > elType.BaseValue)
-                                    elType = Module1.ElArr[index10];
+                                num12 += Program.ElArr[index10].Value;
+                                if (Program.ElArr[index10].BaseValue > elType.BaseValue)
+                                    elType = Program.ElArr[index10];
                                 checked { ++index10; }
                             }
                             num2 = num12;
@@ -7857,8 +7857,8 @@ namespace ClubCompFS
                             double Left1 = 0.0;
                             int num16 = 0;
                             string Left2 = str2;
-                            int spinMin = Module1.SpinMin;
-                            int spinmax = Module1.Spinmax;
+                            int spinMin = Program.SpinMin;
+                            int spinmax = Program.Spinmax;
                             if (Left2.Contains("*"))
                             {
                                 Left1 += 0.0;
@@ -7867,20 +7867,20 @@ namespace ClubCompFS
                             {
                                 do
                                 {
-                                    if (Operators.ConditionalCompareObjectNotEqual(Module1.ElDB[spinMin, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left2, Module1.ElDB[spinMin, 0], false))
+                                    if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[spinMin, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left2, Program.ElDB[spinMin, 0], false))
                                     {
                                         num16 = spinMin;
                                         int num17 = spinMin;
-                                        if (num17 >= Module1.SpinMin && num17 <= Module1.Spinmax)
+                                        if (num17 >= Program.SpinMin && num17 <= Program.Spinmax)
                                         {
                                             int index = 6;
-                                            Left1 = Conversions.ToDouble(Operators.AddObject((object)Left1, Module1.ElDB[spinMin, index]));
+                                            Left1 = Conversions.ToDouble(Operators.AddObject((object)Left1, Program.ElDB[spinMin, index]));
                                         }
                                     }
                                     checked { ++spinMin; }
                                 }
                                 while (!(spinMin > spinmax | num16 > 0));
-                                if (spinMin > checked(Module1.ElDBmax + 2))
+                                if (spinMin > checked(Program.ElDBmax + 2))
                                     this.ErrMessage_1(InElement);
                             }
                             num2 = Left1;
@@ -7889,43 +7889,43 @@ namespace ClubCompFS
                         {
                             double num18 = 0.0;
                             int Eno = 0;
-                            Module1.FindJumpEl1(str2, ref Eno);
+                            Program.FindJumpEl1(str2, ref Eno);
                             int num19 = checked(Eno - 1);
                             int index11 = 1;
                             while (index11 <= num19)
                             {
-                                string elstr = Module1.ElArr[index11].Elstr;
+                                string elstr = Program.ElArr[index11].Elstr;
                                 if (elstr.Contains("*"))
                                 {
-                                    Module1.ElArr[index11].Value = 0.0;
-                                    Module1.ElArr[index11].BaseValue = 0.0;
-                                    Module1.ElArr[index11].row = 0;
+                                    Program.ElArr[index11].Value = 0.0;
+                                    Program.ElArr[index11].BaseValue = 0.0;
+                                    Program.ElArr[index11].row = 0;
                                 }
                                 else
                                 {
-                                    int jumpmin = Module1.Jumpmin;
-                                    int jumpMax = Module1.JumpMax;
+                                    int jumpmin = Program.Jumpmin;
+                                    int jumpMax = Program.JumpMax;
                                     int index12 = jumpmin;
                                     while (index12 <= jumpMax)
                                     {
-                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index12, 0], false))
+                                        if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index12, 0], false))
                                         {
-                                            Module1.ElArr[index11].row = index12;
+                                            Program.ElArr[index11].row = index12;
                                             int index13 = 6;
-                                            Module1.ElArr[index11].Value = Conversions.ToDouble(Operators.MultiplyObject(Module1.ElDB[index12, index13], (object)Right));
-                                            Module1.ElArr[index11].BaseValue = Conversions.ToDouble(Module1.ElDB[index12, 6]);
-                                            if (Module1.ElArr[index11].Value != 0.0)
+                                            Program.ElArr[index11].Value = Conversions.ToDouble(Operators.MultiplyObject(Program.ElDB[index12, index13], (object)Right));
+                                            Program.ElArr[index11].BaseValue = Conversions.ToDouble(Program.ElDB[index12, 6]);
+                                            if (Program.ElArr[index11].Value != 0.0)
                                                 break;
                                             break;
                                         }
                                         checked { ++index12; }
                                     }
-                                    if (index12 > Module1.JumpMax)
+                                    if (index12 > Program.JumpMax)
                                         this.ErrMessage_1(InElement);
                                 }
                                 checked { ++index11; }
                             }
-                            Module1.El_type elType;
+                            Program.El_type elType;
                             elType.Value = 0.0;
                             elType.BaseValue = 0.0;
                             elType.row = 0;
@@ -7933,9 +7933,9 @@ namespace ClubCompFS
                             int index14 = 1;
                             while (index14 <= num20)
                             {
-                                num18 += Module1.ElArr[index14].Value;
-                                if (Module1.ElArr[index14].BaseValue > elType.BaseValue)
-                                    elType = Module1.ElArr[index14];
+                                num18 += Program.ElArr[index14].Value;
+                                if (Program.ElArr[index14].BaseValue > elType.BaseValue)
+                                    elType = Program.ElArr[index14];
                                 checked { ++index14; }
                             }
                             num2 = num18;
@@ -7949,18 +7949,18 @@ namespace ClubCompFS
                             int num22;
                             if (str2.Contains("St"))
                             {
-                                index15 = Module1.Stepmin;
-                                num22 = Module1.Stepmax;
+                                index15 = Program.Stepmin;
+                                num22 = Program.Stepmax;
                             }
                             else if (str2.Contains("Ch"))
                             {
-                                index15 = Module1.Stepmin;
-                                num22 = Module1.Stepmax;
+                                index15 = Program.Stepmin;
+                                num22 = Program.Stepmax;
                             }
                             else
                             {
-                                index15 = Module1.Jumpmin;
-                                num22 = Module1.JumpMax;
+                                index15 = Program.Jumpmin;
+                                num22 = Program.JumpMax;
                             }
                             if (Left4.Contains("*"))
                             {
@@ -7970,22 +7970,22 @@ namespace ClubCompFS
                             {
                                 do
                                 {
-                                    if (Operators.ConditionalCompareObjectNotEqual(Module1.ElDB[index15, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left4, Module1.ElDB[index15, 0], false))
+                                    if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[index15, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left4, Program.ElDB[index15, 0], false))
                                     {
                                         num21 = index15;
                                         int num23 = index15;
-                                        if (num23 >= Module1.Jumpmin && num23 <= Module1.JumpMax)
+                                        if (num23 >= Program.Jumpmin && num23 <= Program.JumpMax)
                                         {
                                             int index16 = 6;
-                                            Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Operators.MultiplyObject(Module1.ElDB[index15, index16], (object)Right)));
+                                            Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Operators.MultiplyObject(Program.ElDB[index15, index16], (object)Right)));
                                         }
-                                        else if (num23 >= Module1.Stepmin && num23 <= Module1.Stepmax)
-                                            Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Module1.ElDB[index15, 6]));
+                                        else if (num23 >= Program.Stepmin && num23 <= Program.Stepmax)
+                                            Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Program.ElDB[index15, 6]));
                                     }
                                     checked { ++index15; }
                                 }
                                 while (!(index15 > num22 | num21 > 0));
-                                if (index15 > checked(Module1.ElDBmax + 2))
+                                if (index15 > checked(Program.ElDBmax + 2))
                                     this.ErrMessage_1(InElement);
                             }
                             num2 = Left3;
@@ -8035,10 +8035,10 @@ namespace ClubCompFS
                     string Outtxt = "";
                     this.CreateJudgeTxtFile(Conversions.ToInteger(str), ref Outtxt);
                     this.SendMessage(Outtxt);
-                    if (Module1.WorkMode == 2 & Module1.CreateTEScores > 0)
+                    if (Program.WorkMode == 2 & Program.CreateTEScores > 0)
                     {
                         this.CalcBV_and_TEScores(ref BVScore, ref TEScore);
-                        Module1.MakeTEScore(Module1.TE_Leader, BVScore, TEScore);
+                        Program.MakeTEScore(Program.TE_Leader, BVScore, TEScore);
                     }
                     Thread.Sleep(110);
                 }
@@ -8092,11 +8092,11 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                int index = checked(Module1._Clients.Count - 1);
+                int index = checked(Program._Clients.Count - 1);
                 while (index >= 0)
                 {
                     num3 = 3;
-                    TcpClient client = Module1._Clients[index];
+                    TcpClient client = Program._Clients[index];
                     num3 = 4;
                     bool flag = client.Client.Poll(1, SelectMode.SelectRead);
                     num3 = 5;
@@ -8131,12 +8131,12 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.CompletedTimer2)
+                if (Program.CompletedTimer2)
                 {
-                    Module1.CompletedTimer2 = false;
+                    Program.CompletedTimer2 = false;
                     this.RejectJI();
                     this.SetColor();
-                    Module1.CompletedTimer2 = true;
+                    Program.CompletedTimer2 = true;
                     goto label_8;
                 }
                 else
@@ -8163,12 +8163,12 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                if (Strings.Len(Module1.IPreject[index]) > 3)
+                if (Strings.Len(Program.IPreject[index]) > 3)
                 {
-                    this.GetIP(Module1.IPreject[index], ref IPadr);
+                    this.GetIP(Program.IPreject[index], ref IPadr);
                     string str = "&#REJECT#&;" + Conversions.ToString(index) + ";" + IPadr + ";";
                     this.SendMessage(Strings.Trim(Conversions.ToString(str.Length)) + ";" + str);
-                    Module1.IPreject[index] = "";
+                    Program.IPreject[index] = "";
                 }
                 checked { ++index; }
             }
@@ -8186,19 +8186,19 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    int judgeNo = Module1.GetJudgeNo((object)Module1.JudgeCompNo[index]);
+                    int judgeNo = Program.GetJudgeNo((object)Program.JudgeCompNo[index]);
                     if (judgeNo > 0)
                     {
                         string key1 = "lblJ" + Conversions.ToString(judgeNo);
                         string key2 = "txtCno" + Conversions.ToString(index);
                         string key3 = "btnJ" + Conversions.ToString(judgeNo);
                         string key4 = "txtJ" + Conversions.ToString(judgeNo);
-                        if (judgeNo <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & judgeNo == 7)
+                        if (judgeNo <= checked(Program.NoJ_GOE + Program.NoTrj) | Program.JudgeSel == 1 & judgeNo == 7)
                         {
                             MyProject.Forms.StartListForm.Panel1.Controls[key4].Visible = true;
                             MyProject.Forms.ElementInputForm.Panel1.Controls[key4].Visible = true;
                         }
-                        if (Strings.Len(Module1.IPArr[Module1.JudgeCompNo[index]]) > 3)
+                        if (Strings.Len(Program.IPArr[Program.JudgeCompNo[index]]) > 3)
                         {
                             this.Controls[key1].ForeColor = Color.Green;
                             MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Green;
@@ -8218,7 +8218,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 while (index <= 7);
-                if (Strings.Len(Module1.IPArr[9]) > 3 & Module1.WorkMode == 2)
+                if (Strings.Len(Program.IPArr[9]) > 3 & Program.WorkMode == 2)
                 {
                     this.lblCC_El.Visible = true;
                     this.lblCC_El.ForeColor = Color.Green;
@@ -8231,7 +8231,7 @@ namespace ClubCompFS
                     MyProject.Forms.StartListForm.txtEl.BackColor = Color.Red;
                     MyProject.Forms.ElementInputForm.txtEl.BackColor = Color.Red;
                 }
-                if (Strings.Len(Module1.IPArr[10]) > 3 & Module1.WorkMode >= 2)
+                if (Strings.Len(Program.IPArr[10]) > 3 & Program.WorkMode >= 2)
                 {
                     this.lblCC_Info.Visible = true;
                     this.lblCC_Info.ForeColor = Color.Green;
@@ -8244,7 +8244,7 @@ namespace ClubCompFS
                     MyProject.Forms.StartListForm.txtInfo.BackColor = Color.Red;
                     MyProject.Forms.ElementInputForm.txtInfo.BackColor = Color.Red;
                 }
-                if (Strings.Len(Module1.IPArr[11]) > 3 & Module1.WorkMode >= 2)
+                if (Strings.Len(Program.IPArr[11]) > 3 & Program.WorkMode >= 2)
                 {
                     this.lblCC_MP.Visible = true;
                     this.lblCC_MP.ForeColor = Color.Green;
@@ -8283,7 +8283,7 @@ namespace ClubCompFS
                 return;
             if (this.TstStartNo())
             {
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
                     if (!this.FinishedSeg1())
@@ -8300,7 +8300,7 @@ namespace ClubCompFS
                 int num1 = checked((int)Math.Round(Conversion.Val(Interaction.InputBox("Number of copies, 0-9?", "Susanne SW", Conversions.ToString(1)))));
                 if (!(num1 > 0 & num1 < 10))
                     return;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 2:
                     case 3:

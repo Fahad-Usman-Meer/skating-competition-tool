@@ -135,7 +135,7 @@
     <Compile Include="ElementIncorrectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module1.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="My\MyApplication.cs" />
     <Compile Include="My\MyComputer.cs" />
     <Compile Include="My\MyProject.cs" />

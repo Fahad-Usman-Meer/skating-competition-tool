@@ -340,12 +340,12 @@ namespace ClubCompFS
 
         public void CereateElementDBDisplay()
         {
-            this.Text = Module1.ElementDBver + ", Created: " + Module1.DateTimeToStr(Module1.ElementDBLastWriteTime);
+            this.Text = Program.ElementDBver + ", Created: " + Program.DateTimeToStr(Program.ElementDBLastWriteTime);
             DataGridView dataGridView1 = this.DataGridView1;
             dataGridView1.ColumnHeadersVisible = true;
-            dataGridView1.ReadOnly = Module1.WorkMode > 1;
+            dataGridView1.ReadOnly = Program.WorkMode > 1;
             dataGridView1.ColumnCount = 12;
-            dataGridView1.RowCount = checked(Module1.ElDBmax + 1);
+            dataGridView1.RowCount = checked(Program.ElDBmax + 1);
             dataGridView1.Columns[0].HeaderText = "Element name";
             dataGridView1.Columns[1].HeaderText = "+++++";
             dataGridView1.Columns[2].HeaderText = "++++";
@@ -360,7 +360,7 @@ namespace ClubCompFS
             dataGridView1.Columns[11].HeaderText = "-----";
             dataGridView1.Width = 650;
             this.DGW1width = dataGridView1.Width;
-            this.Width = checked(this.DGW1width + Module1.WC);
+            this.Width = checked(this.DGW1width + Program.WC);
             dataGridView1.Columns[0].Width = 100;
             dataGridView1.Columns[1].Width = 50;
             dataGridView1.Columns[2].Width = 50;
@@ -374,38 +374,38 @@ namespace ClubCompFS
             dataGridView1.Columns[10].Width = 50;
             dataGridView1.Columns[11].Width = 50;
             dataGridView1.RowHeadersVisible = false;
-            int elDbmax = Module1.ElDBmax;
+            int elDbmax = Program.ElDBmax;
             int index = 0;
             while (index <= elDbmax)
             {
-                dataGridView1.Rows[index].Cells[0].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 0]);
-                dataGridView1.Rows[index].Cells[1].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 1]);
-                dataGridView1.Rows[index].Cells[2].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 2]);
-                dataGridView1.Rows[index].Cells[3].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 3]);
-                dataGridView1.Rows[index].Cells[4].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 4]);
-                dataGridView1.Rows[index].Cells[5].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 5]);
-                dataGridView1.Rows[index].Cells[6].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 6]);
-                dataGridView1.Rows[index].Cells[7].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 7]);
-                dataGridView1.Rows[index].Cells[8].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 8]);
-                dataGridView1.Rows[index].Cells[9].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 9]);
-                dataGridView1.Rows[index].Cells[10].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 10]);
-                dataGridView1.Rows[index].Cells[11].Value = RuntimeHelpers.GetObjectValue(Module1.ElDB[index, 11]);
+                dataGridView1.Rows[index].Cells[0].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 0]);
+                dataGridView1.Rows[index].Cells[1].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 1]);
+                dataGridView1.Rows[index].Cells[2].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 2]);
+                dataGridView1.Rows[index].Cells[3].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 3]);
+                dataGridView1.Rows[index].Cells[4].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 4]);
+                dataGridView1.Rows[index].Cells[5].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 5]);
+                dataGridView1.Rows[index].Cells[6].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 6]);
+                dataGridView1.Rows[index].Cells[7].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 7]);
+                dataGridView1.Rows[index].Cells[8].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 8]);
+                dataGridView1.Rows[index].Cells[9].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 9]);
+                dataGridView1.Rows[index].Cells[10].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 10]);
+                dataGridView1.Rows[index].Cells[11].Value = RuntimeHelpers.GetObjectValue(Program.ElDB[index, 11]);
                 if ((double)index == Conversion.Int((double)index / 2.0) * 2.0)
                     dataGridView1.Rows[index].DefaultCellStyle.BackColor = Color.LightGray;
                 checked { ++index; }
             }
-            this.F13Height = checked(dataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+            this.F13Height = checked(dataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
             if (this.F13Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 100))
             {
                 this.Height = this.F13Height;
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
             else
             {
                 this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 100);
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             this.widthcorr = true;
         }
@@ -418,13 +418,13 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F13Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
     }

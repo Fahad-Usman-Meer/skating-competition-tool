@@ -1423,7 +1423,7 @@ namespace ClubCompFS
             if (Interaction.MsgBox((object)"Do you really want to exit the Start List?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
                 e.Cancel = false;
-                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                Program.SaveCategoryFile(Program.CategoryFileName);
                 this.CloseFormsDialogs();
             }
             else
@@ -1432,39 +1432,39 @@ namespace ClubCompFS
 
         private void CloseFormsDialogs()
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.DBForm))
                 MyProject.Forms.DBForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                 MyProject.Forms.JudgesDetailsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 MyProject.Forms.ElementInputForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                 MyProject.Forms.ResultsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
                 MyProject.Forms.JudgesCardForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                 MyProject.Forms.CategoryDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
                 MyProject.Forms.NetworkStatusDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
                 MyProject.Forms.JudgesSetupDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                 MyProject.Forms.ConfigurationDataDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                 MyProject.Forms.ParticipantInputDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
                 MyProject.Forms.IndTAEntriesForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
                 MyProject.Forms.HeadPageDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                 MyProject.Forms.InputJudgesDataDialog.Close();
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+            if (!Program.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                 return;
             MyProject.Forms.DeductionsDialog.Close();
         }
@@ -1481,9 +1481,9 @@ namespace ClubCompFS
                 StartListForm startListForm = this;
                 startListForm.Left = MyProject.Forms.MainForm.Left;
                 startListForm.Top = MyProject.Forms.MainForm.Top;
-                Module1.ScanJudges = 0;
+                Program.ScanJudges = 0;
                 this.WillExitStartListForm = false;
-                if (Module1.WorkMode > 1)
+                if (Program.WorkMode > 1)
                 {
                     this.Panel1.Location = new Point(checked(this.Width - 140 - this.Panel1.Width), 2);
                     this.Panel1.Visible = true;
@@ -1493,7 +1493,7 @@ namespace ClubCompFS
                 {
                     this.Panel1.Visible = false;
                     startListForm.DataGridView1.ContextMenuStrip = startListForm.ContextMenuStrip1;
-                    this.GetSkatersForToolStripMenuItem.Text = "Get skater for " + Strings.UCase(Module1.Category.Name).Split(' ')[0];
+                    this.GetSkatersForToolStripMenuItem.Text = "Get skater for " + Strings.UCase(Program.Category.Name).Split(' ')[0];
                 }
                 this.NewStartList();
                 goto label_10;
@@ -1522,7 +1522,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.WillExitStartListForm = false;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 1:
                         this.Menu_Workmode_1();
@@ -1532,9 +1532,9 @@ namespace ClubCompFS
                         this.Menu_Workmode_2_and_3();
                         break;
                 }
-                this.Text = "START LIST: " + Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment);
-                this.CreateStartList(Module1.TNop);
-                this.Mode.Text = Module1.GetWorkMode();
+                this.Text = "START LIST: " + Program.Category.Name + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment);
+                this.CreateStartList(Program.TNop);
+                this.Mode.Text = Program.GetWorkMode();
                 this.StartListFormMin = false;
                 goto label_10;
             }
@@ -1558,10 +1558,10 @@ namespace ClubCompFS
             this.EXITToolStripMenuItem.Visible = false;
             this.IndTAToolStripMenuItem.Visible = true;
             this.GenerateStartNoToolStripMenuItem.Visible = true;
-            string seg = Module1.GetSeg();
+            string seg = Program.GetSeg();
             if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
             {
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                     this.AccordingToShortProgramToolStripMenuItem.Visible = false;
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -1598,13 +1598,13 @@ namespace ClubCompFS
 
         public void CreateStartList(int TNop)
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
                 this.SortStartNoSeg1(TNop);
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
                 int DNS_Seg1 = 0;
-                Module1.SortStartNoSeg2(TNop, ref DNS_Seg1);
+                Program.SortStartNoSeg2(TNop, ref DNS_Seg1);
             }
             this.CreateStartList1(TNop);
         }
@@ -1618,14 +1618,14 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    if (Strings.Len(Module1.Vek[index1].SSS_Seg1[index2]) > 0)
-                        str = str + Module1.Vek[index1].SSS_Seg1[index2] + ";";
+                    if (Strings.Len(Program.Vek[index1].SSS_Seg1[index2]) > 0)
+                        str = str + Program.Vek[index1].SSS_Seg1[index2] + ";";
                     checked { ++index2; }
                 }
                 while (index2 <= 15);
-                if (Strings.Len(Module1.Vek[index1].Name.FName) > 0)
+                if (Strings.Len(Program.Vek[index1].Name.FName) > 0)
                 {
-                    int num = (int)Interaction.MsgBox((object)(Module1.Vek[index1].Name.FName + " " + Module1.Vek[index1].Name.LName + " - " + str), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num = (int)Interaction.MsgBox((object)(Program.Vek[index1].Name.FName + " " + Program.Vek[index1].Name.LName + " - " + str), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 }
                 checked { ++index1; }
             }
@@ -1646,7 +1646,7 @@ namespace ClubCompFS
                 num3 = 4;
                 this.ShowStartList(NoP);
                 num3 = 5;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 1:
                         num3 = 9;
@@ -1675,14 +1675,14 @@ namespace ClubCompFS
                             dataGridView1.Rows[checked(index1 - 1)].DefaultCellStyle.BackColor = Color.LightGray;
                         }
                         num3 = 21;
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         num3 = 24;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
                             num3 = 25;
-                            dataGridView1.Rows[checked(index1 - 1)].Cells[0].Value = (object)Module1.Vek[index1].Startno_Seg1;
+                            dataGridView1.Rows[checked(index1 - 1)].Cells[0].Value = (object)Program.Vek[index1].Startno_Seg1;
                             num3 = 26;
-                            if (Module1.Vek[index1].Finished_Seg1 == 1)
+                            if (Program.Vek[index1].Finished_Seg1 == 1)
                             {
                                 num3 = 27;
                                 dataGridView1.Rows[checked(index1 - 1)].Cells[6].Value = (object)"Yes";
@@ -1694,23 +1694,23 @@ namespace ClubCompFS
                                 dataGridView1.Rows[checked(index1 - 1)].Cells[6].Value = (object)"No";
                             }
                             num3 = 32;
-                            if (Module1.Vek[index1].WarmUp_Seg1 > 0)
+                            if (Program.Vek[index1].WarmUp_Seg1 > 0)
                             {
                                 num3 = 33;
                                 int index2 = 1;
                                 do
                                 {
                                     num3 = 34;
-                                    if (index1 == Module1.IceArr_Seg1[index2])
+                                    if (index1 == Program.IceArr_Seg1[index2])
                                     {
                                         num3 = 35;
-                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Module1.Vek[index1].WarmUp_Seg1) + "  - Res");
+                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Program.Vek[index1].WarmUp_Seg1) + "  - Res");
                                     }
                                     num3 = 37;
-                                    if (index1 == Module1.LunchArr_Seg1[index2])
+                                    if (index1 == Program.LunchArr_Seg1[index2])
                                     {
                                         num3 = 38;
-                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Module1.Vek[index1].WarmUp_Seg1) + "  - MB");
+                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Program.Vek[index1].WarmUp_Seg1) + "  - MB");
                                     }
                                     num3 = 40;
                                     checked { ++index2; }
@@ -1720,10 +1720,10 @@ namespace ClubCompFS
                                 if (Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value)) < 1)
                                 {
                                     num3 = 42;
-                                    dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)Module1.Vek[index1].WarmUp_Seg1;
+                                    dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)Program.Vek[index1].WarmUp_Seg1;
                                 }
                                 num3 = 44;
-                                if ((double)Module1.Vek[index1].WarmUp_Seg1 / 2.0 == Conversion.Int((double)Module1.Vek[index1].WarmUp_Seg1 / 2.0))
+                                if ((double)Program.Vek[index1].WarmUp_Seg1 / 2.0 == Conversion.Int((double)Program.Vek[index1].WarmUp_Seg1 / 2.0))
                                 {
                                     num3 = 45;
                                     dataGridView1.Rows[checked(index1 - 1)].Cells[7].Style.BackColor = Color.LightCyan;
@@ -1750,7 +1750,7 @@ namespace ClubCompFS
                             if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
                                 num3 = 57;
-                                if (Module1.Vek[index1].DNS_Seg1 > 0)
+                                if (Program.Vek[index1].DNS_Seg1 > 0)
                                 {
                                     num3 = 58;
                                     dataGridView1.Rows[checked(index1 - 1)].Cells[0].Value = (object)"";
@@ -1759,10 +1759,10 @@ namespace ClubCompFS
                                 {
                                     num3 = 60;
                                     num3 = 61;
-                                    dataGridView1.Rows[checked(index1 - 1)].Cells[0].Value = (object)Module1.Vek[index1].Startno_Seg2;
+                                    dataGridView1.Rows[checked(index1 - 1)].Cells[0].Value = (object)Program.Vek[index1].Startno_Seg2;
                                 }
                                 num3 = 63;
-                                if (Module1.Vek[index1].Finished_Seg2 == 1)
+                                if (Program.Vek[index1].Finished_Seg2 == 1)
                                 {
                                     num3 = 64;
                                     dataGridView1.Rows[checked(index1 - 1)].Cells[6].Value = (object)"Yes";
@@ -1774,23 +1774,23 @@ namespace ClubCompFS
                                     dataGridView1.Rows[checked(index1 - 1)].Cells[6].Value = (object)"No";
                                 }
                                 num3 = 69;
-                                if (Module1.Vek[index1].WarmUp_Seg2 > 0)
+                                if (Program.Vek[index1].WarmUp_Seg2 > 0)
                                 {
                                     num3 = 70;
                                     int index3 = 1;
                                     do
                                     {
                                         num3 = 71;
-                                        if (index1 == Module1.IceArr_Seg2[index3])
+                                        if (index1 == Program.IceArr_Seg2[index3])
                                         {
                                             num3 = 72;
-                                            dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Module1.Vek[index1].WarmUp_Seg2) + "  - Res");
+                                            dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Program.Vek[index1].WarmUp_Seg2) + "  - Res");
                                         }
                                         num3 = 74;
-                                        if (index1 == Module1.LunchArr_Seg2[index3])
+                                        if (index1 == Program.LunchArr_Seg2[index3])
                                         {
                                             num3 = 75;
-                                            dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Module1.Vek[index1].WarmUp_Seg2) + "  - MB");
+                                            dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)(Conversions.ToString(Program.Vek[index1].WarmUp_Seg2) + "  - MB");
                                         }
                                         num3 = 77;
                                         checked { ++index3; }
@@ -1800,10 +1800,10 @@ namespace ClubCompFS
                                     if (Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value)) < 1)
                                     {
                                         num3 = 79;
-                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)Module1.Vek[index1].WarmUp_Seg2;
+                                        dataGridView1.Rows[checked(index1 - 1)].Cells[7].Value = (object)Program.Vek[index1].WarmUp_Seg2;
                                     }
                                     num3 = 81;
-                                    if ((double)Module1.Vek[index1].WarmUp_Seg2 / 2.0 == Conversion.Int((double)Module1.Vek[index1].WarmUp_Seg2 / 2.0))
+                                    if ((double)Program.Vek[index1].WarmUp_Seg2 / 2.0 == Conversion.Int((double)Program.Vek[index1].WarmUp_Seg2 / 2.0))
                                     {
                                         num3 = 82;
                                         dataGridView1.Rows[checked(index1 - 1)].Cells[7].Style.BackColor = Color.LightCyan;
@@ -1826,13 +1826,13 @@ namespace ClubCompFS
                             }
                         }
                         num3 = 95;
-                        dataGridView1.Rows[checked(index1 - 1)].Cells[1].Value = (object)Module1.Vek[index1].Name.FName;
+                        dataGridView1.Rows[checked(index1 - 1)].Cells[1].Value = (object)Program.Vek[index1].Name.FName;
                         num3 = 96;
-                        dataGridView1.Rows[checked(index1 - 1)].Cells[2].Value = (object)Module1.Vek[index1].Name.LName;
+                        dataGridView1.Rows[checked(index1 - 1)].Cells[2].Value = (object)Program.Vek[index1].Name.LName;
                         num3 = 97;
-                        dataGridView1.Rows[checked(index1 - 1)].Cells[3].Value = (object)Module1.Vek[index1].Club;
+                        dataGridView1.Rows[checked(index1 - 1)].Cells[3].Value = (object)Program.Vek[index1].Club;
                         num3 = 98;
-                        switch (Module1.Vek[index1].DNS_Seg1)
+                        switch (Program.Vek[index1].DNS_Seg1)
                         {
                             case 1:
                                 num3 = 102;
@@ -1856,7 +1856,7 @@ namespace ClubCompFS
                                 break;
                         }
                         num3 = 116;
-                        switch (Module1.Vek[index1].DNS_Seg2)
+                        switch (Program.Vek[index1].DNS_Seg2)
                         {
                             case 1:
                                 num3 = 120;
@@ -1905,7 +1905,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 num3 = 145;
-                this.F2Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+                this.F2Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
                 num3 = 146;
                 if (this.F2Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 50))
                 {
@@ -1914,7 +1914,7 @@ namespace ClubCompFS
                     num3 = 148;
                     this.DataGridView1.Width = this.DGW1width;
                     num3 = 149;
-                    this.Width = checked(this.DGW1width + Module1.WC);
+                    this.Width = checked(this.DGW1width + Program.WC);
                 }
                 else
                 {
@@ -1922,9 +1922,9 @@ namespace ClubCompFS
                     num3 = 152;
                     this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 50);
                     num3 = 153;
-                    this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
+                    this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
                     num3 = 154;
-                    this.Width = checked(this.DGW1width + Module1.WC2);
+                    this.Width = checked(this.DGW1width + Program.WC2);
                 }
                 num3 = 156;
                 this.widthcorr = true;
@@ -1944,13 +1944,13 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F2Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
 
@@ -1996,7 +1996,7 @@ namespace ClubCompFS
                 dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dataGridView1.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
                 goto label_7;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -2018,16 +2018,16 @@ namespace ClubCompFS
         {
             if (!this.MenuPossibleStartListForm())
                 return;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                this.SortListSeg1DNS(Module1.TNop);
-                this.RandomStartNo(checked(Module1.TNop - Module1.DNS_Seg1), Module1.TNop);
+                this.SortListSeg1DNS(Program.TNop);
+                this.RandomStartNo(checked(Program.TNop - Program.DNS_Seg1), Program.TNop);
             }
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
-                this.SortListSeg2DNS(Module1.TNop);
-                this.RandomStartNo(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2), Module1.TNop);
+                this.SortListSeg2DNS(Program.TNop);
+                this.RandomStartNo(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2), Program.TNop);
             }
             else
             {
@@ -2047,14 +2047,14 @@ namespace ClubCompFS
                 {
                     bool flag1 = false;
                     VBMath.Randomize();
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         int num3 = NoSkater;
                         int index1 = 1;
                         while (index1 <= num3)
                         {
-                            if (Module1.Vek[index1].Startno_Seg1 > 0)
+                            if (Program.Vek[index1].Startno_Seg1 > 0)
                                 flag1 = true;
                             checked { ++index1; }
                         }
@@ -2068,7 +2068,7 @@ namespace ClubCompFS
                         int index3 = 1;
                         while (index3 <= num4)
                         {
-                            Module1.Vek[index3].Startno_Seg1 = 0;
+                            Program.Vek[index3].Startno_Seg1 = 0;
                             checked { ++index3; }
                         }
                         while (index2 <= NoSkater)
@@ -2079,13 +2079,13 @@ namespace ClubCompFS
                             int index4 = 1;
                             while (index4 <= num6)
                             {
-                                if (num5 == Module1.Vek[index4].Startno_Seg1)
+                                if (num5 == Program.Vek[index4].Startno_Seg1)
                                     flag2 = true;
                                 checked { ++index4; }
                             }
                             if (!flag2)
                             {
-                                Module1.Vek[index2].Startno_Seg1 = num5;
+                                Program.Vek[index2].Startno_Seg1 = num5;
                                 checked { ++index2; }
                             }
                         }
@@ -2096,18 +2096,18 @@ namespace ClubCompFS
                             int index5 = num7;
                             while (index5 <= num8)
                             {
-                                Module1.Vek[index5].Startno_Seg1 = 0;
+                                Program.Vek[index5].Startno_Seg1 = 0;
                                 checked { ++index5; }
                             }
                         }
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        int tnop = Module1.TNop;
+                        int tnop = Program.TNop;
                         int index6 = 1;
                         while (index6 <= tnop)
                         {
-                            if (Module1.Vek[index6].Startno_Seg1 > 0 & Module1.Vek[index6].DNS_Seg1 == 0 & Module1.Vek[index6].Finished_Seg1 == 0 & Module1.Vek[index6].DNS_Seg2 == 0)
+                            if (Program.Vek[index6].Startno_Seg1 > 0 & Program.Vek[index6].DNS_Seg1 == 0 & Program.Vek[index6].Finished_Seg1 == 0 & Program.Vek[index6].DNS_Seg2 == 0)
                             {
                                 int num9 = (int)Interaction.MsgBox((object)"Segment 1 has to be completed!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                 goto label_62;
@@ -2119,7 +2119,7 @@ namespace ClubCompFS
                         int index7 = 1;
                         while (index7 <= num10)
                         {
-                            if (Module1.Vek[index7].Startno_Seg2 > 0)
+                            if (Program.Vek[index7].Startno_Seg2 > 0)
                                 flag1 = true;
                             checked { ++index7; }
                         }
@@ -2133,7 +2133,7 @@ namespace ClubCompFS
                         int index9 = 1;
                         while (index9 <= num11)
                         {
-                            Module1.Vek[index9].Startno_Seg2 = 0;
+                            Program.Vek[index9].Startno_Seg2 = 0;
                             checked { ++index9; }
                         }
                         while (index8 <= NoSkater)
@@ -2144,13 +2144,13 @@ namespace ClubCompFS
                             int index10 = 1;
                             while (index10 <= num13)
                             {
-                                if (num12 == Module1.Vek[index10].Startno_Seg2)
+                                if (num12 == Program.Vek[index10].Startno_Seg2)
                                     flag3 = true;
                                 checked { ++index10; }
                             }
                             if (!flag3)
                             {
-                                Module1.Vek[index8].Startno_Seg2 = num12;
+                                Program.Vek[index8].Startno_Seg2 = num12;
                                 checked { ++index8; }
                             }
                         }
@@ -2161,7 +2161,7 @@ namespace ClubCompFS
                             int index11 = num14;
                             while (index11 <= num15)
                             {
-                                Module1.Vek[index11].Startno_Seg2 = 0;
+                                Program.Vek[index11].Startno_Seg2 = 0;
                                 checked { ++index11; }
                             }
                         }
@@ -2170,8 +2170,8 @@ namespace ClubCompFS
                     {
                         int num16 = (int)Interaction.MsgBox((object)"Please select a category and program!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     }
-                    this.CreateStartList(Module1.TNop);
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    this.CreateStartList(Program.TNop);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                     if (Interaction.MsgBox((object)"Do you want to create warmup groups?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
                     {
                         this.Schedule(1);
@@ -2210,17 +2210,17 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                Module1.DNS_Seg1 = 0;
+                Program.DNS_Seg1 = 0;
                 num3 = 3;
                 int num4 = NoOfSkater;
                 int index1 = 1;
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].DNS_Seg1 > 0)
                     {
                         num3 = 5;
-                        checked { ++Module1.DNS_Seg1; }
+                        checked { ++Program.DNS_Seg1; }
                     }
                     num3 = 7;
                     checked { ++index1; }
@@ -2231,7 +2231,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -2241,10 +2241,10 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        if (Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -2252,9 +2252,9 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
@@ -2276,83 +2276,83 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.DNS_Seg1 = 0;
+                Program.DNS_Seg1 = 0;
                 int num3 = NoOfSkater;
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 | Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "F", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0 | Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "F", false) == 0)
                     {
-                        if (Module1.Vek[index1].Finished_Seg1 == 0 & Module1.Vek[index1].DNS_Seg1 == 0)
+                        if (Program.Vek[index1].Finished_Seg1 == 0 & Program.Vek[index1].DNS_Seg1 == 0)
                         {
-                            int num4 = (int)Interaction.MsgBox((object)("Skater: " + Module1.Vek[index1].Name.FName + " " + Module1.Vek[index1].Name.LName + "\r\nhas not finished segment 1!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                            if (Module1.Vek[index1].DNS_Seg1 > 0)
-                                checked { ++Module1.DNS_Seg1; }
+                            int num4 = (int)Interaction.MsgBox((object)("Skater: " + Program.Vek[index1].Name.FName + " " + Program.Vek[index1].Name.LName + "\r\nhas not finished segment 1!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            if (Program.Vek[index1].DNS_Seg1 > 0)
+                                checked { ++Program.DNS_Seg1; }
                         }
                     }
-                    else if (Module1.Vek[index1].DNS_Seg1 > 0)
-                        checked { ++Module1.DNS_Seg1; }
+                    else if (Program.Vek[index1].DNS_Seg1 > 0)
+                        checked { ++Program.DNS_Seg1; }
                     checked { ++index1; }
                 }
                 int num5 = checked(NoOfSkater - 1);
                 int index2 = 1;
                 while (index2 <= num5)
                 {
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     int index3 = index2;
                     int num6 = checked(index2 + 1);
                     int num7 = NoOfSkater;
                     int index4 = num6;
                     while (index4 <= num7)
                     {
-                        if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 | Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "F", false) == 0)
+                        if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0 | Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "F", false) == 0)
                         {
-                            if (Module1.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                            if (Program.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                             {
-                                participant = Module1.Vek[index4];
+                                participant = Program.Vek[index4];
                                 index3 = index4;
                             }
                         }
-                        else if (Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        else if (Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             index3 = index4;
                         }
                         checked { ++index4; }
                     }
-                    Module1.Vek[index3] = Module1.Vek[index2];
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index3] = Program.Vek[index2];
+                    Program.Vek[index2] = participant;
                     checked { ++index2; }
                 }
-                Module1.DNS_Seg2 = 0;
-                int num8 = checked(NoOfSkater - Module1.DNS_Seg1);
+                Program.DNS_Seg2 = 0;
+                int num8 = checked(NoOfSkater - Program.DNS_Seg1);
                 int index5 = 1;
                 while (index5 <= num8)
                 {
-                    if (Module1.Vek[index5].DNS_Seg2 > 0)
-                        checked { ++Module1.DNS_Seg2; }
+                    if (Program.Vek[index5].DNS_Seg2 > 0)
+                        checked { ++Program.DNS_Seg2; }
                     checked { ++index5; }
                 }
-                int num9 = checked(NoOfSkater - 1 - Module1.DNS_Seg1);
+                int num9 = checked(NoOfSkater - 1 - Program.DNS_Seg1);
                 int index6 = 1;
                 while (index6 <= num9)
                 {
-                    Module1.Participant participant = Module1.Vek[index6];
+                    Program.Participant participant = Program.Vek[index6];
                     int index7 = index6;
                     int num10 = checked(index6 + 1);
-                    int num11 = checked(NoOfSkater - Module1.DNS_Seg1);
+                    int num11 = checked(NoOfSkater - Program.DNS_Seg1);
                     int index8 = num10;
                     while (index8 <= num11)
                     {
-                        if (Module1.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
+                        if (Program.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
                         {
-                            participant = Module1.Vek[index8];
+                            participant = Program.Vek[index8];
                             index7 = index8;
                         }
                         checked { ++index8; }
                     }
-                    Module1.Vek[index7] = Module1.Vek[index6];
-                    Module1.Vek[index6] = participant;
+                    Program.Vek[index7] = Program.Vek[index6];
+                    Program.Vek[index6] = participant;
                     checked { ++index6; }
                 }
                 goto label_39;
@@ -2388,7 +2388,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].Startno_Seg1 < 1)
+                    if (Program.Vek[index1].Startno_Seg1 < 1)
                     {
                         num3 = 5;
                         checked { ++num4; }
@@ -2402,7 +2402,7 @@ namespace ClubCompFS
                 while (index2 <= num6)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -2412,10 +2412,10 @@ namespace ClubCompFS
                     while (index4 <= num8)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].Startno_Seg1 > participant.Startno_Seg1)
+                        if (Program.Vek[index4].Startno_Seg1 > participant.Startno_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -2423,9 +2423,9 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
@@ -2435,7 +2435,7 @@ namespace ClubCompFS
                 while (index5 <= num9)
                 {
                     num3 = 21;
-                    Module1.Participant participant = Module1.Vek[index5];
+                    Program.Participant participant = Program.Vek[index5];
                     num3 = 22;
                     int index6 = index5;
                     num3 = 23;
@@ -2445,10 +2445,10 @@ namespace ClubCompFS
                     while (index7 <= num11)
                     {
                         num3 = 24;
-                        if ((double)Module1.Vek[index7].Startno_Seg1 < (double)participant.Startno_Seg1)
+                        if ((double)Program.Vek[index7].Startno_Seg1 < (double)participant.Startno_Seg1)
                         {
                             num3 = 25;
-                            participant = Module1.Vek[index7];
+                            participant = Program.Vek[index7];
                             num3 = 26;
                             index6 = index7;
                         }
@@ -2456,9 +2456,9 @@ namespace ClubCompFS
                         checked { ++index7; }
                     }
                     num3 = 29;
-                    Module1.Vek[index6] = Module1.Vek[index5];
+                    Program.Vek[index6] = Program.Vek[index5];
                     num3 = 30;
-                    Module1.Vek[index5] = participant;
+                    Program.Vek[index5] = participant;
                     num3 = 31;
                     checked { ++index5; }
                 }
@@ -2476,26 +2476,26 @@ namespace ClubCompFS
         {
             if (!this.MenuPossibleStartListForm())
                 return;
-            if (Operators.CompareString(Module1.Segment, "Seg2", false) == 0)
+            if (Operators.CompareString(Program.Segment, "Seg2", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    int tnop = Module1.TNop;
+                    int tnop = Program.TNop;
                     int index = 1;
                     while (index <= tnop)
                     {
-                        if (Module1.Vek[index].Startno_Seg1 > 0 & Module1.Vek[index].DNS_Seg1 == 0 & Module1.Vek[index].Finished_Seg1 == 0 & Module1.Vek[index].DNS_Seg2 == 0)
+                        if (Program.Vek[index].Startno_Seg1 > 0 & Program.Vek[index].DNS_Seg1 == 0 & Program.Vek[index].Finished_Seg1 == 0 & Program.Vek[index].DNS_Seg2 == 0)
                         {
                             int num = (int)Interaction.MsgBox((object)"Segment 1 has to be completed!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             return;
                         }
                         checked { ++index; }
                     }
-                    Module1.SortListSeg1(Module1.TNop);
-                    this.SortListSeg2DNS(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                    this.GenStartNoFree(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2), Module1.TNop);
+                    Program.SortListSeg1(Program.TNop);
+                    this.SortListSeg2DNS(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                    this.GenStartNoFree(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2), Program.TNop);
                 }
                 else
                 {
@@ -2520,7 +2520,7 @@ namespace ClubCompFS
                 if (NoSkater > 0)
                 {
                     num3 = 3;
-                    Module1.SortListSeg1(NoSkater);
+                    Program.SortListSeg1(NoSkater);
                     num3 = 4;
                     bool flag = false;
                     num3 = 5;
@@ -2529,7 +2529,7 @@ namespace ClubCompFS
                     while (index1 <= num4)
                     {
                         num3 = 6;
-                        if (Module1.Vek[index1].Startno_Seg2 > 0)
+                        if (Program.Vek[index1].Startno_Seg2 > 0)
                         {
                             num3 = 7;
                             flag = true;
@@ -2552,7 +2552,7 @@ namespace ClubCompFS
                     while (index2 <= num6)
                     {
                         num3 = 17;
-                        Module1.Vek[index2].Startno_Seg2 = checked(NoSkater + 1 - index2);
+                        Program.Vek[index2].Startno_Seg2 = checked(NoSkater + 1 - index2);
                         num3 = 18;
                         checked { ++index2; }
                     }
@@ -2566,7 +2566,7 @@ namespace ClubCompFS
                         while (index3 <= num8)
                         {
                             num3 = 21;
-                            Module1.Vek[index3].Startno_Seg2 = 0;
+                            Program.Vek[index3].Startno_Seg2 = 0;
                             num3 = 22;
                             checked { ++index3; }
                         }
@@ -2607,36 +2607,36 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                     MyProject.Forms.ElementInputForm.Close();
                 int index = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
                 if (index > 0)
                 {
-                    switch (Module1.WorkMode)
+                    switch (Program.WorkMode)
                     {
                         case 1:
-                            Module1.PNo = index;
+                            Program.PNo = index;
                             break;
                         case 2:
                         case 3:
                             if (par != 4)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 {
-                                    if (Module1.Vek[index].Startno_Seg1 < 1)
+                                    if (Program.Vek[index].Startno_Seg1 < 1)
                                     {
                                         int num3 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         goto label_30;
                                     }
                                     else
                                     {
-                                        if (Module1.Vek[index].Finished_Seg1 > 0)
+                                        if (Program.Vek[index].Finished_Seg1 > 0)
                                         {
                                             if (Interaction.MsgBox((object)"The program is already completed!\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                                                 goto label_30;
                                         }
-                                        if (Module1.Vek[index].DNS_Seg1 > 0)
+                                        if (Program.Vek[index].DNS_Seg1 > 0)
                                         {
                                             if (Interaction.MsgBox((object)"The Skater has been marked as DNS, WD, DNF or DQ!\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                                                 goto label_30;
@@ -2645,35 +2645,35 @@ namespace ClubCompFS
                                 }
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                                 {
-                                    if (Module1.Vek[index].Startno_Seg2 < 1)
+                                    if (Program.Vek[index].Startno_Seg2 < 1)
                                     {
                                         int num4 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         goto label_30;
                                     }
                                     else
                                     {
-                                        if (Module1.Vek[index].Finished_Seg2 > 0)
+                                        if (Program.Vek[index].Finished_Seg2 > 0)
                                         {
                                             if (Interaction.MsgBox((object)"The program is already completed!\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                                                 goto label_30;
                                         }
-                                        if (Module1.Vek[index].DNS_Seg1 > 0 | Module1.Vek[index].DNS_Seg2 > 0)
+                                        if (Program.Vek[index].DNS_Seg1 > 0 | Program.Vek[index].DNS_Seg2 > 0)
                                         {
                                             if (Interaction.MsgBox((object)"The Skater has been marked as DNS, WD, DNF or DQ!\r\nDo you want to continue?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                                                 goto label_30;
                                         }
                                     }
                                 }
-                                Module1.PNo = index;
+                                Program.PNo = index;
                                 break;
                             }
                             break;
                     }
-                    if (Module1.WorkMode == 2 & par == 2)
-                        this.ClearData(Module1.PNo);
+                    if (Program.WorkMode == 2 & par == 2)
+                        this.ClearData(Program.PNo);
                     this.TopMost = false;
-                    MyProject.Forms.ElementInputForm.OpName.Text = Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
-                    MyProject.Forms.ElementInputForm.OpClub.Text = Module1.Vek[Module1.PNo].Club;
+                    MyProject.Forms.ElementInputForm.OpName.Text = Program.Vek[Program.PNo].Name.FName + " " + Program.Vek[Program.PNo].Name.LName;
+                    MyProject.Forms.ElementInputForm.OpClub.Text = Program.Vek[Program.PNo].Club;
                     MyProject.Forms.ElementInputForm.Show();
                     goto label_30;
                 }
@@ -2697,9 +2697,9 @@ namespace ClubCompFS
 
         public void ClearData(int skater)
         {
-            Module1.Participant[] vek = Module1.Vek;
+            Program.Participant[] vek = Program.Vek;
             int index = skater;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
                 vek[index].J_Seg1.EE = new int[16, 8];
@@ -2737,38 +2737,38 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 DataGridView dataGridView1 = this.DataGridView1;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0S", false) == 0 || Operators.CompareString(seg, "0F", false) == 0)
                 {
                     object Left = dataGridView1.Rows[row].Cells[5].Value;
                     if (Operators.ConditionalCompareObjectEqual(Left, (object)"", false))
                     {
                         dataGridView1.Rows[row].Cells[5].Value = (object)"DNS";
-                        Module1.Vek[i].DNS_Seg2 = 1;
+                        Program.Vek[i].DNS_Seg2 = 1;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNS", false))
                     {
                         dataGridView1.Rows[row].Cells[5].Value = (object)"WD";
-                        Module1.Vek[i].DNS_Seg2 = 2;
+                        Program.Vek[i].DNS_Seg2 = 2;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"WD", false))
                     {
                         dataGridView1.Rows[row].Cells[5].Value = (object)"DNF";
-                        Module1.Vek[i].DNS_Seg2 = 3;
+                        Program.Vek[i].DNS_Seg2 = 3;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNF", false))
                     {
                         dataGridView1.Rows[row].Cells[5].Value = (object)"DQ";
-                        Module1.Vek[i].DNS_Seg2 = 4;
+                        Program.Vek[i].DNS_Seg2 = 4;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DQ", false))
                     {
                         dataGridView1.Rows[row].Cells[5].Value = (object)"";
-                        Module1.Vek[i].DNS_Seg2 = 0;
+                        Program.Vek[i].DNS_Seg2 = 0;
                         goto label_54;
                     }
                     else
@@ -2780,31 +2780,31 @@ namespace ClubCompFS
                     if (Operators.ConditionalCompareObjectEqual(Left, (object)"", false))
                     {
                         dataGridView1.Rows[row].Cells[4].Value = (object)"DNS";
-                        Module1.Vek[i].DNS_Seg1 = 1;
+                        Program.Vek[i].DNS_Seg1 = 1;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNS", false))
                     {
                         dataGridView1.Rows[row].Cells[4].Value = (object)"WD";
-                        Module1.Vek[i].DNS_Seg1 = 2;
+                        Program.Vek[i].DNS_Seg1 = 2;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"WD", false))
                     {
                         dataGridView1.Rows[row].Cells[4].Value = (object)"DNF";
-                        Module1.Vek[i].DNS_Seg1 = 3;
+                        Program.Vek[i].DNS_Seg1 = 3;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNF", false))
                     {
                         dataGridView1.Rows[row].Cells[4].Value = (object)"DQ";
-                        Module1.Vek[i].DNS_Seg1 = 4;
+                        Program.Vek[i].DNS_Seg1 = 4;
                         goto label_54;
                     }
                     else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DQ", false))
                     {
                         dataGridView1.Rows[row].Cells[4].Value = (object)"";
-                        Module1.Vek[i].DNS_Seg1 = 0;
+                        Program.Vek[i].DNS_Seg1 = 0;
                         goto label_54;
                     }
                     else
@@ -2812,7 +2812,7 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         object Left = dataGridView1.Rows[row].Cells[4].Value;
@@ -2820,40 +2820,40 @@ namespace ClubCompFS
                         {
                             dataGridView1.Rows[row].Cells[4].Value = (object)"DNS";
                             dataGridView1.Rows[row].Cells[5].Value = (object)"DNS";
-                            Module1.Vek[i].DNS_Seg1 = 1;
-                            Module1.Vek[i].DNS_Seg2 = 1;
+                            Program.Vek[i].DNS_Seg1 = 1;
+                            Program.Vek[i].DNS_Seg2 = 1;
                             goto label_54;
                         }
                         else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNS", false))
                         {
                             dataGridView1.Rows[row].Cells[4].Value = (object)"WD";
                             dataGridView1.Rows[row].Cells[5].Value = (object)"WD";
-                            Module1.Vek[i].DNS_Seg1 = 2;
-                            Module1.Vek[i].DNS_Seg2 = 2;
+                            Program.Vek[i].DNS_Seg1 = 2;
+                            Program.Vek[i].DNS_Seg2 = 2;
                             goto label_54;
                         }
                         else if (Operators.ConditionalCompareObjectEqual(Left, (object)"WD", false))
                         {
                             dataGridView1.Rows[row].Cells[4].Value = (object)"DNF";
                             dataGridView1.Rows[row].Cells[5].Value = (object)"DNF";
-                            Module1.Vek[i].DNS_Seg1 = 3;
-                            Module1.Vek[i].DNS_Seg2 = 3;
+                            Program.Vek[i].DNS_Seg1 = 3;
+                            Program.Vek[i].DNS_Seg2 = 3;
                             goto label_54;
                         }
                         else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNF", false))
                         {
                             dataGridView1.Rows[row].Cells[4].Value = (object)"DQ";
                             dataGridView1.Rows[row].Cells[5].Value = (object)"DQ";
-                            Module1.Vek[i].DNS_Seg1 = 4;
-                            Module1.Vek[i].DNS_Seg2 = 4;
+                            Program.Vek[i].DNS_Seg1 = 4;
+                            Program.Vek[i].DNS_Seg2 = 4;
                             goto label_54;
                         }
                         else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DQ", false))
                         {
                             dataGridView1.Rows[row].Cells[4].Value = (object)"";
                             dataGridView1.Rows[row].Cells[5].Value = (object)"";
-                            Module1.Vek[i].DNS_Seg1 = 0;
-                            Module1.Vek[i].DNS_Seg2 = 0;
+                            Program.Vek[i].DNS_Seg1 = 0;
+                            Program.Vek[i].DNS_Seg2 = 0;
                             goto label_54;
                         }
                         else
@@ -2861,37 +2861,37 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        if (Module1.Vek[i].DNS_Seg1 == 0)
+                        if (Program.Vek[i].DNS_Seg1 == 0)
                         {
                             object Left = dataGridView1.Rows[row].Cells[5].Value;
                             if (Operators.ConditionalCompareObjectEqual(Left, (object)"", false))
                             {
                                 dataGridView1.Rows[row].Cells[5].Value = (object)"DNS";
-                                Module1.Vek[i].DNS_Seg2 = 1;
+                                Program.Vek[i].DNS_Seg2 = 1;
                                 goto label_54;
                             }
                             else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNS", false))
                             {
                                 dataGridView1.Rows[row].Cells[5].Value = (object)"WD";
-                                Module1.Vek[i].DNS_Seg2 = 2;
+                                Program.Vek[i].DNS_Seg2 = 2;
                                 goto label_54;
                             }
                             else if (Operators.ConditionalCompareObjectEqual(Left, (object)"WD", false))
                             {
                                 dataGridView1.Rows[row].Cells[5].Value = (object)"DNF";
-                                Module1.Vek[i].DNS_Seg2 = 3;
+                                Program.Vek[i].DNS_Seg2 = 3;
                                 goto label_54;
                             }
                             else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DNF", false))
                             {
                                 dataGridView1.Rows[row].Cells[5].Value = (object)"DQ";
-                                Module1.Vek[i].DNS_Seg2 = 4;
+                                Program.Vek[i].DNS_Seg2 = 4;
                                 goto label_54;
                             }
                             else if (Operators.ConditionalCompareObjectEqual(Left, (object)"DQ", false))
                             {
                                 dataGridView1.Rows[row].Cells[5].Value = (object)"";
-                                Module1.Vek[i].DNS_Seg2 = 0;
+                                Program.Vek[i].DNS_Seg2 = 0;
                                 goto label_54;
                             }
                             else
@@ -2940,13 +2940,13 @@ namespace ClubCompFS
                 int y = currentCellAddress.Y;
                 currentCellAddress = dataGridView1.CurrentCellAddress;
                 int x = currentCellAddress.X;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 1:
                         switch (x)
                         {
                             case 4:
-                                if (Operators.CompareString(Module1.Segment, "Seg1", false) == 0 & (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "F0", false) == 0 | Operators.CompareString(Module1.GetSeg(), "S0", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0))
+                                if (Operators.CompareString(Program.Segment, "Seg1", false) == 0 & (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "F0", false) == 0 | Operators.CompareString(Program.GetSeg(), "S0", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0))
                                 {
                                     this.DNSChange(y, checked(y + 1));
                                     dataGridView1.Rows[y].Cells[0].Selected = true;
@@ -2955,7 +2955,7 @@ namespace ClubCompFS
                                 else
                                     goto label_17;
                             case 5:
-                                if (Operators.CompareString(Module1.Segment, "Seg2", false) == 0 & (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "0F", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0))
+                                if (Operators.CompareString(Program.Segment, "Seg2", false) == 0 & (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "0F", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0))
                                 {
                                     this.DNSChange(y, checked(y + 1));
                                     dataGridView1.Rows[y].Cells[0].Selected = true;
@@ -2970,7 +2970,7 @@ namespace ClubCompFS
                         switch (x)
                         {
                             case 4:
-                                if (Operators.CompareString(Module1.Segment, "Seg1", false) == 0 & (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "F0", false) == 0 | Operators.CompareString(Module1.GetSeg(), "S0", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0))
+                                if (Operators.CompareString(Program.Segment, "Seg1", false) == 0 & (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "F0", false) == 0 | Operators.CompareString(Program.GetSeg(), "S0", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0))
                                 {
                                     this.DNSChange(y, checked(y + 1));
                                     dataGridView1.Rows[y].Cells[0].Selected = true;
@@ -2979,7 +2979,7 @@ namespace ClubCompFS
                                 else
                                     goto label_17;
                             case 5:
-                                if (Operators.CompareString(Module1.Segment, "Seg2", false) == 0 & (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "0F", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0))
+                                if (Operators.CompareString(Program.Segment, "Seg2", false) == 0 & (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "0F", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0))
                                 {
                                     this.DNSChange(y, checked(y + 1));
                                     dataGridView1.Rows[y].Cells[0].Selected = true;
@@ -3017,13 +3017,13 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 int DNS_Seg1 = 0;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                    this.SortStartNoSeg1(Module1.TNop);
+                    this.SortStartNoSeg1(Program.TNop);
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                    Module1.SortStartNoSeg2(Module1.TNop, ref DNS_Seg1);
-                this.CreateStartList1(Module1.TNop);
+                    Program.SortStartNoSeg2(Program.TNop, ref DNS_Seg1);
+                this.CreateStartList1(Program.TNop);
                 this.TArr = (object[,])null;
                 this.TArr = new object[51, 10];
                 this.TArr[0, 0] = (object)"Start no";
@@ -3032,22 +3032,22 @@ namespace ClubCompFS
                 this.TArr[0, 3] = (object)"Surname";
                 this.TArr[0, 4] = (object)"Club";
                 row = 0;
-                int num3 = checked(Module1.TNop - DNS_Seg1);
+                int num3 = checked(Program.TNop - DNS_Seg1);
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
-                        if (index1 > 2 && Module1.Vek[index1].WarmUp_Seg1 > Module1.Vek[checked(index1 - 1)].WarmUp_Seg1 & Module1.Vek[index1].Startno_Seg1 > 0)
+                        if (index1 > 2 && Program.Vek[index1].WarmUp_Seg1 > Program.Vek[checked(index1 - 1)].WarmUp_Seg1 & Program.Vek[index1].Startno_Seg1 > 0)
                         {
                             checked { ++row; }
                             int index2 = 1;
                             do
                             {
-                                if (Module1.Vek[checked(index1 - 1)].Startno_Seg1 == Module1.IceArr_Seg1[index2])
+                                if (Program.Vek[checked(index1 - 1)].Startno_Seg1 == Program.IceArr_Seg1[index2])
                                     this.TArr[row, 2] = (object)"ICE RESURFACING";
-                                if (Module1.Vek[checked(index1 - 1)].Startno_Seg1 == Module1.LunchArr_Seg1[index2])
+                                if (Program.Vek[checked(index1 - 1)].Startno_Seg1 == Program.LunchArr_Seg1[index2])
                                     this.TArr[row, 2] = (object)"MEAL BREAK";
                                 checked { ++index2; }
                             }
@@ -3055,27 +3055,27 @@ namespace ClubCompFS
                             if (Strings.Len(RuntimeHelpers.GetObjectValue(this.TArr[row, 2])) < 1)
                                 this.TArr[row, 2] = (object)"WARM UP";
                         }
-                        if (Module1.Vek[index1].Startno_Seg1 > 0)
+                        if (Program.Vek[index1].Startno_Seg1 > 0)
                         {
                             checked { ++row; }
-                            this.TArr[row, 0] = (object)Conversions.ToString(Module1.Vek[index1].Startno_Seg1);
-                            this.TArr[row, 1] = Module1.Vek[index1].WarmUp_Seg1 <= 0 ? (object)"-" : (object)Conversions.ToString(Module1.Vek[index1].WarmUp_Seg1);
-                            this.TArr[row, 2] = (object)Module1.Vek[index1].Name.FName;
-                            this.TArr[row, 3] = (object)Module1.Vek[index1].Name.LName;
-                            this.TArr[row, 4] = (object)Module1.Vek[index1].Club;
+                            this.TArr[row, 0] = (object)Conversions.ToString(Program.Vek[index1].Startno_Seg1);
+                            this.TArr[row, 1] = Program.Vek[index1].WarmUp_Seg1 <= 0 ? (object)"-" : (object)Conversions.ToString(Program.Vek[index1].WarmUp_Seg1);
+                            this.TArr[row, 2] = (object)Program.Vek[index1].Name.FName;
+                            this.TArr[row, 3] = (object)Program.Vek[index1].Name.LName;
+                            this.TArr[row, 4] = (object)Program.Vek[index1].Club;
                         }
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
-                        if (index1 > 2 && Module1.Vek[index1].WarmUp_Seg2 > Module1.Vek[checked(index1 - 1)].WarmUp_Seg2 & Module1.Vek[index1].Startno_Seg2 > 0)
+                        if (index1 > 2 && Program.Vek[index1].WarmUp_Seg2 > Program.Vek[checked(index1 - 1)].WarmUp_Seg2 & Program.Vek[index1].Startno_Seg2 > 0)
                         {
                             checked { ++row; }
                             int index3 = 1;
                             do
                             {
-                                if (Module1.Vek[checked(index1 - 1)].Startno_Seg2 == Module1.IceArr_Seg2[index3])
+                                if (Program.Vek[checked(index1 - 1)].Startno_Seg2 == Program.IceArr_Seg2[index3])
                                     this.TArr[row, 2] = (object)"ICE RESURFACING";
-                                if (Module1.Vek[checked(index1 - 1)].Startno_Seg2 == Module1.LunchArr_Seg2[index3])
+                                if (Program.Vek[checked(index1 - 1)].Startno_Seg2 == Program.LunchArr_Seg2[index3])
                                     this.TArr[row, 2] = (object)"MEAL BREAK";
                                 checked { ++index3; }
                             }
@@ -3083,14 +3083,14 @@ namespace ClubCompFS
                             if (Strings.Len(RuntimeHelpers.GetObjectValue(this.TArr[row, 2])) < 1)
                                 this.TArr[row, 2] = (object)"WARM UP";
                         }
-                        if (Module1.Vek[index1].Startno_Seg2 > 0)
+                        if (Program.Vek[index1].Startno_Seg2 > 0)
                         {
                             checked { ++row; }
-                            this.TArr[row, 0] = (object)Conversions.ToString(Module1.Vek[index1].Startno_Seg2);
-                            this.TArr[row, 1] = Module1.Vek[index1].WarmUp_Seg2 <= 0 ? (object)"-" : (object)Conversions.ToString(Module1.Vek[index1].WarmUp_Seg2);
-                            this.TArr[row, 2] = (object)Module1.Vek[index1].Name.FName;
-                            this.TArr[row, 3] = (object)Module1.Vek[index1].Name.LName;
-                            this.TArr[row, 4] = (object)Module1.Vek[index1].Club;
+                            this.TArr[row, 0] = (object)Conversions.ToString(Program.Vek[index1].Startno_Seg2);
+                            this.TArr[row, 1] = Program.Vek[index1].WarmUp_Seg2 <= 0 ? (object)"-" : (object)Conversions.ToString(Program.Vek[index1].WarmUp_Seg2);
+                            this.TArr[row, 2] = (object)Program.Vek[index1].Name.FName;
+                            this.TArr[row, 3] = (object)Program.Vek[index1].Name.LName;
+                            this.TArr[row, 4] = (object)Program.Vek[index1].Club;
                         }
                     }
                     checked { ++index1; }
@@ -3120,20 +3120,20 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.SortEntriesClub(Module1.TNop);
-                this.Sort_Entries_Club_Surname(Module1.TNop);
+                this.SortEntriesClub(Program.TNop);
+                this.Sort_Entries_Club_Surname(Program.TNop);
                 this.TArr = (object[,])null;
                 this.TArr = new object[51, 3];
                 this.TArr[0, 0] = (object)"First name";
                 this.TArr[0, 1] = (object)"Surname";
                 this.TArr[0, 2] = (object)"Club";
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    this.TArr[index, 0] = (object)Module1.Vek[index].Name.FName;
-                    this.TArr[index, 1] = (object)Module1.Vek[index].Name.LName;
-                    this.TArr[index, 2] = (object)Module1.Vek[index].Club;
+                    this.TArr[index, 0] = (object)Program.Vek[index].Name.FName;
+                    this.TArr[index, 1] = (object)Program.Vek[index].Name.LName;
+                    this.TArr[index, 2] = (object)Program.Vek[index].Club;
                     checked { ++index; }
                 }
                 row = checked(index - 1);
@@ -3168,7 +3168,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -3178,10 +3178,10 @@ namespace ClubCompFS
                     while (index3 <= num6)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Strings.UCase(Module1.Vek[index3].Club), Strings.UCase(participant.Club), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Club), Strings.UCase(participant.Club), false) < 0)
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -3189,9 +3189,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -3213,17 +3213,17 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string club = Module1.Vek[1].Club;
+                string club = Program.Vek[1].Club;
                 int StartIndex = 1;
                 int num3 = checked(No + 1);
                 int index = 1;
                 while (index <= num3)
                 {
-                    if (Operators.CompareString(club, Module1.Vek[index].Club, false) != 0)
+                    if (Operators.CompareString(club, Program.Vek[index].Club, false) != 0)
                     {
                         int NoOfSkater = checked(index - 1);
                         this.SortEntriesSurname(StartIndex, NoOfSkater);
-                        club = Module1.Vek[index].Club;
+                        club = Program.Vek[index].Club;
                         StartIndex = index;
                     }
                     checked { ++index; }
@@ -3260,7 +3260,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -3270,10 +3270,10 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Strings.UCase(Module1.Vek[index3].Name.LName), Strings.UCase(participant.Name.LName), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Name.LName), Strings.UCase(participant.Name.LName), false) < 0)
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -3281,9 +3281,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -3297,7 +3297,7 @@ namespace ClubCompFS
                 while (index4 <= num8)
                 {
                     num3 = 17;
-                    if (Operators.CompareString(Strings.UCase(Module1.Vek[index4].Name.LName), Strings.UCase(Module1.Vek[checked(index4 + 1)].Name.LName), false) == 0)
+                    if (Operators.CompareString(Strings.UCase(Program.Vek[index4].Name.LName), Strings.UCase(Program.Vek[checked(index4 + 1)].Name.LName), false) == 0)
                     {
                         num3 = 18;
                         if (StartIndex1 == 0)
@@ -3315,7 +3315,7 @@ namespace ClubCompFS
                         if (NoOfSkater1 != StartIndex1)
                         {
                             num3 = 25;
-                            Module1.SortFirstName(StartIndex1, NoOfSkater1);
+                            Program.SortFirstName(StartIndex1, NoOfSkater1);
                         }
                         num3 = 27;
                         StartIndex1 = 0;
@@ -3326,7 +3326,7 @@ namespace ClubCompFS
                     if (NoOfSkater1 != StartIndex1)
                     {
                         num3 = 31;
-                        Module1.SortFirstName(StartIndex1, NoOfSkater1);
+                        Program.SortFirstName(StartIndex1, NoOfSkater1);
                     }
                     num3 = 33;
                     checked { ++index4; }
@@ -3411,8 +3411,8 @@ namespace ClubCompFS
                 num1 = 2;
                 if (this.MenuPossibleStartListForm())
                 {
-                    int num3 = Module1.IndexEmptyRow();
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                    int num3 = Program.IndexEmptyRow();
+                    if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
                         MyProject.Forms.IndTAEntriesForm.Close();
                     if (num3 < 42)
                     {
@@ -3455,8 +3455,8 @@ namespace ClubCompFS
                 num1 = 2;
                 if (this.MenuPossibleStartListForm())
                 {
-                    int num3 = Module1.IndexEmptyRow();
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+                    int num3 = Program.IndexEmptyRow();
+                    if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
                         MyProject.Forms.IndTAEntriesForm.Close();
                     if (num3 < 42)
                     {
@@ -3498,7 +3498,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                if (Operators.CompareString(Module1.Category.Name, "", false) == 0 | Operators.CompareString(Module1.GetProgType(Module1.Segment), "", false) == 0)
+                if (Operators.CompareString(Program.Category.Name, "", false) == 0 | Operators.CompareString(Program.GetProgType(Program.Segment), "", false) == 0)
                 {
                     num3 = 3;
                     int num4 = (int)Interaction.MsgBox((object)"Please select a Category and Segment!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -3506,7 +3506,7 @@ namespace ClubCompFS
                 else
                 {
                     num3 = 6;
-                    if (Module1.TNop < 1)
+                    if (Program.TNop < 1)
                     {
                         num3 = 7;
                         int num5 = (int)Interaction.MsgBox((object)"No team definded!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -3514,41 +3514,41 @@ namespace ClubCompFS
                     else
                     {
                         num3 = 10;
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         num3 = 13;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
                             num3 = 14;
-                            if (Operators.CompareString(Module1.Datum.Seg1Start, "", false) == 0)
+                            if (Operators.CompareString(Program.Datum.Seg1Start, "", false) == 0)
                             {
                                 num3 = 15;
-                                Module1.Datum.Seg1Start = Conversions.ToString(1E-05);
+                                Program.Datum.Seg1Start = Conversions.ToString(1E-05);
                             }
                             num3 = 17;
                             int DNSnono = 0;
-                            this.SortWSListSeg1(Module1.TNop, ref DNSnono);
+                            this.SortWSListSeg1(Program.TNop, ref DNSnono);
                             num3 = 18;
                             switch (par)
                             {
                                 case 0:
                                 case 1:
                                     num3 = 22;
-                                    if (checked(Module1.TNop - DNSnono) == 0)
+                                    if (checked(Program.TNop - DNSnono) == 0)
                                     {
                                         num3 = 23;
                                         int num6 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         break;
                                     }
                                     num3 = 26;
-                                    this.WarmUpSheet(checked(Module1.TNop - DNSnono), par);
+                                    this.WarmUpSheet(checked(Program.TNop - DNSnono), par);
                                     break;
                                 case 2:
                                     num3 = 29;
-                                    this.WarmUpSheet(Module1.TNop, par);
+                                    this.WarmUpSheet(Program.TNop, par);
                                     break;
                                 case 3:
                                     num3 = 32;
-                                    this.WarmUpSheet(Module1.TNop, par);
+                                    this.WarmUpSheet(Program.TNop, par);
                                     break;
                             }
                         }
@@ -3558,37 +3558,37 @@ namespace ClubCompFS
                             if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
                                 num3 = 36;
-                                if (Operators.CompareString(Module1.Datum.Seg2Start, "", false) == 0)
+                                if (Operators.CompareString(Program.Datum.Seg2Start, "", false) == 0)
                                 {
                                     num3 = 37;
-                                    Module1.Datum.Seg2Start = Conversions.ToString(1E-05);
+                                    Program.Datum.Seg2Start = Conversions.ToString(1E-05);
                                 }
                                 num3 = 39;
                                 int DNS_Seg1 = 0;
                                 int DNSnono = 0;
-                                this.SortWSListSeg2(Module1.TNop, ref DNS_Seg1, ref DNSnono);
+                                this.SortWSListSeg2(Program.TNop, ref DNS_Seg1, ref DNSnono);
                                 num3 = 40;
                                 switch (par)
                                 {
                                     case 0:
                                     case 1:
                                         num3 = 44;
-                                        if (checked(Module1.TNop - DNS_Seg1 - DNSnono) == 0)
+                                        if (checked(Program.TNop - DNS_Seg1 - DNSnono) == 0)
                                         {
                                             num3 = 45;
                                             int num7 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                             break;
                                         }
                                         num3 = 48;
-                                        this.WarmUpSheet(checked(Module1.TNop - DNS_Seg1 - DNSnono), par);
+                                        this.WarmUpSheet(checked(Program.TNop - DNS_Seg1 - DNSnono), par);
                                         break;
                                     case 2:
                                         num3 = 51;
-                                        this.WarmUpSheet(Module1.TNop, par);
+                                        this.WarmUpSheet(Program.TNop, par);
                                         break;
                                     case 3:
                                         num3 = 54;
-                                        this.WarmUpSheet(Module1.TNop, par);
+                                        this.WarmUpSheet(Program.TNop, par);
                                         break;
                                 }
                             }
@@ -3610,7 +3610,7 @@ namespace ClubCompFS
             this.TopMost = false;
             MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(PartNo);
             MyProject.Forms.WarmupGroupsForm.txtPar.Text = Conversions.ToString(par);
-            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
             if (par != 3)
             {
@@ -3639,7 +3639,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].Startno_Seg1 < 1)
+                    if (Program.Vek[index1].Startno_Seg1 < 1)
                     {
                         num3 = 5;
                         checked { ++DNSnono; }
@@ -3653,7 +3653,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -3663,10 +3663,10 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].Startno_Seg1 > participant.Startno_Seg1)
+                        if (Program.Vek[index4].Startno_Seg1 > participant.Startno_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -3674,9 +3674,9 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
@@ -3686,7 +3686,7 @@ namespace ClubCompFS
                 while (index5 <= num8)
                 {
                     num3 = 21;
-                    Module1.Participant participant = Module1.Vek[index5];
+                    Program.Participant participant = Program.Vek[index5];
                     num3 = 22;
                     int index6 = index5;
                     num3 = 23;
@@ -3696,10 +3696,10 @@ namespace ClubCompFS
                     while (index7 <= num10)
                     {
                         num3 = 24;
-                        if ((double)Module1.Vek[index7].Startno_Seg1 < (double)participant.Startno_Seg1)
+                        if ((double)Program.Vek[index7].Startno_Seg1 < (double)participant.Startno_Seg1)
                         {
                             num3 = 25;
-                            participant = Module1.Vek[index7];
+                            participant = Program.Vek[index7];
                             num3 = 26;
                             index6 = index7;
                         }
@@ -3707,9 +3707,9 @@ namespace ClubCompFS
                         checked { ++index7; }
                     }
                     num3 = 29;
-                    Module1.Vek[index6] = Module1.Vek[index5];
+                    Program.Vek[index6] = Program.Vek[index5];
                     num3 = 30;
-                    Module1.Vek[index5] = participant;
+                    Program.Vek[index5] = participant;
                     num3 = 31;
                     checked { ++index5; }
                 }
@@ -3739,7 +3739,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].DNS_Seg1 > 0)
                     {
                         num3 = 5;
                         checked { ++DNS_Seg1; }
@@ -3753,7 +3753,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -3763,10 +3763,10 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        if (Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -3774,9 +3774,9 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
@@ -3788,7 +3788,7 @@ namespace ClubCompFS
                 while (index5 <= num8)
                 {
                     num3 = 22;
-                    if (Module1.Vek[index5].Startno_Seg2 < 1)
+                    if (Program.Vek[index5].Startno_Seg2 < 1)
                     {
                         num3 = 23;
                         checked { ++DNSnono; }
@@ -3802,7 +3802,7 @@ namespace ClubCompFS
                 while (index6 <= num9)
                 {
                     num3 = 27;
-                    Module1.Participant participant = Module1.Vek[index6];
+                    Program.Participant participant = Program.Vek[index6];
                     num3 = 28;
                     int index7 = index6;
                     num3 = 29;
@@ -3812,10 +3812,10 @@ namespace ClubCompFS
                     while (index8 <= num11)
                     {
                         num3 = 30;
-                        if (Module1.Vek[index8].Startno_Seg2 > participant.Startno_Seg2)
+                        if (Program.Vek[index8].Startno_Seg2 > participant.Startno_Seg2)
                         {
                             num3 = 31;
-                            participant = Module1.Vek[index8];
+                            participant = Program.Vek[index8];
                             num3 = 32;
                             index7 = index8;
                         }
@@ -3823,9 +3823,9 @@ namespace ClubCompFS
                         checked { ++index8; }
                     }
                     num3 = 35;
-                    Module1.Vek[index7] = Module1.Vek[index6];
+                    Program.Vek[index7] = Program.Vek[index6];
                     num3 = 36;
-                    Module1.Vek[index6] = participant;
+                    Program.Vek[index6] = participant;
                     num3 = 37;
                     checked { ++index6; }
                 }
@@ -3835,7 +3835,7 @@ namespace ClubCompFS
                 while (index9 <= num12)
                 {
                     num3 = 39;
-                    Module1.Participant participant = Module1.Vek[index9];
+                    Program.Participant participant = Program.Vek[index9];
                     num3 = 40;
                     int index10 = index9;
                     num3 = 41;
@@ -3845,10 +3845,10 @@ namespace ClubCompFS
                     while (index11 <= num14)
                     {
                         num3 = 42;
-                        if ((double)Module1.Vek[index11].Startno_Seg2 < (double)participant.Startno_Seg2)
+                        if ((double)Program.Vek[index11].Startno_Seg2 < (double)participant.Startno_Seg2)
                         {
                             num3 = 43;
-                            participant = Module1.Vek[index11];
+                            participant = Program.Vek[index11];
                             num3 = 44;
                             index10 = index11;
                         }
@@ -3856,9 +3856,9 @@ namespace ClubCompFS
                         checked { ++index11; }
                     }
                     num3 = 47;
-                    Module1.Vek[index10] = Module1.Vek[index9];
+                    Program.Vek[index10] = Program.Vek[index9];
                     num3 = 48;
-                    Module1.Vek[index9] = participant;
+                    Program.Vek[index9] = participant;
                     num3 = 49;
                     checked { ++index9; }
                 }
@@ -3883,15 +3883,15 @@ namespace ClubCompFS
                 num1 = 2;
                 int row = 0;
                 this.CreateStartListArr(ref row);
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    if (!Conversions.ToBoolean(Module1.CreatePath("Segment_1", ref Path)))
+                    if (!Conversions.ToBoolean(Program.CreatePath("Segment_1", ref Path)))
                         goto label_11;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    if (!Conversions.ToBoolean(Module1.CreatePath("Segment_2", ref Path)))
+                    if (!Conversions.ToBoolean(Program.CreatePath("Segment_2", ref Path)))
                         goto label_11;
                 }
                 this.ExportDataToPDFTable1(row, 5, "START LIST", Path + "_Start.pdf", msg);
@@ -3923,9 +3923,9 @@ namespace ClubCompFS
                 num1 = 2;
                 int row = 0;
                 this.CreateEntriesArr(ref row);
-                if (Conversions.ToBoolean(Module1.CreatePath("", ref Path)))
+                if (Conversions.ToBoolean(Program.CreatePath("", ref Path)))
                 {
-                    this.ExportDataToPDFTable1(Module1.TNop, 3, "ENTRIES", Path + "_Entries.pdf", 1);
+                    this.ExportDataToPDFTable1(Program.TNop, 3, "ENTRIES", Path + "_Entries.pdf", 1);
                     goto label_8;
                 }
                 else
@@ -3965,20 +3965,20 @@ namespace ClubCompFS
                 int Length = 27;
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    str1 = Module1.FormShortDate(Module1.Datum.Seg1);
+                    str1 = Program.FormShortDate(Program.Datum.Seg1);
                     if (Operators.CompareString(txtinfo, "ENTRIES", false) != 0)
-                        str1 = str1 + ", " + Module1.Datum.Seg1Start;
+                        str1 = str1 + ", " + Program.Datum.Seg1Start;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    str1 = Module1.FormShortDate(Module1.Datum.Seg2);
+                    str1 = Program.FormShortDate(Program.Datum.Seg2);
                     if (Operators.CompareString(txtinfo, "ENTRIES", false) != 0)
-                        str1 = str1 + ", " + Module1.Datum.Seg2Start;
+                        str1 = str1 + ", " + Program.Datum.Seg2Start;
                 }
-                string str2 = Operators.CompareString(txtinfo, "ENTRIES", false) == 0 ? "" : ", " + Module1.GetSegTxt(Module1.Segment);
+                string str2 = Operators.CompareString(txtinfo, "ENTRIES", false) == 0 ? "" : ", " + Program.GetSegTxt(Program.Segment);
                 PdfDocument pdfDocument = new PdfDocument();
                 pdfDocument.Info.Title = txtinfo;
                 pdfDocument.Info.Subject = str2;
@@ -4019,7 +4019,7 @@ namespace ClubCompFS
                 int y2 = checked(y1 + height1 + 5);
                 int height2 = checked((int)Math.Round(xfont1.GetHeight()));
                 XGraphics xgraphics2 = xgraphics1;
-                string str3 = "COMPETITION: " + Module1.Competition.Name;
+                string str3 = "COMPETITION: " + Program.Competition.Name;
                 XFont xfont4 = xfont1;
                 XSolidBrush black1 = XBrushes.Black;
                 XRect xrect1 = new XRect((double)num4, (double)y2, (double)width1, (double)height2);
@@ -4032,7 +4032,7 @@ namespace ClubCompFS
                 xgraphics2.DrawString(text1, font2, (XBrush)brush1, layoutRectangle1, format1);
                 int y3 = checked(y2 + height2);
                 XGraphics xgraphics3 = xgraphics1;
-                string str4 = "CATEGORY: " + Module1.Category.Name + Module1.SubCat() + str2;
+                string str4 = "CATEGORY: " + Program.Category.Name + Program.SubCat() + str2;
                 XFont xfont5 = xfont1;
                 XSolidBrush black2 = XBrushes.Black;
                 XRect xrect2 = new XRect((double)num4, (double)y3, (double)width1, (double)height2);
@@ -4231,7 +4231,7 @@ namespace ClubCompFS
                 }
                 int y6 = checked(num8 + 2 * height2);
                 XGraphics xgraphics13 = xgraphics1;
-                string str15 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                string str15 = "Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now);
                 XFont xfont16 = xfont3;
                 XSolidBrush black12 = XBrushes.Black;
                 XRect xrect12 = new XRect((double)num4, (double)y6, (double)width1, (double)height2);
@@ -4277,7 +4277,7 @@ namespace ClubCompFS
             if (!this.MenuPossibleStartListForm())
                 return;
             this.CreateEntriesPDF();
-            this.CreateStartList(Module1.TNop);
+            this.CreateStartList(Program.TNop);
         }
 
         private void StartListPDFToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4293,9 +4293,9 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                double num3 = Module1.Page_Size * 1.0 / 100.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                double num3 = Program.Page_Size * 1.0 / 100.0;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 string str = "";
                 ProjectData.ClearProjectError();
                 num1 = 2;
@@ -4314,17 +4314,17 @@ namespace ClubCompFS
                 double height1 = (double)font1.GetHeight(e.Graphics);
                 format1.Alignment = StringAlignment.Center;
                 format2.Alignment = StringAlignment.Near;
-                string segTxt = Module1.GetSegTxt(Module1.Segment);
-                string segment = Module1.Segment;
+                string segTxt = Program.GetSegTxt(Program.Segment);
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg1) + ", " + Module1.Datum.Seg1Start;
+                    str = Program.FormShortDate(Program.Datum.Seg1) + ", " + Program.Datum.Seg1Start;
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg2) + ", " + Module1.Datum.Seg2Start;
+                    str = Program.FormShortDate(Program.Datum.Seg2) + ", " + Program.Datum.Seg2Start;
                 e.Graphics.DrawString("START LIST", font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = (float)((double)pageTopMargin + (double)font1.GetHeight(e.Graphics) + 5.0);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float y3 = y2 + font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("Date: " + str, font1, Brushes.Black, (float)pageLeftMargin, y3, new StringFormat());
                 float x1 = (float)pageLeftMargin;
@@ -4410,7 +4410,7 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 float y6 = y5 + 20f;
-                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
                 goto label_30;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -4457,7 +4457,7 @@ namespace ClubCompFS
         public bool TestNoOfPart()
         {
             bool flag = false;
-            if (Module1.TNop > 0 & Module1.TNop <= 42)
+            if (Program.TNop > 0 & Program.TNop <= 42)
             {
                 flag = true;
             }
@@ -4471,27 +4471,27 @@ namespace ClubCompFS
         public bool MenuPossibleStartListForm()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the IndTA ENTRIES!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the JUDGES DETAILS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -4511,17 +4511,17 @@ namespace ClubCompFS
                 {
                     if (this.TestNoOfPart())
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                             MyProject.Forms.JudgesDetailsForm.Close();
                         int index = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
-                        switch (Module1.WorkMode)
+                        switch (Program.WorkMode)
                         {
                             case 2:
                             case 3:
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 {
-                                    if (Module1.Vek[index].Startno_Seg1 < 1)
+                                    if (Program.Vek[index].Startno_Seg1 < 1)
                                     {
                                         int num3 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         goto label_19;
@@ -4529,7 +4529,7 @@ namespace ClubCompFS
                                     else
                                         break;
                                 }
-                                else if (Operators.CompareString(segment, "Seg2", false) == 0 && Module1.Vek[index].Startno_Seg2 < 1)
+                                else if (Operators.CompareString(segment, "Seg2", false) == 0 && Program.Vek[index].Startno_Seg2 < 1)
                                 {
                                     int num4 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                     goto label_19;
@@ -4538,13 +4538,13 @@ namespace ClubCompFS
                                     break;
                         }
                         MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(index);
-                        if (index > 0 & index <= Module1.TNop)
+                        if (index > 0 & index <= Program.TNop)
                         {
-                            Module1.F4arr = (string[,])null;
-                            Module1.F4arr = new string[1501, 15];
-                            Module1.PNo = index;
+                            Program.F4arr = (string[,])null;
+                            Program.F4arr = new string[1501, 15];
+                            Program.PNo = index;
                             int rowDed = 0;
-                            Module1.CreateJudgesDetails(0, ref rowDed);
+                            Program.CreateJudgesDetails(0, ref rowDed);
                             this.TopMost = false;
                             MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
                             MyProject.Forms.JudgesDetailsForm.Show();
@@ -4587,18 +4587,18 @@ namespace ClubCompFS
                 num1 = 2;
                 if (this.MenuPossibleStartListForm())
                 {
-                    switch (Module1.WorkMode)
+                    switch (Program.WorkMode)
                     {
                         case 2:
                         case 3:
-                            string segment1 = Module1.Segment;
+                            string segment1 = Program.Segment;
                             if (Operators.CompareString(segment1, "Seg1", false) == 0)
                             {
-                                int tnop = Module1.TNop;
+                                int tnop = Program.TNop;
                                 int index = 1;
                                 while (index <= tnop)
                                 {
-                                    if (Module1.Vek[index].Startno_Seg1 < 1 & Module1.Vek[index].DNS_Seg1 == 0)
+                                    if (Program.Vek[index].Startno_Seg1 < 1 & Program.Vek[index].DNS_Seg1 == 0)
                                     {
                                         int num3 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         goto label_29;
@@ -4610,11 +4610,11 @@ namespace ClubCompFS
                             }
                             if (Operators.CompareString(segment1, "Seg2", false) == 0)
                             {
-                                int tnop = Module1.TNop;
+                                int tnop = Program.TNop;
                                 int index = 1;
                                 while (index <= tnop)
                                 {
-                                    if (Module1.Vek[index].Startno_Seg2 < 1 & Module1.Vek[index].DNS_Seg2 == 0)
+                                    if (Program.Vek[index].Startno_Seg2 < 1 & Program.Vek[index].DNS_Seg2 == 0)
                                     {
                                         int num4 = (int)Interaction.MsgBox((object)"Start number is missing!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                                         goto label_29;
@@ -4626,12 +4626,12 @@ namespace ClubCompFS
                             }
                             break;
                     }
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     int StNo = 0;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
-                        StNo = Module1.Vek[checked(this.DataGridView1.CurrentCellAddress.Y + 1)].Startno_Seg1;
+                        StNo = Program.Vek[checked(this.DataGridView1.CurrentCellAddress.Y + 1)].Startno_Seg1;
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
-                        StNo = Module1.Vek[checked(this.DataGridView1.CurrentCellAddress.Y + 1)].Startno_Seg2;
+                        StNo = Program.Vek[checked(this.DataGridView1.CurrentCellAddress.Y + 1)].Startno_Seg2;
                     if (StNo > 1)
                     {
                         if (Interaction.MsgBox((object)"Do you really want to create the SPEAKER START LIST?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
@@ -4639,8 +4639,8 @@ namespace ClubCompFS
                     }
                     if (StNo > 0)
                     {
-                        Module1.CreateHTMFile(StNo);
-                        this.CreateStartList(Module1.TNop);
+                        Program.CreateHTMFile(StNo);
+                        this.CreateStartList(Program.TNop);
                         int num5 = (int)Interaction.MsgBox((object)"The Speaker Startlist has been created!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_29;
                     }
@@ -4685,34 +4685,34 @@ namespace ClubCompFS
                 num1 = 2;
                 if (this.MenuPossibleStartListForm())
                 {
-                    Module1.PNo = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
+                    Program.PNo = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
                     int index1 = 1;
                     int index2 = 1;
                     do
                     {
-                        if (index2 != Module1.PNo)
+                        if (index2 != Program.PNo)
                         {
-                            Module1.Vek[index1] = Module1.Vek[index2];
+                            Program.Vek[index1] = Program.Vek[index2];
                             checked { ++index1; }
                         }
                         checked { ++index2; }
                     }
                     while (index2 <= 42);
-                    if (Module1.TNop > 0)
-                        checked { --Module1.TNop; }
-                    int index3 = checked(Module1.TNop + 1);
+                    if (Program.TNop > 0)
+                        checked { --Program.TNop; }
+                    int index3 = checked(Program.TNop + 1);
                     while (index3 <= 42)
                     {
-                        Module1.Vek[index3].SSS_Seg1 = (string[])null;
-                        Module1.Vek[index3].SSS_Seg1 = new string[16];
-                        Module1.Vek[index3].SSS_Seg2 = (string[])null;
-                        Module1.Vek[index3].SSS_Seg2 = new string[16];
+                        Program.Vek[index3].SSS_Seg1 = (string[])null;
+                        Program.Vek[index3].SSS_Seg1 = new string[16];
+                        Program.Vek[index3].SSS_Seg2 = (string[])null;
+                        Program.Vek[index3].SSS_Seg2 = new string[16];
                         checked { ++index3; }
                     }
-                    this.CreateStartList(Module1.TNop);
-                    if (Module1.WorkMode == 1)
-                        Module1.SaveCategoryFile(Module1.CategoryFileName);
-                    MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
+                    this.CreateStartList(Program.TNop);
+                    if (Program.WorkMode == 1)
+                        Program.SaveCategoryFile(Program.CategoryFileName);
+                    MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Program.TNop);
                     goto label_19;
                 }
                 else
@@ -4743,7 +4743,7 @@ namespace ClubCompFS
                 num1 = 2;
                 if (this.MenuPossibleStartListForm())
                 {
-                    int num3 = Module1.IndexEmptyRow();
+                    int num3 = Program.IndexEmptyRow();
                     if (num3 <= 41)
                     {
                         this.TopMost = false;
@@ -4757,10 +4757,10 @@ namespace ClubCompFS
                         dialog5.txtClub.Text = "";
                         dialog5.TxtClubID.Text = "";
                         dialog5.txtFirstName.Select();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                             MyProject.Forms.ParticipantInputDialog.Close();
                         int num4 = (int)MyProject.Forms.ParticipantInputDialog.ShowDialog();
-                        MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.IndexEmptyRow());
+                        MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Program.IndexEmptyRow());
                         goto label_12;
                     }
                     else
@@ -4798,25 +4798,25 @@ namespace ClubCompFS
                 if (this.MenuPossibleStartListForm())
                 {
                     int y = this.DataGridView1.CurrentCellAddress.Y;
-                    if (y < Module1.IndexEmptyRow())
+                    if (y < Program.IndexEmptyRow())
                     {
                         if (y >= 0 & y <= 42)
                         {
                             ParticipantInputDialog dialog5 = MyProject.Forms.ParticipantInputDialog;
                             dialog5.txtIndStartListForm.Text = Conversions.ToString(y);
                             dialog5.txtFuncStartListForm.Text = "Edit";
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
-                                dialog5.txtStartNo.Text = Conversions.ToString(Module1.Vek[checked(y + 1)].Startno_Seg1);
+                                dialog5.txtStartNo.Text = Conversions.ToString(Program.Vek[checked(y + 1)].Startno_Seg1);
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                                dialog5.txtStartNo.Text = Conversions.ToString(Module1.Vek[checked(y + 1)].Startno_Seg2);
-                            dialog5.txtFirstName.Text = Module1.Vek[checked(y + 1)].Name.FName;
-                            dialog5.txtSurname.Text = Module1.Vek[checked(y + 1)].Name.LName;
-                            dialog5.txtID.Text = Module1.Vek[checked(y + 1)].Name.ID;
-                            dialog5.txtClub.Text = Module1.Vek[checked(y + 1)].Club;
-                            dialog5.TxtClubID.Text = Module1.Vek[checked(y + 1)].ClubID;
+                                dialog5.txtStartNo.Text = Conversions.ToString(Program.Vek[checked(y + 1)].Startno_Seg2);
+                            dialog5.txtFirstName.Text = Program.Vek[checked(y + 1)].Name.FName;
+                            dialog5.txtSurname.Text = Program.Vek[checked(y + 1)].Name.LName;
+                            dialog5.txtID.Text = Program.Vek[checked(y + 1)].Name.ID;
+                            dialog5.txtClub.Text = Program.Vek[checked(y + 1)].Club;
+                            dialog5.TxtClubID.Text = Program.Vek[checked(y + 1)].ClubID;
                             dialog5.txtFirstName.Select();
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                            if (Program.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
                                 MyProject.Forms.ParticipantInputDialog.Close();
                             int num3 = (int)MyProject.Forms.ParticipantInputDialog.ShowDialog();
                             goto label_17;
@@ -4881,8 +4881,8 @@ namespace ClubCompFS
             try
             {
                 double num3 = 1.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 string str = "";
                 ProjectData.ClearProjectError();
                 num1 = 2;
@@ -4901,16 +4901,16 @@ namespace ClubCompFS
                 double height1 = (double)font1.GetHeight(e.Graphics);
                 stringFormat2.Alignment = StringAlignment.Center;
                 format.Alignment = StringAlignment.Near;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg1);
+                    str = Program.FormShortDate(Program.Datum.Seg1);
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg2);
+                    str = Program.FormShortDate(Program.Datum.Seg2);
                 e.Graphics.DrawString("ENTRIES", font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = (float)((double)pageTopMargin + (double)font1.GetHeight(e.Graphics) + 5.0);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat(), font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat(), font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float y3 = y2 + font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("Date: " + str, font1, Brushes.Black, (float)pageLeftMargin, y3, new StringFormat());
                 float x1 = (float)pageLeftMargin;
@@ -4977,7 +4977,7 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 float y6 = y5 + 20f;
-                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
                 goto label_26;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -5010,7 +5010,7 @@ namespace ClubCompFS
                     this.PrintPreviewDialog1.Document = this.PrintDocument2;
                     int num3 = (int)this.PrintPreviewDialog1.ShowDialog();
                 }
-                this.CreateStartList(Module1.TNop);
+                this.CreateStartList(Program.TNop);
                 goto label_9;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -5070,15 +5070,15 @@ namespace ClubCompFS
             this.WillExitStartListForm = true;
             this.CloseFormsDialogs();
             this.Close();
-            Module1.CreateMainForm();
-            Module1.SaveCategoryFile(Module1.CategoryFileName);
+            Program.CreateMainForm();
+            Program.SaveCategoryFile(Program.CategoryFileName);
         }
 
         private void WarmupGroupsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (!this.MenuPossibleStartListForm())
                 return;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
             this.Schedule(1);
         }
@@ -5093,15 +5093,15 @@ namespace ClubCompFS
             this.WillExitStartListForm = true;
             this.CloseFormsDialogs();
             this.Close();
-            Module1.CreateMainForm();
-            Module1.SaveCategoryFile(Module1.CategoryFileName);
+            Program.CreateMainForm();
+            Program.SaveCategoryFile(Program.CategoryFileName);
         }
 
         private void InputElementToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (!this.MenuPossibleStartListForm())
                 return;
-            if (this.DataGridView1.CurrentCellAddress.Y < Module1.IndexEmptyRow())
+            if (this.DataGridView1.CurrentCellAddress.Y < Program.IndexEmptyRow())
             {
                 this.ElementInput(1);
             }
@@ -5127,7 +5127,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.WorkMode == 2)
+                if (Program.WorkMode == 2)
                 {
                     if (e.Button == MouseButtons.Right)
                     {

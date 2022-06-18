@@ -500,28 +500,28 @@ namespace ClubCompFS
                 if (Strings.Len(Strings.Trim(this.txtFirstName.Text)) > 0)
                 {
                     DataGridView dataGridView1 = MyProject.Forms.StartListForm.DataGridView1;
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[checked(integer + 1)].Startno_Seg1 = Strings.Len(this.txtStartNo.Text) <= 0 ? 0 : Conversions.ToInteger(this.txtStartNo.Text);
+                        Program.Vek[checked(integer + 1)].Startno_Seg1 = Strings.Len(this.txtStartNo.Text) <= 0 ? 0 : Conversions.ToInteger(this.txtStartNo.Text);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[checked(integer + 1)].Startno_Seg2 = Strings.Len(this.txtStartNo.Text) <= 0 ? 0 : Conversions.ToInteger(this.txtStartNo.Text);
-                    Module1.Vek[checked(integer + 1)].Name.FName = this.txtFirstName.Text;
-                    Module1.Vek[checked(integer + 1)].Name.LName = this.txtSurname.Text;
-                    Module1.Vek[checked(integer + 1)].Name.ID = this.txtID.Text;
-                    Module1.Vek[checked(integer + 1)].Club = this.txtClub.Text;
-                    Module1.Vek[checked(integer + 1)].ClubID = this.TxtClubID.Text;
+                        Program.Vek[checked(integer + 1)].Startno_Seg2 = Strings.Len(this.txtStartNo.Text) <= 0 ? 0 : Conversions.ToInteger(this.txtStartNo.Text);
+                    Program.Vek[checked(integer + 1)].Name.FName = this.txtFirstName.Text;
+                    Program.Vek[checked(integer + 1)].Name.LName = this.txtSurname.Text;
+                    Program.Vek[checked(integer + 1)].Name.ID = this.txtID.Text;
+                    Program.Vek[checked(integer + 1)].Club = this.txtClub.Text;
+                    Program.Vek[checked(integer + 1)].ClubID = this.TxtClubID.Text;
                     string text = this.txtFuncStartListForm.Text;
                     if (Operators.CompareString(text, "New", false) == 0)
-                        checked { ++Module1.TNop; }
+                        checked { ++Program.TNop; }
                     else if (Operators.CompareString(text, "Edit", false) == 0)
-                        Module1.TNop = Module1.TNop;
+                        Program.TNop = Program.TNop;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                     MyProject.Forms.StartListForm.TopMost = true;
-                    MyProject.Forms.StartListForm.CreateStartList(Module1.TNop);
-                    if (Module1.WorkMode == 1)
+                    MyProject.Forms.StartListForm.CreateStartList(Program.TNop);
+                    if (Program.WorkMode == 1)
                     {
-                        Module1.SaveCategoryFile(Module1.CategoryFileName);
+                        Program.SaveCategoryFile(Program.CategoryFileName);
                         goto label_18;
                     }
                     else

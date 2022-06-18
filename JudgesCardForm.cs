@@ -316,9 +316,9 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                double num3 = Module1.Page_Size * 1.0 / 100.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                double num3 = Program.Page_Size * 1.0 / 100.0;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.newpage = true;
@@ -332,13 +332,13 @@ namespace ClubCompFS
                 format1.Alignment = StringAlignment.Center;
                 format2.Alignment = StringAlignment.Near;
                 int integer = Conversions.ToInteger(this.txtPno.Text);
-                string segTxt = Module1.GetSegTxt(Module1.Segment);
-                string segment1 = Module1.Segment;
+                string segTxt = Program.GetSegTxt(Program.Segment);
+                string segment1 = Program.Segment;
                 int num4 = 0;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                    num4 = Module1.Vek[integer].Startno_Seg1;
+                    num4 = Program.Vek[integer].Startno_Seg1;
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                    num4 = Module1.Vek[integer].Startno_Seg2;
+                    num4 = Program.Vek[integer].Startno_Seg2;
                 int emSize = checked((int)Math.Round(Conversion.Int(unchecked(num3 * 10.0 + 2.25))));
                 Font font1 = new Font("ARIAL", (float)checked(emSize + 2), FontStyle.Bold, GraphicsUnit.Pixel);
                 Font font2 = new Font("ARIAL", (float)emSize, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -348,15 +348,15 @@ namespace ClubCompFS
                 int num5 = 0;
                 RectangleF layoutRectangle = new RectangleF((float)checked(pageLeftMargin + 20 + 420 + 40 + 5 + 140) * (float)num3, pageTopMargin, (float)num5 * (float)num3, height1);
                 e.Graphics.DrawString("J" + this.txtJno.Text, font1, Brushes.Black, layoutRectangle, format2);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = pageTopMargin + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
-                string segment2 = Module1.Segment;
+                string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
-                    e.Graphics.DrawString("Judge Card: J" + this.txtJno.Text + " - " + Module1.Judge[Conversions.ToInteger(this.txtJno.Text)].Seg1.Name, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                    e.Graphics.DrawString("Judge Card: J" + this.txtJno.Text + " - " + Program.Judge[Conversions.ToInteger(this.txtJno.Text)].Seg1.Name, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 else if (Operators.CompareString(segment2, "Seg2", false) == 0)
-                    e.Graphics.DrawString("Judge Card: J" + this.txtJno.Text + " - " + Module1.Judge[Conversions.ToInteger(this.txtJno.Text)].Seg2.Name, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                    e.Graphics.DrawString("Judge Card: J" + this.txtJno.Text + " - " + Program.Judge[Conversions.ToInteger(this.txtJno.Text)].Seg2.Name, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float y3 = (float)((double)y2 + (double)font1.GetHeight(e.Graphics) + 10.0);
                 float x1 = (float)pageLeftMargin;
                 float height2 = font3.GetHeight(e.Graphics);
@@ -366,11 +366,11 @@ namespace ClubCompFS
                 float x2 = x1 + layoutRectangle.Width;
                 int num7 = 325;
                 layoutRectangle = new RectangleF(x2, y3, (float)num7 * (float)num3, height2);
-                e.Graphics.DrawString("Name: " + Module1.Vek[integer].Name.FName + " " + Module1.Vek[integer].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                e.Graphics.DrawString("Name: " + Program.Vek[integer].Name.FName + " " + Program.Vek[integer].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                 float x3 = x2 + layoutRectangle.Width;
                 int num8 = 180;
                 layoutRectangle = new RectangleF(x3, y3, (float)num8 * (float)num3, height2);
-                e.Graphics.DrawString("Club: " + Module1.Vek[integer].Club, font3, Brushes.Black, layoutRectangle, format2);
+                e.Graphics.DrawString("Club: " + Program.Vek[integer].Club, font3, Brushes.Black, layoutRectangle, format2);
                 float y4 = (float)((double)y3 + (double)height2 + 5.0);
                 float height3 = font2.GetHeight(e.Graphics);
                 float x4 = (float)pageLeftMargin;
@@ -424,19 +424,19 @@ namespace ClubCompFS
                                 int num17 = 140;
                                 layoutRectangle = new RectangleF(x10, y5, (float)num17 * (float)num3, height5);
                                 e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                string segment3 = Module1.Segment;
+                                string segment3 = Program.Segment;
                                 if (Operators.CompareString(segment3, "Seg1", false) == 0)
                                 {
                                     if (index <= 15)
                                     {
-                                        e.Graphics.DrawString("\r\n" + Module1.Vek[integer].SSS_Seg1[index], font3, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString("\r\n" + Program.Vek[integer].SSS_Seg1[index], font3, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     }
                                     break;
                                 }
                                 if (Operators.CompareString(segment3, "Seg2", false) == 0 && index <= 15)
                                 {
-                                    e.Graphics.DrawString("\r\n" + Module1.Vek[integer].SSS_Seg2[index], font3, Brushes.Black, layoutRectangle, format2);
+                                    e.Graphics.DrawString("\r\n" + Program.Vek[integer].SSS_Seg2[index], font3, Brushes.Black, layoutRectangle, format2);
                                     break;
                                 }
                                 break;
@@ -686,9 +686,9 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                double num3 = Module1.Page_Size * 1.0 / 100.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                double num3 = Program.Page_Size * 1.0 / 100.0;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.newpage = true;
@@ -732,13 +732,13 @@ namespace ClubCompFS
                 format1.Alignment = StringAlignment.Center;
                 format2.Alignment = StringAlignment.Near;
                 int integer = Conversions.ToInteger(this.txtPno.Text);
-                string segTxt = Module1.GetSegTxt(Module1.Segment);
-                string segment1 = Module1.Segment;
+                string segTxt = Program.GetSegTxt(Program.Segment);
+                string segment1 = Program.Segment;
                 int num4 = 0;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                    num4 = Module1.Vek[integer].Startno_Seg1;
+                    num4 = Program.Vek[integer].Startno_Seg1;
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                    num4 = Module1.Vek[integer].Startno_Seg2;
+                    num4 = Program.Vek[integer].Startno_Seg2;
                 int emSize = checked((int)Math.Round(Conversion.Int(unchecked(num3 * 10.0 + 2.25))));
                 Font font1 = new Font("ARIAL", (float)checked(emSize + 2), FontStyle.Bold, GraphicsUnit.Pixel);
                 Font font2 = new Font("ARIAL", (float)emSize, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -749,9 +749,9 @@ namespace ClubCompFS
                 int num5 = 0;
                 RectangleF layoutRectangle = new RectangleF((float)checked(pageLeftMargin + 20 + 560) * (float)num3, pageTopMargin, (float)num5 * (float)num3, height1);
                 e.Graphics.DrawString(this.txtTCTSName.Text, font3, Brushes.Black, layoutRectangle, format2);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = pageTopMargin + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("TC TS Card: " + this.txtTCTSName.Text, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float x1 = (float)pageLeftMargin;
@@ -763,11 +763,11 @@ namespace ClubCompFS
                 float x2 = x1 + layoutRectangle.Width;
                 int num7 = 280;
                 layoutRectangle = new RectangleF(x2, y3, (float)num7 * (float)num3, height2);
-                e.Graphics.DrawString("Name: " + Module1.Vek[integer].Name.FName + " " + Module1.Vek[integer].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                e.Graphics.DrawString("Name: " + Program.Vek[integer].Name.FName + " " + Program.Vek[integer].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                 float x3 = x2 + layoutRectangle.Width;
                 int num8 = 280;
                 layoutRectangle = new RectangleF(x3, y3, (float)num8 * (float)num3, height2);
-                e.Graphics.DrawString("Club: " + Module1.Vek[integer].Club, font3, Brushes.Black, layoutRectangle, format2);
+                e.Graphics.DrawString("Club: " + Program.Vek[integer].Club, font3, Brushes.Black, layoutRectangle, format2);
                 float y4 = (float)((double)y3 + (double)height2 + 5.0);
                 int num9 = 70;
                 int index1 = 0;
@@ -843,14 +843,14 @@ namespace ClubCompFS
                                 int num18 = 140;
                                 layoutRectangle = new RectangleF(x11, y6, (float)num18 * (float)num3, height5);
                                 e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                string segment2 = Module1.Segment;
+                                string segment2 = Program.Segment;
                                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                                 {
                                     if (index3 <= 15)
-                                        e.Graphics.DrawString("\r\n" + Module1.Vek[integer].SSS_Seg1[index3], font3, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString("\r\n" + Program.Vek[integer].SSS_Seg1[index3], font3, Brushes.Black, layoutRectangle, format2);
                                 }
                                 else if (Operators.CompareString(segment2, "Seg2", false) == 0 && index3 <= 15)
-                                    e.Graphics.DrawString("\r\n" + Module1.Vek[integer].SSS_Seg2[index3], font3, Brushes.Black, layoutRectangle, format2);
+                                    e.Graphics.DrawString("\r\n" + Program.Vek[integer].SSS_Seg2[index3], font3, Brushes.Black, layoutRectangle, format2);
                                 int num19 = 140;
                                 layoutRectangle = new RectangleF(x11, y6, (float)num19 * (float)num3, height5);
                                 e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);

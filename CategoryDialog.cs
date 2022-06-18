@@ -789,7 +789,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.DialogResult = DialogResult.OK;
-                if (Module1.TNop > 0 & (Operators.CompareString(this.TextBox1.Text, this.OldCategory, false) != 0 | Operators.CompareString(this.ComboBox1.Text, this.OldSubcategory, false) != 0))
+                if (Program.TNop > 0 & (Operators.CompareString(this.TextBox1.Text, this.OldCategory, false) != 0 | Operators.CompareString(this.ComboBox1.Text, this.OldSubcategory, false) != 0))
                 {
                     switch (Interaction.MsgBox((object)"Do you want to clear the skater's data?", MsgBoxStyle.YesNoCancel | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW"))
                     {
@@ -807,43 +807,43 @@ namespace ClubCompFS
                 }
                 if (Strings.Len(this.TextBox1.Text) > 2)
                 {
-                    Module1.Category.Name = this.TextBox1.Text;
-                    Module1.Category.ID = this.txtCategoryID.Text;
-                    Module1.Category.IndTADiscipline = this.txtIndTADisc.Text;
-                    Module1.Category.IndTAClass = this.txtIndTAClass.Text;
-                    Module1.CalcPCindex();
-                    Module1.WarmUpTime = this.txtWarmup.Text;
-                    Module1.SubCategory = Strings.Trim(this.ComboBox1.Text);
-                    string segment = Module1.Segment;
+                    Program.Category.Name = this.TextBox1.Text;
+                    Program.Category.ID = this.txtCategoryID.Text;
+                    Program.Category.IndTADiscipline = this.txtIndTADisc.Text;
+                    Program.Category.IndTAClass = this.txtIndTAClass.Text;
+                    Program.CalcPCindex();
+                    Program.WarmUpTime = this.txtWarmup.Text;
+                    Program.SubCategory = Strings.Trim(this.ComboBox1.Text);
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        Module1.Datum.Seg1 = this.DateTimePicker1.Value;
-                        Module1.Datum.Seg1Start = this.DateTimePicker2.Text;
+                        Program.Datum.Seg1 = this.DateTimePicker1.Value;
+                        Program.Datum.Seg1Start = this.DateTimePicker2.Text;
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        Module1.Datum.Seg2 = this.DateTimePicker1.Value;
-                        Module1.Datum.Seg2Start = this.DateTimePicker2.Text;
+                        Program.Datum.Seg2 = this.DateTimePicker1.Value;
+                        Program.Datum.Seg2Start = this.DateTimePicker2.Text;
                     }
                     else
                     {
-                        Module1.Datum.Seg1 = this.DateTimePicker1.Value;
-                        Module1.Datum.Seg1Start = this.DateTimePicker2.Text;
-                        Module1.Datum.Seg2 = this.DateTimePicker1.Value;
-                        Module1.Datum.Seg2Start = this.DateTimePicker2.Text;
+                        Program.Datum.Seg1 = this.DateTimePicker1.Value;
+                        Program.Datum.Seg1Start = this.DateTimePicker2.Text;
+                        Program.Datum.Seg2 = this.DateTimePicker1.Value;
+                        Program.Datum.Seg2Start = this.DateTimePicker2.Text;
                     }
-                    this.TimeLimitD1(Module1.Datum.Seg1.ToString("yyyy-MM-dd"));
-                    this.TimeLimitD1(Module1.Datum.Seg2.ToString("yyyy-MM-dd"));
+                    this.TimeLimitD1(Program.Datum.Seg1.ToString("yyyy-MM-dd"));
+                    this.TimeLimitD1(Program.Datum.Seg2.ToString("yyyy-MM-dd"));
                     if (this.btnSeg1.BackColor == Color.Green)
-                        Module1.Segment = "Seg1";
+                        Program.Segment = "Seg1";
                     if (this.btnSeg2.BackColor == Color.Green)
-                        Module1.Segment = "Seg2";
+                        Program.Segment = "Seg2";
                     this.Close();
                     MyProject.Forms.MainForm.txtCompetitionName.Enabled = false;
                     MyProject.Forms.MainForm.btnSeg1Seg2();
-                    Module1.SetNoJ();
-                    Module1.CreateMainForm();
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SetNoJ();
+                    Program.CreateMainForm();
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                     MyProject.Forms.MainForm.txtCompetitionName.Enabled = true;
                     MyProject.Forms.MainForm.txtCompetitionName.Select();
                     goto label_22;
@@ -872,7 +872,7 @@ namespace ClubCompFS
         public void TimeLimitD1(string Nu)
         {
             string Right = DateTime.FromBinary(checked((long)Math.Round(Conversion.Val(this.MaxDateD1)))).ToString("yyyy-MM-dd");
-            string Prompt = Module1.decode((object)"VABpAG0AZQBsAGkAbQBpAHQAIABoAGEAcwAgAHAAYQBzAHMAZQBkACEADQAKAFQAaABlACAAcAByAG8AZwByAGEAbQAgAHcAaQBsAGwAIABjAGwAbwBzAGUAIABkAG8AdwBuACEA");
+            string Prompt = Program.decode((object)"VABpAG0AZQBsAGkAbQBpAHQAIABoAGEAcwAgAHAAYQBzAHMAZQBkACEADQAKAFQAaABlACAAcAByAG8AZwByAGEAbQAgAHcAaQBsAGwAIABjAGwAbwBzAGUAIABkAG8AdwBuACEA");
             if (Operators.CompareString(Nu, Right, false) <= 0)
                 return;
             int num = (int)Interaction.MsgBox((object)Prompt, MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -888,24 +888,24 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.Category.Name = this.OldCategory;
-                Module1.Category.ID = this.OldCategoryID;
-                Module1.Category.IndTADiscipline = this.OldIndTADiscipline;
-                Module1.Category.IndTAClass = this.OldIndTAClass;
-                Module1.SubCategory = this.OldSubcategory;
-                Module1.WarmUpTime = this.OldWarmup;
-                Module1.Segment = this.Oldsegment;
-                Module1.RemWarmupTimeSeg1 = this.OldRemWarmupTimeSeg1;
-                Module1.RemWarmupTimeSeg2 = this.OldRemWarmupTimeSeg2;
-                this.TextBox1.Text = Module1.Category.Name;
-                this.txtCategoryID.Text = Module1.Category.ID;
-                this.txtIndTADisc.Text = Module1.Category.IndTADiscipline;
-                this.txtIndTADisc.Text = Module1.Category.IndTAClass;
-                this.ComboBox1.Text = Module1.SubCategory;
-                Module1.Datum.Seg1 = this.OldDatumSeg1;
-                Module1.Datum.Seg2 = this.OldDatumSeg2;
-                Module1.Datum.Seg1Start = this.OldTimeSeg1;
-                Module1.Datum.Seg2Start = this.OldTimeSeg2;
+                Program.Category.Name = this.OldCategory;
+                Program.Category.ID = this.OldCategoryID;
+                Program.Category.IndTADiscipline = this.OldIndTADiscipline;
+                Program.Category.IndTAClass = this.OldIndTAClass;
+                Program.SubCategory = this.OldSubcategory;
+                Program.WarmUpTime = this.OldWarmup;
+                Program.Segment = this.Oldsegment;
+                Program.RemWarmupTimeSeg1 = this.OldRemWarmupTimeSeg1;
+                Program.RemWarmupTimeSeg2 = this.OldRemWarmupTimeSeg2;
+                this.TextBox1.Text = Program.Category.Name;
+                this.txtCategoryID.Text = Program.Category.ID;
+                this.txtIndTADisc.Text = Program.Category.IndTADiscipline;
+                this.txtIndTADisc.Text = Program.Category.IndTAClass;
+                this.ComboBox1.Text = Program.SubCategory;
+                Program.Datum.Seg1 = this.OldDatumSeg1;
+                Program.Datum.Seg2 = this.OldDatumSeg2;
+                Program.Datum.Seg1Start = this.OldTimeSeg1;
+                Program.Datum.Seg2Start = this.OldTimeSeg2;
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
                 goto label_7;
@@ -937,43 +937,43 @@ namespace ClubCompFS
                 this.TopMost = true;
                 this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
                 this.DateTimePicker1.Format = DateTimePickerFormat.Short;
-                this.OldCategory = Module1.Category.Name;
-                this.OldCategoryID = Module1.Category.ID;
-                this.OldSubcategory = Module1.SubCategory;
-                this.OldRemWarmupTimeSeg1 = Module1.RemWarmupTimeSeg1;
-                this.OldRemWarmupTimeSeg2 = Module1.RemWarmupTimeSeg2;
+                this.OldCategory = Program.Category.Name;
+                this.OldCategoryID = Program.Category.ID;
+                this.OldSubcategory = Program.SubCategory;
+                this.OldRemWarmupTimeSeg1 = Program.RemWarmupTimeSeg1;
+                this.OldRemWarmupTimeSeg2 = Program.RemWarmupTimeSeg2;
                 this.ShowButton();
-                this.TextBox1.Text = Module1.Category.Name;
-                this.txtCategoryID.Text = Module1.Category.ID;
-                this.txtIndTADisc.Text = Module1.Category.IndTADiscipline;
-                this.txtIndTAClass.Text = Module1.Category.IndTAClass;
-                this.txtWarmup.Text = Module1.WarmUpTime;
-                this.OldWarmup = Module1.WarmUpTime;
+                this.TextBox1.Text = Program.Category.Name;
+                this.txtCategoryID.Text = Program.Category.ID;
+                this.txtIndTADisc.Text = Program.Category.IndTADiscipline;
+                this.txtIndTAClass.Text = Program.Category.IndTAClass;
+                this.txtWarmup.Text = Program.WarmUpTime;
+                this.OldWarmup = Program.WarmUpTime;
                 this.LoadComboBox1();
-                if (Strings.Len(Module1.Datum.Seg1Start) < 2)
-                    Module1.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
-                if (Strings.Len(Module1.Datum.Seg2Start) < 2)
-                    Module1.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
-                this.OldDatumSeg1 = Module1.Datum.Seg1;
-                this.OldDatumSeg2 = Module1.Datum.Seg2;
-                this.OldTimeSeg1 = Module1.Datum.Seg1Start;
-                this.OldTimeSeg2 = Module1.Datum.Seg2Start;
-                this.Oldsegment = Module1.Segment;
-                string segment = Module1.Segment;
+                if (Strings.Len(Program.Datum.Seg1Start) < 2)
+                    Program.Datum.Seg1Start = Strings.Format((object)DateTime.Now, "HH:mm");
+                if (Strings.Len(Program.Datum.Seg2Start) < 2)
+                    Program.Datum.Seg2Start = Strings.Format((object)DateTime.Now, "HH:mm");
+                this.OldDatumSeg1 = Program.Datum.Seg1;
+                this.OldDatumSeg2 = Program.Datum.Seg2;
+                this.OldTimeSeg1 = Program.Datum.Seg1Start;
+                this.OldTimeSeg2 = Program.Datum.Seg2Start;
+                this.Oldsegment = Program.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg1);
-                    this.DateTimePicker2.Text = Module1.Datum.Seg1Start;
+                    this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg1);
+                    this.DateTimePicker2.Text = Program.Datum.Seg1Start;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
-                    this.DateTimePicker2.Text = Module1.Datum.Seg2Start;
+                    this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg2);
+                    this.DateTimePicker2.Text = Program.Datum.Seg2Start;
                 }
                 string prog = "";
-                if (Strings.Len(Module1.Category.Name) > 1)
+                if (Strings.Len(Program.Category.Name) > 1)
                 {
-                    string seg = Module1.GetSeg();
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "0F", false) == 0)
                         prog = "Free";
                     else if (Operators.CompareString(seg, "S0", false) == 0)
@@ -1011,10 +1011,10 @@ namespace ClubCompFS
 
         private void ShowButton()
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                if (!Module1.RemWarmupTimeSeg1)
+                if (!Program.RemWarmupTimeSeg1)
                 {
                     this.btnRemoveWarmupTime.BackColor = SystemColors.ButtonFace;
                     this.btnRemoveWarmupTime.Text = "REMOVE WARMUP TIME GROUP 1";
@@ -1029,7 +1029,7 @@ namespace ClubCompFS
             {
                 if (Operators.CompareString(segment, "Seg2", false) != 0)
                     return;
-                if (!Module1.RemWarmupTimeSeg2)
+                if (!Program.RemWarmupTimeSeg2)
                 {
                     this.btnRemoveWarmupTime.BackColor = SystemColors.ButtonFace;
                     this.btnRemoveWarmupTime.Text = "REMOVE WARMUP TIME GROUP 1";
@@ -1046,7 +1046,7 @@ namespace ClubCompFS
         {
             ComboBox comboBox1 = this.ComboBox1;
             comboBox1.Items.Clear();
-            comboBox1.Text = Strings.Len(Module1.SubCategory) >= 1 ? Module1.SubCategory : "";
+            comboBox1.Text = Strings.Len(Program.SubCategory) >= 1 ? Program.SubCategory : "";
             comboBox1.Items.Add((object)"");
             comboBox1.Items.Add((object)"Group 1");
             comboBox1.Items.Add((object)"Group 2");
@@ -1066,7 +1066,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 DataGridView dataGridView1 = this.DataGridView1;
-                dataGridView1.RowCount = Module1.NoOfCategory;
+                dataGridView1.RowCount = Program.NoOfCategory;
                 dataGridView1.ColumnHeadersVisible = true;
                 dataGridView1.ReadOnly = true;
                 dataGridView1.ColumnCount = 2;
@@ -1074,19 +1074,19 @@ namespace ClubCompFS
                 dataGridView1.Columns[1].HeaderText = "Program";
                 dataGridView1.RowHeadersVisible = false;
                 int index = 0;
-                while (Strings.Len(Module1.OpenDB[index].Category) > 2)
+                while (Strings.Len(Program.OpenDB[index].Category) > 2)
                 {
                     string str = "";
-                    dataGridView1.Rows[index].Cells[0].Value = (object)Module1.OpenDB[index].Category;
-                    if (Operators.CompareString(Module1.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.OpenDB[index].Segment_2, "F", false) == 0)
+                    dataGridView1.Rows[index].Cells[0].Value = (object)Program.OpenDB[index].Category;
+                    if (Operators.CompareString(Program.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Program.OpenDB[index].Segment_2, "F", false) == 0)
                         str = "Short & Free";
-                    if (Operators.CompareString(Module1.OpenDB[index].Segment_1, "F", false) == 0 & Operators.CompareString(Module1.OpenDB[index].Segment_2, "F", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[index].Segment_1, "F", false) == 0 & Operators.CompareString(Program.OpenDB[index].Segment_2, "F", false) == 0)
                         str = "Free & Free";
-                    if (Operators.CompareString(Module1.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.OpenDB[index].Segment_2, "S", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Program.OpenDB[index].Segment_2, "S", false) == 0)
                         str = "Short & Short";
-                    if (Operators.CompareString(Module1.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.OpenDB[index].Segment_2, "0", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[index].Segment_1, "S", false) == 0 & Operators.CompareString(Program.OpenDB[index].Segment_2, "0", false) == 0)
                         str = "Short";
-                    if (Operators.CompareString(Module1.OpenDB[index].Segment_1, "0", false) == 0 & Operators.CompareString(Module1.OpenDB[index].Segment_2, "F", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[index].Segment_1, "0", false) == 0 & Operators.CompareString(Program.OpenDB[index].Segment_2, "F", false) == 0)
                         str = "Free";
                     dataGridView1.Rows[index].Cells[1].Value = (object)str;
                     if ((double)index == Conversion.Int((double)index / 2.0) * 2.0)
@@ -1114,17 +1114,17 @@ namespace ClubCompFS
         {
             int y = this.DataGridView1.CurrentCellAddress.Y;
             this.TextBox1.Text = Conversions.ToString(this.DataGridView1.Rows[y].Cells[0].Value);
-            Module1.Category.Name = this.TextBox1.Text;
+            Program.Category.Name = this.TextBox1.Text;
             this.txtCategoryID.Text = "";
-            Module1.Category.ID = "";
+            Program.Category.ID = "";
             this.txtIndTADisc.Text = "";
-            Module1.Category.IndTADiscipline = "";
+            Program.Category.IndTADiscipline = "";
             this.txtIndTAClass.Text = "";
-            Module1.Category.IndTAClass = "";
-            Module1.CalcPCindex();
+            Program.Category.IndTAClass = "";
+            Program.CalcPCindex();
             this.ShowBtn(Conversions.ToString(this.DataGridView1.Rows[y].Cells[1].Value));
-            Module1.Category.Name = this.TextBox1.Text;
-            this.txtWarmup.Text = Module1.OpenDB[Module1.PcIndex].Warmup;
+            Program.Category.Name = this.TextBox1.Text;
+            this.txtWarmup.Text = Program.OpenDB[Program.PcIndex].Warmup;
         }
 
         private void ShowBtn(string prog)
@@ -1142,7 +1142,7 @@ namespace ClubCompFS
                     this.btnSeg1.Visible = true;
                     this.btnSeg2.Visible = false;
                     this.btnSeg1.BackColor = Color.Green;
-                    Module1.Segment = "Seg1";
+                    Program.Segment = "Seg1";
                     goto label_28;
                 }
                 else if (Operators.CompareString(Left, "Free", false) == 0)
@@ -1151,14 +1151,14 @@ namespace ClubCompFS
                     this.btnSeg1.Visible = false;
                     this.btnSeg2.Visible = true;
                     this.btnSeg2.BackColor = Color.Green;
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                     goto label_28;
                 }
                 else if (Operators.CompareString(Left, "Short & Free", false) == 0)
                 {
                     this.btnSeg1.Text = "SHORT";
                     this.btnSeg2.Text = "FREE";
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         this.btnSeg1.Visible = true;
@@ -1177,7 +1177,7 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.Segment = "Seg1";
+                        Program.Segment = "Seg1";
                         this.btnSeg1.Visible = true;
                         this.btnSeg2.Visible = true;
                         this.btnSeg1.BackColor = Color.Green;
@@ -1189,7 +1189,7 @@ namespace ClubCompFS
                 {
                     this.btnSeg1.Text = "FREE";
                     this.btnSeg2.Text = "FREE";
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         this.btnSeg1.Visible = true;
@@ -1208,7 +1208,7 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.Segment = "Seg1";
+                        Program.Segment = "Seg1";
                         this.btnSeg1.Visible = true;
                         this.btnSeg2.Visible = true;
                         this.btnSeg1.BackColor = Color.Green;
@@ -1220,7 +1220,7 @@ namespace ClubCompFS
                 {
                     this.btnSeg1.Text = "SHORT";
                     this.btnSeg2.Text = "SHORT";
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
                         this.btnSeg1.Visible = true;
@@ -1239,7 +1239,7 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.Segment = "Seg1";
+                        Program.Segment = "Seg1";
                         this.btnSeg1.Visible = true;
                         this.btnSeg2.Visible = true;
                         this.btnSeg1.BackColor = Color.Green;
@@ -1273,24 +1273,24 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    Module1.Segment = "Seg1";
+                    Program.Segment = "Seg1";
                     this.btnSeg1.Text = "SHORT";
                     this.btnSeg1.BackColor = Color.Green;
                     this.btnSeg2.BackColor = SystemColors.Control;
-                    this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg1);
-                    this.DateTimePicker2.Text = Module1.Datum.Seg1Start;
+                    this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg1);
+                    this.DateTimePicker2.Text = Program.Datum.Seg1Start;
                 }
                 else if (Operators.CompareString(seg, "FF", false) == 0)
                 {
-                    Module1.Segment = "Seg1";
+                    Program.Segment = "Seg1";
                     this.btnSeg1.Text = "FREE";
                     this.btnSeg1.BackColor = Color.Green;
                     this.btnSeg2.BackColor = SystemColors.Control;
-                    this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg1);
-                    this.DateTimePicker2.Text = Module1.Datum.Seg1Start;
+                    this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg1);
+                    this.DateTimePicker2.Text = Program.Datum.Seg1Start;
                 }
                 this.ShowButton();
             }
@@ -1312,12 +1312,12 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 num3 = 5;
                 if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0)
                 {
                     num3 = 6;
-                    Module1.Segment = "Seg2";
+                    Program.Segment = "Seg2";
                     num3 = 7;
                     this.btnSeg2.Text = "FREE";
                     num3 = 8;
@@ -1325,9 +1325,9 @@ namespace ClubCompFS
                     num3 = 9;
                     this.btnSeg2.BackColor = Color.Green;
                     num3 = 10;
-                    this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
+                    this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg2);
                     num3 = 11;
-                    this.DateTimePicker2.Text = Module1.Datum.Seg2Start;
+                    this.DateTimePicker2.Text = Program.Datum.Seg2Start;
                 }
                 else
                 {
@@ -1335,7 +1335,7 @@ namespace ClubCompFS
                     if (Operators.CompareString(seg, "SS", false) == 0)
                     {
                         num3 = 14;
-                        Module1.Segment = "Seg2";
+                        Program.Segment = "Seg2";
                         num3 = 15;
                         this.btnSeg2.Text = "SHORT";
                         num3 = 16;
@@ -1343,9 +1343,9 @@ namespace ClubCompFS
                         num3 = 17;
                         this.btnSeg2.BackColor = Color.Green;
                         num3 = 18;
-                        this.DateTimePicker1.Text = Module1.FormShortDate(Module1.Datum.Seg2);
+                        this.DateTimePicker1.Text = Program.FormShortDate(Program.Datum.Seg2);
                         num3 = 19;
-                        this.DateTimePicker2.Text = Module1.Datum.Seg2Start;
+                        this.DateTimePicker2.Text = Program.Datum.Seg2Start;
                     }
                 }
                 num3 = 21;
@@ -1362,31 +1362,31 @@ namespace ClubCompFS
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                Module1.Datum.Seg1 = this.DateTimePicker1.Value;
+                Program.Datum.Seg1 = this.DateTimePicker1.Value;
             }
             else
             {
                 if (Operators.CompareString(segment, "Seg2", false) != 0)
                     return;
-                Module1.Datum.Seg2 = this.DateTimePicker1.Value;
+                Program.Datum.Seg2 = this.DateTimePicker1.Value;
             }
         }
 
         private void DateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                Module1.Datum.Seg1Start = this.DateTimePicker2.Text;
+                Program.Datum.Seg1Start = this.DateTimePicker2.Text;
             }
             else
             {
                 if (Operators.CompareString(segment, "Seg2", false) != 0)
                     return;
-                Module1.Datum.Seg2Start = this.DateTimePicker2.Text;
+                Program.Datum.Seg2Start = this.DateTimePicker2.Text;
             }
         }
 
@@ -1480,12 +1480,12 @@ namespace ClubCompFS
 
         private void btnRemoveWarmupTime_Click(object sender, EventArgs e)
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
-                Module1.RemWarmupTimeSeg1 = !Module1.RemWarmupTimeSeg1;
+                Program.RemWarmupTimeSeg1 = !Program.RemWarmupTimeSeg1;
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
-                Module1.RemWarmupTimeSeg2 = !Module1.RemWarmupTimeSeg2;
+                Program.RemWarmupTimeSeg2 = !Program.RemWarmupTimeSeg2;
             }
             else
             {
