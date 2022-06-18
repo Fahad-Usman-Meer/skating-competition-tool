@@ -9892,9 +9892,9 @@ namespace ClubCompFS
 
         private void btnDED_Click(object sender, EventArgs e)
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog11))
-                MyProject.Forms.Dialog11.Close();
-            Dialog11 dialog11 = MyProject.Forms.Dialog11;
+            if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+                MyProject.Forms.DeductionsDialog.Close();
+            DeductionsDialog dialog11 = MyProject.Forms.DeductionsDialog;
             dialog11.TopMost = true;
             int num = (int)dialog11.ShowDialog((IWin32Window)this);
         }

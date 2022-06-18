@@ -73,7 +73,7 @@ namespace ClubCompFS.My
             public CustDialog m_CustDialog;
             public CategoryDialog m_CategoryDialog;
             public InputJudgesDataDialog m_InputJudgesDataDialog;
-            public Dialog11 m_Dialog11;
+            public DeductionsDialog m_DeductionsDialog;
             public NetworkStatusDialog m_NetworkStatusDialog;
             public ConfigurationDataDialog m_ConfigurationDataDialog;
             public JudgesSetupDialog m_JudgesSetupDialog;
@@ -147,20 +147,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Dialog11 Dialog11
+            public DeductionsDialog DeductionsDialog
             {
                 get
                 {
-                    this.m_Dialog11 = MyProject.MyForms.Create__Instance__<Dialog11>(this.m_Dialog11);
-                    return this.m_Dialog11;
+                    this.m_DeductionsDialog = MyProject.MyForms.Create__Instance__<DeductionsDialog>(this.m_DeductionsDialog);
+                    return this.m_DeductionsDialog;
                 }
                 set
                 {
-                    if (value == this.m_Dialog11)
+                    if (value == this.m_DeductionsDialog)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Dialog11>(ref this.m_Dialog11);
+                    this.Dispose__Instance__<DeductionsDialog>(ref this.m_DeductionsDialog);
                 }
             }
 

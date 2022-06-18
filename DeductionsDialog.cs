@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog11
+// Type: ClubCompFS.DeductionsDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog11 : Form
+    public class DeductionsDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -92,9 +92,9 @@ namespace ClubCompFS
         private TextBox _DedLabel10;
         private string Falls;
 
-        public Dialog11()
+        public DeductionsDialog()
         {
-            this.Load += new EventHandler(this.Dialog11_Load);
+            this.Load += new EventHandler(this.DeductionsDialog_Load);
             this.Falls = "0";
             this.InitializeComponent();
         }
@@ -117,7 +117,7 @@ namespace ClubCompFS
         [DebuggerStepThrough]
         private void InitializeComponent()
         {
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Dialog11));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(DeductionsDialog));
             this.TableLayoutPanel1 = new TableLayoutPanel();
             this.OK_Button = new Button();
             this.Cancel_Button = new Button();
@@ -582,7 +582,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog11);
+            this.Name = nameof(DeductionsDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "DEDUCTIONS";
@@ -1044,7 +1044,7 @@ namespace ClubCompFS
             set => this._DedLabel10 = value;
         }
 
-        private void Dialog11_Load(object sender, EventArgs e)
+        private void DeductionsDialog_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.Form4.Top;
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));

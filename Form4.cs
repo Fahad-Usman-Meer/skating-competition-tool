@@ -700,7 +700,7 @@ namespace ClubCompFS
             else
             {
                 MyProject.Forms.InputJudgesDataDialog.Close();
-                MyProject.Forms.Dialog11.Close();
+                MyProject.Forms.DeductionsDialog.Close();
                 Module1.ScanJudges = 0;
                 this.Timer1.Enabled = false;
                 MyProject.Forms.Form2.TopMost = true;
@@ -1963,7 +1963,7 @@ namespace ClubCompFS
                     case 3:
                         this.WillExitForm4 = true;
                         MyProject.Forms.InputJudgesDataDialog.Close();
-                        MyProject.Forms.Dialog11.Close();
+                        MyProject.Forms.DeductionsDialog.Close();
                         this.Timer1.Enabled = false;
                         this.Close();
                         break;
@@ -1978,7 +1978,7 @@ namespace ClubCompFS
                             goto label_18;
                         this.Timer1.Enabled = false;
                         MyProject.Forms.InputJudgesDataDialog.Close();
-                        MyProject.Forms.Dialog11.Close();
+                        MyProject.Forms.DeductionsDialog.Close();
                         this.Close();
                         if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
                         {
@@ -2044,7 +2044,7 @@ namespace ClubCompFS
                         case 3:
                             this.WillExitForm4 = true;
                             MyProject.Forms.InputJudgesDataDialog.Close();
-                            MyProject.Forms.Dialog11.Close();
+                            MyProject.Forms.DeductionsDialog.Close();
                             this.Timer1.Enabled = false;
                             this.Close();
                             MyProject.Forms.Form2.ElementInput(4);
@@ -2054,7 +2054,7 @@ namespace ClubCompFS
                             {
                                 this.WillExitForm4 = true;
                                 MyProject.Forms.InputJudgesDataDialog.Close();
-                                MyProject.Forms.Dialog11.Close();
+                                MyProject.Forms.DeductionsDialog.Close();
                                 this.Timer1.Enabled = false;
                                 this.Close();
                                 MyProject.Forms.Form2.ElementInput(4);
@@ -2191,9 +2191,9 @@ namespace ClubCompFS
                     }
                     else if (num3 == 8)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog11))
-                            MyProject.Forms.Dialog11.Close();
-                        int num5 = (int)MyProject.Forms.Dialog11.ShowDialog((IWin32Window)this);
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+                            MyProject.Forms.DeductionsDialog.Close();
+                        int num5 = (int)MyProject.Forms.DeductionsDialog.ShowDialog((IWin32Window)this);
                         goto label_16;
                     }
                     else
@@ -2305,9 +2305,9 @@ namespace ClubCompFS
                                 case 3:
                                     if (e.ColumnIndex == 13)
                                     {
-                                        if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog11))
-                                            MyProject.Forms.Dialog11.Close();
-                                        int num3 = (int)MyProject.Forms.Dialog11.ShowDialog((IWin32Window)this);
+                                        if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+                                            MyProject.Forms.DeductionsDialog.Close();
+                                        int num3 = (int)MyProject.Forms.DeductionsDialog.ShowDialog((IWin32Window)this);
                                         goto label_21;
                                     }
                                     else
