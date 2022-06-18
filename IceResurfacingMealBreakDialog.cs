@@ -902,8 +902,8 @@ namespace ClubCompFS
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-                MyProject.Forms.Form7.TopMost = true;
-                MyProject.Forms.Form7.CreateWarmup_2(0);
+                MyProject.Forms.WarmupGroupsForm.TopMost = true;
+                MyProject.Forms.WarmupGroupsForm.CreateWarmup_2(0);
                 goto label_21;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -941,10 +941,10 @@ namespace ClubCompFS
                 while (index <= 7);
                 Module1.WupG_Seg1 = this.OldWupG_Seg1;
                 Module1.WupG_Seg2 = this.OldWupG_Seg2;
-                MyProject.Forms.Form7.TopMost = true;
+                MyProject.Forms.WarmupGroupsForm.TopMost = true;
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
-                MyProject.Forms.Form7.Close();
+                MyProject.Forms.WarmupGroupsForm.Close();
                 MyProject.Forms.StartListForm.TopMost = true;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1197,7 +1197,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.Form7.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -1232,7 +1232,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.Form7.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -1265,7 +1265,7 @@ namespace ClubCompFS
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.Form7.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
