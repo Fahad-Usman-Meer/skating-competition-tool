@@ -91,7 +91,7 @@ namespace ClubCompFS.My
             public ElementInputForm m_ElementInputForm;
             public ResultsForm m_ResultsForm;
             public WarmupGroupsForm m_WarmupGroupsForm;
-            public Form8 m_Form8;
+            public JudgesCardForm m_JudgesCardForm;
             public Form9 m_Form9;
             [ThreadStatic]
             private static Hashtable m_FormBeingCreated;
@@ -453,20 +453,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form8 Form8
+            public JudgesCardForm JudgesCardForm
             {
                 get
                 {
-                    this.m_Form8 = MyProject.MyForms.Create__Instance__<Form8>(this.m_Form8);
-                    return this.m_Form8;
+                    this.m_JudgesCardForm = MyProject.MyForms.Create__Instance__<JudgesCardForm>(this.m_JudgesCardForm);
+                    return this.m_JudgesCardForm;
                 }
                 set
                 {
-                    if (value == this.m_Form8)
+                    if (value == this.m_JudgesCardForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form8>(ref this.m_Form8);
+                    this.Dispose__Instance__<JudgesCardForm>(ref this.m_JudgesCardForm);
                 }
             }
 

@@ -1444,8 +1444,8 @@ namespace ClubCompFS
                 MyProject.Forms.ResultsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
-                MyProject.Forms.Form8.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
+                MyProject.Forms.JudgesCardForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                 MyProject.Forms.CategoryDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))

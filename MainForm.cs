@@ -4113,8 +4113,8 @@ namespace ClubCompFS
                 MyProject.Forms.ResultsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
                 MyProject.Forms.WarmupGroupsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
-                MyProject.Forms.Form8.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesCardForm))
+                MyProject.Forms.JudgesCardForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                 MyProject.Forms.CategoryDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
@@ -5921,25 +5921,25 @@ namespace ClubCompFS
             }
         }
 
-        private void Form8PrintPnoDoc1(int i)
+        private void JudgesCardFormPrintPnoDoc1(int i)
         {
-            MyProject.Forms.Form8.txtPno.Text = Conversions.ToString(i);
-            MyProject.Forms.Form8.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-            MyProject.Forms.Form8.PrintDocument1.Print();
+            MyProject.Forms.JudgesCardForm.txtPno.Text = Conversions.ToString(i);
+            MyProject.Forms.JudgesCardForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+            MyProject.Forms.JudgesCardForm.PrintDocument1.Print();
         }
 
-        private void Form8PrintJnoDoc1(int i)
+        private void JudgesCardFormPrintJnoDoc1(int i)
         {
-            MyProject.Forms.Form8.txtJno.Text = Conversions.ToString(i);
-            MyProject.Forms.Form8.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-            MyProject.Forms.Form8.PrintDocument1.Print();
+            MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(i);
+            MyProject.Forms.JudgesCardForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+            MyProject.Forms.JudgesCardForm.PrintDocument1.Print();
         }
 
-        private void Form8PrintPnoDoc2(int i)
+        private void JudgesCardFormPrintPnoDoc2(int i)
         {
-            MyProject.Forms.Form8.txtPno.Text = Conversions.ToString(i);
-            MyProject.Forms.Form8.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
-            MyProject.Forms.Form8.PrintDocument2.Print();
+            MyProject.Forms.JudgesCardForm.txtPno.Text = Conversions.ToString(i);
+            MyProject.Forms.JudgesCardForm.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
+            MyProject.Forms.JudgesCardForm.PrintDocument2.Print();
         }
 
         public bool FinishedSeg1()
@@ -6091,7 +6091,7 @@ namespace ClubCompFS
                         int num11 = 1;
                         while (num11 <= num10)
                         {
-                            MyProject.Forms.Form8.txtJno.Text = Conversions.ToString(num11);
+                            MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(num11);
                             int num12 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num12)
@@ -6100,17 +6100,17 @@ namespace ClubCompFS
                                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                                 {
                                     if (Module1.Vek[i].Startno_Seg1 > 0)
-                                        this.Form8PrintPnoDoc1(i);
+                                        this.JudgesCardFormPrintPnoDoc1(i);
                                 }
                                 else if (Operators.CompareString(segment2, "Seg2", false) == 0 && Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc1(i);
+                                    this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                             checked { ++num11; }
                         }
                         if (Module1.JudgeSel == 1)
                         {
-                            MyProject.Forms.Form8.txtJno.Text = Conversions.ToString(7);
+                            MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(7);
                             int num13 = this.MaxStartNo();
                             int i = 1;
                             while (i <= num13)
@@ -6119,17 +6119,17 @@ namespace ClubCompFS
                                 if (Operators.CompareString(segment3, "Seg1", false) == 0)
                                 {
                                     if (Module1.Vek[i].Startno_Seg1 > 0)
-                                        this.Form8PrintPnoDoc1(i);
+                                        this.JudgesCardFormPrintPnoDoc1(i);
                                 }
                                 else if (Operators.CompareString(segment3, "Seg2", false) == 0 && Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc1(i);
+                                    this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                         }
                     }
                     else if (num4 >= 200 && num4 <= 299)
                     {
-                        MyProject.Forms.Form8.txtJno.Text = Conversions.ToString(checked(num3 - 200));
+                        MyProject.Forms.JudgesCardForm.txtJno.Text = Conversions.ToString(checked(num3 - 200));
                         string segment = Module1.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
@@ -6139,7 +6139,7 @@ namespace ClubCompFS
                             while (i <= num14)
                             {
                                 if (Module1.Vek[i].Startno_Seg1 > 0)
-                                    this.Form8PrintPnoDoc1(i);
+                                    this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                         }
@@ -6151,14 +6151,14 @@ namespace ClubCompFS
                             while (i <= num15)
                             {
                                 if (Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc1(i);
+                                    this.JudgesCardFormPrintPnoDoc1(i);
                                 checked { ++i; }
                             }
                         }
                     }
                     else if (num4 >= 300 && num4 <= 399)
                     {
-                        MyProject.Forms.Form8.txtPno.Text = Conversions.ToString(checked(num3 - 300));
+                        MyProject.Forms.JudgesCardForm.txtPno.Text = Conversions.ToString(checked(num3 - 300));
                         string segment = Module1.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                             Module1.SortListStartNo(Module1.TNop);
@@ -6168,19 +6168,19 @@ namespace ClubCompFS
                         int i = 1;
                         while (i <= num16)
                         {
-                            this.Form8PrintJnoDoc1(i);
+                            this.JudgesCardFormPrintJnoDoc1(i);
                             checked { ++i; }
                         }
                         if (Module1.JudgeSel == 1)
-                            this.Form8PrintJnoDoc1(7);
+                            this.JudgesCardFormPrintJnoDoc1(7);
                     }
                     else if (num4 >= 400 && num4 <= 499)
                     {
                         string segment4 = Module1.Segment;
                         if (Operators.CompareString(segment4, "Seg1", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
                         else if (Operators.CompareString(segment4, "Seg2", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
                         string segment5 = Module1.Segment;
                         if (Operators.CompareString(segment5, "Seg1", false) == 0)
                         {
@@ -6190,7 +6190,7 @@ namespace ClubCompFS
                             while (i <= num17)
                             {
                                 if (Module1.Vek[i].Startno_Seg1 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
@@ -6202,7 +6202,7 @@ namespace ClubCompFS
                             while (i <= num18)
                             {
                                 if (Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
@@ -6211,9 +6211,9 @@ namespace ClubCompFS
                     {
                         string segment6 = Module1.Segment;
                         if (Operators.CompareString(segment6, "Seg1", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
                         else if (Operators.CompareString(segment6, "Seg2", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
                         string segment7 = Module1.Segment;
                         if (Operators.CompareString(segment7, "Seg1", false) == 0)
                         {
@@ -6223,7 +6223,7 @@ namespace ClubCompFS
                             while (i <= num19)
                             {
                                 if (Module1.Vek[i].Startno_Seg1 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
@@ -6235,15 +6235,15 @@ namespace ClubCompFS
                             while (i <= num20)
                             {
                                 if (Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
                         string segment8 = Module1.Segment;
                         if (Operators.CompareString(segment8, "Seg1", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
                         else if (Operators.CompareString(segment8, "Seg2", false) == 0)
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
                         string segment9 = Module1.Segment;
                         if (Operators.CompareString(segment9, "Seg1", false) == 0)
                         {
@@ -6253,7 +6253,7 @@ namespace ClubCompFS
                             while (i <= num21)
                             {
                                 if (Module1.Vek[i].Startno_Seg1 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
@@ -6265,7 +6265,7 @@ namespace ClubCompFS
                             while (i <= num22)
                             {
                                 if (Module1.Vek[i].Startno_Seg2 > 0)
-                                    this.Form8PrintPnoDoc2(i);
+                                    this.JudgesCardFormPrintPnoDoc2(i);
                                 checked { ++i; }
                             }
                         }
@@ -6281,17 +6281,17 @@ namespace ClubCompFS
                         string segment11 = Module1.Segment;
                         if (Operators.CompareString(segment11, "Seg1", false) == 0)
                         {
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg1.Name;
-                            this.Form8PrintPnoDoc2(i);
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg1.Name;
+                            this.JudgesCardFormPrintPnoDoc2(i);
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg1.Name;
                         }
                         else if (Operators.CompareString(segment11, "Seg2", false) == 0)
                         {
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Controller.Seg2.Name;
-                            this.Form8PrintPnoDoc2(i);
-                            MyProject.Forms.Form8.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Controller.Seg2.Name;
+                            this.JudgesCardFormPrintPnoDoc2(i);
+                            MyProject.Forms.JudgesCardForm.txtTCTSName.Text = Module1.Techspec.Seg2.Name;
                         }
-                        this.Form8PrintPnoDoc2(i);
+                        this.JudgesCardFormPrintPnoDoc2(i);
                     }
                     else if (num4 >= 800 && num4 <= 809)
                     {
