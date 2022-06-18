@@ -4096,11 +4096,11 @@ namespace ClubCompFS
 
         private void CloseFormsDialogs()
         {
-            MyProject.Forms.Form2.WillExitForm2 = true;
+            MyProject.Forms.StartListForm.WillExitStartListForm = true;
             MyProject.Forms.Form4.WillExitForm4 = true;
             MyProject.Forms.Form5.WillExit = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
-                MyProject.Forms.Form2.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                MyProject.Forms.StartListForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
                 MyProject.Forms.Form3.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
@@ -5410,13 +5410,13 @@ namespace ClubCompFS
                         }
                         if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
                             MyProject.Forms.Form6.Close();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
-                            MyProject.Forms.Form2.Close();
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                            MyProject.Forms.StartListForm.Close();
                         if (Module1.WorkMode == 2)
                             this.UnhudeJudgesDisplayToolStripMenuItem.PerformClick();
                     }
-                    MyProject.Forms.Form2.TopMost = true;
-                    MyProject.Forms.Form2.Show();
+                    MyProject.Forms.StartListForm.TopMost = true;
+                    MyProject.Forms.StartListForm.Show();
                 }
             }
             else
@@ -6034,18 +6034,18 @@ namespace ClubCompFS
                     else if (num4 >= 20 && num4 <= 29)
                     {
                         int num6 = checked(num3 - 20);
-                        MyProject.Forms.Form2.PrintEntries();
-                        MyProject.Forms.Form2.PrintDocument2.PrinterSettings.Copies = checked((short)num6);
-                        MyProject.Forms.Form2.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Form2.PrintDocument2.Print();
+                        MyProject.Forms.StartListForm.PrintEntries();
+                        MyProject.Forms.StartListForm.PrintDocument2.PrinterSettings.Copies = checked((short)num6);
+                        MyProject.Forms.StartListForm.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.StartListForm.PrintDocument2.Print();
                     }
                     else if (num4 >= 30 && num4 <= 39)
                     {
                         int num7 = checked(num3 - 30);
-                        MyProject.Forms.Form2.PrintStartList();
-                        MyProject.Forms.Form2.PrintDocument1.PrinterSettings.Copies = checked((short)num7);
-                        MyProject.Forms.Form2.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Form2.PrintDocument1.Print();
+                        MyProject.Forms.StartListForm.PrintStartList();
+                        MyProject.Forms.StartListForm.PrintDocument1.PrinterSettings.Copies = checked((short)num7);
+                        MyProject.Forms.StartListForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.StartListForm.PrintDocument1.Print();
                     }
                     else if (num4 >= 40 && num4 <= 49)
                     {
@@ -6061,7 +6061,7 @@ namespace ClubCompFS
                                 if (Operators.CompareString(Module1.Datum.Seg1Start, "", false) == 0)
                                     Module1.Datum.Seg1Start = Conversions.ToString(1E-05);
                                 int DNSnono = 0;
-                                MyProject.Forms.Form2.SortWSListSeg1(Module1.TNop, ref DNSnono);
+                                MyProject.Forms.StartListForm.SortWSListSeg1(Module1.TNop, ref DNSnono);
                                 MyProject.Forms.Form7.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNSnono));
                             }
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -6070,7 +6070,7 @@ namespace ClubCompFS
                                     Module1.Datum.Seg2Start = Conversions.ToString(1E-05);
                                 int DNS_Seg1 = 0;
                                 int DNSnono = 0;
-                                MyProject.Forms.Form2.SortWSListSeg2(Module1.TNop, ref DNS_Seg1, ref DNSnono);
+                                MyProject.Forms.StartListForm.SortWSListSeg2(Module1.TNop, ref DNS_Seg1, ref DNSnono);
                                 MyProject.Forms.Form7.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNS_Seg1 - DNSnono));
                             }
                             MyProject.Forms.Form7.txtPar.Text = Conversions.ToString(3);
@@ -6940,7 +6940,7 @@ namespace ClubCompFS
             bool flag = false;
             if (Module1.TestStart())
             {
-                if (Module1.ScanJudges == 0 & !Module1.IsFormOpen((Form)MyProject.Forms.Form2) & !Module1.IsFormOpen((Form)MyProject.Forms.Form5))
+                if (Module1.ScanJudges == 0 & !Module1.IsFormOpen((Form)MyProject.Forms.StartListForm) & !Module1.IsFormOpen((Form)MyProject.Forms.Form5))
                 {
                     flag = true;
                 }
@@ -6981,7 +6981,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the JUDGES DETAILS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the START LIST!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -7293,14 +7293,14 @@ namespace ClubCompFS
         {
             if (!this.MenuPossible() || !Module1.TestStart())
                 return;
-            MyProject.Forms.Form2.CreateEntriesPDF();
+            MyProject.Forms.StartListForm.CreateEntriesPDF();
         }
 
         private void StartListToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (!this.MenuPossible() || !Module1.TestStart())
                 return;
-            MyProject.Forms.Form2.CreateStartListPDF(1);
+            MyProject.Forms.StartListForm.CreateStartListPDF(1);
         }
 
         private void HideJudgesComputersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -7474,14 +7474,14 @@ namespace ClubCompFS
         {
             if (!this.MenuPossible() || !Module1.TestStart())
                 return;
-            MyProject.Forms.Form2.CreateEntriesPDF();
+            MyProject.Forms.StartListForm.CreateEntriesPDF();
         }
 
         private void StartListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!this.MenuPossible() || !Module1.TestStart())
                 return;
-            MyProject.Forms.Form2.CreateStartListPDF(1);
+            MyProject.Forms.StartListForm.CreateStartListPDF(1);
         }
 
         private void OpenDBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -8195,7 +8195,7 @@ namespace ClubCompFS
                         string key4 = "txtJ" + Conversions.ToString(judgeNo);
                         if (judgeNo <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & judgeNo == 7)
                         {
-                            MyProject.Forms.Form2.Panel1.Controls[key4].Visible = true;
+                            MyProject.Forms.StartListForm.Panel1.Controls[key4].Visible = true;
                             MyProject.Forms.Form5.Panel1.Controls[key4].Visible = true;
                         }
                         if (Strings.Len(Module1.IPArr[Module1.JudgeCompNo[index]]) > 3)
@@ -8203,7 +8203,7 @@ namespace ClubCompFS
                             this.Controls[key1].ForeColor = Color.Green;
                             MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Green;
                             MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Green;
-                            MyProject.Forms.Form2.Panel1.Controls[key4].BackColor = Color.Green;
+                            MyProject.Forms.StartListForm.Panel1.Controls[key4].BackColor = Color.Green;
                             MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Green;
                         }
                         else
@@ -8211,7 +8211,7 @@ namespace ClubCompFS
                             this.Controls[key1].ForeColor = Color.Red;
                             MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Red;
                             MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Red;
-                            MyProject.Forms.Form2.Panel1.Controls[key4].BackColor = Color.Red;
+                            MyProject.Forms.StartListForm.Panel1.Controls[key4].BackColor = Color.Red;
                             MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Red;
                         }
                     }
@@ -8222,40 +8222,40 @@ namespace ClubCompFS
                 {
                     this.lblCC_El.Visible = true;
                     this.lblCC_El.ForeColor = Color.Green;
-                    MyProject.Forms.Form2.txtEl.BackColor = Color.Green;
+                    MyProject.Forms.StartListForm.txtEl.BackColor = Color.Green;
                     MyProject.Forms.Form5.txtEl.BackColor = Color.Green;
                 }
                 else
                 {
                     this.lblCC_El.ForeColor = Color.Red;
-                    MyProject.Forms.Form2.txtEl.BackColor = Color.Red;
+                    MyProject.Forms.StartListForm.txtEl.BackColor = Color.Red;
                     MyProject.Forms.Form5.txtEl.BackColor = Color.Red;
                 }
                 if (Strings.Len(Module1.IPArr[10]) > 3 & Module1.WorkMode >= 2)
                 {
                     this.lblCC_Info.Visible = true;
                     this.lblCC_Info.ForeColor = Color.Green;
-                    MyProject.Forms.Form2.txtInfo.BackColor = Color.Green;
+                    MyProject.Forms.StartListForm.txtInfo.BackColor = Color.Green;
                     MyProject.Forms.Form5.txtInfo.BackColor = Color.Green;
                 }
                 else
                 {
                     this.lblCC_Info.ForeColor = Color.Red;
-                    MyProject.Forms.Form2.txtInfo.BackColor = Color.Red;
+                    MyProject.Forms.StartListForm.txtInfo.BackColor = Color.Red;
                     MyProject.Forms.Form5.txtInfo.BackColor = Color.Red;
                 }
                 if (Strings.Len(Module1.IPArr[11]) > 3 & Module1.WorkMode >= 2)
                 {
                     this.lblCC_MP.Visible = true;
                     this.lblCC_MP.ForeColor = Color.Green;
-                    MyProject.Forms.Form2.txtMP.BackColor = Color.Green;
+                    MyProject.Forms.StartListForm.txtMP.BackColor = Color.Green;
                     MyProject.Forms.Form5.txtInfo2.BackColor = Color.Green;
                     goto label_23;
                 }
                 else
                 {
                     this.lblCC_MP.ForeColor = Color.Red;
-                    MyProject.Forms.Form2.txtMP.BackColor = Color.Red;
+                    MyProject.Forms.StartListForm.txtMP.BackColor = Color.Red;
                     MyProject.Forms.Form5.txtInfo2.BackColor = Color.Red;
                     goto label_23;
                 }

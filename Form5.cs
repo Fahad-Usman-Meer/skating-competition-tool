@@ -4787,7 +4787,7 @@ namespace ClubCompFS
                     {
                         case 0:
                         case 1:
-                            MyProject.Forms.Form2.TopMost = false;
+                            MyProject.Forms.StartListForm.TopMost = false;
                             break;
                         case 2:
                             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))

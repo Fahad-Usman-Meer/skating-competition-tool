@@ -782,9 +782,9 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                this.Top = MyProject.Forms.Form2.Top;
+                this.Top = MyProject.Forms.StartListForm.Top;
                 num3 = 3;
-                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form2.Left + (double)MyProject.Forms.Form2.Width / 2.0 - (double)this.Width / 2.0)));
+                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.StartListForm.Left + (double)MyProject.Forms.StartListForm.Width / 2.0 - (double)this.Width / 2.0)));
                 num3 = 4;
                 this.TopMost = true;
                 num3 = 5;
@@ -1003,7 +1003,7 @@ namespace ClubCompFS
                 num3 = 13;
                 MyProject.Forms.Form7.Close();
                 num3 = 14;
-                MyProject.Forms.Form2.TopMost = true;
+                MyProject.Forms.StartListForm.TopMost = true;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {

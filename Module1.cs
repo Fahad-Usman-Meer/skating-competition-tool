@@ -2100,7 +2100,7 @@ namespace ClubCompFS
                 case 0:
                     Module1.WorkMode = 0;
                     MyProject.Forms.MainForm.Mode.Text = "";
-                    MyProject.Forms.Form2.Mode.Text = "";
+                    MyProject.Forms.StartListForm.Mode.Text = "";
                     break;
                 case 1:
                     Module1.WorkMode = 1;
@@ -2143,7 +2143,7 @@ namespace ClubCompFS
                     form1_1.lblCC_El.Visible = false;
                     form1_1.lblCC_Info.Visible = false;
                     form1_1.lblCC_MP.Visible = false;
-                    Form2 form2_1 = MyProject.Forms.Form2;
+                    StartListForm form2_1 = MyProject.Forms.StartListForm;
                     form2_1.Mode.Text = "Prepare mode";
                     form2_1.Menu_Workmode_1();
                     form2_1.Panel1.Visible = false;
@@ -2193,7 +2193,7 @@ namespace ClubCompFS
                     form1_2.lblCC_El.Visible = true;
                     form1_2.lblCC_Info.Visible = true;
                     form1_2.lblCC_MP.Visible = true;
-                    Form2 form2_2 = MyProject.Forms.Form2;
+                    StartListForm form2_2 = MyProject.Forms.StartListForm;
                     form2_2.Mode.Text = "Network mode";
                     form2_2.Menu_Workmode_2_and_3();
                     form2_2.Panel1.Visible = true;
@@ -2242,7 +2242,7 @@ namespace ClubCompFS
                     form1_3.lblCC_El.Visible = false;
                     form1_3.lblCC_Info.Visible = true;
                     form1_3.lblCC_MP.Visible = true;
-                    Form2 form2_3 = MyProject.Forms.Form2;
+                    StartListForm form2_3 = MyProject.Forms.StartListForm;
                     form2_3.Mode.Text = "Manual mode";
                     form2_3.Menu_Workmode_2_and_3();
                     form2_3.Panel1.Visible = true;
@@ -9477,7 +9477,7 @@ namespace ClubCompFS
 
         public static int IndexEmptyRow()
         {
-            DataGridView dataGridView1 = MyProject.Forms.Form2.DataGridView1;
+            DataGridView dataGridView1 = MyProject.Forms.StartListForm.DataGridView1;
             int index = 0;
             while (!(Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[0].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[1].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[2].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[3].Value)) == 0))
             {

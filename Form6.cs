@@ -2731,7 +2731,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num16 = (int)Interaction.MsgBox((object)("Form2, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num16 = (int)Interaction.MsgBox((object)("StartListForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_154:
             if (num2 == 0)

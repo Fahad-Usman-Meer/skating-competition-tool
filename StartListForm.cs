@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form2
+// Type: ClubCompFS.StartListForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form2 : Form
+    public class StartListForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("MenuStrip1")]
@@ -143,20 +143,20 @@ namespace ClubCompFS
         private int F2Height;
         private int DGW1width;
         private bool widthcorr;
-        private bool Form2min;
-        public bool WillExitForm2;
+        private bool StartListFormMin;
+        public bool WillExitStartListForm;
 
-        public Form2()
+        public StartListForm()
         {
-            this.Activated += new EventHandler(this.Form2_Activated);
-            this.Resize += new EventHandler(this.Form2_Resize);
-            this.FormClosing += new FormClosingEventHandler(this.Form2_FormClosing);
-            this.Load += new EventHandler(this.StartList_Load);
-            this.SizeChanged += new EventHandler(this.Form2_SizeChanged);
+            this.Activated += new EventHandler(this.StartListForm_Activated);
+            this.Resize += new EventHandler(this.StartListForm_Resize);
+            this.FormClosing += new FormClosingEventHandler(this.StartListForm_FormClosing);
+            this.Load += new EventHandler(this.StartListForm_Load);
+            this.SizeChanged += new EventHandler(this.StartListForm_SizeChanged);
             this.TArr = new object[51, 10];
             this.widthcorr = false;
-            this.Form2min = false;
-            this.WillExitForm2 = false;
+            this.StartListFormMin = false;
+            this.WillExitStartListForm = false;
             this.InitializeComponent();
         }
 
@@ -179,7 +179,7 @@ namespace ClubCompFS
         private void InitializeComponent()
         {
             this.components = (IContainer)new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form2));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(StartListForm));
             this.MenuStrip1 = new MenuStrip();
             this.EXITToolStripMenuItem = new ToolStripMenuItem();
             this.ToolStripMenuItemFile = new ToolStripMenuItem();
@@ -751,7 +751,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form2);
+            this.Name = nameof(StartListForm);
             this.Text = "START LIST";
             this.TopMost = true;
             this.MenuStrip1.ResumeLayout(false);
@@ -1402,23 +1402,23 @@ namespace ClubCompFS
             }
         }
 
-        private void Form2_Activated(object sender, EventArgs e)
+        private void StartListForm_Activated(object sender, EventArgs e)
         {
-            if (!this.Form2min)
+            if (!this.StartListFormMin)
                 return;
             this.NewStartList();
         }
 
-        private void Form2_Resize(object sender, EventArgs e)
+        private void StartListForm_Resize(object sender, EventArgs e)
         {
             if (this.WindowState != FormWindowState.Minimized)
                 return;
-            this.Form2min = true;
+            this.StartListFormMin = true;
         }
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        private void StartListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.WillExitForm2)
+            if (this.WillExitStartListForm)
                 return;
             if (Interaction.MsgBox((object)"Do you really want to exit the Start List?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
@@ -1469,7 +1469,7 @@ namespace ClubCompFS
             MyProject.Forms.DeductionsDialog.Close();
         }
 
-        private void StartList_Load(object sender, EventArgs e)
+        private void StartListForm_Load(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
@@ -1478,21 +1478,21 @@ namespace ClubCompFS
                 string[] strArray = new string[26];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Form2 form2 = this;
-                form2.Left = MyProject.Forms.MainForm.Left;
-                form2.Top = MyProject.Forms.MainForm.Top;
+                StartListForm startListForm = this;
+                startListForm.Left = MyProject.Forms.MainForm.Left;
+                startListForm.Top = MyProject.Forms.MainForm.Top;
                 Module1.ScanJudges = 0;
-                this.WillExitForm2 = false;
+                this.WillExitStartListForm = false;
                 if (Module1.WorkMode > 1)
                 {
                     this.Panel1.Location = new Point(checked(this.Width - 140 - this.Panel1.Width), 2);
                     this.Panel1.Visible = true;
-                    form2.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
+                    startListForm.DataGridView1.ContextMenuStrip = (ContextMenuStrip)null;
                 }
                 else
                 {
                     this.Panel1.Visible = false;
-                    form2.DataGridView1.ContextMenuStrip = form2.ContextMenuStrip1;
+                    startListForm.DataGridView1.ContextMenuStrip = startListForm.ContextMenuStrip1;
                     this.GetSkatersForToolStripMenuItem.Text = "Get skater for " + Strings.UCase(Module1.Category.Name).Split(' ')[0];
                 }
                 this.NewStartList();
@@ -1521,7 +1521,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.WillExitForm2 = false;
+                this.WillExitStartListForm = false;
                 switch (Module1.WorkMode)
                 {
                     case 1:
@@ -1535,7 +1535,7 @@ namespace ClubCompFS
                 this.Text = "START LIST: " + Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment);
                 this.CreateStartList(Module1.TNop);
                 this.Mode.Text = Module1.GetWorkMode();
-                this.Form2min = false;
+                this.StartListFormMin = false;
                 goto label_10;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1938,7 +1938,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void Form2_SizeChanged(object sender, EventArgs e)
+        private void StartListForm_SizeChanged(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;
@@ -2016,7 +2016,7 @@ namespace ClubCompFS
 
         private void RandomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             string segment = Module1.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
@@ -2474,7 +2474,7 @@ namespace ClubCompFS
 
         private void AccordingToShortProgramToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             if (Operators.CompareString(Module1.Segment, "Seg2", false) == 0)
             {
@@ -3409,7 +3409,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     int num3 = Module1.IndexEmptyRow();
                     if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
@@ -3453,7 +3453,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     int num3 = Module1.IndexEmptyRow();
                     if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
@@ -4274,7 +4274,7 @@ namespace ClubCompFS
 
         private void EntriesPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             this.CreateEntriesPDF();
             this.CreateStartList(Module1.TNop);
@@ -4282,7 +4282,7 @@ namespace ClubCompFS
 
         private void StartListPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             this.CreateStartListPDF(1);
         }
@@ -4420,7 +4420,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form2, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("StartListForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_30:
             if (num2 == 0)
@@ -4468,7 +4468,7 @@ namespace ClubCompFS
             return flag;
         }
 
-        public bool MenuPossibleForm2()
+        public bool MenuPossibleStartListForm()
         {
             bool flag = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.IndTAEntriesForm))
@@ -4507,7 +4507,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     if (this.TestNoOfPart())
                     {
@@ -4569,7 +4569,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num6 = (int)Interaction.MsgBox((object)("Form2, CompetitionToolStripMenuItem - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num6 = (int)Interaction.MsgBox((object)("StartListForm, CompetitionToolStripMenuItem - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_19:
             if (num2 == 0)
@@ -4585,7 +4585,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     switch (Module1.WorkMode)
                     {
@@ -4670,7 +4670,7 @@ namespace ClubCompFS
 
         private void INPUTELEMENTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             this.ElementInput(2);
         }
@@ -4683,7 +4683,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     Module1.PNo = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
                     int index1 = 1;
@@ -4741,15 +4741,15 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     int num3 = Module1.IndexEmptyRow();
                     if (num3 <= 41)
                     {
                         this.TopMost = false;
                         ParticipantInputDialog dialog5 = MyProject.Forms.ParticipantInputDialog;
-                        dialog5.txtIndForm2.Text = Conversions.ToString(num3);
-                        dialog5.txtFuncForm2.Text = "New";
+                        dialog5.txtIndStartListForm.Text = Conversions.ToString(num3);
+                        dialog5.txtFuncStartListForm.Text = "New";
                         dialog5.txtStartNo.Text = "";
                         dialog5.txtID.Text = "";
                         dialog5.txtFirstName.Text = "";
@@ -4795,7 +4795,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     int y = this.DataGridView1.CurrentCellAddress.Y;
                     if (y < Module1.IndexEmptyRow())
@@ -4803,8 +4803,8 @@ namespace ClubCompFS
                         if (y >= 0 & y <= 42)
                         {
                             ParticipantInputDialog dialog5 = MyProject.Forms.ParticipantInputDialog;
-                            dialog5.txtIndForm2.Text = Conversions.ToString(y);
-                            dialog5.txtFuncForm2.Text = "Edit";
+                            dialog5.txtIndStartListForm.Text = Conversions.ToString(y);
+                            dialog5.txtFuncStartListForm.Text = "Edit";
                             string segment = Module1.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 dialog5.txtStartNo.Text = Conversions.ToString(Module1.Vek[checked(y + 1)].Startno_Seg1);
@@ -4987,7 +4987,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form2, PrintDocument2_PrintPage - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("StartListForm, PrintDocument2_PrintPage - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_26:
             if (num2 == 0)
@@ -5003,7 +5003,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     this.PrintEntries();
                     this.PrintPreviewDialog1.TopMost = true;
@@ -5020,7 +5020,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form2, PrintEntriesToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("StartListForm, PrintEntriesToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_9:
             if (num2 == 0)
@@ -5036,7 +5036,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm2())
+                if (this.MenuPossibleStartListForm())
                 {
                     this.PrintStartList();
                     this.PrintPreviewDialog1.TopMost = true;
@@ -5054,7 +5054,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form2, PrintStartlistToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("StartListForm, PrintStartlistToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_8:
             if (num2 == 0)
@@ -5064,10 +5064,10 @@ namespace ClubCompFS
 
         private void ExitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.WillExitForm2 = false;
+            this.WillExitStartListForm = false;
             if (Interaction.MsgBox((object)"Do you really want to exit the Start List", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                 return;
-            this.WillExitForm2 = true;
+            this.WillExitStartListForm = true;
             this.CloseFormsDialogs();
             this.Close();
             Module1.CreateMainForm();
@@ -5076,7 +5076,7 @@ namespace ClubCompFS
 
         private void WarmupGroupsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
                 MyProject.Forms.Form7.Close();
@@ -5085,12 +5085,12 @@ namespace ClubCompFS
 
         private void EXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
-            this.WillExitForm2 = false;
+            this.WillExitStartListForm = false;
             if (Interaction.MsgBox((object)"Do you really want to exit the Start List", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                 return;
-            this.WillExitForm2 = true;
+            this.WillExitStartListForm = true;
             this.CloseFormsDialogs();
             this.Close();
             Module1.CreateMainForm();
@@ -5099,7 +5099,7 @@ namespace ClubCompFS
 
         private void InputElementToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!this.MenuPossibleForm2())
+            if (!this.MenuPossibleStartListForm())
                 return;
             if (this.DataGridView1.CurrentCellAddress.Y < Module1.IndexEmptyRow())
             {
@@ -5132,7 +5132,7 @@ namespace ClubCompFS
                     if (e.Button == MouseButtons.Right)
                     {
                         this.DataGridView1.CurrentCell = this.DataGridView1[e.ColumnIndex, e.RowIndex];
-                        if (this.MenuPossibleForm2())
+                        if (this.MenuPossibleStartListForm())
                         {
                             this.ElementInput(2);
                             goto label_10;
