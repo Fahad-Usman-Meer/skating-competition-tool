@@ -4129,8 +4129,8 @@ namespace ClubCompFS
                 MyProject.Forms.Form12.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog8))
-                MyProject.Forms.Dialog8.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+                MyProject.Forms.HeadPageDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                 MyProject.Forms.InputJudgesDataDialog.Close();
             if (!Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
@@ -5329,9 +5329,9 @@ namespace ClubCompFS
                 return;
             if (Strings.Len(Module1.Category.Name) > 2)
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog8))
-                    MyProject.Forms.Dialog8.Close();
-                int num = (int)MyProject.Forms.Dialog8.ShowDialog();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+                    MyProject.Forms.HeadPageDialog.Close();
+                int num = (int)MyProject.Forms.HeadPageDialog.ShowDialog();
             }
             else
             {
@@ -5557,7 +5557,7 @@ namespace ClubCompFS
             if (!this.completed5)
                 Module1.PrinterMessage();
             else
-                MyProject.Forms.Dialog8.CreateHP_PDFfile(1);
+                MyProject.Forms.HeadPageDialog.CreateHP_PDFfile(1);
         }
 
         private void ResultsPDFfilesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5704,7 +5704,7 @@ namespace ClubCompFS
                         return;
                     }
                     this.CloseFormsDialogs();
-                    MyProject.Forms.Dialog8.CreateHP_PDFfile(0);
+                    MyProject.Forms.HeadPageDialog.CreateHP_PDFfile(0);
                     string segment2 = Module1.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
@@ -6026,10 +6026,10 @@ namespace ClubCompFS
                     if (num4 >= 10 && num4 <= 19)
                     {
                         int num5 = checked(num3 - 10);
-                        MyProject.Forms.Dialog8.CreateHeadPage();
-                        MyProject.Forms.Dialog8.PrintDocument1.PrinterSettings.Copies = checked((short)num5);
-                        MyProject.Forms.Dialog8.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Dialog8.PrintDocument1.Print();
+                        MyProject.Forms.HeadPageDialog.CreateHeadPage();
+                        MyProject.Forms.HeadPageDialog.PrintDocument1.PrinterSettings.Copies = checked((short)num5);
+                        MyProject.Forms.HeadPageDialog.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.HeadPageDialog.PrintDocument1.Print();
                     }
                     else if (num4 >= 20 && num4 <= 29)
                     {

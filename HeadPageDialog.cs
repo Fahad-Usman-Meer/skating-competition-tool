@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog8
+// Type: ClubCompFS.HeadPageDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog8 : Form
+    public class HeadPageDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -137,9 +137,9 @@ namespace ClubCompFS
         private string IceArea => (string.IsNullOrWhiteSpace(Module1.IceArea)) ? "30m*60m" : Module1.IceArea;
         private string IceCondition => (string.IsNullOrWhiteSpace(Module1.IceCondition)) ? "Very Good" : Module1.IceCondition;
         
-        public Dialog8()
+        public HeadPageDialog()
         {
-            this.Load += new EventHandler(this.Dialog8_Load);
+            this.Load += new EventHandler(this.HeadPageDialog_Load);
             this.HDA = new string[51, 4];
             this.InitializeComponent();
         }
@@ -162,7 +162,7 @@ namespace ClubCompFS
         [DebuggerStepThrough]
         private void InitializeComponent()
         {
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Dialog8));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(HeadPageDialog));
             this.TableLayoutPanel1 = new TableLayoutPanel();
             this.Cancel_Button = new Button();
             this.OK_Button = new Button();
@@ -788,7 +788,7 @@ namespace ClubCompFS
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog8);
+            this.Name = nameof(HeadPageDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "HEAD PAGE";
@@ -1255,7 +1255,7 @@ namespace ClubCompFS
             this.Dispose();
         }
 
-        private void Dialog8_Load(object sender, EventArgs e)
+        private void HeadPageDialog_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.Form1.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
@@ -1266,7 +1266,7 @@ namespace ClubCompFS
         public void CreateHeadPage()
         {
             string str = "";
-            Dialog8 dialog8 = this;
+            HeadPageDialog dialog8 = this;
             dialog8.txtCompetition.Text = Module1.Competition.Name;
             dialog8.txtCategory.Text = Module1.Category.Name + Module1.SubCat();
             if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 | Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "F", false) == 0)
@@ -2055,7 +2055,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num11 = (int)Interaction.MsgBox((object)("Dialog8, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num11 = (int)Interaction.MsgBox((object)("HeadPageDialog, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_69:
             if (num2 == 0)
