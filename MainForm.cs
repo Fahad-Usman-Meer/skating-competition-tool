@@ -4101,8 +4101,8 @@ namespace ClubCompFS
             MyProject.Forms.Form5.WillExit = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 MyProject.Forms.StartListForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
-                MyProject.Forms.Form3.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+                MyProject.Forms.DBForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
@@ -7489,9 +7489,9 @@ namespace ClubCompFS
             if (!this.MenuPossible())
                 return;
             this.TopMost = false;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
-                MyProject.Forms.Form3.Close();
-            int num = (int)MyProject.Forms.Form3.ShowDialog();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+                MyProject.Forms.DBForm.Close();
+            int num = (int)MyProject.Forms.DBForm.ShowDialog();
         }
 
         public void Timer10_Tick(object sender, EventArgs e)

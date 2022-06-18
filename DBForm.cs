@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form3
+// Type: ClubCompFS.DBForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -22,7 +22,7 @@ using System.Xml;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form3 : Form
+    public class DBForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("DataGridView1")]
@@ -61,10 +61,10 @@ namespace ClubCompFS
         private object OpenDBFileName;
         private bool CreatingOpenDB;
 
-        public Form3()
+        public DBForm()
         {
-            this.Load += new EventHandler(this.Form3_Load);
-            this.SizeChanged += new EventHandler(this.Form3_SizeChanged);
+            this.Load += new EventHandler(this.DBForm_Load);
+            this.SizeChanged += new EventHandler(this.DBForm_SizeChanged);
             this.widthcorr = false;
             this.OpenDBFileName = (object)"OpenDB_New.xml";
             this.CreatingOpenDB = false;
@@ -90,7 +90,7 @@ namespace ClubCompFS
         private void InitializeComponent()
         {
             DataGridViewCellStyle gridViewCellStyle = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form3));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(DBForm));
             this.DataGridView1 = new DataGridView();
             this.Column1 = new DataGridViewTextBoxColumn();
             this.Column2 = new DataGridViewTextBoxColumn();
@@ -210,7 +210,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form3);
+            this.Name = nameof(DBForm);
             this.Text = "DB";
             this.TopMost = true;
             ((ISupportInitialize)this.DataGridView1).EndInit();
@@ -357,7 +357,7 @@ namespace ClubCompFS
             set => this._Column11 = value;
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void DBForm_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.MainForm.Top;
             this.Left = MyProject.Forms.MainForm.Left;
@@ -787,7 +787,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Form3.CreateNode1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("DBForm.CreateNode1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_7:
             if (num2 == 0)
@@ -799,7 +799,7 @@ namespace ClubCompFS
 
         public string Get_Cell(int index, int col) => Conversions.ToString(this.DataGridView1.Rows[index].Cells[col].Value);
 
-        private void Form3_SizeChanged(object sender, EventArgs e)
+        private void DBForm_SizeChanged(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;

@@ -1432,8 +1432,8 @@ namespace ClubCompFS
 
         private void CloseFormsDialogs()
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form3))
-                MyProject.Forms.Form3.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
+                MyProject.Forms.DBForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))

@@ -2082,7 +2082,7 @@ namespace ClubCompFS
 
         public static void SetWorkMode(int mode)
         {
-            MyProject.Forms.Form3.Close();
+            MyProject.Forms.DBForm.Close();
             MyProject.Forms.ElementDBDisplayForm.Close();
             MyProject.Forms.Form4.Close();
             MyProject.Forms.Form5.Close();
