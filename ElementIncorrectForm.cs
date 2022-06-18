@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form9
+// Type: ClubCompFS.ElementIncorrectForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form9 : Form
+    public class ElementIncorrectForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("txtEL")]
@@ -25,9 +25,9 @@ namespace ClubCompFS
         [AccessedThroughProperty("Label1")]
         private Label _Label1;
 
-        public Form9()
+        public ElementIncorrectForm()
         {
-            this.Load += new EventHandler(this.Form9_Load);
+            this.Load += new EventHandler(this.ElementIncorrectForm_Load);
             this.InitializeComponent();
         }
 
@@ -88,9 +88,9 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.Label1);
             this.Controls.Add((Control)this.Button1);
             this.Controls.Add((Control)this.txtEL);
-            this.Name = nameof(Form9);
+            this.Name = nameof(ElementIncorrectForm);
             this.StartPosition = FormStartPosition.Manual;
-            this.Text = nameof(Form9);
+            this.Text = nameof(ElementIncorrectForm);
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,7 +126,7 @@ namespace ClubCompFS
             set => this._Label1 = value;
         }
 
-        private void Form9_Load(object sender, EventArgs e)
+        private void ElementIncorrectForm_Load(object sender, EventArgs e)
         {
             this.Top = -1;
             this.Left = checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width);
