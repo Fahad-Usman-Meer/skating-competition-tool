@@ -2043,7 +2043,7 @@ namespace ClubCompFS
         public bool MenuPossibleForm4()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;

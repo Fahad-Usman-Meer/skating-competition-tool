@@ -72,7 +72,7 @@
     <Compile Include="ParticipantInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog7.cs">
+    <Compile Include="IceResurfacingMealBreakDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog8.cs">
@@ -139,7 +139,7 @@
     <EmbeddedResource Include="ConfigurationDataDialog.resx" />
     <EmbeddedResource Include="JudgesSetupDialog.resx" />
     <EmbeddedResource Include="ParticipantInputDialog.resx" />
-    <EmbeddedResource Include="Dialog7.resx" />
+    <EmbeddedResource Include="IceResurfacingMealBreakDialog.resx" />
     <EmbeddedResource Include="Dialog8.resx" />
     <EmbeddedResource Include="Form1.resx" />
     <EmbeddedResource Include="Form10.resx" />

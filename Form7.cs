@@ -640,10 +640,10 @@ namespace ClubCompFS
             else
             {
                 this.TopMost = false;
-                MyProject.Forms.Dialog7.txtNoSkater.Text = this.txtPartNo.Text;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
-                    MyProject.Forms.Dialog7.Close();
-                int num = (int)MyProject.Forms.Dialog7.ShowDialog();
+                MyProject.Forms.IceResurfacingMealBreakDialog.txtNoSkater.Text = this.txtPartNo.Text;
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                    MyProject.Forms.IceResurfacingMealBreakDialog.Close();
+                int num = (int)MyProject.Forms.IceResurfacingMealBreakDialog.ShowDialog();
             }
         }
 
@@ -998,22 +998,22 @@ namespace ClubCompFS
                         {
                             if (num4 <= num3)
                             {
-                                MyProject.Forms.Dialog7.Controls[key].Visible = true;
+                                MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = true;
                             }
                             else
                             {
-                                MyProject.Forms.Dialog7.Controls[key].Visible = false;
-                                MyProject.Forms.Dialog7.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
+                                MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = false;
+                                MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
                             }
                         }
                         else if (checked(num4 - 10) <= num3)
                         {
-                            MyProject.Forms.Dialog7.Controls[key].Visible = true;
+                            MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = true;
                         }
                         else
                         {
-                            MyProject.Forms.Dialog7.Controls[key].Visible = false;
-                            MyProject.Forms.Dialog7.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
+                            MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].Visible = false;
+                            MyProject.Forms.IceResurfacingMealBreakDialog.Controls[key].BackColor = Color.FromArgb(236, 233, 216);
                         }
                     }
                     checked { ++num4; }
@@ -1229,8 +1229,8 @@ namespace ClubCompFS
             else
             {
                 Module1.SaveCategoryFile(Module1.CategoryFileName);
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
-                    MyProject.Forms.Dialog7.Close();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                    MyProject.Forms.IceResurfacingMealBreakDialog.Close();
                 this.Close();
                 if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
                 {
@@ -1350,7 +1350,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_24;
@@ -1417,7 +1417,7 @@ namespace ClubCompFS
 
         private void CREATEPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            if (!Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 return;
             int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
         }
@@ -1685,7 +1685,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_13;
@@ -1789,7 +1789,7 @@ namespace ClubCompFS
 
         private void StartlistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
@@ -1810,7 +1810,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_14;

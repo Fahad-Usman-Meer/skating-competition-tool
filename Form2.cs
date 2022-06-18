@@ -1458,8 +1458,8 @@ namespace ClubCompFS
                 MyProject.Forms.ParticipantInputDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
                 MyProject.Forms.Form12.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
-                MyProject.Forms.Dialog7.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                MyProject.Forms.IceResurfacingMealBreakDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog8))
                 MyProject.Forms.Dialog8.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
@@ -4131,7 +4131,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the IndTA ENTRIES!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
