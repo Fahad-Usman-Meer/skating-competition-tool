@@ -28,7 +28,7 @@ namespace ClubCompFS
 
         public void Start()
         {
-            this._Server = new TcpListener(IPAddress.Any, Module1.PortNo);
+            this._Server = new TcpListener(IPAddress.Any, Program.PortNo);
             this._Server.ExclusiveAddressUse = false;
             this._Server.Start();
             this._Server.BeginAcceptTcpClient(new AsyncCallback(this.ClientConnect), (object)this._Server);
@@ -45,7 +45,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Server connected", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             TcpClient tcpClient = this._Server.EndAcceptTcpClient(result);
-            Module1._Clients.Add(tcpClient);
+            Program._Clients.Add(tcpClient);
             this._Server.BeginAcceptTcpClient(new AsyncCallback(this.ClientConnect), (object)this._Server);
         }
 
@@ -60,28 +60,28 @@ namespace ClubCompFS
                 num1 = 2;
                 while (this._IsRunning)
                 {
-                    if (Module1._Clients.Count == 0)
+                    if (Program._Clients.Count == 0)
                     {
                         Thread.Sleep(10);
                     }
                     else
                     {
-                        int index1 = checked(Module1._Clients.Count - 1);
+                        int index1 = checked(Program._Clients.Count - 1);
                         while (index1 >= 0)
                         {
-                            TcpClient client = Module1._Clients[index1];
+                            TcpClient client = Program._Clients[index1];
                             if (client.Client.Poll(1, SelectMode.SelectRead) & client.Available == 0)
                             {
                                 string Right = client.Client.RemoteEndPoint.ToString();
                                 int index2 = 1;
                                 do
                                 {
-                                    if (Operators.CompareString(Module1.IPArr[index2], Right, false) == 0)
-                                        Module1.IPArr[index2] = "";
+                                    if (Operators.CompareString(Program.IPArr[index2], Right, false) == 0)
+                                        Program.IPArr[index2] = "";
                                     checked { ++index2; }
                                 }
                                 while (index2 <= 11);
-                                Module1._Clients.Remove(client);
+                                Program._Clients.Remove(client);
                                 break;
                             }
                             if (client.Available > 0)
@@ -99,20 +99,20 @@ namespace ClubCompFS
                                     if (Operators.CompareString(strArray2[1], "Client #", false) == 0)
                                     {
                                         int integer = Conversions.ToInteger(strArray2[2]);
-                                        if (Strings.Len(Module1.IPArr[integer]) > 3 & Operators.CompareString(Module1.IPArr[integer], Right, false) != 0)
+                                        if (Strings.Len(Program.IPArr[integer]) > 3 & Operators.CompareString(Program.IPArr[integer], Right, false) != 0)
                                         {
-                                            Module1.IPreject[integer] = Right;
+                                            Program.IPreject[integer] = Right;
                                             int num3 = (int)Interaction.MsgBox((object)("Check the setup of the clients!\r\nPC No. " + Conversions.ToString(integer) + " is already connected!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                                            Module1._Clients.Remove(client);
+                                            Program._Clients.Remove(client);
                                         }
                                         else
                                         {
-                                            Module1.IPArr[integer] = Right;
+                                            Program.IPArr[integer] = Right;
                                             int index3 = 1;
                                             do
                                             {
-                                                if (index3 != integer & Operators.CompareString(Module1.IPArr[index3], Right, false) == 0)
-                                                    Module1.IPArr[index3] = "";
+                                                if (index3 != integer & Operators.CompareString(Program.IPArr[index3], Right, false) == 0)
+                                                    Program.IPArr[index3] = "";
                                                 checked { ++index3; }
                                             }
                                             while (index3 <= 11);
@@ -127,7 +127,7 @@ namespace ClubCompFS
                     }
                 }
                 this._Server.Stop();
-                List<TcpClient>.Enumerator enumerator = Module1._Clients.GetEnumerator();
+                List<TcpClient>.Enumerator enumerator = Program._Clients.GetEnumerator();
                 while (enumerator.MoveNext())
                 {
                     TcpClient current = enumerator.Current;
@@ -135,9 +135,9 @@ namespace ClubCompFS
                         current.Close();
                 }
                 enumerator.Dispose();
-                Module1._Clients.Clear();
-                Module1.IPArr = (string[])null;
-                Module1.IPArr = new string[21];
+                Program._Clients.Clear();
+                Program.IPArr = (string[])null;
+                Program.IPArr = new string[21];
                 goto label_34;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -171,14 +171,14 @@ namespace ClubCompFS
                     string str2 = Strings.Left(str1, Length2);
                     int integer = Conversions.ToInteger(str2);
                     string str3 = Strings.Left(str1, checked(integer + str2.Length + 1));
-                    Module1.Qin.Enqueue(str3);
+                    Program.Qin.Enqueue(str3);
                     Length1 = checked(str1.Length - integer - str2.Length - 1);
                     if (Length1 < 0)
                         break;
                 }
-                while (Module1.Qin.Count > 0)
+                while (Program.Qin.Count > 0)
                 {
-                    string str = Module1.Qin.Dequeue();
+                    string str = Program.Qin.Dequeue();
                     if (str.Contains("ClientALIVE #"))
                     {
                         string[] strArray2 = str.Split(';');
@@ -187,14 +187,14 @@ namespace ClubCompFS
                     }
                     else if (str.Contains("ClientRe #"))
                     {
-                        if (Strings.Len(Module1.LastOutTxt) > 0)
-                            this.SendMessage1(Module1.LastOutTxt);
+                        if (Strings.Len(Program.LastOutTxt) > 0)
+                            this.SendMessage1(Program.LastOutTxt);
                     }
                     else
                     {
                         MyProject.Forms.JudgesDetailsForm.completed2 = false;
                         int integer = Conversions.ToInteger(str.Split(';')[2]);
-                        Module1.UpdStr[integer] = str;
+                        Program.UpdStr[integer] = str;
                         MyProject.Forms.JudgesDetailsForm.completed2 = true;
                     }
                 }
@@ -225,10 +225,10 @@ namespace ClubCompFS
                 string[] strArray = new string[101];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                int index2 = checked(Module1._Clients.Count - 1);
+                int index2 = checked(Program._Clients.Count - 1);
                 while (index2 >= 0)
                 {
-                    TcpClient client = Module1._Clients[index2];
+                    TcpClient client = Program._Clients[index2];
                     if (!(client.Client.Poll(1, SelectMode.SelectRead) & client.Available == 0))
                     {
                         NetworkStream stream = client.GetStream();
@@ -249,7 +249,7 @@ namespace ClubCompFS
             if (num1 == 2)
             {
                 int num3 = (int)Interaction.MsgBox((object)("SendMessage1 -  " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                Module1.IPArr[index1] = "";
+                Program.IPArr[index1] = "";
             }
             label_11:
             if (num2 == 0)

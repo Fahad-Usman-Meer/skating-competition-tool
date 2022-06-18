@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Module1
+// Type: ClubCompFS.Program
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -21,22 +21,22 @@ using System.Xml;
 namespace ClubCompFS
 {
     [StandardModule]
-    internal sealed class Module1
+    internal sealed class Program
     {
         public static bool CompletedTimer2 = true;
         public static string[] UpdStr = new string[21];
         public static string OldUpdStr = (string)null;
-        public static Module1.IndTA_Type[] IndTA = new Module1.IndTA_Type[501];
-        public static Module1.Participant[] Vek = new Module1.Participant[43];
-        public static Module1.SegType[] DVO = new Module1.SegType[4];
-        public static Module1.SegType[] Judge = new Module1.SegType[8];
+        public static Program.IndTA_Type[] IndTA = new Program.IndTA_Type[501];
+        public static Program.Participant[] Vek = new Program.Participant[43];
+        public static Program.SegType[] DVO = new Program.SegType[4];
+        public static Program.SegType[] Judge = new Program.SegType[8];
         public static int[] JudgeCompNo = new int[8];
         public static int[] JudgeCompFunc = new int[8];
         public static int[] IceArr_Seg1 = new int[8];
         public static int[] IceArr_Seg2 = new int[8];
         public static int[] LunchArr_Seg1 = new int[8];
         public static int[] LunchArr_Seg2 = new int[8];
-        public static Module1.OpenDBType[] OpenDB = new Module1.OpenDBType[81];
+        public static Program.OpenDBType[] OpenDB = new Program.OpenDBType[81];
         public static int NoJ_Seg1 = 0;
         public static int NoJ_Seg2 = 0;
         public static int NoJ_GOE = 0;
@@ -48,12 +48,12 @@ namespace ClubCompFS
         public static int JudgeSel = 0;
         public static string[,] JDarr = new string[51, 15];
         public static string[,] F4arr = new string[1501, 15];
-        public static Module1.El_type[] ElArr = new Module1.El_type[31];
+        public static Program.El_type[] ElArr = new Program.El_type[31];
         public static object[,] ElDB = new object[351, 15];
         public static int[] ElErrorArr = new int[31];
         public static int[] J_GOE = new int[8];
         public static double[] J_PC = new double[8];
-        public static Module1.OpType[] OpArr = new Module1.OpType[16];
+        public static Program.OpType[] OpArr = new Program.OpType[16];
         public static object[] ColArr = new object[17];
         public static int JDperPage = 2;
         public static int CreateScoreBoard = 0;
@@ -136,14 +136,14 @@ namespace ClubCompFS
         public const string msgFUNC = "&#FUNC#&";
         public const string msgEXIT = "&#EXIT#&";
         public const string msgREJECT = "&#REJECT#&";
-        public static Module1.NameID Competition;
-        public static Module1.NameID Organizer;
-        public static Module1.CatID Category;
+        public static Program.NameID Competition;
+        public static Program.NameID Organizer;
+        public static Program.CatID Category;
         public static string SubCategory;
-        public static Module1.DateType Datum;
-        public static Module1.SegType Techspec;
-        public static Module1.SegType Controller;
-        public static Module1.SegType Referee;
+        public static Program.DateType Datum;
+        public static Program.SegType Techspec;
+        public static Program.SegType Controller;
+        public static Program.SegType Referee;
         public static int TNop;
         public static int PNo;
         public static string Segment;
@@ -171,7 +171,7 @@ namespace ClubCompFS
         public static string CategoryFileName;
         public static string CC_Time;
         public static string In_Time;
-        public static Module1.ImpType IPar;
+        public static Program.ImpType IPar;
         public static string WarmUpTime;
         public static string IceLeaveTime;
         public static string ResurfacingTime;
@@ -189,61 +189,61 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 MainForm mainForm = MyProject.Forms.MainForm;
-                mainForm.txtOrganizerName.Text = Module1.Organizer.Name;
-                mainForm.txtOrganizerID.Text = Module1.Organizer.ID;
-                mainForm.txtCompetitionName.Text = Module1.Competition.Name;
-                mainForm.txtCompetitionID.Text = Module1.Competition.ID;
-                mainForm.txtType.Text = Module1.Competition.Type;
-                mainForm.txtCategory.Text = Module1.Category.Name;
-                mainForm.txtCategoryID.Text = Module1.Category.ID;
-                mainForm.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
-                mainForm.txtIndTAClass.Text = Module1.Category.IndTAClass;
-                mainForm.txtSubcategory.Text = Module1.SubCategory;
-                mainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
-                if (Strings.Len(Module1.WarmUpTime) < 3)
+                mainForm.txtOrganizerName.Text = Program.Organizer.Name;
+                mainForm.txtOrganizerID.Text = Program.Organizer.ID;
+                mainForm.txtCompetitionName.Text = Program.Competition.Name;
+                mainForm.txtCompetitionID.Text = Program.Competition.ID;
+                mainForm.txtType.Text = Program.Competition.Type;
+                mainForm.txtCategory.Text = Program.Category.Name;
+                mainForm.txtCategoryID.Text = Program.Category.ID;
+                mainForm.txtIndTADiscipline.Text = Program.Category.IndTADiscipline;
+                mainForm.txtIndTAClass.Text = Program.Category.IndTAClass;
+                mainForm.txtSubcategory.Text = Program.SubCategory;
+                mainForm.txtParticipants.Text = Conversions.ToString(Program.TNop);
+                if (Strings.Len(Program.WarmUpTime) < 3)
                 {
-                    Module1.CalcPCindex();
-                    if (Module1.PcIndex > -1)
-                        Module1.WarmUpTime = Module1.OpenDB[Module1.PcIndex].Warmup;
+                    Program.CalcPCindex();
+                    if (Program.PcIndex > -1)
+                        Program.WarmUpTime = Program.OpenDB[Program.PcIndex].Warmup;
                 }
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    mainForm.txtSegment.Text = Module1.GetSeg1();
-                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg1);
-                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg1);
+                    mainForm.txtSegment.Text = Program.GetSeg1();
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Program.NoJ_Seg1);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Program.NoTrJ_Seg1);
                     mainForm.lblDate.Top = 122;
                     mainForm.txtDate.Top = 138;
-                    mainForm.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg1);
+                    mainForm.txtDate.Text = Program.FormShortDate(Program.Datum.Seg1);
                     mainForm.lblStart.Top = 122;
                     mainForm.txtStartTime.Top = 138;
-                    mainForm.txtStartTime.Text = Module1.Datum.Seg1Start;
+                    mainForm.txtStartTime.Text = Program.Datum.Seg1Start;
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    mainForm.txtSegment.Text = Module1.GetSeg2();
-                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg2);
-                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg2);
+                    mainForm.txtSegment.Text = Program.GetSeg2();
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Program.NoJ_Seg2);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Program.NoTrJ_Seg2);
                     mainForm.lblDate.Top = 172;
                     mainForm.txtDate.Top = 188;
-                    mainForm.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg2);
+                    mainForm.txtDate.Text = Program.FormShortDate(Program.Datum.Seg2);
                     mainForm.lblStart.Top = 172;
                     mainForm.txtStartTime.Top = 188;
-                    mainForm.txtStartTime.Text = Module1.Datum.Seg2Start;
+                    mainForm.txtStartTime.Text = Program.Datum.Seg2Start;
                 }
                 else
                 {
-                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_GOE);
-                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrj);
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Program.NoJ_GOE);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Program.NoTrj);
                     mainForm.btnSeg1.Visible = false;
                     mainForm.btnSeg2.Visible = false;
                     mainForm.txtSegment.Text = "";
                 }
-                switch (Module1.JudgeSel)
+                switch (Program.JudgeSel)
                 {
                     case 0:
                         int index1 = 1;
-                        while (Module1.JudgeCompFunc[index1] != 1)
+                        while (Program.JudgeCompFunc[index1] != 1)
                         {
                             mainForm.txtNonJudgingReferee.Text = "Referee not selected!";
                             mainForm.txtNonJudgingReferee.ForeColor = Color.Red;
@@ -260,24 +260,24 @@ namespace ClubCompFS
                         break;
                 }
             label_15:
-                string segment2 = Module1.Segment;
+                string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
-                    mainForm.TechSpecName.Text = Module1.Techspec.Seg1.Name;
-                    mainForm.TechSpecClub.Text = Module1.Techspec.Seg1.Club;
-                    mainForm.ControllerName.Text = Module1.Controller.Seg1.Name;
-                    mainForm.ControllerClub.Text = Module1.Controller.Seg1.Club;
-                    mainForm.RefereeName.Text = Module1.Referee.Seg1.Name;
-                    mainForm.RefereeClub.Text = Module1.Referee.Seg1.Club;
+                    mainForm.TechSpecName.Text = Program.Techspec.Seg1.Name;
+                    mainForm.TechSpecClub.Text = Program.Techspec.Seg1.Club;
+                    mainForm.ControllerName.Text = Program.Controller.Seg1.Name;
+                    mainForm.ControllerClub.Text = Program.Controller.Seg1.Club;
+                    mainForm.RefereeName.Text = Program.Referee.Seg1.Name;
+                    mainForm.RefereeClub.Text = Program.Referee.Seg1.Club;
                 }
                 else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                 {
-                    mainForm.TechSpecName.Text = Module1.Techspec.Seg2.Name;
-                    mainForm.TechSpecClub.Text = Module1.Techspec.Seg2.Club;
-                    mainForm.ControllerName.Text = Module1.Controller.Seg2.Name;
-                    mainForm.ControllerClub.Text = Module1.Controller.Seg2.Club;
-                    mainForm.RefereeName.Text = Module1.Referee.Seg2.Name;
-                    mainForm.RefereeClub.Text = Module1.Referee.Seg2.Club;
+                    mainForm.TechSpecName.Text = Program.Techspec.Seg2.Name;
+                    mainForm.TechSpecClub.Text = Program.Techspec.Seg2.Club;
+                    mainForm.ControllerName.Text = Program.Controller.Seg2.Name;
+                    mainForm.ControllerClub.Text = Program.Controller.Seg2.Club;
+                    mainForm.RefereeName.Text = Program.Referee.Seg2.Name;
+                    mainForm.RefereeClub.Text = Program.Referee.Seg2.Club;
                 }
                 else
                 {
@@ -293,21 +293,21 @@ namespace ClubCompFS
                 {
                     string key1 = "JudgeName" + Strings.Trim(Conversions.ToString(index2));
                     string key2 = "JudgeClub" + Strings.Trim(Conversions.ToString(index2));
-                    if (index2 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | index2 == checked(Module1.JudgeSel * 7))
+                    if (index2 <= checked(Program.NoJ_GOE + Program.NoTrj) | index2 == checked(Program.JudgeSel * 7))
                     {
-                        string segment3 = Module1.Segment;
+                        string segment3 = Program.Segment;
                         if (Operators.CompareString(segment3, "Seg1", false) == 0)
                         {
-                            mainForm.Controls[key1].Text = Module1.Judge[index2].Seg1.Name;
+                            mainForm.Controls[key1].Text = Program.Judge[index2].Seg1.Name;
                             mainForm.Controls[key1].Visible = true;
-                            mainForm.Controls[key2].Text = Module1.Judge[index2].Seg1.Club;
+                            mainForm.Controls[key2].Text = Program.Judge[index2].Seg1.Club;
                             mainForm.Controls[key2].Visible = true;
                         }
                         else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                         {
-                            mainForm.Controls[key1].Text = Module1.Judge[index2].Seg2.Name;
+                            mainForm.Controls[key1].Text = Program.Judge[index2].Seg2.Name;
                             mainForm.Controls[key1].Visible = true;
-                            mainForm.Controls[key2].Text = Module1.Judge[index2].Seg2.Club;
+                            mainForm.Controls[key2].Text = Program.Judge[index2].Seg2.Club;
                             mainForm.Controls[key2].Visible = true;
                         }
                         else
@@ -324,17 +324,17 @@ namespace ClubCompFS
                         mainForm.Controls[key2].Visible = false;
                     }
                     string key3 = "lblJ" + Conversions.ToString(index2);
-                    if (index2 <= Module1.NoJ_GOE)
+                    if (index2 <= Program.NoJ_GOE)
                     {
                         mainForm.Controls[key3].Text = "Judge " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
                     }
-                    else if (index2 > Module1.NoJ_GOE & index2 <= checked(Module1.NoJ_GOE + Module1.NoTrj))
+                    else if (index2 > Program.NoJ_GOE & index2 <= checked(Program.NoJ_GOE + Program.NoTrj))
                     {
                         mainForm.Controls[key3].Text = "Tr. Judge " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
                     }
-                    else if (index2 == checked(Module1.JudgeSel * 7))
+                    else if (index2 == checked(Program.JudgeSel * 7))
                     {
                         mainForm.Controls[key3].Text = "Non J. Ref. " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
@@ -344,16 +344,16 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 while (index2 <= 7);
-                string segment4 = Module1.Segment;
+                string segment4 = Program.Segment;
                 if (Operators.CompareString(segment4, "Seg1", false) == 0)
                 {
                     int index3 = 1;
                     do
                     {
                         string key4 = "DVOName" + Strings.Trim(Conversions.ToString(index3));
-                        mainForm.Controls[key4].Text = Module1.DVO[index3].Seg1.Name;
+                        mainForm.Controls[key4].Text = Program.DVO[index3].Seg1.Name;
                         string key5 = "DVOClub" + Strings.Trim(Conversions.ToString(index3));
-                        mainForm.Controls[key5].Text = Module1.DVO[index3].Seg1.Club;
+                        mainForm.Controls[key5].Text = Program.DVO[index3].Seg1.Club;
                         checked { ++index3; }
                     }
                     while (index3 <= 3);
@@ -364,17 +364,17 @@ namespace ClubCompFS
                     do
                     {
                         string key6 = "DVOName" + Strings.Trim(Conversions.ToString(index4));
-                        mainForm.Controls[key6].Text = Module1.DVO[index4].Seg2.Name;
+                        mainForm.Controls[key6].Text = Program.DVO[index4].Seg2.Name;
                         string key7 = "DVOClub" + Strings.Trim(Conversions.ToString(index4));
-                        mainForm.Controls[key7].Text = Module1.DVO[index4].Seg2.Club;
+                        mainForm.Controls[key7].Text = Program.DVO[index4].Seg2.Club;
                         checked { ++index4; }
                     }
                     while (index4 <= 3);
                 }
                 mainForm.txtCompetitionName.Select();
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
-                    string seg = Module1.GetSeg();
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "FS", false) == 0)
                     {
                         mainForm.COPYOFFICIALSToolStripMenuItem.Visible = true;
@@ -409,8 +409,8 @@ namespace ClubCompFS
 
         public static void TimeLimit(string Nu)
         {
-            string Right = DateTime.FromBinary(checked((long)Math.Round(Conversion.Val(Module1.MaxDate)))).ToString("yyyy-MM-dd");
-            string Prompt = Module1.decode((object)"VABpAG0AZQBsAGkAbQBpAHQAIABoAGEAcwAgAHAAYQBzAHMAZQBkACEADQAKAFQAaABlACAAcAByAG8AZwByAGEAbQAgAHcAaQBsAGwAIABjAGwAbwBzAGUAIABkAG8AdwBuACEA");
+            string Right = DateTime.FromBinary(checked((long)Math.Round(Conversion.Val(Program.MaxDate)))).ToString("yyyy-MM-dd");
+            string Prompt = Program.decode((object)"VABpAG0AZQBsAGkAbQBpAHQAIABoAGEAcwAgAHAAYQBzAHMAZQBkACEADQAKAFQAaABlACAAcAByAG8AZwByAGEAbQAgAHcAaQBsAGwAIABjAGwAbwBzAGUAIABkAG8AdwBuACEA");
             if (Operators.CompareString(Nu, Right, false) <= 0)
                 return;
             int num = (int)Interaction.MsgBox((object)Prompt, MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -461,16 +461,16 @@ namespace ClubCompFS
                             {
                                 string name = MyReader.Name;
                                 if (Operators.CompareString(name, "CompetitionHeader", false) == 0)
-                                    Module1.ParseCompetitionHeader(MyReader);
+                                    Program.ParseCompetitionHeader(MyReader);
                                 else if (Operators.CompareString(name, "Officials", false) == 0)
-                                    Module1.ParseOffSegment1(MyReader);
+                                    Program.ParseOffSegment1(MyReader);
                                 else if (Operators.CompareString(name, "Officials2", false) == 0)
-                                    Module1.ParseOffSegment2(MyReader);
+                                    Program.ParseOffSegment2(MyReader);
                                 else if (Operators.CompareString(name, "Segment", false) == 0)
-                                    Module1.ParseSegment(MyReader);
+                                    Program.ParseSegment(MyReader);
                                 else if (Operators.CompareString(name, "Person", false) == 0)
                                 {
-                                    Module1.Participant[] vek = Module1.Vek;
+                                    Program.Participant[] vek = Program.Vek;
                                     int index = i;
                                     vek[index].J_Seg1.EE = new int[16, 8];
                                     vek[index].J_Seg2.EE = new int[16, 8];
@@ -480,7 +480,7 @@ namespace ClubCompFS
                                     vek[index].J_Seg2.Deduction = new long[8];
                                     vek[index].SSS_Seg1 = new string[16];
                                     vek[index].SSS_Seg2 = new string[16];
-                                    Module1.ParsePerson(MyReader, i);
+                                    Program.ParsePerson(MyReader, i);
                                     checked { ++i; }
                                 }
                             }
@@ -512,20 +512,20 @@ namespace ClubCompFS
 
         public static void ClearOfficials()
         {
-            Module1.Techspec.Seg1.Name = "";
-            Module1.Techspec.Seg1.Club = "";
-            Module1.Controller.Seg1.Name = "";
-            Module1.Controller.Seg1.Club = "";
-            Module1.Referee.Seg1.Name = "";
-            Module1.Referee.Seg1.Club = "";
-            Module1.Techspec.Seg2.Name = "";
-            Module1.Techspec.Seg2.Club = "";
-            Module1.Controller.Seg2.Name = "";
-            Module1.Controller.Seg2.Club = "";
-            Module1.Referee.Seg2.Name = "";
-            Module1.Referee.Seg2.Club = "";
-            Module1.Judge = new Module1.SegType[8];
-            Module1.DVO = new Module1.SegType[4];
+            Program.Techspec.Seg1.Name = "";
+            Program.Techspec.Seg1.Club = "";
+            Program.Controller.Seg1.Name = "";
+            Program.Controller.Seg1.Club = "";
+            Program.Referee.Seg1.Name = "";
+            Program.Referee.Seg1.Club = "";
+            Program.Techspec.Seg2.Name = "";
+            Program.Techspec.Seg2.Club = "";
+            Program.Controller.Seg2.Name = "";
+            Program.Controller.Seg2.Club = "";
+            Program.Referee.Seg2.Name = "";
+            Program.Referee.Seg2.Club = "";
+            Program.Judge = new Program.SegType[8];
+            Program.DVO = new Program.SegType[4];
         }
 
         public static void ParseSegment(XmlReader MyReader)
@@ -539,86 +539,86 @@ namespace ClubCompFS
                 MyReader.ReadToFollowing("Date");
                 MyReader.MoveToAttribute(0);
                 string attribute1 = MyReader.GetAttribute(0);
-                Module1.Datum.Seg1 = Strings.Len(attribute1) <= 1 ? DateTime.Today : Conversions.ToDate(attribute1);
+                Program.Datum.Seg1 = Strings.Len(attribute1) <= 1 ? DateTime.Today : Conversions.ToDate(attribute1);
                 MyReader.MoveToAttribute(1);
                 string attribute2 = MyReader.GetAttribute(1);
-                Module1.Datum.Seg2 = Strings.Len(attribute2) <= 1 ? DateTime.Today : Conversions.ToDate(attribute2);
+                Program.Datum.Seg2 = Strings.Len(attribute2) <= 1 ? DateTime.Today : Conversions.ToDate(attribute2);
                 MyReader.MoveToElement();
-                Module1.TimeLimit(Module1.Datum.Seg1.ToString("yyyy-MM-dd"));
-                Module1.TimeLimit(Module1.Datum.Seg2.ToString("yyyy-MM-dd"));
+                Program.TimeLimit(Program.Datum.Seg1.ToString("yyyy-MM-dd"));
+                Program.TimeLimit(Program.Datum.Seg2.ToString("yyyy-MM-dd"));
                 MyReader.ReadToFollowing("Time");
                 MyReader.MoveToAttribute(0);
-                Module1.Datum.Seg1Start = MyReader.GetAttribute(0);
+                Program.Datum.Seg1Start = MyReader.GetAttribute(0);
                 MyReader.MoveToAttribute(1);
-                Module1.Datum.Seg2Start = MyReader.GetAttribute(1);
+                Program.Datum.Seg2Start = MyReader.GetAttribute(1);
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Group1");
                 MyReader.MoveToAttribute(0);
-                Module1.RemWarmupTimeSeg1 = Operators.CompareString(MyReader.GetAttribute(0), "1", false) == 0;
+                Program.RemWarmupTimeSeg1 = Operators.CompareString(MyReader.GetAttribute(0), "1", false) == 0;
                 MyReader.MoveToAttribute(1);
-                Module1.RemWarmupTimeSeg2 = Operators.CompareString(MyReader.GetAttribute(1), "1", false) == 0;
+                Program.RemWarmupTimeSeg2 = Operators.CompareString(MyReader.GetAttribute(1), "1", false) == 0;
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("NoSkaters");
-                Module1.TNop = Conversions.ToInteger(MyReader.ReadString());
-                if (Module1.WorkMode == 1)
+                Program.TNop = Conversions.ToInteger(MyReader.ReadString());
+                if (Program.WorkMode == 1)
                 {
                     MyReader.ReadToFollowing("NoJudges");
                     MyReader.MoveToAttribute(0);
                     string attribute3 = MyReader.GetAttribute(0);
-                    if ((double)Module1.NoJ_Seg1 == Conversions.ToDouble("0"))
-                        Module1.NoJ_Seg1 = Conversions.ToInteger(attribute3);
+                    if ((double)Program.NoJ_Seg1 == Conversions.ToDouble("0"))
+                        Program.NoJ_Seg1 = Conversions.ToInteger(attribute3);
                     MyReader.MoveToAttribute(1);
                     string attribute4 = MyReader.GetAttribute(1);
-                    if ((double)Module1.NoJ_Seg2 == Conversions.ToDouble("0"))
-                        Module1.NoJ_Seg2 = Conversions.ToInteger(attribute4);
+                    if ((double)Program.NoJ_Seg2 == Conversions.ToDouble("0"))
+                        Program.NoJ_Seg2 = Conversions.ToInteger(attribute4);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("NoTrialJudges");
                     MyReader.MoveToAttribute(0);
                     string attribute5 = MyReader.GetAttribute(0);
-                    if ((double)Module1.NoTrJ_Seg1 == Conversions.ToDouble("0"))
-                        Module1.NoTrJ_Seg1 = Conversions.ToInteger(attribute5);
+                    if ((double)Program.NoTrJ_Seg1 == Conversions.ToDouble("0"))
+                        Program.NoTrJ_Seg1 = Conversions.ToInteger(attribute5);
                     MyReader.MoveToAttribute(1);
                     string attribute6 = MyReader.GetAttribute(1);
-                    if ((double)Module1.NoTrJ_Seg2 == Conversions.ToDouble("0"))
-                        Module1.NoTrJ_Seg2 = Conversions.ToInteger(attribute6);
+                    if ((double)Program.NoTrJ_Seg2 == Conversions.ToDouble("0"))
+                        Program.NoTrJ_Seg2 = Conversions.ToInteger(attribute6);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("NonJudgeReferee");
                     MyReader.MoveToAttribute(0);
                     string attribute7 = MyReader.GetAttribute(0);
-                    if ((double)Module1.JudgeSel_Seg1 == Conversions.ToDouble("0"))
-                        Module1.JudgeSel_Seg1 = Conversions.ToInteger(attribute7);
+                    if ((double)Program.JudgeSel_Seg1 == Conversions.ToDouble("0"))
+                        Program.JudgeSel_Seg1 = Conversions.ToInteger(attribute7);
                     MyReader.MoveToAttribute(1);
                     string attribute8 = MyReader.GetAttribute(1);
-                    if ((double)Module1.JudgeSel_Seg2 == Conversions.ToDouble("0"))
-                        Module1.JudgeSel_Seg2 = Conversions.ToInteger(attribute8);
+                    if ((double)Program.JudgeSel_Seg2 == Conversions.ToDouble("0"))
+                        Program.JudgeSel_Seg2 = Conversions.ToInteger(attribute8);
                     MyReader.MoveToElement();
                 }
                 else
                 {
                     MyReader.ReadToFollowing("NoJudges");
                     MyReader.MoveToAttribute(0);
-                    Module1.NoJ_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                    Program.NoJ_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                     MyReader.MoveToAttribute(1);
-                    Module1.NoJ_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                    Program.NoJ_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("NoTrialJudges");
                     MyReader.MoveToAttribute(0);
-                    Module1.NoTrJ_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                    Program.NoTrJ_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                     MyReader.MoveToAttribute(1);
-                    Module1.NoTrJ_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                    Program.NoTrJ_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("NonJudgeReferee");
                     MyReader.MoveToAttribute(0);
-                    Module1.JudgeSel_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                    Program.JudgeSel_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                     MyReader.MoveToAttribute(1);
-                    Module1.JudgeSel_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                    Program.JudgeSel_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                     MyReader.MoveToElement();
                 }
                 MyReader.ReadToFollowing("NoWarmUpGr");
                 MyReader.MoveToAttribute(0);
-                Module1.WupG_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.WupG_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.WupG_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.WupG_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Resurface");
                 MyReader.MoveToAttribute(0);
@@ -626,7 +626,7 @@ namespace ClubCompFS
                 int index1 = 1;
                 do
                 {
-                    Module1.IceArr_Seg1[index1] = Conversions.ToInteger(strArray1[checked(index1 - 1)]);
+                    Program.IceArr_Seg1[index1] = Conversions.ToInteger(strArray1[checked(index1 - 1)]);
                     checked { ++index1; }
                 }
                 while (index1 <= 7);
@@ -635,7 +635,7 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    Module1.IceArr_Seg2[index2] = Conversions.ToInteger(strArray2[checked(index2 - 1)]);
+                    Program.IceArr_Seg2[index2] = Conversions.ToInteger(strArray2[checked(index2 - 1)]);
                     checked { ++index2; }
                 }
                 while (index2 <= 7);
@@ -646,7 +646,7 @@ namespace ClubCompFS
                 int index3 = 1;
                 do
                 {
-                    Module1.LunchArr_Seg1[index3] = Conversions.ToInteger(strArray3[checked(index3 - 1)]);
+                    Program.LunchArr_Seg1[index3] = Conversions.ToInteger(strArray3[checked(index3 - 1)]);
                     checked { ++index3; }
                 }
                 while (index3 <= 7);
@@ -655,7 +655,7 @@ namespace ClubCompFS
                 int index4 = 1;
                 do
                 {
-                    Module1.LunchArr_Seg2[index4] = Conversions.ToInteger(strArray4[checked(index4 - 1)]);
+                    Program.LunchArr_Seg2[index4] = Conversions.ToInteger(strArray4[checked(index4 - 1)]);
                     checked { ++index4; }
                 }
                 while (index4 <= 7);
@@ -663,12 +663,12 @@ namespace ClubCompFS
                 MyReader.ReadToFollowing("IceCondition");
                 string Expression1 = MyReader.ReadString();
                 if (Strings.Len(Expression1) > 1)
-                    Module1.IceCondition = Expression1;
+                    Program.IceCondition = Expression1;
                 MyReader.ReadToFollowing("IceArea");
                 string Expression2 = MyReader.ReadString();
                 if (Strings.Len(Expression2) > 1)
                 {
-                    Module1.IceArea = Expression2;
+                    Program.IceArea = Expression2;
                     goto label_33;
                 }
                 else
@@ -697,37 +697,37 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
                     string attribute1 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute1) > 0)
-                        Module1.Techspec.Seg1.Name = attribute1;
+                        Program.Techspec.Seg1.Name = attribute1;
                     MyReader.MoveToAttribute(1);
                     string attribute2 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute2) > 0)
-                        Module1.Techspec.Seg1.Club = attribute2;
+                        Program.Techspec.Seg1.Club = attribute2;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
                     string attribute3 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute3) > 0)
-                        Module1.Controller.Seg1.Name = attribute3;
+                        Program.Controller.Seg1.Name = attribute3;
                     MyReader.MoveToAttribute(1);
                     string attribute4 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute4) > 0)
-                        Module1.Controller.Seg1.Club = attribute4;
+                        Program.Controller.Seg1.Club = attribute4;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
                     string attribute5 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute5) > 0)
-                        Module1.Referee.Seg1.Name = attribute5;
+                        Program.Referee.Seg1.Name = attribute5;
                     MyReader.MoveToAttribute(1);
                     string attribute6 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute6) > 0)
-                        Module1.Referee.Seg1.Club = attribute6;
+                        Program.Referee.Seg1.Club = attribute6;
                     MyReader.MoveToElement();
                     int index1 = 1;
                     do
@@ -737,11 +737,11 @@ namespace ClubCompFS
                         MyReader.MoveToAttribute(0);
                         string attribute7 = MyReader.GetAttribute(0);
                         if (Strings.Len(attribute7) > 0)
-                            Module1.Judge[index1].Seg1.Name = attribute7;
+                            Program.Judge[index1].Seg1.Name = attribute7;
                         MyReader.MoveToAttribute(1);
                         string attribute8 = MyReader.GetAttribute(1);
                         if (Strings.Len(attribute8) > 0)
-                            Module1.Judge[index1].Seg1.Club = attribute8;
+                            Program.Judge[index1].Seg1.Club = attribute8;
                         MyReader.MoveToElement();
                         checked { ++index1; }
                     }
@@ -754,11 +754,11 @@ namespace ClubCompFS
                         MyReader.MoveToAttribute(0);
                         string attribute9 = MyReader.GetAttribute(0);
                         if (Strings.Len(attribute9) > 0)
-                            Module1.DVO[index2].Seg1.Name = attribute9;
+                            Program.DVO[index2].Seg1.Name = attribute9;
                         MyReader.MoveToAttribute(1);
                         string attribute10 = MyReader.GetAttribute(1);
                         if (Strings.Len(attribute10) > 0)
-                            Module1.DVO[index2].Seg1.Club = attribute10;
+                            Program.DVO[index2].Seg1.Club = attribute10;
                         MyReader.MoveToElement();
                         checked { ++index2; }
                     }
@@ -769,21 +769,21 @@ namespace ClubCompFS
                 {
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
-                    Module1.Techspec.Seg1.Name = MyReader.GetAttribute(0);
+                    Program.Techspec.Seg1.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Techspec.Seg1.Club = MyReader.GetAttribute(1);
+                    Program.Techspec.Seg1.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
-                    Module1.Controller.Seg1.Name = MyReader.GetAttribute(0);
+                    Program.Controller.Seg1.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Controller.Seg1.Club = MyReader.GetAttribute(1);
+                    Program.Controller.Seg1.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
-                    Module1.Referee.Seg1.Name = MyReader.GetAttribute(0);
+                    Program.Referee.Seg1.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Referee.Seg1.Club = MyReader.GetAttribute(1);
+                    Program.Referee.Seg1.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     int index3 = 1;
                     do
@@ -791,9 +791,9 @@ namespace ClubCompFS
                         string name = "Judge" + Conversions.ToString(index3);
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
-                        Module1.Judge[index3].Seg1.Name = MyReader.GetAttribute(0);
+                        Program.Judge[index3].Seg1.Name = MyReader.GetAttribute(0);
                         MyReader.MoveToAttribute(1);
-                        Module1.Judge[index3].Seg1.Club = MyReader.GetAttribute(1);
+                        Program.Judge[index3].Seg1.Club = MyReader.GetAttribute(1);
                         MyReader.MoveToElement();
                         checked { ++index3; }
                     }
@@ -804,9 +804,9 @@ namespace ClubCompFS
                         string name = "DVO" + Conversions.ToString(index4);
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
-                        Module1.DVO[index4].Seg1.Name = MyReader.GetAttribute(0);
+                        Program.DVO[index4].Seg1.Name = MyReader.GetAttribute(0);
                         MyReader.MoveToAttribute(1);
-                        Module1.DVO[index4].Seg1.Club = MyReader.GetAttribute(1);
+                        Program.DVO[index4].Seg1.Club = MyReader.GetAttribute(1);
                         MyReader.MoveToElement();
                         checked { ++index4; }
                     }
@@ -837,37 +837,37 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.WorkMode == 1)
+                if (Program.WorkMode == 1)
                 {
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
                     string attribute1 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute1) > 0)
-                        Module1.Techspec.Seg2.Name = attribute1;
+                        Program.Techspec.Seg2.Name = attribute1;
                     MyReader.MoveToAttribute(1);
                     string attribute2 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute2) > 0)
-                        Module1.Techspec.Seg2.Club = attribute2;
+                        Program.Techspec.Seg2.Club = attribute2;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
                     string attribute3 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute3) > 0)
-                        Module1.Controller.Seg2.Name = attribute3;
+                        Program.Controller.Seg2.Name = attribute3;
                     MyReader.MoveToAttribute(1);
                     string attribute4 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute4) > 0)
-                        Module1.Controller.Seg2.Club = attribute4;
+                        Program.Controller.Seg2.Club = attribute4;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
                     string attribute5 = MyReader.GetAttribute(0);
                     if (Strings.Len(attribute5) > 0)
-                        Module1.Referee.Seg2.Name = attribute5;
+                        Program.Referee.Seg2.Name = attribute5;
                     MyReader.MoveToAttribute(1);
                     string attribute6 = MyReader.GetAttribute(1);
                     if (Strings.Len(attribute6) > 0)
-                        Module1.Referee.Seg2.Club = attribute6;
+                        Program.Referee.Seg2.Club = attribute6;
                     MyReader.MoveToElement();
                     int index1 = 1;
                     do
@@ -877,11 +877,11 @@ namespace ClubCompFS
                         MyReader.MoveToAttribute(0);
                         string attribute7 = MyReader.GetAttribute(0);
                         if (Strings.Len(attribute7) > 0)
-                            Module1.Judge[index1].Seg2.Name = attribute7;
+                            Program.Judge[index1].Seg2.Name = attribute7;
                         MyReader.MoveToAttribute(1);
                         string attribute8 = MyReader.GetAttribute(1);
                         if (Strings.Len(attribute8) > 0)
-                            Module1.Judge[index1].Seg2.Club = attribute8;
+                            Program.Judge[index1].Seg2.Club = attribute8;
                         MyReader.MoveToElement();
                         checked { ++index1; }
                     }
@@ -894,11 +894,11 @@ namespace ClubCompFS
                         MyReader.MoveToAttribute(0);
                         string attribute9 = MyReader.GetAttribute(0);
                         if (Strings.Len(attribute9) > 0)
-                            Module1.DVO[index2].Seg2.Name = attribute9;
+                            Program.DVO[index2].Seg2.Name = attribute9;
                         MyReader.MoveToAttribute(1);
                         string attribute10 = MyReader.GetAttribute(1);
                         if (Strings.Len(attribute10) > 0)
-                            Module1.DVO[index2].Seg2.Club = attribute10;
+                            Program.DVO[index2].Seg2.Club = attribute10;
                         MyReader.MoveToElement();
                         checked { ++index2; }
                     }
@@ -909,21 +909,21 @@ namespace ClubCompFS
                 {
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
-                    Module1.Techspec.Seg2.Name = MyReader.GetAttribute(0);
+                    Program.Techspec.Seg2.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Techspec.Seg2.Club = MyReader.GetAttribute(1);
+                    Program.Techspec.Seg2.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
-                    Module1.Controller.Seg2.Name = MyReader.GetAttribute(0);
+                    Program.Controller.Seg2.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Controller.Seg2.Club = MyReader.GetAttribute(1);
+                    Program.Controller.Seg2.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
-                    Module1.Referee.Seg2.Name = MyReader.GetAttribute(0);
+                    Program.Referee.Seg2.Name = MyReader.GetAttribute(0);
                     MyReader.MoveToAttribute(1);
-                    Module1.Referee.Seg2.Club = MyReader.GetAttribute(1);
+                    Program.Referee.Seg2.Club = MyReader.GetAttribute(1);
                     MyReader.MoveToElement();
                     int index3 = 1;
                     do
@@ -931,9 +931,9 @@ namespace ClubCompFS
                         string name = "Judge" + Conversions.ToString(index3);
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
-                        Module1.Judge[index3].Seg2.Name = MyReader.GetAttribute(0);
+                        Program.Judge[index3].Seg2.Name = MyReader.GetAttribute(0);
                         MyReader.MoveToAttribute(1);
-                        Module1.Judge[index3].Seg2.Club = MyReader.GetAttribute(1);
+                        Program.Judge[index3].Seg2.Club = MyReader.GetAttribute(1);
                         MyReader.MoveToElement();
                         checked { ++index3; }
                     }
@@ -944,9 +944,9 @@ namespace ClubCompFS
                         string name = "DVO" + Conversions.ToString(index4);
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
-                        Module1.DVO[index4].Seg2.Name = MyReader.GetAttribute(0);
+                        Program.DVO[index4].Seg2.Name = MyReader.GetAttribute(0);
                         MyReader.MoveToAttribute(1);
-                        Module1.DVO[index4].Seg2.Club = MyReader.GetAttribute(1);
+                        Program.DVO[index4].Seg2.Club = MyReader.GetAttribute(1);
                         MyReader.MoveToElement();
                         checked { ++index4; }
                     }
@@ -979,29 +979,29 @@ namespace ClubCompFS
                 num1 = 2;
                 MyReader.ReadToFollowing("Organizer");
                 MyReader.MoveToAttribute(0);
-                Module1.Organizer.Name = Strings.Trim(MyReader.GetAttribute(0));
+                Program.Organizer.Name = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Organizer.ID = Strings.Trim(MyReader.GetAttribute(1));
+                Program.Organizer.ID = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Competition");
                 MyReader.MoveToAttribute(0);
-                Module1.Competition.Name = Strings.Trim(MyReader.GetAttribute(0));
+                Program.Competition.Name = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Competition.Type = Strings.Trim(MyReader.GetAttribute(1));
+                Program.Competition.Type = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Competition.ID = Strings.Trim(MyReader.GetAttribute(2));
+                Program.Competition.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Category");
-                Module1.Category.Name = Strings.Trim(MyReader.ReadString());
+                Program.Category.Name = Strings.Trim(MyReader.ReadString());
                 MyReader.ReadToFollowing("Subcategory");
-                Module1.SubCategory = Strings.Trim(MyReader.ReadString());
+                Program.SubCategory = Strings.Trim(MyReader.ReadString());
                 MyReader.ReadToFollowing("IndTA");
                 MyReader.MoveToAttribute(0);
-                Module1.Category.IndTADiscipline = Strings.Trim(MyReader.GetAttribute(0));
+                Program.Category.IndTADiscipline = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Category.IndTAClass = Strings.Trim(MyReader.GetAttribute(1));
+                Program.Category.IndTAClass = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Category.ID = Strings.Trim(MyReader.GetAttribute(2));
+                Program.Category.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 goto label_7;
             }
@@ -1030,78 +1030,78 @@ namespace ClubCompFS
                 num1 = 2;
                 MyReader.ReadToFollowing("Startno");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].Startno_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].Startno_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].Startno_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].Startno_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("WarmUpGr");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].WarmUp_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].WarmUp_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].WarmUp_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].WarmUp_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Skater");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].Name.FName = Strings.Trim(MyReader.GetAttribute(0));
+                Program.Vek[i].Name.FName = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].Name.LName = Strings.Trim(MyReader.GetAttribute(1));
+                Program.Vek[i].Name.LName = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Vek[i].Name.ID = Strings.Trim(MyReader.GetAttribute(2));
+                Program.Vek[i].Name.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Club");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].Club = Strings.Trim(MyReader.GetAttribute(0));
+                Program.Vek[i].Club = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].ClubID = Strings.Trim(MyReader.GetAttribute(1));
+                Program.Vek[i].ClubID = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Seg1");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].TES_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(0));
+                Program.Vek[i].TES_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].PCS_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(1));
+                Program.Vek[i].PCS_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Vek[i].Score_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(2));
+                Program.Vek[i].Score_Seg1 = Conversions.ToDouble(MyReader.GetAttribute(2));
                 MyReader.MoveToAttribute(3);
-                Module1.Vek[i].Finished_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(3));
+                Program.Vek[i].Finished_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(3));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Seg2");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].TES_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(0));
+                Program.Vek[i].TES_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].PCS_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(1));
+                Program.Vek[i].PCS_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Vek[i].Score_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(2));
+                Program.Vek[i].Score_Seg2 = Conversions.ToDouble(MyReader.GetAttribute(2));
                 MyReader.MoveToAttribute(3);
-                Module1.Vek[i].Finished_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(3));
+                Program.Vek[i].Finished_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(3));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("ScoreFinal");
-                Module1.Vek[i].Score_Total = Conversions.ToDouble(MyReader.ReadString());
+                Program.Vek[i].Score_Total = Conversions.ToDouble(MyReader.ReadString());
                 MyReader.ReadToFollowing("Place");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].Place_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].Place_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].Place_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].Place_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Module1.Vek[i].Place = Conversions.ToInteger(MyReader.GetAttribute(2));
+                Program.Vek[i].Place = Conversions.ToInteger(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("DNS");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].DNS_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].DNS_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].DNS_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].DNS_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("HTindex");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].HTIndSeg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].HTIndSeg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].HTIndSeg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].HTIndSeg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("ElSeg1");
                 string[] strArray1 = MyReader.ReadString().Split('|');
                 int index1 = 1;
                 do
                 {
-                    Module1.Vek[i].SSS_Seg1[index1] = strArray1[checked(index1 - 1)];
+                    Program.Vek[i].SSS_Seg1[index1] = strArray1[checked(index1 - 1)];
                     checked { ++index1; }
                 }
                 while (index1 <= 15);
@@ -1110,7 +1110,7 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    Module1.Vek[i].SSS_Seg2[index2] = strArray2[checked(index2 - 1)];
+                    Program.Vek[i].SSS_Seg2[index2] = strArray2[checked(index2 - 1)];
                     checked { ++index2; }
                 }
                 while (index2 <= 15);
@@ -1123,7 +1123,7 @@ namespace ClubCompFS
                     int index4 = 1;
                     do
                     {
-                        Module1.Vek[i].J_Seg1.EE[index4, index3] = Conversions.ToInteger(strArray3[checked(index4 - 1)]);
+                        Program.Vek[i].J_Seg1.EE[index4, index3] = Conversions.ToInteger(strArray3[checked(index4 - 1)]);
                         checked { ++index4; }
                     }
                     while (index4 <= 15);
@@ -1139,7 +1139,7 @@ namespace ClubCompFS
                     int index6 = 1;
                     do
                     {
-                        Module1.Vek[i].J_Seg2.EE[index6, index5] = Conversions.ToInteger(strArray4[checked(index6 - 1)]);
+                        Program.Vek[i].J_Seg2.EE[index6, index5] = Conversions.ToInteger(strArray4[checked(index6 - 1)]);
                         checked { ++index6; }
                     }
                     while (index6 <= 15);
@@ -1155,7 +1155,7 @@ namespace ClubCompFS
                     int index8 = 1;
                     do
                     {
-                        Module1.Vek[i].J_Seg1.PC[index8, index7] = Conversions.ToDouble(strArray5[checked(index8 - 1)]);
+                        Program.Vek[i].J_Seg1.PC[index8, index7] = Conversions.ToDouble(strArray5[checked(index8 - 1)]);
                         checked { ++index8; }
                     }
                     while (index8 <= 5);
@@ -1171,7 +1171,7 @@ namespace ClubCompFS
                     int index10 = 1;
                     do
                     {
-                        Module1.Vek[i].J_Seg2.PC[index10, index9] = Conversions.ToDouble(strArray6[checked(index10 - 1)]);
+                        Program.Vek[i].J_Seg2.PC[index10, index9] = Conversions.ToDouble(strArray6[checked(index10 - 1)]);
                         checked { ++index10; }
                     }
                     while (index10 <= 5);
@@ -1182,11 +1182,11 @@ namespace ClubCompFS
                 MyReader.MoveToAttribute(0);
                 string attribute1 = MyReader.GetAttribute(0);
                 if (Strings.Len(attribute1) > 0)
-                    Module1.Vek[i].Deductions_Seg1 = Conversions.ToLong(attribute1);
+                    Program.Vek[i].Deductions_Seg1 = Conversions.ToLong(attribute1);
                 MyReader.MoveToAttribute(1);
                 string attribute2 = MyReader.GetAttribute(1);
                 if (Strings.Len(attribute2) > 0)
-                    Module1.Vek[i].Deductions_Seg2 = Conversions.ToLong(attribute2);
+                    Program.Vek[i].Deductions_Seg2 = Conversions.ToLong(attribute2);
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("MajDeductions");
                 MyReader.MoveToAttribute(0);
@@ -1194,7 +1194,7 @@ namespace ClubCompFS
                 int index11 = 1;
                 do
                 {
-                    Module1.Vek[i].J_Seg1.Deduction[index11] = Conversions.ToLong(strArray7[checked(index11 - 1)]);
+                    Program.Vek[i].J_Seg1.Deduction[index11] = Conversions.ToLong(strArray7[checked(index11 - 1)]);
                     checked { ++index11; }
                 }
                 while (index11 <= 7);
@@ -1203,7 +1203,7 @@ namespace ClubCompFS
                 int index12 = 1;
                 do
                 {
-                    Module1.Vek[i].J_Seg2.Deduction[index12] = Conversions.ToLong(strArray8[checked(index12 - 1)]);
+                    Program.Vek[i].J_Seg2.Deduction[index12] = Conversions.ToLong(strArray8[checked(index12 - 1)]);
                     checked { ++index12; }
                 }
                 while (index12 <= 7);
@@ -1212,17 +1212,17 @@ namespace ClubCompFS
                 MyReader.MoveToAttribute(0);
                 string attribute3 = MyReader.GetAttribute(0);
                 if (Strings.Len(attribute3) > 0)
-                    Module1.Vek[i].Falls_seg1 = Conversions.ToInteger(attribute3);
+                    Program.Vek[i].Falls_seg1 = Conversions.ToInteger(attribute3);
                 MyReader.MoveToAttribute(1);
                 string attribute4 = MyReader.GetAttribute(1);
                 if (Strings.Len(attribute4) > 0)
-                    Module1.Vek[i].Falls_seg2 = Conversions.ToInteger(attribute4);
+                    Program.Vek[i].Falls_seg2 = Conversions.ToInteger(attribute4);
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Bonus");
                 MyReader.MoveToAttribute(0);
-                Module1.Vek[i].Bonus_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
+                Program.Vek[i].Bonus_Seg1 = Conversions.ToInteger(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Module1.Vek[i].Bonus_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
+                Program.Vek[i].Bonus_Seg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 goto label_39;
             }
@@ -1243,9 +1243,9 @@ namespace ClubCompFS
 
         public static void SaveCategoryFile(string MySender)
         {
-            if (Strings.Len(Module1.Competition.Name) > 0)
+            if (Strings.Len(Program.Competition.Name) > 0)
             {
-                string str = Strings.UCase(Module1.StrConv(Module1.Competition.Name + "_" + Module1.Category.Name + Module1.SubCat_()));
+                string str = Strings.UCase(Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_()));
                 if (!Strings.UCase(MySender).Contains(str))
                 {
                     if (Interaction.MsgBox((object)"The Competition or Category is new or has been changed!\r\n\r\nDo you want to save the file?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
@@ -1261,7 +1261,7 @@ namespace ClubCompFS
                 {
                     if (Strings.Len(MySender) <= 1)
                         return;
-                    Module1.CreateCategoryFile(MySender);
+                    Program.CreateCategoryFile(MySender);
                 }
             }
             else
@@ -1282,7 +1282,7 @@ namespace ClubCompFS
                 string[] strArray4 = new string[8];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.CategoryFileSaved = false;
+                Program.CategoryFileSaved = false;
                 string pResSeg1 = "";
                 string pMSeg1 = "";
                 string pResSeg2 = "";
@@ -1290,10 +1290,10 @@ namespace ClubCompFS
                 int index1 = 1;
                 do
                 {
-                    pResSeg1 += Conversions.ToString(Module1.IceArr_Seg1[index1]);
-                    pMSeg1 += Conversions.ToString(Module1.LunchArr_Seg1[index1]);
-                    pResSeg2 += Conversions.ToString(Module1.IceArr_Seg2[index1]);
-                    pMSeg2 += Conversions.ToString(Module1.LunchArr_Seg2[index1]);
+                    pResSeg1 += Conversions.ToString(Program.IceArr_Seg1[index1]);
+                    pMSeg1 += Conversions.ToString(Program.LunchArr_Seg1[index1]);
+                    pResSeg2 += Conversions.ToString(Program.IceArr_Seg2[index1]);
+                    pMSeg2 += Conversions.ToString(Program.LunchArr_Seg2[index1]);
                     if (index1 < 7)
                     {
                         pResSeg1 += "|";
@@ -1311,53 +1311,53 @@ namespace ClubCompFS
                 writer.Formatting = Formatting.Indented;
                 writer.Indentation = 2;
                 writer.WriteStartElement("ClubCompDB10");
-                Module1.createNode1(Module1.Organizer.Name, Module1.Organizer.ID, Module1.Competition.Name, Module1.Competition.ID, Module1.Competition.Type, Module1.Category.Name, Module1.SubCategory, Module1.Category.ID, Module1.Category.IndTADiscipline, Module1.Category.IndTAClass, writer);
+                Program.createNode1(Program.Organizer.Name, Program.Organizer.ID, Program.Competition.Name, Program.Competition.ID, Program.Competition.Type, Program.Category.Name, Program.SubCategory, Program.Category.ID, Program.Category.IndTADiscipline, Program.Category.IndTAClass, writer);
                 writer.WriteStartElement("ClassCategory");
                 writer.WriteElementString("Discipline", "Single");
                 writer.WriteStartElement("Officials");
-                Module1.createNode2(Module1.Techspec.Seg1.Name, Module1.Techspec.Seg1.Club, Module1.Controller.Seg1.Name, Module1.Controller.Seg1.Club, Module1.Referee.Seg1.Name, Module1.Referee.Seg1.Club, writer);
+                Program.createNode2(Program.Techspec.Seg1.Name, Program.Techspec.Seg1.Club, Program.Controller.Seg1.Name, Program.Controller.Seg1.Club, Program.Referee.Seg1.Name, Program.Referee.Seg1.Club, writer);
                 int pi1 = 1;
                 do
                 {
-                    Module1.createNode3(checked((short)pi1), Module1.Judge[pi1].Seg1.Name, Module1.Judge[pi1].Seg1.Club, writer);
+                    Program.createNode3(checked((short)pi1), Program.Judge[pi1].Seg1.Name, Program.Judge[pi1].Seg1.Club, writer);
                     checked { ++pi1; }
                 }
                 while (pi1 <= 7);
                 int pi2 = 1;
                 do
                 {
-                    Module1.createNode4(checked((short)pi2), Module1.DVO[pi2].Seg1.Name, Module1.DVO[pi2].Seg1.Club, writer);
+                    Program.createNode4(checked((short)pi2), Program.DVO[pi2].Seg1.Name, Program.DVO[pi2].Seg1.Club, writer);
                     checked { ++pi2; }
                 }
                 while (pi2 <= 3);
                 writer.WriteEndElement();
                 writer.WriteStartElement("Officials2");
-                Module1.createNode2(Module1.Techspec.Seg2.Name, Module1.Techspec.Seg2.Club, Module1.Controller.Seg2.Name, Module1.Controller.Seg2.Club, Module1.Referee.Seg2.Name, Module1.Referee.Seg2.Club, writer);
+                Program.createNode2(Program.Techspec.Seg2.Name, Program.Techspec.Seg2.Club, Program.Controller.Seg2.Name, Program.Controller.Seg2.Club, Program.Referee.Seg2.Name, Program.Referee.Seg2.Club, writer);
                 int pi3 = 1;
                 do
                 {
-                    Module1.createNode3(checked((short)pi3), Module1.Judge[pi3].Seg2.Name, Module1.Judge[pi3].Seg2.Club, writer);
+                    Program.createNode3(checked((short)pi3), Program.Judge[pi3].Seg2.Name, Program.Judge[pi3].Seg2.Club, writer);
                     checked { ++pi3; }
                 }
                 while (pi3 <= 7);
                 int pi4 = 1;
                 do
                 {
-                    Module1.createNode4(checked((short)pi4), Module1.DVO[pi4].Seg2.Name, Module1.DVO[pi4].Seg2.Club, writer);
+                    Program.createNode4(checked((short)pi4), Program.DVO[pi4].Seg2.Name, Program.DVO[pi4].Seg2.Club, writer);
                     checked { ++pi4; }
                 }
                 while (pi4 <= 3);
                 writer.WriteEndElement();
-                string pRemSeg1 = !Module1.RemWarmupTimeSeg1 ? "0" : "1";
-                string pRemSeg2 = !Module1.RemWarmupTimeSeg2 ? "0" : "1";
-                Module1.createNode5(Conversions.ToString(Module1.Datum.Seg1), Conversions.ToString(Module1.Datum.Seg2), Module1.Datum.Seg1Start, Module1.Datum.Seg2Start, pRemSeg1, pRemSeg2, Conversions.ToString(Module1.TNop), Conversions.ToString(Module1.NoJ_Seg1), Conversions.ToString(Module1.NoJ_Seg2), Conversions.ToString(Module1.NoTrJ_Seg1), Conversions.ToString(Module1.NoTrJ_Seg2), Conversions.ToString(Module1.JudgeSel_Seg1), Conversions.ToString(Module1.JudgeSel_Seg2), Conversions.ToString(Module1.WupG_Seg1), Conversions.ToString(Module1.WupG_Seg2), pResSeg1, pMSeg1, pResSeg2, pMSeg2, Module1.IceCondition, Module1.IceArea, writer);
-                if (Module1.TNop > 0)
+                string pRemSeg1 = !Program.RemWarmupTimeSeg1 ? "0" : "1";
+                string pRemSeg2 = !Program.RemWarmupTimeSeg2 ? "0" : "1";
+                Program.createNode5(Conversions.ToString(Program.Datum.Seg1), Conversions.ToString(Program.Datum.Seg2), Program.Datum.Seg1Start, Program.Datum.Seg2Start, pRemSeg1, pRemSeg2, Conversions.ToString(Program.TNop), Conversions.ToString(Program.NoJ_Seg1), Conversions.ToString(Program.NoJ_Seg2), Conversions.ToString(Program.NoTrJ_Seg1), Conversions.ToString(Program.NoTrJ_Seg2), Conversions.ToString(Program.JudgeSel_Seg1), Conversions.ToString(Program.JudgeSel_Seg2), Conversions.ToString(Program.WupG_Seg1), Conversions.ToString(Program.WupG_Seg2), pResSeg1, pMSeg1, pResSeg2, pMSeg2, Program.IceCondition, Program.IceArea, writer);
+                if (Program.TNop > 0)
                 {
-                    int tnop = Module1.TNop;
+                    int tnop = Program.TNop;
                     int num3 = 1;
                     while (num3 <= tnop)
                     {
-                        Module1.Participant[] vek = Module1.Vek;
+                        Program.Participant[] vek = Program.Vek;
                         int index2 = num3;
                         string pElSeg1 = "";
                         string pElSeg2 = "";
@@ -1402,8 +1402,8 @@ namespace ClubCompFS
                             int index7 = 1;
                             do
                             {
-                                strArray7[index6] = strArray7[index6] + Module1.CCstr(vek[index2].J_Seg1.PC[index7, index6]);
-                                strArray8[index6] = strArray8[index6] + Module1.CCstr(vek[index2].J_Seg2.PC[index7, index6]);
+                                strArray7[index6] = strArray7[index6] + Program.CCstr(vek[index2].J_Seg1.PC[index7, index6]);
+                                strArray8[index6] = strArray8[index6] + Program.CCstr(vek[index2].J_Seg2.PC[index7, index6]);
                                 if (index7 < 15)
                                 {
                                     strArray7[index6] = strArray7[index6] + "|";
@@ -1430,7 +1430,7 @@ namespace ClubCompFS
                             checked { ++index8; }
                         }
                         while (index8 <= 7);
-                        Module1.createNode6(Conversions.ToString(vek[index2].Startno_Seg1), Conversions.ToString(vek[index2].Startno_Seg2), Conversions.ToString(vek[index2].WarmUp_Seg1), Conversions.ToString(vek[index2].WarmUp_Seg2), vek[index2].Name.FName, vek[index2].Name.LName, vek[index2].Name.ID, vek[index2].Club, vek[index2].ClubID, Conversions.ToString(vek[index2].TES_Seg1), Conversions.ToString(vek[index2].PCS_Seg1), Conversions.ToString(vek[index2].Score_Seg1), Conversions.ToString(vek[index2].TES_Seg2), Conversions.ToString(vek[index2].PCS_Seg2), Conversions.ToString(vek[index2].Score_Seg2), Conversions.ToString(vek[index2].Score_Total), Conversions.ToString(vek[index2].Finished_Seg1), Conversions.ToString(vek[index2].Finished_Seg2), Conversions.ToString(vek[index2].Place_Seg1), Conversions.ToString(vek[index2].Place_Seg2), Conversions.ToString(vek[index2].Place), Conversions.ToString(vek[index2].DNS_Seg1), Conversions.ToString(vek[index2].DNS_Seg2), Conversions.ToString(vek[index2].HTIndSeg1), Conversions.ToString(vek[index2].HTIndSeg2), pElSeg1, pElSeg2, strArray5[1], strArray5[2], strArray5[3], strArray5[4], strArray5[5], strArray5[6], strArray5[7], strArray6[1], strArray6[2], strArray6[3], strArray6[4], strArray6[5], strArray6[6], strArray6[7], strArray7[1], strArray7[2], strArray7[3], strArray7[4], strArray7[5], strArray7[6], strArray7[7], strArray8[1], strArray8[2], strArray8[3], strArray8[4], strArray8[5], strArray8[6], strArray8[7], Conversions.ToString(vek[index2].Deductions_Seg1), Conversions.ToString(vek[index2].Deductions_Seg2), pMajSeg1, pMajSeg2, Conversions.ToString(vek[index2].Falls_seg1), Conversions.ToString(vek[index2].Falls_seg2), Conversions.ToString(vek[index2].Bonus_Seg1), Conversions.ToString(vek[index2].Bonus_Seg2), writer);
+                        Program.createNode6(Conversions.ToString(vek[index2].Startno_Seg1), Conversions.ToString(vek[index2].Startno_Seg2), Conversions.ToString(vek[index2].WarmUp_Seg1), Conversions.ToString(vek[index2].WarmUp_Seg2), vek[index2].Name.FName, vek[index2].Name.LName, vek[index2].Name.ID, vek[index2].Club, vek[index2].ClubID, Conversions.ToString(vek[index2].TES_Seg1), Conversions.ToString(vek[index2].PCS_Seg1), Conversions.ToString(vek[index2].Score_Seg1), Conversions.ToString(vek[index2].TES_Seg2), Conversions.ToString(vek[index2].PCS_Seg2), Conversions.ToString(vek[index2].Score_Seg2), Conversions.ToString(vek[index2].Score_Total), Conversions.ToString(vek[index2].Finished_Seg1), Conversions.ToString(vek[index2].Finished_Seg2), Conversions.ToString(vek[index2].Place_Seg1), Conversions.ToString(vek[index2].Place_Seg2), Conversions.ToString(vek[index2].Place), Conversions.ToString(vek[index2].DNS_Seg1), Conversions.ToString(vek[index2].DNS_Seg2), Conversions.ToString(vek[index2].HTIndSeg1), Conversions.ToString(vek[index2].HTIndSeg2), pElSeg1, pElSeg2, strArray5[1], strArray5[2], strArray5[3], strArray5[4], strArray5[5], strArray5[6], strArray5[7], strArray6[1], strArray6[2], strArray6[3], strArray6[4], strArray6[5], strArray6[6], strArray6[7], strArray7[1], strArray7[2], strArray7[3], strArray7[4], strArray7[5], strArray7[6], strArray7[7], strArray8[1], strArray8[2], strArray8[3], strArray8[4], strArray8[5], strArray8[6], strArray8[7], Conversions.ToString(vek[index2].Deductions_Seg1), Conversions.ToString(vek[index2].Deductions_Seg2), pMajSeg1, pMajSeg2, Conversions.ToString(vek[index2].Falls_seg1), Conversions.ToString(vek[index2].Falls_seg2), Conversions.ToString(vek[index2].Bonus_Seg1), Conversions.ToString(vek[index2].Bonus_Seg2), writer);
                         checked { ++num3; }
                     }
                     writer.WriteEndElement();
@@ -1439,7 +1439,7 @@ namespace ClubCompFS
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
                 writer.Close();
-                Module1.CategoryFileSaved = true;
+                Program.CategoryFileSaved = true;
                 goto label_47;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1453,7 +1453,7 @@ namespace ClubCompFS
                     int num4 = (int)Interaction.MsgBox((object)("CreateCategoryFile - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     break;
                 case 3:
-                    Module1.CategoryFileSaved = true;
+                    Program.CategoryFileSaved = true;
                     goto case 2;
             }
         label_47:
@@ -1900,7 +1900,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.OpenDBLastWriteTime = new FileInfo(File).LastWriteTime;
+                Program.OpenDBLastWriteTime = new FileInfo(File).LastWriteTime;
                 int i;
                 using (XmlReader MyReader = XmlReader.Create(File))
                 {
@@ -1911,22 +1911,22 @@ namespace ClubCompFS
                         {
                             string name = MyReader.Name;
                             if (Operators.CompareString(name, "OpenDBversion", false) == 0)
-                                Module1.ParseOpenDBVersion(MyReader);
+                                Program.ParseOpenDBVersion(MyReader);
                             else if (Operators.CompareString(name, "Category", false) == 0)
                             {
-                                Module1.OpenDBType[] openDb = Module1.OpenDB;
+                                Program.OpenDBType[] openDb = Program.OpenDB;
                                 int index = i;
                                 openDb[index].PCFactorsSeg1 = new double[6];
                                 openDb[index].PCFactorsSeg2 = new double[6];
                                 openDb[index].HT_Bonus_Calc = new int[3];
                                 openDb[index].ElementTest = new int[8];
-                                Module1.ParseOpenDBCategory(MyReader, i);
+                                Program.ParseOpenDBCategory(MyReader, i);
                                 checked { ++i; }
                             }
                         }
                     }
                 }
-                Module1.NoOfCategory = i;
+                Program.NoOfCategory = i;
                 goto label_18;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1953,7 +1953,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 MyReader.ReadToFollowing("Version");
-                Module1.OpenDBver = MyReader.ReadString();
+                Program.OpenDBver = MyReader.ReadString();
                 goto label_7;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1980,27 +1980,27 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 MyReader.ReadToFollowing("Name");
-                Module1.OpenDB[i].Category = MyReader.ReadString();
+                Program.OpenDB[i].Category = MyReader.ReadString();
                 MyReader.ReadToFollowing("Warmup");
-                Module1.OpenDB[i].Warmup = MyReader.ReadString();
+                Program.OpenDB[i].Warmup = MyReader.ReadString();
                 MyReader.ReadToFollowing("Segments");
                 string[] strArray1 = MyReader.ReadString().Split('|');
-                Module1.OpenDB[i].Segment_1 = Strings.Trim(Strings.UCase(strArray1[0]));
-                Module1.OpenDB[i].Segment_2 = Strings.Trim(Strings.UCase(strArray1[1]));
+                Program.OpenDB[i].Segment_1 = Strings.Trim(Strings.UCase(strArray1[0]));
+                Program.OpenDB[i].Segment_2 = Strings.Trim(Strings.UCase(strArray1[1]));
                 MyReader.ReadToFollowing("TimeValues");
                 string[] strArray2 = MyReader.ReadString().Split('|');
-                Module1.OpenDB[i].Seg1Time = strArray2[0];
-                Module1.OpenDB[i].Seg2Time = strArray2[1];
-                Module1.OpenDB[i].JudgeSeg1Time = strArray2[2];
-                Module1.OpenDB[i].JudgeSeg2Time = strArray2[3];
+                Program.OpenDB[i].Seg1Time = strArray2[0];
+                Program.OpenDB[i].Seg2Time = strArray2[1];
+                Program.OpenDB[i].JudgeSeg1Time = strArray2[2];
+                Program.OpenDB[i].JudgeSeg2Time = strArray2[3];
                 MyReader.ReadToFollowing("GrSize");
-                Module1.OpenDB[i].GrSize = Conversions.ToInteger(MyReader.ReadString());
+                Program.OpenDB[i].GrSize = Conversions.ToInteger(MyReader.ReadString());
                 MyReader.ReadToFollowing("PCFactorsSeg1");
                 string[] strArray3 = MyReader.ReadString().Split('|');
                 int index1 = 1;
                 do
                 {
-                    Module1.OpenDB[i].PCFactorsSeg1[index1] = Conversions.ToDouble(strArray3[checked(index1 - 1)]);
+                    Program.OpenDB[i].PCFactorsSeg1[index1] = Conversions.ToDouble(strArray3[checked(index1 - 1)]);
                     checked { ++index1; }
                 }
                 while (index1 <= 5);
@@ -2009,20 +2009,20 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    Module1.OpenDB[i].PCFactorsSeg2[index2] = Conversions.ToDouble(strArray4[checked(index2 - 1)]);
+                    Program.OpenDB[i].PCFactorsSeg2[index2] = Conversions.ToDouble(strArray4[checked(index2 - 1)]);
                     checked { ++index2; }
                 }
                 while (index2 <= 5);
                 MyReader.ReadToFollowing("DedFall");
-                Module1.OpenDB[i].DedFall = Conversions.ToDouble(MyReader.ReadString());
+                Program.OpenDB[i].DedFall = Conversions.ToDouble(MyReader.ReadString());
                 MyReader.ReadToFollowing("DedInter");
-                Module1.OpenDB[i].DedInter = Conversions.ToDouble(MyReader.ReadString());
+                Program.OpenDB[i].DedInter = Conversions.ToDouble(MyReader.ReadString());
                 MyReader.ReadToFollowing("HalfTimeCalc");
                 string[] strArray5 = MyReader.ReadString().Split('|');
                 int index3 = 1;
                 do
                 {
-                    Module1.OpenDB[i].HT_Bonus_Calc[index3] = Conversions.ToInteger(strArray5[checked(index3 - 1)]);
+                    Program.OpenDB[i].HT_Bonus_Calc[index3] = Conversions.ToInteger(strArray5[checked(index3 - 1)]);
                     checked { ++index3; }
                 }
                 while (index3 <= 2);
@@ -2031,27 +2031,27 @@ namespace ClubCompFS
                 int index4 = 1;
                 do
                 {
-                    Module1.OpenDB[i].ElementTest[index4] = Conversions.ToInteger(strArray6[checked(index4 - 1)]);
+                    Program.OpenDB[i].ElementTest[index4] = Conversions.ToInteger(strArray6[checked(index4 - 1)]);
                     checked { ++index4; }
                 }
                 while (index4 <= 7);
                 MyReader.ReadToFollowing("AllowedJump");
                 string[] strArray7 = MyReader.ReadString().Split('|');
-                Module1.OpenDB[i].AllowedJumps = new string[strArray7.Length];
+                Program.OpenDB[i].AllowedJumps = new string[strArray7.Length];
                 int index5 = 0;
                 do
                 {
-                    Module1.OpenDB[i].AllowedJumps[index5] = strArray7[index5];
+                    Program.OpenDB[i].AllowedJumps[index5] = strArray7[index5];
                     checked { ++index5; }
                 }
                 while (index5 < strArray7.Length);
                 MyReader.ReadToFollowing("AllowedSpin");
                 string[] strArray8 = MyReader.ReadString().Split('|');
-                Module1.OpenDB[i].AllowedSps = new string[strArray8.Length];
+                Program.OpenDB[i].AllowedSps = new string[strArray8.Length];
                 int index6 = 0;
                 do
                 {
-                    Module1.OpenDB[i].AllowedSps[index6] = strArray8[index6];
+                    Program.OpenDB[i].AllowedSps[index6] = strArray8[index6];
                     checked { ++index6; }
                 }
                 while (index6 < strArray8.Length);
@@ -2075,7 +2075,7 @@ namespace ClubCompFS
         public static string GetWorkMode()
         {
             string workMode = "Not selected";
-            switch (Module1.WorkMode)
+            switch (Program.WorkMode)
             {
                 case 1:
                     workMode = "Prepare mode";
@@ -2108,12 +2108,12 @@ namespace ClubCompFS
             switch (mode)
             {
                 case 0:
-                    Module1.WorkMode = 0;
+                    Program.WorkMode = 0;
                     MyProject.Forms.MainForm.Mode.Text = "";
                     MyProject.Forms.StartListForm.Mode.Text = "";
                     break;
                 case 1:
-                    Module1.WorkMode = 1;
+                    Program.WorkMode = 1;
                     MainForm mainForm_1 = MyProject.Forms.MainForm;
                     mainForm_1.Mode.Text = "Prepare mode";
                     mainForm_1.ClearDataToolStripMenuItem.Visible = true;
@@ -2143,7 +2143,7 @@ namespace ClubCompFS
                     mainForm_1.CREATEFILESToolStripMenuItem.Visible = false;
                     mainForm_1.CREATEPDFFILESToolStripMenuItem.Visible = true;
                     mainForm_1.SHOWRESULTSToolStripMenuItem.Visible = false;
-                    string seg = Module1.GetSeg();
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0)
                         mainForm_1.COPYOFFICIALSToolStripMenuItem.Visible = true;
                     else
@@ -2165,7 +2165,7 @@ namespace ClubCompFS
                     MyProject.Forms.ElementInputForm.Panel1.Visible = false;
                     break;
                 case 2:
-                    Module1.WorkMode = 2;
+                    Program.WorkMode = 2;
                     MyProject.Forms.MainForm.Mode.Text = "Network mode";
                     MainForm mainForm_2 = MyProject.Forms.MainForm;
                     mainForm_2.StartServer();
@@ -2215,7 +2215,7 @@ namespace ClubCompFS
                     MyProject.Forms.ElementInputForm.Panel1.Visible = true;
                     break;
                 case 3:
-                    Module1.WorkMode = 3;
+                    Program.WorkMode = 3;
                     MyProject.Forms.MainForm.Mode.Text = "Manual mode";
                     MainForm mainForm_3 = MyProject.Forms.MainForm;
                     mainForm_3.Mode.Text = "Manual mode";
@@ -2277,17 +2277,17 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int index = 0;
-                while (Operators.CompareString(Module1.OpenDB[index].Category, Module1.Category.Name, false) != 0)
+                while (Operators.CompareString(Program.OpenDB[index].Category, Program.Category.Name, false) != 0)
                 {
                     checked { ++index; }
                     if (index > 80)
                     {
-                        Module1.PcIndex = -1;
+                        Program.PcIndex = -1;
                         int num3 = (int)Interaction.MsgBox((object)"Can't find the Category in OpenDB!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         return;
                     }
                 }
-                Module1.PcIndex = index;
+                Program.PcIndex = index;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -2304,55 +2304,55 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    ref Module1.Participant local1 = ref Module1.Vek[Module1.PNo];
+                    ref Program.Participant local1 = ref Program.Vek[Program.PNo];
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    ref Module1.Participant local2 = ref Module1.Vek[Module1.PNo];
+                    ref Program.Participant local2 = ref Program.Vek[Program.PNo];
                 }
-                Module1.JDarr = (string[,])null;
-                Module1.JDarr = new string[51, 15];
-                Module1.RowJD = 0;
-                if (Module1.PNo > 0 & Module1.PNo <= Module1.TNop & Module1.PNo <= 42)
+                Program.JDarr = (string[,])null;
+                Program.JDarr = new string[51, 15];
+                Program.RowJD = 0;
+                if (Program.PNo > 0 & Program.PNo <= Program.TNop & Program.PNo <= 42)
                 {
-                    Module1.A_Calc_Sum(0, 1);
+                    Program.A_Calc_Sum(0, 1);
                     JudgesDetailsForm judgesDetailsForm = MyProject.Forms.JudgesDetailsForm;
                     if (R == 0)
                         judgesDetailsForm.DataGridView1.Rows.Clear();
-                    Module1.B_Init_SheetText(0);
-                    Module1.RowJD = Module1.B_SSS_data(0);
-                    int num3 = checked(Module1.RowJD - 8);
-                    if (Module1.RowJD > 0)
+                    Program.B_Init_SheetText(0);
+                    Program.RowJD = Program.B_SSS_data(0);
+                    int num3 = checked(Program.RowJD - 8);
+                    if (Program.RowJD > 0)
                     {
-                        Module1.B_Show_GOEdata(0, Module1.RowJD);
-                        Module1.B_Show_PCfactors(0, checked(Module1.RowJD + 1));
-                        Module1.A_CalcPC(0, checked(Module1.RowJD + 2), 1);
-                        Module1.B_Show_PCdata(0, checked(Module1.RowJD + 3));
-                        Module1.B_Calc_BaseSum(0, Module1.RowJD);
-                        Module1.B_Show_Bonus(0);
-                        Module1.B_Show_Deductions(0, checked(Module1.RowJD + 9), ref rowDed);
-                        Module1.B_Show_Scores(0);
+                        Program.B_Show_GOEdata(0, Program.RowJD);
+                        Program.B_Show_PCfactors(0, checked(Program.RowJD + 1));
+                        Program.A_CalcPC(0, checked(Program.RowJD + 2), 1);
+                        Program.B_Show_PCdata(0, checked(Program.RowJD + 3));
+                        Program.B_Calc_BaseSum(0, Program.RowJD);
+                        Program.B_Show_Bonus(0);
+                        Program.B_Show_Deductions(0, checked(Program.RowJD + 9), ref rowDed);
+                        Program.B_Show_Scores(0);
                         goto label_20;
                     }
                     else
                     {
-                        string segment2 = Module1.Segment;
+                        string segment2 = Program.Segment;
                         if (Operators.CompareString(segment2, "Seg1", false) == 0)
                         {
-                            Module1.Vek[Module1.PNo].Score_Seg1 = 0.0;
-                            Module1.Vek[Module1.PNo].Deductions_Seg1 = 0L;
-                            Module1.Vek[Module1.PNo].TES_Seg1 = 0.0;
-                            Module1.Vek[Module1.PNo].PCS_Seg1 = 0.0;
+                            Program.Vek[Program.PNo].Score_Seg1 = 0.0;
+                            Program.Vek[Program.PNo].Deductions_Seg1 = 0L;
+                            Program.Vek[Program.PNo].TES_Seg1 = 0.0;
+                            Program.Vek[Program.PNo].PCS_Seg1 = 0.0;
                         }
                         else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                         {
-                            Module1.Vek[Module1.PNo].Score_Seg2 = 0.0;
-                            Module1.Vek[Module1.PNo].Deductions_Seg2 = 0L;
-                            Module1.Vek[Module1.PNo].PCS_Seg2 = 0.0;
-                            Module1.Vek[Module1.PNo].TES_Seg2 = 0.0;
+                            Program.Vek[Program.PNo].Score_Seg2 = 0.0;
+                            Program.Vek[Program.PNo].Deductions_Seg2 = 0L;
+                            Program.Vek[Program.PNo].PCS_Seg2 = 0.0;
+                            Program.Vek[Program.PNo].TES_Seg2 = 0.0;
                         }
                         int num4 = (int)Interaction.MsgBox((object)"No data available!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_20;
@@ -2378,24 +2378,24 @@ namespace ClubCompFS
 
         public static void SetNoJ()
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                Module1.NoJ_GOE = Module1.NoJ_Seg1;
-                Module1.NoTrj = Module1.NoTrJ_Seg1;
-                Module1.JudgeSel = Module1.JudgeSel_Seg1;
+                Program.NoJ_GOE = Program.NoJ_Seg1;
+                Program.NoTrj = Program.NoTrJ_Seg1;
+                Program.JudgeSel = Program.JudgeSel_Seg1;
             }
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
             {
-                Module1.NoJ_GOE = Module1.NoJ_Seg2;
-                Module1.NoTrj = Module1.NoTrJ_Seg2;
-                Module1.JudgeSel = Module1.JudgeSel_Seg2;
+                Program.NoJ_GOE = Program.NoJ_Seg2;
+                Program.NoTrj = Program.NoTrJ_Seg2;
+                Program.JudgeSel = Program.JudgeSel_Seg2;
             }
             else
             {
-                Module1.NoJ_GOE = Module1.NoJ_Seg1;
-                Module1.NoTrj = Module1.NoTrJ_Seg1;
-                Module1.JudgeSel = Module1.JudgeSel_Seg1;
+                Program.NoJ_GOE = Program.NoJ_Seg1;
+                Program.NoTrj = Program.NoTrJ_Seg1;
+                Program.JudgeSel = Program.JudgeSel_Seg1;
             }
         }
 
@@ -2407,19 +2407,19 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                double num3 = Module1.A_Calc_BV_GOE(R, Module1.A_CalcNoOfEl(), JDA);
-                double num4 = Module1.A_CalcPC(0, 0, 0);
-                double num5 = Module1.A_Calc_Bonus();
-                double num6 = Module1.DedSeg1Seg2(Module1.PNo, Module1.Segment);
-                string segment = Module1.Segment;
+                double num3 = Program.A_Calc_BV_GOE(R, Program.A_CalcNoOfEl(), JDA);
+                double num4 = Program.A_CalcPC(0, 0, 0);
+                double num5 = Program.A_Calc_Bonus();
+                double num6 = Program.DedSeg1Seg2(Program.PNo, Program.Segment);
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    double num7 = Module1.Vek[Module1.PNo].Bonus_Seg1 <= 0 ? num3 + num4 - num6 : num3 + num4 + num5 - num6;
-                    if (Module1.Vek[Module1.PNo].Finished_Seg1 == 1)
+                    double num7 = Program.Vek[Program.PNo].Bonus_Seg1 <= 0 ? num3 + num4 - num6 : num3 + num4 + num5 - num6;
+                    if (Program.Vek[Program.PNo].Finished_Seg1 == 1)
                     {
-                        Module1.Vek[Module1.PNo].Score_Seg1 = num7;
-                        Module1.Vek[Module1.PNo].TES_Seg1 = num3;
-                        Module1.Vek[Module1.PNo].PCS_Seg1 = num4;
+                        Program.Vek[Program.PNo].Score_Seg1 = num7;
+                        Program.Vek[Program.PNo].TES_Seg1 = num3;
+                        Program.Vek[Program.PNo].PCS_Seg1 = num4;
                         goto label_12;
                     }
                     else
@@ -2427,12 +2427,12 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    double num8 = Module1.Vek[Module1.PNo].Bonus_Seg2 <= 0 ? num3 + num4 - num6 : num3 + num4 + num5 - num6;
-                    if (Module1.Vek[Module1.PNo].Finished_Seg2 == 1)
+                    double num8 = Program.Vek[Program.PNo].Bonus_Seg2 <= 0 ? num3 + num4 - num6 : num3 + num4 + num5 - num6;
+                    if (Program.Vek[Program.PNo].Finished_Seg2 == 1)
                     {
-                        Module1.Vek[Module1.PNo].Score_Seg2 = num8;
-                        Module1.Vek[Module1.PNo].TES_Seg2 = num3;
-                        Module1.Vek[Module1.PNo].PCS_Seg2 = num4;
+                        Program.Vek[Program.PNo].Score_Seg2 = num8;
+                        Program.Vek[Program.PNo].TES_Seg2 = num3;
+                        Program.Vek[Program.PNo].PCS_Seg2 = num4;
                         goto label_12;
                     }
                     else
@@ -2507,19 +2507,19 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElArr = (Module1.El_type[])null;
-                Module1.ElArr = new Module1.El_type[31];
+                Program.ElArr = (Program.El_type[])null;
+                Program.ElArr = new Program.El_type[31];
                 string[] strArray = StringEl.Split('+');
                 string str = !strArray[0].Contains("*") ? strArray[0] : Strings.Replace(strArray[0], "*", "");
                 if (str.Contains("!"))
                     str = Strings.Replace(str, " !", "");
                 flag = false;
-                int jumpmin = Module1.Jumpmin;
-                int jumpMax = Module1.JumpMax;
+                int jumpmin = Program.Jumpmin;
+                int jumpMax = Program.JumpMax;
                 int index = jumpmin;
                 while (index <= jumpMax)
                 {
-                    if (Operators.ConditionalCompareObjectEqual((object)str, Module1.ElDB[index, 0], false))
+                    if (Operators.ConditionalCompareObjectEqual((object)str, Program.ElDB[index, 0], false))
                     {
                         flag = true;
                         break;
@@ -2552,33 +2552,33 @@ namespace ClubCompFS
             int num3 = 0;
             try
             {
-                int elDbmax = Module1.ElDBmax;
+                int elDbmax = Program.ElDBmax;
                 double[] numArray1 = new double[41];
                 double[] numArray2 = new double[50];
                 double[] numArray3 = new double[41];
                 int[] numArray4 = new int[16];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElErrorArr = (int[])null;
-                Module1.ElErrorArr = new int[31];
+                Program.ElErrorArr = (int[])null;
+                Program.ElErrorArr = new int[31];
                 int[] numArray5 = new int[16];
                 num2 = 0.0;
-                if (Module1.NoJ_GOE != 0)
+                if (Program.NoJ_GOE != 0)
                 {
                     int num4 = 0;
                     int index1 = NoOfEE;
                     while (index1 >= 1)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            if (Module1.FindJumpEl(Module1.Vek[Module1.PNo].SSS_Seg1[index1]) && num4 < 1)
+                            if (Program.FindJumpEl(Program.Vek[Program.PNo].SSS_Seg1[index1]) && num4 < 1)
                             {
                                 checked { ++num4; }
                                 numArray5[index1] = num4;
                             }
                         }
-                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Module1.FindJumpEl(Module1.Vek[Module1.PNo].SSS_Seg2[index1]) && num4 < 3)
+                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Program.FindJumpEl(Program.Vek[Program.PNo].SSS_Seg2[index1]) && num4 < 3)
                         {
                             checked { ++num4; }
                             numArray5[index1] = num4;
@@ -2591,61 +2591,61 @@ namespace ClubCompFS
                     while (ind <= num5)
                     {
                         string str1 = "";
-                        string segment1 = Module1.Segment;
+                        string segment1 = Program.Segment;
                         if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                            str1 = Module1.Vek[Module1.PNo].SSS_Seg1[ind];
+                            str1 = Program.Vek[Program.PNo].SSS_Seg1[ind];
                         else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                            str1 = Module1.Vek[Module1.PNo].SSS_Seg2[ind];
+                            str1 = Program.Vek[Program.PNo].SSS_Seg2[ind];
                         int num7 = Strings.InStr(1, str1, " !", CompareMethod.Text);
                         if (num7 > 0)
                             str1 = Strings.Left(str1, checked(num7 - 1));
-                        string str2 = Module1.Test_SEQ_COMBO_REP(str1);
+                        string str2 = Program.Test_SEQ_COMBO_REP(str1);
                         if (Strings.Len(str2) >= 1)
                         {
                             int num8 = Strings.InStr(1, str2, "+COMBO", CompareMethod.Text);
                             if (num8 > 0)
                                 str2 = Strings.Left(str2, checked(num8 - 1));
-                            string segment2 = Module1.Segment;
-                            double Right1 = Operators.CompareString(segment2, "Seg1", false) != 0 ? (Operators.CompareString(segment2, "Seg2", false) != 0 ? 1.0 : (!(ind >= Module1.Vek[Module1.PNo].HTIndSeg2 & Module1.Vek[Module1.PNo].HTIndSeg2 != 0) ? 1.0 : (numArray5[ind] == 0 ? 1.0 : 1.1))) : (!(ind >= Module1.Vek[Module1.PNo].HTIndSeg1 & Module1.Vek[Module1.PNo].HTIndSeg1 != 0) ? 1.0 : (numArray5[ind] <= 0 ? 1.0 : 1.1));
+                            string segment2 = Program.Segment;
+                            double Right1 = Operators.CompareString(segment2, "Seg1", false) != 0 ? (Operators.CompareString(segment2, "Seg2", false) != 0 ? 1.0 : (!(ind >= Program.Vek[Program.PNo].HTIndSeg2 & Program.Vek[Program.PNo].HTIndSeg2 != 0) ? 1.0 : (numArray5[ind] == 0 ? 1.0 : 1.1))) : (!(ind >= Program.Vek[Program.PNo].HTIndSeg1 & Program.Vek[Program.PNo].HTIndSeg1 != 0) ? 1.0 : (numArray5[ind] <= 0 ? 1.0 : 1.1));
                             int Eno = 0;
-                            Module1.El_type elType;
+                            Program.El_type elType;
                             if (Strings.InStr(1, str2, "+SEQ", CompareMethod.Text) > 0)
                             {
                                 double Right2 = 0.0;
                                 int num9 = Strings.InStr(str2, "+SEQ");
-                                Module1.FindJumpEl1(Strings.Left(str2, checked(num9 - 1)), ref Eno);
+                                Program.FindJumpEl1(Strings.Left(str2, checked(num9 - 1)), ref Eno);
                                 int num10 = checked(Eno - 1);
                                 int index2 = 1;
                                 while (index2 <= num10)
                                 {
-                                    string elstr = Module1.ElArr[index2].Elstr;
+                                    string elstr = Program.ElArr[index2].Elstr;
                                     if (elstr.Contains("*"))
                                     {
-                                        Module1.ElArr[index2].Value = 0.0;
-                                        Module1.ElArr[index2].BaseValue = 0.0;
-                                        Module1.ElArr[index2].row = 0;
+                                        Program.ElArr[index2].Value = 0.0;
+                                        Program.ElArr[index2].BaseValue = 0.0;
+                                        Program.ElArr[index2].row = 0;
                                     }
                                     else
                                     {
-                                        int jumpmin = Module1.Jumpmin;
-                                        int jumpMax = Module1.JumpMax;
+                                        int jumpmin = Program.Jumpmin;
+                                        int jumpMax = Program.JumpMax;
                                         int index3 = jumpmin;
                                         while (index3 <= jumpMax)
                                         {
-                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index3, 0], false))
+                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index3, 0], false))
                                             {
-                                                Module1.ElArr[index2].row = index3;
+                                                Program.ElArr[index2].row = index3;
                                                 int index4 = 6;
-                                                Module1.ElArr[index2].Value = Conversions.ToDouble(Module1.ElDB[index3, index4]);
-                                                Module1.ElArr[index2].BaseValue = Conversions.ToDouble(Module1.ElDB[index3, 6]);
-                                                if (Module1.ElArr[index2].Value != 0.0)
+                                                Program.ElArr[index2].Value = Conversions.ToDouble(Program.ElDB[index3, index4]);
+                                                Program.ElArr[index2].BaseValue = Conversions.ToDouble(Program.ElDB[index3, 6]);
+                                                if (Program.ElArr[index2].Value != 0.0)
                                                     break;
                                                 break;
                                             }
                                             checked { ++index3; }
                                         }
-                                        if (index3 > Module1.JumpMax)
-                                            Module1.ErrMessage(ind);
+                                        if (index3 > Program.JumpMax)
+                                            Program.ErrMessage(ind);
                                     }
                                     checked { ++index2; }
                                 }
@@ -2653,85 +2653,85 @@ namespace ClubCompFS
                                 int index5 = 1;
                                 while (index5 <= num11)
                                 {
-                                    elType = Module1.ElArr[index5];
+                                    elType = Program.ElArr[index5];
                                     int index6 = index5;
                                     int num12 = checked(index5 + 1);
                                     int num13 = checked(Eno - 1);
                                     int index7 = num12;
                                     while (index7 <= num13)
                                     {
-                                        if (Module1.ElArr[index7].BaseValue > elType.BaseValue)
+                                        if (Program.ElArr[index7].BaseValue > elType.BaseValue)
                                         {
-                                            elType = Module1.ElArr[index7];
+                                            elType = Program.ElArr[index7];
                                             index6 = index7;
                                         }
                                         checked { ++index7; }
                                     }
-                                    Module1.ElArr[index6] = Module1.ElArr[index5];
-                                    Module1.ElArr[index5] = elType;
+                                    Program.ElArr[index6] = Program.ElArr[index5];
+                                    Program.ElArr[index5] = elType;
                                     checked { ++index5; }
                                 }
-                                int row = Module1.ElArr[1].row;
-                                double num14 = Module1.ElArr[2].row != 0 ? Module1.ElArr[2].Value : 0.0;
+                                int row = Program.ElArr[1].row;
+                                double num14 = Program.ElArr[2].row != 0 ? Program.ElArr[2].Value : 0.0;
                                 if (row > 0)
                                 {
-                                    double Expression = Conversion.Int(100.0 * (num14 + Module1.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right1;
+                                    double Expression = Conversion.Int(100.0 * (num14 + Program.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right1;
                                     numArray1[ind] = Expression;
                                     if (C_JDA > 0)
                                     {
-                                        Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)Expression, "0.00");
+                                        Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)Expression, "0.00");
                                         if (Right1 > 1.0)
-                                            Module1.JDarr[checked(R + ind + 8), 5] = "x";
+                                            Program.JDarr[checked(R + ind + 8), 5] = "x";
                                     }
-                                    int noJGoe1 = Module1.NoJ_GOE;
+                                    int noJGoe1 = Program.NoJ_GOE;
                                     int index8 = 1;
                                     while (index8 <= noJGoe1)
                                     {
-                                        string segment3 = Module1.Segment;
+                                        string segment3 = Program.Segment;
                                         if (Operators.CompareString(segment3, "Seg1", false) == 0)
-                                            Module1.J_GOE[index8] = Module1.Vek[Module1.PNo].J_Seg1.EE[ind, index8];
+                                            Program.J_GOE[index8] = Program.Vek[Program.PNo].J_Seg1.EE[ind, index8];
                                         else if (Operators.CompareString(segment3, "Seg2", false) == 0)
-                                            Module1.J_GOE[index8] = Module1.Vek[Module1.PNo].J_Seg2.EE[ind, index8];
+                                            Program.J_GOE[index8] = Program.Vek[Program.PNo].J_Seg2.EE[ind, index8];
                                         checked { ++index8; }
                                     }
-                                    if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                                    if (Program.NoJ_GOE < Program.NoJudgeTMV)
                                     {
-                                        int noJGoe2 = Module1.NoJ_GOE;
+                                        int noJGoe2 = Program.NoJ_GOE;
                                         int index9 = 1;
                                         while (index9 <= noJGoe2)
                                         {
-                                            int index10 = checked(6 - Module1.J_GOE[index9]);
-                                            Right2 = index10 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index10], (object)Right2)) : 0.0 + Right2;
+                                            int index10 = checked(6 - Program.J_GOE[index9]);
+                                            Right2 = index10 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index10], (object)Right2)) : 0.0 + Right2;
                                             checked { ++index9; }
                                         }
-                                        numArray2[ind] = Right2 / (double)Module1.NoJ_GOE;
+                                        numArray2[ind] = Right2 / (double)Program.NoJ_GOE;
                                         if (C_JDA > 0)
-                                            Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                            Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                     }
                                     else
                                     {
-                                        Module1.Sort_J_GOE(Module1.NoJ_GOE);
-                                        int num15 = checked(Module1.NoJ_GOE - 1);
+                                        Program.Sort_J_GOE(Program.NoJ_GOE);
+                                        int num15 = checked(Program.NoJ_GOE - 1);
                                         int index11 = 2;
                                         while (index11 <= num15)
                                         {
-                                            int index12 = checked(6 - Module1.J_GOE[index11]);
-                                            Right2 = index12 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index12], (object)Right2)) : 0.0 + Right2;
+                                            int index12 = checked(6 - Program.J_GOE[index11]);
+                                            Right2 = index12 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index12], (object)Right2)) : 0.0 + Right2;
                                             checked { ++index11; }
                                         }
-                                        numArray2[ind] = Right2 / (double)checked(Module1.NoJ_GOE - 2);
+                                        numArray2[ind] = Right2 / (double)checked(Program.NoJ_GOE - 2);
                                         if (C_JDA > 0)
-                                            Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                            Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                     }
                                 }
                                 else
                                 {
                                     numArray1[ind] = 0.0;
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
+                                        Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     numArray2[ind] = 0.0;
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
                             else if (Strings.InStr(1, str2, "+REP", CompareMethod.Text) > 0)
@@ -2739,39 +2739,39 @@ namespace ClubCompFS
                                 double num16 = 0.0;
                                 double Right3 = 0.0;
                                 int num17 = Strings.InStr(str2, "+REP");
-                                Module1.FindJumpEl1(Strings.Left(str2, checked(num17 - 1)), ref Eno);
+                                Program.FindJumpEl1(Strings.Left(str2, checked(num17 - 1)), ref Eno);
                                 int num18 = checked(Eno - 1);
                                 int index13 = 1;
                                 while (index13 <= num18)
                                 {
-                                    string elstr = Module1.ElArr[index13].Elstr;
+                                    string elstr = Program.ElArr[index13].Elstr;
                                     if (elstr.Contains("*"))
                                     {
-                                        Module1.ElArr[index13].Value = 0.0;
-                                        Module1.ElArr[index13].BaseValue = 0.0;
-                                        Module1.ElArr[index13].row = 0;
+                                        Program.ElArr[index13].Value = 0.0;
+                                        Program.ElArr[index13].BaseValue = 0.0;
+                                        Program.ElArr[index13].row = 0;
                                     }
                                     else
                                     {
-                                        int jumpmin = Module1.Jumpmin;
-                                        int jumpMax = Module1.JumpMax;
+                                        int jumpmin = Program.Jumpmin;
+                                        int jumpMax = Program.JumpMax;
                                         int index14 = jumpmin;
                                         while (index14 <= jumpMax)
                                         {
-                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index14, 0], false))
+                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index14, 0], false))
                                             {
-                                                Module1.ElArr[index13].row = index14;
+                                                Program.ElArr[index13].row = index14;
                                                 int index15 = 6;
-                                                Module1.ElArr[index13].Value = Conversions.ToDouble(Operators.MultiplyObject(Operators.MultiplyObject(Module1.ElDB[index14, index15], (object)Right1), (object)0.7));
-                                                Module1.ElArr[index13].BaseValue = Conversions.ToDouble(Module1.ElDB[index14, 6]);
-                                                if (Module1.ElArr[index13].Value != 0.0)
+                                                Program.ElArr[index13].Value = Conversions.ToDouble(Operators.MultiplyObject(Operators.MultiplyObject(Program.ElDB[index14, index15], (object)Right1), (object)0.7));
+                                                Program.ElArr[index13].BaseValue = Conversions.ToDouble(Program.ElDB[index14, 6]);
+                                                if (Program.ElArr[index13].Value != 0.0)
                                                     break;
                                                 break;
                                             }
                                             checked { ++index14; }
                                         }
-                                        if (index14 > Module1.JumpMax)
-                                            Module1.ErrMessage(ind);
+                                        if (index14 > Program.JumpMax)
+                                            Program.ErrMessage(ind);
                                     }
                                     checked { ++index13; }
                                 }
@@ -2782,58 +2782,58 @@ namespace ClubCompFS
                                 int index16 = 1;
                                 while (index16 <= num19)
                                 {
-                                    num16 += Module1.ElArr[index16].Value;
-                                    if (Module1.ElArr[index16].BaseValue > elType.BaseValue)
-                                        elType = Module1.ElArr[index16];
+                                    num16 += Program.ElArr[index16].Value;
+                                    if (Program.ElArr[index16].BaseValue > elType.BaseValue)
+                                        elType = Program.ElArr[index16];
                                     checked { ++index16; }
                                 }
                                 int row = elType.row;
                                 numArray1[ind] = num16;
                                 if (C_JDA > 0)
                                 {
-                                    Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     if (Right1 > 1.0)
-                                        Module1.JDarr[checked(R + ind + 8), 5] = "x";
+                                        Program.JDarr[checked(R + ind + 8), 5] = "x";
                                 }
-                                int noJGoe3 = Module1.NoJ_GOE;
+                                int noJGoe3 = Program.NoJ_GOE;
                                 int index17 = 1;
                                 while (index17 <= noJGoe3)
                                 {
-                                    string segment4 = Module1.Segment;
+                                    string segment4 = Program.Segment;
                                     if (Operators.CompareString(segment4, "Seg1", false) == 0)
-                                        Module1.J_GOE[index17] = Module1.Vek[Module1.PNo].J_Seg1.EE[ind, index17];
+                                        Program.J_GOE[index17] = Program.Vek[Program.PNo].J_Seg1.EE[ind, index17];
                                     else if (Operators.CompareString(segment4, "Seg2", false) == 0)
-                                        Module1.J_GOE[index17] = Module1.Vek[Module1.PNo].J_Seg2.EE[ind, index17];
+                                        Program.J_GOE[index17] = Program.Vek[Program.PNo].J_Seg2.EE[ind, index17];
                                     checked { ++index17; }
                                 }
-                                if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                                if (Program.NoJ_GOE < Program.NoJudgeTMV)
                                 {
-                                    int noJGoe4 = Module1.NoJ_GOE;
+                                    int noJGoe4 = Program.NoJ_GOE;
                                     int index18 = 1;
                                     while (index18 <= noJGoe4)
                                     {
-                                        int index19 = checked(6 - Module1.J_GOE[index18]);
-                                        Right3 = index19 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index19], (object)Right3)) : 0.0 + Right3;
+                                        int index19 = checked(6 - Program.J_GOE[index18]);
+                                        Right3 = index19 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index19], (object)Right3)) : 0.0 + Right3;
                                         checked { ++index18; }
                                     }
-                                    numArray2[ind] = Right3 / (double)Module1.NoJ_GOE;
+                                    numArray2[ind] = Right3 / (double)Program.NoJ_GOE;
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                                 else
                                 {
-                                    Module1.Sort_J_GOE(Module1.NoJ_GOE);
-                                    int num20 = checked(Module1.NoJ_GOE - 1);
+                                    Program.Sort_J_GOE(Program.NoJ_GOE);
+                                    int num20 = checked(Program.NoJ_GOE - 1);
                                     int index20 = 2;
                                     while (index20 <= num20)
                                     {
-                                        int index21 = checked(6 - Module1.J_GOE[index20]);
-                                        Right3 = index21 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index21], (object)Right3)) : 0.0 + Right3;
+                                        int index21 = checked(6 - Program.J_GOE[index20]);
+                                        Right3 = index21 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index21], (object)Right3)) : 0.0 + Right3;
                                         checked { ++index20; }
                                     }
-                                    numArray2[ind] = Right3 / (double)checked(Module1.NoJ_GOE - 2);
+                                    numArray2[ind] = Right3 / (double)checked(Program.NoJ_GOE - 2);
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
                             else if (str2.Contains("Sp") & Strings.Len(str2) >= 1)
@@ -2842,8 +2842,8 @@ namespace ClubCompFS
                                 double Right4 = 0.0;
                                 int index22 = 0;
                                 string Left2 = str2;
-                                int spinMin = Module1.SpinMin;
-                                int spinmax = Module1.Spinmax;
+                                int spinMin = Program.SpinMin;
+                                int spinmax = Program.Spinmax;
                                 if (Left2.Contains("*"))
                                 {
                                     Left1 += 0.0;
@@ -2852,108 +2852,108 @@ namespace ClubCompFS
                                 {
                                     do
                                     {
-                                        if (Operators.ConditionalCompareObjectNotEqual(Module1.ElDB[spinMin, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left2, Module1.ElDB[spinMin, 0], false))
+                                        if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[spinMin, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left2, Program.ElDB[spinMin, 0], false))
                                         {
                                             index22 = spinMin;
                                             int num21 = spinMin;
-                                            if (num21 >= Module1.SpinMin && num21 <= Module1.Spinmax)
+                                            if (num21 >= Program.SpinMin && num21 <= Program.Spinmax)
                                             {
                                                 int index23 = 6;
-                                                Left1 = Conversions.ToDouble(Operators.AddObject((object)Left1, Module1.ElDB[spinMin, index23]));
+                                                Left1 = Conversions.ToDouble(Operators.AddObject((object)Left1, Program.ElDB[spinMin, index23]));
                                             }
                                         }
                                         checked { ++spinMin; }
                                     }
                                     while (!(spinMin > spinmax | index22 > 0));
-                                    if (spinMin > checked(Module1.ElDBmax + 2))
-                                        Module1.ErrMessage(ind);
+                                    if (spinMin > checked(Program.ElDBmax + 2))
+                                        Program.ErrMessage(ind);
                                 }
                                 numArray1[ind] = Left1;
                                 if (C_JDA > 0)
-                                    Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
-                                int noJGoe5 = Module1.NoJ_GOE;
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
+                                int noJGoe5 = Program.NoJ_GOE;
                                 int index24 = 1;
                                 while (index24 <= noJGoe5)
                                 {
-                                    string segment5 = Module1.Segment;
+                                    string segment5 = Program.Segment;
                                     if (Operators.CompareString(segment5, "Seg1", false) == 0)
-                                        Module1.J_GOE[index24] = Module1.Vek[Module1.PNo].J_Seg1.EE[ind, index24];
+                                        Program.J_GOE[index24] = Program.Vek[Program.PNo].J_Seg1.EE[ind, index24];
                                     else if (Operators.CompareString(segment5, "Seg2", false) == 0)
-                                        Module1.J_GOE[index24] = Module1.Vek[Module1.PNo].J_Seg2.EE[ind, index24];
+                                        Program.J_GOE[index24] = Program.Vek[Program.PNo].J_Seg2.EE[ind, index24];
                                     checked { ++index24; }
                                 }
-                                if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                                if (Program.NoJ_GOE < Program.NoJudgeTMV)
                                 {
-                                    int noJGoe6 = Module1.NoJ_GOE;
+                                    int noJGoe6 = Program.NoJ_GOE;
                                     int index25 = 1;
                                     while (index25 <= noJGoe6)
                                     {
-                                        int index26 = checked(6 - Module1.J_GOE[index25]);
-                                        Right4 = index26 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[index22, index26], (object)Right4)) : 0.0 + Right4;
+                                        int index26 = checked(6 - Program.J_GOE[index25]);
+                                        Right4 = index26 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[index22, index26], (object)Right4)) : 0.0 + Right4;
                                         checked { ++index25; }
                                     }
-                                    if (Module1.NoJ_GOE != 0)
+                                    if (Program.NoJ_GOE != 0)
                                     {
-                                        numArray2[ind] = Right4 / (double)Module1.NoJ_GOE;
+                                        numArray2[ind] = Right4 / (double)Program.NoJ_GOE;
                                         if (C_JDA > 0)
-                                            Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                            Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                     }
                                     else
                                         goto label_225;
                                 }
                                 else
                                 {
-                                    Module1.Sort_J_GOE(Module1.NoJ_GOE);
-                                    int num22 = checked(Module1.NoJ_GOE - 1);
+                                    Program.Sort_J_GOE(Program.NoJ_GOE);
+                                    int num22 = checked(Program.NoJ_GOE - 1);
                                     int index27 = 2;
                                     while (index27 <= num22)
                                     {
-                                        int index28 = checked(6 - Module1.J_GOE[index27]);
-                                        Right4 = index28 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[index22, index28], (object)Right4)) : 0.0 + Right4;
+                                        int index28 = checked(6 - Program.J_GOE[index27]);
+                                        Right4 = index28 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[index22, index28], (object)Right4)) : 0.0 + Right4;
                                         checked { ++index27; }
                                     }
-                                    numArray2[ind] = Right4 / (double)checked(Module1.NoJ_GOE - 2);
+                                    numArray2[ind] = Right4 / (double)checked(Program.NoJ_GOE - 2);
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
                             else if (Strings.InStr(1, str2, "+", CompareMethod.Text) > 0 & !str2.Contains("+V"))
                             {
                                 double num23 = 0.0;
                                 double Right5 = 0.0;
-                                Module1.FindJumpEl1(str2, ref Eno);
+                                Program.FindJumpEl1(str2, ref Eno);
                                 int num24 = checked(Eno - 1);
                                 int index29 = 1;
                                 while (index29 <= num24)
                                 {
-                                    string elstr = Module1.ElArr[index29].Elstr;
+                                    string elstr = Program.ElArr[index29].Elstr;
                                     if (elstr.Contains("*"))
                                     {
-                                        Module1.ElArr[index29].Value = 0.0;
-                                        Module1.ElArr[index29].BaseValue = 0.0;
-                                        Module1.ElArr[index29].row = 0;
+                                        Program.ElArr[index29].Value = 0.0;
+                                        Program.ElArr[index29].BaseValue = 0.0;
+                                        Program.ElArr[index29].row = 0;
                                     }
                                     else
                                     {
-                                        int jumpmin = Module1.Jumpmin;
-                                        int jumpMax = Module1.JumpMax;
+                                        int jumpmin = Program.Jumpmin;
+                                        int jumpMax = Program.JumpMax;
                                         int index30 = jumpmin;
                                         while (index30 <= jumpMax)
                                         {
-                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Module1.ElDB[index30, 0], false))
+                                            if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index30, 0], false))
                                             {
-                                                Module1.ElArr[index29].row = index30;
+                                                Program.ElArr[index29].row = index30;
                                                 int index31 = 6;
-                                                Module1.ElArr[index29].Value = Conversions.ToDouble(Operators.MultiplyObject(Module1.ElDB[index30, index31], (object)Right1));
-                                                Module1.ElArr[index29].BaseValue = Conversions.ToDouble(Module1.ElDB[index30, 6]);
-                                                if (Module1.ElArr[index29].Value != 0.0)
+                                                Program.ElArr[index29].Value = Conversions.ToDouble(Operators.MultiplyObject(Program.ElDB[index30, index31], (object)Right1));
+                                                Program.ElArr[index29].BaseValue = Conversions.ToDouble(Program.ElDB[index30, 6]);
+                                                if (Program.ElArr[index29].Value != 0.0)
                                                     break;
                                                 break;
                                             }
                                             checked { ++index30; }
                                         }
-                                        if (index30 > Module1.JumpMax)
-                                            Module1.ErrMessage(ind);
+                                        if (index30 > Program.JumpMax)
+                                            Program.ErrMessage(ind);
                                     }
                                     checked { ++index29; }
                                 }
@@ -2964,58 +2964,58 @@ namespace ClubCompFS
                                 int index32 = 1;
                                 while (index32 <= num25)
                                 {
-                                    num23 += Module1.ElArr[index32].Value;
-                                    if (Module1.ElArr[index32].BaseValue > elType.BaseValue)
-                                        elType = Module1.ElArr[index32];
+                                    num23 += Program.ElArr[index32].Value;
+                                    if (Program.ElArr[index32].BaseValue > elType.BaseValue)
+                                        elType = Program.ElArr[index32];
                                     checked { ++index32; }
                                 }
                                 int row = elType.row;
                                 numArray1[ind] = num23;
                                 if (C_JDA > 0)
                                 {
-                                    Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     if (Right1 > 1.0)
-                                        Module1.JDarr[checked(R + ind + 8), 5] = "x";
+                                        Program.JDarr[checked(R + ind + 8), 5] = "x";
                                 }
-                                int noJGoe7 = Module1.NoJ_GOE;
+                                int noJGoe7 = Program.NoJ_GOE;
                                 int index33 = 1;
                                 while (index33 <= noJGoe7)
                                 {
-                                    string segment6 = Module1.Segment;
+                                    string segment6 = Program.Segment;
                                     if (Operators.CompareString(segment6, "Seg1", false) == 0)
-                                        Module1.J_GOE[index33] = Module1.Vek[Module1.PNo].J_Seg1.EE[ind, index33];
+                                        Program.J_GOE[index33] = Program.Vek[Program.PNo].J_Seg1.EE[ind, index33];
                                     else if (Operators.CompareString(segment6, "Seg2", false) == 0)
-                                        Module1.J_GOE[index33] = Module1.Vek[Module1.PNo].J_Seg2.EE[ind, index33];
+                                        Program.J_GOE[index33] = Program.Vek[Program.PNo].J_Seg2.EE[ind, index33];
                                     checked { ++index33; }
                                 }
-                                if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                                if (Program.NoJ_GOE < Program.NoJudgeTMV)
                                 {
-                                    int noJGoe8 = Module1.NoJ_GOE;
+                                    int noJGoe8 = Program.NoJ_GOE;
                                     int index34 = 1;
                                     while (index34 <= noJGoe8)
                                     {
-                                        int index35 = checked(6 - Module1.J_GOE[index34]);
-                                        Right5 = index35 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index35], (object)Right5)) : 0.0 + Right5;
+                                        int index35 = checked(6 - Program.J_GOE[index34]);
+                                        Right5 = index35 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index35], (object)Right5)) : 0.0 + Right5;
                                         checked { ++index34; }
                                     }
-                                    numArray2[ind] = Right5 / (double)Module1.NoJ_GOE;
+                                    numArray2[ind] = Right5 / (double)Program.NoJ_GOE;
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                                 else
                                 {
-                                    Module1.Sort_J_GOE(Module1.NoJ_GOE);
-                                    int num26 = checked(Module1.NoJ_GOE - 1);
+                                    Program.Sort_J_GOE(Program.NoJ_GOE);
+                                    int num26 = checked(Program.NoJ_GOE - 1);
                                     int index36 = 2;
                                     while (index36 <= num26)
                                     {
-                                        int index37 = checked(6 - Module1.J_GOE[index36]);
-                                        Right5 = index37 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[row, index37], (object)Right5)) : 0.0 + Right5;
+                                        int index37 = checked(6 - Program.J_GOE[index36]);
+                                        Right5 = index37 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[row, index37], (object)Right5)) : 0.0 + Right5;
                                         checked { ++index36; }
                                     }
-                                    numArray2[ind] = Right5 / (double)checked(Module1.NoJ_GOE - 2);
+                                    numArray2[ind] = Right5 / (double)checked(Program.NoJ_GOE - 2);
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
                             else if (Strings.InStr(1, str2, "+", CompareMethod.Text) == 0 & Strings.Len(str2) >= 1)
@@ -3028,107 +3028,107 @@ namespace ClubCompFS
                                 int num27;
                                 if (str2.Contains("St"))
                                 {
-                                    index39 = Module1.Stepmin;
-                                    num27 = Module1.Stepmax;
+                                    index39 = Program.Stepmin;
+                                    num27 = Program.Stepmax;
                                 }
                                 else if (str2.Contains("Ch"))
                                 {
-                                    index39 = Module1.Stepmin;
-                                    num27 = Module1.Stepmax;
+                                    index39 = Program.Stepmin;
+                                    num27 = Program.Stepmax;
                                 }
                                 else
                                 {
-                                    index39 = Module1.Jumpmin;
-                                    num27 = Module1.JumpMax;
+                                    index39 = Program.Jumpmin;
+                                    num27 = Program.JumpMax;
                                 }
                                 if (Left4.Contains("*"))
                                 {
                                     Left3 += 0.0;
                                     if (C_JDA > 0 & Right1 > 1.0)
-                                        Module1.JDarr[checked(R + ind + 8), 5] = "x";
+                                        Program.JDarr[checked(R + ind + 8), 5] = "x";
                                 }
                                 else
                                 {
                                     do
                                     {
-                                        if (Operators.ConditionalCompareObjectNotEqual(Module1.ElDB[index39, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left4, Module1.ElDB[index39, 0], false))
+                                        if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[index39, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left4, Program.ElDB[index39, 0], false))
                                         {
                                             index38 = index39;
                                             int num28 = index39;
-                                            if (num28 >= Module1.Jumpmin && num28 <= Module1.JumpMax)
+                                            if (num28 >= Program.Jumpmin && num28 <= Program.JumpMax)
                                             {
                                                 int index40 = 6;
-                                                Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Operators.MultiplyObject(Module1.ElDB[index39, index40], (object)Right1)));
+                                                Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Operators.MultiplyObject(Program.ElDB[index39, index40], (object)Right1)));
                                                 if (C_JDA > 0 & Right1 > 1.0)
-                                                    Module1.JDarr[checked(R + ind + 8), 5] = "x";
+                                                    Program.JDarr[checked(R + ind + 8), 5] = "x";
                                             }
-                                            else if (num28 >= Module1.Stepmin && num28 <= Module1.Stepmax)
-                                                Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Module1.ElDB[index39, 6]));
+                                            else if (num28 >= Program.Stepmin && num28 <= Program.Stepmax)
+                                                Left3 = Conversions.ToDouble(Operators.AddObject((object)Left3, Program.ElDB[index39, 6]));
                                         }
                                         checked { ++index39; }
                                     }
                                     while (!(index39 > num27 | index38 > 0));
                                     if (index39 > checked(num27 + 2))
-                                        Module1.ErrMessage(ind);
+                                        Program.ErrMessage(ind);
                                 }
                                 numArray1[ind] = Left3;
                                 if (C_JDA > 0)
-                                    Module1.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
-                                int noJGoe9 = Module1.NoJ_GOE;
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
+                                int noJGoe9 = Program.NoJ_GOE;
                                 int index41 = 1;
                                 while (index41 <= noJGoe9)
                                 {
-                                    string segment7 = Module1.Segment;
+                                    string segment7 = Program.Segment;
                                     if (Operators.CompareString(segment7, "Seg1", false) == 0)
-                                        Module1.J_GOE[index41] = Module1.Vek[Module1.PNo].J_Seg1.EE[ind, index41];
+                                        Program.J_GOE[index41] = Program.Vek[Program.PNo].J_Seg1.EE[ind, index41];
                                     else if (Operators.CompareString(segment7, "Seg2", false) == 0)
-                                        Module1.J_GOE[index41] = Module1.Vek[Module1.PNo].J_Seg2.EE[ind, index41];
+                                        Program.J_GOE[index41] = Program.Vek[Program.PNo].J_Seg2.EE[ind, index41];
                                     checked { ++index41; }
                                 }
-                                if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                                if (Program.NoJ_GOE < Program.NoJudgeTMV)
                                 {
-                                    int noJGoe10 = Module1.NoJ_GOE;
+                                    int noJGoe10 = Program.NoJ_GOE;
                                     int index42 = 1;
                                     while (index42 <= noJGoe10)
                                     {
-                                        int index43 = checked(6 - Module1.J_GOE[index42]);
-                                        Right6 = index43 != 6 ? (double.TryParse(Module1.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
+                                        int index43 = checked(6 - Program.J_GOE[index42]);
+                                        Right6 = index43 != 6 ? (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
                                         checked { ++index42; }
                                     }
-                                    if (Module1.NoJ_GOE != 0)
+                                    if (Program.NoJ_GOE != 0)
                                     {
-                                        numArray2[ind] = Right6 / (double)Module1.NoJ_GOE;
+                                        numArray2[ind] = Right6 / (double)Program.NoJ_GOE;
                                         if (C_JDA > 0)
-                                            Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                            Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                     }
                                     else
                                         goto label_225;
                                 }
                                 else
                                 {
-                                    Module1.Sort_J_GOE(Module1.NoJ_GOE);
-                                    int num29 = checked(Module1.NoJ_GOE - 1);
+                                    Program.Sort_J_GOE(Program.NoJ_GOE);
+                                    int num29 = checked(Program.NoJ_GOE - 1);
                                     int index44 = 2;
                                     while (index44 <= num29)
                                     {
-                                        int index45 = checked(6 - Module1.J_GOE[index44]);
-                                        Right6 = index45 != 6 ? Conversions.ToDouble(Operators.AddObject(Module1.ElDB[index38, index45], (object)Right6)) : 0.0 + Right6;
+                                        int index45 = checked(6 - Program.J_GOE[index44]);
+                                        Right6 = index45 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[index38, index45], (object)Right6)) : 0.0 + Right6;
                                         checked { ++index44; }
                                     }
-                                    numArray2[ind] = Right6 / (double)checked(Module1.NoJ_GOE - 2);
+                                    numArray2[ind] = Right6 / (double)checked(Program.NoJ_GOE - 2);
                                     if (C_JDA > 0)
-                                        Module1.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
+                                        Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
                         }
                         numArray1[ind] = Conversion.Int(100.0 * numArray1[ind] + 0.5000001) / 100.0;
                         numArray2[ind] = numArray2[ind] <= 0.0 ? -Conversion.Int(-100.0 * numArray2[ind] + 0.5000001) / 100.0 : Conversion.Int(100.0 * numArray2[ind] + 0.5000001) / 100.0;
                         if (C_JDA > 0)
-                            Module1.JDarr[checked(R + ind + 8), 6] = Strings.Format((object)numArray2[ind], "0.00");
+                            Program.JDarr[checked(R + ind + 8), 6] = Strings.Format((object)numArray2[ind], "0.00");
                         numArray3[ind] = numArray1[ind] + numArray2[ind];
                         numArray3[ind] = Conversion.Int(100.0 * numArray3[ind] + 0.5000001) / 100.0;
                         if (C_JDA > 0)
-                            Module1.JDarr[checked(R + ind + 8), 14] = Strings.Format((object)numArray3[ind], "0.00");
+                            Program.JDarr[checked(R + ind + 8), 14] = Strings.Format((object)numArray3[ind], "0.00");
                         num6 += numArray3[ind];
                         checked { ++ind; }
                     }
@@ -3175,26 +3175,26 @@ namespace ClubCompFS
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    int num4 = Module1.J_GOE[index1];
+                    int num4 = Program.J_GOE[index1];
                     int index2 = index1;
                     int num5 = checked(index1 + 1);
                     int num6 = NoJ;
                     int index3 = num5;
                     while (index3 <= num6)
                     {
-                        if (Module1.J_GOE[index3] >= num4)
+                        if (Program.J_GOE[index3] >= num4)
                         {
                             checked { ++index3; }
                         }
                         else
                         {
-                            num4 = Module1.J_GOE[index3];
+                            num4 = Program.J_GOE[index3];
                             index2 = index3;
                             checked { ++index3; }
                         }
                     }
-                    Module1.J_GOE[index2] = Module1.J_GOE[index1];
-                    Module1.J_GOE[index1] = num4;
+                    Program.J_GOE[index2] = Program.J_GOE[index1];
+                    Program.J_GOE[index1] = num4;
                     checked { ++index1; }
                 }
             }
@@ -3217,22 +3217,22 @@ namespace ClubCompFS
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    double num4 = Module1.J_PC[index1];
+                    double num4 = Program.J_PC[index1];
                     int index2 = index1;
                     int num5 = checked(index1 + 1);
                     int num6 = NoJ;
                     int index3 = num5;
                     while (index3 <= num6)
                     {
-                        if (Module1.J_PC[index3] < num4)
+                        if (Program.J_PC[index3] < num4)
                         {
-                            num4 = Module1.J_PC[index3];
+                            num4 = Program.J_PC[index3];
                             index2 = index3;
                         }
                         checked { ++index3; }
                     }
-                    Module1.J_PC[index2] = Module1.J_PC[index1];
-                    Module1.J_PC[index1] = num4;
+                    Program.J_PC[index2] = Program.J_PC[index1];
+                    Program.J_PC[index1] = num4;
                     checked { ++index1; }
                 }
             }
@@ -3245,7 +3245,7 @@ namespace ClubCompFS
 
         public static void ErrMessage(int ind)
         {
-            Module1.ElErrorArr[ind] = 1;
+            Program.ElErrorArr[ind] = 1;
             int num = (int)Interaction.MsgBox((object)("Element no. " + Conversions.ToString(ind) + " is not correct!\r\nThe element is marked red in Judges Details!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
         }
 
@@ -3257,15 +3257,15 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.ElArr = (Module1.El_type[])null;
-                Module1.ElArr = new Module1.El_type[31];
+                Program.ElArr = (Program.El_type[])null;
+                Program.ElArr = new Program.El_type[31];
                 Eno = 1;
                 string[] strArray = StringEl.Split('+');
                 int length = strArray.Length;
                 int index = 1;
                 while (index <= length)
                 {
-                    Module1.ElArr[index].Elstr = strArray[checked(index - 1)];
+                    Program.ElArr[index].Elstr = strArray[checked(index - 1)];
                     checked { ++index; }
                 }
                 Eno = checked(strArray.Length + 1);
@@ -3300,14 +3300,14 @@ namespace ClubCompFS
                 do
                 {
                     string Left = "";
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        if (Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg1[index], "", false) != 0)
-                            Left = Module1.Vek[Module1.PNo].SSS_Seg1[index];
+                        if (Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1[index], "", false) != 0)
+                            Left = Program.Vek[Program.PNo].SSS_Seg1[index];
                     }
-                    else if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg2[index], "", false) != 0)
-                        Left = Module1.Vek[Module1.PNo].SSS_Seg2[index];
+                    else if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], "", false) != 0)
+                        Left = Program.Vek[Program.PNo].SSS_Seg2[index];
                     if (Operators.CompareString(Left, "", false) != 0)
                         num2 = index;
                     checked { ++index; }
@@ -3343,65 +3343,65 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 num2 = 0.0;
-                if (Module1.NoJ_GOE != 0)
+                if (Program.NoJ_GOE != 0)
                 {
                     double num4 = 0.0;
                     int nr = 1;
                     do
                     {
-                        if (Module1.PC_Factor(nr) > 0.0)
+                        if (Program.PC_Factor(nr) > 0.0)
                         {
                             double num5 = 0.0;
-                            int noJGoe1 = Module1.NoJ_GOE;
+                            int noJGoe1 = Program.NoJ_GOE;
                             int index1 = 1;
                             while (index1 <= noJGoe1)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                                    Module1.J_PC[index1] = Module1.Vek[Module1.PNo].J_Seg1.PC[nr, index1];
+                                    Program.J_PC[index1] = Program.Vek[Program.PNo].J_Seg1.PC[nr, index1];
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                                    Module1.J_PC[index1] = Module1.Vek[Module1.PNo].J_Seg2.PC[nr, index1];
+                                    Program.J_PC[index1] = Program.Vek[Program.PNo].J_Seg2.PC[nr, index1];
                                 checked { ++index1; }
                             }
-                            if (Module1.NoJ_GOE < Module1.NoJudgeTMV)
+                            if (Program.NoJ_GOE < Program.NoJudgeTMV)
                             {
-                                int noJGoe2 = Module1.NoJ_GOE;
+                                int noJGoe2 = Program.NoJ_GOE;
                                 int index2 = 1;
                                 while (index2 <= noJGoe2)
                                 {
-                                    num5 += Module1.J_PC[index2];
+                                    num5 += Program.J_PC[index2];
                                     checked { ++index2; }
                                 }
-                                numArray[nr] = num5 / (double)Module1.NoJ_GOE;
+                                numArray[nr] = num5 / (double)Program.NoJ_GOE;
                             }
                             else
                             {
-                                Module1.Sort_J_PC(Module1.NoJ_GOE);
-                                int num6 = checked(Module1.NoJ_GOE - 1);
+                                Program.Sort_J_PC(Program.NoJ_GOE);
+                                int num6 = checked(Program.NoJ_GOE - 1);
                                 int index3 = 2;
                                 while (index3 <= num6)
                                 {
-                                    num5 += Module1.J_PC[index3];
+                                    num5 += Program.J_PC[index3];
                                     checked { ++index3; }
                                 }
-                                numArray[nr] = num5 / (double)checked(Module1.NoJ_GOE - 2);
+                                numArray[nr] = num5 / (double)checked(Program.NoJ_GOE - 2);
                             }
                             numArray[nr] = Conversion.Int(100.0 * numArray[nr] + 0.5000001) / 100.0;
-                            num4 += Conversion.Int(numArray[nr] * 100.0 * Module1.PC_Factor(nr) + 0.5000001) / 100.0;
+                            num4 += Conversion.Int(numArray[nr] * 100.0 * Program.PC_Factor(nr) + 0.5000001) / 100.0;
                             if (C_JDA > 0)
-                                Module1.JDarr[checked(R + nr), 14] = Strings.Format((object)numArray[nr], "0.00");
+                                Program.JDarr[checked(R + nr), 14] = Strings.Format((object)numArray[nr], "0.00");
                         }
                         checked { ++nr; }
                     }
                     while (nr <= 5);
                     double Expression = Conversion.Int(1000.0 * num4 + 0.5000001) / 1000.0;
                     if (C_JDA > 0)
-                        Module1.JDarr[checked(R + 6), 14] = Strings.Format((object)Expression, "0.00");
-                    string segment1 = Module1.Segment;
+                        Program.JDarr[checked(R + 6), 14] = Strings.Format((object)Expression, "0.00");
+                    string segment1 = Program.Segment;
                     if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                        Module1.Vek[Module1.PNo].Finished_Seg1 = Expression <= 0.0 ? 0 : 1;
+                        Program.Vek[Program.PNo].Finished_Seg1 = Expression <= 0.0 ? 0 : 1;
                     else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                        Module1.Vek[Module1.PNo].Finished_Seg2 = Expression <= 0.0 ? 0 : 1;
+                        Program.Vek[Program.PNo].Finished_Seg2 = Expression <= 0.0 ? 0 : 1;
                     num2 = Expression;
                     goto label_34;
                 }
@@ -3434,10 +3434,10 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    return Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[nr];
-                return Operators.CompareString(segment, "Seg2", false) != 0 ? 0.0 : Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[nr];
+                    return Program.OpenDB[Program.PcIndex].PCFactorsSeg1[nr];
+                return Operators.CompareString(segment, "Seg2", false) != 0 ? 0.0 : Program.OpenDB[Program.PcIndex].PCFactorsSeg2[nr];
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num3 == 0)
             {
@@ -3449,11 +3449,11 @@ namespace ClubCompFS
         public static double A_Calc_Bonus()
         {
             double num = 0.0;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
-                num = Module1.Vek[Module1.PNo].Bonus_Seg1 <= 0 ? 0.0 : (double)Module1.Vek[Module1.PNo].Bonus_Seg1;
+                num = Program.Vek[Program.PNo].Bonus_Seg1 <= 0 ? 0.0 : (double)Program.Vek[Program.PNo].Bonus_Seg1;
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                num = Module1.Vek[Module1.PNo].Bonus_Seg2 <= 0 ? 0.0 : (double)Module1.Vek[Module1.PNo].Bonus_Seg2;
+                num = Program.Vek[Program.PNo].Bonus_Seg2 <= 0 ? 0.0 : (double)Program.Vek[Program.PNo].Bonus_Seg2;
             return num;
         }
 
@@ -3465,74 +3465,74 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.JDarr[checked(R + 1), 2] = Module1.Competition.Name;
-                Module1.JDarr[checked(R + 2), 2] = Strings.UCase(Module1.Category.Name) + Module1.SubCat();
-                Module1.JDarr[checked(R + 3), 2] = Strings.UCase(Module1.GetProgType(Module1.Segment)) + " PROGRAM";
+                Program.JDarr[checked(R + 1), 2] = Program.Competition.Name;
+                Program.JDarr[checked(R + 2), 2] = Strings.UCase(Program.Category.Name) + Program.SubCat();
+                Program.JDarr[checked(R + 3), 2] = Strings.UCase(Program.GetProgType(Program.Segment)) + " PROGRAM";
                 int num3 = 4;
-                Module1.JDarr[checked(R + num3), 1] = "Pl.";
-                Module1.JDarr[checked(R + num3), 2] = "NAME";
-                Module1.JDarr[checked(R + num3), 4] = "START No.";
-                Module1.JDarr[checked(R + num3), 8] = "TOTAL";
-                Module1.JDarr[checked(R + num3), 10] = "TOTAL";
-                Module1.JDarr[checked(R + num3), 11] = "TOTAL";
-                string segment1 = Module1.Segment;
+                Program.JDarr[checked(R + num3), 1] = "Pl.";
+                Program.JDarr[checked(R + num3), 2] = "NAME";
+                Program.JDarr[checked(R + num3), 4] = "START No.";
+                Program.JDarr[checked(R + num3), 8] = "TOTAL";
+                Program.JDarr[checked(R + num3), 10] = "TOTAL";
+                Program.JDarr[checked(R + num3), 11] = "TOTAL";
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Bonus_Seg1 > 0)
-                        Module1.JDarr[checked(R + num3), 12] = "BONUS";
+                    if (Program.Vek[Program.PNo].Bonus_Seg1 > 0)
+                        Program.JDarr[checked(R + num3), 12] = "BONUS";
                 }
-                else if (Operators.CompareString(segment1, "Seg2", false) == 0 && Module1.Vek[Module1.PNo].Bonus_Seg2 > 0)
-                    Module1.JDarr[checked(R + num3), 12] = "BONUS";
-                Module1.JDarr[checked(R + num3), 14] = "DEDUCTION";
+                else if (Operators.CompareString(segment1, "Seg2", false) == 0 && Program.Vek[Program.PNo].Bonus_Seg2 > 0)
+                    Program.JDarr[checked(R + num3), 12] = "BONUS";
+                Program.JDarr[checked(R + num3), 14] = "DEDUCTION";
                 int num4 = 5;
-                string segment2 = Module1.Segment;
+                string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
-                    Module1.JDarr[checked(R + num4), 1] = Conversions.ToString(Module1.Vek[Module1.PNo].Place_Seg1);
-                    Module1.JDarr[checked(R + num4), 4] = Conversions.ToString(Module1.Vek[Module1.PNo].Startno_Seg1);
+                    Program.JDarr[checked(R + num4), 1] = Conversions.ToString(Program.Vek[Program.PNo].Place_Seg1);
+                    Program.JDarr[checked(R + num4), 4] = Conversions.ToString(Program.Vek[Program.PNo].Startno_Seg1);
                 }
                 else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                 {
-                    Module1.JDarr[checked(R + num4), 1] = Conversions.ToString(Module1.Vek[Module1.PNo].Place_Seg2);
-                    Module1.JDarr[checked(R + num4), 4] = Conversions.ToString(Module1.Vek[Module1.PNo].Startno_Seg2);
+                    Program.JDarr[checked(R + num4), 1] = Conversions.ToString(Program.Vek[Program.PNo].Place_Seg2);
+                    Program.JDarr[checked(R + num4), 4] = Conversions.ToString(Program.Vek[Program.PNo].Startno_Seg2);
                 }
-                Module1.JDarr[checked(R + num4), 2] = Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
-                Module1.JDarr[checked(R + num4), 8] = "Segments";
-                Module1.JDarr[checked(R + num4), 10] = "Elements";
-                Module1.JDarr[checked(R + num4), 11] = "PC";
+                Program.JDarr[checked(R + num4), 2] = Program.Vek[Program.PNo].Name.FName + " " + Program.Vek[Program.PNo].Name.LName;
+                Program.JDarr[checked(R + num4), 8] = "Segments";
+                Program.JDarr[checked(R + num4), 10] = "Elements";
+                Program.JDarr[checked(R + num4), 11] = "PC";
                 int num5 = 6;
-                Module1.JDarr[checked(R + num5), 2] = Module1.Vek[Module1.PNo].Club;
-                Module1.JDarr[checked(R + num5), 8] = "Score";
-                Module1.JDarr[checked(R + num5), 10] = "Score";
-                Module1.JDarr[checked(R + num5), 11] = "Score";
+                Program.JDarr[checked(R + num5), 2] = Program.Vek[Program.PNo].Club;
+                Program.JDarr[checked(R + num5), 8] = "Score";
+                Program.JDarr[checked(R + num5), 10] = "Score";
+                Program.JDarr[checked(R + num5), 11] = "Score";
                 int num6 = 7;
-                Module1.JDarr[checked(R + num6), 9] = "=";
+                Program.JDarr[checked(R + num6), 9] = "=";
                 int num7 = 8;
-                Module1.JDarr[checked(R + num7), 1] = "#";
-                Module1.JDarr[checked(R + num7), 2] = "EXECUTED ELEMENTS";
-                Module1.JDarr[checked(R + num7), 4] = "BASE VALUE";
-                Module1.JDarr[checked(R + num7), 6] = "GOE";
-                int noJGoe = Module1.NoJ_GOE;
+                Program.JDarr[checked(R + num7), 1] = "#";
+                Program.JDarr[checked(R + num7), 2] = "EXECUTED ELEMENTS";
+                Program.JDarr[checked(R + num7), 4] = "BASE VALUE";
+                Program.JDarr[checked(R + num7), 6] = "GOE";
+                int noJGoe = Program.NoJ_GOE;
                 int Number1 = 1;
                 while (Number1 <= noJGoe)
                 {
-                    Module1.JDarr[checked(R + num7), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
+                    Program.JDarr[checked(R + num7), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
                     checked { ++Number1; }
                 }
-                if (Module1.NoJ_GOE <= 6 & Module1.WOR == 0 && Module1.JudgeSel > 0)
-                    Module1.JDarr[checked(R + num7), 13] = "Ref";
-                if (Module1.NoTrj > 0 & Module1.WOR == 0)
+                if (Program.NoJ_GOE <= 6 & Program.WOR == 0 && Program.JudgeSel > 0)
+                    Program.JDarr[checked(R + num7), 13] = "Ref";
+                if (Program.NoTrj > 0 & Program.WOR == 0)
                 {
-                    int num8 = checked(Module1.NoJ_GOE + 1);
-                    int num9 = checked(Module1.NoJ_GOE + Module1.NoTrj);
+                    int num8 = checked(Program.NoJ_GOE + 1);
+                    int num9 = checked(Program.NoJ_GOE + Program.NoTrj);
                     int Number2 = num8;
                     while (Number2 <= num9)
                     {
-                        Module1.JDarr[checked(R + num7), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
+                        Program.JDarr[checked(R + num7), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
                         checked { ++Number2; }
                     }
                 }
-                Module1.JDarr[checked(R + num7), 14] = "SCORES";
+                Program.JDarr[checked(R + num7), 14] = "SCORES";
                 goto label_25;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -3550,11 +3550,11 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        public static string GetCat() => Strings.Len(Module1.SubCategory) == 0 ? Module1.Category.Name : Module1.Category.Name + ", " + Module1.SubCategory;
+        public static string GetCat() => Strings.Len(Program.SubCategory) == 0 ? Program.Category.Name : Program.Category.Name + ", " + Program.SubCategory;
 
-        public static string SubCat() => Operators.CompareString(Strings.Trim(Module1.SubCategory), "", false) == 0 ? "" : ", " + Module1.SubCategory;
+        public static string SubCat() => Operators.CompareString(Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : ", " + Program.SubCategory;
 
-        public static string SubCat_() => Operators.CompareString(Strings.Trim(Module1.SubCategory), "", false) == 0 ? "" : "_" + Module1.SubCategory;
+        public static string SubCat_() => Operators.CompareString(Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : "_" + Program.SubCategory;
 
         public static int B_SSS_data(int R)
         {
@@ -3566,55 +3566,55 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 num2 = 0;
-                if (Module1.PNo > 0)
+                if (Program.PNo > 0)
                 {
                     int num4 = 10;
                     int index = 1;
                     do
                     {
                         string str = "";
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            if (Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg1[index], "", false) != 0)
+                            if (Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1[index], "", false) != 0)
                             {
-                                Module1.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
-                                str = Module1.Vek[Module1.PNo].SSS_Seg1[index];
+                                Program.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
+                                str = Program.Vek[Program.PNo].SSS_Seg1[index];
                             }
                         }
-                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg2[index], "", false) != 0)
+                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], "", false) != 0)
                         {
-                            Module1.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
-                            str = Module1.Vek[Module1.PNo].SSS_Seg2[index];
+                            Program.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
+                            str = Program.Vek[Program.PNo].SSS_Seg2[index];
                         }
                         if (str.Contains("*"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "*";
+                            Program.JDarr[checked(R + index + 8), 3] = "*";
                         else if (str.Contains("V"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "V";
+                            Program.JDarr[checked(R + index + 8), 3] = "V";
                         else if (str.Contains("<< e"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<<e";
+                            Program.JDarr[checked(R + index + 8), 3] = "<<e";
                         else if (str.Contains("< e"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<e";
+                            Program.JDarr[checked(R + index + 8), 3] = "<e";
                         else if (str.Contains(" e"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "e";
+                            Program.JDarr[checked(R + index + 8), 3] = "e";
                         else if (str.Contains("<< !"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<<!";
+                            Program.JDarr[checked(R + index + 8), 3] = "<<!";
                         else if (str.Contains("< !"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<!";
+                            Program.JDarr[checked(R + index + 8), 3] = "<!";
                         else if (str.Contains(" !"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "!";
+                            Program.JDarr[checked(R + index + 8), 3] = "!";
                         else if (str.Contains("<<"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<<";
+                            Program.JDarr[checked(R + index + 8), 3] = "<<";
                         else if (str.Contains("<"))
-                            Module1.JDarr[checked(R + index + 8), 3] = "<";
+                            Program.JDarr[checked(R + index + 8), 3] = "<";
                         else if (!str.Contains("Sq") && str.Contains("q")) // Exclude Sequence Element (Sq)
-                            Module1.JDarr[checked(R + index + 8), 3] = "q";
+                            Program.JDarr[checked(R + index + 8), 3] = "q";
                         int num5 = Strings.InStr(1, str, " !", CompareMethod.Text);
                         if (num5 > 0)
                             str = Strings.Left(str, checked(num5 - 1));
                         if (Operators.CompareString(str, "", false) != 0)
                         {
-                            Module1.JDarr[checked(R + index + 8), 2] = str;
+                            Program.JDarr[checked(R + index + 8), 2] = str;
                             num4 = checked(index + 8);
                         }
                         checked { ++index; }
@@ -3651,7 +3651,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                int num3 = !(Module1.NoTrj > 0 & Module1.WOR == 1) ? checked(Module1.NoJ_GOE + Module1.NoTrj) : Module1.NoJ_GOE;
+                int num3 = !(Program.NoTrj > 0 & Program.WOR == 1) ? checked(Program.NoJ_GOE + Program.NoTrj) : Program.NoJ_GOE;
                 int num4 = row;
                 int num5 = 9;
                 while (num5 <= num4)
@@ -3660,26 +3660,26 @@ namespace ClubCompFS
                     int index = 1;
                     while (index <= num6)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
-                            Module1.JDarr[checked(R + num5), checked(6 + index)] = Conversions.ToDouble(Module1.JDarr[checked(R + num5), 4]) <= 0.0 ? "--" : Conversions.ToString(Module1.Vek[Module1.PNo].J_Seg1.EE[checked(num5 - 9 + 1), index]);
+                            Program.JDarr[checked(R + num5), checked(6 + index)] = Conversions.ToDouble(Program.JDarr[checked(R + num5), 4]) <= 0.0 ? "--" : Conversions.ToString(Program.Vek[Program.PNo].J_Seg1.EE[checked(num5 - 9 + 1), index]);
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            Module1.JDarr[checked(R + num5), checked(6 + index)] = Conversions.ToDouble(Module1.JDarr[checked(R + num5), 4]) <= 0.0 ? "--" : Conversions.ToString(Module1.Vek[Module1.PNo].J_Seg2.EE[checked(num5 - 9 + 1), index]);
+                            Program.JDarr[checked(R + num5), checked(6 + index)] = Conversions.ToDouble(Program.JDarr[checked(R + num5), 4]) <= 0.0 ? "--" : Conversions.ToString(Program.Vek[Program.PNo].J_Seg2.EE[checked(num5 - 9 + 1), index]);
                         checked { ++index; }
                     }
                     checked { ++num5; }
                 }
-                if (Module1.NoJ_GOE <= 6 & Module1.JudgeSel != 0 & Module1.WOR == 0)
+                if (Program.NoJ_GOE <= 6 & Program.JudgeSel != 0 & Program.WOR == 0)
                 {
                     int num7 = row;
                     int num8 = 9;
                     while (num8 <= num7)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
-                            Module1.JDarr[checked(R + num8), 13] = Conversions.ToDouble(Module1.JDarr[checked(R + num8), 4]) <= 0.0 ? "--" : Conversions.ToString(Module1.Vek[Module1.PNo].J_Seg1.EE[checked(num8 - 9 + 1), 7]);
+                            Program.JDarr[checked(R + num8), 13] = Conversions.ToDouble(Program.JDarr[checked(R + num8), 4]) <= 0.0 ? "--" : Conversions.ToString(Program.Vek[Program.PNo].J_Seg1.EE[checked(num8 - 9 + 1), 7]);
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            Module1.JDarr[checked(R + num8), 13] = Conversions.ToDouble(Module1.JDarr[checked(R + num8), 4]) <= 0.0 ? "--" : Conversions.ToString(Module1.Vek[Module1.PNo].J_Seg2.EE[checked(num8 - 9 + 1), 7]);
+                            Program.JDarr[checked(R + num8), 13] = Conversions.ToDouble(Program.JDarr[checked(R + num8), 4]) <= 0.0 ? "--" : Conversions.ToString(Program.Vek[Program.PNo].J_Seg2.EE[checked(num8 - 9 + 1), 7]);
                         checked { ++num8; }
                     }
                     goto label_24;
@@ -3710,32 +3710,32 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.JDarr[checked(R + row + 1), 2] = "PROGRAM COMPONENTS";
-                Module1.JDarr[checked(R + row + 1), 4] = "FACTOR";
-                int noJGoe = Module1.NoJ_GOE;
+                Program.JDarr[checked(R + row + 1), 2] = "PROGRAM COMPONENTS";
+                Program.JDarr[checked(R + row + 1), 4] = "FACTOR";
+                int noJGoe = Program.NoJ_GOE;
                 int Number1 = 1;
                 while (Number1 <= noJGoe)
                 {
-                    Module1.JDarr[checked(R + row + 1), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
+                    Program.JDarr[checked(R + row + 1), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
                     checked { ++Number1; }
                 }
-                if (Module1.NoTrj > 0 & Module1.WOR == 0)
+                if (Program.NoTrj > 0 & Program.WOR == 0)
                 {
-                    int num3 = checked(Module1.NoJ_GOE + 1);
-                    int num4 = checked(Module1.NoJ_GOE + Module1.NoTrj);
+                    int num3 = checked(Program.NoJ_GOE + 1);
+                    int num4 = checked(Program.NoJ_GOE + Program.NoTrj);
                     int Number2 = num3;
                     while (Number2 <= num4)
                     {
-                        Module1.JDarr[checked(R + row + 1), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
+                        Program.JDarr[checked(R + row + 1), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
                         checked { ++Number2; }
                     }
                 }
-                if (Module1.NoJ_GOE <= 6 & Module1.WOR == 0 && Module1.JudgeSel > 0)
-                    Module1.JDarr[checked(R + row + 1), 13] = "Ref";
-                Module1.JDarr[checked(R + row + 2), 2] = "Skating Skills";
-                Module1.JDarr[checked(R + row + 2), 4] = Conversions.ToString(Module1.PC_Factor(1));
-                Module1.JDarr[checked(R + row + 4), 2] = "Performance/Execution";
-                Module1.JDarr[checked(R + row + 4), 4] = Conversions.ToString(Module1.PC_Factor(3));
+                if (Program.NoJ_GOE <= 6 & Program.WOR == 0 && Program.JudgeSel > 0)
+                    Program.JDarr[checked(R + row + 1), 13] = "Ref";
+                Program.JDarr[checked(R + row + 2), 2] = "Skating Skills";
+                Program.JDarr[checked(R + row + 2), 4] = Conversions.ToString(Program.PC_Factor(1));
+                Program.JDarr[checked(R + row + 4), 2] = "Performance/Execution";
+                Program.JDarr[checked(R + row + 4), 4] = Conversions.ToString(Program.PC_Factor(3));
                 goto label_16;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -3761,7 +3761,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                int num3 = !(Module1.NoTrj > 0 & Module1.WOR == 1) ? checked(Module1.NoJ_GOE + Module1.NoTrj) : Module1.NoJ_GOE;
+                int num3 = !(Program.NoTrj > 0 & Program.WOR == 1) ? checked(Program.NoJ_GOE + Program.NoTrj) : Program.NoJ_GOE;
                 int num4 = row;
                 int num5 = checked(row + 4);
                 int num6 = num4;
@@ -3771,33 +3771,33 @@ namespace ClubCompFS
                     int index = 1;
                     while (index <= num7)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            if (Conversions.ToInteger(Module1.JDarr[checked(R + num6), 4]) > 0)
-                                Module1.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Module1.Vek[Module1.PNo].J_Seg1.PC[checked(num6 - row + 1), index], "0.00");
+                            if (Conversions.ToInteger(Program.JDarr[checked(R + num6), 4]) > 0)
+                                Program.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num6 - row + 1), index], "0.00");
                         }
-                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Module1.JDarr[checked(R + num6), 4]) > 0)
-                            Module1.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Module1.Vek[Module1.PNo].J_Seg2.PC[checked(num6 - row + 1), index], "0.00");
+                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Program.JDarr[checked(R + num6), 4]) > 0)
+                            Program.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num6 - row + 1), index], "0.00");
                         checked { ++index; }
                     }
                     checked { ++num6; }
                 }
-                if (Module1.NoJ_GOE <= 6 & Module1.JudgeSel != 0 & Module1.WOR == 0)
+                if (Program.NoJ_GOE <= 6 & Program.JudgeSel != 0 & Program.WOR == 0)
                 {
                     int num8 = row;
                     int num9 = checked(row + 4);
                     int num10 = num8;
                     while (num10 <= num9)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            if (Conversions.ToInteger(Module1.JDarr[checked(R + num10), 4]) > 0)
-                                Module1.JDarr[checked(R + num10), 13] = Strings.Format((object)Module1.Vek[Module1.PNo].J_Seg1.PC[checked(num10 - row + 1), 7], "0.00");
+                            if (Conversions.ToInteger(Program.JDarr[checked(R + num10), 4]) > 0)
+                                Program.JDarr[checked(R + num10), 13] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num10 - row + 1), 7], "0.00");
                         }
-                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Module1.JDarr[checked(R + num10), 4]) > 0)
-                            Module1.JDarr[checked(R + num10), 13] = Strings.Format((object)Module1.Vek[Module1.PNo].J_Seg2.PC[checked(num10 - row + 1), 7], "0.00");
+                        else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Program.JDarr[checked(R + num10), 4]) > 0)
+                            Program.JDarr[checked(R + num10), 13] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num10 - row + 1), 7], "0.00");
                         checked { ++num10; }
                     }
                     goto label_26;
@@ -3835,12 +3835,12 @@ namespace ClubCompFS
                 int index = num3;
                 while (index <= num4)
                 {
-                    Expression1 += Conversions.ToDouble(Module1.JDarr[index, 4]);
-                    Expression2 += Conversions.ToDouble(Module1.JDarr[index, 14]);
+                    Expression1 += Conversions.ToDouble(Program.JDarr[index, 4]);
+                    Expression2 += Conversions.ToDouble(Program.JDarr[index, 14]);
                     checked { ++index; }
                 }
-                Module1.JDarr[checked(R + row + 1), 4] = Strings.Format((object)Expression1, "0.00");
-                Module1.JDarr[checked(R + row + 1), 14] = Strings.Format((object)Expression2, "0.00");
+                Program.JDarr[checked(R + row + 1), 4] = Strings.Format((object)Expression1, "0.00");
+                Program.JDarr[checked(R + row + 1), 14] = Strings.Format((object)Expression2, "0.00");
                 goto label_10;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -3860,18 +3860,18 @@ namespace ClubCompFS
 
         public static void B_Show_Bonus(int R)
         {
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
             {
-                if (Module1.Vek[Module1.PNo].Bonus_Seg1 <= 0)
+                if (Program.Vek[Program.PNo].Bonus_Seg1 <= 0)
                     return;
-                Module1.JDarr[checked(R + 7), 12] = Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg1);
+                Program.JDarr[checked(R + 7), 12] = Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg1);
             }
             else
             {
-                if (Operators.CompareString(segment, "Seg2", false) != 0 || Module1.Vek[Module1.PNo].Bonus_Seg2 <= 0)
+                if (Operators.CompareString(segment, "Seg2", false) != 0 || Program.Vek[Program.PNo].Bonus_Seg2 <= 0)
                     return;
-                Module1.JDarr[checked(R + 7), 12] = Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg2);
+                Program.JDarr[checked(R + 7), 12] = Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg2);
             }
         }
 
@@ -3886,19 +3886,19 @@ namespace ClubCompFS
                 num1 = 2;
                 string str1 = "";
                 string str2 = "";
-                Module1.JDarr[checked(R + row), 2] = "DEDUCTIONS";
-                if (Module1.ShowJudgeDed == 1)
+                Program.JDarr[checked(R + row), 2] = "DEDUCTIONS";
+                if (Program.ShowJudgeDed == 1)
                 {
                     int index = 1;
                     do
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         long num3 = 0;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
-                            num3 = Module1.Vek[Module1.PNo].J_Seg1.Deduction[index];
+                            num3 = Program.Vek[Program.PNo].J_Seg1.Deduction[index];
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            num3 = Module1.Vek[Module1.PNo].J_Seg2.Deduction[index];
-                        if (index <= checked(Module1.NoJ_GOE + Module1.NoTrj) | index == 7 & Module1.NoJ_GOE <= 6 & Module1.JudgeSel != 0)
+                            num3 = Program.Vek[Program.PNo].J_Seg2.Deduction[index];
+                        if (index <= checked(Program.NoJ_GOE + Program.NoTrj) | index == 7 & Program.NoJ_GOE <= 6 & Program.JudgeSel != 0)
                         {
                             string str;
                             switch (num3 - 1L)
@@ -3928,52 +3928,52 @@ namespace ClubCompFS
                                     str = "";
                                     break;
                             }
-                            Module1.JDarr[checked(R + row), checked(6 + index)] = str;
+                            Program.JDarr[checked(R + row), checked(6 + index)] = str;
                         }
                         checked { ++index; }
                     }
                     while (index <= 7);
                 }
                 rowDGW = checked(R + row + 1);
-                long d1 = Module1.MV_Ded(Module1.PNo, 1, Module1.Segment);
+                long d1 = Program.MV_Ded(Program.PNo, 1, Program.Segment);
                 if (d1 > 0L)
-                    Module1.MakeString("Costume Violation: ", checked((int)d1), ref str1, ref str2);
-                long d2 = Module1.MV_Ded(Module1.PNo, 2, Module1.Segment);
+                    Program.MakeString("Costume Violation: ", checked((int)d1), ref str1, ref str2);
+                long d2 = Program.MV_Ded(Program.PNo, 2, Program.Segment);
                 if (d2 > 0L)
-                    Module1.MakeString("Props: ", checked((int)d2), ref str1, ref str2);
-                long d3 = Module1.MV_Ded(Module1.PNo, 3, Module1.Segment);
+                    Program.MakeString("Props: ", checked((int)d2), ref str1, ref str2);
+                long d3 = Program.MV_Ded(Program.PNo, 3, Program.Segment);
                 if (d3 > 0L)
-                    Module1.MakeString("Music Violation: ", checked((int)d3), ref str1, ref str2);
-                string segment1 = Module1.Segment;
+                    Program.MakeString("Music Violation: ", checked((int)d3), ref str1, ref str2);
+                string segment1 = Program.Segment;
                 long DedLong;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Falls_seg1 > 0)
-                        Module1.MakeString("Fall: ", Module1.Vek[Module1.PNo].Falls_seg1, ref str1, ref str2);
-                    DedLong = Conversion.Int(Module1.Vek[Module1.PNo].Deductions_Seg1);
+                    if (Program.Vek[Program.PNo].Falls_seg1 > 0)
+                        Program.MakeString("Fall: ", Program.Vek[Program.PNo].Falls_seg1, ref str1, ref str2);
+                    DedLong = Conversion.Int(Program.Vek[Program.PNo].Deductions_Seg1);
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Falls_seg2 > 0)
-                        Module1.MakeString("Fall: ", Module1.Vek[Module1.PNo].Falls_seg2, ref str1, ref str2);
-                    DedLong = Conversion.Int(Module1.Vek[Module1.PNo].Deductions_Seg2);
+                    if (Program.Vek[Program.PNo].Falls_seg2 > 0)
+                        Program.MakeString("Fall: ", Program.Vek[Program.PNo].Falls_seg2, ref str1, ref str2);
+                    DedLong = Conversion.Int(Program.Vek[Program.PNo].Deductions_Seg2);
                 }
                 else
                     DedLong = 0L;
-                Module1.GetArr(ref myarr, DedLong);
+                Program.GetArr(ref myarr, DedLong);
                 if (myarr[1] > 0)
-                    Module1.MakeString("Time Violation: ", myarr[1], ref str1, ref str2);
+                    Program.MakeString("Time Violation: ", myarr[1], ref str1, ref str2);
                 if (myarr[2] > 0)
-                    Module1.MakeString("Late start: ", myarr[2], ref str1, ref str2);
+                    Program.MakeString("Late start: ", myarr[2], ref str1, ref str2);
                 if (myarr[3] > 0)
-                    Module1.MakeString("Illegal Elements: ", myarr[3], ref str1, ref str2);
+                    Program.MakeString("Illegal Elements: ", myarr[3], ref str1, ref str2);
                 if (myarr[4] > 0)
-                    Module1.MakeString("Interrupts: ", myarr[4], ref str1, ref str2);
+                    Program.MakeString("Interrupts: ", myarr[4], ref str1, ref str2);
                 if (myarr[5] > 0)
-                    Module1.MakeString("Costume failure: ", myarr[5], ref str1, ref str2);
+                    Program.MakeString("Costume failure: ", myarr[5], ref str1, ref str2);
                 if (myarr[6] > 0)
-                    Module1.MakeString("Missing Elements: ", myarr[6], ref str1, ref str2);
-                Module1.JDarr[checked(R + row + 1), 2] = str1;
+                    Program.MakeString("Missing Elements: ", myarr[6], ref str1, ref str2);
+                Program.JDarr[checked(R + row + 1), 2] = str1;
                 rowDGW = checked(R + row + 1);
                 goto label_52;
             }
@@ -4079,17 +4079,17 @@ namespace ClubCompFS
                 num2 = 0L;
                 int num4 = 0;
                 int num5 = 0;
-                int noJGoe = Module1.NoJ_GOE;
+                int noJGoe = Program.NoJ_GOE;
                 int Jno = 1;
                 while (Jno <= noJGoe)
                 {
-                    checked { num4 += Module1.JDED(Pno, Jno, Dno, Prog); }
+                    checked { num4 += Program.JDED(Pno, Jno, Dno, Prog); }
                     checked { ++num5; }
                     checked { ++Jno; }
                 }
-                if (Module1.JudgeSel == 1)
+                if (Program.JudgeSel == 1)
                 {
-                    checked { num4 += Module1.JDED(Pno, 7, Dno, Prog); }
+                    checked { num4 += Program.JDED(Pno, 7, Dno, Prog); }
                     checked { ++num5; }
                 }
                 if ((double)num4 > (double)num5 / 2.0)
@@ -4127,7 +4127,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Left = Prog;
-                long num4 = Operators.CompareString(Left, "Seg1", false) != 0 ? (Operators.CompareString(Left, "Seg2", false) != 0 ? 0L : Module1.Vek[Pno].J_Seg2.Deduction[Jno]) : Module1.Vek[Pno].J_Seg1.Deduction[Jno];
+                long num4 = Operators.CompareString(Left, "Seg1", false) != 0 ? (Operators.CompareString(Left, "Seg2", false) != 0 ? 0L : Program.Vek[Pno].J_Seg2.Deduction[Jno]) : Program.Vek[Pno].J_Seg1.Deduction[Jno];
                 num2 = 0;
                 switch (Dno)
                 {
@@ -4186,15 +4186,15 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Finished_Seg1 == 1)
+                    if (Program.Vek[Program.PNo].Finished_Seg1 == 1)
                     {
-                        Module1.JDarr[checked(R + 7), 8] = Strings.Format((object)Module1.Vek[Module1.PNo].Score_Seg1, "0.00");
-                        Module1.JDarr[checked(R + 7), 10] = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg1, "0.00");
-                        Module1.JDarr[checked(R + 7), 11] = Strings.Format((object)Module1.Vek[Module1.PNo].PCS_Seg1, "0.00");
-                        Module1.JDarr[checked(R + 7), 14] = Strings.Format((object)Module1.DedSeg1Seg2(Module1.PNo, Module1.Segment));
+                        Program.JDarr[checked(R + 7), 8] = Strings.Format((object)Program.Vek[Program.PNo].Score_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 10] = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 11] = Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 14] = Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
                         goto label_12;
                     }
                     else
@@ -4202,12 +4202,12 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Finished_Seg2 == 1)
+                    if (Program.Vek[Program.PNo].Finished_Seg2 == 1)
                     {
-                        Module1.JDarr[checked(R + 7), 8] = Strings.Format((object)Module1.Vek[Module1.PNo].Score_Seg2, "0.00");
-                        Module1.JDarr[checked(R + 7), 10] = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg2, "0.00");
-                        Module1.JDarr[checked(R + 7), 11] = Strings.Format((object)Module1.Vek[Module1.PNo].PCS_Seg2, "0.00");
-                        Module1.JDarr[checked(R + 7), 14] = Strings.Format((object)Module1.DedSeg1Seg2(Module1.PNo, Module1.Segment));
+                        Program.JDarr[checked(R + 7), 8] = Strings.Format((object)Program.Vek[Program.PNo].Score_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 10] = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 11] = Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 14] = Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
                         goto label_12;
                     }
                     else
@@ -4242,26 +4242,26 @@ namespace ClubCompFS
                 int[] myarr = new int[11];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                double num5 = Module1.Init_DedFall();
-                double num6 = Module1.Init_DedInter();
-                double num7 = 0.0 + (double)Module1.MV_Ded(Pno, 1, Prog) + (double)Module1.MV_Ded(Pno, 2, Prog) + (double)Module1.MV_Ded(Pno, 3, Prog);
+                double num5 = Program.Init_DedFall();
+                double num6 = Program.Init_DedInter();
+                double num7 = 0.0 + (double)Program.MV_Ded(Pno, 1, Prog) + (double)Program.MV_Ded(Pno, 2, Prog) + (double)Program.MV_Ded(Pno, 3, Prog);
                 string Left = Prog;
                 long DedLong = 0;
                 if (Operators.CompareString(Left, "Seg1", false) == 0)
                 {
-                    DedLong = Module1.Vek[Pno].Deductions_Seg1;
-                    num4 = Module1.Vek[Pno].Falls_seg1;
+                    DedLong = Program.Vek[Pno].Deductions_Seg1;
+                    num4 = Program.Vek[Pno].Falls_seg1;
                 }
                 else if (Operators.CompareString(Left, "Seg2", false) == 0)
                 {
-                    DedLong = Module1.Vek[Pno].Deductions_Seg2;
-                    num4 = Module1.Vek[Pno].Falls_seg2;
+                    DedLong = Program.Vek[Pno].Deductions_Seg2;
+                    num4 = Program.Vek[Pno].Falls_seg2;
                 }
-                Module1.GetArr(ref myarr, DedLong);
+                Program.GetArr(ref myarr, DedLong);
                 double num8 = (double)myarr[1];
                 double num9 = num7 + num8 + (double)myarr[2];
-                double num10 = (!Strings.UCase(Module1.Category.Name).Contains("ARTISTISK") ? num9 + (double)checked(myarr[3] * 2) : num9 + (double)myarr[3]) + (double)myarr[4] * num6 + (double)myarr[5] + (double)myarr[6];
-                if (Strings.UCase(Module1.Category.Name).Contains("SENIOR A") | Strings.UCase(Module1.Category.Name).Contains("SENIORER A"))
+                double num10 = (!Strings.UCase(Program.Category.Name).Contains("ARTISTISK") ? num9 + (double)checked(myarr[3] * 2) : num9 + (double)myarr[3]) + (double)myarr[4] * num6 + (double)myarr[5] + (double)myarr[6];
+                if (Strings.UCase(Program.Category.Name).Contains("SENIOR A") | Strings.UCase(Program.Category.Name).Contains("SENIORER A"))
                 {
                     switch (num4)
                     {
@@ -4316,14 +4316,14 @@ namespace ClubCompFS
 
         public static double Init_DedFall()
         {
-            Module1.CalcPCindex();
-            return Module1.OpenDB[Module1.PcIndex].DedFall;
+            Program.CalcPCindex();
+            return Program.OpenDB[Program.PcIndex].DedFall;
         }
 
         public static double Init_DedInter()
         {
-            Module1.CalcPCindex();
-            return Module1.OpenDB[Module1.PcIndex].DedInter;
+            Program.CalcPCindex();
+            return Program.OpenDB[Program.PcIndex].DedInter;
         }
 
         public static void SetDed(int par, int Funk, string Prog)
@@ -4339,10 +4339,10 @@ namespace ClubCompFS
                 string Left = Prog;
                 long DedLong = 0;
                 if (Operators.CompareString(Left, "Seg1", false) == 0)
-                    DedLong = Module1.Vek[Module1.PNo].Deductions_Seg1;
+                    DedLong = Program.Vek[Program.PNo].Deductions_Seg1;
                 else if (Operators.CompareString(Left, "Seg2", false) == 0)
-                    DedLong = Module1.Vek[Module1.PNo].Deductions_Seg2;
-                Module1.GetArr(ref myarr, DedLong);
+                    DedLong = Program.Vek[Program.PNo].Deductions_Seg2;
+                Program.GetArr(ref myarr, DedLong);
                 if (myarr[1] > 0)
                     numArray[1] = (long)myarr[1];
                 if (myarr[2] > 0)
@@ -4379,15 +4379,15 @@ namespace ClubCompFS
                         int num3 = (int)Interaction.MsgBox((object)"Internal error wrong call", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         break;
                 }
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    Module1.Vek[Module1.PNo].Deductions_Seg1 = checked(numArray[1] + numArray[2] * 10L + numArray[3] * 100L + numArray[4] * 1000L + numArray[5] * 10000L + numArray[6] * 100000L);
+                    Program.Vek[Program.PNo].Deductions_Seg1 = checked(numArray[1] + numArray[2] * 10L + numArray[3] * 100L + numArray[4] * 1000L + numArray[5] * 10000L + numArray[6] * 100000L);
                     goto label_34;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    Module1.Vek[Module1.PNo].Deductions_Seg2 = checked(numArray[1] + numArray[2] * 10L + numArray[3] * 100L + numArray[4] * 1000L + numArray[5] * 10000L + numArray[6] * 100000L);
+                    Program.Vek[Program.PNo].Deductions_Seg2 = checked(numArray[1] + numArray[2] * 10L + numArray[3] * 100L + numArray[4] * 1000L + numArray[5] * 10000L + numArray[6] * 100000L);
                     goto label_34;
                 }
                 else
@@ -4428,7 +4428,7 @@ namespace ClubCompFS
                     if (Strings.UCase(Elin).Contains("+REP"))
                         str = Strings.Trim(str.Replace("+REP", ""));
                     if (Elin.Contains("Sp") && Elin.Contains("+V"))
-                        str = Module1.GetSpin(Elin);
+                        str = Program.GetSpin(Elin);
                     if (Strings.InStr(1, str, "+", CompareMethod.Text) > 0)
                     {
                         string[] strArray = str.Split('+');
@@ -4436,7 +4436,7 @@ namespace ClubCompFS
                         int index = 0;
                         while (index <= num3)
                         {
-                            if (!Module1.TstOneEl(strArray[index]))
+                            if (!Program.TstOneEl(strArray[index]))
                             {
                                 flag = false;
                                 break;
@@ -4445,7 +4445,7 @@ namespace ClubCompFS
                         }
                         goto label_22;
                     }
-                    else if (!Module1.TstOneEl(str))
+                    else if (!Program.TstOneEl(str))
                     {
                         flag = false;
                         goto label_22;
@@ -4495,7 +4495,7 @@ namespace ClubCompFS
                         string str = Elin;
                         if (str.Contains("+V"))
                         {
-                            str = Module1.GetSpin(str);
+                            str = Program.GetSpin(str);
                         }
                         else
                         {
@@ -4504,11 +4504,11 @@ namespace ClubCompFS
                             if (str.Contains("<"))
                                 str = Strings.Trim(str.Replace("<", ""));
                         }
-                        int elDbmax = Module1.ElDBmax;
+                        int elDbmax = Program.ElDBmax;
                         int index = 0;
                         while (index <= elDbmax)
                         {
-                            if (Operators.ConditionalCompareObjectEqual((object)str, Module1.ElDB[index, 0], false))
+                            if (Operators.ConditionalCompareObjectEqual((object)str, Program.ElDB[index, 0], false))
                             {
                                 flag = true;
                                 break;
@@ -4553,31 +4553,31 @@ namespace ClubCompFS
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     int index2 = index1;
                     int num4 = checked(index1 + 1);
                     int num5 = NoOfSkater;
                     int index3 = num4;
                     while (index3 <= num5)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) != 0)
                         {
-                            if (Operators.CompareString(segment, "Seg2", false) == 0 && (double)Module1.Vek[index3].Startno_Seg2 < (double)participant.Startno_Seg2)
+                            if (Operators.CompareString(segment, "Seg2", false) == 0 && (double)Program.Vek[index3].Startno_Seg2 < (double)participant.Startno_Seg2)
                             {
-                                participant = Module1.Vek[index3];
+                                participant = Program.Vek[index3];
                                 index2 = index3;
                             }
                         }
-                        else if ((double)Module1.Vek[index3].Startno_Seg1 < (double)participant.Startno_Seg1)
+                        else if ((double)Program.Vek[index3].Startno_Seg1 < (double)participant.Startno_Seg1)
                         {
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             index2 = index3;
                         }
                         checked { ++index3; }
                     }
-                    Module1.Vek[index2] = Module1.Vek[index1];
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index2] = Program.Vek[index1];
+                    Program.Vek[index1] = participant;
                     checked { ++index1; }
                 }
             }
@@ -4601,7 +4601,7 @@ namespace ClubCompFS
                 int index1 = 1;
                 while (index1 <= num3)
                 {
-                    if (Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].DNS_Seg1 > 0)
                         checked { ++DNS_Seg1; }
                     checked { ++index1; }
                 }
@@ -4609,22 +4609,22 @@ namespace ClubCompFS
                 int index2 = 1;
                 while (index2 <= num4)
                 {
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     int index3 = index2;
                     int num5 = checked(index2 + 1);
                     int num6 = NoOfSkater;
                     int index4 = num5;
                     while (index4 <= num6)
                     {
-                        if (Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        if (Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             index3 = index4;
                         }
                         checked { ++index4; }
                     }
-                    Module1.Vek[index3] = Module1.Vek[index2];
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index3] = Program.Vek[index2];
+                    Program.Vek[index2] = participant;
                     checked { ++index2; }
                 }
                 int num7 = 0;
@@ -4632,7 +4632,7 @@ namespace ClubCompFS
                 int index5 = 1;
                 while (index5 <= num8)
                 {
-                    if (Module1.Vek[index5].Startno_Seg2 < 1)
+                    if (Program.Vek[index5].Startno_Seg2 < 1)
                         checked { ++num7; }
                     checked { ++index5; }
                 }
@@ -4640,44 +4640,44 @@ namespace ClubCompFS
                 int index6 = 1;
                 while (index6 <= num9)
                 {
-                    Module1.Participant participant = Module1.Vek[index6];
+                    Program.Participant participant = Program.Vek[index6];
                     int index7 = index6;
                     int num10 = checked(index6 + 1);
                     int num11 = checked(NoOfSkater - DNS_Seg1);
                     int index8 = num10;
                     while (index8 <= num11)
                     {
-                        if (Module1.Vek[index8].Startno_Seg2 > participant.Startno_Seg2)
+                        if (Program.Vek[index8].Startno_Seg2 > participant.Startno_Seg2)
                         {
-                            participant = Module1.Vek[index8];
+                            participant = Program.Vek[index8];
                             index7 = index8;
                         }
                         checked { ++index8; }
                     }
-                    Module1.Vek[index7] = Module1.Vek[index6];
-                    Module1.Vek[index6] = participant;
+                    Program.Vek[index7] = Program.Vek[index6];
+                    Program.Vek[index6] = participant;
                     checked { ++index6; }
                 }
                 int num12 = checked(NoOfSkater - 1 - DNS_Seg1 - num7);
                 int index9 = 1;
                 while (index9 <= num12)
                 {
-                    Module1.Participant participant = Module1.Vek[index9];
+                    Program.Participant participant = Program.Vek[index9];
                     int index10 = index9;
                     int num13 = checked(index9 + 1);
                     int num14 = checked(NoOfSkater - DNS_Seg1 - num7);
                     int index11 = num13;
                     while (index11 <= num14)
                     {
-                        if ((double)Module1.Vek[index11].Startno_Seg2 < (double)participant.Startno_Seg2)
+                        if ((double)Program.Vek[index11].Startno_Seg2 < (double)participant.Startno_Seg2)
                         {
-                            participant = Module1.Vek[index11];
+                            participant = Program.Vek[index11];
                             index10 = index11;
                         }
                         checked { ++index11; }
                     }
-                    Module1.Vek[index10] = Module1.Vek[index9];
-                    Module1.Vek[index9] = participant;
+                    Program.Vek[index10] = Program.Vek[index9];
+                    Program.Vek[index9] = participant;
                     checked { ++index9; }
                 }
             }
@@ -4712,69 +4712,69 @@ namespace ClubCompFS
                     {
                         if (Strings.UCase(str2).Contains("COMP_FOLDER="))
                         {
-                            Module1.PathCompFile = Strings.Trim(str2.Split('=')[1]);
-                            Module1.PathCompFile = Module1.PathCompFile.Replace("/", "\\");
+                            Program.PathCompFile = Strings.Trim(str2.Split('=')[1]);
+                            Program.PathCompFile = Program.PathCompFile.Replace("/", "\\");
                         }
                         if (Strings.UCase(str2).Contains("RESULTS_FOLDER="))
                         {
-                            Module1.PathResultsFile = Strings.Trim(str2.Split('=')[1]);
-                            Module1.PathResultsFile = Module1.PathResultsFile.Replace("/", "\\");
+                            Program.PathResultsFile = Strings.Trim(str2.Split('=')[1]);
+                            Program.PathResultsFile = Program.PathResultsFile.Replace("/", "\\");
                         }
                         if (Strings.UCase(str2).Contains("RESULTSPHONE="))
                         {
-                            Module1.CreateResultsPhone = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            switch (Module1.CreateResultsPhone)
+                            Program.CreateResultsPhone = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            switch (Program.CreateResultsPhone)
                             {
                                 case 0:
                                 case 1:
                                     break;
                                 default:
-                                    Module1.CreateResultsPhone = 0;
+                                    Program.CreateResultsPhone = 0;
                                     break;
                             }
                         }
                         if (Strings.UCase(str2).Contains("TESCORES="))
                         {
-                            Module1.CreateTEScores = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            switch (Module1.CreateTEScores)
+                            Program.CreateTEScores = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            switch (Program.CreateTEScores)
                             {
                                 case 0:
                                 case 1:
                                     break;
                                 default:
-                                    Module1.CreateTEScores = 0;
+                                    Program.CreateTEScores = 0;
                                     break;
                             }
                         }
                         if (Strings.UCase(str2).Contains("ICELEAVETIME="))
-                            Module1.IceLeaveTime = Strings.Trim(str2.Split('=')[1]);
+                            Program.IceLeaveTime = Strings.Trim(str2.Split('=')[1]);
                         if (Strings.UCase(str2).Contains("RESURFACINGTIME"))
-                            Module1.ResurfacingTime = Strings.Trim(str2.Split('=')[1]);
+                            Program.ResurfacingTime = Strings.Trim(str2.Split('=')[1]);
                         if (Strings.UCase(str2).Contains("LUNCHTIME="))
-                            Module1.LunchTime = Strings.Trim(str2.Split('=')[1]);
+                            Program.LunchTime = Strings.Trim(str2.Split('=')[1]);
                         if (Strings.UCase(str2).Contains("SHOW_JUDGE_DED="))
-                            Module1.ShowJudgeDed = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            Program.ShowJudgeDed = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                         if (Strings.UCase(str2).Contains("TRIMMED_MV="))
                         {
-                            Module1.NoJudgeTMV = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            switch (Module1.NoJudgeTMV)
+                            Program.NoJudgeTMV = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            switch (Program.NoJudgeTMV)
                             {
                                 case 0:
                                 case 9:
-                                    Module1.NoJudgeTMV = 9;
+                                    Program.NoJudgeTMV = 9;
                                     break;
                                 case 5:
                                 case 7:
                                     break;
                                 default:
-                                    Module1.NoJudgeTMV = 5;
+                                    Program.NoJudgeTMV = 5;
                                     break;
                             }
                         }
                         if (Strings.UCase(str2).Contains("SCOREBOARD="))
                         {
-                            Module1.CreateScoreBoard = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            switch (Module1.CreateScoreBoard)
+                            Program.CreateScoreBoard = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            switch (Program.CreateScoreBoard)
                             {
                                 case 0:
                                 case 1:
@@ -4783,103 +4783,103 @@ namespace ClubCompFS
                                 case 4:
                                     break;
                                 default:
-                                    Module1.CreateScoreBoard = 0;
+                                    Program.CreateScoreBoard = 0;
                                     break;
                             }
                         }
                         if (Strings.UCase(str2).Contains("SCOREBOARD DELAY="))
                         {
-                            Module1.ScoreBoardDelay = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            int pageLeftMargin = Module1.Page_Left_Margin;
+                            Program.ScoreBoardDelay = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            int pageLeftMargin = Program.Page_Left_Margin;
                             if (pageLeftMargin < 0 || pageLeftMargin > 60)
-                                Module1.ScoreBoardDelay = 0;
+                                Program.ScoreBoardDelay = 0;
                         }
                         if (Strings.UCase(str2).Contains("PORT_NO="))
-                            Module1.PortNo = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            Program.PortNo = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                         if (Strings.UCase(str2).Contains("PING CLIENTS="))
                         {
-                            Module1.PingClients = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            switch (Module1.PingClients)
+                            Program.PingClients = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            switch (Program.PingClients)
                             {
                                 case 0:
                                 case 1:
                                     break;
                                 default:
-                                    Module1.PingClients = 1;
+                                    Program.PingClients = 1;
                                     break;
                             }
                         }
                         if (Strings.UCase(str2).Contains("PING TIMEOUT="))
                         {
-                            Module1.PingTimeout = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            if (Module1.PingTimeout < 500 & Module1.PingTimeout > 1500)
-                                Module1.PingTimeout = 1000;
+                            Program.PingTimeout = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            if (Program.PingTimeout < 500 & Program.PingTimeout > 1500)
+                                Program.PingTimeout = 1000;
                         }
                         if (Strings.UCase(str2).Contains("PAGE SIZE="))
                         {
-                            Module1.Page_Size = (double)Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            double pageSize = Module1.Page_Size;
+                            Program.Page_Size = (double)Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            double pageSize = Program.Page_Size;
                             if (pageSize < 75.0 || pageSize > 125.0)
-                                Module1.Page_Size = 100.0;
+                                Program.Page_Size = 100.0;
                         }
                         if (Strings.UCase(str2).Contains("LEFT MARGIN="))
                         {
-                            Module1.Page_Left_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            int pageLeftMargin = Module1.Page_Left_Margin;
+                            Program.Page_Left_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            int pageLeftMargin = Program.Page_Left_Margin;
                             if (pageLeftMargin < 0 || pageLeftMargin > 100)
-                                Module1.Page_Left_Margin = 40;
+                                Program.Page_Left_Margin = 40;
                         }
                         if (Strings.UCase(str2).Contains("TOP MARGIN="))
                         {
-                            Module1.Page_Top_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
-                            int pageTopMargin = Module1.Page_Top_Margin;
+                            Program.Page_Top_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            int pageTopMargin = Program.Page_Top_Margin;
                             if (pageTopMargin < 0 || pageTopMargin > 100)
-                                Module1.Page_Top_Margin = 60;
+                                Program.Page_Top_Margin = 60;
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO1="))
                         {
                             string str3 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[1] = Conversions.ToInteger(Strings.Left(str3, 1));
-                            Module1.JudgeCompFunc[1] = Conversions.ToInteger(Strings.Right(str3, 1));
+                            Program.JudgeCompNo[1] = Conversions.ToInteger(Strings.Left(str3, 1));
+                            Program.JudgeCompFunc[1] = Conversions.ToInteger(Strings.Right(str3, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO2="))
                         {
                             string str4 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[2] = Conversions.ToInteger(Strings.Left(str4, 1));
-                            Module1.JudgeCompFunc[2] = Conversions.ToInteger(Strings.Right(str4, 1));
+                            Program.JudgeCompNo[2] = Conversions.ToInteger(Strings.Left(str4, 1));
+                            Program.JudgeCompFunc[2] = Conversions.ToInteger(Strings.Right(str4, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO3="))
                         {
                             string str5 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[3] = Conversions.ToInteger(Strings.Left(str5, 1));
-                            Module1.JudgeCompFunc[3] = Conversions.ToInteger(Strings.Right(str5, 1));
+                            Program.JudgeCompNo[3] = Conversions.ToInteger(Strings.Left(str5, 1));
+                            Program.JudgeCompFunc[3] = Conversions.ToInteger(Strings.Right(str5, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO4="))
                         {
                             string str6 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[4] = Conversions.ToInteger(Strings.Left(str6, 1));
-                            Module1.JudgeCompFunc[4] = Conversions.ToInteger(Strings.Right(str6, 1));
+                            Program.JudgeCompNo[4] = Conversions.ToInteger(Strings.Left(str6, 1));
+                            Program.JudgeCompFunc[4] = Conversions.ToInteger(Strings.Right(str6, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO5="))
                         {
                             string str7 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[5] = Conversions.ToInteger(Strings.Left(str7, 1));
-                            Module1.JudgeCompFunc[5] = Conversions.ToInteger(Strings.Right(str7, 1));
+                            Program.JudgeCompNo[5] = Conversions.ToInteger(Strings.Left(str7, 1));
+                            Program.JudgeCompFunc[5] = Conversions.ToInteger(Strings.Right(str7, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO6="))
                         {
                             string str8 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[6] = Conversions.ToInteger(Strings.Left(str8, 1));
-                            Module1.JudgeCompFunc[6] = Conversions.ToInteger(Strings.Right(str8, 1));
+                            Program.JudgeCompNo[6] = Conversions.ToInteger(Strings.Left(str8, 1));
+                            Program.JudgeCompFunc[6] = Conversions.ToInteger(Strings.Right(str8, 1));
                         }
                         if (Strings.UCase(str2).Contains("COMPUTERNO7="))
                         {
                             string str9 = Strings.Trim(str2.Split('=')[1]);
-                            Module1.JudgeCompNo[7] = Conversions.ToInteger(Strings.Left(str9, 1));
-                            Module1.JudgeCompFunc[7] = Conversions.ToInteger(Strings.Right(str9, 1));
+                            Program.JudgeCompNo[7] = Conversions.ToInteger(Strings.Left(str9, 1));
+                            Program.JudgeCompFunc[7] = Conversions.ToInteger(Strings.Right(str9, 1));
                         }
                         if (Strings.UCase(str2).Contains("ADJUSTTOSCREEN="))
-                            Module1.AdjustToScreen = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                            Program.AdjustToScreen = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                     }
                 }
                 flag = true;
@@ -4928,50 +4928,50 @@ namespace ClubCompFS
                 streamWriter.Write("' Ping Timeout: 500 - 1500 ms\r\n");
                 streamWriter.Write("' For a A4 page: Page Size= 100, Left Margin= 40, Top Margin= 60\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("Comp_folder= " + Module1.PathCompFile + "\r\n");
-                streamWriter.Write("Results_folder= " + Module1.PathResultsFile + "\r\n");
-                streamWriter.Write("ResultsPhone= " + Strings.Trim(Conversions.ToString(Module1.CreateResultsPhone)) + "\r\n");
-                streamWriter.Write("TEScores= " + Strings.Trim(Conversions.ToString(Module1.CreateTEScores)) + "\r\n");
+                streamWriter.Write("Comp_folder= " + Program.PathCompFile + "\r\n");
+                streamWriter.Write("Results_folder= " + Program.PathResultsFile + "\r\n");
+                streamWriter.Write("ResultsPhone= " + Strings.Trim(Conversions.ToString(Program.CreateResultsPhone)) + "\r\n");
+                streamWriter.Write("TEScores= " + Strings.Trim(Conversions.ToString(Program.CreateTEScores)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("WarmUpTime= " + Module1.WarmUpTime + "\r\n");
-                streamWriter.Write("IceLeaveTime= " + Module1.IceLeaveTime + "\r\n");
-                streamWriter.Write("ResurfacingTime= " + Module1.ResurfacingTime + "\r\n");
-                streamWriter.Write("LunchTime= " + Module1.LunchTime + "\r\n");
+                streamWriter.Write("WarmUpTime= " + Program.WarmUpTime + "\r\n");
+                streamWriter.Write("IceLeaveTime= " + Program.IceLeaveTime + "\r\n");
+                streamWriter.Write("ResurfacingTime= " + Program.ResurfacingTime + "\r\n");
+                streamWriter.Write("LunchTime= " + Program.LunchTime + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("SHOW_JUDGE_DED= " + Strings.Trim(Conversions.ToString(Module1.ShowJudgeDed)) + "\r\n");
+                streamWriter.Write("SHOW_JUDGE_DED= " + Strings.Trim(Conversions.ToString(Program.ShowJudgeDed)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                switch (Module1.NoJudgeTMV)
+                switch (Program.NoJudgeTMV)
                 {
                     case 0:
                     case 9:
                         streamWriter.Write("TRIMMED_MV= " + Strings.Trim(Conversions.ToString(0)) + "\r\n");
                         break;
                     default:
-                        streamWriter.Write("TRIMMED_MV= " + Strings.Trim(Conversions.ToString(Module1.NoJudgeTMV)) + "\r\n");
+                        streamWriter.Write("TRIMMED_MV= " + Strings.Trim(Conversions.ToString(Program.NoJudgeTMV)) + "\r\n");
                         break;
                 }
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("SCOREBOARD= " + Strings.Trim(Conversions.ToString(Module1.CreateScoreBoard)) + "\r\n");
-                streamWriter.Write("SCOREBOARD DELAY= " + Strings.Trim(Conversions.ToString(Module1.ScoreBoardDelay)) + "\r\n");
+                streamWriter.Write("SCOREBOARD= " + Strings.Trim(Conversions.ToString(Program.CreateScoreBoard)) + "\r\n");
+                streamWriter.Write("SCOREBOARD DELAY= " + Strings.Trim(Conversions.ToString(Program.ScoreBoardDelay)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("Port_No= " + Strings.Trim(Conversions.ToString(Module1.PortNo)) + "\r\n");
-                streamWriter.Write("Ping Clients= " + Strings.Trim(Conversions.ToString(Module1.PingClients)) + "\r\n");
-                streamWriter.Write("Ping Timeout= " + Strings.Trim(Conversions.ToString(Module1.PingTimeout)) + "\r\n");
+                streamWriter.Write("Port_No= " + Strings.Trim(Conversions.ToString(Program.PortNo)) + "\r\n");
+                streamWriter.Write("Ping Clients= " + Strings.Trim(Conversions.ToString(Program.PingClients)) + "\r\n");
+                streamWriter.Write("Ping Timeout= " + Strings.Trim(Conversions.ToString(Program.PingTimeout)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("Page Size= " + Strings.Trim(Conversions.ToString(Module1.Page_Size)) + "\r\n");
-                streamWriter.Write("Left Margin= " + Strings.Trim(Conversions.ToString(Module1.Page_Left_Margin)) + "\r\n");
-                streamWriter.Write("Top Margin= " + Strings.Trim(Conversions.ToString(Module1.Page_Top_Margin)) + "\r\n");
+                streamWriter.Write("Page Size= " + Strings.Trim(Conversions.ToString(Program.Page_Size)) + "\r\n");
+                streamWriter.Write("Left Margin= " + Strings.Trim(Conversions.ToString(Program.Page_Left_Margin)) + "\r\n");
+                streamWriter.Write("Top Margin= " + Strings.Trim(Conversions.ToString(Program.Page_Top_Margin)) + "\r\n");
                 streamWriter.Write("'\r\n");
                 streamWriter.Write("' Setup of the Judges Computers, Judge no ; Function\r\n");
                 int index = 1;
                 do
                 {
-                    streamWriter.Write("ComputerNo" + Conversions.ToString(index) + "=" + Strings.Trim(Conversions.ToString(Module1.JudgeCompNo[index])) + ";" + Strings.Trim(Conversions.ToString(Module1.JudgeCompFunc[index])) + "\r\n");
+                    streamWriter.Write("ComputerNo" + Conversions.ToString(index) + "=" + Strings.Trim(Conversions.ToString(Program.JudgeCompNo[index])) + ";" + Strings.Trim(Conversions.ToString(Program.JudgeCompFunc[index])) + "\r\n");
                     checked { ++index; }
                 }
                 while (index <= 7);
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("AdjustToScreen= " + Strings.Trim(Conversions.ToString(Module1.AdjustToScreen)) + "\r\n");
+                streamWriter.Write("AdjustToScreen= " + Strings.Trim(Conversions.ToString(Program.AdjustToScreen)) + "\r\n");
                 streamWriter.Close();
                 streamWriter.Dispose();
                 goto label_12;
@@ -5005,13 +5005,13 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) != 0)
                     {
-                        if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg2[index], "", false) != 0)
+                        if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], "", false) != 0)
                             num4 = index;
                     }
-                    else if (Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg1[index], "", false) != 0)
+                    else if (Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1[index], "", false) != 0)
                         num4 = index;
                     checked { ++index; }
                 }
@@ -5035,31 +5035,31 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 int num3 = 0;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[1] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1] > 0.0)
                         num3 = 1;
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[2] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2] > 0.0)
                         checked { num3 += 2; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[3] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3] > 0.0)
                         checked { num3 += 4; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[4] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4] > 0.0)
                         checked { num3 += 8; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg1[5] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5] > 0.0)
                         checked { num3 += 16; }
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[1] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1] > 0.0)
                         num3 = 1;
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[2] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2] > 0.0)
                         checked { num3 += 2; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[3] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3] > 0.0)
                         checked { num3 += 4; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[4] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4] > 0.0)
                         checked { num3 += 8; }
-                    if (Module1.OpenDB[Module1.PcIndex].PCFactorsSeg2[5] > 0.0)
+                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5] > 0.0)
                         checked { num3 += 16; }
                 }
                 str1 = Conversions.ToString(num3);
@@ -5084,9 +5084,9 @@ namespace ClubCompFS
 
         public static void Get_CC_Time()
         {
-            Module1.CC_Time = DateAndTime.Now.ToString("HH:mm:ss:");
-            Module1.JCStatus = (int[])null;
-            Module1.JCStatus = new int[8];
+            Program.CC_Time = DateAndTime.Now.ToString("HH:mm:ss:");
+            Program.JCStatus = (int[])null;
+            Program.JCStatus = new int[8];
         }
 
         public static bool CreateHTMFile(int StNo)
@@ -5103,78 +5103,78 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 htmFile = false;
-                string bc = Module1.BC;
-                Module1.BC = Operators.CompareString(bc, " bgcolor='#CCFFFF'", false) == 0 ? " bgcolor='FFFF99'" : (Operators.CompareString(bc, " bgcolor='FFFF99'", false) == 0 ? " bgcolor='#CCFFFF'" : " bgcolor='#CCFFFF'");
-                if (Module1.TNop <= 0)
+                string bc = Program.BC;
+                Program.BC = Operators.CompareString(bc, " bgcolor='#CCFFFF'", false) == 0 ? " bgcolor='FFFF99'" : (Operators.CompareString(bc, " bgcolor='FFFF99'", false) == 0 ? " bgcolor='#CCFFFF'" : " bgcolor='#CCFFFF'");
+                if (Program.TNop <= 0)
                     return htmFile;
-                if (!MyProject.Computer.FileSystem.DirectoryExists(Module1.PathResultsFile))
+                if (!MyProject.Computer.FileSystem.DirectoryExists(Program.PathResultsFile))
                 {
-                    int num3 = (int)Interaction.MsgBox((object)("The folder:\r\n" + Module1.PathResultsFile + "\r\ndoes not exist!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num3 = (int)Interaction.MsgBox((object)("The folder:\r\n" + Program.PathResultsFile + "\r\ndoes not exist!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     return htmFile;
                 }
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) != 0)
                 {
                     if (Operators.CompareString(seg, "S0", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "F0", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) != 0)
                         {
                             if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
-                                Module1.SortListSeg1(Module1.TNop);
-                                Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                                Module1.SortListSeg2(Module1.TNop);
-                                Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                                Module1.SumScore(Module1.TNop);
-                                Module1.SortListTotal(Module1.TNop);
-                                Module1.TotalPl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                                Module1.CreateLiveArr(StNo);
-                                Module1.CreateResultArr(ref Row);
-                                Module1.CreateNextArr(ref row);
-                                if (Module1.CreateResultsPhone > 0)
-                                    htmFile = Module1.MakeCSS(Module1.BC, StNo, Row, row);
-                                htmFile = Module1.MakeResultHTM(Module1.BC, StNo, Row, row);
-                                htmFile = Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                                Program.SortListSeg1(Program.TNop);
+                                Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                                Program.SortListSeg2(Program.TNop);
+                                Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                                Program.SumScore(Program.TNop);
+                                Program.SortListTotal(Program.TNop);
+                                Program.TotalPl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                                Program.CreateLiveArr(StNo);
+                                Program.CreateResultArr(ref Row);
+                                Program.CreateNextArr(ref row);
+                                if (Program.CreateResultsPhone > 0)
+                                    htmFile = Program.MakeCSS(Program.BC, StNo, Row, row);
+                                htmFile = Program.MakeResultHTM(Program.BC, StNo, Row, row);
+                                htmFile = Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
                             }
                         }
                         else
                         {
-                            Module1.SortListSeg1(Module1.TNop);
-                            Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                            Module1.CreateLiveArr(StNo);
-                            Module1.CreateResultArr(ref Row);
-                            Module1.CreateNextArr(ref row);
-                            if (Module1.CreateResultsPhone > 0)
-                                htmFile = Module1.MakeCSS(Module1.BC, StNo, Row, row);
-                            htmFile = Module1.MakeResultHTM(Module1.BC, StNo, Row, row);
-                            htmFile = Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                            Program.SortListSeg1(Program.TNop);
+                            Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                            Program.CreateLiveArr(StNo);
+                            Program.CreateResultArr(ref Row);
+                            Program.CreateNextArr(ref row);
+                            if (Program.CreateResultsPhone > 0)
+                                htmFile = Program.MakeCSS(Program.BC, StNo, Row, row);
+                            htmFile = Program.MakeResultHTM(Program.BC, StNo, Row, row);
+                            htmFile = Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
                         }
                     }
                 }
                 else
                 {
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                    Module1.CreateLiveArr(StNo);
-                    Module1.CreateResultArr(ref Row);
-                    Module1.CreateNextArr(ref row);
-                    if (Module1.CreateResultsPhone > 0)
-                        htmFile = Module1.MakeCSS(Module1.BC, StNo, Row, row);
-                    htmFile = Module1.MakeResultHTM(Module1.BC, StNo, Row, row);
-                    htmFile = Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                    Program.CreateLiveArr(StNo);
+                    Program.CreateResultArr(ref Row);
+                    Program.CreateNextArr(ref row);
+                    if (Program.CreateResultsPhone > 0)
+                        htmFile = Program.MakeCSS(Program.BC, StNo, Row, row);
+                    htmFile = Program.MakeResultHTM(Program.BC, StNo, Row, row);
+                    htmFile = Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
                 }
-                if (Module1.CreateScoreBoard <= 0 || !MyProject.Forms.MainForm.completed10)
+                if (Program.CreateScoreBoard <= 0 || !MyProject.Forms.MainForm.completed10)
                     return htmFile;
-                if (Module1.ScoreBoardDelay <= 0)
+                if (Program.ScoreBoardDelay <= 0)
                 {
-                    Module1.MakesScoreBoard_StNo = StNo;
+                    Program.MakesScoreBoard_StNo = StNo;
                     MyProject.Forms.MainForm.Timer10.Interval = 10;
                     MyProject.Forms.MainForm.Timer10.Enabled = true;
                     return htmFile;
                 }
-                Module1.MakesScoreBoard_StNo = StNo;
-                MyProject.Forms.MainForm.Timer10.Interval = checked(Module1.ScoreBoardDelay * 1000);
+                Program.MakesScoreBoard_StNo = StNo;
+                MyProject.Forms.MainForm.Timer10.Interval = checked(Program.ScoreBoardDelay * 1000);
                 MyProject.Forms.MainForm.Timer10.Enabled = true;
                 return htmFile;
             }
@@ -5200,45 +5200,45 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 htmFileSpeaker = false;
-                string bc = Module1.BC;
-                Module1.BC = Operators.CompareString(bc, " bgcolor='#CCFFFF'", false) == 0 ? " bgcolor='FFFF99'" : (Operators.CompareString(bc, " bgcolor='FFFF99'", false) == 0 ? " bgcolor='#CCFFFF'" : " bgcolor='#CCFFFF'");
-                if (Module1.TNop <= 0)
+                string bc = Program.BC;
+                Program.BC = Operators.CompareString(bc, " bgcolor='#CCFFFF'", false) == 0 ? " bgcolor='FFFF99'" : (Operators.CompareString(bc, " bgcolor='FFFF99'", false) == 0 ? " bgcolor='#CCFFFF'" : " bgcolor='#CCFFFF'");
+                if (Program.TNop <= 0)
                     return htmFileSpeaker;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) != 0)
                 {
                     if (Operators.CompareString(seg, "S0", false) != 0 && Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 && Operators.CompareString(seg, "F0", false) != 0 && Operators.CompareString(seg, "SS", false) != 0)
                         return htmFileSpeaker;
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) != 0)
                     {
                         if (Operators.CompareString(segment, "Seg2", false) != 0)
                             return htmFileSpeaker;
-                        Module1.SortListSeg1(Module1.TNop);
-                        Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                        Module1.SortListSeg2(Module1.TNop);
-                        Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                        Module1.SumScore(Module1.TNop);
-                        Module1.SortListTotal(Module1.TNop);
-                        Module1.TotalPl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                        Module1.CreateLiveArr(StNo);
-                        Module1.CreateResultArr(ref Row);
-                        Module1.CreateNextArr(ref row);
-                        return Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                        Program.SortListSeg1(Program.TNop);
+                        Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                        Program.SortListSeg2(Program.TNop);
+                        Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                        Program.SumScore(Program.TNop);
+                        Program.SortListTotal(Program.TNop);
+                        Program.TotalPl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                        Program.CreateLiveArr(StNo);
+                        Program.CreateResultArr(ref Row);
+                        Program.CreateNextArr(ref row);
+                        return Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
                     }
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                    Module1.CreateLiveArr(StNo);
-                    Module1.CreateResultArr(ref Row);
-                    Module1.CreateNextArr(ref row);
-                    return Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                    Program.CreateLiveArr(StNo);
+                    Program.CreateResultArr(ref Row);
+                    Program.CreateNextArr(ref row);
+                    return Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
                 }
-                Module1.SortListSeg2(Module1.TNop);
-                Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                Module1.CreateLiveArr(StNo);
-                Module1.CreateResultArr(ref Row);
-                Module1.CreateNextArr(ref row);
-                return Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
+                Program.SortListSeg2(Program.TNop);
+                Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                Program.CreateLiveArr(StNo);
+                Program.CreateResultArr(ref Row);
+                Program.CreateNextArr(ref row);
+                return Program.MakeSpeakerHTM(Program.BC, StNo, Row, row);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -5259,10 +5259,10 @@ namespace ClubCompFS
                 object[,] objArray1 = new object[26, 8];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string pathResultsFile = Module1.PathResultsFile;
+                string pathResultsFile = Program.PathResultsFile;
                 string str3 = "ScoreBoard.htm";
                 object[,] objArray2 = new object[51, 10];
-                switch (Module1.CreateScoreBoard)
+                switch (Program.CreateScoreBoard)
                 {
                     case 1:
                     case 3:
@@ -5286,12 +5286,12 @@ namespace ClubCompFS
                 streamWriter.Write("td { font-family: Arial}\r\n");
                 streamWriter.Write("</style>\r\n");
                 streamWriter.Write("<table border='0' cellspacing='0'" + str1 + ">\r\n");
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 int Pno = 0;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
                     Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg1 != StNo)
+                    while (Program.Vek[Pno].Startno_Seg1 != StNo)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
@@ -5301,14 +5301,14 @@ namespace ClubCompFS
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
                     Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg2 != StNo)
+                    while (Program.Vek[Pno].Startno_Seg2 != StNo)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
                             break;
                     }
                 }
-                string str5 = Strings.UCase(Module1.GetCat() + ", " + Module1.GetSegTxt(Module1.Segment));
+                string str5 = Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
                 streamWriter.Write("<tr>\r\n");
                 string str6 = "<b>" + str5 + "</b>";
                 string str7 = "<td align='center' width='480'><font size='3'" + str2 + ">" + str6 + "</td>";
@@ -5316,7 +5316,7 @@ namespace ClubCompFS
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("</table>\r\n");
                 int num3 = 0;
-                if (Pno <= Module1.TNop)
+                if (Pno <= Program.TNop)
                 {
                     string[] strArray = new string[2]
                     {
@@ -5324,8 +5324,8 @@ namespace ClubCompFS
             "'480'"
                     };
                     objArray2[3, 1] = (object)"RESULTS FOR";
-                    objArray2[4, 1] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                    objArray2[5, 1] = (object)Module1.Vek[Pno].Club;
+                    objArray2[4, 1] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                    objArray2[5, 1] = (object)Program.Vek[Pno].Club;
                     num3 = 1;
                     streamWriter.Write("<br/>\r\n");
                     streamWriter.Write("<table border='0' cellspacing='0'" + str1 + ">\r\n");
@@ -5354,152 +5354,152 @@ namespace ClubCompFS
                 objArray2[6, 4] = (object)"TES";
                 objArray2[6, 5] = (object)"PCS";
                 objArray2[6, 6] = (object)"DED";
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) == 0)
                 {
                     objArray2[7, 1] = (object)"FREE:";
-                    objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                    objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg2;
-                    objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg2;
-                    objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                    if (Module1.Bonus_Sel("Seg2"))
+                    objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                    objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg2;
+                    objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg2;
+                    objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                    if (Program.Bonus_Sel("Seg2"))
                     {
                         objArray2[6, 7] = (object)"BON";
-                        objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                        objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg2;
                         num3 = 7;
                     }
                     else
                         num3 = 6;
                     objArray2[8, 1] = (object)"TOTAL:";
-                    objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                    objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg2));
+                    objArray2[8, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                    objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg2));
                 }
                 else if (Operators.CompareString(seg, "SF", false) == 0)
                 {
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
                         objArray2[7, 1] = (object)"SHORT:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"SHORT:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[6, 7] = (object)"BON";
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 else if (Operators.CompareString(seg, "FF", false) == 0)
                 {
-                    string segment3 = Module1.Segment;
+                    string segment3 = Program.Segment;
                     if (Operators.CompareString(segment3, "Seg1", false) == 0)
                     {
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"FREE:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 else if (Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    string segment4 = Module1.Segment;
+                    string segment4 = Program.Segment;
                     if (Operators.CompareString(segment4, "Seg1", false) == 0)
                     {
                         objArray2[6, 7] = (object)"BON";
                         objArray2[7, 1] = (object)"SHORT:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment4, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"SHORT:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 5] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 6] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 5] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 6] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 7] = (object)"BON";
-                            objArray2[7, 7] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 7] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 7;
                         }
                         else
                             num3 = 6;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 4] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 string[] strArray1 = new string[8]
@@ -5604,20 +5604,20 @@ namespace ClubCompFS
                 int index7 = 1;
                 do
                 {
-                    string segment5 = Module1.Segment;
+                    string segment5 = Program.Segment;
                     if (Operators.CompareString(segment5, "Seg1", false) == 0)
                     {
-                        if (Module1.Vek[index7].Startno_Seg1 == checked(StNo + num8))
+                        if (Program.Vek[index7].Startno_Seg1 == checked(StNo + num8))
                         {
-                            if (!(Module1.Vek[index7].DNS_Seg1 == 0 & Module1.Vek[index7].Finished_Seg1 == 0))
+                            if (!(Program.Vek[index7].DNS_Seg1 == 0 & Program.Vek[index7].Finished_Seg1 == 0))
                                 checked { ++num8; }
                             else
                                 break;
                         }
                     }
-                    else if (Operators.CompareString(segment5, "Seg2", false) == 0 && Module1.Vek[index7].Startno_Seg2 == checked(StNo + num8))
+                    else if (Operators.CompareString(segment5, "Seg2", false) == 0 && Program.Vek[index7].Startno_Seg2 == checked(StNo + num8))
                     {
-                        if (!(Module1.Vek[index7].DNS_Seg2 == 0 & Module1.Vek[index7].Finished_Seg2 == 0))
+                        if (!(Program.Vek[index7].DNS_Seg2 == 0 & Program.Vek[index7].Finished_Seg2 == 0))
                             checked { ++num8; }
                         else
                             break;
@@ -5625,7 +5625,7 @@ namespace ClubCompFS
                     checked { ++index7; }
                 }
                 while (index7 <= 42);
-                if (index7 <= Module1.TNop)
+                if (index7 <= Program.TNop)
                 {
                     string[] strArray3 = new string[2]
                     {
@@ -5633,8 +5633,8 @@ namespace ClubCompFS
             "'480'"
                     };
                     objArray2[20, 1] = (object)"NEXT SKATER";
-                    objArray2[21, 1] = (object)(Module1.Vek[index7].Name.FName + " " + Module1.Vek[index7].Name.LName);
-                    objArray2[22, 1] = (object)Module1.Vek[index7].Club;
+                    objArray2[21, 1] = (object)(Program.Vek[index7].Name.FName + " " + Program.Vek[index7].Name.LName);
+                    objArray2[22, 1] = (object)Program.Vek[index7].Club;
                     int num9 = 1;
                     streamWriter.Write("<br/>\r\n");
                     streamWriter.Write("<table border='0' cellspacing='0'" + str1 + ">\r\n");
@@ -5692,10 +5692,10 @@ namespace ClubCompFS
                 object[,] objArray1 = new object[26, 8];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string pathResultsFile = Module1.PathResultsFile;
+                string pathResultsFile = Program.PathResultsFile;
                 string str3 = "ScoreBoard.htm";
                 object[,] objArray2 = new object[51, 10];
-                switch (Module1.CreateScoreBoard)
+                switch (Program.CreateScoreBoard)
                 {
                     case 1:
                     case 3:
@@ -5720,12 +5720,12 @@ namespace ClubCompFS
                 streamWriter.Write("P { line-height : 50%; }\r\n");
                 streamWriter.Write("</style>\r\n");
                 streamWriter.Write("<table border='0' cellspacing='0'" + str1 + ">\r\n");
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 int Pno = 0;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
                     Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg1 != StNo)
+                    while (Program.Vek[Pno].Startno_Seg1 != StNo)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
@@ -5735,14 +5735,14 @@ namespace ClubCompFS
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
                     Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg2 != StNo)
+                    while (Program.Vek[Pno].Startno_Seg2 != StNo)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
                             break;
                     }
                 }
-                string str5 = Strings.UCase(Module1.GetCat() + ", " + Module1.GetSegTxt(Module1.Segment));
+                string str5 = Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
                 streamWriter.Write("<tr>\r\n");
                 string str6 = "<b>" + str5 + "</b>";
                 string str7 = "<td align='center' width='410'><font size='3'" + str2 + ">" + str6 + "</td>";
@@ -5750,9 +5750,9 @@ namespace ClubCompFS
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("</table>\r\n");
                 int num3 = 0;
-                if (Pno <= Module1.TNop)
+                if (Pno <= Program.TNop)
                 {
-                    objArray2[3, 1] = (object)("RESULTS FOR: " + Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
+                    objArray2[3, 1] = (object)("RESULTS FOR: " + Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
                     string[] strArray = new string[2]
                     {
             "'0'",
@@ -5785,152 +5785,152 @@ namespace ClubCompFS
                 objArray2[6, 3] = (object)"TES";
                 objArray2[6, 4] = (object)"PCS";
                 objArray2[6, 5] = (object)"DED";
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) == 0)
                 {
                     objArray2[7, 1] = (object)"FREE:";
-                    objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                    objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg2;
-                    objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg2;
-                    objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                    if (Module1.Bonus_Sel("Seg2"))
+                    objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                    objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg2;
+                    objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg2;
+                    objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                    if (Program.Bonus_Sel("Seg2"))
                     {
                         objArray2[6, 6] = (object)"BON";
-                        objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                        objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg2;
                         num3 = 6;
                     }
                     else
                         num3 = 5;
                     objArray2[8, 1] = (object)"TOTAL:";
-                    objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                    objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg2));
+                    objArray2[8, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                    objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg2));
                 }
                 else if (Operators.CompareString(seg, "SF", false) == 0)
                 {
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
                         objArray2[7, 1] = (object)"SHORT:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"SHORT:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[6, 6] = (object)"BON";
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 else if (Operators.CompareString(seg, "FF", false) == 0)
                 {
-                    string segment3 = Module1.Segment;
+                    string segment3 = Program.Segment;
                     if (Operators.CompareString(segment3, "Seg1", false) == 0)
                     {
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"FREE:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 else if (Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    string segment4 = Module1.Segment;
+                    string segment4 = Program.Segment;
                     if (Operators.CompareString(segment4, "Seg1", false) == 0)
                     {
                         objArray2[6, 7] = (object)"BON";
                         objArray2[7, 1] = (object)"SHORT:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg1;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg1;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg1"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg1;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg1;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg1;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg1"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg1;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place_Seg1));
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place_Seg1));
                     }
                     else if (Operators.CompareString(segment4, "Seg2", false) == 0)
                     {
                         objArray2[6, 1] = (object)"SHORT:";
-                        objArray2[6, 2] = (object)Module1.Vek[Pno].Score_Seg1;
+                        objArray2[6, 2] = (object)Program.Vek[Pno].Score_Seg1;
                         objArray2[7, 1] = (object)"FREE:";
-                        objArray2[7, 2] = (object)Module1.Vek[Pno].Score_Seg2;
-                        objArray2[7, 3] = (object)Module1.Vek[Pno].TES_Seg2;
-                        objArray2[7, 4] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        objArray2[7, 5] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        if (Module1.Bonus_Sel("Seg2"))
+                        objArray2[7, 2] = (object)Program.Vek[Pno].Score_Seg2;
+                        objArray2[7, 3] = (object)Program.Vek[Pno].TES_Seg2;
+                        objArray2[7, 4] = (object)Program.Vek[Pno].PCS_Seg2;
+                        objArray2[7, 5] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        if (Program.Bonus_Sel("Seg2"))
                         {
                             objArray2[6, 6] = (object)"BON";
-                            objArray2[7, 6] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            objArray2[7, 6] = (object)Program.Vek[Pno].Bonus_Seg2;
                             num3 = 6;
                         }
                         else
                             num3 = 5;
                         objArray2[8, 1] = (object)"TOTAL:";
-                        objArray2[8, 2] = (object)Module1.Vek[Pno].Score_Total;
-                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Module1.Vek[Pno].Place));
+                        objArray2[8, 2] = (object)Program.Vek[Pno].Score_Total;
+                        objArray2[8, 3] = (object)("CURRENT STANDING:  " + Conversions.ToString(Program.Vek[Pno].Place));
                     }
                 }
                 string[] strArray1 = new string[7]
@@ -6033,20 +6033,20 @@ namespace ClubCompFS
                 int index7 = 1;
                 do
                 {
-                    string segment5 = Module1.Segment;
+                    string segment5 = Program.Segment;
                     if (Operators.CompareString(segment5, "Seg1", false) == 0)
                     {
-                        if (Module1.Vek[index7].Startno_Seg1 == checked(StNo + num8))
+                        if (Program.Vek[index7].Startno_Seg1 == checked(StNo + num8))
                         {
-                            if (!(Module1.Vek[index7].DNS_Seg1 == 0 & Module1.Vek[index7].Finished_Seg1 == 0))
+                            if (!(Program.Vek[index7].DNS_Seg1 == 0 & Program.Vek[index7].Finished_Seg1 == 0))
                                 checked { ++num8; }
                             else
                                 break;
                         }
                     }
-                    else if (Operators.CompareString(segment5, "Seg2", false) == 0 && Module1.Vek[index7].Startno_Seg2 == checked(StNo + num8))
+                    else if (Operators.CompareString(segment5, "Seg2", false) == 0 && Program.Vek[index7].Startno_Seg2 == checked(StNo + num8))
                     {
-                        if (!(Module1.Vek[index7].DNS_Seg2 == 0 & Module1.Vek[index7].Finished_Seg2 == 0))
+                        if (!(Program.Vek[index7].DNS_Seg2 == 0 & Program.Vek[index7].Finished_Seg2 == 0))
                             checked { ++num8; }
                         else
                             break;
@@ -6054,14 +6054,14 @@ namespace ClubCompFS
                     checked { ++index7; }
                 }
                 while (index7 <= 42);
-                if (index7 <= Module1.TNop)
+                if (index7 <= Program.TNop)
                 {
                     string[] strArray3 = new string[2]
                     {
             "'0'",
             "'410'"
                     };
-                    objArray2[20, 1] = (object)("NEXT SKATER: " + Module1.Vek[index7].Name.FName + " " + Module1.Vek[index7].Name.LName);
+                    objArray2[20, 1] = (object)("NEXT SKATER: " + Program.Vek[index7].Name.FName + " " + Program.Vek[index7].Name.LName);
                     int num9 = 1;
                     streamWriter.Write("<p>\r\n");
                     streamWriter.Write("<table border='0' cellspacing='0'" + str1 + ">\r\n");
@@ -6114,7 +6114,7 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                string pathResultsFile = Module1.PathResultsFile;
+                string pathResultsFile = Program.PathResultsFile;
                 string str1 = " bgcolor='#000000'";
                 string str2 = " color='#FFFFFF'";
                 int num3 = 1;
@@ -6154,7 +6154,7 @@ namespace ClubCompFS
                 }
                 while (index <= 2);
                 string str4 = " width=" + Conversions.ToString(170);
-                if (Module1.TNop > 0)
+                if (Program.TNop > 0)
                 {
                     streamWriter.Write("<table border='2' cellspacing='0'" + str2 + str1 + ">\r\n");
                     streamWriter.Write("<tr>\r\n");
@@ -6196,80 +6196,80 @@ namespace ClubCompFS
 
         public static void CreateLiveArr(int Stno)
         {
-            Module1.TArrLive = (object[,])null;
-            Module1.TArrLive = new object[51, 10];
-            string seg = Module1.GetSeg();
+            Program.TArrLive = (object[,])null;
+            Program.TArrLive = new object[51, 10];
+            string seg = Program.GetSeg();
             if (Operators.CompareString(seg, "0F", false) == 0)
             {
                 int Pno = 1;
-                while (Module1.Vek[Pno].Startno_Seg2 != Stno)
+                while (Program.Vek[Pno].Startno_Seg2 != Stno)
                 {
                     checked { ++Pno; }
                     if (Pno > 42)
                         break;
                 }
-                Module1.TArrLive[1, 1] = (object)Module1.Vek[Pno].Place_Seg2;
-                Module1.TArrLive[1, 2] = (object)Module1.Vek[Pno].Startno_Seg2;
-                Module1.TArrLive[1, 3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                Module1.TArrLive[1, 4] = (object)Module1.Vek[Pno].Club;
-                switch (Module1.Vek[Pno].DNS_Seg2)
+                Program.TArrLive[1, 1] = (object)Program.Vek[Pno].Place_Seg2;
+                Program.TArrLive[1, 2] = (object)Program.Vek[Pno].Startno_Seg2;
+                Program.TArrLive[1, 3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                Program.TArrLive[1, 4] = (object)Program.Vek[Pno].Club;
+                switch (Program.Vek[Pno].DNS_Seg2)
                 {
                     case 0:
-                        Module1.TArrLive[1, 5] = (object)Module1.Vek[Pno].Score_Seg2;
-                        Module1.TArrLive[1, 6] = (object)Module1.Vek[Pno].TES_Seg2;
-                        Module1.TArrLive[1, 7] = (object)Module1.Vek[Pno].PCS_Seg2;
-                        Module1.TArrLive[1, 8] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        Module1.TArrLive[1, 9] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                        Program.TArrLive[1, 5] = (object)Program.Vek[Pno].Score_Seg2;
+                        Program.TArrLive[1, 6] = (object)Program.Vek[Pno].TES_Seg2;
+                        Program.TArrLive[1, 7] = (object)Program.Vek[Pno].PCS_Seg2;
+                        Program.TArrLive[1, 8] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        Program.TArrLive[1, 9] = (object)Program.Vek[Pno].Bonus_Seg2;
                         break;
                     case 1:
-                        Module1.TArrLive[1, 5] = (object)"DNS";
+                        Program.TArrLive[1, 5] = (object)"DNS";
                         break;
                     case 2:
-                        Module1.TArrLive[1, 5] = (object)"WD";
+                        Program.TArrLive[1, 5] = (object)"WD";
                         break;
                     case 3:
-                        Module1.TArrLive[1, 5] = (object)"DNF";
+                        Program.TArrLive[1, 5] = (object)"DNF";
                         break;
                     case 4:
-                        Module1.TArrLive[1, 5] = (object)"DQ";
+                        Program.TArrLive[1, 5] = (object)"DQ";
                         break;
                 }
             }
             else if (Operators.CompareString(seg, "S0", false) == 0 || Operators.CompareString(seg, "F0", false) == 0)
             {
-                if (Operators.CompareString(Module1.Segment, "Seg1", false) != 0)
+                if (Operators.CompareString(Program.Segment, "Seg1", false) != 0)
                     return;
                 int Pno = 1;
-                while (Module1.Vek[Pno].Startno_Seg1 != Stno)
+                while (Program.Vek[Pno].Startno_Seg1 != Stno)
                 {
                     checked { ++Pno; }
                     if (Pno > 42)
                         break;
                 }
-                Module1.TArrLive[1, 1] = (object)Module1.Vek[Pno].Place_Seg1;
-                Module1.TArrLive[1, 2] = (object)Module1.Vek[Pno].Startno_Seg1;
-                Module1.TArrLive[1, 3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                Module1.TArrLive[1, 4] = (object)Module1.Vek[Pno].Club;
-                switch (Module1.Vek[Pno].DNS_Seg1)
+                Program.TArrLive[1, 1] = (object)Program.Vek[Pno].Place_Seg1;
+                Program.TArrLive[1, 2] = (object)Program.Vek[Pno].Startno_Seg1;
+                Program.TArrLive[1, 3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                Program.TArrLive[1, 4] = (object)Program.Vek[Pno].Club;
+                switch (Program.Vek[Pno].DNS_Seg1)
                 {
                     case 0:
-                        Module1.TArrLive[1, 5] = (object)Module1.Vek[Pno].Score_Seg1;
-                        Module1.TArrLive[1, 6] = (object)Module1.Vek[Pno].TES_Seg1;
-                        Module1.TArrLive[1, 7] = (object)Module1.Vek[Pno].PCS_Seg1;
-                        Module1.TArrLive[1, 8] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                        Module1.TArrLive[1, 9] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                        Program.TArrLive[1, 5] = (object)Program.Vek[Pno].Score_Seg1;
+                        Program.TArrLive[1, 6] = (object)Program.Vek[Pno].TES_Seg1;
+                        Program.TArrLive[1, 7] = (object)Program.Vek[Pno].PCS_Seg1;
+                        Program.TArrLive[1, 8] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                        Program.TArrLive[1, 9] = (object)Program.Vek[Pno].Bonus_Seg1;
                         break;
                     case 1:
-                        Module1.TArrLive[1, 5] = (object)"DNS";
+                        Program.TArrLive[1, 5] = (object)"DNS";
                         break;
                     case 2:
-                        Module1.TArrLive[1, 5] = (object)"WD";
+                        Program.TArrLive[1, 5] = (object)"WD";
                         break;
                     case 3:
-                        Module1.TArrLive[1, 5] = (object)"DNF";
+                        Program.TArrLive[1, 5] = (object)"DNF";
                         break;
                     case 4:
-                        Module1.TArrLive[1, 5] = (object)"DQ";
+                        Program.TArrLive[1, 5] = (object)"DQ";
                         break;
                 }
             }
@@ -6277,40 +6277,40 @@ namespace ClubCompFS
             {
                 if (Operators.CompareString(seg, "FF", false) != 0 && Operators.CompareString(seg, "SS", false) != 0 && Operators.CompareString(seg, "SF", false) != 0)
                     return;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
                     int Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg1 != Stno)
+                    while (Program.Vek[Pno].Startno_Seg1 != Stno)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
                             break;
                     }
-                    Module1.TArrLive[1, 1] = (object)Module1.Vek[Pno].Place_Seg1;
-                    Module1.TArrLive[1, 2] = (object)Module1.Vek[Pno].Startno_Seg1;
-                    Module1.TArrLive[1, 3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                    Module1.TArrLive[1, 4] = (object)Module1.Vek[Pno].Club;
-                    switch (Module1.Vek[Pno].DNS_Seg1)
+                    Program.TArrLive[1, 1] = (object)Program.Vek[Pno].Place_Seg1;
+                    Program.TArrLive[1, 2] = (object)Program.Vek[Pno].Startno_Seg1;
+                    Program.TArrLive[1, 3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                    Program.TArrLive[1, 4] = (object)Program.Vek[Pno].Club;
+                    switch (Program.Vek[Pno].DNS_Seg1)
                     {
                         case 0:
-                            Module1.TArrLive[1, 5] = (object)Module1.Vek[Pno].Score_Seg1;
-                            Module1.TArrLive[1, 6] = (object)Module1.Vek[Pno].TES_Seg1;
-                            Module1.TArrLive[1, 7] = (object)Module1.Vek[Pno].PCS_Seg1;
-                            Module1.TArrLive[1, 8] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                            Module1.TArrLive[1, 9] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                            Program.TArrLive[1, 5] = (object)Program.Vek[Pno].Score_Seg1;
+                            Program.TArrLive[1, 6] = (object)Program.Vek[Pno].TES_Seg1;
+                            Program.TArrLive[1, 7] = (object)Program.Vek[Pno].PCS_Seg1;
+                            Program.TArrLive[1, 8] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                            Program.TArrLive[1, 9] = (object)Program.Vek[Pno].Bonus_Seg1;
                             break;
                         case 1:
-                            Module1.TArrLive[1, 5] = (object)"DNS";
+                            Program.TArrLive[1, 5] = (object)"DNS";
                             break;
                         case 2:
-                            Module1.TArrLive[1, 5] = (object)"WD";
+                            Program.TArrLive[1, 5] = (object)"WD";
                             break;
                         case 3:
-                            Module1.TArrLive[1, 5] = (object)"DNF";
+                            Program.TArrLive[1, 5] = (object)"DNF";
                             break;
                         case 4:
-                            Module1.TArrLive[1, 5] = (object)"DQ";
+                            Program.TArrLive[1, 5] = (object)"DQ";
                             break;
                     }
                 }
@@ -6319,60 +6319,60 @@ namespace ClubCompFS
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         return;
                     int Pno = 1;
-                    while (Module1.Vek[Pno].Startno_Seg2 != Stno)
+                    while (Program.Vek[Pno].Startno_Seg2 != Stno)
                     {
                         checked { ++Pno; }
                         if (Pno > 42)
                             break;
                     }
-                    Module1.TArrLive[1, 1] = (object)Module1.Vek[Pno].Place_Seg2;
-                    Module1.TArrLive[1, 2] = (object)Module1.Vek[Pno].Startno_Seg2;
-                    Module1.TArrLive[1, 3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                    Module1.TArrLive[1, 4] = (object)Module1.Vek[Pno].Club;
-                    switch (Module1.Vek[Pno].DNS_Seg2)
+                    Program.TArrLive[1, 1] = (object)Program.Vek[Pno].Place_Seg2;
+                    Program.TArrLive[1, 2] = (object)Program.Vek[Pno].Startno_Seg2;
+                    Program.TArrLive[1, 3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                    Program.TArrLive[1, 4] = (object)Program.Vek[Pno].Club;
+                    switch (Program.Vek[Pno].DNS_Seg2)
                     {
                         case 0:
-                            Module1.TArrLive[1, 5] = (object)Module1.Vek[Pno].Score_Seg2;
-                            Module1.TArrLive[1, 6] = (object)Module1.Vek[Pno].TES_Seg2;
-                            Module1.TArrLive[1, 7] = (object)Module1.Vek[Pno].PCS_Seg2;
-                            Module1.TArrLive[1, 8] = (object)Module1.DedSeg1Seg2(Pno, Module1.Segment);
-                            Module1.TArrLive[1, 9] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                            Program.TArrLive[1, 5] = (object)Program.Vek[Pno].Score_Seg2;
+                            Program.TArrLive[1, 6] = (object)Program.Vek[Pno].TES_Seg2;
+                            Program.TArrLive[1, 7] = (object)Program.Vek[Pno].PCS_Seg2;
+                            Program.TArrLive[1, 8] = (object)Program.DedSeg1Seg2(Pno, Program.Segment);
+                            Program.TArrLive[1, 9] = (object)Program.Vek[Pno].Bonus_Seg2;
                             break;
                         case 1:
-                            Module1.TArrLive[1, 5] = (object)"DNS";
+                            Program.TArrLive[1, 5] = (object)"DNS";
                             break;
                         case 2:
-                            Module1.TArrLive[1, 5] = (object)"WD";
+                            Program.TArrLive[1, 5] = (object)"WD";
                             break;
                         case 3:
-                            Module1.TArrLive[1, 5] = (object)"DNF";
+                            Program.TArrLive[1, 5] = (object)"DNF";
                             break;
                         case 4:
-                            Module1.TArrLive[1, 5] = (object)"DQ";
+                            Program.TArrLive[1, 5] = (object)"DQ";
                             break;
                     }
-                    Module1.TArrLive[2, 1] = (object)Module1.Vek[Pno].Place;
-                    Module1.TArrLive[2, 2] = (object)Module1.Vek[Pno].Startno_Seg2;
-                    Module1.TArrLive[2, 3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                    Module1.TArrLive[2, 4] = (object)Module1.Vek[Pno].Club;
-                    switch (Module1.Vek[Pno].DNS_Seg2)
+                    Program.TArrLive[2, 1] = (object)Program.Vek[Pno].Place;
+                    Program.TArrLive[2, 2] = (object)Program.Vek[Pno].Startno_Seg2;
+                    Program.TArrLive[2, 3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                    Program.TArrLive[2, 4] = (object)Program.Vek[Pno].Club;
+                    switch (Program.Vek[Pno].DNS_Seg2)
                     {
                         case 0:
-                            Module1.TArrLive[2, 5] = (object)Module1.Vek[Pno].Score_Total;
-                            Module1.TArrLive[2, 6] = (object)Module1.Vek[Pno].Score_Seg1;
-                            Module1.TArrLive[2, 7] = (object)Module1.Vek[Pno].Score_Seg2;
+                            Program.TArrLive[2, 5] = (object)Program.Vek[Pno].Score_Total;
+                            Program.TArrLive[2, 6] = (object)Program.Vek[Pno].Score_Seg1;
+                            Program.TArrLive[2, 7] = (object)Program.Vek[Pno].Score_Seg2;
                             break;
                         case 1:
-                            Module1.TArrLive[2, 5] = (object)"DNS";
+                            Program.TArrLive[2, 5] = (object)"DNS";
                             break;
                         case 2:
-                            Module1.TArrLive[2, 5] = (object)"WD";
+                            Program.TArrLive[2, 5] = (object)"WD";
                             break;
                         case 3:
-                            Module1.TArrLive[2, 5] = (object)"DNF";
+                            Program.TArrLive[2, 5] = (object)"DNF";
                             break;
                         case 4:
-                            Module1.TArrLive[1, 5] = (object)"DQ";
+                            Program.TArrLive[1, 5] = (object)"DQ";
                             break;
                     }
                 }
@@ -6381,39 +6381,39 @@ namespace ClubCompFS
 
         public static void CreateResultArr(ref int Row)
         {
-            Module1.TArrResult = (object[,])null;
-            Module1.TArrResult = new object[51, 10];
-            string seg = Module1.GetSeg();
+            Program.TArrResult = (object[,])null;
+            Program.TArrResult = new object[51, 10];
+            string seg = Program.GetSeg();
             if (Operators.CompareString(seg, "0F", false) == 0)
             {
                 Row = 1;
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if ((Module1.Vek[index].Finished_Seg2 == 1 | Module1.Vek[index].DNS_Seg2 > 0) & Module1.Vek[index].Startno_Seg2 > 0)
+                    if ((Program.Vek[index].Finished_Seg2 == 1 | Program.Vek[index].DNS_Seg2 > 0) & Program.Vek[index].Startno_Seg2 > 0)
                     {
                         checked { ++Row; }
-                        Module1.TArrResult[Row, 1] = (object)Module1.Vek[index].Place_Seg2;
-                        Module1.TArrResult[Row, 2] = (object)Module1.Vek[index].Startno_Seg2;
-                        Module1.TArrResult[Row, 3] = (object)(Module1.Vek[index].Name.FName + " " + Module1.Vek[index].Name.LName);
-                        Module1.TArrResult[Row, 4] = (object)Module1.Vek[index].Club;
-                        switch (Module1.Vek[index].DNS_Seg2)
+                        Program.TArrResult[Row, 1] = (object)Program.Vek[index].Place_Seg2;
+                        Program.TArrResult[Row, 2] = (object)Program.Vek[index].Startno_Seg2;
+                        Program.TArrResult[Row, 3] = (object)(Program.Vek[index].Name.FName + " " + Program.Vek[index].Name.LName);
+                        Program.TArrResult[Row, 4] = (object)Program.Vek[index].Club;
+                        switch (Program.Vek[index].DNS_Seg2)
                         {
                             case 0:
-                                Module1.TArrResult[Row, 5] = (object)Module1.Vek[index].Score_Seg2;
+                                Program.TArrResult[Row, 5] = (object)Program.Vek[index].Score_Seg2;
                                 break;
                             case 1:
-                                Module1.TArrResult[Row, 5] = (object)"DNS";
+                                Program.TArrResult[Row, 5] = (object)"DNS";
                                 break;
                             case 2:
-                                Module1.TArrResult[Row, 5] = (object)"WD";
+                                Program.TArrResult[Row, 5] = (object)"WD";
                                 break;
                             case 3:
-                                Module1.TArrResult[Row, 5] = (object)"DNF";
+                                Program.TArrResult[Row, 5] = (object)"DNF";
                                 break;
                             case 4:
-                                Module1.TArrResult[Row, 5] = (object)"DQ";
+                                Program.TArrResult[Row, 5] = (object)"DQ";
                                 break;
                         }
                     }
@@ -6422,36 +6422,36 @@ namespace ClubCompFS
             }
             else if (Operators.CompareString(seg, "S0", false) == 0 || Operators.CompareString(seg, "F0", false) == 0)
             {
-                if (Operators.CompareString(Module1.Segment, "Seg1", false) != 0)
+                if (Operators.CompareString(Program.Segment, "Seg1", false) != 0)
                     return;
                 Row = 1;
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index = 1;
                 while (index <= tnop)
                 {
-                    if ((Module1.Vek[index].Finished_Seg1 == 1 | Module1.Vek[index].DNS_Seg1 > 0) & Module1.Vek[index].Startno_Seg1 > 0)
+                    if ((Program.Vek[index].Finished_Seg1 == 1 | Program.Vek[index].DNS_Seg1 > 0) & Program.Vek[index].Startno_Seg1 > 0)
                     {
                         checked { ++Row; }
-                        Module1.TArrResult[Row, 1] = (object)Module1.Vek[index].Place_Seg1;
-                        Module1.TArrResult[Row, 2] = (object)Module1.Vek[index].Startno_Seg1;
-                        Module1.TArrResult[Row, 3] = (object)(Module1.Vek[index].Name.FName + " " + Module1.Vek[index].Name.LName);
-                        Module1.TArrResult[Row, 4] = (object)Module1.Vek[index].Club;
-                        switch (Module1.Vek[index].DNS_Seg1)
+                        Program.TArrResult[Row, 1] = (object)Program.Vek[index].Place_Seg1;
+                        Program.TArrResult[Row, 2] = (object)Program.Vek[index].Startno_Seg1;
+                        Program.TArrResult[Row, 3] = (object)(Program.Vek[index].Name.FName + " " + Program.Vek[index].Name.LName);
+                        Program.TArrResult[Row, 4] = (object)Program.Vek[index].Club;
+                        switch (Program.Vek[index].DNS_Seg1)
                         {
                             case 0:
-                                Module1.TArrResult[Row, 5] = (object)Module1.Vek[index].Score_Seg1;
+                                Program.TArrResult[Row, 5] = (object)Program.Vek[index].Score_Seg1;
                                 break;
                             case 1:
-                                Module1.TArrResult[Row, 5] = (object)"DNS";
+                                Program.TArrResult[Row, 5] = (object)"DNS";
                                 break;
                             case 2:
-                                Module1.TArrResult[Row, 5] = (object)"WD";
+                                Program.TArrResult[Row, 5] = (object)"WD";
                                 break;
                             case 3:
-                                Module1.TArrResult[Row, 5] = (object)"DNF";
+                                Program.TArrResult[Row, 5] = (object)"DNF";
                                 break;
                             case 4:
-                                Module1.TArrResult[Row, 5] = (object)"DQ";
+                                Program.TArrResult[Row, 5] = (object)"DQ";
                                 break;
                         }
                     }
@@ -6462,37 +6462,37 @@ namespace ClubCompFS
             {
                 if (Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 && Operators.CompareString(seg, "SS", false) != 0)
                     return;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
                     Row = 1;
-                    int tnop = Module1.TNop;
+                    int tnop = Program.TNop;
                     int index = 1;
                     while (index <= tnop)
                     {
-                        if ((Module1.Vek[index].Finished_Seg1 == 1 | Module1.Vek[index].DNS_Seg1 > 0) & Module1.Vek[index].Startno_Seg1 > 0)
+                        if ((Program.Vek[index].Finished_Seg1 == 1 | Program.Vek[index].DNS_Seg1 > 0) & Program.Vek[index].Startno_Seg1 > 0)
                         {
                             checked { ++Row; }
-                            Module1.TArrResult[Row, 1] = (object)Module1.Vek[index].Place_Seg1;
-                            Module1.TArrResult[Row, 2] = (object)Module1.Vek[index].Startno_Seg1;
-                            Module1.TArrResult[Row, 3] = (object)(Module1.Vek[index].Name.FName + " " + Module1.Vek[index].Name.LName);
-                            Module1.TArrResult[Row, 4] = (object)Module1.Vek[index].Club;
-                            switch (Module1.Vek[index].DNS_Seg1)
+                            Program.TArrResult[Row, 1] = (object)Program.Vek[index].Place_Seg1;
+                            Program.TArrResult[Row, 2] = (object)Program.Vek[index].Startno_Seg1;
+                            Program.TArrResult[Row, 3] = (object)(Program.Vek[index].Name.FName + " " + Program.Vek[index].Name.LName);
+                            Program.TArrResult[Row, 4] = (object)Program.Vek[index].Club;
+                            switch (Program.Vek[index].DNS_Seg1)
                             {
                                 case 0:
-                                    Module1.TArrResult[Row, 5] = (object)Module1.Vek[index].Score_Seg1;
+                                    Program.TArrResult[Row, 5] = (object)Program.Vek[index].Score_Seg1;
                                     break;
                                 case 1:
-                                    Module1.TArrResult[Row, 5] = (object)"DNS";
+                                    Program.TArrResult[Row, 5] = (object)"DNS";
                                     break;
                                 case 2:
-                                    Module1.TArrResult[Row, 5] = (object)"WD";
+                                    Program.TArrResult[Row, 5] = (object)"WD";
                                     break;
                                 case 3:
-                                    Module1.TArrResult[Row, 5] = (object)"DNF";
+                                    Program.TArrResult[Row, 5] = (object)"DNF";
                                     break;
                                 case 4:
-                                    Module1.TArrResult[Row, 5] = (object)"DQ";
+                                    Program.TArrResult[Row, 5] = (object)"DQ";
                                     break;
                             }
                         }
@@ -6504,39 +6504,39 @@ namespace ClubCompFS
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         return;
                     Row = 1;
-                    int tnop = Module1.TNop;
+                    int tnop = Program.TNop;
                     int index = 1;
                     while (index <= tnop)
                     {
-                        if (Module1.Vek[index].DNS_Seg1 == 0 && Module1.Vek[index].Finished_Seg2 == 1 & Module1.Vek[index].Finished_Seg1 == 1 | Module1.Vek[index].DNS_Seg2 > 0)
+                        if (Program.Vek[index].DNS_Seg1 == 0 && Program.Vek[index].Finished_Seg2 == 1 & Program.Vek[index].Finished_Seg1 == 1 | Program.Vek[index].DNS_Seg2 > 0)
                         {
                             checked { ++Row; }
-                            Module1.TArrResult[Row, 1] = (object)Module1.Vek[index].Place;
-                            Module1.TArrResult[Row, 2] = (object)Module1.Vek[index].Startno_Seg2;
-                            Module1.TArrResult[Row, 3] = (object)(Module1.Vek[index].Name.FName + " " + Module1.Vek[index].Name.LName);
-                            Module1.TArrResult[Row, 4] = (object)Module1.Vek[index].Club;
-                            switch (Module1.Vek[index].DNS_Seg2)
+                            Program.TArrResult[Row, 1] = (object)Program.Vek[index].Place;
+                            Program.TArrResult[Row, 2] = (object)Program.Vek[index].Startno_Seg2;
+                            Program.TArrResult[Row, 3] = (object)(Program.Vek[index].Name.FName + " " + Program.Vek[index].Name.LName);
+                            Program.TArrResult[Row, 4] = (object)Program.Vek[index].Club;
+                            switch (Program.Vek[index].DNS_Seg2)
                             {
                                 case 0:
-                                    Module1.TArrResult[Row, 5] = (object)Module1.Vek[index].Score_Total;
-                                    Module1.TArrResult[Row, 6] = (object)Module1.Vek[index].Place_Seg1;
-                                    Module1.TArrResult[Row, 7] = (object)Module1.Vek[index].Place_Seg2;
+                                    Program.TArrResult[Row, 5] = (object)Program.Vek[index].Score_Total;
+                                    Program.TArrResult[Row, 6] = (object)Program.Vek[index].Place_Seg1;
+                                    Program.TArrResult[Row, 7] = (object)Program.Vek[index].Place_Seg2;
                                     break;
                                 case 1:
-                                    Module1.TArrResult[Row, 5] = (object)"DNS";
-                                    Module1.TArrResult[Row, 6] = (object)Module1.Vek[index].Place_Seg1;
+                                    Program.TArrResult[Row, 5] = (object)"DNS";
+                                    Program.TArrResult[Row, 6] = (object)Program.Vek[index].Place_Seg1;
                                     break;
                                 case 2:
-                                    Module1.TArrResult[Row, 5] = (object)"WD";
-                                    Module1.TArrResult[Row, 6] = (object)Module1.Vek[index].Place_Seg1;
+                                    Program.TArrResult[Row, 5] = (object)"WD";
+                                    Program.TArrResult[Row, 6] = (object)Program.Vek[index].Place_Seg1;
                                     break;
                                 case 3:
-                                    Module1.TArrResult[Row, 5] = (object)"DNF";
-                                    Module1.TArrResult[Row, 6] = (object)Module1.Vek[index].Place_Seg1;
+                                    Program.TArrResult[Row, 5] = (object)"DNF";
+                                    Program.TArrResult[Row, 6] = (object)Program.Vek[index].Place_Seg1;
                                     break;
                                 case 4:
-                                    Module1.TArrResult[Row, 5] = (object)"DQ";
-                                    Module1.TArrResult[Row, 6] = (object)Module1.Vek[index].Place_Seg1;
+                                    Program.TArrResult[Row, 5] = (object)"DQ";
+                                    Program.TArrResult[Row, 6] = (object)Program.Vek[index].Place_Seg1;
                                     break;
                             }
                         }
@@ -6555,9 +6555,9 @@ namespace ClubCompFS
                 int num3 = 0;
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                Module1.TArrNext = (object[,])null;
-                Module1.TArrNext = new object[51, 10];
-                string segment1 = Module1.Segment;
+                Program.TArrNext = (object[,])null;
+                Program.TArrNext = new object[51, 10];
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment1, "Seg2", false) == 0)
@@ -6565,7 +6565,7 @@ namespace ClubCompFS
                         int index = 1;
                         do
                         {
-                            if (Module1.Vek[index].DNS_Seg1 > 0)
+                            if (Program.Vek[index].DNS_Seg1 > 0)
                                 checked { ++num3; }
                             checked { ++index; }
                         }
@@ -6577,21 +6577,21 @@ namespace ClubCompFS
                     int index = 1;
                     do
                     {
-                        if (Module1.Vek[index].DNS_Seg1 > 0 & Module1.Vek[index].Startno_Seg1 == 0)
+                        if (Program.Vek[index].DNS_Seg1 > 0 & Program.Vek[index].Startno_Seg1 == 0)
                             checked { ++num3; }
                         checked { ++index; }
                     }
                     while (index <= 42);
                 }
-                if (checked(Module1.TNop - num3) <= 0)
+                if (checked(Program.TNop - num3) <= 0)
                     return;
-                Module1.SortListStartNo(Module1.TNop);
+                Program.SortListStartNo(Program.TNop);
                 row = 1;
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int R = 1;
                 while (R <= tnop)
                 {
-                    string seg = Module1.GetSeg();
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "0F", false) != 0)
                     {
                         if (Operators.CompareString(seg, "S0", false) != 0 && Operators.CompareString(seg, "SF", false) != 0 && Operators.CompareString(seg, "FF", false) != 0 && Operators.CompareString(seg, "F0", false) != 0 && Operators.CompareString(seg, "SS", false) != 0)
@@ -6600,7 +6600,7 @@ namespace ClubCompFS
                         }
                         else
                         {
-                            string segment2 = Module1.Segment;
+                            string segment2 = Program.Segment;
                             if (Operators.CompareString(segment2, "Seg1", false) != 0)
                             {
                                 if (Operators.CompareString(segment2, "Seg2", false) != 0)
@@ -6609,66 +6609,66 @@ namespace ClubCompFS
                                 }
                                 else
                                 {
-                                    if (R > 2 && Module1.Vek[R].WarmUp_Seg2 > Module1.Vek[checked(R - 1)].WarmUp_Seg2 & Module1.Vek[R].Finished_Seg2 == 0 && Module1.FinishedRestSeg2(R) == 0)
+                                    if (R > 2 && Program.Vek[R].WarmUp_Seg2 > Program.Vek[checked(R - 1)].WarmUp_Seg2 & Program.Vek[R].Finished_Seg2 == 0 && Program.FinishedRestSeg2(R) == 0)
                                     {
                                         checked { ++row; }
                                         int index = 1;
                                         do
                                         {
-                                            if (Module1.Vek[checked(R - 1)].Startno_Seg2 == Module1.IceArr_Seg2[index] & Module1.Vek[checked(R - 1)].DNS_Seg2 == 0)
-                                                Module1.TArrNext[row, 3] = (object)"ICE RESURFACING";
-                                            if (Module1.Vek[checked(R - 1)].Startno_Seg2 == Module1.LunchArr_Seg2[index] & Module1.Vek[checked(R - 1)].DNS_Seg2 == 0)
-                                                Module1.TArrNext[row, 3] = (object)"MEAL BREAK";
+                                            if (Program.Vek[checked(R - 1)].Startno_Seg2 == Program.IceArr_Seg2[index] & Program.Vek[checked(R - 1)].DNS_Seg2 == 0)
+                                                Program.TArrNext[row, 3] = (object)"ICE RESURFACING";
+                                            if (Program.Vek[checked(R - 1)].Startno_Seg2 == Program.LunchArr_Seg2[index] & Program.Vek[checked(R - 1)].DNS_Seg2 == 0)
+                                                Program.TArrNext[row, 3] = (object)"MEAL BREAK";
                                             checked { ++index; }
                                         }
                                         while (index <= 6);
                                     }
-                                    if (!(Module1.Vek[R].DNS_Seg2 == 0 & Module1.Vek[R].Finished_Seg2 == 0))
+                                    if (!(Program.Vek[R].DNS_Seg2 == 0 & Program.Vek[R].Finished_Seg2 == 0))
                                     {
                                         checked { ++R; }
                                     }
                                     else
                                     {
                                         checked { ++row; }
-                                        Module1.TArrNext[row, 1] = (object)Conversions.ToString(Module1.Vek[R].Startno_Seg2);
-                                        Module1.TArrNext[row, 2] = Module1.Vek[R].WarmUp_Seg2 > 0 ? (object)Conversions.ToString(Module1.Vek[R].WarmUp_Seg2) : (object)"-";
-                                        Module1.TArrNext[row, 3] = (object)(Module1.Vek[R].Name.FName + " " + Module1.Vek[R].Name.LName);
-                                        Module1.TArrNext[row, 4] = (object)Module1.Vek[R].Club;
-                                        if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
-                                            Module1.TArrNext[row, 5] = (object)Module1.Vek[R].Score_Seg1;
+                                        Program.TArrNext[row, 1] = (object)Conversions.ToString(Program.Vek[R].Startno_Seg2);
+                                        Program.TArrNext[row, 2] = Program.Vek[R].WarmUp_Seg2 > 0 ? (object)Conversions.ToString(Program.Vek[R].WarmUp_Seg2) : (object)"-";
+                                        Program.TArrNext[row, 3] = (object)(Program.Vek[R].Name.FName + " " + Program.Vek[R].Name.LName);
+                                        Program.TArrNext[row, 4] = (object)Program.Vek[R].Club;
+                                        if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
+                                            Program.TArrNext[row, 5] = (object)Program.Vek[R].Score_Seg1;
                                         checked { ++R; }
                                     }
                                 }
                             }
                             else
                             {
-                                if (R > 2 && Module1.FinishedRestSeg1(R) == 0)
+                                if (R > 2 && Program.FinishedRestSeg1(R) == 0)
                                 {
                                     checked { ++row; }
                                     int index = 1;
                                     do
                                     {
-                                        if (Module1.Vek[checked(R - 1)].Startno_Seg1 == Module1.IceArr_Seg1[index] & Module1.Vek[checked(R - 1)].DNS_Seg1 == 0)
-                                            Module1.TArrNext[row, 3] = (object)"ICE RESURFACING";
-                                        if (Module1.Vek[checked(R - 1)].Startno_Seg1 == Module1.LunchArr_Seg1[index] & Module1.Vek[checked(R - 1)].DNS_Seg1 == 0)
-                                            Module1.TArrNext[row, 3] = (object)"MEAL BREAK";
+                                        if (Program.Vek[checked(R - 1)].Startno_Seg1 == Program.IceArr_Seg1[index] & Program.Vek[checked(R - 1)].DNS_Seg1 == 0)
+                                            Program.TArrNext[row, 3] = (object)"ICE RESURFACING";
+                                        if (Program.Vek[checked(R - 1)].Startno_Seg1 == Program.LunchArr_Seg1[index] & Program.Vek[checked(R - 1)].DNS_Seg1 == 0)
+                                            Program.TArrNext[row, 3] = (object)"MEAL BREAK";
                                         checked { ++index; }
                                     }
                                     while (index <= 6);
-                                    if (Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[row, 3])) < 1)
-                                        Module1.TArrNext[row, 3] = (object)"WARM UP";
+                                    if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
+                                        Program.TArrNext[row, 3] = (object)"WARM UP";
                                 }
-                                if (!(Module1.Vek[R].DNS_Seg1 == 0 & Module1.Vek[R].Finished_Seg1 == 0))
+                                if (!(Program.Vek[R].DNS_Seg1 == 0 & Program.Vek[R].Finished_Seg1 == 0))
                                 {
                                     checked { ++R; }
                                 }
                                 else
                                 {
                                     checked { ++row; }
-                                    Module1.TArrNext[row, 1] = (object)Conversions.ToString(Module1.Vek[R].Startno_Seg1);
-                                    Module1.TArrNext[row, 2] = Module1.Vek[R].WarmUp_Seg1 > 0 ? (object)Conversions.ToString(Module1.Vek[R].WarmUp_Seg1) : (object)"-";
-                                    Module1.TArrNext[row, 3] = (object)(Module1.Vek[R].Name.FName + " " + Module1.Vek[R].Name.LName);
-                                    Module1.TArrNext[row, 4] = (object)Module1.Vek[R].Club;
+                                    Program.TArrNext[row, 1] = (object)Conversions.ToString(Program.Vek[R].Startno_Seg1);
+                                    Program.TArrNext[row, 2] = Program.Vek[R].WarmUp_Seg1 > 0 ? (object)Conversions.ToString(Program.Vek[R].WarmUp_Seg1) : (object)"-";
+                                    Program.TArrNext[row, 3] = (object)(Program.Vek[R].Name.FName + " " + Program.Vek[R].Name.LName);
+                                    Program.TArrNext[row, 4] = (object)Program.Vek[R].Club;
                                     checked { ++R; }
                                 }
                             }
@@ -6676,40 +6676,40 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        if (R > 2 && Module1.Vek[R].WarmUp_Seg2 > Module1.Vek[checked(R - 1)].WarmUp_Seg2 & Module1.Vek[R].Finished_Seg2 == 0 && Module1.FinishedRestSeg2(R) == 0)
+                        if (R > 2 && Program.Vek[R].WarmUp_Seg2 > Program.Vek[checked(R - 1)].WarmUp_Seg2 & Program.Vek[R].Finished_Seg2 == 0 && Program.FinishedRestSeg2(R) == 0)
                         {
                             checked { ++row; }
                             int index = 1;
                             do
                             {
-                                if (Module1.Vek[checked(R - 1)].Startno_Seg2 == Module1.IceArr_Seg2[index] & Module1.Vek[checked(R - 1)].DNS_Seg2 == 0)
-                                    Module1.TArrNext[row, 3] = (object)"ICE RESURFACING";
-                                if (Module1.Vek[checked(R - 1)].Startno_Seg2 == Module1.LunchArr_Seg2[index] & Module1.Vek[checked(R - 1)].DNS_Seg2 == 0)
-                                    Module1.TArrNext[row, 3] = (object)"MEAL BREAK";
+                                if (Program.Vek[checked(R - 1)].Startno_Seg2 == Program.IceArr_Seg2[index] & Program.Vek[checked(R - 1)].DNS_Seg2 == 0)
+                                    Program.TArrNext[row, 3] = (object)"ICE RESURFACING";
+                                if (Program.Vek[checked(R - 1)].Startno_Seg2 == Program.LunchArr_Seg2[index] & Program.Vek[checked(R - 1)].DNS_Seg2 == 0)
+                                    Program.TArrNext[row, 3] = (object)"MEAL BREAK";
                                 checked { ++index; }
                             }
                             while (index <= 6);
-                            if (Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[row, 3])) < 1)
-                                Module1.TArrNext[row, 3] = (object)"WARM UP";
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
+                                Program.TArrNext[row, 3] = (object)"WARM UP";
                         }
-                        if (!(Module1.Vek[R].DNS_Seg2 == 0 & Module1.Vek[R].Finished_Seg2 == 0))
+                        if (!(Program.Vek[R].DNS_Seg2 == 0 & Program.Vek[R].Finished_Seg2 == 0))
                         {
                             checked { ++R; }
                         }
                         else
                         {
                             checked { ++row; }
-                            Module1.TArrNext[row, 1] = (object)Conversions.ToString(Module1.Vek[R].Startno_Seg2);
-                            Module1.TArrNext[row, 2] = Module1.Vek[R].WarmUp_Seg2 > 0 ? (object)Conversions.ToString(Module1.Vek[R].WarmUp_Seg2) : (object)"-";
-                            Module1.TArrNext[row, 3] = (object)(Module1.Vek[R].Name.FName + " " + Module1.Vek[R].Name.LName);
-                            Module1.TArrNext[row, 4] = (object)Module1.Vek[R].Club;
-                            if (!(Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_2, "F", false) == 0))
+                            Program.TArrNext[row, 1] = (object)Conversions.ToString(Program.Vek[R].Startno_Seg2);
+                            Program.TArrNext[row, 2] = Program.Vek[R].WarmUp_Seg2 > 0 ? (object)Conversions.ToString(Program.Vek[R].WarmUp_Seg2) : (object)"-";
+                            Program.TArrNext[row, 3] = (object)(Program.Vek[R].Name.FName + " " + Program.Vek[R].Name.LName);
+                            Program.TArrNext[row, 4] = (object)Program.Vek[R].Club;
+                            if (!(Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0 & Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_2, "F", false) == 0))
                             {
                                 checked { ++R; }
                             }
                             else
                             {
-                                Module1.TArrNext[row, 5] = (object)Module1.Vek[R].Score_Seg1;
+                                Program.TArrNext[row, 5] = (object)Program.Vek[R].Score_Seg1;
                                 checked { ++R; }
                             }
                         }
@@ -6726,13 +6726,13 @@ namespace ClubCompFS
         {
             int num1 = 0;
             int num2 = checked(R + 1);
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = num2;
             while (index <= tnop)
             {
-                if (Module1.Vek[R].WarmUp_Seg1 == Module1.Vek[index].WarmUp_Seg1)
+                if (Program.Vek[R].WarmUp_Seg1 == Program.Vek[index].WarmUp_Seg1)
                 {
-                    if (Module1.Vek[index].Finished_Seg1 == 0)
+                    if (Program.Vek[index].Finished_Seg1 == 0)
                     {
                         num1 = 0;
                     }
@@ -6751,13 +6751,13 @@ namespace ClubCompFS
         {
             int num1 = 0;
             int num2 = checked(R + 1);
-            int tnop = Module1.TNop;
+            int tnop = Program.TNop;
             int index = num2;
             while (index <= tnop)
             {
-                if (Module1.Vek[R].WarmUp_Seg2 == Module1.Vek[index].WarmUp_Seg2)
+                if (Program.Vek[R].WarmUp_Seg2 == Program.Vek[index].WarmUp_Seg2)
                 {
-                    if (Module1.Vek[index].Finished_Seg2 == 0)
+                    if (Program.Vek[index].Finished_Seg2 == 0)
                     {
                         num1 = 0;
                     }
@@ -6781,7 +6781,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                StreamWriter streamWriter = new StreamWriter(Module1.PathResultsFile + "Results.htm", false, Encoding.Default);
+                StreamWriter streamWriter = new StreamWriter(Program.PathResultsFile + "Results.htm", false, Encoding.Default);
                 streamWriter.Write("<html>\r\n");
                 streamWriter.Write("<head>\r\n");
                 streamWriter.Write("<title>ClubCompFS Results</title>\r\n");
@@ -6803,21 +6803,21 @@ namespace ClubCompFS
                 while (index1 <= 2);
                 streamWriter.Write("<table border='0' cellspacing='0'>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>COMPETITION: " + Module1.Competition.Name + "</b></td>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[2] + "><font size='3'><b>" + Module1.DateTimeToStr(DateTime.Now) + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>COMPETITION: " + Program.Competition.Name + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[2] + "><font size='3'><b>" + Program.DateTimeToStr(DateTime.Now) + "</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>CATEGORY: " + Module1.GetCat() + ", " + Module1.GetSegTxt(Module1.Segment) + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>CATEGORY: " + Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment) + "</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("</table><br />\r\n");
                 int num3 = 0;
-                if (Operators.CompareString(Module1.GetSeg(), "0F", false) == 0)
+                if (Operators.CompareString(Program.GetSeg(), "0F", false) == 0)
                 {
                     num3 = 1;
                 }
                 else
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                         num3 = 1;
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -6854,23 +6854,23 @@ namespace ClubCompFS
                 streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'><b>TES</b></td>\r\n");
                 streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'><b>PCS</b></td>\r\n");
                 streamWriter.Write("<td align='center'" + BC + strArray2[8] + "><font size='3'><b>Ded</b></td>\r\n");
-                if (Module1.Bonus_Sel(Module1.Segment))
+                if (Program.Bonus_Sel(Program.Segment))
                     streamWriter.Write("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>Bon</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Module1.TArrLive[1, 1]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Module1.TArrLive[1, 2]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Module1.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Module1.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
-                if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5])))
-                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Program.TArrLive[1, 1]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Program.TArrLive[1, 2]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
+                if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
+                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
                 else
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Module1.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
-                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Module1.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
-                if (Module1.Bonus_Sel(Module1.Segment))
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>"), Module1.TArrLive[1, 9]), (object)"</b>"), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Program.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Program.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
+                if (Program.Bonus_Sel(Program.Segment))
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>"), Program.TArrLive[1, 9]), (object)"</b>"), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write("</tr>\r\n");
                 if (num3 == 1)
                 {
@@ -6891,19 +6891,19 @@ namespace ClubCompFS
                     streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'><b>FS</b></td>\r\n");
                     streamWriter.Write("</tr>\r\n");
                     streamWriter.Write("<tr>\r\n");
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Module1.TArrLive[2, 1]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Module1.TArrLive[2, 2]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Module1.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Module1.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
-                    if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5])))
-                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Program.TArrLive[2, 1]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Program.TArrLive[2, 2]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
+                    if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
+                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
                     else
-                        streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Module1.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
-                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
+                        streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Program.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
                     streamWriter.Write("</table><br />\r\n");
                 }
-                if (Module1.TNop > 0)
+                if (Program.TNop > 0)
                 {
                     if (row > 1)
                     {
@@ -6914,10 +6914,10 @@ namespace ClubCompFS
                         streamWriter.Write("<td align='left'" + strArray2[2] + "><font size='3'><b>St</b></td>\r\n");
                         streamWriter.Write("<td align='left'" + strArray2[3] + "><font size='3'><b>Name</b></td>\r\n");
                         streamWriter.Write("<td align='left'" + strArray2[4] + "><font size='3'><b>Club</b></td>\r\n");
-                        string seg1 = Module1.GetSeg();
+                        string seg1 = Program.GetSeg();
                         if (Operators.CompareString(seg1, "SS", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("<td align='center'" + strArray2[5] + "><font size='3'><b>TSS</b></td>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -6931,7 +6931,7 @@ namespace ClubCompFS
                             streamWriter.Write("<td align='center'" + strArray2[5] + "><font size='3'><b>Total</b></td>\r\n");
                         else if (Operators.CompareString(seg1, "SF", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("<td align='center'" + strArray2[5] + "><font size='3'><b>TSS</b></td>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -6943,7 +6943,7 @@ namespace ClubCompFS
                         }
                         else if (Operators.CompareString(seg1, "FF", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("<td align='center'" + strArray2[5] + "><font size='3'><b>TSS</b></td>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -6958,26 +6958,26 @@ namespace ClubCompFS
                         int index3 = 2;
                         while (index3 <= num4)
                         {
-                            string str1 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrResult[index3, 5])) ? Conversions.ToString(Module1.TArrResult[index3, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrResult[index3, 5]), "0.00");
+                            string str1 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5])) ? Conversions.ToString(Program.TArrResult[index3, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5]), "0.00");
                             streamWriter.Write("<tr>\r\n");
-                            string str2 = Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Module1.TArrResult[index3, 2])), false) != 0 ? "" : BC;
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[1] + "><font size='3'>"), Module1.TArrResult[index3, 1]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[2] + "><font size='3'>"), Module1.TArrResult[index3, 2]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[3] + "><font size='3'>"), Module1.TArrResult[index3, 3]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[4] + "><font size='3'>"), Module1.TArrResult[index3, 4]), (object)"</td>"), (object)"\r\n"));
-                            string seg2 = Module1.GetSeg();
+                            string str2 = Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Program.TArrResult[index3, 2])), false) != 0 ? "" : BC;
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[1] + "><font size='3'>"), Program.TArrResult[index3, 1]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[2] + "><font size='3'>"), Program.TArrResult[index3, 2]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[3] + "><font size='3'>"), Program.TArrResult[index3, 3]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[4] + "><font size='3'>"), Program.TArrResult[index3, 4]), (object)"</td>"), (object)"\r\n"));
+                            string seg2 = Program.GetSeg();
                             if (Operators.CompareString(seg2, "S0", false) == 0 || Operators.CompareString(seg2, "0F", false) == 0)
                                 streamWriter.Write("<td align='center'" + str2 + strArray2[5] + "><font size='3'>" + str1 + "</td>\r\n");
                             else if (Operators.CompareString(seg2, "SS", false) == 0 || Operators.CompareString(seg2, "SF", false) == 0 || Operators.CompareString(seg2, "FF", false) == 0)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                                     streamWriter.Write("<td align='center'" + str2 + strArray2[5] + "><font size='3'>" + str1 + "</td>\r\n");
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                                 {
                                     streamWriter.Write("<td align='center'" + str2 + strArray2[5] + "><font size='3'>" + str1 + "</td>\r\n");
-                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + str2 + strArray2[6] + "><font size='3'>"), Module1.TArrResult[index3, 6]), (object)"</td>"), (object)"\r\n"));
-                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + str2 + strArray2[7] + "><font size='3'>"), Module1.TArrResult[index3, 7]), (object)"</td>"), (object)"\r\n"));
+                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + str2 + strArray2[6] + "><font size='3'>"), Program.TArrResult[index3, 6]), (object)"</td>"), (object)"\r\n"));
+                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + str2 + strArray2[7] + "><font size='3'>"), Program.TArrResult[index3, 7]), (object)"</td>"), (object)"\r\n"));
                                 }
                             }
                             streamWriter.Write("</tr>\r\n");
@@ -6999,13 +6999,13 @@ namespace ClubCompFS
                         int index4 = 2;
                         while (index4 <= num5)
                         {
-                            if (Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[index4, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[index4, 3])) > 0)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 3])) > 0)
                             {
                                 streamWriter.Write("<tr>\r\n");
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Module1.TArrNext[index4, 1]), (object)"</td>"), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[2] + "><font size='3'>"), Module1.TArrNext[index4, 2]), (object)"</td>"), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[3] + "><font size='3'>"), Module1.TArrNext[index4, 3]), (object)"</td>"), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[4] + "><font size='3'>"), Module1.TArrNext[index4, 4]), (object)"</td>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Program.TArrNext[index4, 1]), (object)"</td>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[2] + "><font size='3'>"), Program.TArrNext[index4, 2]), (object)"</td>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[3] + "><font size='3'>"), Program.TArrNext[index4, 3]), (object)"</td>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[4] + "><font size='3'>"), Program.TArrNext[index4, 4]), (object)"</td>"), (object)"\r\n"));
                                 streamWriter.Write("</tr>\r\n");
                             }
                             checked { ++index4; }
@@ -7048,7 +7048,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                StreamWriter streamWriter = new StreamWriter(Module1.PathResultsFile + "Speaker.html", false, Encoding.Default);
+                StreamWriter streamWriter = new StreamWriter(Program.PathResultsFile + "Speaker.html", false, Encoding.Default);
                 streamWriter.Write("<html>\r\n");
                 streamWriter.Write("<head>\r\n");
                 streamWriter.Write("<title>ClubCompFS Speaker</title>\r\n");
@@ -7069,21 +7069,21 @@ namespace ClubCompFS
                 while (index1 <= 2);
                 streamWriter.Write("<table border='0' cellspacing='0'>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>COMPETITION: " + Module1.Competition.Name + "</b></td>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[2] + "><font size='3'><b>" + Module1.DateTimeToStr(DateTime.Now) + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>COMPETITION: " + Program.Competition.Name + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[2] + "><font size='3'><b>" + Program.DateTimeToStr(DateTime.Now) + "</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>CATEGORY: " + Module1.GetCat() + ", " + Module1.GetSegTxt(Module1.Segment) + "</b></td>\r\n");
+                streamWriter.Write("<td align='left'" + strArray1[1] + "><font size='3'><b>CATEGORY: " + Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment) + "</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("</table><br />\r\n");
                 int num3 = 0;
-                if (Operators.CompareString(Module1.GetSeg(), "0F", false) == 0)
+                if (Operators.CompareString(Program.GetSeg(), "0F", false) == 0)
                 {
                     num3 = 1;
                 }
                 else
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                         num3 = 1;
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -7120,23 +7120,23 @@ namespace ClubCompFS
                 streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'><b>PCS</b></td>\r\n");
                 streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'><b>TSS</b></td>\r\n");
                 streamWriter.Write("<td align='center'" + BC + strArray2[8] + "><font size='3'><b>Ded</b></td>\r\n");
-                if (Module1.Bonus_Sel(Module1.Segment))
+                if (Program.Bonus_Sel(Program.Segment))
                     streamWriter.Write("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>Bon</b></td>\r\n");
                 streamWriter.Write("</tr>\r\n");
                 streamWriter.Write("<tr>\r\n");
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Module1.TArrLive[1, 1]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Module1.TArrLive[1, 2]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Module1.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Module1.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
-                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
-                if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5])))
-                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Program.TArrLive[1, 1]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Program.TArrLive[1, 2]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
+                if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
+                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
                 else
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Module1.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Module1.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
-                if (Module1.Bonus_Sel(Module1.Segment))
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>"), Module1.TArrLive[1, 9]), (object)"</b>"), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Program.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Program.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
+                if (Program.Bonus_Sel(Program.Segment))
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>"), Program.TArrLive[1, 9]), (object)"</b>"), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write("</tr>\r\n");
                 if (num3 == 1)
                 {
@@ -7157,19 +7157,19 @@ namespace ClubCompFS
                     streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'><b>FS</b></td>\r\n");
                     streamWriter.Write("</tr>\r\n");
                     streamWriter.Write("<tr>\r\n");
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Module1.TArrLive[2, 1]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Module1.TArrLive[2, 2]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Module1.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Module1.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
-                    if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrLive[1, 5])))
-                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[1] + "><font size='3'>"), Program.TArrLive[2, 1]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Program.TArrLive[2, 2]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
+                    if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
+                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
                     else
-                        streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Module1.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
-                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
+                        streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Program.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
+                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
                     streamWriter.Write("</table><br />\r\n");
                 }
-                if (Module1.TNop > 0 && rowRemain > 1)
+                if (Program.TNop > 0 && rowRemain > 1)
                 {
                     streamWriter.Write("<font size =3><b>REMAINING SKATERS</b><br />\r\n");
                     streamWriter.Write("<table border='0' cellspacing='0'>\r\n");
@@ -7183,13 +7183,13 @@ namespace ClubCompFS
                     int index3 = 2;
                     while (index3 <= num4)
                     {
-                        if (Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[index3, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Module1.TArrNext[index3, 3])) > 0)
+                        if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 3])) > 0)
                         {
                             streamWriter.Write("<tr>\r\n");
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Module1.TArrNext[index3, 1]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[2] + "><font size='3'>"), Module1.TArrNext[index3, 2]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[3] + "><font size='3'>"), Module1.TArrNext[index3, 3]), (object)"</td>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[4] + "><font size='3'>"), Module1.TArrNext[index3, 4]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Program.TArrNext[index3, 1]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[2] + "><font size='3'>"), Program.TArrNext[index3, 2]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[3] + "><font size='3'>"), Program.TArrNext[index3, 3]), (object)"</td>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[4] + "><font size='3'>"), Program.TArrNext[index3, 4]), (object)"</td>"), (object)"\r\n"));
                             streamWriter.Write("</tr>\r\n");
                         }
                         checked { ++index3; }
@@ -7231,7 +7231,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                StreamWriter streamWriter = new StreamWriter(Module1.PathResultsFile + "ResultsPhone.htm", false, Encoding.Default);
+                StreamWriter streamWriter = new StreamWriter(Program.PathResultsFile + "ResultsPhone.htm", false, Encoding.Default);
                 streamWriter.Write("<!DOCTYPE html>\r\n");
                 streamWriter.Write("<!--[if IE 9]><html class='lt-ie10' lang='en' > <![endif]-->\r\n");
                 streamWriter.Write("<html class='no-js' lang='en' >\r\n");
@@ -7245,9 +7245,9 @@ namespace ClubCompFS
                 streamWriter.Write("<body>\r\n");
                 streamWriter.Write("<div class='row'>\r\n");
                 streamWriter.Write(" <div class='small-12 columns'>\r\n");
-                streamWriter.Write("  <h1>" + Module1.Competition.Name + "</h1>\r\n");
-                streamWriter.Write("  <h2>" + Module1.GetCat() + "</h2>\r\n");
-                streamWriter.Write("  <h3>" + Module1.GetSegTxt(Module1.Segment) + "</h3>\r\n");
+                streamWriter.Write("  <h1>" + Program.Competition.Name + "</h1>\r\n");
+                streamWriter.Write("  <h2>" + Program.GetCat() + "</h2>\r\n");
+                streamWriter.Write("  <h3>" + Program.GetSegTxt(Program.Segment) + "</h3>\r\n");
                 streamWriter.Write("  <hr />\r\n");
                 streamWriter.Write(" </div>\r\n");
                 streamWriter.Write("</div>\r\n");
@@ -7268,7 +7268,7 @@ namespace ClubCompFS
                 streamWriter.Write("    <div class='small-2 columns'><h6>TSS</h6></div>\r\n");
                 streamWriter.Write("    <div class='small-2 columns'><h6>TES</h6></div>\r\n");
                 streamWriter.Write("    <div class='small-2 columns'><h6>PCS</h6></div>\r\n");
-                if (Module1.Bonus_Sel(Module1.Segment))
+                if (Program.Bonus_Sel(Program.Segment))
                 {
                     streamWriter.Write("    <div class='small-2 columns'><h6>Ded</h6></div>\r\n");
                     streamWriter.Write("    <div class='small-2 columns end'><h6>Bon</h6></div>\r\n");
@@ -7282,30 +7282,30 @@ namespace ClubCompFS
                 streamWriter.Write(" <div class='row'>\r\n");
                 string Left1 = BC;
                 if (Operators.CompareString(Left1, " bgcolor='FFFF99'", false) == 0)
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns latest-green'><p>", Module1.TArrLive[1, 1]), (object)"</p></div>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns latest-green'><p>", Program.TArrLive[1, 1]), (object)"</p></div>"), (object)"\r\n"));
                 else if (Operators.CompareString(Left1, " bgcolor='#CCFFFF'", false) == 0)
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns latest-yellow'><p>", Module1.TArrLive[1, 1]), (object)"</p></div>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-9 large-3 columns'><p>", Module1.TArrLive[1, 3]), (object)"</p></div>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns'><p>", Module1.TArrLive[1, 4]), (object)"</p></div>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns latest-yellow'><p>", Program.TArrLive[1, 1]), (object)"</p></div>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-9 large-3 columns'><p>", Program.TArrLive[1, 3]), (object)"</p></div>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns'><p>", Program.TArrLive[1, 4]), (object)"</p></div>"), (object)"\r\n"));
                 streamWriter.Write("  <div class='small-12 large-5 columns'>\r\n");
                 streamWriter.Write("   <div class='row'>\r\n");
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>TSS</h6><p>", Module1.TArrLive[1, 5]), (object)"</p></div>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>TES</h6><p>", Module1.TArrLive[1, 6]), (object)"</p></div>"), (object)"\r\n"));
-                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>PCS</h6><p>", Module1.TArrLive[1, 7]), (object)"</p></div>"), (object)"\r\n"));
-                if (Module1.Bonus_Sel(Module1.Segment))
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>TSS</h6><p>", Program.TArrLive[1, 5]), (object)"</p></div>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>TES</h6><p>", Program.TArrLive[1, 6]), (object)"</p></div>"), (object)"\r\n"));
+                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>PCS</h6><p>", Program.TArrLive[1, 7]), (object)"</p></div>"), (object)"\r\n"));
+                if (Program.Bonus_Sel(Program.Segment))
                 {
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>Ded</h6><p>", Module1.TArrLive[1, 8]), (object)"</p></div>"), (object)"\r\n"));
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 class='hide-for-large-up'>Bon</h6><p>", Module1.TArrLive[1, 9]), (object)"</p></div>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>Ded</h6><p>", Program.TArrLive[1, 8]), (object)"</p></div>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 class='hide-for-large-up'>Bon</h6><p>", Program.TArrLive[1, 9]), (object)"</p></div>"), (object)"\r\n"));
                 }
                 else
-                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 class='hide-for-large-up'>Ded</h6><p>", Module1.TArrLive[1, 8]), (object)"</p></div>"), (object)"\r\n"));
+                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 class='hide-for-large-up'>Ded</h6><p>", Program.TArrLive[1, 8]), (object)"</p></div>"), (object)"\r\n"));
                 streamWriter.Write("   </div>\r\n");
                 streamWriter.Write("  </div>\r\n");
                 streamWriter.Write(" </div>\r\n");
                 streamWriter.Write(" <hr style='margin-top:30px;' />\r\n");
                 streamWriter.Write(" </div>\r\n");
                 streamWriter.Write("</div>\r\n");
-                if (Module1.TNop > 0)
+                if (Program.TNop > 0)
                 {
                     if (row > 1)
                     {
@@ -7322,10 +7322,10 @@ namespace ClubCompFS
                         streamWriter.Write("   <div class='show-for-large-up large-3 columns end'><h5>Club</h5></div>\r\n");
                         streamWriter.Write("   <div class='small-12 show-for-large-up large-5 columns'>\r\n");
                         streamWriter.Write("    <div class='row'>\r\n");
-                        string seg1 = Module1.GetSeg();
+                        string seg1 = Program.GetSeg();
                         if (Operators.CompareString(seg1, "SS", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("    <div class='small-2 columns'><h6>TSS</h6></div>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -7339,7 +7339,7 @@ namespace ClubCompFS
                             streamWriter.Write("    <div class='small-2 columns end'><h6>Total</h6></div>\r\n");
                         else if (Operators.CompareString(seg1, "SF", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("    <div class='small-2 columns'><h6>TSS</h6></div>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -7351,7 +7351,7 @@ namespace ClubCompFS
                         }
                         else if (Operators.CompareString(seg1, "FF", false) == 0)
                         {
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                                 streamWriter.Write("    <div class='small-2 columns'><h6>TSS</h6></div>\r\n");
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
@@ -7368,9 +7368,9 @@ namespace ClubCompFS
                         int index = 2;
                         while (index <= num3)
                         {
-                            string str = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Module1.TArrResult[index, 5])) ? Conversions.ToString(Module1.TArrResult[index, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Module1.TArrResult[index, 5]), "0.00");
+                            string str = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5])) ? Conversions.ToString(Program.TArrResult[index, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5]), "0.00");
                             streamWriter.Write("<!-- Skater info -->\r\n");
-                            if (Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Module1.TArrResult[index, 2])), false) == 0)
+                            if (Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Program.TArrResult[index, 2])), false) == 0)
                             {
                                 string Left2 = BC;
                                 if (Operators.CompareString(Left2, " bgcolor='FFFF99'", false) == 0)
@@ -7380,24 +7380,24 @@ namespace ClubCompFS
                             }
                             else
                                 streamWriter.Write(" <div class='row list'>\r\n");
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Module1.TArrResult[index, 1]), (object)"</p></div>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Module1.TArrResult[index, 3]), (object)"</p></div>"), (object)"\r\n"));
-                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns'><p>", Module1.TArrResult[index, 4]), (object)"</p></div>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Program.TArrResult[index, 1]), (object)"</p></div>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Program.TArrResult[index, 3]), (object)"</p></div>"), (object)"\r\n"));
+                            streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns'><p>", Program.TArrResult[index, 4]), (object)"</p></div>"), (object)"\r\n"));
                             streamWriter.Write("  <div class='small-12 large-5 columns'>\r\n");
                             streamWriter.Write("   <div class='row'>\r\n");
-                            string seg2 = Module1.GetSeg();
+                            string seg2 = Program.GetSeg();
                             if (Operators.CompareString(seg2, "S0", false) == 0 || Operators.CompareString(seg2, "0F", false) == 0)
                                 streamWriter.Write("    <div class='small-2 columns end'><h6 class='hide-for-large-up'>Total</h6><p>" + str + "</p></div>\r\n");
                             else if (Operators.CompareString(seg2, "SS", false) == 0 || Operators.CompareString(seg2, "SF", false) == 0 || Operators.CompareString(seg2, "FF", false) == 0)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                                     streamWriter.Write("    <div class='small-2 columns'><h6 class='hide-for-large-up'>Total</h6><p>" + str + "</p></div>\r\n");
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                                 {
                                     streamWriter.Write("    <div class='small-2 columns'><h6 class='hide-for-large-up'>Total</h6><p>" + str + "</p></div>\r\n");
-                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>SP</h6><p>", Module1.TArrResult[index, 6]), (object)"</p></div>"), (object)"\r\n"));
-                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 \tclass='hide-for-large-up'>FS</h6><p>", Module1.TArrResult[index, 7]), (object)"</p></div>"), (object)"\r\n"));
+                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns'><h6 class='hide-for-large-up'>SP</h6><p>", Program.TArrResult[index, 6]), (object)"</p></div>"), (object)"\r\n"));
+                                    streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"    <div class='small-2 columns end'><h6 \tclass='hide-for-large-up'>FS</h6><p>", Program.TArrResult[index, 7]), (object)"</p></div>"), (object)"\r\n"));
                                 }
                             }
                             streamWriter.Write("   </div>\r\n");
@@ -7431,18 +7431,18 @@ namespace ClubCompFS
                             {
                                 streamWriter.Write("<!-- Skater info -->\r\n");
                                 streamWriter.Write(" <div class='row'>\r\n");
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Module1.TArrNext[index, 1]), (object)"</p></div>"), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Module1.TArrNext[index, 3]), (object)"</p></div>  "), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns end'><p>", Module1.TArrNext[index, 4]), (object)"</p></div>\t"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Program.TArrNext[index, 1]), (object)"</p></div>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Program.TArrNext[index, 3]), (object)"</p></div>  "), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns end'><p>", Program.TArrNext[index, 4]), (object)"</p></div>\t"), (object)"\r\n"));
                                 streamWriter.Write(" </div>\r\n");
                             }
                             else
                             {
                                 streamWriter.Write("<!-- Skater info (last block is different) -->\r\n");
                                 streamWriter.Write(" <div class='row'>\r\n");
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Module1.TArrNext[index, 1]), (object)"</p></div>"), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Module1.TArrNext[index, 3]), (object)"</p></div> "), (object)"\r\n"));
-                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns end'><p>", Module1.TArrNext[index, 4]), (object)"</p></div> "), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-2 large-1 columns'><p>", Program.TArrNext[index, 1]), (object)"</p></div>"), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='small-10 large-3 columns'><p>", Program.TArrNext[index, 3]), (object)"</p></div> "), (object)"\r\n"));
+                                streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)"  <div class='show-for-large-up large-3 columns end'><p>", Program.TArrNext[index, 4]), (object)"</p></div> "), (object)"\r\n"));
                                 streamWriter.Write(" </div>\r\n");
                                 streamWriter.Write(" <hr />\r\n");
                                 streamWriter.Write(" </div>\r\n");
@@ -7453,7 +7453,7 @@ namespace ClubCompFS
                     }
                     streamWriter.Write("<div class='row'>\r\n");
                     streamWriter.Write(" <div class='small-12 columns'>\r\n");
-                    streamWriter.Write("  <p class='footer'>Updated, " + Module1.DateTimeToStr(DateTime.Now) + "</p>\r\n");
+                    streamWriter.Write("  <p class='footer'>Updated, " + Program.DateTimeToStr(DateTime.Now) + "</p>\r\n");
                     streamWriter.Write(" </div>\r\n");
                     streamWriter.Write("</div>\r\n");
                     streamWriter.Write("</body>\r\n");
@@ -7491,17 +7491,17 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                Module1.DNS_Seg1 = 0;
+                Program.DNS_Seg1 = 0;
                 num3 = 3;
                 int num4 = NoOfSkater;
                 int index1 = 1;
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].Finished_Seg1 == 0 | Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].Finished_Seg1 == 0 | Program.Vek[index1].DNS_Seg1 > 0)
                     {
                         num3 = 5;
-                        checked { ++Module1.DNS_Seg1; }
+                        checked { ++Program.DNS_Seg1; }
                     }
                     num3 = 7;
                     checked { ++index1; }
@@ -7512,7 +7512,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -7522,10 +7522,10 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        if (Program.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -7533,32 +7533,32 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
                 num3 = 20;
-                int num8 = checked(NoOfSkater - 1 - Module1.DNS_Seg1);
+                int num8 = checked(NoOfSkater - 1 - Program.DNS_Seg1);
                 int index5 = 1;
                 while (index5 <= num8)
                 {
                     num3 = 21;
-                    Module1.Participant participant = Module1.Vek[index5];
+                    Program.Participant participant = Program.Vek[index5];
                     num3 = 22;
                     int index6 = index5;
                     num3 = 23;
                     int num9 = checked(index5 + 1);
-                    int num10 = checked(NoOfSkater - Module1.DNS_Seg1);
+                    int num10 = checked(NoOfSkater - Program.DNS_Seg1);
                     int index7 = num9;
                     while (index7 <= num10)
                     {
                         num3 = 24;
-                        if (Module1.Vek[index7].Score_Seg1 > participant.Score_Seg1)
+                        if (Program.Vek[index7].Score_Seg1 > participant.Score_Seg1)
                         {
                             num3 = 25;
-                            participant = Module1.Vek[index7];
+                            participant = Program.Vek[index7];
                             num3 = 26;
                             index6 = index7;
                         }
@@ -7566,9 +7566,9 @@ namespace ClubCompFS
                         checked { ++index7; }
                     }
                     num3 = 29;
-                    Module1.Vek[index6] = Module1.Vek[index5];
+                    Program.Vek[index6] = Program.Vek[index5];
                     num3 = 30;
-                    Module1.Vek[index5] = participant;
+                    Program.Vek[index5] = participant;
                     num3 = 31;
                     checked { ++index5; }
                 }
@@ -7597,13 +7597,13 @@ namespace ClubCompFS
                 num3 = 3;
                 int no = 0;
                 num3 = 4;
-                Module1.Vek[1].Place_Seg1 = P;
+                Program.Vek[1].Place_Seg1 = P;
                 num3 = 5;
                 int num4 = checked(TNop - 1);
                 while (index1 <= num4)
                 {
                     num3 = 6;
-                    if (Conversion.Int(100.0 * Module1.Vek[index1].Score_Seg1 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index1 + 1)].Score_Seg1 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index1].Score_Seg1 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index1 + 1)].Score_Seg1 + 1E-09))
                     {
                         num3 = 7;
                         if (no == 0)
@@ -7617,7 +7617,7 @@ namespace ClubCompFS
                     {
                         num3 = 13;
                         num3 = 14;
-                        string progType = Module1.GetProgType("Seg1");
+                        string progType = Program.GetProgType("Seg1");
                         num3 = 17;
                         if (Operators.CompareString(progType, "Short", false) == 0)
                         {
@@ -7625,7 +7625,7 @@ namespace ClubCompFS
                             if (no > 0)
                             {
                                 num3 = 19;
-                                Module1.SortSeg1Tech(i1, no, P);
+                                Program.SortSeg1Tech(i1, no, P);
                             }
                         }
                         else
@@ -7637,7 +7637,7 @@ namespace ClubCompFS
                                 if (no > 0)
                                 {
                                     num3 = 24;
-                                    Module1.SortSeg1PC(i1, no, P);
+                                    Program.SortSeg1PC(i1, no, P);
                                 }
                             }
                         }
@@ -7646,7 +7646,7 @@ namespace ClubCompFS
                         num3 = 28;
                         no = 0;
                         num3 = 29;
-                        Module1.Vek[checked(index1 + 1)].Place_Seg1 = P;
+                        Program.Vek[checked(index1 + 1)].Place_Seg1 = P;
                     }
                     num3 = 31;
                     checked { ++index1; }
@@ -7655,14 +7655,14 @@ namespace ClubCompFS
                 if (no > 0)
                 {
                     num3 = 33;
-                    Module1.SortSeg1Tech(i1, no, P);
+                    Program.SortSeg1Tech(i1, no, P);
                 }
                 num3 = 35;
                 int index2 = checked(TNop + 1);
                 while (index2 <= 42)
                 {
                     num3 = 36;
-                    Module1.Vek[index2].Place_Seg1 = 0;
+                    Program.Vek[index2].Place_Seg1 = 0;
                     num3 = 37;
                     checked { ++index2; }
                 }
@@ -7691,7 +7691,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -7701,10 +7701,10 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Conversion.Int(100.0 * Module1.Vek[index3].TES_Seg1 + 1E-09) > Conversion.Int(100.0 * participant.TES_Seg1 + 1E-09))
+                        if (Conversion.Int(100.0 * Program.Vek[index3].TES_Seg1 + 1E-09) > Conversion.Int(100.0 * participant.TES_Seg1 + 1E-09))
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -7712,9 +7712,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -7725,7 +7725,7 @@ namespace ClubCompFS
                 num3 = 16;
                 int num9 = 0;
                 num3 = 17;
-                Module1.Vek[index4].Place_Seg1 = P;
+                Program.Vek[index4].Place_Seg1 = P;
                 num3 = 18;
                 int num10 = checked(i1 + 1);
                 int num11 = checked(i1 + no);
@@ -7733,10 +7733,10 @@ namespace ClubCompFS
                 while (index5 <= num11)
                 {
                     num3 = 19;
-                    if (Conversion.Int(100.0 * Module1.Vek[index5].TES_Seg1 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index5 - 1)].TES_Seg1 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index5].TES_Seg1 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index5 - 1)].TES_Seg1 + 1E-09))
                     {
                         num3 = 20;
-                        Module1.Vek[index5].Place_Seg1 = num8;
+                        Program.Vek[index5].Place_Seg1 = num8;
                         num3 = 21;
                         checked { ++num9; }
                     }
@@ -7746,7 +7746,7 @@ namespace ClubCompFS
                         num3 = 24;
                         num8 = checked(num8 + 1 + num9);
                         num3 = 25;
-                        Module1.Vek[index5].Place_Seg1 = num8;
+                        Program.Vek[index5].Place_Seg1 = num8;
                     }
                     num3 = 27;
                     checked { ++index5; }
@@ -7778,7 +7778,7 @@ namespace ClubCompFS
                 while (index1 <= num6)
                 {
                     num3 = 4;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 5;
                     int index2 = index1;
                     num3 = 6;
@@ -7788,10 +7788,10 @@ namespace ClubCompFS
                     while (index3 <= num8)
                     {
                         num3 = 7;
-                        if (Conversion.Int(100.0 * Module1.Vek[index3].PCS_Seg1 + 1E-09) > Conversion.Int(100.0 * participant.PCS_Seg1 + 1E-09))
+                        if (Conversion.Int(100.0 * Program.Vek[index3].PCS_Seg1 + 1E-09) > Conversion.Int(100.0 * participant.PCS_Seg1 + 1E-09))
                         {
                             num3 = 8;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 9;
                             index2 = index3;
                         }
@@ -7799,9 +7799,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 12;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 13;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 14;
                     checked { ++index1; }
                 }
@@ -7810,7 +7810,7 @@ namespace ClubCompFS
                 num3 = 16;
                 int num9 = 0;
                 num3 = 17;
-                Module1.Vek[index4].Place_Seg1 = P;
+                Program.Vek[index4].Place_Seg1 = P;
                 num3 = 18;
                 int num10 = checked(i1 + 1);
                 int num11 = checked(i1 + no);
@@ -7818,10 +7818,10 @@ namespace ClubCompFS
                 while (index5 <= num11)
                 {
                     num3 = 19;
-                    if (Conversion.Int(100.0 * Module1.Vek[index5].PCS_Seg1 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index5 - 1)].PCS_Seg1 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index5].PCS_Seg1 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index5 - 1)].PCS_Seg1 + 1E-09))
                     {
                         num3 = 20;
-                        Module1.Vek[index5].Place_Seg1 = num4;
+                        Program.Vek[index5].Place_Seg1 = num4;
                         num3 = 21;
                         checked { ++num9; }
                     }
@@ -7831,7 +7831,7 @@ namespace ClubCompFS
                         num3 = 24;
                         num4 = checked(num4 + 1 + num9);
                         num3 = 25;
-                        Module1.Vek[index5].Place_Seg1 = num4;
+                        Program.Vek[index5].Place_Seg1 = num4;
                     }
                     num3 = 27;
                     checked { ++index5; }
@@ -7855,30 +7855,30 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                Module1.DNS_Seg1 = 0;
+                Program.DNS_Seg1 = 0;
                 num3 = 3;
                 int num4 = NoOfSkater;
                 int index1 = 1;
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0)
+                    if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0)
                     {
                         num3 = 5;
-                        if (Module1.Vek[index1].Finished_Seg1 == 0 | Module1.Vek[index1].DNS_Seg1 > 0)
+                        if (Program.Vek[index1].Finished_Seg1 == 0 | Program.Vek[index1].DNS_Seg1 > 0)
                         {
                             num3 = 6;
-                            checked { ++Module1.DNS_Seg1; }
+                            checked { ++Program.DNS_Seg1; }
                         }
                     }
                     else
                     {
                         num3 = 9;
                         num3 = 10;
-                        if (Module1.Vek[index1].DNS_Seg1 > 0)
+                        if (Program.Vek[index1].DNS_Seg1 > 0)
                         {
                             num3 = 11;
-                            checked { ++Module1.DNS_Seg1; }
+                            checked { ++Program.DNS_Seg1; }
                         }
                     }
                     num3 = 14;
@@ -7890,7 +7890,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 16;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 17;
                     int index3 = index2;
                     num3 = 18;
@@ -7900,13 +7900,13 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 19;
-                        if (Operators.CompareString(Module1.OpenDB[Module1.PcIndex].Segment_1, "S", false) == 0)
+                        if (Operators.CompareString(Program.OpenDB[Program.PcIndex].Segment_1, "S", false) == 0)
                         {
                             num3 = 20;
-                            if (Module1.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                            if (Program.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                             {
                                 num3 = 21;
-                                participant = Module1.Vek[index4];
+                                participant = Program.Vek[index4];
                                 num3 = 22;
                                 index3 = index4;
                             }
@@ -7915,10 +7915,10 @@ namespace ClubCompFS
                         {
                             num3 = 25;
                             num3 = 26;
-                            if (Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                            if (Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                             {
                                 num3 = 27;
-                                participant = Module1.Vek[index4];
+                                participant = Program.Vek[index4];
                                 num3 = 28;
                                 index3 = index4;
                             }
@@ -7927,48 +7927,48 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 32;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 33;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 34;
                     checked { ++index2; }
                 }
                 num3 = 35;
-                Module1.DNS_Seg2 = 0;
+                Program.DNS_Seg2 = 0;
                 num3 = 36;
-                int num8 = checked(NoOfSkater - Module1.DNS_Seg1);
+                int num8 = checked(NoOfSkater - Program.DNS_Seg1);
                 int index5 = 1;
                 while (index5 <= num8)
                 {
                     num3 = 37;
-                    if (Module1.Vek[index5].Finished_Seg2 == 0 | Module1.Vek[index5].DNS_Seg2 > 0)
+                    if (Program.Vek[index5].Finished_Seg2 == 0 | Program.Vek[index5].DNS_Seg2 > 0)
                     {
                         num3 = 38;
-                        checked { ++Module1.DNS_Seg2; }
+                        checked { ++Program.DNS_Seg2; }
                     }
                     num3 = 40;
                     checked { ++index5; }
                 }
                 num3 = 41;
-                int num9 = checked(NoOfSkater - 1 - Module1.DNS_Seg1);
+                int num9 = checked(NoOfSkater - 1 - Program.DNS_Seg1);
                 int index6 = 1;
                 while (index6 <= num9)
                 {
                     num3 = 42;
-                    Module1.Participant participant = Module1.Vek[index6];
+                    Program.Participant participant = Program.Vek[index6];
                     num3 = 43;
                     int index7 = index6;
                     num3 = 44;
                     int num10 = checked(index6 + 1);
-                    int num11 = checked(NoOfSkater - Module1.DNS_Seg1);
+                    int num11 = checked(NoOfSkater - Program.DNS_Seg1);
                     int index8 = num10;
                     while (index8 <= num11)
                     {
                         num3 = 45;
-                        if (Module1.Vek[index8].Finished_Seg2 > participant.Finished_Seg2 | Module1.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
+                        if (Program.Vek[index8].Finished_Seg2 > participant.Finished_Seg2 | Program.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
                         {
                             num3 = 46;
-                            participant = Module1.Vek[index8];
+                            participant = Program.Vek[index8];
                             num3 = 47;
                             index7 = index8;
                         }
@@ -7976,32 +7976,32 @@ namespace ClubCompFS
                         checked { ++index8; }
                     }
                     num3 = 50;
-                    Module1.Vek[index7] = Module1.Vek[index6];
+                    Program.Vek[index7] = Program.Vek[index6];
                     num3 = 51;
-                    Module1.Vek[index6] = participant;
+                    Program.Vek[index6] = participant;
                     num3 = 52;
                     checked { ++index6; }
                 }
                 num3 = 53;
-                int num12 = checked(NoOfSkater - 1 - Module1.DNS_Seg1 - Module1.DNS_Seg2);
+                int num12 = checked(NoOfSkater - 1 - Program.DNS_Seg1 - Program.DNS_Seg2);
                 int index9 = 1;
                 while (index9 <= num12)
                 {
                     num3 = 54;
-                    Module1.Participant participant = Module1.Vek[index9];
+                    Program.Participant participant = Program.Vek[index9];
                     num3 = 55;
                     int index10 = index9;
                     num3 = 56;
                     int num13 = checked(index9 + 1);
-                    int num14 = checked(NoOfSkater - Module1.DNS_Seg1 - Module1.DNS_Seg2);
+                    int num14 = checked(NoOfSkater - Program.DNS_Seg1 - Program.DNS_Seg2);
                     int index11 = num13;
                     while (index11 <= num14)
                     {
                         num3 = 57;
-                        if (Module1.Vek[index11].Score_Seg2 > participant.Score_Seg2)
+                        if (Program.Vek[index11].Score_Seg2 > participant.Score_Seg2)
                         {
                             num3 = 58;
-                            participant = Module1.Vek[index11];
+                            participant = Program.Vek[index11];
                             num3 = 59;
                             index10 = index11;
                         }
@@ -8009,9 +8009,9 @@ namespace ClubCompFS
                         checked { ++index11; }
                     }
                     num3 = 62;
-                    Module1.Vek[index10] = Module1.Vek[index9];
+                    Program.Vek[index10] = Program.Vek[index9];
                     num3 = 63;
-                    Module1.Vek[index9] = participant;
+                    Program.Vek[index9] = participant;
                     num3 = 64;
                     checked { ++index9; }
                 }
@@ -8038,7 +8038,7 @@ namespace ClubCompFS
                 num3 = 3;
                 int no = 0;
                 num3 = 4;
-                Module1.Vek[1].Place_Seg2 = P;
+                Program.Vek[1].Place_Seg2 = P;
                 num3 = 5;
                 int num4 = checked(NoP - 1);
                 int index1 = 1;
@@ -8047,7 +8047,7 @@ namespace ClubCompFS
                 {
                     i1 = index1;
                     num3 = 6;
-                    if (Conversion.Int(100.0 * Module1.Vek[index1].Score_Seg2 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index1 + 1)].Score_Seg2 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index1].Score_Seg2 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index1 + 1)].Score_Seg2 + 1E-09))
                     {
                         num3 = 7;
                         if (no == 0)
@@ -8061,7 +8061,7 @@ namespace ClubCompFS
                     {
                         num3 = 13;
                         num3 = 14;
-                        string progType = Module1.GetProgType("Seg2");
+                        string progType = Program.GetProgType("Seg2");
                         num3 = 17;
                         if (Operators.CompareString(progType, "Short", false) == 0)
                         {
@@ -8069,7 +8069,7 @@ namespace ClubCompFS
                             if (no > 0)
                             {
                                 num3 = 19;
-                                Module1.SortSeg2Tech(i1, no, P);
+                                Program.SortSeg2Tech(i1, no, P);
                             }
                         }
                         else
@@ -8081,7 +8081,7 @@ namespace ClubCompFS
                                 if (no > 0)
                                 {
                                     num3 = 24;
-                                    Module1.SortSeg2PC(i1, no, P);
+                                    Program.SortSeg2PC(i1, no, P);
                                 }
                             }
                         }
@@ -8090,7 +8090,7 @@ namespace ClubCompFS
                         num3 = 28;
                         no = 0;
                         num3 = 29;
-                        Module1.Vek[checked(index1 + 1)].Place_Seg2 = P;
+                        Program.Vek[checked(index1 + 1)].Place_Seg2 = P;
                     }
                     num3 = 31;
                     checked { ++index1; }
@@ -8099,14 +8099,14 @@ namespace ClubCompFS
                 if (no > 0)
                 {
                     num3 = 33;
-                    Module1.SortSeg2PC(i1, no, P);
+                    Program.SortSeg2PC(i1, no, P);
                 }
                 num3 = 35;
                 int index2 = checked(NoP + 1);
                 while (index2 <= 42)
                 {
                     num3 = 36;
-                    Module1.Vek[index2].Place_Seg2 = 0;
+                    Program.Vek[index2].Place_Seg2 = 0;
                     num3 = 37;
                     checked { ++index2; }
                 }
@@ -8135,7 +8135,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -8145,10 +8145,10 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Conversion.Int(100.0 * Module1.Vek[index3].TES_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.TES_Seg2 + 1E-09))
+                        if (Conversion.Int(100.0 * Program.Vek[index3].TES_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.TES_Seg2 + 1E-09))
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -8156,9 +8156,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -8169,7 +8169,7 @@ namespace ClubCompFS
                 num3 = 16;
                 int num9 = 0;
                 num3 = 17;
-                Module1.Vek[index4].Place_Seg2 = P;
+                Program.Vek[index4].Place_Seg2 = P;
                 num3 = 18;
                 int num10 = checked(i1 + 1);
                 int num11 = checked(i1 + no);
@@ -8177,10 +8177,10 @@ namespace ClubCompFS
                 while (index5 <= num11)
                 {
                     num3 = 19;
-                    if (Conversion.Int(100.0 * Module1.Vek[index5].TES_Seg2 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index5 - 1)].TES_Seg2 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index5].TES_Seg2 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index5 - 1)].TES_Seg2 + 1E-09))
                     {
                         num3 = 20;
-                        Module1.Vek[index5].Place_Seg2 = num8;
+                        Program.Vek[index5].Place_Seg2 = num8;
                         num3 = 21;
                         checked { ++num9; }
                     }
@@ -8190,7 +8190,7 @@ namespace ClubCompFS
                         num3 = 24;
                         num8 = checked(num8 + 1 + num9);
                         num3 = 25;
-                        Module1.Vek[index5].Place_Seg2 = num8;
+                        Program.Vek[index5].Place_Seg2 = num8;
                     }
                     num3 = 27;
                     checked { ++index5; }
@@ -8222,7 +8222,7 @@ namespace ClubCompFS
                 while (index1 <= num6)
                 {
                     num3 = 4;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 5;
                     int index2 = index1;
                     num3 = 6;
@@ -8232,10 +8232,10 @@ namespace ClubCompFS
                     while (index3 <= num8)
                     {
                         num3 = 7;
-                        if (Conversion.Int(100.0 * Module1.Vek[index3].PCS_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.PCS_Seg2 + 1E-09))
+                        if (Conversion.Int(100.0 * Program.Vek[index3].PCS_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.PCS_Seg2 + 1E-09))
                         {
                             num3 = 8;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 9;
                             index2 = index3;
                         }
@@ -8243,9 +8243,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 12;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 13;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 14;
                     checked { ++index1; }
                 }
@@ -8254,7 +8254,7 @@ namespace ClubCompFS
                 num3 = 16;
                 int num9 = 0;
                 num3 = 17;
-                Module1.Vek[index4].Place_Seg2 = P;
+                Program.Vek[index4].Place_Seg2 = P;
                 num3 = 18;
                 int num10 = checked(i1 + 1);
                 int num11 = checked(i1 + no);
@@ -8262,10 +8262,10 @@ namespace ClubCompFS
                 while (index5 <= num11)
                 {
                     num3 = 19;
-                    if (Conversion.Int(100.0 * Module1.Vek[index5].PCS_Seg2 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index5 - 1)].PCS_Seg2 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index5].PCS_Seg2 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index5 - 1)].PCS_Seg2 + 1E-09))
                     {
                         num3 = 20;
-                        Module1.Vek[index5].Place_Seg2 = num4;
+                        Program.Vek[index5].Place_Seg2 = num4;
                         num3 = 21;
                         checked { ++num9; }
                     }
@@ -8275,7 +8275,7 @@ namespace ClubCompFS
                         num3 = 24;
                         num4 = checked(num4 + 1 + num9);
                         num3 = 25;
-                        Module1.Vek[index5].Place_Seg2 = num4;
+                        Program.Vek[index5].Place_Seg2 = num4;
                     }
                     num3 = 27;
                     checked { ++index5; }
@@ -8295,7 +8295,7 @@ namespace ClubCompFS
             int index = 1;
             do
             {
-                Module1.Vek[index].Score_Total = Module1.Vek[index].Score_Seg1 + Module1.Vek[index].Score_Seg2;
+                Program.Vek[index].Score_Total = Program.Vek[index].Score_Seg1 + Program.Vek[index].Score_Seg2;
                 checked { ++index; }
             }
             while (index <= 42);
@@ -8310,17 +8310,17 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                Module1.DNS_Seg1 = 0;
+                Program.DNS_Seg1 = 0;
                 num3 = 3;
                 int num4 = NoOfSkater;
                 int index1 = 1;
                 while (index1 <= num4)
                 {
                     num3 = 4;
-                    if (Module1.Vek[index1].Finished_Seg1 == 0 | Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].Finished_Seg1 == 0 | Program.Vek[index1].DNS_Seg1 > 0)
                     {
                         num3 = 5;
-                        checked { ++Module1.DNS_Seg1; }
+                        checked { ++Program.DNS_Seg1; }
                     }
                     num3 = 7;
                     checked { ++index1; }
@@ -8331,7 +8331,7 @@ namespace ClubCompFS
                 while (index2 <= num5)
                 {
                     num3 = 9;
-                    Module1.Participant participant = Module1.Vek[index2];
+                    Program.Participant participant = Program.Vek[index2];
                     num3 = 10;
                     int index3 = index2;
                     num3 = 11;
@@ -8341,10 +8341,10 @@ namespace ClubCompFS
                     while (index4 <= num7)
                     {
                         num3 = 12;
-                        if (Module1.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Module1.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
+                        if (Program.Vek[index4].Finished_Seg1 > participant.Finished_Seg1 | Program.Vek[index4].DNS_Seg1 < participant.DNS_Seg1)
                         {
                             num3 = 13;
-                            participant = Module1.Vek[index4];
+                            participant = Program.Vek[index4];
                             num3 = 14;
                             index3 = index4;
                         }
@@ -8352,48 +8352,48 @@ namespace ClubCompFS
                         checked { ++index4; }
                     }
                     num3 = 17;
-                    Module1.Vek[index3] = Module1.Vek[index2];
+                    Program.Vek[index3] = Program.Vek[index2];
                     num3 = 18;
-                    Module1.Vek[index2] = participant;
+                    Program.Vek[index2] = participant;
                     num3 = 19;
                     checked { ++index2; }
                 }
                 num3 = 20;
-                Module1.DNS_Seg2 = 0;
+                Program.DNS_Seg2 = 0;
                 num3 = 21;
-                int num8 = checked(NoOfSkater - Module1.DNS_Seg1);
+                int num8 = checked(NoOfSkater - Program.DNS_Seg1);
                 int index5 = 1;
                 while (index5 <= num8)
                 {
                     num3 = 22;
-                    if (Module1.Vek[index5].Finished_Seg2 == 0 | Module1.Vek[index5].DNS_Seg2 > 0)
+                    if (Program.Vek[index5].Finished_Seg2 == 0 | Program.Vek[index5].DNS_Seg2 > 0)
                     {
                         num3 = 23;
-                        checked { ++Module1.DNS_Seg2; }
+                        checked { ++Program.DNS_Seg2; }
                     }
                     num3 = 25;
                     checked { ++index5; }
                 }
                 num3 = 26;
-                int num9 = checked(NoOfSkater - 1 - Module1.DNS_Seg1);
+                int num9 = checked(NoOfSkater - 1 - Program.DNS_Seg1);
                 int index6 = 1;
                 while (index6 <= num9)
                 {
                     num3 = 27;
-                    Module1.Participant participant = Module1.Vek[index6];
+                    Program.Participant participant = Program.Vek[index6];
                     num3 = 28;
                     int index7 = index6;
                     num3 = 29;
                     int num10 = checked(index6 + 1);
-                    int num11 = checked(NoOfSkater - Module1.DNS_Seg1);
+                    int num11 = checked(NoOfSkater - Program.DNS_Seg1);
                     int index8 = num10;
                     while (index8 <= num11)
                     {
                         num3 = 30;
-                        if (Module1.Vek[index8].Finished_Seg2 > participant.Finished_Seg2 | Module1.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
+                        if (Program.Vek[index8].Finished_Seg2 > participant.Finished_Seg2 | Program.Vek[index8].DNS_Seg2 < participant.DNS_Seg2)
                         {
                             num3 = 31;
-                            participant = Module1.Vek[index8];
+                            participant = Program.Vek[index8];
                             num3 = 32;
                             index7 = index8;
                         }
@@ -8401,32 +8401,32 @@ namespace ClubCompFS
                         checked { ++index8; }
                     }
                     num3 = 35;
-                    Module1.Vek[index7] = Module1.Vek[index6];
+                    Program.Vek[index7] = Program.Vek[index6];
                     num3 = 36;
-                    Module1.Vek[index6] = participant;
+                    Program.Vek[index6] = participant;
                     num3 = 37;
                     checked { ++index6; }
                 }
                 num3 = 38;
-                int num12 = checked(NoOfSkater - 1 - Module1.DNS_Seg2 - Module1.DNS_Seg1);
+                int num12 = checked(NoOfSkater - 1 - Program.DNS_Seg2 - Program.DNS_Seg1);
                 int index9 = 1;
                 while (index9 <= num12)
                 {
                     num3 = 39;
-                    Module1.Participant participant = Module1.Vek[index9];
+                    Program.Participant participant = Program.Vek[index9];
                     num3 = 40;
                     int index10 = index9;
                     num3 = 41;
                     int num13 = checked(index9 + 1);
-                    int num14 = checked(NoOfSkater - Module1.DNS_Seg2 - Module1.DNS_Seg1);
+                    int num14 = checked(NoOfSkater - Program.DNS_Seg2 - Program.DNS_Seg1);
                     int index11 = num13;
                     while (index11 <= num14)
                     {
                         num3 = 42;
-                        if (Module1.Vek[index11].Score_Total > participant.Score_Total)
+                        if (Program.Vek[index11].Score_Total > participant.Score_Total)
                         {
                             num3 = 43;
-                            participant = Module1.Vek[index11];
+                            participant = Program.Vek[index11];
                             num3 = 44;
                             index10 = index11;
                         }
@@ -8434,20 +8434,20 @@ namespace ClubCompFS
                         checked { ++index11; }
                     }
                     num3 = 47;
-                    Module1.Vek[index10] = Module1.Vek[index9];
+                    Program.Vek[index10] = Program.Vek[index9];
                     num3 = 48;
-                    Module1.Vek[index9] = participant;
+                    Program.Vek[index9] = participant;
                     num3 = 49;
                     checked { ++index9; }
                 }
                 num3 = 50;
-                int num15 = checked(NoOfSkater - Module1.DNS_Seg2 - Module1.DNS_Seg1 + 1);
+                int num15 = checked(NoOfSkater - Program.DNS_Seg2 - Program.DNS_Seg1 + 1);
                 int num16 = checked(NoOfSkater - 1);
                 int index12 = num15;
                 while (index12 <= num16)
                 {
                     num3 = 51;
-                    Module1.Participant participant = Module1.Vek[index12];
+                    Program.Participant participant = Program.Vek[index12];
                     num3 = 52;
                     int index13 = index12;
                     num3 = 53;
@@ -8457,10 +8457,10 @@ namespace ClubCompFS
                     while (index14 <= num18)
                     {
                         num3 = 54;
-                        if (Module1.Vek[index14].Score_Seg1 > participant.Score_Seg1)
+                        if (Program.Vek[index14].Score_Seg1 > participant.Score_Seg1)
                         {
                             num3 = 55;
-                            participant = Module1.Vek[index14];
+                            participant = Program.Vek[index14];
                             num3 = 56;
                             index13 = index14;
                         }
@@ -8468,9 +8468,9 @@ namespace ClubCompFS
                         checked { ++index14; }
                     }
                     num3 = 59;
-                    Module1.Vek[index13] = Module1.Vek[index12];
+                    Program.Vek[index13] = Program.Vek[index12];
                     num3 = 60;
-                    Module1.Vek[index12] = participant;
+                    Program.Vek[index12] = participant;
                     num3 = 61;
                     checked { ++index12; }
                 }
@@ -8497,7 +8497,7 @@ namespace ClubCompFS
                 num3 = 3;
                 int no = 0;
                 num3 = 4;
-                Module1.Vek[1].Place = P;
+                Program.Vek[1].Place = P;
                 num3 = 5;
                 int num4 = checked(NoP - 1);
                 int index1 = 1;
@@ -8505,7 +8505,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     num3 = 6;
-                    if (Conversion.Int(100.0 * Module1.Vek[index1].Score_Total + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index1 + 1)].Score_Total + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index1].Score_Total + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index1 + 1)].Score_Total + 1E-09))
                     {
                         num3 = 7;
                         if (no == 0)
@@ -8522,14 +8522,14 @@ namespace ClubCompFS
                         if (no > 0)
                         {
                             num3 = 15;
-                            Module1.SortTotalSeg2(i1, no, P);
+                            Program.SortTotalSeg2(i1, no, P);
                         }
                         num3 = 17;
                         P = checked(P + 1 + no);
                         num3 = 18;
                         no = 0;
                         num3 = 19;
-                        Module1.Vek[checked(index1 + 1)].Place = P;
+                        Program.Vek[checked(index1 + 1)].Place = P;
                     }
                     num3 = 21;
                     checked { ++index1; }
@@ -8538,14 +8538,14 @@ namespace ClubCompFS
                 if (no > 0)
                 {
                     num3 = 23;
-                    Module1.SortTotalSeg2(i1, no, P);
+                    Program.SortTotalSeg2(i1, no, P);
                 }
                 num3 = 25;
                 int index2 = checked(NoP + 1);
                 while (index2 <= 42)
                 {
                     num3 = 26;
-                    Module1.Vek[index2].Place = 0;
+                    Program.Vek[index2].Place = 0;
                     num3 = 27;
                     checked { ++index2; }
                 }
@@ -8574,7 +8574,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -8584,10 +8584,10 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Conversion.Int(100.0 * Module1.Vek[index3].Score_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.Score_Seg2 + 1E-09))
+                        if (Conversion.Int(100.0 * Program.Vek[index3].Score_Seg2 + 1E-09) > Conversion.Int(100.0 * participant.Score_Seg2 + 1E-09))
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -8595,9 +8595,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -8608,7 +8608,7 @@ namespace ClubCompFS
                 num3 = 16;
                 int num9 = 0;
                 num3 = 17;
-                Module1.Vek[index4].Place = P;
+                Program.Vek[index4].Place = P;
                 num3 = 18;
                 int num10 = checked(i1 + 1);
                 int num11 = checked(i1 + no);
@@ -8616,10 +8616,10 @@ namespace ClubCompFS
                 while (index5 <= num11)
                 {
                     num3 = 19;
-                    if (Conversion.Int(100.0 * Module1.Vek[index5].Score_Seg2 + 1E-09) == Conversion.Int(100.0 * Module1.Vek[checked(index5 - 1)].Score_Seg2 + 1E-09))
+                    if (Conversion.Int(100.0 * Program.Vek[index5].Score_Seg2 + 1E-09) == Conversion.Int(100.0 * Program.Vek[checked(index5 - 1)].Score_Seg2 + 1E-09))
                     {
                         num3 = 20;
-                        Module1.Vek[index5].Place = num8;
+                        Program.Vek[index5].Place = num8;
                         num3 = 21;
                         checked { ++num9; }
                     }
@@ -8629,7 +8629,7 @@ namespace ClubCompFS
                         num3 = 24;
                         num8 = checked(num8 + 1 + num9);
                         num3 = 25;
-                        Module1.Vek[index5].Place = num8;
+                        Program.Vek[index5].Place = num8;
                     }
                     num3 = 27;
                     checked { ++index5; }
@@ -8654,13 +8654,13 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 flag = false;
-                string pathCompFile = Module1.PathCompFile;
+                string pathCompFile = Program.PathCompFile;
                 if (Operators.CompareString(pathCompFile, "", false) != 0)
                 {
-                    if (Operators.CompareString(Strings.Right(Module1.PathCompFile, 1), "\\", false) != 0)
+                    if (Operators.CompareString(Strings.Right(Program.PathCompFile, 1), "\\", false) != 0)
                         pathCompFile += "\\";
-                    Path = Module1.StrConv(pathCompFile + Module1.Competition.Name + "\\html\\");
-                    Path = Strings.Len(Module1.SubCategory) <= 0 ? Module1.StrConv(Path + Module1.Category.Name) + "\\" : Module1.StrConv(Path + Module1.Category.Name + "_" + Module1.SubCategory) + "\\";
+                    Path = Program.StrConv(pathCompFile + Program.Competition.Name + "\\html\\");
+                    Path = Strings.Len(Program.SubCategory) <= 0 ? Program.StrConv(Path + Program.Category.Name) + "\\" : Program.StrConv(Path + Program.Category.Name + "_" + Program.SubCategory) + "\\";
                     if (!MyProject.Computer.FileSystem.DirectoryExists(Path))
                     {
                         if (Interaction.MsgBox((object)("The folder:\r\n" + Path + "\r\ndoes not exist!\r\nDo you want to create it?"), MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
@@ -8716,24 +8716,24 @@ namespace ClubCompFS
         {
             string Path1 = "";
             string path = Conversions.ToString(false);
-            if (Module1.MakeDir(ref Path1))
+            if (Program.MakeDir(ref Path1))
             {
                 string Left = par;
                 if (Operators.CompareString(Left, "Segment_1", false) == 0 || Operators.CompareString(Left, "Segment_2", false) == 0 || Operators.CompareString(Left, "Final", false) == 0 || Operators.CompareString(Left, "HeadPage", false) == 0)
                 {
                     string str;
-                    if (Strings.Len(Module1.SubCategory) > 0)
-                        str = Module1.Category.Name + "_" + Module1.StrConv3(Module1.SubCategory) + "_" + par;
+                    if (Strings.Len(Program.SubCategory) > 0)
+                        str = Program.Category.Name + "_" + Program.StrConv3(Program.SubCategory) + "_" + par;
                     else
-                        str = Module1.Category.Name + "_" + par;
+                        str = Program.Category.Name + "_" + par;
                     Path1 += str;
                 }
                 else if (Operators.CompareString(Left, "", false) == 0)
                 {
-                    string str = Strings.Len(Module1.SubCategory) <= 0 ? Module1.Category.Name : Module1.Category.Name + "_" + Module1.StrConv3(Module1.SubCategory);
+                    string str = Strings.Len(Program.SubCategory) <= 0 ? Program.Category.Name : Program.Category.Name + "_" + Program.StrConv3(Program.SubCategory);
                     Path1 += str;
                 }
-                Path = Module1.StrConv(Path1);
+                Path = Program.StrConv(Path1);
                 path = Conversions.ToString(true);
             }
             return path;
@@ -8769,8 +8769,8 @@ namespace ClubCompFS
                 }
                 do
                     ;
-                while (!Module1.StrConv1(ref txt1));
-                while (!Module1.StrConv2(ref txt1))
+                while (!Program.StrConv1(ref txt1));
+                while (!Program.StrConv2(ref txt1))
                     ;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -8926,7 +8926,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -8936,10 +8936,10 @@ namespace ClubCompFS
                     while (index3 <= num6)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Strings.UCase(Module1.Vek[index3].Name.LName), Strings.UCase(participant.Name.LName), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Name.LName), Strings.UCase(participant.Name.LName), false) < 0)
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -8947,9 +8947,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -8963,7 +8963,7 @@ namespace ClubCompFS
                 while (index4 <= num7)
                 {
                     num3 = 17;
-                    if (Operators.CompareString(Strings.UCase(Module1.Vek[index4].Name.LName), Strings.UCase(Module1.Vek[checked(index4 + 1)].Name.LName), false) == 0)
+                    if (Operators.CompareString(Strings.UCase(Program.Vek[index4].Name.LName), Strings.UCase(Program.Vek[checked(index4 + 1)].Name.LName), false) == 0)
                     {
                         num3 = 18;
                         if (StartIndex == 0)
@@ -8981,7 +8981,7 @@ namespace ClubCompFS
                         if (NoOfSkater1 != StartIndex)
                         {
                             num3 = 25;
-                            Module1.SortFirstName(StartIndex, NoOfSkater1);
+                            Program.SortFirstName(StartIndex, NoOfSkater1);
                         }
                         num3 = 27;
                         StartIndex = 0;
@@ -8992,7 +8992,7 @@ namespace ClubCompFS
                     if (NoOfSkater1 != StartIndex)
                     {
                         num3 = 31;
-                        Module1.SortFirstName(StartIndex, NoOfSkater1);
+                        Program.SortFirstName(StartIndex, NoOfSkater1);
                     }
                     num3 = 33;
                     checked { ++index4; }
@@ -9022,7 +9022,7 @@ namespace ClubCompFS
                 while (index1 <= num5)
                 {
                     num3 = 3;
-                    Module1.Participant participant = Module1.Vek[index1];
+                    Program.Participant participant = Program.Vek[index1];
                     num3 = 4;
                     int index2 = index1;
                     num3 = 5;
@@ -9032,10 +9032,10 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Strings.UCase(Module1.Vek[index3].Name.FName), Strings.UCase(participant.Name.FName), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Name.FName), Strings.UCase(participant.Name.FName), false) < 0)
                         {
                             num3 = 7;
-                            participant = Module1.Vek[index3];
+                            participant = Program.Vek[index3];
                             num3 = 8;
                             index2 = index3;
                         }
@@ -9043,9 +9043,9 @@ namespace ClubCompFS
                         checked { ++index3; }
                     }
                     num3 = 11;
-                    Module1.Vek[index2] = Module1.Vek[index1];
+                    Program.Vek[index2] = Program.Vek[index1];
                     num3 = 12;
-                    Module1.Vek[index1] = participant;
+                    Program.Vek[index1] = participant;
                     num3 = 13;
                     checked { ++index1; }
                 }
@@ -9106,9 +9106,9 @@ namespace ClubCompFS
 
         public static bool TestStart()
         {
-            Module1.Competition.Name = MyProject.Forms.MainForm.txtCompetitionName.Text;
+            Program.Competition.Name = MyProject.Forms.MainForm.txtCompetitionName.Text;
             bool flag;
-            if (Strings.Len(Module1.Category.Name) < 1 | Strings.Len(Module1.Competition.Name) < 1 | Module1.PcIndex < 0)
+            if (Strings.Len(Program.Category.Name) < 1 | Strings.Len(Program.Competition.Name) < 1 | Program.PcIndex < 0)
             {
                 flag = false;
                 int num = (int)Interaction.MsgBox((object)"Please load a Competition-DB or\r\nselect a Category, input the Name\r\nof the Competition etc!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -9145,7 +9145,7 @@ namespace ClubCompFS
                     }
                 }
                 num3 = 11;
-                switch (Module1.OpenDB[Module1.PcIndex].HT_Bonus_Calc[index])
+                switch (Program.OpenDB[Program.PcIndex].HT_Bonus_Calc[index])
                 {
                     case 2:
                     case 3:
@@ -9180,7 +9180,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 2;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 num3 = 5;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
@@ -9196,7 +9196,7 @@ namespace ClubCompFS
                     }
                 }
                 num3 = 11;
-                switch (Module1.OpenDB[Module1.PcIndex].HT_Bonus_Calc[index])
+                switch (Program.OpenDB[Program.PcIndex].HT_Bonus_Calc[index])
                 {
                     case 1:
                     case 3:
@@ -9222,7 +9222,7 @@ namespace ClubCompFS
 
         public static void PrinterMessage()
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
                 return;
             MyProject.Forms.PrinterMessageForm.Show();
         }
@@ -9239,10 +9239,10 @@ namespace ClubCompFS
                 int num3 = 2;
                 str = "";
                 num3 = 3;
-                if (Module1.PcIndex > -1)
+                if (Program.PcIndex > -1)
                 {
                     num3 = 4;
-                    string segment1 = Module1.OpenDB[Module1.PcIndex].Segment_1;
+                    string segment1 = Program.OpenDB[Program.PcIndex].Segment_1;
                     num3 = 7;
                     if (Operators.CompareString(segment1, "S", false) == 0)
                     {
@@ -9288,10 +9288,10 @@ namespace ClubCompFS
                 int num3 = 2;
                 str = "";
                 num3 = 3;
-                if (Module1.PcIndex > -1)
+                if (Program.PcIndex > -1)
                 {
                     num3 = 4;
-                    string segment2 = Module1.OpenDB[Module1.PcIndex].Segment_2;
+                    string segment2 = Program.OpenDB[Program.PcIndex].Segment_2;
                     num3 = 7;
                     if (Operators.CompareString(segment2, "S", false) == 0)
                     {
@@ -9331,7 +9331,7 @@ namespace ClubCompFS
             if (Operators.ConditionalCompareObjectGreater(ind, (object)0, false))
             {
                 int index = 1;
-                while (!Operators.ConditionalCompareObjectEqual(ind, (object)Module1.JudgeCompNo[index], false))
+                while (!Operators.ConditionalCompareObjectEqual(ind, (object)Program.JudgeCompNo[index], false))
                 {
                     checked { ++index; }
                     if (index > 7)
@@ -9349,7 +9349,7 @@ namespace ClubCompFS
             string Left = segin;
             if (Operators.CompareString(Left, "Seg1", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "F0", false) == 0 || Operators.CompareString(seg, "FS", false) == 0)
                     progType = "Free";
                 else if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "S0", false) == 0)
@@ -9357,7 +9357,7 @@ namespace ClubCompFS
             }
             else if (Operators.CompareString(Left, "Seg2", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "0F", false) == 0)
                     progType = "Free";
                 else if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "0S", false) == 0 || Operators.CompareString(seg, "FS", false) == 0)
@@ -9368,7 +9368,7 @@ namespace ClubCompFS
             return progType;
         }
 
-        public static string GetSeg() => Module1.PcIndex > -1 ? Module1.OpenDB[Module1.PcIndex].Segment_1 + Module1.OpenDB[Module1.PcIndex].Segment_2 : "";
+        public static string GetSeg() => Program.PcIndex > -1 ? Program.OpenDB[Program.PcIndex].Segment_1 + Program.OpenDB[Program.PcIndex].Segment_2 : "";
 
         public static string GetSegTxt(string segin)
         {
@@ -9376,7 +9376,7 @@ namespace ClubCompFS
             string Left = segin;
             if (Operators.CompareString(Left, "Seg1", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "FF", false) == 0)
                     segTxt = "Segment 1 - Free Skating";
                 else if (Operators.CompareString(seg, "SS", false) == 0)
@@ -9392,7 +9392,7 @@ namespace ClubCompFS
             }
             else if (Operators.CompareString(Left, "Seg2", false) == 0)
             {
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "FF", false) == 0)
                     segTxt = "Segment 2 - Free Skating";
                 else if (Operators.CompareString(seg, "SS", false) == 0)
@@ -9485,8 +9485,8 @@ namespace ClubCompFS
 
         public struct SegType
         {
-            public Module1.JudgeType Seg1;
-            public Module1.JudgeType Seg2;
+            public Program.JudgeType Seg1;
+            public Program.JudgeType Seg2;
         }
 
         public struct Judge_type
@@ -9526,7 +9526,7 @@ namespace ClubCompFS
 
         public struct Participant
         {
-            public Module1.Name_type Name;
+            public Program.Name_type Name;
             public string Club;
             public string ClubID;
             public int Finished_Seg1;
@@ -9544,8 +9544,8 @@ namespace ClubCompFS
             public double PCS_Seg1;
             public double PCS_Seg2;
             public string ID;
-            public Module1.Judge_type J_Seg1;
-            public Module1.Judge_type J_Seg2;
+            public Program.Judge_type J_Seg1;
+            public Program.Judge_type J_Seg2;
             public int Bonus_Seg1;
             public int Bonus_Seg2;
             public int HTIndSeg1;

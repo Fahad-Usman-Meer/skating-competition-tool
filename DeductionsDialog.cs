@@ -1049,7 +1049,7 @@ namespace ClubCompFS
             this.Top = MyProject.Forms.JudgesDetailsForm.Top;
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.TopMost = true;
-            if (!(Module1.PNo > 0 & Module1.PNo <= Module1.TNop))
+            if (!(Program.PNo > 0 & Program.PNo <= Program.TNop))
                 return;
             this.DedLabel4.Visible = true;
             this.DedLabel5.Visible = true;
@@ -1062,7 +1062,7 @@ namespace ClubCompFS
             this.Ded_7.Visible = true;
             this.Ded_8.Visible = true;
             this.Ded_9.Visible = true;
-            if (Strings.UCase(Module1.Category.Name).Contains("ARTISTISK"))
+            if (Strings.UCase(Program.Category.Name).Contains("ARTISTISK"))
             {
                 this.Height = 351;
                 this.DedLabel10.Visible = true;
@@ -1078,8 +1078,8 @@ namespace ClubCompFS
                 this.p10.Visible = false;
                 this.Ded_10.Visible = false;
             }
-            this.SetActualDED(Module1.Segment);
-            this.Text = "DEDUCTION INPUT - " + Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
+            this.SetActualDED(Program.Segment);
+            this.Text = "DEDUCTION INPUT - " + Program.Vek[Program.PNo].Name.FName + " " + Program.Vek[Program.PNo].Name.LName;
             this.Ded_5.Select();
         }
 
@@ -1088,18 +1088,18 @@ namespace ClubCompFS
             if (Operators.CompareString(this.Ded_5.Text, "", false) != 0)
                 this.SetFalls(Conversions.ToInteger(this.Ded_5.Text));
             if (Operators.CompareString(this.Ded_4.Text, "", false) != 0)
-                Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_4.Text))), 1, Module1.Segment);
+                Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_4.Text))), 1, Program.Segment);
             if (Operators.CompareString(this.Ded_6.Text, "", false) != 0)
-                Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_6.Text))), 3, Module1.Segment);
+                Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_6.Text))), 3, Program.Segment);
             if (Operators.CompareString(this.Ded_7.Text, "", false) != 0)
-                Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_7.Text))), 4, Module1.Segment);
+                Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_7.Text))), 4, Program.Segment);
             if (Operators.CompareString(this.Ded_8.Text, "", false) != 0)
-                Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_8.Text))), 5, Module1.Segment);
+                Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_8.Text))), 5, Program.Segment);
             if (Operators.CompareString(this.Ded_9.Text, "", false) != 0)
-                Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_9.Text))), 2, Module1.Segment);
+                Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_9.Text))), 2, Program.Segment);
             if (Operators.CompareString(this.Ded_10.Text, "", false) == 0)
                 return;
-            Module1.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_10.Text))), 6, Module1.Segment);
+            Program.SetDed(checked((int)Math.Round(Conversion.Val(this.Ded_10.Text))), 6, Program.Segment);
         }
 
         public void SetFalls(int value)
@@ -1110,15 +1110,15 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         return;
-                    Module1.Vek[Module1.PNo].Falls_seg2 = value;
+                    Program.Vek[Program.PNo].Falls_seg2 = value;
                 }
                 else
-                    Module1.Vek[Module1.PNo].Falls_seg1 = value;
+                    Program.Vek[Program.PNo].Falls_seg1 = value;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -1139,17 +1139,17 @@ namespace ClubCompFS
                 long DedLong = 0;
                 if (Operators.CompareString(Left, "Seg1", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Falls_seg1 > 0)
-                        this.Ded_5.Text = Conversions.ToString(Module1.Vek[Module1.PNo].Falls_seg1);
-                    DedLong = Module1.Vek[Module1.PNo].Deductions_Seg1;
+                    if (Program.Vek[Program.PNo].Falls_seg1 > 0)
+                        this.Ded_5.Text = Conversions.ToString(Program.Vek[Program.PNo].Falls_seg1);
+                    DedLong = Program.Vek[Program.PNo].Deductions_Seg1;
                 }
                 else if (Operators.CompareString(Left, "Seg2", false) == 0)
                 {
-                    if (Module1.Vek[Module1.PNo].Falls_seg2 > 0)
-                        this.Ded_5.Text = Conversions.ToString(Module1.Vek[Module1.PNo].Falls_seg2);
-                    DedLong = Module1.Vek[Module1.PNo].Deductions_Seg2;
+                    if (Program.Vek[Program.PNo].Falls_seg2 > 0)
+                        this.Ded_5.Text = Conversions.ToString(Program.Vek[Program.PNo].Falls_seg2);
+                    DedLong = Program.Vek[Program.PNo].Deductions_Seg2;
                 }
-                Module1.GetArr(ref myarr, DedLong);
+                Program.GetArr(ref myarr, DedLong);
                 long num3 = 0;
                 if (myarr[1] > 0)
                     this.Ded_4.Text = Conversions.ToString(num3);
@@ -1195,25 +1195,25 @@ namespace ClubCompFS
             this.Falls = Strings.Len(this.Ded_5.Text) <= 0 ? "0" : this.Ded_5.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
-            switch (Module1.WorkMode)
+            switch (Program.WorkMode)
             {
                 case 1:
                     MyProject.Forms.ElementInputForm.Show();
                     break;
                 case 2:
                 case 3:
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                    if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                     {
                         MyProject.Forms.ElementInputForm.Falls_out.Text = "FALLS  " + this.Falls;
                         MyProject.Forms.ElementInputForm.TopMost = true;
-                        Module1.SaveCategoryFile(Module1.CategoryFileName);
+                        Program.SaveCategoryFile(Program.CategoryFileName);
                         break;
                     }
                     int rowDed = 0;
-                    Module1.CreateJudgesDetails(0, ref rowDed);
+                    Program.CreateJudgesDetails(0, ref rowDed);
                     MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
                     MyProject.Forms.JudgesDetailsForm.Show();
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                     break;
             }
         }

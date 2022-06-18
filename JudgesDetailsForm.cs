@@ -693,7 +693,7 @@ namespace ClubCompFS
 
         private void JudgesDetailsForm_Closing(object sender, FormClosingEventArgs e)
         {
-            if (Module1.ScanJudges > 0 & !this.WillExitJudgesDetailsForm && Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
+            if (Program.ScanJudges > 0 & !this.WillExitJudgesDetailsForm && Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
             {
                 e.Cancel = true;
             }
@@ -701,7 +701,7 @@ namespace ClubCompFS
             {
                 MyProject.Forms.InputJudgesDataDialog.Close();
                 MyProject.Forms.DeductionsDialog.Close();
-                Module1.ScanJudges = 0;
+                Program.ScanJudges = 0;
                 this.Timer1.Enabled = false;
                 MyProject.Forms.StartListForm.TopMost = true;
             }
@@ -709,7 +709,7 @@ namespace ClubCompFS
 
         private void JudgesDetailsForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (Module1.WorkMode != 2 || (-(e.KeyValue == 112 ? 1 : 0) | 113 | 114 | 115 | 116 | 117 | 118 | 119 | 120 | 121 | 122 | 123) == 0)
+            if (Program.WorkMode != 2 || (-(e.KeyValue == 112 ? 1 : 0) | 113 | 114 | 115 | 116 | 117 | 118 | 119 | 120 | 121 | 122 | 123) == 0)
                 return;
             this.FuncKeysModule4((System.Windows.Forms.Keys)e.KeyValue);
             e.Handled = true;
@@ -719,24 +719,24 @@ namespace ClubCompFS
         {
             if (value != System.Windows.Forms.Keys.F12)
                 return;
-            MyProject.Forms.MainForm.SendMessage(Module1.LastOutTxt);
+            MyProject.Forms.MainForm.SendMessage(Program.LastOutTxt);
         }
 
         private void JudgesDetailsForm_Load(object sender, EventArgs e)
         {
-            Module1.IPar.EE = (string[])null;
-            Module1.IPar.EE = new string[16];
-            Module1.IPar.PC = (string[])null;
-            Module1.IPar.PC = new string[6];
-            Module1.JCStatus = (int[])null;
-            Module1.JCStatus = new int[8];
-            Module1.UpdStr = new string[21];
+            Program.IPar.EE = (string[])null;
+            Program.IPar.EE = new string[16];
+            Program.IPar.PC = (string[])null;
+            Program.IPar.PC = new string[6];
+            Program.JCStatus = (int[])null;
+            Program.JCStatus = new int[8];
+            Program.UpdStr = new string[21];
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.Top = 0;
             this.CREATERESULTSToolStripMenuItem.BackColor = SystemColors.Control;
             this.CreateMenu = "Gray";
             this.WillExitJudgesDetailsForm = false;
-            switch (Module1.WorkMode)
+            switch (Program.WorkMode)
             {
                 case 1:
                     this.INPUTELEMENTToolStripMenuItem.Visible = false;
@@ -745,7 +745,7 @@ namespace ClubCompFS
                     this.Timer1.Enabled = false;
                     break;
                 case 2:
-                    switch (Module1.ScanJudges)
+                    switch (Program.ScanJudges)
                     {
                         case 0:
                             this.INPUTELEMENTToolStripMenuItem.Visible = false;
@@ -768,8 +768,8 @@ namespace ClubCompFS
                     this.Timer1.Enabled = false;
                     break;
             }
-            this.Text = "JUDGES DETAILS: " + Module1.GetSegTxt(Module1.Segment);
-            this.Mode.Text = Module1.GetWorkMode();
+            this.Text = "JUDGES DETAILS: " + Program.GetSegTxt(Program.Segment);
+            this.Mode.Text = Program.GetWorkMode();
         }
 
         public void ImportTCP_Files()
@@ -783,9 +783,9 @@ namespace ClubCompFS
                 int index1 = 1;
                 do
                 {
-                    int index2 = Module1.JudgeCompNo[index1];
-                    int judgeNo = Module1.GetJudgeNo((object)index2);
-                    if (judgeNo > 0 & (judgeNo <= checked(Module1.NoJ_GOE + Module1.NoTrj) | judgeNo == checked(Module1.JudgeSel * 7)))
+                    int index2 = Program.JudgeCompNo[index1];
+                    int judgeNo = Program.GetJudgeNo((object)index2);
+                    if (judgeNo > 0 & (judgeNo <= checked(Program.NoJ_GOE + Program.NoTrj) | judgeNo == checked(Program.JudgeSel * 7)))
                     {
                         if (MyProject.Forms.MainForm.Controls["lblJ" + Conversions.ToString(judgeNo)].ForeColor == Color.Red)
                         {
@@ -795,8 +795,8 @@ namespace ClubCompFS
                         {
                             if (this.DataGridView1.Rows[7].Cells[checked(5 + judgeNo)].Style.BackColor != Color.Green)
                                 this.SetCreateResultsYellow(judgeNo);
-                            if (Strings.Len(Module1.UpdStr[index2]) > 10 & this.completed2)
-                                this.ImportOneTCP_File(Module1.UpdStr[index2], judgeNo, index2);
+                            if (Strings.Len(Program.UpdStr[index2]) > 10 & this.completed2)
+                                this.ImportOneTCP_File(Program.UpdStr[index2], judgeNo, index2);
                         }
                     }
                     checked { ++index1; }
@@ -831,16 +831,16 @@ namespace ClubCompFS
                 int num3 = this.JoutDecode(Intxt, Cno);
                 if (num3 == 0)
                 {
-                    if (Operators.CompareString(Module1.CC_Time, Module1.In_Time, false) == 0 & Operators.CompareString(Strings.Trim(Module1.IPar.JudgeNo), Strings.Trim(Conversion.Str((object)Cno)), false) == 0 & Operators.CompareString(Strings.Trim(Module1.IPar.Name), Strings.Trim(Strings.Trim(Module1.Vek[Module1.PNo].Name.FName) + " " + Strings.Trim(Module1.Vek[Module1.PNo].Name.LName)), false) == 0 & Operators.CompareString(Strings.Trim(Module1.IPar.Club), Strings.Trim(Module1.Vek[Module1.PNo].Club), false) == 0 & Operators.CompareString(Strings.Trim(Module1.IPar.Category), Strings.Trim(Module1.Category.Name) + Strings.Trim(Module1.SubCat()), false) == 0 & Operators.CompareString(Strings.Trim(Module1.IPar.Segment), Strings.Trim(Module1.Segment), false) == 0)
+                    if (Operators.CompareString(Program.CC_Time, Program.In_Time, false) == 0 & Operators.CompareString(Strings.Trim(Program.IPar.JudgeNo), Strings.Trim(Conversion.Str((object)Cno)), false) == 0 & Operators.CompareString(Strings.Trim(Program.IPar.Name), Strings.Trim(Strings.Trim(Program.Vek[Program.PNo].Name.FName) + " " + Strings.Trim(Program.Vek[Program.PNo].Name.LName)), false) == 0 & Operators.CompareString(Strings.Trim(Program.IPar.Club), Strings.Trim(Program.Vek[Program.PNo].Club), false) == 0 & Operators.CompareString(Strings.Trim(Program.IPar.Category), Strings.Trim(Program.Category.Name) + Strings.Trim(Program.SubCat()), false) == 0 & Operators.CompareString(Strings.Trim(Program.IPar.Segment), Strings.Trim(Program.Segment), false) == 0)
                     {
-                        if (Module1.JCStatus[Cno] != 1)
+                        if (Program.JCStatus[Cno] != 1)
                         {
                             if (Jno > 0)
                             {
                                 this.UpdateJudgesDetails(Jno, (object)Color.Green, ref ErrReturn);
                                 if (ErrReturn == 0)
                                 {
-                                    Module1.UpdStr[Cno] = "";
+                                    Program.UpdStr[Cno] = "";
                                     MyProject.Forms.MainForm.MakeJudgeTxtFile(Cno);
                                 }
                                 else
@@ -856,14 +856,14 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.UpdStr[Cno] = "";
+                        Program.UpdStr[Cno] = "";
                         int num5 = (int)Interaction.MsgBox((object)("The data from computer " + Conversions.ToString(Cno) + " is not correct!\r\nThe data will be cleared! New input is required!\r\nIf needed initialize this with F12!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_16;
                     }
                 }
                 else
                 {
-                    Module1.UpdStr[Cno] = "";
+                    Program.UpdStr[Cno] = "";
                     int num6 = (int)Interaction.MsgBox((object)("The data from computer " + Conversions.ToString(Cno) + " is not correct!\r\nThe data will be cleared! New input is required!\r\n\r\nErrcode= " + Conversions.ToString(num3)), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_16;
                 }
@@ -892,8 +892,8 @@ namespace ClubCompFS
                 int[] myarr = new int[11];
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                int num3 = Module1.NoOfElement();
-                if (num3 > 0 | num3 == 0 & Strings.UCase(Module1.Category.Name).Contains("ARTISTISK"))
+                int num3 = Program.NoOfElement();
+                if (num3 > 0 | num3 == 0 & Strings.UCase(Program.Category.Name).Contains("ARTISTISK"))
                 {
                     ErrReturn = 0;
                     DataGridView dataGridView1 = this.DataGridView1;
@@ -901,63 +901,63 @@ namespace ClubCompFS
                     Color green = Color.Green;
                     if ((obj1 != null ? (Color)obj1 : green) == Color.Green)
                     {
-                        if (num3 == Module1.IPar.NoE)
+                        if (num3 == Program.IPar.NoE)
                         {
                             int num4 = num3;
                             int index1 = 1;
                             while (index1 <= num4)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                                    Module1.Vek[Module1.PNo].J_Seg1.EE[index1, Jno] = Conversions.ToInteger(Module1.IPar.EE[index1]);
+                                    Program.Vek[Program.PNo].J_Seg1.EE[index1, Jno] = Conversions.ToInteger(Program.IPar.EE[index1]);
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                                    Module1.Vek[Module1.PNo].J_Seg2.EE[index1, Jno] = Conversions.ToInteger(Module1.IPar.EE[index1]);
+                                    Program.Vek[Program.PNo].J_Seg2.EE[index1, Jno] = Conversions.ToInteger(Program.IPar.EE[index1]);
                                 checked { ++index1; }
                             }
-                            int noPc = Module1.IPar.NoPC;
+                            int noPc = Program.IPar.NoPC;
                             int index2 = 1;
                             while (index2 <= noPc)
                             {
-                                string segment = Module1.Segment;
+                                string segment = Program.Segment;
                                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                                    Module1.Vek[Module1.PNo].J_Seg1.PC[index2, Jno] = Conversions.ToDouble(Module1.IPar.PC[index2].Replace(".", ","));
+                                    Program.Vek[Program.PNo].J_Seg1.PC[index2, Jno] = Conversions.ToDouble(Program.IPar.PC[index2].Replace(".", ","));
                                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                                    Module1.Vek[Module1.PNo].J_Seg2.PC[index2, Jno] = Conversions.ToDouble(Module1.IPar.PC[index2].Replace(".", ","));
+                                    Program.Vek[Program.PNo].J_Seg2.PC[index2, Jno] = Conversions.ToDouble(Program.IPar.PC[index2].Replace(".", ","));
                                 checked { ++index2; }
                             }
-                            string segment1 = Module1.Segment;
+                            string segment1 = Program.Segment;
                             if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                                Module1.Vek[Module1.PNo].J_Seg1.Deduction[Jno] = Module1.IPar.Deduct1;
+                                Program.Vek[Program.PNo].J_Seg1.Deduction[Jno] = Program.IPar.Deduct1;
                             else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                                Module1.Vek[Module1.PNo].J_Seg2.Deduction[Jno] = Module1.IPar.Deduct1;
-                            if (Jno <= Module1.NoJ_GOE | Jno > checked(Module1.NoJ_GOE + Module1.NoTrj))
+                                Program.Vek[Program.PNo].J_Seg2.Deduction[Jno] = Program.IPar.Deduct1;
+                            if (Jno <= Program.NoJ_GOE | Jno > checked(Program.NoJ_GOE + Program.NoTrj))
                             {
-                                Module1.GetArr(ref myarr, Module1.IPar.Deduct2);
+                                Program.GetArr(ref myarr, Program.IPar.Deduct2);
                                 if (myarr[1] > 0)
-                                    Module1.SetDed(myarr[1], 1, Module1.Segment);
+                                    Program.SetDed(myarr[1], 1, Program.Segment);
                                 if (myarr[2] > 0)
-                                    Module1.SetDed(myarr[2], 4, Module1.Segment);
+                                    Program.SetDed(myarr[2], 4, Program.Segment);
                                 if (myarr[3] > 0)
-                                    Module1.SetDed(myarr[3], 5, Module1.Segment);
+                                    Program.SetDed(myarr[3], 5, Program.Segment);
                                 if (myarr[4] > 0)
-                                    Module1.SetDed(myarr[4], 2, Module1.Segment);
+                                    Program.SetDed(myarr[4], 2, Program.Segment);
                                 if (myarr[5] > 0)
-                                    Module1.SetDed(myarr[5], 3, Module1.Segment);
+                                    Program.SetDed(myarr[5], 3, Program.Segment);
                                 if (myarr[6] > 0)
-                                    Module1.SetDed(myarr[6], 6, Module1.Segment);
+                                    Program.SetDed(myarr[6], 6, Program.Segment);
                             }
-                            int row = Module1.B_SSS_data(0);
+                            int row = Program.B_SSS_data(0);
                             int num5 = checked(row - 8);
-                            Module1.A_Calc_Sum(0, 1);
-                            Module1.B_Show_GOEdata(0, row);
-                            Module1.B_Show_PCfactors(0, checked(row + 1));
-                            Module1.A_CalcPC(0, checked(row + 2), 1);
-                            Module1.B_Show_PCdata(0, checked(row + 3));
-                            Module1.B_Calc_BaseSum(0, row);
-                            Module1.B_Show_Bonus(0);
+                            Program.A_Calc_Sum(0, 1);
+                            Program.B_Show_GOEdata(0, row);
+                            Program.B_Show_PCfactors(0, checked(row + 1));
+                            Program.A_CalcPC(0, checked(row + 2), 1);
+                            Program.B_Show_PCdata(0, checked(row + 3));
+                            Program.B_Calc_BaseSum(0, row);
+                            Program.B_Show_Bonus(0);
                             int rowDGW = 0;
-                            Module1.B_Show_Deductions(0, checked(row + 9), ref rowDGW);
-                            Module1.B_Show_Scores(0);
+                            Program.B_Show_Deductions(0, checked(row + 9), ref rowDGW);
+                            Program.B_Show_Scores(0);
                             this.ShowJD(rowDGW);
                         }
                         else
@@ -1005,39 +1005,39 @@ namespace ClubCompFS
                 string[] strArray = InTxt.Split(';');
                 if ((double)checked(Strings.Len(InTxt) - Strings.Len(strArray[0]) - 1) == Conversions.ToDouble(strArray[0]))
                 {
-                    Module1.In_Time = strArray[1];
-                    if (Operators.CompareString(Module1.CC_Time, Module1.In_Time, false) == 0)
+                    Program.In_Time = strArray[1];
+                    if (Operators.CompareString(Program.CC_Time, Program.In_Time, false) == 0)
                     {
-                        Module1.IPar.JudgeNo = strArray[2];
-                        if (Jnr == Conversions.ToInteger(Module1.IPar.JudgeNo))
+                        Program.IPar.JudgeNo = strArray[2];
+                        if (Jnr == Conversions.ToInteger(Program.IPar.JudgeNo))
                         {
-                            Module1.IPar.Name = strArray[3];
-                            Module1.IPar.Club = strArray[4];
-                            Module1.IPar.Category = strArray[5];
-                            Module1.IPar.Segment = strArray[6];
-                            Module1.IPar.NoE = checked((int)Conversions.ToLong(strArray[7]));
-                            int noE = Module1.IPar.NoE;
+                            Program.IPar.Name = strArray[3];
+                            Program.IPar.Club = strArray[4];
+                            Program.IPar.Category = strArray[5];
+                            Program.IPar.Segment = strArray[6];
+                            Program.IPar.NoE = checked((int)Conversions.ToLong(strArray[7]));
+                            int noE = Program.IPar.NoE;
                             int index1 = 1;
                             while (index1 <= noE)
                             {
-                                Module1.IPar.EE[index1] = strArray[checked(7 + index1)];
+                                Program.IPar.EE[index1] = strArray[checked(7 + index1)];
                                 checked { ++index1; }
                             }
-                            Module1.IPar.NoPC = checked((int)Conversions.ToLong(strArray[7 + Module1.IPar.NoE + 1]));
-                            int noPc = Module1.IPar.NoPC;
+                            Program.IPar.NoPC = checked((int)Conversions.ToLong(strArray[7 + Program.IPar.NoE + 1]));
+                            int noPc = Program.IPar.NoPC;
                             int index2 = 1;
                             while (index2 <= noPc)
                             {
-                                Module1.IPar.PC[index2] = strArray[checked(7 + Module1.IPar.NoE + 1 + index2)];
+                                Program.IPar.PC[index2] = strArray[checked(7 + Program.IPar.NoE + 1 + index2)];
                                 checked { ++index2; }
                             }
-                            int index3 = checked(7 + Module1.IPar.NoE + Module1.IPar.NoPC + 2);
-                            Module1.IPar.Deduct1 = Conversions.ToLong(strArray[index3]);
-                            Module1.IPar.Deduct2 = Conversions.ToLong(strArray[checked(index3 + 1)]);
-                            Module1.IPar.Deduct3 = Conversions.ToLong(strArray[checked(index3 + 2)]);
+                            int index3 = checked(7 + Program.IPar.NoE + Program.IPar.NoPC + 2);
+                            Program.IPar.Deduct1 = Conversions.ToLong(strArray[index3]);
+                            Program.IPar.Deduct2 = Conversions.ToLong(strArray[checked(index3 + 1)]);
+                            Program.IPar.Deduct3 = Conversions.ToLong(strArray[checked(index3 + 2)]);
                             if (checked(index3 + 3) <= checked(strArray.Length - 2))
                             {
-                                Module1.IPar.StartNo = Conversions.ToInteger(strArray[checked(index3 + 3)]);
+                                Program.IPar.StartNo = Conversions.ToInteger(strArray[checked(index3 + 3)]);
                                 goto label_18;
                             }
                             else
@@ -1089,14 +1089,14 @@ namespace ClubCompFS
                 int Length = 36;
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    str1 = ", Date: " + Module1.FormShortDate(Module1.Datum.Seg1);
+                    str1 = ", Date: " + Program.FormShortDate(Program.Datum.Seg1);
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    str1 = ", Date: " + Module1.FormShortDate(Module1.Datum.Seg2);
+                    str1 = ", Date: " + Program.FormShortDate(Program.Datum.Seg2);
                 PdfDocument pdfDocument = new PdfDocument();
                 pdfDocument.Info.Title = "JUDGES DETAILS";
-                pdfDocument.Info.Subject = Module1.Category.Name + Module1.SubCat() + ", " + txt;
+                pdfDocument.Info.Subject = Program.Category.Name + Program.SubCat() + ", " + txt;
                 pdfDocument.Info.Author = "ClubCompFS Single ver. 10.0.6, 2019-01-12";
                 PdfPage page = pdfDocument.AddPage();
                 page.Size = PageSize.A4;
@@ -1127,7 +1127,7 @@ namespace ClubCompFS
                 XGraphics xgraphics1 = XGraphics.FromPdfPage(page);
                 int integer1 = Conversions.ToInteger(this.txtPrint.Text);
                 int index1 = 1;
-                int integer2 = Conversions.ToInteger(Module1.F4arr[1, 0]);
+                int integer2 = Conversions.ToInteger(Program.F4arr[1, 0]);
                 do
                 {
                     XImage image = XImage.FromFile("IE_Logo_HD.png");
@@ -1149,7 +1149,7 @@ namespace ClubCompFS
                         xgraphics1.DrawString("JUDGES DETAILS", font1, (XBrush)XBrushes.Black, new XRect((double)x1, (double)y1, (double)width2, (double)height), XStringFormats.TopLeft);
                         int y2 = checked(y1 + height);
                         XGraphics xgraphics2 = xgraphics1;
-                        string str2 = "COMPETITION: " + Module1.Competition.Name + str1;
+                        string str2 = "COMPETITION: " + Program.Competition.Name + str1;
                         XFont xfont4 = font1;
                         XSolidBrush black1 = XBrushes.Black;
                         XRect xrect1 = new XRect((double)x1, (double)y2, (double)width2, (double)height);
@@ -1161,7 +1161,7 @@ namespace ClubCompFS
                         XStringFormat format1 = topLeft1;
                         xgraphics2.DrawString(text1, font2, (XBrush)brush1, layoutRectangle1, format1);
                         int y3 = checked(y2 + height);
-                        xgraphics1.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment), font1, (XBrush)XBrushes.Black, new XRect((double)x1, (double)y3, (double)width2, (double)height), XStringFormats.TopLeft);
+                        xgraphics1.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment), font1, (XBrush)XBrushes.Black, new XRect((double)x1, (double)y3, (double)width2, (double)height), XStringFormats.TopLeft);
                         int num8 = 0;
                         do
                         {
@@ -1174,11 +1174,11 @@ namespace ClubCompFS
                                 do
                                 {
                                     int width3 = checked((int)Math.Round(unchecked((double)numArray[index2] * (double)width2 / 100.0)));
-                                    string str3 = Strings.Left(Strings.Len(Module1.F4arr[index1, index2]) <= 0 ? " " : Module1.F4arr[index1, index2], Length);
+                                    string str3 = Strings.Left(Strings.Len(Program.F4arr[index1, index2]) <= 0 ? " " : Program.F4arr[index1, index2], Length);
                                     if (num8 == 4 || num8 == 8)
                                     {
                                         XFont xfont5 = font1;
-                                        if (integer1 == 1 | integer1 == 0 & num8 == 4 | integer1 == 0 & num8 == 8 & (checked(index2 - 7) < Module1.NoJ_GOE | index2 == 14))
+                                        if (integer1 == 1 | integer1 == 0 & num8 == 4 | integer1 == 0 & num8 == 8 & (checked(index2 - 7) < Program.NoJ_GOE | index2 == 14))
                                         {
                                             switch (index2)
                                             {
@@ -1320,7 +1320,7 @@ namespace ClubCompFS
                                                     break;
                                             }
                                         }
-                                        else if (checked(index2 - 7) < Module1.NoJ_GOE | index2 == 14)
+                                        else if (checked(index2 - 7) < Program.NoJ_GOE | index2 == 14)
                                         {
                                             switch (index2)
                                             {
@@ -1374,11 +1374,11 @@ namespace ClubCompFS
                             }
                             checked { ++index1; }
                         }
-                        while (!(index1 == norow | (double)integer2 != Conversions.ToDouble(Module1.F4arr[checked(index1 + 1), 0])));
+                        while (!(index1 == norow | (double)integer2 != Conversions.ToDouble(Program.F4arr[checked(index1 + 1), 0])));
                         int index3 = 1;
                         do
                         {
-                            string str12 = Strings.Len(Module1.F4arr[index1, index3]) <= 0 ? " " : Module1.F4arr[index1, index3];
+                            string str12 = Strings.Len(Program.F4arr[index1, index3]) <= 0 ? " " : Program.F4arr[index1, index3];
                             switch (index3)
                             {
                                 case 1:
@@ -1415,7 +1415,7 @@ namespace ClubCompFS
                         }
                         while (index3 <= 2);
                         checked { ++index1; }
-                        integer2 = Conversions.ToInteger(Module1.F4arr[index1, 0]);
+                        integer2 = Conversions.ToInteger(Program.F4arr[index1, 0]);
                         num6 = checked(y3 + height);
                         xgraphics1.DrawLine(XPens.Gray, checked(x1 - 1), checked(num7 - 1), checked(x1 - 1), checked(num6 + 1));
                         xgraphics1.DrawLine(XPens.Gray, checked(x1 + width2 + 1), checked(num7 - 1), checked(x1 + width2 + 1), checked(num6 + 1));
@@ -1446,9 +1446,9 @@ namespace ClubCompFS
                         xgraphics14.DrawString(text13, font14, (XBrush)brush13, layoutRectangle13, format13);
                         int num9 = checked(y3 + height);
                     }
-                    while (!(num5 == 2 | index1 >= norow | (double)integer2 != Conversions.ToDouble(Module1.F4arr[checked(index1 + 1), 0])));
+                    while (!(num5 == 2 | index1 >= norow | (double)integer2 != Conversions.ToDouble(Program.F4arr[checked(index1 + 1), 0])));
                     XGraphics xgraphics15 = xgraphics1;
-                    string str17 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                    string str17 = "Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now);
                     XFont xfont19 = font1;
                     XSolidBrush black = XBrushes.Black;
                     XRect xrect = new XRect((double)x1, (double)num6 + 40.0, (double)width1, (double)num6 + 45.0);
@@ -1459,7 +1459,7 @@ namespace ClubCompFS
                     XRect layoutRectangle = xrect;
                     XStringFormat format = topLeft;
                     xgraphics15.DrawString(text, font15, (XBrush)brush, layoutRectangle, format);
-                    integer2 = Conversions.ToInteger(Module1.F4arr[index1, 0]);
+                    integer2 = Conversions.ToInteger(Program.F4arr[index1, 0]);
                     if (index1 != norow)
                         xgraphics1 = XGraphics.FromPdfPage(pdfDocument.AddPage());
                 }
@@ -1472,7 +1472,7 @@ namespace ClubCompFS
                         int num10 = (int)Interaction.MsgBox((object)("The file has been saved as:\r\n" + pathfile), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_46;
                     case 2:
-                        int num11 = (int)Interaction.MsgBox((object)("The file(s) has been saved in:\r\n" + Module1.GetPath(pathfile)), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        int num11 = (int)Interaction.MsgBox((object)("The file(s) has been saved in:\r\n" + Program.GetPath(pathfile)), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_46;
                     default:
                         goto label_46;
@@ -1505,37 +1505,37 @@ namespace ClubCompFS
                 int num3 = 0;
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.F4arr = (string[,])null;
-                Module1.F4arr = new string[2501, 15];
+                Program.F4arr = (string[,])null;
+                Program.F4arr = new string[2501, 15];
                 string par = "";
-                string segTxt = Module1.GetSegTxt(Module1.Segment);
-                string segment1 = Module1.Segment;
+                string segTxt = Program.GetSegTxt(Program.Segment);
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
                     par = "Segment_1";
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                     par = "Segment_2";
                 }
                 int num4 = 1;
-                Module1.PNo = 0;
-                int tnop = Module1.TNop;
-                Module1.PNo = 1;
+                Program.PNo = 0;
+                int tnop = Program.TNop;
+                Program.PNo = 1;
                 int norow = 0;
-                while (Module1.PNo <= tnop)
+                while (Program.PNo <= tnop)
                 {
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     int rowDed = 0;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
-                        if (Module1.Vek[Module1.PNo].Finished_Seg1 == 1)
+                        if (Program.Vek[Program.PNo].Finished_Seg1 == 1)
                         {
-                            Module1.CreateJudgesDetails(0, ref rowDed);
+                            Program.CreateJudgesDetails(0, ref rowDed);
                             checked { ++num3; }
                         }
                         else
@@ -1543,9 +1543,9 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
-                        if (Module1.Vek[Module1.PNo].Finished_Seg2 == 1)
+                        if (Program.Vek[Program.PNo].Finished_Seg2 == 1)
                         {
-                            Module1.CreateJudgesDetails(0, ref rowDed);
+                            Program.CreateJudgesDetails(0, ref rowDed);
                             checked { ++num3; }
                         }
                         else
@@ -1559,11 +1559,11 @@ namespace ClubCompFS
                     while (norow <= num7)
                     {
                         checked { ++index1; }
-                        Module1.F4arr[norow, 0] = Conversions.ToString(Module1.PNo);
+                        Program.F4arr[norow, 0] = Conversions.ToString(Program.PNo);
                         int index2 = 1;
                         do
                         {
-                            Module1.F4arr[norow, index2] = Module1.JDarr[index1, index2];
+                            Program.F4arr[norow, index2] = Program.JDarr[index1, index2];
                             checked { ++index2; }
                         }
                         while (index2 <= 14);
@@ -1571,11 +1571,11 @@ namespace ClubCompFS
                     }
                     num4 = num5;
                     label_18:
-                    checked { ++Module1.PNo; }
+                    checked { ++Program.PNo; }
                 }
                 if (num3 > 0)
                 {
-                    if (Conversions.ToBoolean(Module1.CreatePath(par, ref Path)))
+                    if (Conversions.ToBoolean(Program.CreatePath(par, ref Path)))
                     {
                         this.ExportDataToPDFTable1(norow, 14, segTxt, Path + "_JD.pdf", msg);
                         goto label_29;
@@ -1616,7 +1616,7 @@ namespace ClubCompFS
                 this.Text = "JUDGES DETAILS";
                 DataGridView dataGridView1 = this.DataGridView1;
                 dataGridView1.ColumnHeadersVisible = false;
-                dataGridView1.ReadOnly = Module1.WorkMode > 1;
+                dataGridView1.ReadOnly = Program.WorkMode > 1;
                 dataGridView1.ColumnCount = 14;
                 dataGridView1.RowCount = checked(DGVrows - 1);
                 dataGridView1.Width = 1045;
@@ -1653,21 +1653,21 @@ namespace ClubCompFS
                 int rowIndex = 1;
                 while (rowIndex <= num4)
                 {
-                    if (Conversions.ToDouble(Module1.JDarr[rowIndex, 0]) != (double)num3)
+                    if (Conversions.ToDouble(Program.JDarr[rowIndex, 0]) != (double)num3)
                     {
-                        num3 = Conversions.ToInteger(Module1.JDarr[rowIndex, 0]);
+                        num3 = Conversions.ToInteger(Program.JDarr[rowIndex, 0]);
                         dataGridView1.Rows[checked(rowIndex - 1)].DefaultCellStyle.BackColor = Color.LightGray;
                     }
                     int columnIndex = 1;
                     do
                     {
-                        dataGridView1.Rows[checked(rowIndex - 1)].Cells[checked(columnIndex - 1)].Value = (object)Module1.JDarr[rowIndex, columnIndex];
-                        if (rowIndex >= 8 & columnIndex == 1 && Module1.ElErrorArr[checked(rowIndex - 7)] > 0)
+                        dataGridView1.Rows[checked(rowIndex - 1)].Cells[checked(columnIndex - 1)].Value = (object)Program.JDarr[rowIndex, columnIndex];
+                        if (rowIndex >= 8 & columnIndex == 1 && Program.ElErrorArr[checked(rowIndex - 7)] > 0)
                             dataGridView1[columnIndex, rowIndex].Style.BackColor = Color.LightPink;
                         checked { ++columnIndex; }
                     }
                     while (columnIndex <= 14);
-                    string Left = Strings.UCase(Module1.JDarr[rowIndex, 2]);
+                    string Left = Strings.UCase(Program.JDarr[rowIndex, 2]);
                     if (Operators.CompareString(Left, "NAME", false) == 0)
                     {
                         int index = checked(rowIndex - 1);
@@ -1694,7 +1694,7 @@ namespace ClubCompFS
                 dataGridView2.Columns[0].Width = 30;
                 dataGridView2.Columns[1].Width = 995;
                 dataGridView2.Height = checked(dataGridView2.RowTemplate.Height + 5);
-                dataGridView2.Rows[0].Cells[1].Value = (object)Module1.JDarr[DGVrows, 2];
+                dataGridView2.Rows[0].Cells[1].Value = (object)Program.JDarr[DGVrows, 2];
                 dataGridView2.RowHeadersVisible = false;
                 dataGridView2.ColumnHeadersVisible = false;
                 this.Height = checked(this.DataGridView1.Top + this.DataGridView1.Height + this.DataGridView2.Height + 30);
@@ -1721,9 +1721,9 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                double num3 = Module1.Page_Size * 0.7 / 100.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                int pageTopMargin = Module1.Page_Top_Margin;
+                double num3 = Program.Page_Size * 0.7 / 100.0;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                int pageTopMargin = Program.Page_Top_Margin;
                 string str = "";
                 ProjectData.ClearProjectError();
                 num1 = 2;
@@ -1742,7 +1742,7 @@ namespace ClubCompFS
                 Font font1 = new Font("ARIAL", (float)checked(emSize + 3), FontStyle.Bold, GraphicsUnit.Pixel);
                 Font font2 = new Font("ARIAL", (float)emSize, FontStyle.Bold, GraphicsUnit.Pixel);
                 Font font3 = new Font("ARIAL", (float)emSize, FontStyle.Regular, GraphicsUnit.Pixel);
-                int integer2 = Conversions.ToInteger(Module1.F4arr[this.mRow, 0]);
+                int integer2 = Conversions.ToInteger(Program.F4arr[this.mRow, 0]);
                 float num4 = 40f;
                 int num5 = 0;
                 do
@@ -1750,17 +1750,17 @@ namespace ClubCompFS
                     checked { ++num5; }
                     if (num5 == 1)
                     {
-                        string segTxt = Module1.GetSegTxt(Module1.Segment);
-                        string segment = Module1.Segment;
+                        string segTxt = Program.GetSegTxt(Program.Segment);
+                        string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
-                            str = ", DATE: " + Module1.FormShortDate(Module1.Datum.Seg1);
+                            str = ", DATE: " + Program.FormShortDate(Program.Datum.Seg1);
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            str = ", DATE: " + Module1.FormShortDate(Module1.Datum.Seg2);
+                            str = ", DATE: " + Program.FormShortDate(Program.Datum.Seg2);
                         e.Graphics.DrawString("JUDGES DETAILS", font1, Brushes.Black, (float)pageLeftMargin, num4, new StringFormat());
                         float y1 = (float)((double)num4 + (double)dataGridView1.Font.GetHeight(e.Graphics) + 5.0);
-                        e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name + str, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                        e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name + str, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                         float y2 = y1 + dataGridView1.Font.GetHeight(e.Graphics);
-                        e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                        e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                         num4 = (float)((double)y2 + (double)dataGridView1.Font.GetHeight(e.Graphics) + 5.0);
                     }
                     int num6 = 0;
@@ -1812,14 +1812,14 @@ namespace ClubCompFS
                                         break;
                                 }
                                 RectangleF layoutRectangle = new RectangleF(x, num4, (float)num10 * (float)num3, (float)(25.0 * num3 * 0.8));
-                                string s = Strings.Left(Module1.F4arr[this.mRow, index], 28);
+                                string s = Strings.Left(Program.F4arr[this.mRow, index], 28);
                                 if (index == 2)
                                     e.Graphics.DrawString(s, font4, Brushes.Black, layoutRectangle, format2);
                                 else if (integer1 == 1)
                                     e.Graphics.DrawString(s, font4, Brushes.Black, layoutRectangle, format1);
                                 else if (num6 < 8)
                                     e.Graphics.DrawString(s, font4, Brushes.Black, layoutRectangle, format1);
-                                else if (checked(index - 7) < Module1.NoJ_GOE | index == 14)
+                                else if (checked(index - 7) < Program.NoJ_GOE | index == 14)
                                     e.Graphics.DrawString(s, font4, Brushes.Black, layoutRectangle, format1);
                                 x += layoutRectangle.Width;
                                 num9 = Math.Max(num9, layoutRectangle.Height);
@@ -1832,7 +1832,7 @@ namespace ClubCompFS
                         }
                         checked { ++this.mRow; }
                     }
-                    while (!(this.mRow >= this.F4arrRows | (double)integer2 != Conversions.ToDouble(Module1.F4arr[checked(this.mRow + 1), 0])));
+                    while (!(this.mRow >= this.F4arrRows | (double)integer2 != Conversions.ToDouble(Program.F4arr[checked(this.mRow + 1), 0])));
                     float x1 = (float)pageLeftMargin;
                     int index1 = 1;
                     do
@@ -1848,7 +1848,7 @@ namespace ClubCompFS
                                 break;
                         }
                         RectangleF layoutRectangle = new RectangleF(x1, num4, (float)num11 * (float)num3, (float)(25.0 * num3 * 0.8));
-                        e.Graphics.DrawString(Module1.F4arr[this.mRow, index1], font3, Brushes.Black, layoutRectangle, format2);
+                        e.Graphics.DrawString(Program.F4arr[this.mRow, index1], font3, Brushes.Black, layoutRectangle, format2);
                         x1 += layoutRectangle.Width;
                         checked { ++index1; }
                     }
@@ -1856,12 +1856,12 @@ namespace ClubCompFS
                     this.newpage = false;
                     checked { ++this.mRow; }
                     num4 = num4 + (float)num8 + (float)num8;
-                    integer2 = Conversions.ToInteger(Module1.F4arr[this.mRow, 0]);
+                    integer2 = Conversions.ToInteger(Program.F4arr[this.mRow, 0]);
                     int width = checked((int)Math.Round(unchecked(1055.0 * num3)));
                     int height = checked((int)Math.Round(unchecked((double)num4 - (double)num7 - (double)num8)));
                     e.Graphics.DrawRectangle(Pens.Gray, pageLeftMargin, checked(num7 - 1), width, height);
                 }
-                while (!(num5 >= Module1.JDperPage | this.mRow >= this.F4arrRows));
+                while (!(num5 >= Program.JDperPage | this.mRow >= this.F4arrRows));
                 e.HasMorePages = this.mRow < this.F4arrRows;
                 this.newpage = true;
                 goto label_44;
@@ -1890,35 +1890,35 @@ namespace ClubCompFS
                 int num3 = 0;
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.F4arr = (string[,])null;
-                Module1.F4arr = new string[1501, 15];
+                Program.F4arr = (string[,])null;
+                Program.F4arr = new string[1501, 15];
                 this.F4arrRows = 0;
                 this.mRow = 1;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                 }
                 int num4 = 1;
-                Module1.PNo = 0;
-                int tnop = Module1.TNop;
-                Module1.PNo = 1;
+                Program.PNo = 0;
+                int tnop = Program.TNop;
+                Program.PNo = 1;
                 int index1 = 0;
-                while (Module1.PNo <= tnop)
+                while (Program.PNo <= tnop)
                 {
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     int rowDed = 0;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
                     {
-                        if (Module1.Vek[Module1.PNo].Finished_Seg1 == 1)
+                        if (Program.Vek[Program.PNo].Finished_Seg1 == 1)
                         {
-                            Module1.CreateJudgesDetails(0, ref rowDed);
+                            Program.CreateJudgesDetails(0, ref rowDed);
                             checked { ++num3; }
                         }
                         else
@@ -1926,9 +1926,9 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                     {
-                        if (Module1.Vek[Module1.PNo].Finished_Seg2 == 1)
+                        if (Program.Vek[Program.PNo].Finished_Seg2 == 1)
                         {
-                            Module1.CreateJudgesDetails(0, ref rowDed);
+                            Program.CreateJudgesDetails(0, ref rowDed);
                             checked { ++num3; }
                         }
                         else
@@ -1942,11 +1942,11 @@ namespace ClubCompFS
                     while (index1 <= num7)
                     {
                         checked { ++index2; }
-                        Module1.F4arr[index1, 0] = Conversions.ToString(Module1.PNo);
+                        Program.F4arr[index1, 0] = Conversions.ToString(Program.PNo);
                         int index3 = 1;
                         do
                         {
-                            Module1.F4arr[index1, index3] = Module1.JDarr[index2, index3];
+                            Program.F4arr[index1, index3] = Program.JDarr[index2, index3];
                             checked { ++index3; }
                         }
                         while (index3 <= 14);
@@ -1954,7 +1954,7 @@ namespace ClubCompFS
                     }
                     num4 = num5;
                     label_18:
-                    checked { ++Module1.PNo; }
+                    checked { ++Program.PNo; }
                 }
                 if (num3 > 0)
                 {
@@ -1991,7 +1991,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.WillExitJudgesDetailsForm = false;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 1:
                     case 3:
@@ -2002,9 +2002,9 @@ namespace ClubCompFS
                         this.Close();
                         break;
                     case 2:
-                        if (Module1.ScanJudges == 1 & this.Timer1.Enabled & Operators.CompareString(this.CreateMenu, "LightYellow", false) == 0)
+                        if (Program.ScanJudges == 1 & this.Timer1.Enabled & Operators.CompareString(this.CreateMenu, "LightYellow", false) == 0)
                             this.WillExitJudgesDetailsForm = true;
-                        else if (Module1.ScanJudges == 0)
+                        else if (Program.ScanJudges == 0)
                             this.WillExitJudgesDetailsForm = true;
                         else if (Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
                             this.WillExitJudgesDetailsForm = true;
@@ -2014,7 +2014,7 @@ namespace ClubCompFS
                         MyProject.Forms.InputJudgesDataDialog.Close();
                         MyProject.Forms.DeductionsDialog.Close();
                         this.Close();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
                         {
                             MyProject.Forms.StartListForm.WillExitStartListForm = true;
                             MyProject.Forms.StartListForm.Close();
@@ -2043,17 +2043,17 @@ namespace ClubCompFS
         public bool MenuPossibleJudgesDetailsForm()
         {
             bool flag = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+            else if (Program.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -2072,7 +2072,7 @@ namespace ClubCompFS
                 if (this.MenuPossibleJudgesDetailsForm())
                 {
                     this.WillExitJudgesDetailsForm = false;
-                    switch (Module1.WorkMode)
+                    switch (Program.WorkMode)
                     {
                         case 1:
                         case 3:
@@ -2132,38 +2132,38 @@ namespace ClubCompFS
                     int num3 = 1;
                     do
                     {
-                        if (num3 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | num3 == 7 & Module1.NoJ_GOE <= 6 & Module1.JudgeSel != 0 && this.DataGridView1.Rows[7].Cells[checked(5 + num3)].Style.BackColor != Color.Green)
+                        if (num3 <= checked(Program.NoJ_GOE + Program.NoTrj) | num3 == 7 & Program.NoJ_GOE <= 6 & Program.JudgeSel != 0 && this.DataGridView1.Rows[7].Cells[checked(5 + num3)].Style.BackColor != Color.Green)
                             flag = false;
                         checked { ++num3; }
                     }
                     while (num3 <= 7);
-                    if (flag | Module1.WorkMode == 3)
+                    if (flag | Program.WorkMode == 3)
                     {
-                        string segment = Module1.Segment;
+                        string segment = Program.Segment;
                         int StNo = 0;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            StNo = Module1.Vek[Module1.PNo].Startno_Seg1;
-                            if (Module1.Vek[Module1.PNo].TES_Seg1 > Conversions.ToDouble(Module1.TE_Leader))
-                                Module1.TE_Leader = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg1, "0.00");
+                            StNo = Program.Vek[Program.PNo].Startno_Seg1;
+                            if (Program.Vek[Program.PNo].TES_Seg1 > Conversions.ToDouble(Program.TE_Leader))
+                                Program.TE_Leader = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg1, "0.00");
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
                         {
-                            StNo = Module1.Vek[Module1.PNo].Startno_Seg2;
-                            if (Module1.Vek[Module1.PNo].TES_Seg2 > Conversions.ToDouble(Module1.TE_Leader))
-                                Module1.TE_Leader = Strings.Format((object)Module1.Vek[Module1.PNo].TES_Seg2, "0.00");
+                            StNo = Program.Vek[Program.PNo].Startno_Seg2;
+                            if (Program.Vek[Program.PNo].TES_Seg2 > Conversions.ToDouble(Program.TE_Leader))
+                                Program.TE_Leader = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg2, "0.00");
                         }
-                        if (Module1.CreateHTMFile(StNo))
+                        if (Program.CreateHTMFile(StNo))
                         {
                             this.CREATERESULTSToolStripMenuItem.BackColor = Color.LightYellow;
                             this.CreateMenu = "LightYellow";
-                            if (Strings.Len(Module1.CategoryFileName) > 1)
+                            if (Strings.Len(Program.CategoryFileName) > 1)
                             {
-                                Module1.SaveCategoryFile(Module1.CategoryFileName);
+                                Program.SaveCategoryFile(Program.CategoryFileName);
                                 this.ExitJudgesDetailsForm();
                             }
                             MyProject.Forms.StartListForm.WillExitStartListForm = true;
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                            if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
                                 MyProject.Forms.StartListForm.Close();
                             MyProject.Forms.StartListForm.Show();
                             MyProject.Forms.StartListForm.Top = -1;
@@ -2213,19 +2213,19 @@ namespace ClubCompFS
                 if (this.MenuPossibleJudgesDetailsForm())
                 {
                     int num3 = checked(this.DataGridView1.CurrentCellAddress.X - 5);
-                    if (num3 > 0 & num3 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num3 == 7)
+                    if (num3 > 0 & num3 <= checked(Program.NoJ_GOE + Program.NoTrj) | Program.JudgeSel == 1 & num3 == 7)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                             MyProject.Forms.InputJudgesDataDialog.Close();
                         InputJudgesDataDialog dialog10 = MyProject.Forms.InputJudgesDataDialog;
-                        dialog10.txtPno.Text = Conversions.ToString(Module1.PNo);
+                        dialog10.txtPno.Text = Conversions.ToString(Program.PNo);
                         dialog10.txtJudgeNo.Text = Conversions.ToString(num3);
                         int num4 = (int)dialog10.ShowDialog((IWin32Window)this);
                         goto label_16;
                     }
                     else if (num3 == 8)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+                        if (Program.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                             MyProject.Forms.DeductionsDialog.Close();
                         int num5 = (int)MyProject.Forms.DeductionsDialog.ShowDialog((IWin32Window)this);
                         goto label_16;
@@ -2294,12 +2294,12 @@ namespace ClubCompFS
             int num = 1;
             do
             {
-                if (num <= checked(Module1.NoJ_GOE + Module1.NoTrj) | num == 7 & Module1.NoJ_GOE <= 6 & Module1.JudgeSel != 0 && this.DataGridView1.Rows[7].Cells[checked(5 + num)].Style.BackColor != Color.Green)
+                if (num <= checked(Program.NoJ_GOE + Program.NoTrj) | num == 7 & Program.NoJ_GOE <= 6 & Program.JudgeSel != 0 && this.DataGridView1.Rows[7].Cells[checked(5 + num)].Style.BackColor != Color.Green)
                     flag = false;
                 checked { ++num; }
             }
             while (num <= 7);
-            if (!(flag & Module1.WorkMode == 2))
+            if (!(flag & Program.WorkMode == 2))
                 return;
             this.CREATERESULTSToolStripMenuItem.BackColor = Color.LightGreen;
             this.INPUTELEMENTToolStripMenuItem.BackColor = SystemColors.Control;
@@ -2307,14 +2307,14 @@ namespace ClubCompFS
 
         public void SetCreateResultsYellow(int J)
         {
-            if (!(J <= checked(Module1.NoJ_GOE + Module1.NoTrj) | J == checked(7 * Module1.JudgeSel)))
+            if (!(J <= checked(Program.NoJ_GOE + Program.NoTrj) | J == checked(7 * Program.JudgeSel)))
                 return;
             this.DataGridView1.Rows[7].Cells[checked(5 + J)].Style.BackColor = Color.Yellow;
         }
 
         public void SetCreateResultsRed(int J)
         {
-            if (!(J <= checked(Module1.NoJ_GOE + Module1.NoTrj) | J == checked(7 * Module1.JudgeSel)) || !(this.DataGridView1.Rows[7].Cells[checked(5 + J)].Style.BackColor != Color.Green))
+            if (!(J <= checked(Program.NoJ_GOE + Program.NoTrj) | J == checked(7 * Program.JudgeSel)) || !(this.DataGridView1.Rows[7].Cells[checked(5 + J)].Style.BackColor != Color.Green))
                 return;
             this.DataGridView1.Rows[7].Cells[checked(5 + J)].Style.BackColor = Color.Red;
         }
@@ -2327,7 +2327,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.WorkMode == 3)
+                if (Program.WorkMode == 3)
                 {
                     if (e.Button == MouseButtons.Right)
                     {
@@ -2339,7 +2339,7 @@ namespace ClubCompFS
                                 case 3:
                                     if (e.ColumnIndex == 13)
                                     {
-                                        if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+                                        if (Program.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                                             MyProject.Forms.DeductionsDialog.Close();
                                         int num3 = (int)MyProject.Forms.DeductionsDialog.ShowDialog((IWin32Window)this);
                                         goto label_21;
@@ -2351,12 +2351,12 @@ namespace ClubCompFS
                                     }
                                 case 7:
                                     int num5 = checked(e.ColumnIndex - 5);
-                                    if (num5 > 0 & num5 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num5 == 7)
+                                    if (num5 > 0 & num5 <= checked(Program.NoJ_GOE + Program.NoTrj) | Program.JudgeSel == 1 & num5 == 7)
                                     {
-                                        if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+                                        if (Program.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                                             MyProject.Forms.InputJudgesDataDialog.Close();
                                         InputJudgesDataDialog dialog10 = MyProject.Forms.InputJudgesDataDialog;
-                                        dialog10.txtPno.Text = Conversions.ToString(Module1.PNo);
+                                        dialog10.txtPno.Text = Conversions.ToString(Program.PNo);
                                         dialog10.txtJudgeNo.Text = Conversions.ToString(num5);
                                         int num6 = (int)dialog10.ShowDialog((IWin32Window)this);
                                         goto label_21;

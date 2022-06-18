@@ -1018,24 +1018,24 @@ namespace ClubCompFS
                 this.NumericUpDown2.Maximum = 7M;
                 this.NumericUpDown2.Minimum = 0M;
                 this.NumericUpDown2.Increment = 1M;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    this.NoJ_Ca = Module1.NoJ_Seg1;
-                    this.NoTrj_Ca = Module1.NoTrJ_Seg1;
-                    this.JudgeSel_Ca = Module1.JudgeSel_Seg1;
+                    this.NoJ_Ca = Program.NoJ_Seg1;
+                    this.NoTrj_Ca = Program.NoTrJ_Seg1;
+                    this.JudgeSel_Ca = Program.JudgeSel_Seg1;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    this.NoJ_Ca = Module1.NoJ_Seg2;
-                    this.NoTrj_Ca = Module1.NoTrJ_Seg2;
-                    this.JudgeSel_Ca = Module1.JudgeSel_Seg2;
+                    this.NoJ_Ca = Program.NoJ_Seg2;
+                    this.NoTrj_Ca = Program.NoTrJ_Seg2;
+                    this.JudgeSel_Ca = Program.JudgeSel_Seg2;
                 }
                 else
                 {
-                    this.NoJ_Ca = Module1.NoJ_Seg1;
-                    this.NoTrj_Ca = Module1.NoTrJ_Seg1;
-                    this.JudgeSel_Ca = Module1.JudgeSel_Seg1;
+                    this.NoJ_Ca = Program.NoJ_Seg1;
+                    this.NoTrj_Ca = Program.NoTrJ_Seg1;
+                    this.JudgeSel_Ca = Program.JudgeSel_Seg1;
                 }
                 this.NumericUpDown1.Text = Conversions.ToString(this.NoJ_Ca);
                 this.NumericUpDown2.Text = Conversions.ToString(this.NoTrj_Ca);
@@ -1106,92 +1106,92 @@ namespace ClubCompFS
                         switch (this.JudgeSel_Ca)
                         {
                             case 0:
-                                Module1.NoTrj = Convert.ToInt32(Conversion.Int(this.NumericUpDown2.Value));
-                                if (Module1.NoTrj < 0 | Module1.NoTrj > checked(7 - this.NoJ_Ca))
+                                Program.NoTrj = Convert.ToInt32(Conversion.Int(this.NumericUpDown2.Value));
+                                if (Program.NoTrj < 0 | Program.NoTrj > checked(7 - this.NoJ_Ca))
                                 {
                                     int num7 = (int)Interaction.MsgBox((object)("The no. of Trial Judges has been set to " + Strings.Trim(Conversions.ToString(checked(7 - this.NoJ_Ca))) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                                    Module1.NoTrj = checked(7 - this.NoJ_Ca);
+                                    Program.NoTrj = checked(7 - this.NoJ_Ca);
                                     break;
                                 }
                                 break;
                             case 1:
-                                Module1.NoTrj = Convert.ToInt32(Conversion.Int(this.NumericUpDown2.Value));
-                                if (Module1.NoTrj < 0 | Module1.NoTrj > checked(7 - this.NoJ_Ca - 1))
+                                Program.NoTrj = Convert.ToInt32(Conversion.Int(this.NumericUpDown2.Value));
+                                if (Program.NoTrj < 0 | Program.NoTrj > checked(7 - this.NoJ_Ca - 1))
                                 {
                                     int num8 = (int)Interaction.MsgBox((object)("The no. of Trial Judges has been set to " + Strings.Trim(Conversions.ToString(checked(7 - this.NoJ_Ca - 1))) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                                    Module1.NoTrj = checked(7 - this.NoJ_Ca - 1);
+                                    Program.NoTrj = checked(7 - this.NoJ_Ca - 1);
                                     break;
                                 }
                                 break;
                         }
                     }
-                    if (Module1.WorkMode == 1)
+                    if (Program.WorkMode == 1)
                     {
-                        string seg = Module1.GetSeg();
+                        string seg = Program.GetSeg();
                         if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SF", false) == 0)
                         {
                             int num9 = (int)Interaction.MsgBox((object)"Do you want to have the same set-up for\r\nboth Segment 1 and Segment 2?", MsgBoxStyle.YesNo | MsgBoxStyle.Question, (object)"Susanne SW");
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                             {
-                                Module1.NoJ_Seg1 = this.NoJ_Ca;
-                                Module1.NoTrJ_Seg1 = this.NoTrj_Ca;
-                                Module1.JudgeSel_Seg1 = this.JudgeSel_Ca;
+                                Program.NoJ_Seg1 = this.NoJ_Ca;
+                                Program.NoTrJ_Seg1 = this.NoTrj_Ca;
+                                Program.JudgeSel_Seg1 = this.JudgeSel_Ca;
                                 if (num9 == 6)
                                 {
-                                    Module1.NoJ_Seg2 = this.NoJ_Ca;
-                                    Module1.NoTrJ_Seg2 = this.NoTrj_Ca;
-                                    Module1.JudgeSel_Seg2 = this.JudgeSel_Ca;
+                                    Program.NoJ_Seg2 = this.NoJ_Ca;
+                                    Program.NoTrJ_Seg2 = this.NoTrj_Ca;
+                                    Program.JudgeSel_Seg2 = this.JudgeSel_Ca;
                                 }
                             }
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
-                                Module1.NoJ_Seg2 = this.NoJ_Ca;
-                                Module1.NoTrJ_Seg2 = this.NoTrj_Ca;
-                                Module1.JudgeSel_Seg2 = this.JudgeSel_Ca;
+                                Program.NoJ_Seg2 = this.NoJ_Ca;
+                                Program.NoTrJ_Seg2 = this.NoTrj_Ca;
+                                Program.JudgeSel_Seg2 = this.JudgeSel_Ca;
                                 if (num9 == 6)
                                 {
-                                    Module1.NoJ_Seg1 = this.NoJ_Ca;
-                                    Module1.NoTrJ_Seg1 = this.NoTrj_Ca;
-                                    Module1.JudgeSel_Seg1 = this.JudgeSel_Ca;
+                                    Program.NoJ_Seg1 = this.NoJ_Ca;
+                                    Program.NoTrJ_Seg1 = this.NoTrj_Ca;
+                                    Program.JudgeSel_Seg1 = this.JudgeSel_Ca;
                                 }
                             }
                         }
                         else if (Operators.CompareString(seg, "0F", false) == 0)
                         {
-                            Module1.NoJ_Seg2 = this.NoJ_Ca;
-                            Module1.NoTrJ_Seg2 = this.NoTrj_Ca;
-                            Module1.JudgeSel_Seg2 = this.JudgeSel_Ca;
+                            Program.NoJ_Seg2 = this.NoJ_Ca;
+                            Program.NoTrJ_Seg2 = this.NoTrj_Ca;
+                            Program.JudgeSel_Seg2 = this.JudgeSel_Ca;
                         }
                         else if (Operators.CompareString(seg, "S0", false) == 0)
                         {
-                            Module1.NoJ_Seg1 = this.NoJ_Ca;
-                            Module1.NoTrJ_Seg1 = this.NoTrj_Ca;
-                            Module1.JudgeSel_Seg1 = this.JudgeSel_Ca;
+                            Program.NoJ_Seg1 = this.NoJ_Ca;
+                            Program.NoTrJ_Seg1 = this.NoTrj_Ca;
+                            Program.JudgeSel_Seg1 = this.JudgeSel_Ca;
                         }
                         else
                         {
-                            Module1.NoJ_Seg1 = this.NoJ_Ca;
-                            Module1.NoTrJ_Seg1 = this.NoTrj_Ca;
-                            Module1.JudgeSel_Seg1 = this.JudgeSel_Ca;
-                            Module1.NoJ_Seg2 = this.NoJ_Ca;
-                            Module1.NoTrJ_Seg2 = this.NoTrj_Ca;
-                            Module1.JudgeSel_Seg2 = this.JudgeSel_Ca;
+                            Program.NoJ_Seg1 = this.NoJ_Ca;
+                            Program.NoTrJ_Seg1 = this.NoTrj_Ca;
+                            Program.JudgeSel_Seg1 = this.JudgeSel_Ca;
+                            Program.NoJ_Seg2 = this.NoJ_Ca;
+                            Program.NoTrJ_Seg2 = this.NoTrj_Ca;
+                            Program.JudgeSel_Seg2 = this.JudgeSel_Ca;
                         }
                     }
                     else
                     {
                         int num10 = (int)Interaction.MsgBox((object)"This can not be possible!");
                     }
-                    Module1.SetNoJ();
+                    Program.SetNoJ();
                     this.GetJudgeComp();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                    Module1.CreateMainForm();
-                    Module1.SaveIniData("CLUBCOMP.INI");
-                    if (Strings.Len(Module1.Competition.Name) > 0)
-                        Module1.SaveCategoryFile(Module1.CategoryFileName);
-                    if (Module1.WorkMode == 1)
+                    Program.CreateMainForm();
+                    Program.SaveIniData("CLUBCOMP.INI");
+                    if (Strings.Len(Program.Competition.Name) > 0)
+                        Program.SaveCategoryFile(Program.CategoryFileName);
+                    if (Program.WorkMode == 1)
                     {
                         MyProject.Forms.MainForm.SendFunc();
                         goto label_36;
@@ -1260,17 +1260,17 @@ namespace ClubCompFS
 
         private void GetJudgeComp()
         {
-            Module1.JudgeCompNo = (int[])null;
-            Module1.JudgeCompNo = new int[8];
-            Module1.JudgeCompFunc = (int[])null;
-            Module1.JudgeCompFunc = new int[8];
+            Program.JudgeCompNo = (int[])null;
+            Program.JudgeCompNo = new int[8];
+            Program.JudgeCompFunc = (int[])null;
+            Program.JudgeCompFunc = new int[8];
             int index = 1;
             do
             {
                 string key1 = "txtCno" + Conversions.ToString(index);
                 string key2 = "txtJ_func" + Conversions.ToString(index);
-                Module1.JudgeCompNo[index] = Conversions.ToInteger(this.Controls[key1].Text);
-                Module1.JudgeCompFunc[index] = Conversions.ToInteger(this.GetFuncNo(this.Controls[key2].Text));
+                Program.JudgeCompNo[index] = Conversions.ToInteger(this.Controls[key1].Text);
+                Program.JudgeCompFunc[index] = Conversions.ToInteger(this.GetFuncNo(this.Controls[key2].Text));
                 checked { ++index; }
             }
             while (index <= 7);
@@ -1672,7 +1672,7 @@ namespace ClubCompFS
                         string key2 = "btnJ" + Conversions.ToString(index);
                         string key3 = "txtJ_func" + Conversions.ToString(index);
                         this.Controls[key1].Visible = true;
-                        this.Controls[key1].Text = Conversions.ToString(Module1.JudgeCompNo[index]);
+                        this.Controls[key1].Text = Conversions.ToString(Program.JudgeCompNo[index]);
                         if (index <= checked(this.NoJ_Ca + this.NoTrj_Ca) | index == checked(7 * this.JudgeSel_Ca))
                         {
                             this.Controls[key2].Visible = true;
@@ -1682,7 +1682,7 @@ namespace ClubCompFS
                             else if (index > this.NoJ_Ca & index <= checked(this.NoJ_Ca + this.NoTrj_Ca))
                                 this.Controls[key3].Text = this.GetFuncText(4);
                             else
-                                this.Controls[key3].Text = this.GetFuncText(Module1.JudgeCompFunc[index]);
+                                this.Controls[key3].Text = this.GetFuncText(Program.JudgeCompFunc[index]);
                         }
                         else
                         {
@@ -1729,7 +1729,7 @@ namespace ClubCompFS
                         string key2 = "btnJ" + Conversions.ToString(index);
                         string key3 = "txtJ_func" + Conversions.ToString(index);
                         this.Controls[key1].Visible = true;
-                        this.Controls[key1].Text = Conversions.ToString(Module1.JudgeCompNo[index]);
+                        this.Controls[key1].Text = Conversions.ToString(Program.JudgeCompNo[index]);
                         if (index <= checked(this.NoJ_Ca + this.NoTrj_Ca) | index == checked(7 * this.JudgeSel_Ca))
                         {
                             this.Controls[key2].Visible = true;

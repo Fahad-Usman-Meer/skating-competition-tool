@@ -3764,7 +3764,7 @@ namespace ClubCompFS
         {
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.Top = 0;
-            if (Module1.WorkMode > 1)
+            if (Program.WorkMode > 1)
             {
                 this.Panel1.Location = new Point(806, 1);
                 this.Panel1.Visible = true;
@@ -3772,13 +3772,13 @@ namespace ClubCompFS
             else
                 this.Panel1.Visible = false;
             this.Timer1.Enabled = false;
-            string segment = Module1.Segment;
+            string segment = Program.Segment;
             if (Operators.CompareString(segment, "Seg1", false) == 0)
-                this.ProgramHalfTime = this.CalcHalfTime(Module1.OpenDB[Module1.PcIndex].Seg1Time);
+                this.ProgramHalfTime = this.CalcHalfTime(Program.OpenDB[Program.PcIndex].Seg1Time);
             else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                this.ProgramHalfTime = this.CalcHalfTime(Module1.OpenDB[Module1.PcIndex].Seg2Time);
+                this.ProgramHalfTime = this.CalcHalfTime(Program.OpenDB[Program.PcIndex].Seg2Time);
             this.ShowDatagrid();
-            if (Module1.AdjustToScreen != 1)
+            if (Program.AdjustToScreen != 1)
                 return;
             this.AdjustTheDisplay();
         }
@@ -4079,9 +4079,9 @@ namespace ClubCompFS
                 do
                 {
                     dataGridView1.Rows[checked(index - 1)].Cells[0].Value = (object)Conversions.ToString(index);
-                    dataGridView1.Rows[checked(index - 1)].Cells[1].Value = (object)Module1.OpArr[index].element;
-                    dataGridView1.Rows[checked(index - 1)].Cells[2].Value = (object)Module1.OpArr[index].edge;
-                    dataGridView1.Rows[checked(index - 1)].Cells[3].Value = (object)Module1.OpArr[index].replay;
+                    dataGridView1.Rows[checked(index - 1)].Cells[1].Value = (object)Program.OpArr[index].element;
+                    dataGridView1.Rows[checked(index - 1)].Cells[2].Value = (object)Program.OpArr[index].edge;
+                    dataGridView1.Rows[checked(index - 1)].Cells[3].Value = (object)Program.OpArr[index].replay;
                     checked { ++index; }
                 }
                 while (index <= 15);
@@ -4116,7 +4116,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    switch (Module1.WorkMode)
+                    switch (Program.WorkMode)
                     {
                         case 0:
                         case 1:
@@ -4125,26 +4125,26 @@ namespace ClubCompFS
                         case 2:
                         case 3:
                             this.Timer1.Enabled = false;
-                            string segment = Module1.Segment;
+                            string segment = Program.Segment;
                             int num3 = 0;
                             if (Operators.CompareString(segment, "Seg1", false) == 0)
                             {
-                                if (Module1.Vek[Module1.PNo].HTIndSeg1 < 1 & Module1.HalfTime_Sel())
+                                if (Program.Vek[Program.PNo].HTIndSeg1 < 1 & Program.HalfTime_Sel())
                                     num3 = (int)Interaction.MsgBox((object)"Do you want to input the Half Time?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             }
-                            else if (Operators.CompareString(segment, "Seg2", false) == 0 && Module1.Vek[Module1.PNo].HTIndSeg2 < 1 & Module1.HalfTime_Sel())
+                            else if (Operators.CompareString(segment, "Seg2", false) == 0 && Program.Vek[Program.PNo].HTIndSeg2 < 1 & Program.HalfTime_Sel())
                                 num3 = (int)Interaction.MsgBox((object)"Do you want to input the Half Time?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             if (num3 == 6)
                             {
                                 this.OplistaSelect();
                                 return;
                             }
-                            if (Module1.OpenDB[Module1.PcIndex].ElementTest[7] > 0 && !this.Find_Axel() && Interaction.MsgBox((object)"Do you want to EXIT?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
+                            if (Program.OpenDB[Program.PcIndex].ElementTest[7] > 0 && !this.Find_Axel() && Interaction.MsgBox((object)"Do you want to EXIT?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                             {
                                 this.OplistaSelect();
                                 return;
                             }
-                            if (Operators.CompareString(Module1.Segment, "Seg2", false) == 0 && !this.Calc_El() && Interaction.MsgBox((object)"Do you want to EXIT?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
+                            if (Operators.CompareString(Program.Segment, "Seg2", false) == 0 && !this.Calc_El() && Interaction.MsgBox((object)"Do you want to EXIT?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
                             {
                                 this.OplistaSelect();
                                 return;
@@ -4154,36 +4154,36 @@ namespace ClubCompFS
                     }
                     this.WillExit = true;
                     this.Close();
-                    switch (Module1.WorkMode)
+                    switch (Program.WorkMode)
                     {
                         case 0:
                         case 1:
                             MyProject.Forms.StartListForm.TopMost = false; // true;
                             break;
                         case 2:
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                                 MyProject.Forms.JudgesDetailsForm.Close();
-                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Module1.PNo);
-                            Module1.ScanJudges = 1;
+                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Program.PNo);
+                            Program.ScanJudges = 1;
                             int rowDed1 = 0;
-                            Module1.CreateJudgesDetails(0, ref rowDed1);
+                            Program.CreateJudgesDetails(0, ref rowDed1);
                             MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed1);
                             MyProject.Forms.JudgesDetailsForm.Show();
                             MyProject.Forms.JudgesDetailsForm.TopMost = false; // true;
                             MyProject.Forms.MainForm.MakeJudgeTxtFile(-1);
                             break;
                         case 3:
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                            if (Program.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                                 MyProject.Forms.JudgesDetailsForm.Close();
-                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Module1.PNo);
+                            MyProject.Forms.JudgesDetailsForm.txtIndex.Text = Conversions.ToString(Program.PNo);
                             int rowDed2 = 0;
-                            Module1.CreateJudgesDetails(0, ref rowDed2);
+                            Program.CreateJudgesDetails(0, ref rowDed2);
                             MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed2);
                             MyProject.Forms.JudgesDetailsForm.Show();
                             MyProject.Forms.JudgesDetailsForm.TopMost = false; // true;
                             break;
                     }
-                    Module1.SaveCategoryFile(Module1.CategoryFileName);
+                    Program.SaveCategoryFile(Program.CategoryFileName);
                 }
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -4206,7 +4206,7 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    string element = Module1.OpArr[index].element;
+                    string element = Program.OpArr[index].element;
                     if (Operators.CompareString(element, "CoSp", false) == 0 || Operators.CompareString(element, "CoSpB", false) == 0 || Operators.CompareString(element, "CoSp1", false) == 0 || Operators.CompareString(element, "CoSp2", false) == 0 || Operators.CompareString(element, "CoSp3", false) == 0 || Operators.CompareString(element, "CoSp4", false) == 0)
                     {
                         flag = false;
@@ -4264,7 +4264,7 @@ namespace ClubCompFS
                 int ind = 1;
                 do
                 {
-                    string str = Module1.OpArr[ind].element;
+                    string str = Program.OpArr[ind].element;
                     if (Strings.Len(str) != 0)
                     {
                         if (Strings.InStr(1, str, "+COMBO", CompareMethod.Text) > 0)
@@ -4401,7 +4401,7 @@ namespace ClubCompFS
                 int ind = 1;
                 do
                 {
-                    string str1 = Module1.OpArr[ind].element;
+                    string str1 = Program.OpArr[ind].element;
                     if (Strings.Len(str1) != 0 && !(Operators.CompareString(Strings.Right(str1, 1), "*", false) == 0 & !str1.Contains("+")))
                     {
                         int NoOfAst = 0;
@@ -4447,13 +4447,13 @@ namespace ClubCompFS
                         }
                         else if (Strings.InStr(2, str1, "Sp", CompareMethod.Text) > 1)
                         {
-                            string spin = Module1.GetSpin(str1);
-                            int spinMin = Module1.SpinMin;
-                            int spinmax = Module1.Spinmax;
+                            string spin = Program.GetSpin(str1);
+                            int spinMin = Program.SpinMin;
+                            int spinmax = Program.Spinmax;
                             int index3 = spinMin;
                             while (index3 <= spinmax)
                             {
-                                if (Operators.ConditionalCompareObjectEqual((object)spin, Module1.ElDB[index3, 0], false))
+                                if (Operators.ConditionalCompareObjectEqual((object)spin, Program.ElDB[index3, 0], false))
                                 {
                                     this.Sparr[index2] = Operators.CompareString(Strings.Right(str1, 2), "Sp", false) == 0 ? str1 : Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
                                     checked { ++index2; }
@@ -4482,12 +4482,12 @@ namespace ClubCompFS
                                 str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 2)));
                             else if (Operators.CompareString(Strings.Right(str1, 1), "<", false) == 0)
                                 str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
-                            int jumpmin = Module1.Jumpmin;
-                            int jumpMax = Module1.JumpMax;
+                            int jumpmin = Program.Jumpmin;
+                            int jumpMax = Program.JumpMax;
                             int index4 = jumpmin;
                             while (index4 <= jumpMax)
                             {
-                                if (Operators.ConditionalCompareObjectEqual((object)str1, Module1.ElDB[index4, 0], false))
+                                if (Operators.ConditionalCompareObjectEqual((object)str1, Program.ElDB[index4, 0], false))
                                 {
                                     this.Jarr[Jnr] = str1;
                                     checked { ++Jnr; }
@@ -4502,7 +4502,7 @@ namespace ClubCompFS
                     checked { ++ind; }
                 }
                 while (ind <= 15);
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[5] > 0)
+                if (Program.OpenDB[Program.PcIndex].ElementTest[5] > 0)
                 {
                     int index5 = 1;
                     do
@@ -4521,16 +4521,16 @@ namespace ClubCompFS
                     int index7 = 1;
                     do
                     {
-                        if (numArray4[index7] > Module1.OpenDB[Module1.PcIndex].ElementTest[5])
+                        if (numArray4[index7] > Program.OpenDB[Program.PcIndex].ElementTest[5])
                         {
-                            int num8 = (int)Interaction.MsgBox((object)("More single jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Module1.OpenDB[Module1.PcIndex].ElementTest[5]) + ", Entered: " + Conversions.ToString(numArray4[index7]) + " of type 1" + strArray2[index7]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            int num8 = (int)Interaction.MsgBox((object)("More single jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Program.OpenDB[Program.PcIndex].ElementTest[5]) + ", Entered: " + Conversions.ToString(numArray4[index7]) + " of type 1" + strArray2[index7]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             flag = false;
                         }
                         checked { ++index7; }
                     }
                     while (index7 <= 6);
                 }
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[6] > 0)
+                if (Program.OpenDB[Program.PcIndex].ElementTest[6] > 0)
                 {
                     int index8 = 1;
                     do
@@ -4549,16 +4549,16 @@ namespace ClubCompFS
                     int index10 = 1;
                     do
                     {
-                        if (numArray5[index10] > Module1.OpenDB[Module1.PcIndex].ElementTest[6])
+                        if (numArray5[index10] > Program.OpenDB[Program.PcIndex].ElementTest[6])
                         {
-                            int num10 = (int)Interaction.MsgBox((object)("More double jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Module1.OpenDB[Module1.PcIndex].ElementTest[6]) + ", Entered: " + Conversions.ToString(numArray5[index10]) + " of type 2" + strArray2[index10]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            int num10 = (int)Interaction.MsgBox((object)("More double jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Program.OpenDB[Program.PcIndex].ElementTest[6]) + ", Entered: " + Conversions.ToString(numArray5[index10]) + " of type 2" + strArray2[index10]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             flag = false;
                         }
                         checked { ++index10; }
                     }
                     while (index10 <= 6);
                 }
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[1] > 0)
+                if (Program.OpenDB[Program.PcIndex].ElementTest[1] > 0)
                 {
                     int num11 = index1;
                     int index11 = 1;
@@ -4572,51 +4572,51 @@ namespace ClubCompFS
                         checked { ++index11; }
                     }
                 }
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[2] > 0 && checked(num4 + index1 + num3 + num5) > 0 & checked(num4 + index1 + num3 + num5) > Module1.OpenDB[Module1.PcIndex].ElementTest[2])
+                if (Program.OpenDB[Program.PcIndex].ElementTest[2] > 0 && checked(num4 + index1 + num3 + num5) > 0 & checked(num4 + index1 + num3 + num5) > Program.OpenDB[Program.PcIndex].ElementTest[2])
                 {
-                    int num13 = (int)Interaction.MsgBox((object)("More jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Module1.OpenDB[Module1.PcIndex].ElementTest[2]) + ", Entered: " + Conversions.ToString(checked(num4 + index1 + num3 + num5))), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num13 = (int)Interaction.MsgBox((object)("More jump elements than allowed!\r\nAllowed: " + Conversions.ToString(Program.OpenDB[Program.PcIndex].ElementTest[2]) + ", Entered: " + Conversions.ToString(checked(num4 + index1 + num3 + num5))), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     flag = false;
                 }
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[3] != 0 && checked(num3 + index1) > 0 & checked(num3 + index1) > Module1.OpenDB[Module1.PcIndex].ElementTest[3])
+                if (Program.OpenDB[Program.PcIndex].ElementTest[3] != 0 && checked(num3 + index1) > 0 & checked(num3 + index1) > Program.OpenDB[Program.PcIndex].ElementTest[3])
                 {
-                    int num14 = (int)Interaction.MsgBox((object)("More combo/seq than allowed!\r\nAllowed: " + Conversions.ToString(Module1.OpenDB[Module1.PcIndex].ElementTest[3]) + ", Entered: " + Conversions.ToString(checked(num3 + index1))), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num14 = (int)Interaction.MsgBox((object)("More combo/seq than allowed!\r\nAllowed: " + Conversions.ToString(Program.OpenDB[Program.PcIndex].ElementTest[3]) + ", Entered: " + Conversions.ToString(checked(num3 + index1))), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     flag = false;
                 }
-                if (Module1.OpenDB[Module1.PcIndex].AllowedJumps.Length != 0 && Operators.CompareString(Module1.OpenDB[Module1.PcIndex].AllowedJumps[0], "", false) != 0)
+                if (Program.OpenDB[Program.PcIndex].AllowedJumps.Length != 0 && Operators.CompareString(Program.OpenDB[Program.PcIndex].AllowedJumps[0], "", false) != 0)
                 {
                     int num15 = checked(Jnr - 1);
                     int index12 = 1;
                     while (index12 <= num15)
                     {
-                        if (!((IEnumerable<string>)Module1.OpenDB[Module1.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index12]))
+                        if (!((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index12]))
                         {
-                            int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Module1.OpenDB[Module1.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index12]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB[Program.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index12]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             flag = false;
                             index12 = checked(num15 + 1);
                         }
                         checked { ++index12; }
                     }
                 }
-                if (Module1.OpenDB[Module1.PcIndex].AllowedSps.Length != 0 && Operators.CompareString(Module1.OpenDB[Module1.PcIndex].AllowedSps[0], "", false) != 0)
+                if (Program.OpenDB[Program.PcIndex].AllowedSps.Length != 0 && Operators.CompareString(Program.OpenDB[Program.PcIndex].AllowedSps[0], "", false) != 0)
                 {
                     int num17 = checked(index2 - 1);
                     int index13 = 1;
                     while (index13 <= num17)
                     {
-                        if (!((IEnumerable<string>)Module1.OpenDB[Module1.PcIndex].AllowedSps).Contains<string>(this.Sparr[index13]))
+                        if (!((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedSps).Contains<string>(this.Sparr[index13]))
                         {
-                            int num18 = (int)Interaction.MsgBox((object)("Unallowed spin!\r\nAllowed: " + string.Join(", ", Module1.OpenDB[Module1.PcIndex].AllowedSps) + ", Entered: " + this.Sparr[index13]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            int num18 = (int)Interaction.MsgBox((object)("Unallowed spin!\r\nAllowed: " + string.Join(", ", Program.OpenDB[Program.PcIndex].AllowedSps) + ", Entered: " + this.Sparr[index13]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             flag = false;
                             index13 = checked(num17 + 1);
                         }
                         checked { ++index13; }
                     }
                 }
-                if (Module1.OpenDB[Module1.PcIndex].ElementTest[4] != 0)
+                if (Program.OpenDB[Program.PcIndex].ElementTest[4] != 0)
                 {
-                    if (num6 > 0 & num6 > Module1.OpenDB[Module1.PcIndex].ElementTest[4])
+                    if (num6 > 0 & num6 > Program.OpenDB[Program.PcIndex].ElementTest[4])
                     {
-                        int num19 = (int)Interaction.MsgBox((object)("More spins than allowed!\r\nAllowed: " + Conversions.ToString(Module1.OpenDB[Module1.PcIndex].ElementTest[4]) + ", Entered: " + Conversions.ToString(num6)), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        int num19 = (int)Interaction.MsgBox((object)("More spins than allowed!\r\nAllowed: " + Conversions.ToString(Program.OpenDB[Program.PcIndex].ElementTest[4]) + ", Entered: " + Conversions.ToString(num6)), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         flag = false;
                         goto label_93;
                     }
@@ -4704,12 +4704,12 @@ namespace ClubCompFS
                         str = Strings.Trim(str.Replace("e", ""));
                     if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
                         str = Strings.Trim(str.Replace("<", ""));
-                    int jumpmin = Module1.Jumpmin;
-                    int jumpMax = Module1.JumpMax;
+                    int jumpmin = Program.Jumpmin;
+                    int jumpMax = Program.JumpMax;
                     int index2 = jumpmin;
                     while (index2 <= jumpMax)
                     {
-                        if (Operators.ConditionalCompareObjectEqual((object)str, Module1.ElDB[index2, 0], false))
+                        if (Operators.ConditionalCompareObjectEqual((object)str, Program.ElDB[index2, 0], false))
                         {
                             this.Jarr[Jnr] = strArray[index1];
                             checked { ++Jnr; }
@@ -4717,7 +4717,7 @@ namespace ClubCompFS
                         }
                         checked { ++index2; }
                     }
-                    if (index2 > Module1.JumpMax)
+                    if (index2 > Program.JumpMax)
                     {
                         int num5 = (int)Interaction.MsgBox((object)("Error in Element definition!\r\nElement no. =" + Conversions.ToString(ind)), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     }
@@ -4755,7 +4755,7 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    if (Strings.Len(Module1.OpArr[index].element) > 0 && !Module1.TstElPP(Module1.OpArr[index].element))
+                    if (Strings.Len(Program.OpArr[index].element) > 0 && !Program.TstElPP(Program.OpArr[index].element))
                     {
                         flag = false;
                         ElNo = index;
@@ -4799,30 +4799,30 @@ namespace ClubCompFS
                     string Right1 = "F" + el;
                     string Right2 = "C" + el;
                     string Right3 = "FC" + el;
-                    if (Strings.Len(Module1.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + Right3 + Lev;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + Right3 + Lev;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_26;
                         }
                         else if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + Right1 + Lev;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + Right1 + Lev;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_26;
                         }
                         else if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + Right2 + Lev;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + Right2 + Lev;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_26;
                         }
                         else if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + el + Lev;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + el + Lev;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_26;
                         }
                         else
@@ -4830,20 +4830,20 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        this.SpinEl(Module1.OpArr[index].element, ref ElOut, ref txt);
+                        this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
                         int Length = !(Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0) ? Strings.Len(ElOut) : checked(Strings.Len(ElOut) - 1);
                         string Left = Strings.Left(ElOut, Length);
                         if (Operators.CompareString(Left, el, false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? el + Lev : el + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? el + Lev : el + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right1, false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? Right1 + Lev : Right1 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right1 + Lev : Right1 + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right2, false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? Right2 + Lev : Right2 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right2 + Lev : Right2 + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right3, false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? Right3 + Lev : Right3 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right3 + Lev : Right3 + Lev + "+" + txt;
                         else
                             this.WrongEl();
-                        this.OpLista(indin, Module1.OpArr[index].element);
+                        this.OpLista(indin, Program.OpArr[index].element);
                         goto label_26;
                     }
                 }
@@ -4877,20 +4877,20 @@ namespace ClubCompFS
                 if (index > -1)
                 {
                     string str = el + Lev;
-                    if (Strings.Len(Module1.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         // ISSUE: explicit reference operation
-                        Module1.OpArr[index].element += str;
-                        this.OpLista(indin, Module1.OpArr[index].element);
+                        Program.OpArr[index].element += str;
+                        this.OpLista(indin, Program.OpArr[index].element);
                         goto label_12;
                     }
                     else
                     {
                         int Length = Strings.Len(el);
-                        if (Operators.CompareString(Strings.Left(Module1.OpArr[index].element, Length), el, false) == 0)
+                        if (Operators.CompareString(Strings.Left(Program.OpArr[index].element, Length), el, false) == 0)
                         {
-                            Module1.OpArr[index].element = str;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = str;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_12;
                         }
                         else
@@ -4931,32 +4931,32 @@ namespace ClubCompFS
                 int index = checked(indin + 1);
                 if (index > -1)
                 {
-                    if (Strings.Len(Module1.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         this.SpinEl(el, ref ElOut, ref txt);
                         el = ElOut;
                         if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + "FC" + el + Lev + txt;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + "FC" + el + Lev + txt;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_42;
                         }
                         else if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + "F" + el + Lev + txt;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + "F" + el + Lev + txt;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_42;
                         }
                         else if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + "C" + el + Lev + txt;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + "C" + el + Lev + txt;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_42;
                         }
                         else if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
-                            Module1.OpArr[index].element = Module1.OpArr[index].element + el + Lev + txt;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Program.OpArr[index].element + el + Lev + txt;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             goto label_42;
                         }
                         else
@@ -4964,36 +4964,36 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        this.SpinEl(Module1.OpArr[index].element, ref ElOut, ref txt);
+                        this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
                         int Length = !(Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0) ? Strings.Len(ElOut) : checked(Strings.Len(ElOut) - 1);
                         string Left = Strings.Left(ElOut, Length);
                         if (Operators.CompareString(Left, "CoSp", false) == 0)
-                            Module1.OpArr[index].element = "CoSp" + Lev + txt;
+                            Program.OpArr[index].element = "CoSp" + Lev + txt;
                         else if (Operators.CompareString(Left, "CCoSp", false) == 0)
-                            Module1.OpArr[index].element = "CCoSp" + Lev + txt;
+                            Program.OpArr[index].element = "CCoSp" + Lev + txt;
                         else if (Operators.CompareString(Left, "FCoSp", false) == 0)
-                            Module1.OpArr[index].element = "FCoSp" + Lev + txt;
+                            Program.OpArr[index].element = "FCoSp" + Lev + txt;
                         else if (Operators.CompareString(Left, "FCCoSp", false) == 0)
-                            Module1.OpArr[index].element = "FCCoSp" + Lev + txt;
+                            Program.OpArr[index].element = "FCCoSp" + Lev + txt;
                         else if (Operators.CompareString(Left, "CoSp2p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp2p" + Lev : "CoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp2p" + Lev : "CoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CoSp3p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp3p" + Lev : "CoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp3p" + Lev : "CoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCoSp2p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp2p" + Lev : "FCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp2p" + Lev : "FCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCoSp3p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp3p" + Lev : "FCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp3p" + Lev : "FCoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CCoSp2p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp2p" + Lev : "CCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp2p" + Lev : "CCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CCoSp3p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp3p" + Lev : "CCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp3p" + Lev : "CCoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCCoSp2p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp2p" + Lev : "FCCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp2p" + Lev : "FCCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCCoSp3p", false) == 0)
-                            Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp3p" + Lev : "FCCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp3p" + Lev : "FCCoSp3p" + Lev + "+" + txt;
                         else
                             this.WrongEl();
-                        this.OpLista(indin, Module1.OpArr[index].element);
+                        this.OpLista(indin, Program.OpArr[index].element);
                         goto label_42;
                     }
                 }
@@ -5040,7 +5040,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                if (Module1.WorkMode != 2)
+                if (Program.WorkMode != 2)
                     return;
                 this.UpdateVek();
                 MyProject.Forms.MainForm.MakeJudgeTxtFile(0);
@@ -5062,16 +5062,16 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    string edge = Module1.OpArr[index].edge;
+                    string edge = Program.OpArr[index].edge;
                     string str = Operators.CompareString(edge, "!", false) == 0 ? " !" : (Operators.CompareString(edge, "REP", false) == 0 ? " REP" : "");
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) != 0)
                     {
                         if (Operators.CompareString(segment, "Seg2", false) == 0)
-                            Module1.Vek[Module1.PNo].SSS_Seg2[index] = Module1.OpArr[index].element + str;
+                            Program.Vek[Program.PNo].SSS_Seg2[index] = Program.OpArr[index].element + str;
                     }
                     else
-                        Module1.Vek[Module1.PNo].SSS_Seg1[index] = Module1.OpArr[index].element + str;
+                        Program.Vek[Program.PNo].SSS_Seg1[index] = Program.OpArr[index].element + str;
                     checked { ++index; }
                 }
                 while (index <= 15);
@@ -5102,8 +5102,8 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    string element = Module1.OpArr[index].element;
-                    this.SpinEl(Module1.OpArr[index].element, ref element, ref txt);
+                    string element = Program.OpArr[index].element;
+                    this.SpinEl(Program.OpArr[index].element, ref element, ref txt);
                     if (!(Strings.Len(element) > 0 & this.SeqSpin(element)))
                     {
                         this.OplistaSelect();
@@ -5118,43 +5118,43 @@ namespace ClubCompFS
                             {
                                 if (!this.SeqSpin(element + Lev))
                                 {
-                                    this.OpLista(indin, Module1.OpArr[index].element);
+                                    this.OpLista(indin, Program.OpArr[index].element);
                                     this.OplistaSelect();
                                 }
                                 else
                                 {
-                                    Module1.OpArr[index].element = Strings.Len(txt) > 0 ? element + Lev + txt : element + Lev;
-                                    this.OpLista(indin, Module1.OpArr[index].element);
+                                    Program.OpArr[index].element = Strings.Len(txt) > 0 ? element + Lev + txt : element + Lev;
+                                    this.OpLista(indin, Program.OpArr[index].element);
                                     this.OplistaSelect();
                                 }
                             }
                             else if (!this.SeqSpin(Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev))
                             {
-                                this.OpLista(indin, Module1.OpArr[index].element);
+                                this.OpLista(indin, Program.OpArr[index].element);
                                 this.OplistaSelect();
                             }
                             else if (Strings.Len(txt) <= 0)
                             {
-                                Module1.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev;
-                                this.OpLista(indin, Module1.OpArr[index].element);
+                                Program.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev;
+                                this.OpLista(indin, Program.OpArr[index].element);
                                 this.OplistaSelect();
                             }
                             else
                             {
-                                Module1.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev + txt;
-                                this.OpLista(indin, Module1.OpArr[index].element);
+                                Program.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev + txt;
+                                this.OpLista(indin, Program.OpArr[index].element);
                                 this.OplistaSelect();
                             }
                         }
                         else if (!this.SeqSpin(element + Lev))
                         {
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            this.OpLista(indin, Program.OpArr[index].element);
                             this.OplistaSelect();
                         }
                         else
                         {
-                            Module1.OpArr[index].element = Strings.Len(txt) > 0 ? element + Lev + "+" + txt : element + Lev;
-                            this.OpLista(indin, Module1.OpArr[index].element);
+                            Program.OpArr[index].element = Strings.Len(txt) > 0 ? element + Lev + "+" + txt : element + Lev;
+                            this.OpLista(indin, Program.OpArr[index].element);
                             this.OplistaSelect();
                         }
                     }
@@ -5177,12 +5177,12 @@ namespace ClubCompFS
                 num1 = 1;
                 if (Strings.Len(txt) == 0)
                     return flag;
-                int jumpMax = Module1.JumpMax;
-                int elDbmax = Module1.ElDBmax;
+                int jumpMax = Program.JumpMax;
+                int elDbmax = Program.ElDBmax;
                 int index = jumpMax;
                 while (index <= elDbmax)
                 {
-                    if (Operators.ConditionalCompareObjectEqual((object)txt, Module1.ElDB[index, 0], false))
+                    if (Operators.ConditionalCompareObjectEqual((object)txt, Program.ElDB[index, 0], false))
                         return true;
                     checked { ++index; }
                 }
@@ -5206,22 +5206,22 @@ namespace ClubCompFS
                 int index = checked(indin + 1);
                 if (index <= -1)
                     return;
-                if (Strings.Len(Module1.OpArr[index].element) != 0)
+                if (Strings.Len(Program.OpArr[index].element) != 0)
                 {
                     Interaction.Beep();
-                    this.OpLista(indin, Module1.OpArr[index].element);
+                    this.OpLista(indin, Program.OpArr[index].element);
                 }
                 else
                 {
                     if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                        Module1.OpArr[index].element = "FC" + el;
+                        Program.OpArr[index].element = "FC" + el;
                     if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
-                        Module1.OpArr[index].element = "F" + el;
+                        Program.OpArr[index].element = "F" + el;
                     if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                        Module1.OpArr[index].element = "C" + el;
+                        Program.OpArr[index].element = "C" + el;
                     if (this.OpFlying.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor != Color.FromArgb((int)byte.MaxValue, 0, 0))
-                        Module1.OpArr[index].element = el;
-                    this.OpLista(indin, Module1.OpArr[index].element);
+                        Program.OpArr[index].element = el;
+                    this.OpLista(indin, Program.OpArr[index].element);
                 }
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -5235,22 +5235,22 @@ namespace ClubCompFS
             int index = checked(indin + 1);
             if (index <= 0)
                 return;
-            if (Strings.Len(Module1.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
             {
                 // ISSUE: explicit reference operation
-                Module1.OpArr[index].element += el;
+                Program.OpArr[index].element += el;
             }
             else
                 Interaction.Beep();
-            this.OpLista(indin, Module1.OpArr[index].element);
+            this.OpLista(indin, Program.OpArr[index].element);
         }
 
         private void ElDef2(int indin, string el)
         {
             int index = checked(indin + 1);
-            if (Strings.Len(Module1.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
                 this.ElDef(indin, el);
-            else if (Strings.InStr(1, Module1.OpArr[index].element, el) > 0)
+            else if (Strings.InStr(1, Program.OpArr[index].element, el) > 0)
                 this.ElSet(indin, "");
             else
                 this.OplistaSelect();
@@ -5261,9 +5261,9 @@ namespace ClubCompFS
             int index = checked(indin + 1);
             if (indin <= -1)
                 return;
-            if (Strings.Len(Module1.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
                 this.ElDef1(indin, el);
-            else if (Strings.InStr(1, Module1.OpArr[index].element, el) > 0)
+            else if (Strings.InStr(1, Program.OpArr[index].element, el) > 0)
                 this.ElSet(indin, "");
             else
                 this.OplistaSelect();
@@ -5279,10 +5279,10 @@ namespace ClubCompFS
                 num1 = 2;
                 int index = checked(indin + 1);
                 string str = el;
-                int num3 = Strings.InStr(1, Module1.OpArr[index].element, "COMBO", CompareMethod.Text);
-                int num4 = Strings.InStr(1, Module1.OpArr[index].element, "SEQ", CompareMethod.Text);
-                int num5 = Strings.InStr(1, Module1.OpArr[index].element, "REP", CompareMethod.Text);
-                if ((num3 > 0 | num4 > 0 | num5 > 0) & this.TstStSp((object)Module1.OpArr[index].element))
+                int num3 = Strings.InStr(1, Program.OpArr[index].element, "COMBO", CompareMethod.Text);
+                int num4 = Strings.InStr(1, Program.OpArr[index].element, "SEQ", CompareMethod.Text);
+                int num5 = Strings.InStr(1, Program.OpArr[index].element, "REP", CompareMethod.Text);
+                if ((num3 > 0 | num4 > 0 | num5 > 0) & this.TstStSp((object)Program.OpArr[index].element))
                 {
                     this.WrongEl();
                     Interaction.Beep();
@@ -5291,12 +5291,12 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    if ((num3 > 0 | num4 > 0 | num5 > 0) & !this.TstStSp((object)Module1.OpArr[index].element))
+                    if ((num3 > 0 | num4 > 0 | num5 > 0) & !this.TstStSp((object)Program.OpArr[index].element))
                         str += "*";
                     if (index > -1)
                     {
-                        Module1.OpArr[index].element = Strings.Len(Module1.OpArr[index].element) != 0 ? Module1.OpArr[index].element + "+" + str : Module1.OpArr[index].element + str;
-                        this.OpLista(indin, Module1.OpArr[index].element);
+                        Program.OpArr[index].element = Strings.Len(Program.OpArr[index].element) != 0 ? Program.OpArr[index].element + "+" + str : Program.OpArr[index].element + str;
+                        this.OpLista(indin, Program.OpArr[index].element);
                         goto label_12;
                     }
                     else
@@ -5329,12 +5329,12 @@ namespace ClubCompFS
                 num1 = 1;
                 if (!Operators.ConditionalCompareObjectNotEqual(el, (object)"", false))
                     return flag;
-                int spinMin = Module1.SpinMin;
-                int stepmax = Module1.Stepmax;
+                int spinMin = Program.SpinMin;
+                int stepmax = Program.Stepmax;
                 int index = spinMin;
                 while (index <= stepmax)
                 {
-                    if (Operators.ConditionalCompareObjectEqual(el, Module1.ElDB[index, 0], false))
+                    if (Operators.ConditionalCompareObjectEqual(el, Program.ElDB[index, 0], false))
                         return true;
                     checked { ++index; }
                 }
@@ -5366,10 +5366,10 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 object obj1 = (object)Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
-                string element = Module1.OpArr[checked(this.index + 1)].element;
+                string element = Program.OpArr[checked(this.index + 1)].element;
                 if (element.Contains("Sp"))
                 {
-                    this.SpinEl(Module1.OpArr[checked(this.index + 1)].element, ref ElOut, ref txt);
+                    this.SpinEl(Program.OpArr[checked(this.index + 1)].element, ref ElOut, ref txt);
                     if (this.F_Spin(ElOut))
                     {
                         this.SetFlying(ElOut);
@@ -5387,10 +5387,10 @@ namespace ClubCompFS
                     ElOut = element;
                 }
                 int num3 = Strings.Len(ElOut);
-                if (num3 > 1 & !Versioned.IsNumeric((object)Strings.Left(ElOut, 1)) & Module1.WorkMode > 1)
+                if (num3 > 1 & !Versioned.IsNumeric((object)Strings.Left(ElOut, 1)) & Program.WorkMode > 1)
                 {
                     int col = this.FindCol(ElOut);
-                    obj1 = RuntimeHelpers.GetObjectValue(Module1.ColArr[col]);
+                    obj1 = RuntimeHelpers.GetObjectValue(Program.ColArr[col]);
                     if (col <= 16)
                     {
                         if (Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0)
@@ -5412,7 +5412,7 @@ namespace ClubCompFS
                 }
                 else
                     this.ColorBox.Visible = false;
-                switch (Module1.WorkMode)
+                switch (Program.WorkMode)
                 {
                     case 2:
                     case 3:
@@ -5427,15 +5427,15 @@ namespace ClubCompFS
                         this.HideNum();
                         break;
                 }
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    this.OpMsg.Text = !(checked(this.index + 1) >= Module1.Vek[Module1.PNo].HTIndSeg1 & Module1.Vek[Module1.PNo].HTIndSeg1 != 0) ? "" : "After half time!";
+                    this.OpMsg.Text = !(checked(this.index + 1) >= Program.Vek[Program.PNo].HTIndSeg1 & Program.Vek[Program.PNo].HTIndSeg1 != 0) ? "" : "After half time!";
                     goto label_26;
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    this.OpMsg.Text = !(checked(this.index + 1) >= Module1.Vek[Module1.PNo].HTIndSeg2 & Module1.Vek[Module1.PNo].HTIndSeg2 != 0) ? "" : "After half time!";
+                    this.OpMsg.Text = !(checked(this.index + 1) >= Program.Vek[Program.PNo].HTIndSeg2 & Program.Vek[Program.PNo].HTIndSeg2 != 0) ? "" : "After half time!";
                     goto label_26;
                 }
                 else
@@ -5509,15 +5509,15 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         return;
-                    Module1.Vek[Module1.PNo].Falls_seg2 = value;
+                    Program.Vek[Program.PNo].Falls_seg2 = value;
                 }
                 else
-                    Module1.Vek[Module1.PNo].Falls_seg1 = value;
+                    Program.Vek[Program.PNo].Falls_seg1 = value;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -5833,16 +5833,16 @@ namespace ClubCompFS
                 while (!(Strings.InStr(1, str, "|", CompareMethod.Text) == 0 & Strings.InStr(1, str, ";", CompareMethod.Text) == 0));
                 if (Strings.Len(str) <= 0)
                     return;
-                if (!Module1.TstElPP(str))
+                if (!Program.TstElPP(str))
                 {
                     int num4 = (int)Interaction.MsgBox((object)"The element is not correct!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 }
                 else
                 {
                     this.DataGridView1.Rows[y].Cells[1].Value = (object)str;
-                    Module1.OpArr[checked(y + 1)].element = str;
-                    Module1.OpArr[checked(y + 1)].edge = str.Contains(" e") ? nameof(e) : "";
-                    this.DataGridView1.Rows[y].Cells[2].Value = (object)Module1.OpArr[checked(y + 1)].edge;
+                    Program.OpArr[checked(y + 1)].element = str;
+                    Program.OpArr[checked(y + 1)].edge = str.Contains(" e") ? nameof(e) : "";
+                    this.DataGridView1.Rows[y].Cells[2].Value = (object)Program.OpArr[checked(y + 1)].edge;
                     this.SendVek();
                     this.OpListaSet();
                 }
@@ -5920,7 +5920,7 @@ namespace ClubCompFS
                             return;
                     }
                 }
-                if (Module1.WorkMode == 2)
+                if (Program.WorkMode == 2)
                     this.FuncKeysModule5((Keys)e.KeyValue);
                 e.Handled = true;
             }
@@ -5934,7 +5934,7 @@ namespace ClubCompFS
         {
             if (value != Keys.F12)
                 return;
-            MyProject.Forms.MainForm.SendMessage(Module1.LastOutTxt);
+            MyProject.Forms.MainForm.SendMessage(Program.LastOutTxt);
         }
 
         private void DataGridView1_KeyPress(object sender, KeyPressEventArgs e)
@@ -5984,9 +5984,9 @@ namespace ClubCompFS
                     int index = checked(this.index + 1);
                     while (index <= 15)
                     {
-                        Module1.OpArr[index].element = "";
-                        Module1.OpArr[index].edge = "";
-                        Module1.OpArr[index].replay = "";
+                        Program.OpArr[index].element = "";
+                        Program.OpArr[index].edge = "";
+                        Program.OpArr[index].replay = "";
                         checked { ++index; }
                     }
                     this.SpinBackcolor();
@@ -5994,7 +5994,7 @@ namespace ClubCompFS
                     this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
                     this.BackColor_V();
                     this.HideNum();
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) != 0)
                     {
                         if (Operators.CompareString(segment, "Seg2", false) != 0)
@@ -6007,8 +6007,8 @@ namespace ClubCompFS
                         }
                         else
                         {
-                            if (Module1.Vek[Module1.PNo].HTIndSeg2 >= checked(this.index + 1))
-                                Module1.Vek[Module1.PNo].HTIndSeg2 = 0;
+                            if (Program.Vek[Program.PNo].HTIndSeg2 >= checked(this.index + 1))
+                                Program.Vek[Program.PNo].HTIndSeg2 = 0;
                             this.ClrDelInsR = 1;
                             this.VisaData();
                             this.SendVek();
@@ -6018,8 +6018,8 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        if (Module1.Vek[Module1.PNo].HTIndSeg1 >= checked(this.index + 1))
-                            Module1.Vek[Module1.PNo].HTIndSeg1 = 0;
+                        if (Program.Vek[Program.PNo].HTIndSeg1 >= checked(this.index + 1))
+                            Program.Vek[Program.PNo].HTIndSeg1 = 0;
                         this.ClrDelInsR = 1;
                         this.VisaData();
                         this.SendVek();
@@ -6042,22 +6042,22 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                Module1.ColArr[1] = (object)Color.FromArgb(212, 225, 1);
-                Module1.ColArr[2] = (object)Color.FromArgb(133, 130, 0);
-                Module1.ColArr[3] = (object)Color.FromArgb(198, 196, 198);
-                Module1.ColArr[4] = (object)Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
-                Module1.ColArr[5] = (object)Color.FromArgb(0, 0, 254);
-                Module1.ColArr[6] = (object)Color.FromArgb(0, 254, 254);
-                Module1.ColArr[7] = (object)Color.FromArgb(254, 0, 254);
-                Module1.ColArr[8] = (object)Color.FromArgb(254, 254, 0);
-                Module1.ColArr[9] = (object)Color.FromArgb(203, 170, 90);
-                Module1.ColArr[10] = (object)Color.FromArgb(0, 254, 254);
-                Module1.ColArr[11] = (object)Color.FromArgb(0, 254, 0);
-                Module1.ColArr[12] = (object)Color.FromArgb(133, 130, 0);
-                Module1.ColArr[16] = (object)Color.FromArgb((int)byte.MaxValue, 192, 128);
-                Module1.ColArr[13] = (object)Color.FromArgb(133, 0, 0);
-                Module1.ColArr[14] = (object)Color.FromArgb(254, 254, 0);
-                Module1.ColArr[15] = (object)Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
+                Program.ColArr[1] = (object)Color.FromArgb(212, 225, 1);
+                Program.ColArr[2] = (object)Color.FromArgb(133, 130, 0);
+                Program.ColArr[3] = (object)Color.FromArgb(198, 196, 198);
+                Program.ColArr[4] = (object)Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
+                Program.ColArr[5] = (object)Color.FromArgb(0, 0, 254);
+                Program.ColArr[6] = (object)Color.FromArgb(0, 254, 254);
+                Program.ColArr[7] = (object)Color.FromArgb(254, 0, 254);
+                Program.ColArr[8] = (object)Color.FromArgb(254, 254, 0);
+                Program.ColArr[9] = (object)Color.FromArgb(203, 170, 90);
+                Program.ColArr[10] = (object)Color.FromArgb(0, 254, 254);
+                Program.ColArr[11] = (object)Color.FromArgb(0, 254, 0);
+                Program.ColArr[12] = (object)Color.FromArgb(133, 130, 0);
+                Program.ColArr[16] = (object)Color.FromArgb((int)byte.MaxValue, 192, 128);
+                Program.ColArr[13] = (object)Color.FromArgb(133, 0, 0);
+                Program.ColArr[14] = (object)Color.FromArgb(254, 254, 0);
+                Program.ColArr[15] = (object)Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -6134,10 +6134,10 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    Module1.OpArr[checked(this.index + 1)].replay = Operators.CompareString(Module1.OpArr[checked(this.index + 1)].replay, "R", false) == 0 ? "" : "R";
+                    Program.OpArr[checked(this.index + 1)].replay = Operators.CompareString(Program.OpArr[checked(this.index + 1)].replay, "R", false) == 0 ? "" : "R";
                     this.ClrDelInsR = 1;
                 }
-                this.DataGridView1.Rows[this.index].Cells[3].Value = (object)Module1.OpArr[checked(this.index + 1)].replay;
+                this.DataGridView1.Rows[this.index].Cells[3].Value = (object)Program.OpArr[checked(this.index + 1)].replay;
                 this.SendVek();
                 this.OplistaSelect();
                 this.ClrDelInsR = 0;
@@ -6154,156 +6154,156 @@ namespace ClubCompFS
         private void SpinBackcolor()
         {
             Button sit = this.Sit;
-            object obj1 = Module1.ColArr[8];
+            object obj1 = Program.ColArr[8];
             Color aqua = Color.Aqua;
             Color color1 = obj1 != null ? (Color)obj1 : aqua;
             sit.BackColor = color1;
             Button opSsp0 = this.OpSSp0;
-            object obj2 = Module1.ColArr[8];
+            object obj2 = Program.ColArr[8];
             Color color2 = obj2 != null ? (Color)obj2 : aqua;
             opSsp0.BackColor = color2;
             Button opSsp1 = this.OpSSp1;
-            object obj3 = Module1.ColArr[8];
+            object obj3 = Program.ColArr[8];
             Color color3 = obj3 != null ? (Color)obj3 : aqua;
             opSsp1.BackColor = color3;
             Button opSsp2 = this.OpSSp2;
-            object obj4 = Module1.ColArr[8];
+            object obj4 = Program.ColArr[8];
             Color color4 = obj4 != null ? (Color)obj4 : aqua;
             opSsp2.BackColor = color4;
             Button opSsp3 = this.OpSSp3;
-            object obj5 = Module1.ColArr[8];
+            object obj5 = Program.ColArr[8];
             Color color5 = obj5 != null ? (Color)obj5 : aqua;
             opSsp3.BackColor = color5;
             Button opSsp4 = this.OpSSp4;
-            object obj6 = Module1.ColArr[8];
+            object obj6 = Program.ColArr[8];
             Color color6 = obj6 != null ? (Color)obj6 : aqua;
             opSsp4.BackColor = color6;
             Button upright = this.Upright;
-            object obj7 = Module1.ColArr[10];
+            object obj7 = Program.ColArr[10];
             Color color7 = obj7 != null ? (Color)obj7 : aqua;
             upright.BackColor = color7;
             Button opUsp0 = this.OpUSp0;
-            object obj8 = Module1.ColArr[10];
+            object obj8 = Program.ColArr[10];
             Color color8 = obj8 != null ? (Color)obj8 : aqua;
             opUsp0.BackColor = color8;
             Button opUsp1 = this.OpUSp1;
-            object obj9 = Module1.ColArr[10];
+            object obj9 = Program.ColArr[10];
             Color color9 = obj9 != null ? (Color)obj9 : aqua;
             opUsp1.BackColor = color9;
             Button opUsp2 = this.OpUSp2;
-            object obj10 = Module1.ColArr[10];
+            object obj10 = Program.ColArr[10];
             Color color10 = obj10 != null ? (Color)obj10 : aqua;
             opUsp2.BackColor = color10;
             Button opUsp3 = this.OpUSp3;
-            object obj11 = Module1.ColArr[10];
+            object obj11 = Program.ColArr[10];
             Color color11 = obj11 != null ? (Color)obj11 : aqua;
             opUsp3.BackColor = color11;
             Button opUsp4 = this.OpUSp4;
-            object obj12 = Module1.ColArr[10];
+            object obj12 = Program.ColArr[10];
             Color color12 = obj12 != null ? (Color)obj12 : aqua;
             opUsp4.BackColor = color12;
             Button camel = this.Camel;
-            object obj13 = Module1.ColArr[11];
+            object obj13 = Program.ColArr[11];
             Color color13 = obj13 != null ? (Color)obj13 : aqua;
             camel.BackColor = color13;
             Button opCsp0 = this.OpCSp0;
-            object obj14 = Module1.ColArr[11];
+            object obj14 = Program.ColArr[11];
             Color color14 = obj14 != null ? (Color)obj14 : aqua;
             opCsp0.BackColor = color14;
             Button opCsp1 = this.OpCSp1;
-            object obj15 = Module1.ColArr[11];
+            object obj15 = Program.ColArr[11];
             Color color15 = obj15 != null ? (Color)obj15 : aqua;
             opCsp1.BackColor = color15;
             Button opCsp2 = this.OpCSp2;
-            object obj16 = Module1.ColArr[11];
+            object obj16 = Program.ColArr[11];
             Color color16 = obj16 != null ? (Color)obj16 : aqua;
             opCsp2.BackColor = color16;
             Button opCsp3 = this.OpCSp3;
-            object obj17 = Module1.ColArr[11];
+            object obj17 = Program.ColArr[11];
             Color color17 = obj17 != null ? (Color)obj17 : aqua;
             opCsp3.BackColor = color17;
             Button opCsp4 = this.OpCSp4;
-            object obj18 = Module1.ColArr[11];
+            object obj18 = Program.ColArr[11];
             Color color18 = obj18 != null ? (Color)obj18 : aqua;
             opCsp4.BackColor = color18;
             Button comboSpin2 = this.ComboSpin_2;
-            object obj19 = Module1.ColArr[12];
+            object obj19 = Program.ColArr[12];
             Color color19 = obj19 != null ? (Color)obj19 : aqua;
             comboSpin2.BackColor = color19;
             Button opCoSp02 = this.OpCoSp0_2;
-            object obj20 = Module1.ColArr[12];
+            object obj20 = Program.ColArr[12];
             Color color20 = obj20 != null ? (Color)obj20 : aqua;
             opCoSp02.BackColor = color20;
             Button opCoSp12 = this.OpCoSp1_2;
-            object obj21 = Module1.ColArr[12];
+            object obj21 = Program.ColArr[12];
             Color color21 = obj21 != null ? (Color)obj21 : aqua;
             opCoSp12.BackColor = color21;
             Button opCoSp22 = this.OpCoSp2_2;
-            object obj22 = Module1.ColArr[12];
+            object obj22 = Program.ColArr[12];
             Color color22 = obj22 != null ? (Color)obj22 : aqua;
             opCoSp22.BackColor = color22;
             Button opCoSp32 = this.OpCoSp3_2;
-            object obj23 = Module1.ColArr[12];
+            object obj23 = Program.ColArr[12];
             Color color23 = obj23 != null ? (Color)obj23 : aqua;
             opCoSp32.BackColor = color23;
             Button opCoSp42 = this.OpCoSp4_2;
-            object obj24 = Module1.ColArr[12];
+            object obj24 = Program.ColArr[12];
             Color color24 = obj24 != null ? (Color)obj24 : aqua;
             opCoSp42.BackColor = color24;
             Button comboSpin3 = this.ComboSpin_3;
-            object obj25 = Module1.ColArr[9];
+            object obj25 = Program.ColArr[9];
             Color color25 = obj25 != null ? (Color)obj25 : aqua;
             comboSpin3.BackColor = color25;
             Button opCoSp03 = this.OpCoSp0_3;
-            object obj26 = Module1.ColArr[9];
+            object obj26 = Program.ColArr[9];
             Color color26 = obj26 != null ? (Color)obj26 : aqua;
             opCoSp03.BackColor = color26;
             Button opCoSp13 = this.OpCoSp1_3;
-            object obj27 = Module1.ColArr[9];
+            object obj27 = Program.ColArr[9];
             Color color27 = obj27 != null ? (Color)obj27 : aqua;
             opCoSp13.BackColor = color27;
             Button opCoSp23 = this.OpCoSp2_3;
-            object obj28 = Module1.ColArr[9];
+            object obj28 = Program.ColArr[9];
             Color color28 = obj28 != null ? (Color)obj28 : aqua;
             opCoSp23.BackColor = color28;
             Button opCoSp33 = this.OpCoSp3_3;
-            object obj29 = Module1.ColArr[9];
+            object obj29 = Program.ColArr[9];
             Color color29 = obj29 != null ? (Color)obj29 : aqua;
             opCoSp33.BackColor = color29;
             Button opCoSp43 = this.OpCoSp4_3;
-            object obj30 = Module1.ColArr[9];
+            object obj30 = Program.ColArr[9];
             Color color30 = obj30 != null ? (Color)obj30 : aqua;
             opCoSp43.BackColor = color30;
             Button straight = this.Straight;
-            object obj31 = Module1.ColArr[13];
+            object obj31 = Program.ColArr[13];
             Color color31 = obj31 != null ? (Color)obj31 : aqua;
             straight.BackColor = color31;
             Button opStSq0 = this.OpStSq0;
-            object obj32 = Module1.ColArr[13];
+            object obj32 = Program.ColArr[13];
             Color color32 = obj32 != null ? (Color)obj32 : aqua;
             opStSq0.BackColor = color32;
             Button opStSq1 = this.OpStSq1;
-            object obj33 = Module1.ColArr[13];
+            object obj33 = Program.ColArr[13];
             Color color33 = obj33 != null ? (Color)obj33 : aqua;
             opStSq1.BackColor = color33;
             Button opStSq2 = this.OpStSq2;
-            object obj34 = Module1.ColArr[13];
+            object obj34 = Program.ColArr[13];
             Color color34 = obj34 != null ? (Color)obj34 : aqua;
             opStSq2.BackColor = color34;
             Button opStSq3 = this.OpStSq3;
-            object obj35 = Module1.ColArr[13];
+            object obj35 = Program.ColArr[13];
             Color color35 = obj35 != null ? (Color)obj35 : aqua;
             opStSq3.BackColor = color35;
             Button opStSq4 = this.OpStSq4;
-            object obj36 = Module1.ColArr[13];
+            object obj36 = Program.ColArr[13];
             Color color36 = obj36 != null ? (Color)obj36 : aqua;
             opStSq4.BackColor = color36;
             Button opChSq0 = this.OpChSq0;
-            object obj37 = Module1.ColArr[13];
+            object obj37 = Program.ColArr[13];
             Color color37 = obj37 != null ? (Color)obj37 : aqua;
             opChSq0.BackColor = color37;
             Button opChSq1 = this.OpChSq1;
-            object obj38 = Module1.ColArr[13];
+            object obj38 = Program.ColArr[13];
             Color color38 = obj38 != null ? (Color)obj38 : aqua;
             opChSq1.BackColor = color38;
         }
@@ -6312,63 +6312,63 @@ namespace ClubCompFS
         {
             this.OpStop.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
             Button axel = this.Axel;
-            object obj1 = Module1.ColArr[2];
+            object obj1 = Program.ColArr[2];
             Color aqua = Color.Aqua;
             Color color1 = obj1 != null ? (Color)obj1 : aqua;
             axel.BackColor = color1;
             Button opA1 = this.OpA1;
-            object obj2 = Module1.ColArr[2];
+            object obj2 = Program.ColArr[2];
             Color color2 = obj2 != null ? (Color)obj2 : aqua;
             opA1.BackColor = color2;
             Button toeLoop = this.ToeLoop;
-            object obj3 = Module1.ColArr[3];
+            object obj3 = Program.ColArr[3];
             Color color3 = obj3 != null ? (Color)obj3 : aqua;
             toeLoop.BackColor = color3;
             Button opT1 = this.OpT1;
-            object obj4 = Module1.ColArr[3];
+            object obj4 = Program.ColArr[3];
             Color color4 = obj4 != null ? (Color)obj4 : aqua;
             opT1.BackColor = color4;
             Button loopText = this.LoopText;
-            object obj5 = Module1.ColArr[4];
+            object obj5 = Program.ColArr[4];
             Color color5 = obj5 != null ? (Color)obj5 : aqua;
             loopText.BackColor = color5;
             Button opL1 = this.OpL1;
-            object obj6 = Module1.ColArr[4];
+            object obj6 = Program.ColArr[4];
             Color color6 = obj6 != null ? (Color)obj6 : aqua;
             opL1.BackColor = color6;
             Button flip = this.Flip;
-            object obj7 = Module1.ColArr[5];
+            object obj7 = Program.ColArr[5];
             Color color7 = obj7 != null ? (Color)obj7 : aqua;
             flip.BackColor = color7;
             Button opF1 = this.OpF1;
-            object obj8 = Module1.ColArr[5];
+            object obj8 = Program.ColArr[5];
             Color color8 = obj8 != null ? (Color)obj8 : aqua;
             opF1.BackColor = color8;
             Button lutz = this.Lutz;
-            object obj9 = Module1.ColArr[6];
+            object obj9 = Program.ColArr[6];
             Color color9 = obj9 != null ? (Color)obj9 : aqua;
             lutz.BackColor = color9;
             Button opLz1 = this.OpLz1;
-            object obj10 = Module1.ColArr[6];
+            object obj10 = Program.ColArr[6];
             Color color10 = obj10 != null ? (Color)obj10 : aqua;
             opLz1.BackColor = color10;
             Button salchow = this.Salchow;
-            object obj11 = Module1.ColArr[7];
+            object obj11 = Program.ColArr[7];
             Color color11 = obj11 != null ? (Color)obj11 : aqua;
             salchow.BackColor = color11;
             Button opS1 = this.OpS1;
-            object obj12 = Module1.ColArr[7];
+            object obj12 = Program.ColArr[7];
             Color color12 = obj12 != null ? (Color)obj12 : aqua;
             opS1.BackColor = color12;
             this.OpSEQ.BackColor = Color.FromArgb(133, 0, 0);
             this.OpCOMBO.BackColor = Color.FromArgb(254, 0, 254);
             this.OpClearEntry.BackColor = Color.FromArgb(254, 254, 0);
             Button choreoSeq = this.ChoreoSeq;
-            object obj13 = Module1.ColArr[14];
+            object obj13 = Program.ColArr[14];
             Color color13 = obj13 != null ? (Color)obj13 : aqua;
             choreoSeq.BackColor = color13;
             Button chSq1 = this.ChSq1;
-            object obj14 = Module1.ColArr[14];
+            object obj14 = Program.ColArr[14];
             Color color14 = obj14 != null ? (Color)obj14 : aqua;
             chSq1.BackColor = color14;
             this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
@@ -6389,16 +6389,16 @@ namespace ClubCompFS
                 num1 = 2;
                 this.index = -1;
                 this.ClrDelInsR = 0;
-                Module1.OpArr = (Module1.OpType[])null;
-                Module1.OpArr = new Module1.OpType[16];
-                Module1.DoHTrun = false;
+                Program.OpArr = (Program.OpType[])null;
+                Program.OpArr = new Program.OpType[16];
+                Program.DoHTrun = false;
                 this.HideNum();
                 this.InitColArr();
-                this.Text = "ELEMENT INPUT: " + Strings.UCase(Module1.Category.Name) + Module1.SubCat() + ": " + Strings.UCase(Module1.GetSegTxt(Module1.Segment));
+                this.Text = "ELEMENT INPUT: " + Strings.UCase(Program.Category.Name) + Program.SubCat() + ": " + Strings.UCase(Program.GetSegTxt(Program.Segment));
                 this.ButtonBackColor();
                 this.SpinBackcolor();
                 this.BackColor_V();
-                if (Module1.WorkMode < 2)
+                if (Program.WorkMode < 2)
                 {
                     this.ChSq1.Visible = false;
                     this.OpStSq0.Visible = false;
@@ -6436,15 +6436,15 @@ namespace ClubCompFS
                     this.opREP.Visible = false;
                     this.ColorBox.Visible = false;
                 }
-                if (Module1.WorkMode > 1)
+                if (Program.WorkMode > 1)
                 {
-                    string segment1 = Module1.Segment;
+                    string segment1 = Program.Segment;
                     if (Operators.CompareString(segment1, "Seg1", false) == 0)
                     {
-                        if (Module1.Bonus_Sel("Seg1"))
+                        if (Program.Bonus_Sel("Seg1"))
                         {
-                            if (Module1.Vek[Module1.PNo].Bonus_Seg1 > 0)
-                                this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg1);
+                            if (Program.Vek[Program.PNo].Bonus_Seg1 > 0)
+                                this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg1);
                             else
                                 this.Bonus.Text = "BONUS  0";
                             this.Bonus.Visible = true;
@@ -6460,10 +6460,10 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                     {
-                        if (Module1.Bonus_Sel("Seg2"))
+                        if (Program.Bonus_Sel("Seg2"))
                         {
-                            if (Module1.Vek[Module1.PNo].Bonus_Seg2 > 0)
-                                this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg2);
+                            if (Program.Vek[Program.PNo].Bonus_Seg2 > 0)
+                                this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg2);
                             else
                                 this.Bonus.Text = "BONUS  0";
                             this.Bonus.Visible = true;
@@ -6477,11 +6477,11 @@ namespace ClubCompFS
                             this.Bonus_plus.Visible = false;
                         }
                     }
-                    string segment2 = Module1.Segment;
+                    string segment2 = Program.Segment;
                     if (Operators.CompareString(segment2, "Seg1", false) == 0)
-                        this.Falls_out.Text = "FALLS  " + Conversions.ToString(Module1.Vek[Module1.PNo].Falls_seg1);
+                        this.Falls_out.Text = "FALLS  " + Conversions.ToString(Program.Vek[Program.PNo].Falls_seg1);
                     else if (Operators.CompareString(segment2, "Seg2", false) == 0)
-                        this.Falls_out.Text = "FALLS  " + Conversions.ToString(Module1.Vek[Module1.PNo].Falls_seg2);
+                        this.Falls_out.Text = "FALLS  " + Conversions.ToString(Program.Vek[Program.PNo].Falls_seg2);
                     this.OpDG.Visible = true;
                     this.OpQ.Visible = true;
                     this.OpUR.Visible = true;
@@ -6496,17 +6496,17 @@ namespace ClubCompFS
                     this.btnDED.Visible = true;
                     this.OpMsg.Visible = true;
                     this.opREP.Visible = true;
-                    string segment3 = Module1.Segment;
+                    string segment3 = Program.Segment;
                     if (Operators.CompareString(segment3, "Seg1", false) == 0)
                     {
-                        if (Module1.HalfTime_Sel())
+                        if (Program.HalfTime_Sel())
                             this.HalfTime.Visible = true;
                         else
                             this.HalfTime.Visible = false;
                     }
                     else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                     {
-                        if (Module1.HalfTime_Sel())
+                        if (Program.HalfTime_Sel())
                             this.HalfTime.Visible = true;
                         else
                             this.HalfTime.Visible = false;
@@ -6542,19 +6542,19 @@ namespace ClubCompFS
                     this.OpMsg.Visible = false;
                     this.Spin_V.Visible = false;
                 }
-                this.OpName.Text = Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
-                this.OpClub.Text = Module1.Vek[Module1.PNo].Club;
+                this.OpName.Text = Program.Vek[Program.PNo].Name.FName + " " + Program.Vek[Program.PNo].Name.LName;
+                this.OpClub.Text = Program.Vek[Program.PNo].Club;
                 this.index = 0;
                 int index = 1;
                 do
                 {
                     string str1 = "";
                     string str2 = "";
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        str2 = Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg1[index], (string)null, false) == 0 ? "" : Module1.Vek[Module1.PNo].SSS_Seg1[index];
+                        str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg1[index];
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        str2 = Operators.CompareString(Module1.Vek[Module1.PNo].SSS_Seg2[index], (string)null, false) == 0 ? "" : Module1.Vek[Module1.PNo].SSS_Seg2[index];
+                        str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2[index];
                     if (str2.Contains(" e"))
                         str1 = "e";
                     int num3 = Strings.InStr(1, str2, " !", CompareMethod.Text);
@@ -6563,15 +6563,15 @@ namespace ClubCompFS
                         str1 += "!";
                         str2 = Strings.Left(str2, checked(num3 - 1));
                     }
-                    Module1.OpArr[index].element = str2;
-                    Module1.OpArr[index].edge = str1;
+                    Program.OpArr[index].element = str2;
+                    Program.OpArr[index].edge = str1;
                     checked { ++index; }
                 }
                 while (index <= 15);
                 this.VisaData();
-                if (Module1.WorkMode == 2)
+                if (Program.WorkMode == 2)
                 {
-                    Module1.Get_CC_Time();
+                    Program.Get_CC_Time();
                     MyProject.Forms.MainForm.MakeJudgeTxtFile(0);
                 }
                 this.OpListaSet();
@@ -6629,7 +6629,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    Module1.OpType[] opArr = Module1.OpArr;
+                    Program.OpType[] opArr = Program.OpArr;
                     int index = checked(this.index + 1);
                     opArr[index].element = "";
                     opArr[index].edge = "";
@@ -6639,14 +6639,14 @@ namespace ClubCompFS
                     this.BackColor_V();
                     this.SpinBackcolor();
                     this.HideNum();
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) != 0)
                     {
-                        if (Operators.CompareString(segment, "Seg2", false) == 0 && Module1.Vek[Module1.PNo].HTIndSeg2 == checked(this.index + 1))
-                            Module1.Vek[Module1.PNo].HTIndSeg2 = 0;
+                        if (Operators.CompareString(segment, "Seg2", false) == 0 && Program.Vek[Program.PNo].HTIndSeg2 == checked(this.index + 1))
+                            Program.Vek[Program.PNo].HTIndSeg2 = 0;
                     }
-                    else if (Module1.Vek[Module1.PNo].HTIndSeg1 == checked(this.index + 1))
-                        Module1.Vek[Module1.PNo].HTIndSeg1 = 0;
+                    else if (Program.Vek[Program.PNo].HTIndSeg1 == checked(this.index + 1))
+                        Program.Vek[Program.PNo].HTIndSeg1 = 0;
                     this.ClrDelInsR = 1;
                     DataGridView dataGridView1 = this.DataGridView1;
                     dataGridView1.Rows[this.index].Cells[1].Value = (object)"";
@@ -6687,11 +6687,11 @@ namespace ClubCompFS
                 flag = false;
                 if (Strings.Len(txt) == 0)
                     return flag;
-                int spinMin = Module1.SpinMin;
-                int spinmax = Module1.Spinmax;
+                int spinMin = Program.SpinMin;
+                int spinmax = Program.Spinmax;
                 for (int index = spinMin; index <= spinmax; ++index)
                 {
-                    if (Operators.ConditionalCompareObjectEqual((object)txt, Module1.ElDB[index, 0], false))
+                    if (Operators.ConditionalCompareObjectEqual((object)txt, Program.ElDB[index, 0], false))
                         return true;
                 }
                 return flag;
@@ -6740,7 +6740,7 @@ namespace ClubCompFS
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 int index = checked(this.index + 1);
-                if (this.index > -1 & Strings.Len(Module1.OpArr[index].element) == 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[index].element) == 0)
                 {
                     if (this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
@@ -6751,7 +6751,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    this.SpinEl(Module1.OpArr[index].element, ref ElOut, ref txt);
+                    this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
                     if (Strings.Len(txt) > 0)
                         txt = txt;
                     if (this.F_Spin(ElOut))
@@ -6772,7 +6772,7 @@ namespace ClubCompFS
                         string Left1 = str2;
                         if (Operators.CompareString(Left1, "SSp", false) == 0 || Operators.CompareString(Left1, "LSp", false) == 0 || Operators.CompareString(Left1, "USp", false) == 0 || Operators.CompareString(Left1, "CSp", false) == 0 || Operators.CompareString(Left1, "CoSp", false) == 0)
                         {
-                            Module1.OpArr[index].element = !this.Spin_Change("C" + str2) ? "C" + ElOut : (Strings.Len(txt) <= 0 ? "C" + ElOut : "C" + ElOut + txt);
+                            Program.OpArr[index].element = !this.Spin_Change("C" + str2) ? "C" + ElOut : (Strings.Len(txt) <= 0 ? "C" + ElOut : "C" + ElOut + txt);
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
                         else if (Operators.CompareString(Left1, "FSSp", false) == 0 || Operators.CompareString(Left1, "FLSp", false) == 0 || Operators.CompareString(Left1, "FUSp", false) == 0 || Operators.CompareString(Left1, "FCSp", false) == 0 || Operators.CompareString(Left1, "FCoSp", false) == 0)
@@ -6781,12 +6781,12 @@ namespace ClubCompFS
                             if (this.Spin_Change("FC" + Strings.Right(str2, checked(num3 - 1))))
                             {
                                 int num4 = Strings.Len(ElOut);
-                                Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num4 - 1)) : "FC" + Strings.Right(ElOut, checked(num4 - 1)) + txt;
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num4 - 1)) : "FC" + Strings.Right(ElOut, checked(num4 - 1)) + txt;
                             }
                             else
                             {
                                 int num5 = Strings.Len(ElOut);
-                                Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num5 - 1)) : "FC" + Strings.Right(ElOut, checked(num5 - 1)) + txt;
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num5 - 1)) : "FC" + Strings.Right(ElOut, checked(num5 - 1)) + txt;
                             }
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
@@ -6796,13 +6796,13 @@ namespace ClubCompFS
                             if (this.Spin_Change(Strings.Right(str2, checked(num6 - 1))))
                             {
                                 int num7 = Strings.Len(ElOut);
-                                Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? Strings.Right(ElOut, checked(num7 - 1)) : Strings.Right(ElOut, checked(num7 - 1)) + txt;
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Strings.Right(ElOut, checked(num7 - 1)) : Strings.Right(ElOut, checked(num7 - 1)) + txt;
                             }
                             else
                             {
                                 int num8 = Strings.Len(ElOut);
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = Strings.Right(ElOut, checked(num8 - 1));
+                                Program.OpArr[index].element = Strings.Right(ElOut, checked(num8 - 1));
                             }
                             this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
                         }
@@ -6812,12 +6812,12 @@ namespace ClubCompFS
                             if (this.Spin_Change("F" + Strings.Right(str2, checked(num9 - 2))))
                             {
                                 int num10 = Strings.Len(ElOut);
-                                Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num10 - 2)) : "F" + Strings.Right(ElOut, checked(num10 - 2)) + txt;
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num10 - 2)) : "F" + Strings.Right(ElOut, checked(num10 - 2)) + txt;
                             }
                             else
                             {
                                 int num11 = Strings.Len(ElOut);
-                                Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num11 - 2)) : "F" + Strings.Right(ElOut, checked(num11 - 2)) + txt;
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num11 - 2)) : "F" + Strings.Right(ElOut, checked(num11 - 2)) + txt;
                             }
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
@@ -6827,15 +6827,15 @@ namespace ClubCompFS
                             if (Operators.CompareString(Left2, "2p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "CCoSp2p" + str1 + txt;
+                                Program.OpArr[index].element = "CCoSp2p" + str1 + txt;
                             }
                             else if (Operators.CompareString(Left2, "3p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "CCoSp3p" + str1 + txt;
+                                Program.OpArr[index].element = "CCoSp3p" + str1 + txt;
                             }
                             else
-                                Module1.OpArr[index].element = "CCoSp" + str1;
+                                Program.OpArr[index].element = "CCoSp" + str1;
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
                         else if (Operators.CompareString(Left1, "CCoSp2p", false) == 0 || Operators.CompareString(Left1, "CCoSp3p", false) == 0)
@@ -6844,15 +6844,15 @@ namespace ClubCompFS
                             if (Operators.CompareString(Left3, "2p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "CoSp2p" + str1 + txt;
+                                Program.OpArr[index].element = "CoSp2p" + str1 + txt;
                             }
                             else if (Operators.CompareString(Left3, "3p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "CoSp3p" + str1 + txt;
+                                Program.OpArr[index].element = "CoSp3p" + str1 + txt;
                             }
                             else
-                                Module1.OpArr[index].element = "CoSp" + str1;
+                                Program.OpArr[index].element = "CoSp" + str1;
                             this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
                         }
                         else if (Operators.CompareString(Left1, "FCCoSp2p", false) == 0 || Operators.CompareString(Left1, "FCCoSp3p", false) == 0)
@@ -6861,15 +6861,15 @@ namespace ClubCompFS
                             if (Operators.CompareString(Left4, "2p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "FCoSp2p" + str1 + txt;
+                                Program.OpArr[index].element = "FCoSp2p" + str1 + txt;
                             }
                             else if (Operators.CompareString(Left4, "3p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "FCoSp3p" + str1 + txt;
+                                Program.OpArr[index].element = "FCoSp3p" + str1 + txt;
                             }
                             else
-                                Module1.OpArr[index].element = "FCoSp" + str1;
+                                Program.OpArr[index].element = "FCoSp" + str1;
                             this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
                         }
                         else if (Operators.CompareString(Left1, "FCoSp2p", false) == 0 || Operators.CompareString(Left1, "FCoSp3p", false) == 0)
@@ -6878,18 +6878,18 @@ namespace ClubCompFS
                             if (Operators.CompareString(Left5, "2p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "FCCoSp2p" + str1 + txt;
+                                Program.OpArr[index].element = "FCCoSp2p" + str1 + txt;
                             }
                             else if (Operators.CompareString(Left5, "3p", false) == 0)
                             {
                                 this.BackColor_V();
-                                Module1.OpArr[index].element = "FCCoSp3p" + str1 + txt;
+                                Program.OpArr[index].element = "FCCoSp3p" + str1 + txt;
                             }
                             else
-                                Module1.OpArr[index].element = "FCCoSp" + str1;
+                                Program.OpArr[index].element = "FCCoSp" + str1;
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
-                        this.OpLista(this.index, Module1.OpArr[index].element);
+                        this.OpLista(this.index, Program.OpArr[index].element);
                         goto label_64;
                     }
                     else
@@ -6927,7 +6927,7 @@ namespace ClubCompFS
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 int index = checked(this.index + 1);
-                if (this.index > -1 & Strings.Len(Module1.OpArr[index].element) == 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[index].element) == 0)
                 {
                     if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
@@ -6936,12 +6936,12 @@ namespace ClubCompFS
                     this.OplistaSelect();
                     return;
                 }
-                this.SpinEl(Module1.OpArr[index].element, ref ElOut, ref txt);
+                this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
                 if (this.F_Spin(ElOut))
                 {
                     if (Operators.CompareString(Strings.Left(ElOut, 1), "F", false) != 0)
                     {
-                        Module1.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + ElOut : "F" + ElOut + txt;
+                        Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + ElOut : "F" + ElOut + txt;
                         this.OpFlying.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                     }
                     else
@@ -6950,21 +6950,21 @@ namespace ClubCompFS
                         if (!this.Spin_Change(Strings.Right(ElOut, checked(num3 - 1))))
                         {
                             this.BackColor_V();
-                            Module1.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
+                            Program.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
                         }
                         if (Strings.Len(txt) > 0)
                         {
-                            Module1.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1)) + txt;
+                            Program.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1)) + txt;
                         }
                         else
                         {
-                            Module1.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
+                            Program.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
                             if (Operators.CompareString(txt, "V", false) != 0)
                                 this.BackColor_V();
                         }
                         this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
                     }
-                    this.OpLista(this.index, Module1.OpArr[index].element);
+                    this.OpLista(this.index, Program.OpArr[index].element);
                     return;
                 }
                 Interaction.Beep();
@@ -7079,16 +7079,16 @@ namespace ClubCompFS
                         dataGridView1.Rows[index2].Cells[1].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index2 - 1)].Cells[1].Value);
                         dataGridView1.Rows[index2].Cells[2].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index2 - 1)].Cells[2].Value);
                         dataGridView1.Rows[index2].Cells[3].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index2 - 1)].Cells[3].Value);
-                        Module1.OpArr[checked(index2 + 1)] = Module1.OpArr[index2];
+                        Program.OpArr[checked(index2 + 1)] = Program.OpArr[index2];
                         checked { index2 += -1; }
                     }
                     dataGridView1.Rows[this.index].Cells[1].Value = (object)"";
                     dataGridView1.Rows[this.index].Cells[2].Value = (object)"";
                     dataGridView1.Rows[this.index].Cells[3].Value = (object)"";
-                    Module1.OpArr[checked(this.index + 1)].element = "";
-                    Module1.OpArr[checked(this.index + 1)].edge = "";
-                    Module1.OpArr[checked(this.index + 1)].replay = "";
-                    this.OpLista(checked(num3 - 1), Module1.OpArr[this.index].element);
+                    Program.OpArr[checked(this.index + 1)].element = "";
+                    Program.OpArr[checked(this.index + 1)].edge = "";
+                    Program.OpArr[checked(this.index + 1)].replay = "";
+                    this.OpLista(checked(num3 - 1), Program.OpArr[this.index].element);
                 }
                 else
                 {
@@ -7130,9 +7130,9 @@ namespace ClubCompFS
                         dataGridView1.Rows[this.index].Cells[1].Value = (object)"";
                         dataGridView1.Rows[this.index].Cells[2].Value = (object)"";
                         dataGridView1.Rows[this.index].Cells[3].Value = (object)"";
-                        Module1.OpArr[checked(this.index + 1)].element = "";
-                        Module1.OpArr[checked(this.index + 1)].edge = "";
-                        Module1.OpArr[checked(this.index + 1)].replay = "";
+                        Program.OpArr[checked(this.index + 1)].element = "";
+                        Program.OpArr[checked(this.index + 1)].edge = "";
+                        Program.OpArr[checked(this.index + 1)].replay = "";
                         this.BackColor_V();
                         this.SpinBackcolor();
                         int index = this.index;
@@ -7141,15 +7141,15 @@ namespace ClubCompFS
                             dataGridView1.Rows[index].Cells[1].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index + 1)].Cells[1].Value);
                             dataGridView1.Rows[index].Cells[2].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index + 1)].Cells[2].Value);
                             dataGridView1.Rows[index].Cells[3].Value = RuntimeHelpers.GetObjectValue(dataGridView1.Rows[checked(index + 1)].Cells[3].Value);
-                            Module1.OpArr[checked(index + 1)] = Module1.OpArr[checked(index + 2)];
+                            Program.OpArr[checked(index + 1)] = Program.OpArr[checked(index + 2)];
                             checked { ++index; }
                         }
                         dataGridView1.Rows[14].Cells[1].Value = (object)"";
                         dataGridView1.Rows[14].Cells[2].Value = (object)"";
                         dataGridView1.Rows[14].Cells[3].Value = (object)"";
-                        Module1.OpArr[15].element = "";
-                        Module1.OpArr[15].edge = "";
-                        Module1.OpArr[15].replay = "";
+                        Program.OpArr[15].element = "";
+                        Program.OpArr[15].edge = "";
+                        Program.OpArr[15].replay = "";
                         this.VisaData();
                         this.ClrDelInsR = 1;
                     }
@@ -7266,12 +7266,12 @@ namespace ClubCompFS
                 {
                     if (str.Contains("<"))
                         str = Strings.Trim(Strings.Replace(str, "<", ""));
-                    int jumpmin = Module1.Jumpmin;
-                    int jumpMax = Module1.JumpMax;
+                    int jumpmin = Program.Jumpmin;
+                    int jumpMax = Program.JumpMax;
                     int index = jumpmin;
                     while (index <= jumpMax)
                     {
-                        if (Operators.ConditionalCompareObjectEqual((object)str, Module1.ElDB[index, 0], false))
+                        if (Operators.ConditionalCompareObjectEqual((object)str, Program.ElDB[index, 0], false))
                         {
                             flag = true;
                             break;
@@ -7324,7 +7324,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Module1.OpArr[checked(this.index + 1)].element;
+                    string str = Program.OpArr[checked(this.index + 1)].element;
                     if (str.Contains("COMBO"))
                         num3 = 1;
                     if (str.Contains("SEQ"))
@@ -7342,8 +7342,8 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.OpArr[checked(this.index + 1)].element = num4 <= 0 ? str + "+SEQ" : str;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        Program.OpArr[checked(this.index + 1)].element = num4 <= 0 ? str + "+SEQ" : str;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_16;
                     }
                 }
@@ -7381,7 +7381,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Module1.OpArr[checked(this.index + 1)].element;
+                    string str = Program.OpArr[checked(this.index + 1)].element;
                     if (str.Contains("SEQ"))
                         num4 = 1;
                     if (str.Contains("COMBO"))
@@ -7399,8 +7399,8 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.OpArr[checked(this.index + 1)].element = num3 <= 0 ? str + "+COMBO" : str;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        Program.OpArr[checked(this.index + 1)].element = num3 <= 0 ? str + "+COMBO" : str;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_16;
                     }
                 }
@@ -7436,9 +7436,9 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Strings.Len(Module1.OpArr[checked(this.index + 1)].element) > 1 & Operators.CompareString(Strings.Right(Module1.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 1 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
-                    string str2 = Module1.OpArr[checked(this.index + 1)].element;
+                    string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
                         if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
@@ -7492,8 +7492,8 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Module1.OpArr[checked(this.index + 1)].element = Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 2), " e", false) != 0 ? (flag ? str1 + "+" + str2 + "<" : str2 + "<" + str1) : (flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1);
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        Program.OpArr[checked(this.index + 1)].element = Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 2), " e", false) != 0 ? (flag ? str1 + "+" + str2 + "<" : str2 + "<" + str1) : (flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1);
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_23;
                     }
                 }
@@ -7530,9 +7530,9 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Strings.Len(Module1.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Module1.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
-                    string str2 = Module1.OpArr[checked(this.index + 1)].element;
+                    string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
                         if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
@@ -7581,14 +7581,14 @@ namespace ClubCompFS
                     if (this.TstJump(str2))
                     {
                         if (Operators.CompareString(Strings.Right(str2, 2), "<<", false) == 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 2)) : Strings.Left(str2, checked(Strings.Len(str2) - 2)) + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 2)) : Strings.Left(str2, checked(Strings.Len(str2) - 2)) + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 4), "<< e", false) == 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "<<" : str2 + "<<" + str1;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "<<" : str2 + "<<" + str1;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_31;
                     }
                     else
@@ -7631,9 +7631,9 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Strings.Len(Module1.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Module1.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
-                    string str2 = Module1.OpArr[checked(this.index + 1)].element;
+                    string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
                         if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
@@ -7682,14 +7682,14 @@ namespace ClubCompFS
                     if (this.TstJump(str2))
                     {
                         if (Operators.CompareString(Strings.Right(str2, 1), "q", false) == 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 3), "q e", false) == 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" + str1;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" + str1;
                         else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "q" : str2 + "q" + str1;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "q" : str2 + "q" + str1;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_31;
                     }
                     else
@@ -7733,9 +7733,9 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Strings.Len(Module1.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Module1.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
-                    string str3 = Module1.OpArr[checked(this.index + 1)].element;
+                    string str3 = Program.OpArr[checked(this.index + 1)].element;
                     if (str3.Contains("+SEQ"))
                     {
                         if (Operators.CompareString(Strings.Right(str3, 4), "+SEQ", false) == 0)
@@ -7796,10 +7796,10 @@ namespace ClubCompFS
                             flag = true;
                         }
                     }
-                    if (!this.TstJump(str3) | Operators.CompareString(Module1.OpArr[checked(this.index + 1)].edge, "!", false) == 0 | !this.Tst_Lz_or_F(str3))
+                    if (!this.TstJump(str3) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "!", false) == 0 | !this.Tst_Lz_or_F(str3))
                     {
                         Interaction.Beep();
-                        if (Operators.CompareString(Module1.OpArr[checked(this.index + 1)].edge, "!", false) == 0)
+                        if (Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "!", false) == 0)
                         {
                             int num3 = (int)Interaction.MsgBox((object)"Please remove the ! sign!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         }
@@ -7811,39 +7811,39 @@ namespace ClubCompFS
                         if (str3.Contains("+"))
                         {
                             int Eno = 0;
-                            Module1.FindJumpEl1(str3, ref Eno);
+                            Program.FindJumpEl1(str3, ref Eno);
                             int num4 = checked(Eno - 1);
                             int index1 = 1;
                             while (index1 <= num4)
                             {
-                                if (this.Tst_Lz_F(Module1.ElArr[index1].Elstr))
-                                    Module1.ElArr[index1].Elstr = Operators.CompareString(Strings.Right(Module1.ElArr[index1].Elstr, 1), nameof(e), false) != 0 ? Module1.ElArr[index1].Elstr + " e" : Strings.Trim(Module1.ElArr[index1].Elstr.Remove(checked(Module1.ElArr[index1].Elstr.Length - 1)));
+                                if (this.Tst_Lz_F(Program.ElArr[index1].Elstr))
+                                    Program.ElArr[index1].Elstr = Operators.CompareString(Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0 ? Program.ElArr[index1].Elstr + " e" : Strings.Trim(Program.ElArr[index1].Elstr.Remove(checked(Program.ElArr[index1].Elstr.Length - 1)));
                                 checked { ++index1; }
                             }
-                            Module1.OpArr[checked(this.index + 1)].edge = "";
+                            Program.OpArr[checked(this.index + 1)].edge = "";
                             int num5 = checked(Eno - 1);
                             int index2 = 1;
                             while (index2 <= num5)
                             {
-                                if (Module1.ElArr[index2].Elstr.Contains(nameof(e)))
-                                    Module1.OpArr[checked(this.index + 1)].edge = nameof(e);
-                                str1 = index2 >= checked(Eno - 1) ? str1 + Module1.ElArr[index2].Elstr : str1 + Module1.ElArr[index2].Elstr + "+";
+                                if (Program.ElArr[index2].Elstr.Contains(nameof(e)))
+                                    Program.OpArr[checked(this.index + 1)].edge = nameof(e);
+                                str1 = index2 >= checked(Eno - 1) ? str1 + Program.ElArr[index2].Elstr : str1 + Program.ElArr[index2].Elstr + "+";
                                 checked { ++index2; }
                             }
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str1 : str1 + str2;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str1 : str1 + str2;
                         }
                         else if (Operators.CompareString(Strings.Right(str3, 1), nameof(e), false) == 0)
                         {
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) : Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) + str2;
-                            Module1.OpArr[checked(this.index + 1)].edge = "";
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) : Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) + str2;
+                            Program.OpArr[checked(this.index + 1)].edge = "";
                         }
                         else
                         {
-                            Module1.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str3 + " e" : str3 + " e" + str2;
-                            Module1.OpArr[checked(this.index + 1)].edge = nameof(e);
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str3 + " e" : str3 + " e" + str2;
+                            Program.OpArr[checked(this.index + 1)].edge = nameof(e);
                         }
-                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Module1.OpArr[checked(this.index + 1)].edge;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_43;
                     }
                 }
@@ -7877,24 +7877,24 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                string element = Module1.OpArr[checked(this.index + 1)].element;
+                string element = Program.OpArr[checked(this.index + 1)].element;
                 if (this.index > -1)
                 {
                     if (Strings.Len(element) > 0 & Operators.CompareString(Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "REP", false) != 0)
                     {
                         if (Operators.CompareString(Strings.Right(element, 1), "*", false) != 0)
                         {
-                            Module1.OpArr[checked(this.index + 1)].element = element + "*";
+                            Program.OpArr[checked(this.index + 1)].element = element + "*";
                         }
                         else
                         {
                             int num3 = Strings.Len(element);
-                            Module1.OpArr[checked(this.index + 1)].element = Strings.Left(element, checked(num3 - 1));
+                            Program.OpArr[checked(this.index + 1)].element = Strings.Left(element, checked(num3 - 1));
                         }
                     }
                     else
                         Interaction.Beep();
-                    this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                    this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                     goto label_14;
                 }
                 else
@@ -7927,11 +7927,11 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    Module1.Vek[Module1.PNo].HTIndSeg1 = checked(this.index + 1);
+                    Program.Vek[Program.PNo].HTIndSeg1 = checked(this.index + 1);
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    Module1.Vek[Module1.PNo].HTIndSeg2 = checked(this.index + 1);
+                    Program.Vek[Program.PNo].HTIndSeg2 = checked(this.index + 1);
                 this.HalfTime.BackColor = Color.FromArgb(236, 233, 216);
                 this.OpMsg.Text = "After half time!";
                 this.OplistaSelect();
@@ -8013,32 +8013,32 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         this.OplistaSelect();
-                    else if (Module1.Vek[Module1.PNo].Bonus_Seg2 >= 9)
+                    else if (Program.Vek[Program.PNo].Bonus_Seg2 >= 9)
                     {
                         int num3 = (int)Interaction.MsgBox((object)("Max no. of Bonus = " + Conversions.ToString(9) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         this.OplistaSelect();
                     }
                     else
                     {
-                        checked { ++Module1.Vek[Module1.PNo].Bonus_Seg2; }
-                        this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg2);
+                        checked { ++Program.Vek[Program.PNo].Bonus_Seg2; }
+                        this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg2);
                         this.OplistaSelect();
                     }
                 }
-                else if (Module1.Vek[Module1.PNo].Bonus_Seg1 >= 9)
+                else if (Program.Vek[Program.PNo].Bonus_Seg1 >= 9)
                 {
                     int num4 = (int)Interaction.MsgBox((object)("Max no. of Bonus = " + Conversions.ToString(9) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     this.OplistaSelect();
                 }
                 else
                 {
-                    checked { ++Module1.Vek[Module1.PNo].Bonus_Seg1; }
-                    this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg1);
+                    checked { ++Program.Vek[Program.PNo].Bonus_Seg1; }
+                    this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg1);
                     this.OplistaSelect();
                 }
             }
@@ -8056,7 +8056,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
@@ -8065,7 +8065,7 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        int bonusSeg2 = Module1.Vek[Module1.PNo].Bonus_Seg2;
+                        int bonusSeg2 = Program.Vek[Program.PNo].Bonus_Seg2;
                         if (bonusSeg2 != 0)
                         {
                             if (bonusSeg2 <= 0)
@@ -8074,10 +8074,10 @@ namespace ClubCompFS
                             }
                             else
                             {
-                                checked { --Module1.Vek[Module1.PNo].Bonus_Seg2; }
-                                if (Module1.Vek[Module1.PNo].Bonus_Seg2 != 0)
+                                checked { --Program.Vek[Program.PNo].Bonus_Seg2; }
+                                if (Program.Vek[Program.PNo].Bonus_Seg2 != 0)
                                 {
-                                    this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg2);
+                                    this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg2);
                                     this.OplistaSelect();
                                 }
                                 else
@@ -8096,7 +8096,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    int bonusSeg1 = Module1.Vek[Module1.PNo].Bonus_Seg1;
+                    int bonusSeg1 = Program.Vek[Program.PNo].Bonus_Seg1;
                     if (bonusSeg1 != 0)
                     {
                         if (bonusSeg1 <= 0)
@@ -8105,10 +8105,10 @@ namespace ClubCompFS
                         }
                         else
                         {
-                            checked { --Module1.Vek[Module1.PNo].Bonus_Seg1; }
-                            if (Module1.Vek[Module1.PNo].Bonus_Seg1 != 0)
+                            checked { --Program.Vek[Program.PNo].Bonus_Seg1; }
+                            if (Program.Vek[Program.PNo].Bonus_Seg1 != 0)
                             {
-                                this.Bonus.Text = "BONUS " + Conversions.ToString(Module1.Vek[Module1.PNo].Bonus_Seg1);
+                                this.Bonus.Text = "BONUS " + Conversions.ToString(Program.Vek[Program.PNo].Bonus_Seg1);
                                 this.OplistaSelect();
                             }
                             else
@@ -8217,11 +8217,11 @@ namespace ClubCompFS
                 int num3 = this.NoFalls();
                 if (num3 < 19)
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[Module1.PNo].Falls_seg1 = checked(num3 + 1);
+                        Program.Vek[Program.PNo].Falls_seg1 = checked(num3 + 1);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[Module1.PNo].Falls_seg2 = checked(num3 + 1);
+                        Program.Vek[Program.PNo].Falls_seg2 = checked(num3 + 1);
                     this.Falls_out.Text = "FALLS  " + Conversions.ToString(checked(num3 + 1));
                 }
                 else
@@ -8257,11 +8257,11 @@ namespace ClubCompFS
                 int num3 = this.NoFalls();
                 if (num3 > 0)
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Module1.Vek[Module1.PNo].Falls_seg1 = checked(num3 - 1);
+                        Program.Vek[Program.PNo].Falls_seg1 = checked(num3 - 1);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.Vek[Module1.PNo].Falls_seg2 = checked(num3 - 1);
+                        Program.Vek[Program.PNo].Falls_seg2 = checked(num3 - 1);
                     this.Falls_out.Text = "FALLS  " + Conversions.ToString(checked(num3 - 1));
                 }
                 this.OplistaSelect();
@@ -8291,8 +8291,8 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                string segment = Module1.Segment;
-                return Operators.CompareString(segment, "Seg1", false) != 0 && Operators.CompareString(segment, "Seg2", false) != 0 ? 0 : Module1.Vek[Module1.PNo].Falls_seg2;
+                string segment = Program.Segment;
+                return Operators.CompareString(segment, "Seg1", false) != 0 && Operators.CompareString(segment, "Seg2", false) != 0 ? 0 : Program.Vek[Program.PNo].Falls_seg2;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num3 == 0)
             {
@@ -8312,7 +8312,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Module1.OpArr[checked(this.index + 1)].element;
+                    string str = Program.OpArr[checked(this.index + 1)].element;
                     if (Strings.Len(str) > 0)
                     {
                         if (str.Contains("+SEQ"))
@@ -8357,12 +8357,12 @@ namespace ClubCompFS
                                 str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
-                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Module1.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
+                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
                             Interaction.Beep();
                         else
-                            Module1.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Module1.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "!";
-                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Module1.OpArr[checked(this.index + 1)].edge;
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "!";
+                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_25;
                     }
                     else
@@ -8391,7 +8391,7 @@ namespace ClubCompFS
 
         public bool Spin_Change(string Elin)
         {
-            string spin = Module1.GetSpin(Elin);
+            string spin = Program.GetSpin(Elin);
             bool flag = true;
             if (Operators.CompareString(Strings.Left(spin, 5), "FCoSp", false) == 0)
                 flag = false;
@@ -8428,12 +8428,12 @@ namespace ClubCompFS
                         str2 = Strings.Trim(str2.Remove(checked(str2.Length - 2)));
                     else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) == 0)
                         str2 = Strings.Trim(str2.Remove(checked(str2.Length - 1)));
-                    int jumpmin = Module1.Jumpmin;
-                    int jumpMax = Module1.JumpMax;
+                    int jumpmin = Program.Jumpmin;
+                    int jumpMax = Program.JumpMax;
                     int index = jumpmin;
                     while (index <= jumpMax)
                     {
-                        if (Operators.ConditionalCompareObjectEqual((object)str2, Module1.ElDB[index, 0], false))
+                        if (Operators.ConditionalCompareObjectEqual((object)str2, Program.ElDB[index, 0], false))
                         {
                             flag = true;
                             break;
@@ -8474,13 +8474,13 @@ namespace ClubCompFS
                 flag = false;
                 if (Strings.Len(El) > 2)
                 {
-                    string spin = Module1.GetSpin(El);
-                    int spinMin = Module1.SpinMin;
-                    int spinmax = Module1.Spinmax;
+                    string spin = Program.GetSpin(El);
+                    int spinMin = Program.SpinMin;
+                    int spinmax = Program.Spinmax;
                     int index = spinMin;
                     while (index <= spinmax)
                     {
-                        if (Operators.ConditionalCompareObjectEqual(Module1.ElDB[index, 0], (object)spin, false))
+                        if (Operators.ConditionalCompareObjectEqual(Program.ElDB[index, 0], (object)spin, false))
                         {
                             flag = true;
                             break;
@@ -8521,7 +8521,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Module1.OpArr[checked(this.index + 1)].element;
+                    string str = Program.OpArr[checked(this.index + 1)].element;
                     if (str.Contains("REP"))
                     {
                         flag = true;
@@ -8529,8 +8529,8 @@ namespace ClubCompFS
                         if (num3 > 1)
                             str = Strings.Left(str, checked(num3 - 1));
                     }
-                    Module1.OpArr[checked(this.index + 1)].element = !flag ? str + "+REP" : str;
-                    this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                    Program.OpArr[checked(this.index + 1)].element = !flag ? str + "+REP" : str;
+                    this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                     goto label_12;
                 }
                 else
@@ -8567,7 +8567,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string element = Module1.OpArr[checked(this.index + 1)].element;
+                    string element = Program.OpArr[checked(this.index + 1)].element;
                     this.SpinEl(element, ref ElOut, ref txt);
                     if (Strings.Len(element) < 2 | !this.Sp_V(element))
                     {
@@ -8585,14 +8585,14 @@ namespace ClubCompFS
                         {
                             Strings.Len(ElOut);
                             this.Spin_V.BackColor = Color.FromArgb(128, (int)byte.MaxValue, (int)byte.MaxValue);
-                            Module1.OpArr[checked(this.index + 1)].element = ElOut + Strings.Right(txt, Strings.Len(txt) - 1);
+                            Program.OpArr[checked(this.index + 1)].element = ElOut + Strings.Right(txt, Strings.Len(txt) - 1);
                         }
                         else
                         {
                             this.Spin_V.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
-                            Module1.OpArr[checked(this.index + 1)].element = ElOut + "V" + txt;
+                            Program.OpArr[checked(this.index + 1)].element = ElOut + "V" + txt;
                         }
-                        this.OpLista(this.index, Module1.OpArr[checked(this.index + 1)].element);
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                     }
                     else
                     {
@@ -8619,13 +8619,13 @@ namespace ClubCompFS
 
         public bool Sp_Change(string Elin)
         {
-            string Left = Strings.Left(Module1.GetSpin(Elin), 4);
+            string Left = Strings.Left(Program.GetSpin(Elin), 4);
             return Operators.CompareString(Left, "CSSp", false) == 0 || Operators.CompareString(Left, "CLSp", false) == 0 || Operators.CompareString(Left, "CUSp", false) == 0 || Operators.CompareString(Left, "CCSp", false) == 0 || Operators.CompareString(Left, "CCoS", false) == 0;
         }
 
         public bool Sp_V(string Elin)
         {
-            string spin = Module1.GetSpin(Elin);
+            string spin = Program.GetSpin(Elin);
             bool flag = false;
             string Left1 = Strings.Left(spin, 4);
             if (Operators.CompareString(Left1, "FUSp", false) == 0 || Operators.CompareString(Left1, "FLSp", false) == 0 || Operators.CompareString(Left1, "FCSp", false) == 0 || Operators.CompareString(Left1, "FSSp", false) == 0 || Operators.CompareString(Left1, "CoSp", false) == 0 || Operators.CompareString(Left1, "CSSp", false) == 0 || Operators.CompareString(Left1, "CCSp", false) == 0 || Operators.CompareString(Left1, "CUSp", false) == 0 || Operators.CompareString(Left1, "CLSp", false) == 0)
@@ -8643,11 +8643,11 @@ namespace ClubCompFS
             return flag;
         }
 
-        public bool Sp_Flying(string Elin) => Operators.CompareString(Strings.Left(Module1.GetSpin(Elin), 1), "F", false) == 0;
+        public bool Sp_Flying(string Elin) => Operators.CompareString(Strings.Left(Program.GetSpin(Elin), 1), "F", false) == 0;
 
         private void btnDED_Click(object sender, EventArgs e)
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                 MyProject.Forms.DeductionsDialog.Close();
             DeductionsDialog dialog11 = MyProject.Forms.DeductionsDialog;
             dialog11.TopMost = true;

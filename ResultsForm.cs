@@ -491,44 +491,44 @@ namespace ClubCompFS
             this.Top = MyProject.Forms.MainForm.Top;
             this.Left = MyProject.Forms.MainForm.Left;
             this.TopMost = true;
-            this.printSeg = Module1.Segment;
-            string seg = Module1.GetSeg();
+            this.printSeg = Program.Segment;
+            string seg = Program.GetSeg();
             if (Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FS", false) == 0)
             {
                 this.ShortProgramToolStripMenuItem.Visible = true;
-                this.ShortProgramToolStripMenuItem.Text = Module1.GetSegTxt("Seg1");
+                this.ShortProgramToolStripMenuItem.Text = Program.GetSegTxt("Seg1");
                 this.FreeSkatingToolStripMenuItem.Visible = true;
-                this.FreeSkatingToolStripMenuItem.Text = Module1.GetSegTxt("Seg2");
+                this.FreeSkatingToolStripMenuItem.Text = Program.GetSegTxt("Seg2");
                 this.FinalResultToolStripMenuItem.Visible = true;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    this.CreateSeg1Result(Module1.GetSegTxt("Seg1"));
+                    this.CreateSeg1Result(Program.GetSegTxt("Seg1"));
                 }
                 else
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
                         return;
-                    this.CreateSeg2Result(Module1.GetSegTxt("Seg2"));
+                    this.CreateSeg2Result(Program.GetSegTxt("Seg2"));
                 }
             }
             else if (Operators.CompareString(seg, "0S", false) == 0 || Operators.CompareString(seg, "0F", false) == 0)
             {
                 this.ShortProgramToolStripMenuItem.Visible = false;
                 this.FreeSkatingToolStripMenuItem.Visible = true;
-                this.FreeSkatingToolStripMenuItem.Text = Module1.GetSegTxt("Seg2");
+                this.FreeSkatingToolStripMenuItem.Text = Program.GetSegTxt("Seg2");
                 this.FinalResultToolStripMenuItem.Visible = false;
-                this.CreateSeg2Result(Module1.GetSegTxt("Seg2"));
+                this.CreateSeg2Result(Program.GetSegTxt("Seg2"));
             }
             else
             {
                 if (Operators.CompareString(seg, "S0", false) != 0 && Operators.CompareString(seg, "F0", false) != 0)
                     return;
                 this.ShortProgramToolStripMenuItem.Visible = true;
-                this.ShortProgramToolStripMenuItem.Text = Module1.GetSegTxt("Seg1");
+                this.ShortProgramToolStripMenuItem.Text = Program.GetSegTxt("Seg1");
                 this.FreeSkatingToolStripMenuItem.Visible = false;
                 this.FinalResultToolStripMenuItem.Visible = false;
-                this.CreateSeg1Result(Module1.GetSegTxt("Seg1"));
+                this.CreateSeg1Result(Program.GetSegTxt("Seg1"));
             }
         }
 
@@ -542,29 +542,29 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 DataGridView dataGridView1 = this.DataGridView1;
-                if (Module1.Bonus_Sel("Seg1"))
-                    this.Width = checked(950 + Module1.WC);
+                if (Program.Bonus_Sel("Seg1"))
+                    this.Width = checked(950 + Program.WC);
                 else
-                    this.Width = checked(870 + Module1.WC);
+                    this.Width = checked(870 + Program.WC);
                 this.Text = "RESULT, " + txt;
-                if (Module1.TNop > 0 & Module1.TNop <= 42)
+                if (Program.TNop > 0 & Program.TNop <= 42)
                 {
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                    dataGridView1.ReadOnly = Module1.WorkMode > 1;
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                    dataGridView1.ReadOnly = Program.WorkMode > 1;
                     dataGridView1.Rows.Clear();
                     dataGridView1.ColumnHeadersVisible = true;
                     dataGridView1.RowHeadersVisible = false;
                     int index1 = 1;
                     do
                     {
-                        if (Module1.Vek[index1].Startno_Seg1 == 0 & Module1.Vek[index1].DNS_Seg1 > 0)
+                        if (Program.Vek[index1].Startno_Seg1 == 0 & Program.Vek[index1].DNS_Seg1 > 0)
                             checked { ++num3; }
                         checked { ++index1; }
                     }
                     while (index1 <= 42);
-                    dataGridView1.RowCount = checked(Module1.TNop - num3);
-                    if (Module1.Bonus_Sel("Seg1"))
+                    dataGridView1.RowCount = checked(Program.TNop - num3);
+                    if (Program.Bonus_Sel("Seg1"))
                     {
                         dataGridView1.ColumnCount = 8;
                         dataGridView1.Width = 950;
@@ -605,25 +605,25 @@ namespace ClubCompFS
                     dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     int index2 = 0;
-                    int tnop = Module1.TNop;
+                    int tnop = Program.TNop;
                     int Pno = 1;
                     while (Pno <= tnop)
                     {
-                        if (!(Module1.Vek[Pno].Startno_Seg1 == 0 & Module1.Vek[Pno].DNS_Seg1 > 0))
+                        if (!(Program.Vek[Pno].Startno_Seg1 == 0 & Program.Vek[Pno].DNS_Seg1 > 0))
                         {
-                            dataGridView1.Rows[index2].Cells[0].Value = (object)Module1.Vek[Pno].Place_Seg1;
-                            dataGridView1.Rows[index2].Cells[1].Value = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                            dataGridView1.Rows[index2].Cells[2].Value = (object)Module1.Vek[Pno].Club;
-                            switch (Module1.Vek[Pno].DNS_Seg1)
+                            dataGridView1.Rows[index2].Cells[0].Value = (object)Program.Vek[Pno].Place_Seg1;
+                            dataGridView1.Rows[index2].Cells[1].Value = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                            dataGridView1.Rows[index2].Cells[2].Value = (object)Program.Vek[Pno].Club;
+                            switch (Program.Vek[Pno].DNS_Seg1)
                             {
                                 case 0:
-                                    dataGridView1.Rows[index2].Cells[3].Value = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg1, "0.00");
-                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg1, "0.00");
-                                    dataGridView1.Rows[index2].Cells[5].Value = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg1, "0.00");
-                                    dataGridView1.Rows[index2].Cells[6].Value = (object)Module1.DedSeg1Seg2(Pno, "Seg1");
-                                    if (Module1.Bonus_Sel("Seg1"))
+                                    dataGridView1.Rows[index2].Cells[3].Value = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg1, "0.00");
+                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg1, "0.00");
+                                    dataGridView1.Rows[index2].Cells[5].Value = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg1, "0.00");
+                                    dataGridView1.Rows[index2].Cells[6].Value = (object)Program.DedSeg1Seg2(Pno, "Seg1");
+                                    if (Program.Bonus_Sel("Seg1"))
                                     {
-                                        dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Module1.Vek[Pno].Bonus_Seg1;
+                                        dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Program.Vek[Pno].Bonus_Seg1;
                                         break;
                                     }
                                     break;
@@ -644,18 +644,18 @@ namespace ClubCompFS
                         }
                         checked { ++Pno; }
                     }
-                    this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+                    this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
                     if (this.F6Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 50))
                     {
                         this.Height = this.F6Height;
                         this.DataGridView1.Width = this.DGW1width;
-                        this.Width = checked(this.DGW1width + Module1.WC);
+                        this.Width = checked(this.DGW1width + Program.WC);
                     }
                     else
                     {
                         this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 50);
-                        this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                        this.Width = checked(this.DGW1width + Module1.WC2);
+                        this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                        this.Width = checked(this.DGW1width + Program.WC2);
                     }
                     this.widthcorr = true;
                     goto label_33;
@@ -687,23 +687,23 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 DataGridView dataGridView1 = this.DataGridView1;
-                if (Module1.Bonus_Sel("Seg2"))
-                    this.Width = checked(950 + Module1.WC);
+                if (Program.Bonus_Sel("Seg2"))
+                    this.Width = checked(950 + Program.WC);
                 else
-                    this.Width = checked(870 + Module1.WC);
+                    this.Width = checked(870 + Program.WC);
                 this.Text = "RESULT, " + txt;
-                if (Module1.TNop > 0 & Module1.TNop <= 42)
+                if (Program.TNop > 0 & Program.TNop <= 42)
                 {
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                     int num3 = 0;
-                    string seg1 = Module1.GetSeg();
+                    string seg1 = Program.GetSeg();
                     if (Operators.CompareString(seg1, "0F", false) == 0)
                     {
                         int index = 1;
                         do
                         {
-                            if (Module1.Vek[index].Startno_Seg2 == 0 & Module1.Vek[index].DNS_Seg2 > 0)
+                            if (Program.Vek[index].Startno_Seg2 == 0 & Program.Vek[index].DNS_Seg2 > 0)
                                 checked { ++num3; }
                             checked { ++index; }
                         }
@@ -711,20 +711,20 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(seg1, "SF", false) == 0 || Operators.CompareString(seg1, "FF", false) == 0 || Operators.CompareString(seg1, "SS", false) == 0)
                     {
-                        int tnop = Module1.TNop;
+                        int tnop = Program.TNop;
                         int index = 1;
                         while (index <= tnop)
                         {
-                            if (Module1.Vek[index].DNS_Seg1 > 0)
+                            if (Program.Vek[index].DNS_Seg1 > 0)
                                 checked { ++num3; }
                             checked { ++index; }
                         }
                     }
-                    dataGridView1.ReadOnly = Module1.WorkMode > 1;
+                    dataGridView1.ReadOnly = Program.WorkMode > 1;
                     dataGridView1.Rows.Clear();
                     dataGridView1.ColumnHeadersVisible = true;
                     dataGridView1.RowHeadersVisible = false;
-                    if (Module1.Bonus_Sel("Seg2"))
+                    if (Program.Bonus_Sel("Seg2"))
                     {
                         dataGridView1.Width = 950;
                         dataGridView1.ColumnCount = 8;
@@ -739,7 +739,7 @@ namespace ClubCompFS
                         dataGridView1.ColumnCount = 7;
                     }
                     this.DGW1width = dataGridView1.Width;
-                    dataGridView1.RowCount = num3 <= 0 ? Module1.TNop : checked(Module1.TNop - num3);
+                    dataGridView1.RowCount = num3 <= 0 ? Program.TNop : checked(Program.TNop - num3);
                     dataGridView1.Columns[0].HeaderText = "Place";
                     dataGridView1.Columns[1].HeaderText = "Name";
                     dataGridView1.Columns[2].HeaderText = "Club";
@@ -766,28 +766,28 @@ namespace ClubCompFS
                     dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     dataGridView1.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     int index1 = 0;
-                    string seg2 = Module1.GetSeg();
+                    string seg2 = Program.GetSeg();
                     if (Operators.CompareString(seg2, "0F", false) == 0)
                     {
-                        int tnop = Module1.TNop;
+                        int tnop = Program.TNop;
                         int Pno = 1;
                         while (Pno <= tnop)
                         {
-                            if (!(Module1.Vek[Pno].Startno_Seg2 == 0 & Module1.Vek[Pno].DNS_Seg2 > 0))
+                            if (!(Program.Vek[Pno].Startno_Seg2 == 0 & Program.Vek[Pno].DNS_Seg2 > 0))
                             {
-                                dataGridView1.Rows[index1].Cells[0].Value = (object)Module1.Vek[Pno].Place_Seg2;
-                                dataGridView1.Rows[index1].Cells[1].Value = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                                dataGridView1.Rows[index1].Cells[2].Value = (object)Module1.Vek[Pno].Club;
-                                switch (Module1.Vek[Pno].DNS_Seg2)
+                                dataGridView1.Rows[index1].Cells[0].Value = (object)Program.Vek[Pno].Place_Seg2;
+                                dataGridView1.Rows[index1].Cells[1].Value = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                                dataGridView1.Rows[index1].Cells[2].Value = (object)Program.Vek[Pno].Club;
+                                switch (Program.Vek[Pno].DNS_Seg2)
                                 {
                                     case 0:
-                                        dataGridView1.Rows[index1].Cells[3].Value = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00");
-                                        dataGridView1.Rows[index1].Cells[4].Value = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00");
-                                        dataGridView1.Rows[index1].Cells[5].Value = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00");
-                                        dataGridView1.Rows[index1].Cells[6].Value = (object)Module1.DedSeg1Seg2(Pno, "Seg2");
-                                        if (Module1.Bonus_Sel("Seg2"))
+                                        dataGridView1.Rows[index1].Cells[3].Value = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00");
+                                        dataGridView1.Rows[index1].Cells[4].Value = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00");
+                                        dataGridView1.Rows[index1].Cells[5].Value = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00");
+                                        dataGridView1.Rows[index1].Cells[6].Value = (object)Program.DedSeg1Seg2(Pno, "Seg2");
+                                        if (Program.Bonus_Sel("Seg2"))
                                         {
-                                            dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Module1.Vek[Pno].Bonus_Seg2;
+                                            dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Program.Vek[Pno].Bonus_Seg2;
                                             break;
                                         }
                                         break;
@@ -811,28 +811,28 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(seg2, "SF", false) == 0 || Operators.CompareString(seg2, "FF", false) == 0 || Operators.CompareString(seg2, "SS", false) == 0)
                     {
-                        int tnop = Module1.TNop;
+                        int tnop = Program.TNop;
                         int Pno = 1;
                         while (Pno <= tnop)
                         {
-                            if (Module1.Vek[Pno].DNS_Seg1 == 0)
+                            if (Program.Vek[Pno].DNS_Seg1 == 0)
                             {
-                                dataGridView1.Rows[index1].Cells[0].Value = (object)Module1.Vek[Pno].Place_Seg2;
-                                dataGridView1.Rows[index1].Cells[1].Value = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
-                                dataGridView1.Rows[index1].Cells[2].Value = (object)Module1.Vek[Pno].Club;
-                                switch (Module1.Vek[Pno].DNS_Seg1)
+                                dataGridView1.Rows[index1].Cells[0].Value = (object)Program.Vek[Pno].Place_Seg2;
+                                dataGridView1.Rows[index1].Cells[1].Value = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
+                                dataGridView1.Rows[index1].Cells[2].Value = (object)Program.Vek[Pno].Club;
+                                switch (Program.Vek[Pno].DNS_Seg1)
                                 {
                                     case 0:
-                                        switch (Module1.Vek[Pno].DNS_Seg2)
+                                        switch (Program.Vek[Pno].DNS_Seg2)
                                         {
                                             case 0:
-                                                dataGridView1.Rows[index1].Cells[3].Value = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00");
-                                                dataGridView1.Rows[index1].Cells[4].Value = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00");
-                                                dataGridView1.Rows[index1].Cells[5].Value = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00");
-                                                dataGridView1.Rows[index1].Cells[6].Value = (object)Module1.DedSeg1Seg2(Pno, "Seg2");
-                                                if (Module1.Bonus_Sel("Seg2"))
+                                                dataGridView1.Rows[index1].Cells[3].Value = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00");
+                                                dataGridView1.Rows[index1].Cells[4].Value = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00");
+                                                dataGridView1.Rows[index1].Cells[5].Value = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00");
+                                                dataGridView1.Rows[index1].Cells[6].Value = (object)Program.DedSeg1Seg2(Pno, "Seg2");
+                                                if (Program.Bonus_Sel("Seg2"))
                                                 {
-                                                    dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Module1.Vek[Pno].Bonus_Seg2;
+                                                    dataGridView1.Rows[checked(Pno - 1)].Cells[7].Value = (object)Program.Vek[Pno].Bonus_Seg2;
                                                     break;
                                                 }
                                                 break;
@@ -868,18 +868,18 @@ namespace ClubCompFS
                             checked { ++Pno; }
                         }
                     }
-                    this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+                    this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
                     if (this.F6Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 50))
                     {
                         this.Height = this.F6Height;
                         this.DataGridView1.Width = this.DGW1width;
-                        this.Width = checked(this.DGW1width + Module1.WC);
+                        this.Width = checked(this.DGW1width + Program.WC);
                     }
                     else
                     {
                         this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 50);
-                        this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                        this.Width = checked(this.DGW1width + Module1.WC2);
+                        this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                        this.Width = checked(this.DGW1width + Program.WC2);
                     }
                     this.widthcorr = true;
                     goto label_59;
@@ -908,13 +908,13 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F6Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
 
@@ -927,34 +927,34 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 DataGridView dataGridView1 = this.DataGridView1;
-                this.Width = checked(790 + Module1.WC);
+                this.Width = checked(790 + Program.WC);
                 this.Text = "RESULT, Final Result";
-                if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
+                if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0 | Operators.CompareString(Program.GetSeg(), "FF", false) == 0 | Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
                 {
-                    if (Module1.TNop > 0 & Module1.TNop <= 42)
+                    if (Program.TNop > 0 & Program.TNop <= 42)
                     {
-                        Module1.SortListSeg1(Module1.TNop);
-                        Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                        Module1.SortListSeg2(Module1.TNop);
-                        Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                        Module1.SumScore(Module1.TNop);
-                        Module1.SortListTotal(Module1.TNop);
-                        Module1.TotalPl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                        Program.SortListSeg1(Program.TNop);
+                        Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                        Program.SortListSeg2(Program.TNop);
+                        Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                        Program.SumScore(Program.TNop);
+                        Program.SortListTotal(Program.TNop);
+                        Program.TotalPl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                         int num3 = 0;
-                        int tnop1 = Module1.TNop;
+                        int tnop1 = Program.TNop;
                         int index1 = 1;
                         while (index1 <= tnop1)
                         {
-                            if (Module1.Vek[index1].DNS_Seg1 == 0 & Module1.Vek[index1].Finished_Seg1 == 1)
+                            if (Program.Vek[index1].DNS_Seg1 == 0 & Program.Vek[index1].Finished_Seg1 == 1)
                             {
-                                if (Module1.Vek[index1].Finished_Seg2 == 1 & Module1.Vek[index1].DNS_Seg2 == 0)
+                                if (Program.Vek[index1].Finished_Seg2 == 1 & Program.Vek[index1].DNS_Seg2 == 0)
                                     checked { ++num3; }
-                                else if (Module1.Vek[index1].DNS_Seg2 > 0)
+                                else if (Program.Vek[index1].DNS_Seg2 > 0)
                                     checked { ++num3; }
                             }
                             checked { ++index1; }
                         }
-                        dataGridView1.ReadOnly = Module1.WorkMode > 1;
+                        dataGridView1.ReadOnly = Program.WorkMode > 1;
                         dataGridView1.Rows.Clear();
                         dataGridView1.ColumnHeadersVisible = true;
                         dataGridView1.RowHeadersVisible = false;
@@ -984,29 +984,29 @@ namespace ClubCompFS
                         dataGridView1.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         dataGridView1.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         int index2 = 0;
-                        int tnop2 = Module1.TNop;
+                        int tnop2 = Program.TNop;
                         int index3 = 1;
                         while (index3 <= tnop2)
                         {
-                            if (Module1.Vek[index3].DNS_Seg1 == 0 & Module1.Vek[index3].Finished_Seg1 == 1)
+                            if (Program.Vek[index3].DNS_Seg1 == 0 & Program.Vek[index3].Finished_Seg1 == 1)
                             {
-                                if (Module1.Vek[index3].Finished_Seg2 == 1 & Module1.Vek[index3].DNS_Seg2 == 0)
+                                if (Program.Vek[index3].Finished_Seg2 == 1 & Program.Vek[index3].DNS_Seg2 == 0)
                                 {
-                                    dataGridView1.Rows[index2].Cells[0].Value = (object)Module1.Vek[index3].Place;
-                                    dataGridView1.Rows[index2].Cells[1].Value = (object)(Module1.Vek[index3].Name.FName + " " + Module1.Vek[index3].Name.LName);
-                                    dataGridView1.Rows[index2].Cells[2].Value = (object)Module1.Vek[index3].Club;
-                                    dataGridView1.Rows[index2].Cells[3].Value = (object)Strings.Format((object)Module1.Vek[index3].Score_Total, "0.00");
-                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Module1.Vek[index3].Place_Seg1;
-                                    dataGridView1.Rows[index2].Cells[5].Value = (object)Module1.Vek[index3].Place_Seg2;
+                                    dataGridView1.Rows[index2].Cells[0].Value = (object)Program.Vek[index3].Place;
+                                    dataGridView1.Rows[index2].Cells[1].Value = (object)(Program.Vek[index3].Name.FName + " " + Program.Vek[index3].Name.LName);
+                                    dataGridView1.Rows[index2].Cells[2].Value = (object)Program.Vek[index3].Club;
+                                    dataGridView1.Rows[index2].Cells[3].Value = (object)Strings.Format((object)Program.Vek[index3].Score_Total, "0.00");
+                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Program.Vek[index3].Place_Seg1;
+                                    dataGridView1.Rows[index2].Cells[5].Value = (object)Program.Vek[index3].Place_Seg2;
                                     checked { ++index2; }
                                 }
-                                else if (Module1.Vek[index3].DNS_Seg2 > 0)
+                                else if (Program.Vek[index3].DNS_Seg2 > 0)
                                 {
-                                    dataGridView1.Rows[index2].Cells[0].Value = (object)Module1.Vek[index3].Place;
-                                    dataGridView1.Rows[index2].Cells[1].Value = (object)(Module1.Vek[index3].Name.FName + " " + Module1.Vek[index3].Name.LName);
-                                    dataGridView1.Rows[index2].Cells[2].Value = (object)Module1.Vek[index3].Club;
-                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Module1.Vek[index3].Place_Seg1;
-                                    switch (Module1.Vek[index3].DNS_Seg2)
+                                    dataGridView1.Rows[index2].Cells[0].Value = (object)Program.Vek[index3].Place;
+                                    dataGridView1.Rows[index2].Cells[1].Value = (object)(Program.Vek[index3].Name.FName + " " + Program.Vek[index3].Name.LName);
+                                    dataGridView1.Rows[index2].Cells[2].Value = (object)Program.Vek[index3].Club;
+                                    dataGridView1.Rows[index2].Cells[4].Value = (object)Program.Vek[index3].Place_Seg1;
+                                    switch (Program.Vek[index3].DNS_Seg2)
                                     {
                                         case 1:
                                             dataGridView1.Rows[index2].Cells[3].Value = (object)"DNS";
@@ -1030,18 +1030,18 @@ namespace ClubCompFS
                             }
                             checked { ++index3; }
                         }
-                        this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Module1.HC);
+                        this.F6Height = checked(dataGridView1.RowCount * 22 + dataGridView1.ColumnHeadersHeight + dataGridView1.Location.Y + Program.HC);
                         if (this.F6Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 50))
                         {
                             this.Height = this.F6Height;
                             this.DataGridView1.Width = this.DGW1width;
-                            this.Width = checked(this.DGW1width + Module1.WC);
+                            this.Width = checked(this.DGW1width + Program.WC);
                         }
                         else
                         {
                             this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 50);
-                            this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                            this.Width = checked(this.DGW1width + Module1.WC2);
+                            this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                            this.Width = checked(this.DGW1width + Program.WC2);
                         }
                         this.widthcorr = true;
                         goto label_33;
@@ -1071,14 +1071,14 @@ namespace ClubCompFS
         {
             this.printSeg = "Seg1";
             this.widthcorr = false;
-            this.CreateSeg1Result(Module1.GetSegTxt("Seg1"));
+            this.CreateSeg1Result(Program.GetSegTxt("Seg1"));
         }
 
         private void FreeSkatingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.printSeg = "Seg2";
             this.widthcorr = false;
-            this.CreateSeg2Result(Module1.GetSegTxt("Seg2"));
+            this.CreateSeg2Result(Program.GetSegTxt("Seg2"));
         }
 
         private void FinalResultToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1106,14 +1106,14 @@ namespace ClubCompFS
                 int Length = 34;
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
-                    str1 = Module1.FormShortDate(Module1.Datum.Seg1);
+                    str1 = Program.FormShortDate(Program.Datum.Seg1);
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
-                    str1 = Module1.FormShortDate(Module1.Datum.Seg2);
+                    str1 = Program.FormShortDate(Program.Datum.Seg2);
                 PdfDocument pdfDocument = new PdfDocument();
                 pdfDocument.Info.Title = "RESULTS";
-                pdfDocument.Info.Subject = Module1.Category.Name + Module1.SubCat() + ", " + txt;
+                pdfDocument.Info.Subject = Program.Category.Name + Program.SubCat() + ", " + txt;
                 pdfDocument.Info.Author = "ClubCompFS Single ver. 10.0.6, 2019-01-12";
                 PdfPage page = pdfDocument.AddPage();
                 page.Size = PageSize.A4;
@@ -1136,7 +1136,7 @@ namespace ClubCompFS
                 int y2 = checked(y1 + height1 + 5);
                 int height2 = checked((int)Math.Round(font2.GetHeight()));
                 XGraphics xgraphics2 = xgraphics1;
-                string str2 = "COMPETITION: " + Module1.Competition.Name;
+                string str2 = "COMPETITION: " + Program.Competition.Name;
                 XFont xfont3 = font2;
                 XSolidBrush black1 = XBrushes.Black;
                 XRect xrect1 = new XRect((double)num3, (double)y2, (double)width1, (double)height2);
@@ -1148,7 +1148,7 @@ namespace ClubCompFS
                 XStringFormat format1 = topLeft1;
                 xgraphics2.DrawString(text1, font3, (XBrush)brush1, layoutRectangle1, format1);
                 int y3 = checked(y2 + height2);
-                xgraphics1.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + txt, font2, (XBrush)XBrushes.Black, new XRect((double)num3, (double)y3, (double)width1, (double)height2), XStringFormats.TopLeft);
+                xgraphics1.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + txt, font2, (XBrush)XBrushes.Black, new XRect((double)num3, (double)y3, (double)width1, (double)height2), XStringFormats.TopLeft);
                 int y4 = checked(y3 + height2);
                 XGraphics xgraphics3 = xgraphics1;
                 string str3 = "DATE: " + str1;
@@ -1431,11 +1431,11 @@ namespace ClubCompFS
                 XStringFormat format12 = topLeft5;
                 xgraphics13.DrawString("Referee:......................................", font14, (XBrush)brush12, layoutRectangle12, format12);
                 int y7 = checked(y6 + height2);
-                string segment2 = Module1.Segment;
+                string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
                     XGraphics xgraphics14 = xgraphics1;
-                    string name = Module1.Referee.Seg1.Name;
+                    string name = Program.Referee.Seg1.Name;
                     XFont xfont16 = xfont1;
                     XSolidBrush black13 = XBrushes.Black;
                     XRect xrect13 = new XRect((double)num3 + (double)numArray[0] * (double)width1 / 100.0, (double)y7, (double)width1, (double)height2);
@@ -1450,7 +1450,7 @@ namespace ClubCompFS
                 else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                 {
                     XGraphics xgraphics15 = xgraphics1;
-                    string name = Module1.Referee.Seg2.Name;
+                    string name = Program.Referee.Seg2.Name;
                     XFont xfont17 = xfont1;
                     XSolidBrush black14 = XBrushes.Black;
                     XRect xrect14 = new XRect((double)num3 + (double)numArray[0] * (double)width1 / 100.0, (double)y7, (double)width1, (double)height2);
@@ -1464,7 +1464,7 @@ namespace ClubCompFS
                 }
                 int y8 = checked(y7 + 2 * height2);
                 XGraphics xgraphics16 = xgraphics1;
-                string str14 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                string str14 = "Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now);
                 XFont xfont18 = xfont2;
                 XSolidBrush black15 = XBrushes.Black;
                 XRect xrect15 = new XRect((double)num3, (double)y8, (double)width1, (double)height2);
@@ -1483,7 +1483,7 @@ namespace ClubCompFS
                         int num10 = (int)Interaction.MsgBox((object)("The file has been saved as:\r\n" + pathfile), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_63;
                     case 2:
-                        int num11 = (int)Interaction.MsgBox((object)("The file(s) has been saved in:\r\n" + Module1.GetPath(pathfile)), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        int num11 = (int)Interaction.MsgBox((object)("The file(s) has been saved in:\r\n" + Program.GetPath(pathfile)), MsgBoxStyle.Information | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         goto label_63;
                     default:
                         goto label_63;
@@ -1522,21 +1522,21 @@ namespace ClubCompFS
                 this.TDA[0, 5] = (object)"PCS";
                 this.TDA[0, 6] = (object)"Deduction";
                 int num3;
-                if (Module1.Bonus_Sel("Seg1"))
+                if (Program.Bonus_Sel("Seg1"))
                 {
                     this.TDA[0, 7] = (object)"Bonus";
                     num3 = 7;
                 }
                 else
                     num3 = 6;
-                Module1.SortListSeg1(Module1.TNop);
-                Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
+                Program.SortListSeg1(Program.TNop);
+                Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
                 int index1 = 1;
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int Pno = 1;
                 while (Pno <= tnop)
                 {
-                    if (!(Module1.Vek[Pno].Startno_Seg1 == 0 & Module1.Vek[Pno].DNS_Seg1 > 0))
+                    if (!(Program.Vek[Pno].Startno_Seg1 == 0 & Program.Vek[Pno].DNS_Seg1 > 0))
                     {
                         int num4 = num3;
                         int index2 = 0;
@@ -1545,34 +1545,34 @@ namespace ClubCompFS
                             switch (index2)
                             {
                                 case 0:
-                                    this.TDA[index1, index2] = (object)Module1.Vek[Pno].Place_Seg1;
+                                    this.TDA[index1, index2] = (object)Program.Vek[Pno].Place_Seg1;
                                     break;
                                 case 1:
-                                    this.TDA[index1, index2] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
+                                    this.TDA[index1, index2] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
                                     break;
                                 case 2:
-                                    this.TDA[index1, index2] = (object)Module1.Vek[Pno].Club;
+                                    this.TDA[index1, index2] = (object)Program.Vek[Pno].Club;
                                     break;
                             }
-                            switch (Module1.Vek[Pno].DNS_Seg1)
+                            switch (Program.Vek[Pno].DNS_Seg1)
                             {
                                 case 0:
                                     switch (index2)
                                     {
                                         case 3:
-                                            this.TDA[index1, index2] = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg1, "0.00");
+                                            this.TDA[index1, index2] = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg1, "0.00");
                                             break;
                                         case 4:
-                                            this.TDA[index1, index2] = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg1, "0.00");
+                                            this.TDA[index1, index2] = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg1, "0.00");
                                             break;
                                         case 5:
-                                            this.TDA[index1, index2] = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg1, "0.00");
+                                            this.TDA[index1, index2] = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg1, "0.00");
                                             break;
                                         case 6:
-                                            this.TDA[index1, index2] = (object)Module1.DedSeg1Seg2(Pno, "Seg1");
+                                            this.TDA[index1, index2] = (object)Program.DedSeg1Seg2(Pno, "Seg1");
                                             break;
                                         case 7:
-                                            this.TDA[index1, index2] = (object)Module1.Vek[Pno].Bonus_Seg1;
+                                            this.TDA[index1, index2] = (object)Program.Vek[Pno].Bonus_Seg1;
                                             break;
                                     }
                                     break;
@@ -1639,7 +1639,7 @@ namespace ClubCompFS
                     }
                     checked { ++Pno; }
                 }
-                if (Conversions.ToBoolean(Module1.CreatePath("Segment_1", ref Path)))
+                if (Conversions.ToBoolean(Program.CreatePath("Segment_1", ref Path)))
                 {
                     this.ExportDataToPDFTable1(checked(index1 - 1), checked(num3 + 1), txt, Path + "_Results.pdf", msg);
                     goto label_42;
@@ -1680,33 +1680,33 @@ namespace ClubCompFS
                 this.TDA[0, 5] = (object)"PCS";
                 this.TDA[0, 6] = (object)"Deduction";
                 int num3;
-                if (Module1.Bonus_Sel("Seg2"))
+                if (Program.Bonus_Sel("Seg2"))
                 {
                     this.TDA[0, 7] = (object)"Bonus";
                     num3 = 7;
                 }
                 else
                     num3 = 6;
-                Module1.SortListSeg2(Module1.TNop);
-                Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                Program.SortListSeg2(Program.TNop);
+                Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                 int num4 = 0;
-                int tnop1 = Module1.TNop;
+                int tnop1 = Program.TNop;
                 int index1 = 1;
                 while (index1 <= tnop1)
                 {
-                    if (Module1.Vek[index1].DNS_Seg1 > 0)
+                    if (Program.Vek[index1].DNS_Seg1 > 0)
                         checked { ++num4; }
                     checked { ++index1; }
                 }
                 int index2 = 1;
-                string seg = Module1.GetSeg();
+                string seg = Program.GetSeg();
                 if (Operators.CompareString(seg, "0F", false) == 0)
                 {
-                    int tnop2 = Module1.TNop;
+                    int tnop2 = Program.TNop;
                     int Pno = 1;
                     while (Pno <= tnop2)
                     {
-                        if (!(Module1.Vek[Pno].Startno_Seg2 == 0 & Module1.Vek[Pno].DNS_Seg2 > 0))
+                        if (!(Program.Vek[Pno].Startno_Seg2 == 0 & Program.Vek[Pno].DNS_Seg2 > 0))
                         {
                             int num5 = num3;
                             int index3 = 0;
@@ -1715,34 +1715,34 @@ namespace ClubCompFS
                                 switch (index3)
                                 {
                                     case 0:
-                                        this.TDA[index2, index3] = (object)Module1.Vek[Pno].Place_Seg2;
+                                        this.TDA[index2, index3] = (object)Program.Vek[Pno].Place_Seg2;
                                         break;
                                     case 1:
-                                        this.TDA[index2, index3] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
+                                        this.TDA[index2, index3] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
                                         break;
                                     case 2:
-                                        this.TDA[index2, index3] = (object)Module1.Vek[Pno].Club;
+                                        this.TDA[index2, index3] = (object)Program.Vek[Pno].Club;
                                         break;
                                 }
-                                switch (Module1.Vek[Pno].DNS_Seg2)
+                                switch (Program.Vek[Pno].DNS_Seg2)
                                 {
                                     case 0:
                                         switch (index3)
                                         {
                                             case 3:
-                                                this.TDA[index2, index3] = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00");
+                                                this.TDA[index2, index3] = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00");
                                                 break;
                                             case 4:
-                                                this.TDA[index2, index3] = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00");
+                                                this.TDA[index2, index3] = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00");
                                                 break;
                                             case 5:
-                                                this.TDA[index2, index3] = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00");
+                                                this.TDA[index2, index3] = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00");
                                                 break;
                                             case 6:
-                                                this.TDA[index2, index3] = (object)Module1.DedSeg1Seg2(Pno, "Seg2");
+                                                this.TDA[index2, index3] = (object)Program.DedSeg1Seg2(Pno, "Seg2");
                                                 break;
                                             case 7:
-                                                this.TDA[index2, index3] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                                                this.TDA[index2, index3] = (object)Program.Vek[Pno].Bonus_Seg2;
                                                 break;
                                         }
                                         break;
@@ -1812,7 +1812,7 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                 {
-                    int num6 = checked(Module1.TNop - num4);
+                    int num6 = checked(Program.TNop - num4);
                     int Pno = 1;
                     while (Pno <= num6)
                     {
@@ -1823,24 +1823,24 @@ namespace ClubCompFS
                             switch (index4)
                             {
                                 case 0:
-                                    this.TDA[index2, index4] = (object)Module1.Vek[Pno].Place_Seg2;
+                                    this.TDA[index2, index4] = (object)Program.Vek[Pno].Place_Seg2;
                                     break;
                                 case 1:
-                                    this.TDA[index2, index4] = (object)(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName);
+                                    this.TDA[index2, index4] = (object)(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName);
                                     break;
                                 case 2:
-                                    this.TDA[index2, index4] = (object)Module1.Vek[Pno].Club;
+                                    this.TDA[index2, index4] = (object)Program.Vek[Pno].Club;
                                     break;
                             }
-                            if (Module1.Vek[Pno].DNS_Seg1 > 0 | Module1.Vek[Pno].DNS_Seg2 > 0)
+                            if (Program.Vek[Pno].DNS_Seg1 > 0 | Program.Vek[Pno].DNS_Seg2 > 0)
                             {
                                 switch (index4)
                                 {
                                     case 3:
-                                        switch (Module1.Vek[Pno].DNS_Seg1)
+                                        switch (Program.Vek[Pno].DNS_Seg1)
                                         {
                                             case 0:
-                                                switch (Module1.Vek[Pno].DNS_Seg2)
+                                                switch (Program.Vek[Pno].DNS_Seg2)
                                                 {
                                                     case 1:
                                                         this.TDA[index2, index4] = (object)"DNS";
@@ -1883,19 +1883,19 @@ namespace ClubCompFS
                                 switch (index4)
                                 {
                                     case 3:
-                                        this.TDA[index2, index4] = (object)Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00");
+                                        this.TDA[index2, index4] = (object)Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00");
                                         break;
                                     case 4:
-                                        this.TDA[index2, index4] = (object)Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00");
+                                        this.TDA[index2, index4] = (object)Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00");
                                         break;
                                     case 5:
-                                        this.TDA[index2, index4] = (object)Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00");
+                                        this.TDA[index2, index4] = (object)Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00");
                                         break;
                                     case 6:
-                                        this.TDA[index2, index4] = (object)Module1.DedSeg1Seg2(Pno, "Seg2");
+                                        this.TDA[index2, index4] = (object)Program.DedSeg1Seg2(Pno, "Seg2");
                                         break;
                                     case 7:
-                                        this.TDA[index2, index4] = (object)Module1.Vek[Pno].Bonus_Seg2;
+                                        this.TDA[index2, index4] = (object)Program.Vek[Pno].Bonus_Seg2;
                                         break;
                                 }
                             }
@@ -1905,7 +1905,7 @@ namespace ClubCompFS
                         checked { ++Pno; }
                     }
                 }
-                if (Conversions.ToBoolean(Module1.CreatePath("Segment_2", ref Path)))
+                if (Conversions.ToBoolean(Program.CreatePath("Segment_2", ref Path)))
                 {
                     this.ExportDataToPDFTable1(checked(index2 - 1), checked(num3 + 1), txt, Path + "_Results.pdf", msg);
                     goto label_78;
@@ -1944,62 +1944,62 @@ namespace ClubCompFS
                 this.TDA[0, 3] = (object)"Total Score";
                 this.TDA[0, 4] = (object)"Place Seg. 1";
                 this.TDA[0, 5] = (object)"Place Seg. 2";
-                Module1.SortListSeg1(Module1.TNop);
-                Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                Module1.SortListSeg2(Module1.TNop);
-                Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                Module1.SumScore(Module1.TNop);
-                Module1.SortListTotal(Module1.TNop);
-                Module1.TotalPl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                Program.SortListSeg1(Program.TNop);
+                Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                Program.SortListSeg2(Program.TNop);
+                Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                Program.SumScore(Program.TNop);
+                Program.SortListTotal(Program.TNop);
+                Program.TotalPl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                 int index1 = 1;
-                int tnop = Module1.TNop;
+                int tnop = Program.TNop;
                 int index2 = 1;
                 while (index2 <= tnop)
                 {
-                    if (Module1.Vek[index2].DNS_Seg1 == 0 & Module1.Vek[index2].Finished_Seg1 == 1 && Module1.Vek[index2].Finished_Seg2 == 1 | Module1.Vek[index2].DNS_Seg2 > 0)
+                    if (Program.Vek[index2].DNS_Seg1 == 0 & Program.Vek[index2].Finished_Seg1 == 1 && Program.Vek[index2].Finished_Seg2 == 1 | Program.Vek[index2].DNS_Seg2 > 0)
                     {
                         int index3 = 0;
                         do
                         {
-                            if (Module1.Vek[index2].Finished_Seg2 == 1 & Module1.Vek[index2].DNS_Seg2 == 0)
+                            if (Program.Vek[index2].Finished_Seg2 == 1 & Program.Vek[index2].DNS_Seg2 == 0)
                             {
                                 switch (index3)
                                 {
                                     case 0:
-                                        this.TDA[index1, index3] = (object)Module1.Vek[index2].Place;
+                                        this.TDA[index1, index3] = (object)Program.Vek[index2].Place;
                                         break;
                                     case 1:
-                                        this.TDA[index1, index3] = (object)(Module1.Vek[index2].Name.FName + " " + Module1.Vek[index2].Name.LName);
+                                        this.TDA[index1, index3] = (object)(Program.Vek[index2].Name.FName + " " + Program.Vek[index2].Name.LName);
                                         break;
                                     case 2:
-                                        this.TDA[index1, index3] = (object)Module1.Vek[index2].Club;
+                                        this.TDA[index1, index3] = (object)Program.Vek[index2].Club;
                                         break;
                                     case 3:
-                                        this.TDA[index1, index3] = (object)Strings.Format((object)Module1.Vek[index2].Score_Total, "0.00");
+                                        this.TDA[index1, index3] = (object)Strings.Format((object)Program.Vek[index2].Score_Total, "0.00");
                                         break;
                                     case 4:
-                                        this.TDA[index1, index3] = (object)Strings.Format((object)Module1.Vek[index2].Place_Seg1, "#");
+                                        this.TDA[index1, index3] = (object)Strings.Format((object)Program.Vek[index2].Place_Seg1, "#");
                                         break;
                                     case 5:
-                                        this.TDA[index1, index3] = (object)Strings.Format((object)Module1.Vek[index2].Place_Seg2, "#");
+                                        this.TDA[index1, index3] = (object)Strings.Format((object)Program.Vek[index2].Place_Seg2, "#");
                                         break;
                                 }
                             }
-                            else if (Module1.Vek[index2].DNS_Seg2 > 0)
+                            else if (Program.Vek[index2].DNS_Seg2 > 0)
                             {
                                 switch (index3)
                                 {
                                     case 0:
-                                        this.TDA[index1, index3] = (object)Module1.Vek[index2].Place;
+                                        this.TDA[index1, index3] = (object)Program.Vek[index2].Place;
                                         break;
                                     case 1:
-                                        this.TDA[index1, index3] = (object)(Module1.Vek[index2].Name.FName + " " + Module1.Vek[index2].Name.LName);
+                                        this.TDA[index1, index3] = (object)(Program.Vek[index2].Name.FName + " " + Program.Vek[index2].Name.LName);
                                         break;
                                     case 2:
-                                        this.TDA[index1, index3] = (object)Module1.Vek[index2].Club;
+                                        this.TDA[index1, index3] = (object)Program.Vek[index2].Club;
                                         break;
                                     case 3:
-                                        switch (Module1.Vek[index2].DNS_Seg2)
+                                        switch (Program.Vek[index2].DNS_Seg2)
                                         {
                                             case 1:
                                                 this.TDA[index1, index3] = (object)"DNS";
@@ -2016,10 +2016,10 @@ namespace ClubCompFS
                                         }
                                         break;
                                     case 4:
-                                        this.TDA[index1, index3] = (object)Strings.Format((object)Module1.Vek[index2].Place_Seg1, "#");
+                                        this.TDA[index1, index3] = (object)Strings.Format((object)Program.Vek[index2].Place_Seg1, "#");
                                         break;
                                     case 5:
-                                        switch (Module1.Vek[index2].DNS_Seg2)
+                                        switch (Program.Vek[index2].DNS_Seg2)
                                         {
                                             case 1:
                                                 this.TDA[index1, index3] = (object)"DNS";
@@ -2044,7 +2044,7 @@ namespace ClubCompFS
                     }
                     checked { ++index2; }
                 }
-                if (Conversions.ToBoolean(Module1.CreatePath("Final", ref Path)))
+                if (Conversions.ToBoolean(Program.CreatePath("Final", ref Path)))
                 {
                     this.ExportDataToPDFTable1(checked(index1 - 1), 6, "Final Result", Path + ".pdf", msg);
                     goto label_39;
@@ -2071,10 +2071,10 @@ namespace ClubCompFS
         {
             string Left = seg;
             if (Operators.CompareString(Left, "Seg1", false) == 0)
-                this.CreateSeg1PDF(Module1.GetSegTxt(seg), msg);
+                this.CreateSeg1PDF(Program.GetSegTxt(seg), msg);
             else if (Operators.CompareString(Left, "Seg2", false) == 0)
             {
-                this.CreateSeg2PDF(Module1.GetSegTxt(seg), msg);
+                this.CreateSeg2PDF(Program.GetSegTxt(seg), msg);
             }
             else
             {
@@ -2120,8 +2120,8 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 StringFormat stringFormat = new StringFormat(StringFormatFlags.LineLimit)
@@ -2134,15 +2134,15 @@ namespace ClubCompFS
                 StringFormat format2 = new StringFormat(StringFormatFlags.NoClip);
                 format1.Alignment = StringAlignment.Center;
                 format2.Alignment = StringAlignment.Near;
-                string segTxt = Module1.GetSegTxt(this.printSeg);
+                string segTxt = Program.GetSegTxt(this.printSeg);
                 string printSeg1 = this.printSeg;
                 int num3 = 0;
                 if (Operators.CompareString(printSeg1, "Seg1", false) == 0)
                 {
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                    str = Module1.FormShortDate(Module1.Datum.Seg1);
-                    string seg = Module1.GetSeg();
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                    str = Program.FormShortDate(Program.Datum.Seg1);
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "S0", false) == 0)
                         num3 = 7;
                     else if (Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "F0", false) == 0)
@@ -2150,46 +2150,46 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(printSeg1, "Seg2", false) == 0)
                 {
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                    string seg = Module1.GetSeg();
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "0F", false) == 0)
                     {
                         num3 = 8;
-                        str = Module1.FormShortDate(Module1.Datum.Seg2);
+                        str = Program.FormShortDate(Program.Datum.Seg2);
                     }
                     else if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "0S", false) == 0)
                     {
                         num3 = 7;
-                        str = Module1.FormShortDate(Module1.Datum.Seg2);
+                        str = Program.FormShortDate(Program.Datum.Seg2);
                     }
                 }
                 else
                 {
-                    Module1.SortListSeg1(Module1.TNop);
-                    Module1.Seg1Pl(checked(Module1.TNop - Module1.DNS_Seg1));
-                    Module1.SortListSeg2(Module1.TNop);
-                    Module1.Seg2Pl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
-                    Module1.SumScore(Module1.TNop);
-                    Module1.SortListTotal(Module1.TNop);
-                    Module1.TotalPl(checked(Module1.TNop - Module1.DNS_Seg1 - Module1.DNS_Seg2));
+                    Program.SortListSeg1(Program.TNop);
+                    Program.Seg1Pl(checked(Program.TNop - Program.DNS_Seg1));
+                    Program.SortListSeg2(Program.TNop);
+                    Program.Seg2Pl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
+                    Program.SumScore(Program.TNop);
+                    Program.SortListTotal(Program.TNop);
+                    Program.TotalPl(checked(Program.TNop - Program.DNS_Seg1 - Program.DNS_Seg2));
                     num3 = 6;
-                    str = Module1.FormShortDate(Module1.Datum.Seg2);
+                    str = Program.FormShortDate(Program.Datum.Seg2);
                 }
                 double num4;
                 int emSize;
                 switch (num3)
                 {
                     case 6:
-                        num4 = Module1.Page_Size * 0.9 / 100.0;
+                        num4 = Program.Page_Size * 0.9 / 100.0;
                         emSize = checked((int)Math.Round(Conversion.Int(unchecked(num4 * 10.0 + 3.55))));
                         break;
                     case 7:
-                        num4 = Module1.Page_Size * 0.85 / 100.0;
+                        num4 = Program.Page_Size * 0.85 / 100.0;
                         emSize = checked((int)Math.Round(Conversion.Int(unchecked(num4 * 10.0 + 4.15))));
                         break;
                     case 8:
-                        num4 = Module1.Page_Size * 0.75 / 100.0;
+                        num4 = Program.Page_Size * 0.75 / 100.0;
                         emSize = checked((int)Math.Round(Conversion.Int(unchecked(num4 * 10.0 + 5.05))));
                         break;
                     default:
@@ -2202,9 +2202,9 @@ namespace ClubCompFS
                 double height1 = (double)font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("RESULTS", font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = (float)((double)pageTopMargin + (double)font1.GetHeight(e.Graphics) + 5.0);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + segTxt, font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float y3 = y2 + font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("DATE: " + str, font1, Brushes.Black, (float)pageLeftMargin, y3, new StringFormat());
                 float num5 = (float)pageLeftMargin;
@@ -2291,9 +2291,9 @@ namespace ClubCompFS
                 string printSeg5 = this.printSeg;
                 if (Operators.CompareString(printSeg5, "Seg1", false) == 0)
                 {
-                    while (Pno <= Module1.TNop)
+                    while (Pno <= Program.TNop)
                     {
-                        if (!(Module1.Vek[Pno].Startno_Seg1 == 0 & Module1.Vek[Pno].DNS_Seg1 > 0))
+                        if (!(Program.Vek[Pno].Startno_Seg1 == 0 & Program.Vek[Pno].DNS_Seg1 > 0))
                         {
                             float x2 = (float)pageLeftMargin;
                             int num8 = num3;
@@ -2304,47 +2304,47 @@ namespace ClubCompFS
                                 {
                                     case 1:
                                         layoutRectangle = new RectangleF(x2, y5, (float)(60.0 * num4), height2);
-                                        e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Place_Seg1), font3, Brushes.Black, layoutRectangle, format1);
+                                        e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Place_Seg1), font3, Brushes.Black, layoutRectangle, format1);
                                         break;
                                     case 2:
                                         x2 += layoutRectangle.Width;
                                         layoutRectangle = new RectangleF(x2, y5, (float)(200.0 * num4), height2);
-                                        e.Graphics.DrawString(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                                         break;
                                     case 3:
                                         x2 += layoutRectangle.Width;
                                         layoutRectangle = new RectangleF(x2, y5, (float)(200.0 * num4), height2);
-                                        e.Graphics.DrawString(Module1.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString(Program.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
                                         break;
                                 }
-                                if (Module1.Vek[Pno].DNS_Seg1 == 0)
+                                if (Program.Vek[Pno].DNS_Seg1 == 0)
                                 {
                                     switch (num9)
                                     {
                                         case 4:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Score_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Score_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 5:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].TES_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].TES_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 6:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].PCS_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].PCS_Seg1, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 7:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.DedSeg1Seg2(Pno, "Seg1")), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.DedSeg1Seg2(Pno, "Seg1")), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 8:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Bonus_Seg1), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Bonus_Seg1), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                     }
                                 }
@@ -2355,7 +2355,7 @@ namespace ClubCompFS
                                         case 4:
                                             x2 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x2, y5, (float)(100.0 * num4), height2);
-                                            switch (Module1.Vek[Pno].DNS_Seg1)
+                                            switch (Program.Vek[Pno].DNS_Seg1)
                                             {
                                                 case 1:
                                                     e.Graphics.DrawString("DNS", font3, Brushes.Black, layoutRectangle, format1);
@@ -2390,12 +2390,12 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(printSeg5, "Seg2", false) == 0)
                 {
-                    string seg = Module1.GetSeg();
+                    string seg = Program.GetSeg();
                     if (Operators.CompareString(seg, "0F", false) == 0)
                     {
-                        while (Pno <= Module1.TNop)
+                        while (Pno <= Program.TNop)
                         {
-                            if (!(Module1.Vek[Pno].Startno_Seg2 == 0 & Module1.Vek[Pno].DNS_Seg2 > 0))
+                            if (!(Program.Vek[Pno].Startno_Seg2 == 0 & Program.Vek[Pno].DNS_Seg2 > 0))
                             {
                                 float x3 = (float)pageLeftMargin;
                                 int num10 = num3;
@@ -2406,47 +2406,47 @@ namespace ClubCompFS
                                     {
                                         case 1:
                                             layoutRectangle = new RectangleF(x3, y5, (float)(60.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Place_Seg2), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Place_Seg2), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 2:
                                             x3 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x3, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 3:
                                             x3 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x3, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                     }
-                                    if (Module1.Vek[Pno].DNS_Seg2 == 0)
+                                    if (Program.Vek[Pno].DNS_Seg2 == 0)
                                     {
                                         switch (num11)
                                         {
                                             case 4:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 5:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 6:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 7:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Conversions.ToString(Module1.DedSeg1Seg2(Pno, "Seg2")), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Conversions.ToString(Program.DedSeg1Seg2(Pno, "Seg2")), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 8:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Bonus_Seg2), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Bonus_Seg2), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                         }
                                     }
@@ -2457,7 +2457,7 @@ namespace ClubCompFS
                                             case 4:
                                                 x3 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x3, y5, (float)(100.0 * num4), height2);
-                                                switch (Module1.Vek[Pno].DNS_Seg2)
+                                                switch (Program.Vek[Pno].DNS_Seg2)
                                                 {
                                                     case 1:
                                                         e.Graphics.DrawString("DNS", font3, Brushes.Black, layoutRectangle, format1);
@@ -2492,9 +2492,9 @@ namespace ClubCompFS
                     }
                     else if (Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "SS", false) == 0)
                     {
-                        while (Pno <= Module1.TNop)
+                        while (Pno <= Program.TNop)
                         {
-                            if (Module1.Vek[Pno].DNS_Seg1 == 0)
+                            if (Program.Vek[Pno].DNS_Seg1 == 0)
                             {
                                 float x4 = (float)pageLeftMargin;
                                 int num12 = num3;
@@ -2505,27 +2505,27 @@ namespace ClubCompFS
                                     {
                                         case 1:
                                             layoutRectangle = new RectangleF(x4, y5, (float)(60.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Place_Seg2), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Place_Seg2), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 2:
                                             x4 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x4, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 3:
                                             x4 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x4, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                     }
-                                    if (Module1.Vek[Pno].DNS_Seg2 > 0)
+                                    if (Program.Vek[Pno].DNS_Seg2 > 0)
                                     {
                                         switch (num13)
                                         {
                                             case 4:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                switch (Module1.Vek[Pno].DNS_Seg2)
+                                                switch (Program.Vek[Pno].DNS_Seg2)
                                                 {
                                                     case 1:
                                                         e.Graphics.DrawString("DNS", font3, Brushes.Black, layoutRectangle, format1);
@@ -2558,27 +2558,27 @@ namespace ClubCompFS
                                             case 4:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Score_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Score_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 5:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].TES_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].TES_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 6:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].PCS_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].PCS_Seg2, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 7:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Conversions.ToString(Module1.DedSeg1Seg2(Pno, "Seg2")), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Conversions.ToString(Program.DedSeg1Seg2(Pno, "Seg2")), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                             case 8:
                                                 x4 += layoutRectangle.Width;
                                                 layoutRectangle = new RectangleF(x4, y5, (float)(100.0 * num4), height2);
-                                                e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Bonus_Seg2), font3, Brushes.Black, layoutRectangle, format1);
+                                                e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Bonus_Seg2), font3, Brushes.Black, layoutRectangle, format1);
                                                 break;
                                         }
                                     }
@@ -2592,72 +2592,72 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    while (Pno <= Module1.TNop)
+                    while (Pno <= Program.TNop)
                     {
-                        if (Module1.Vek[Pno].DNS_Seg1 == 0 & (Module1.Vek[Pno].Finished_Seg2 == 1 | Module1.Vek[Pno].DNS_Seg2 > 0))
+                        if (Program.Vek[Pno].DNS_Seg1 == 0 & (Program.Vek[Pno].Finished_Seg2 == 1 | Program.Vek[Pno].DNS_Seg2 > 0))
                         {
                             float x5 = (float)pageLeftMargin;
                             int num14 = num3;
                             int num15 = 1;
                             while (num15 <= num14)
                             {
-                                if (Module1.Vek[Pno].Finished_Seg2 == 1 & Module1.Vek[Pno].DNS_Seg2 == 0)
+                                if (Program.Vek[Pno].Finished_Seg2 == 1 & Program.Vek[Pno].DNS_Seg2 == 0)
                                 {
                                     switch (num15)
                                     {
                                         case 1:
                                             layoutRectangle = new RectangleF(x5, y5, (float)(60.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Place), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Place), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 2:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 3:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 4:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Score_Total, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Score_Total, "0.00"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 5:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Place_Seg1, "#"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Place_Seg1, "#"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 6:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Place_Seg2, "#"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Place_Seg2, "#"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                     }
                                 }
-                                else if (Module1.Vek[Pno].DNS_Seg2 > 0)
+                                else if (Program.Vek[Pno].DNS_Seg2 > 0)
                                 {
                                     switch (num15)
                                     {
                                         case 1:
                                             layoutRectangle = new RectangleF(x5, y5, (float)(60.0 * num4), height2);
-                                            e.Graphics.DrawString(Conversions.ToString(Module1.Vek[Pno].Place), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Conversions.ToString(Program.Vek[Pno].Place), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 2:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Name.FName + " " + Module1.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Name.FName + " " + Program.Vek[Pno].Name.LName, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 3:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(200.0 * num4), height2);
-                                            e.Graphics.DrawString(Module1.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
+                                            e.Graphics.DrawString(Program.Vek[Pno].Club, font3, Brushes.Black, layoutRectangle, format2);
                                             break;
                                         case 4:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            switch (Module1.Vek[Pno].DNS_Seg2)
+                                            switch (Program.Vek[Pno].DNS_Seg2)
                                             {
                                                 case 1:
                                                     e.Graphics.DrawString("DNS", font3, Brushes.Black, layoutRectangle, format1);
@@ -2676,12 +2676,12 @@ namespace ClubCompFS
                                         case 5:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            e.Graphics.DrawString(Strings.Format((object)Module1.Vek[Pno].Place_Seg1, "#"), font3, Brushes.Black, layoutRectangle, format1);
+                                            e.Graphics.DrawString(Strings.Format((object)Program.Vek[Pno].Place_Seg1, "#"), font3, Brushes.Black, layoutRectangle, format1);
                                             break;
                                         case 6:
                                             x5 += layoutRectangle.Width;
                                             layoutRectangle = new RectangleF(x5, y5, (float)(100.0 * num4), height2);
-                                            switch (Module1.Vek[Pno].DNS_Seg2)
+                                            switch (Program.Vek[Pno].DNS_Seg2)
                                             {
                                                 case 1:
                                                     e.Graphics.DrawString("DNS", font3, Brushes.Black, layoutRectangle, format1);
@@ -2711,13 +2711,13 @@ namespace ClubCompFS
                 float y6 = y5 + 40f;
                 e.Graphics.DrawString("Referee:..................................................", font3, Brushes.Black, (float)pageLeftMargin, y6, new StringFormat());
                 float y7 = y6 + 20f;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    e.Graphics.DrawString(Module1.Referee.Seg1.Name, font3, Brushes.Black, (float)x1, y7, new StringFormat());
+                    e.Graphics.DrawString(Program.Referee.Seg1.Name, font3, Brushes.Black, (float)x1, y7, new StringFormat());
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    e.Graphics.DrawString(Module1.Referee.Seg2.Name, font3, Brushes.Black, (float)x1, y7, new StringFormat());
+                    e.Graphics.DrawString(Program.Referee.Seg2.Name, font3, Brushes.Black, (float)x1, y7, new StringFormat());
                 float y8 = y7 + 20f;
-                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y8, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y8, new StringFormat());
                 goto label_154;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)

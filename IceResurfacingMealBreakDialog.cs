@@ -787,21 +787,21 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    this.OldIceArr_Seg1[index] = Module1.IceArr_Seg1[index];
-                    this.OldIceArr_Seg2[index] = Module1.IceArr_Seg2[index];
-                    this.OldLunchArr_Seg1[index] = Module1.LunchArr_Seg1[index];
-                    this.OldLunchArr_Seg2[index] = Module1.LunchArr_Seg2[index];
+                    this.OldIceArr_Seg1[index] = Program.IceArr_Seg1[index];
+                    this.OldIceArr_Seg2[index] = Program.IceArr_Seg2[index];
+                    this.OldLunchArr_Seg1[index] = Program.LunchArr_Seg1[index];
+                    this.OldLunchArr_Seg2[index] = Program.LunchArr_Seg2[index];
                     checked { ++index; }
                 }
                 while (index <= 7);
-                this.OldWupG_Seg1 = Module1.WupG_Seg1;
-                this.OldWupG_Seg2 = Module1.WupG_Seg2;
-                string segment = Module1.Segment;
+                this.OldWupG_Seg1 = Program.WupG_Seg1;
+                this.OldWupG_Seg2 = Program.WupG_Seg2;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        switch (Module1.WupG_Seg2)
+                        switch (Program.WupG_Seg2)
                         {
                             case 6:
                                 this.Gr66();
@@ -816,7 +816,7 @@ namespace ClubCompFS
                                 this.Gr66();
                                 break;
                         }
-                        if (!Module1.RemWarmupTimeSeg2)
+                        if (!Program.RemWarmupTimeSeg2)
                             this.lblRemWT.Visible = false;
                         else
                             this.lblRemWT.Visible = true;
@@ -824,7 +824,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    switch (Module1.WupG_Seg1)
+                    switch (Program.WupG_Seg1)
                     {
                         case 6:
                             this.Gr66();
@@ -839,7 +839,7 @@ namespace ClubCompFS
                             this.Gr66();
                             break;
                     }
-                    if (!Module1.RemWarmupTimeSeg1)
+                    if (!Program.RemWarmupTimeSeg1)
                         this.lblRemWT.Visible = false;
                     else
                         this.lblRemWT.Visible = true;
@@ -861,41 +861,41 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
                 {
-                    Module1.IceArr_Seg1 = (int[])null;
-                    Module1.IceArr_Seg1 = new int[8];
-                    Module1.LunchArr_Seg1 = (int[])null;
-                    Module1.LunchArr_Seg1 = new int[8];
+                    Program.IceArr_Seg1 = (int[])null;
+                    Program.IceArr_Seg1 = new int[8];
+                    Program.LunchArr_Seg1 = (int[])null;
+                    Program.LunchArr_Seg1 = new int[8];
                     int ReNo = 1;
                     do
                     {
                         string key1 = "Ice" + Strings.Trim(Conversions.ToString(ReNo));
                         string key2 = "M" + Strings.Trim(Conversions.ToString(checked(ReNo + 10)));
                         if (this.Controls[key1].Visible & this.Controls[key1].BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                            Module1.IceArr_Seg1[ReNo] = Module1.CalcRes(ref Module1.gr, ReNo);
+                            Program.IceArr_Seg1[ReNo] = Program.CalcRes(ref Program.gr, ReNo);
                         if (this.Controls[key2].Visible & this.Controls[key2].BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                            Module1.LunchArr_Seg1[ReNo] = Module1.CalcLunch(ref Module1.gr, checked(ReNo + 10));
+                            Program.LunchArr_Seg1[ReNo] = Program.CalcLunch(ref Program.gr, checked(ReNo + 10));
                         checked { ++ReNo; }
                     }
                     while (ReNo <= 7);
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
-                    Module1.IceArr_Seg2 = (int[])null;
-                    Module1.IceArr_Seg2 = new int[8];
-                    Module1.LunchArr_Seg2 = (int[])null;
-                    Module1.LunchArr_Seg2 = new int[8];
+                    Program.IceArr_Seg2 = (int[])null;
+                    Program.IceArr_Seg2 = new int[8];
+                    Program.LunchArr_Seg2 = (int[])null;
+                    Program.LunchArr_Seg2 = new int[8];
                     int ReNo = 1;
                     do
                     {
                         string key3 = "Ice" + Strings.Trim(Conversions.ToString(ReNo));
                         string key4 = "M" + Strings.Trim(Conversions.ToString(checked(ReNo + 10)));
                         if (this.Controls[key3].Visible & this.Controls[key3].BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                            Module1.IceArr_Seg2[ReNo] = Module1.CalcRes(ref Module1.gr, ReNo);
+                            Program.IceArr_Seg2[ReNo] = Program.CalcRes(ref Program.gr, ReNo);
                         if (this.Controls[key4].Visible & this.Controls[key4].BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
-                            Module1.LunchArr_Seg2[ReNo] = Module1.CalcLunch(ref Module1.gr, checked(ReNo + 10));
+                            Program.LunchArr_Seg2[ReNo] = Program.CalcLunch(ref Program.gr, checked(ReNo + 10));
                         checked { ++ReNo; }
                     }
                     while (ReNo <= 7);
@@ -932,15 +932,15 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    Module1.IceArr_Seg1[index] = this.OldIceArr_Seg1[index];
-                    Module1.IceArr_Seg2[index] = this.OldIceArr_Seg2[index];
-                    Module1.LunchArr_Seg1[index] = this.OldLunchArr_Seg1[index];
-                    Module1.LunchArr_Seg2[index] = this.OldLunchArr_Seg2[index];
+                    Program.IceArr_Seg1[index] = this.OldIceArr_Seg1[index];
+                    Program.IceArr_Seg2[index] = this.OldIceArr_Seg2[index];
+                    Program.LunchArr_Seg1[index] = this.OldLunchArr_Seg1[index];
+                    Program.LunchArr_Seg2[index] = this.OldLunchArr_Seg2[index];
                     checked { ++index; }
                 }
                 while (index <= 7);
-                Module1.WupG_Seg1 = this.OldWupG_Seg1;
-                Module1.WupG_Seg2 = this.OldWupG_Seg2;
+                Program.WupG_Seg1 = this.OldWupG_Seg1;
+                Program.WupG_Seg2 = this.OldWupG_Seg2;
                 MyProject.Forms.WarmupGroupsForm.TopMost = true;
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
@@ -1047,7 +1047,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                switch (Module1.OpenDB[Module1.PcIndex].GrSize)
+                switch (Program.OpenDB[Program.PcIndex].GrSize)
                 {
                     case 6:
                         this.Gr6.Visible = true;
@@ -1094,7 +1094,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 0;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) != 0)
@@ -1104,12 +1104,12 @@ namespace ClubCompFS
                     {
                         string key1 = "Ice" + Strings.Trim(Conversions.ToString(index));
                         string key2 = "M" + Strings.Trim(Conversions.ToString(checked(index + 10)));
-                        checked { num3 += Module1.gr[index]; }
-                        if (num3 != Module1.IceArr_Seg2[index])
+                        checked { num3 += Program.gr[index]; }
+                        if (num3 != Program.IceArr_Seg2[index])
                             this.Controls[key1].BackColor = Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
                         else
                             this.Controls[key1].BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
-                        if (num3 != Module1.LunchArr_Seg2[index])
+                        if (num3 != Program.LunchArr_Seg2[index])
                             this.Controls[key2].BackColor = Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
                         else
                             this.Controls[key2].BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
@@ -1124,12 +1124,12 @@ namespace ClubCompFS
                     {
                         string key3 = "Ice" + Strings.Trim(Conversions.ToString(index));
                         string key4 = "M" + Strings.Trim(Conversions.ToString(checked(index + 10)));
-                        checked { num3 += Module1.gr[index]; }
-                        if (num3 != Module1.IceArr_Seg1[index])
+                        checked { num3 += Program.gr[index]; }
+                        if (num3 != Program.IceArr_Seg1[index])
                             this.Controls[key3].BackColor = Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
                         else
                             this.Controls[key3].BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
-                        if (num3 != Module1.LunchArr_Seg1[index])
+                        if (num3 != Program.LunchArr_Seg1[index])
                             this.Controls[key4].BackColor = Color.FromArgb((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue);
                         else
                             this.Controls[key4].BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
@@ -1182,22 +1182,22 @@ namespace ClubCompFS
                 num1 = 1;
                 this.Gr6.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                 this.Gr7.BackColor = Color.FromArgb(236, 233, 216);
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.WupG_Seg2 = 6;
+                        Program.WupG_Seg2 = 6;
                 }
                 else
-                    Module1.WupG_Seg1 = 6;
+                    Program.WupG_Seg1 = 6;
                 int index = 1;
                 do
                 {
-                    Module1.gr[index] = 0;
+                    Program.gr[index] = 0;
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Program.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -1217,22 +1217,22 @@ namespace ClubCompFS
                 num1 = 1;
                 this.Gr7.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                 this.Gr6.BackColor = Color.FromArgb(236, 233, 216);
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.WupG_Seg2 = 7;
+                        Program.WupG_Seg2 = 7;
                 }
                 else
-                    Module1.WupG_Seg1 = 7;
+                    Program.WupG_Seg1 = 7;
                 int index = 1;
                 do
                 {
-                    Module1.gr[index] = 0;
+                    Program.gr[index] = 0;
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Program.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -1250,22 +1250,22 @@ namespace ClubCompFS
                 num1 = 1;
                 this.Gr7.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                 this.Gr6.BackColor = Color.FromArgb(236, 233, 216);
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0)
                 {
                     if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Module1.WupG_Seg2 = 8;
+                        Program.WupG_Seg2 = 8;
                 }
                 else
-                    Module1.WupG_Seg1 = 8;
+                    Program.WupG_Seg1 = 8;
                 int index = 1;
                 do
                 {
-                    Module1.gr[index] = 0;
+                    Program.gr[index] = 0;
                     checked { ++index; }
                 }
                 while (index <= 7);
-                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Module1.gr);
+                MyProject.Forms.WarmupGroupsForm.CalcGroup1(Conversions.ToInteger(this.txtNoSkater.Text), ref Program.gr);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {

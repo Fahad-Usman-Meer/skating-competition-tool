@@ -641,7 +641,7 @@ namespace ClubCompFS
             {
                 this.TopMost = false;
                 MyProject.Forms.IceResurfacingMealBreakDialog.txtNoSkater.Text = this.txtPartNo.Text;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                     MyProject.Forms.IceResurfacingMealBreakDialog.Close();
                 int num = (int)MyProject.Forms.IceResurfacingMealBreakDialog.ShowDialog();
             }
@@ -651,7 +651,7 @@ namespace ClubCompFS
         {
             int lastrow = 0;
             this.CreateWarr(GrW, ref lastrow);
-            this.ShowWarmUp_1(Module1.TNop, lastrow);
+            this.ShowWarmUp_1(Program.TNop, lastrow);
         }
 
         public void CreateWarr(int GrW, ref int lastrow)
@@ -664,31 +664,31 @@ namespace ClubCompFS
                 num1 = 2;
                 int integer1 = Conversions.ToInteger(this.txtPartNo.Text);
                 int integer2 = Conversions.ToInteger(this.txtPar.Text);
-                string segment1 = Module1.Segment;
+                string segment1 = Program.Segment;
                 bool flag = true;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    this.txtDate.Text = "DATE: " + Module1.FormShortDate(Module1.Datum.Seg1);
+                    this.txtDate.Text = "DATE: " + Program.FormShortDate(Program.Datum.Seg1);
                     int index = 1;
                     do
                     {
-                        Module1.Vek[index].WarmUp_Seg1 = 0;
+                        Program.Vek[index].WarmUp_Seg1 = 0;
                         checked { ++index; }
                     }
                     while (index <= 42);
-                    flag = Module1.RemWarmupTimeSeg1;
+                    flag = Program.RemWarmupTimeSeg1;
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    this.txtDate.Text = "DATE: " + Module1.FormShortDate(Module1.Datum.Seg2);
+                    this.txtDate.Text = "DATE: " + Program.FormShortDate(Program.Datum.Seg2);
                     int index = 1;
                     do
                     {
-                        Module1.Vek[index].WarmUp_Seg2 = 0;
+                        Program.Vek[index].WarmUp_Seg2 = 0;
                         checked { ++index; }
                     }
                     while (index <= 42);
-                    flag = Module1.RemWarmupTimeSeg2;
+                    flag = Program.RemWarmupTimeSeg2;
                 }
                 this.Warr[0, 0] = (object)"Start no";
                 this.Warr[0, 1] = (object)"First Name";
@@ -713,28 +713,28 @@ namespace ClubCompFS
                         int index = 0;
                         do
                         {
-                            Module1.gr[index] = 0;
+                            Program.gr[index] = 0;
                             checked { ++index; }
                         }
                         while (index <= 10);
-                        this.CalcGroup1(integer1, ref Module1.gr);
+                        this.CalcGroup1(integer1, ref Program.gr);
                     }
                     if (integer2 != 0)
                     {
-                        num6 = this.GetSec(Module1.ResurfacingTime);
-                        num5 = this.GetSec(Module1.LunchTime);
-                        string segment2 = Module1.Segment;
+                        num6 = this.GetSec(Program.ResurfacingTime);
+                        num5 = this.GetSec(Program.LunchTime);
+                        string segment2 = Program.Segment;
                         if (Operators.CompareString(segment2, "Seg1", false) == 0)
                         {
-                            num3 = this.GetSec(Module1.OpenDB[Module1.PcIndex].JudgeSeg1Time);
-                            num4 = this.GetSec(Module1.OpenDB[Module1.PcIndex].Seg1Time);
-                            obj = Operators.CompareString(Module1.Datum.Seg1Start, "", false) != 0 ? (object)this.GetSec(Module1.Datum.Seg1Start) : (object)this.GetSec("00:00:00");
+                            num3 = this.GetSec(Program.OpenDB[Program.PcIndex].JudgeSeg1Time);
+                            num4 = this.GetSec(Program.OpenDB[Program.PcIndex].Seg1Time);
+                            obj = Operators.CompareString(Program.Datum.Seg1Start, "", false) != 0 ? (object)this.GetSec(Program.Datum.Seg1Start) : (object)this.GetSec("00:00:00");
                         }
                         else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                         {
-                            num3 = this.GetSec(Module1.OpenDB[Module1.PcIndex].JudgeSeg2Time);
-                            num4 = this.GetSec(Module1.OpenDB[Module1.PcIndex].Seg2Time);
-                            obj = Operators.CompareString(Module1.Datum.Seg2Start, "", false) != 0 ? (object)this.GetSec(Module1.Datum.Seg2Start) : (object)this.GetSec("00:00:00");
+                            num3 = this.GetSec(Program.OpenDB[Program.PcIndex].JudgeSeg2Time);
+                            num4 = this.GetSec(Program.OpenDB[Program.PcIndex].Seg2Time);
+                            obj = Operators.CompareString(Program.Datum.Seg2Start, "", false) != 0 ? (object)this.GetSec(Program.Datum.Seg2Start) : (object)this.GetSec("00:00:00");
                         }
                         sec1 = Conversions.ToInteger(obj);
                     }
@@ -742,11 +742,11 @@ namespace ClubCompFS
                     int index2 = 1;
                     int num7 = 1;
                     int num8 = 0;
-                    while (Module1.gr[index1] > 0 & index1 <= 7)
+                    while (Program.gr[index1] > 0 & index1 <= 7)
                     {
-                        int num9 = !(flag & index2 == 1) ? this.GetSec(Module1.WarmUpTime) : this.GetSec("00:00:00");
-                        int num10 = !(flag & index2 == 1) ? this.GetSec(Module1.IceLeaveTime) : this.GetSec("00:00:00");
-                        checked { num8 += Module1.gr[index1]; }
+                        int num9 = !(flag & index2 == 1) ? this.GetSec(Program.WarmUpTime) : this.GetSec("00:00:00");
+                        int num10 = !(flag & index2 == 1) ? this.GetSec(Program.IceLeaveTime) : this.GetSec("00:00:00");
+                        checked { num8 += Program.gr[index1]; }
                         this.Warr[index2, 1] = (object)("Warmup Group " + Conversions.ToString(index1));
                         if (integer2 != 0)
                         {
@@ -761,14 +761,14 @@ namespace ClubCompFS
                         int index3 = num11;
                         while (index3 <= num12)
                         {
-                            string segment3 = Module1.Segment;
+                            string segment3 = Program.Segment;
                             if (Operators.CompareString(segment3, "Seg1", false) == 0)
                             {
-                                this.Warr[index2, 0] = (object)Conversions.ToString(Module1.Vek[index3].Startno_Seg1);
-                                Module1.Vek[index3].WarmUp_Seg1 = index1;
+                                this.Warr[index2, 0] = (object)Conversions.ToString(Program.Vek[index3].Startno_Seg1);
+                                Program.Vek[index3].WarmUp_Seg1 = index1;
                                 if (integer2 != 2)
                                 {
-                                    switch (Module1.Vek[index3].DNS_Seg1)
+                                    switch (Program.Vek[index3].DNS_Seg1)
                                     {
                                         case 1:
                                             this.Warr[index2, 4] = (object)"DNS";
@@ -787,11 +787,11 @@ namespace ClubCompFS
                             }
                             else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                             {
-                                this.Warr[index2, 0] = (object)Conversions.ToString(Module1.Vek[index3].Startno_Seg2);
-                                Module1.Vek[index3].WarmUp_Seg2 = index1;
+                                this.Warr[index2, 0] = (object)Conversions.ToString(Program.Vek[index3].Startno_Seg2);
+                                Program.Vek[index3].WarmUp_Seg2 = index1;
                                 if (integer2 != 2)
                                 {
-                                    switch (Module1.Vek[index3].DNS_Seg2)
+                                    switch (Program.Vek[index3].DNS_Seg2)
                                     {
                                         case 1:
                                             this.Warr[index2, 4] = (object)"DNS";
@@ -814,9 +814,9 @@ namespace ClubCompFS
                                 sec1 = checked(sec1 + num4 + num3);
                                 this.Warr[index2, 6] = (object)this.GetTime(sec1);
                             }
-                            this.Warr[index2, 1] = (object)Module1.Vek[index3].Name.FName;
-                            this.Warr[index2, 2] = (object)Module1.Vek[index3].Name.LName;
-                            this.Warr[index2, 3] = (object)Module1.Vek[index3].Club;
+                            this.Warr[index2, 1] = (object)Program.Vek[index3].Name.FName;
+                            this.Warr[index2, 2] = (object)Program.Vek[index3].Name.LName;
+                            this.Warr[index2, 3] = (object)Program.Vek[index3].Club;
                             checked { ++index2; }
                             checked { ++index3; }
                         }
@@ -824,18 +824,18 @@ namespace ClubCompFS
                         int index4 = 1;
                         do
                         {
-                            string segment4 = Module1.Segment;
+                            string segment4 = Program.Segment;
                             if (Operators.CompareString(segment4, "Seg1", false) == 0)
                             {
-                                if (Module1.LunchArr_Seg1[index4] > 0 & Module1.LunchArr_Seg1[index4] == checked(index3 - 1))
+                                if (Program.LunchArr_Seg1[index4] > 0 & Program.LunchArr_Seg1[index4] == checked(index3 - 1))
                                 {
-                                    this.Warr[index2, 1] = Module1.LunchArr_Seg1[index4] == Module1.IceArr_Seg1[index4] ? (object)"Meal break & Ice resurfacing" : (object)"Meal break";
+                                    this.Warr[index2, 1] = Program.LunchArr_Seg1[index4] == Program.IceArr_Seg1[index4] ? (object)"Meal break & Ice resurfacing" : (object)"Meal break";
                                     this.Warr[index2, 5] = (object)this.GetTime(sec1);
                                     checked { sec1 += num5; }
                                     this.Warr[index2, 6] = (object)this.GetTime(sec1);
                                     checked { ++index2; }
                                 }
-                                if (Module1.IceArr_Seg1[index4] > 0 & Module1.IceArr_Seg1[index4] == checked(index3 - 1) & Module1.LunchArr_Seg1[index4] != Module1.IceArr_Seg1[index4])
+                                if (Program.IceArr_Seg1[index4] > 0 & Program.IceArr_Seg1[index4] == checked(index3 - 1) & Program.LunchArr_Seg1[index4] != Program.IceArr_Seg1[index4])
                                 {
                                     this.Warr[index2, 1] = (object)"Resurfacing of the ice";
                                     this.Warr[index2, 5] = (object)this.GetTime(sec1);
@@ -846,15 +846,15 @@ namespace ClubCompFS
                             }
                             else if (Operators.CompareString(segment4, "Seg2", false) == 0)
                             {
-                                if (Module1.LunchArr_Seg2[index4] > 0 & Module1.LunchArr_Seg2[index4] == checked(index3 - 1))
+                                if (Program.LunchArr_Seg2[index4] > 0 & Program.LunchArr_Seg2[index4] == checked(index3 - 1))
                                 {
-                                    this.Warr[index2, 1] = Module1.LunchArr_Seg2[index4] == Module1.IceArr_Seg2[index4] ? (object)"Meal break & Ice resurfacing" : (object)"Meal break";
+                                    this.Warr[index2, 1] = Program.LunchArr_Seg2[index4] == Program.IceArr_Seg2[index4] ? (object)"Meal break & Ice resurfacing" : (object)"Meal break";
                                     this.Warr[index2, 5] = (object)this.GetTime(sec1);
                                     checked { sec1 += num5; }
                                     this.Warr[index2, 6] = (object)this.GetTime(sec1);
                                     checked { ++index2; }
                                 }
-                                if (Module1.IceArr_Seg2[index4] > 0 & Module1.IceArr_Seg2[index4] == checked(index3 - 1) & Module1.LunchArr_Seg2[index4] != Module1.IceArr_Seg2[index4])
+                                if (Program.IceArr_Seg2[index4] > 0 & Program.IceArr_Seg2[index4] == checked(index3 - 1) & Program.LunchArr_Seg2[index4] != Program.IceArr_Seg2[index4])
                                 {
                                     this.Warr[index2, 1] = (object)"Resurfacing of the ice";
                                     this.Warr[index2, 5] = (object)this.GetTime(sec1);
@@ -894,7 +894,7 @@ namespace ClubCompFS
 
         private void ShowWarmUp_1(int TNoP, int norows)
         {
-            this.Text = "WARMUP GROUPS: " + Strings.UCase(Module1.Category.Name) + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment);
+            this.Text = "WARMUP GROUPS: " + Strings.UCase(Program.Category.Name) + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment);
             DataGridView dataGridView1 = this.DataGridView1;
             dataGridView1.Rows.Clear();
             dataGridView1.RowCount = norows;
@@ -929,19 +929,19 @@ namespace ClubCompFS
             dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.Width = checked(this.DGW1width + Module1.WC);
-            this.F7Height = checked(this.DataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.Location.Y + Module1.HC);
+            this.Width = checked(this.DGW1width + Program.WC);
+            this.F7Height = checked(this.DataGridView1.Rows.Cast<DataGridViewRow>().Sum<DataGridViewRow>((Func<DataGridViewRow, int>)(r => r.Height)) + dataGridView1.Location.Y + Program.HC);
             if (this.F7Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 50))
             {
                 this.Height = this.F7Height;
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
             else
             {
                 this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 50);
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             this.widthcorr = true;
         }
@@ -952,13 +952,13 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F7Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
 
@@ -966,15 +966,15 @@ namespace ClubCompFS
         {
             int num1 = 0;
             int num2 = 0;
-            int MaxGr = Module1.WupG_Seg1;
+            int MaxGr = Program.WupG_Seg1;
             try
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 0;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) != 0 && Operators.CompareString(segment, "Seg2", false) == 0)
-                    MaxGr = Module1.WupG_Seg2;
+                    MaxGr = Program.WupG_Seg2;
                 if (MaxGr == 0)
                     return;
                 this.CalcGr1(NoSkater, MaxGr, ref GR);
@@ -1228,11 +1228,11 @@ namespace ClubCompFS
             }
             else
             {
-                Module1.SaveCategoryFile(Module1.CategoryFileName);
-                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                Program.SaveCategoryFile(Program.CategoryFileName);
+                if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                     MyProject.Forms.IceResurfacingMealBreakDialog.Close();
                 this.Close();
-                if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 {
                     MyProject.Forms.StartListForm.WillExitStartListForm = true;
                     MyProject.Forms.StartListForm.Close();
@@ -1248,12 +1248,12 @@ namespace ClubCompFS
             int num2 = 0;
             try
             {
-                double num3 = Module1.Page_Size * 0.78 / 100.0;
-                int pageLeftMargin = Module1.Page_Left_Margin;
-                float pageTopMargin = (float)Module1.Page_Top_Margin;
+                double num3 = Program.Page_Size * 0.78 / 100.0;
+                int pageLeftMargin = Program.Page_Left_Margin;
+                float pageTopMargin = (float)Program.Page_Top_Margin;
                 int index = 0;
                 string str = "";
-                double pageSize = Module1.Page_Size;
+                double pageSize = Program.Page_Size;
                 int emSize = pageSize >= 85.0 ? (pageSize < 85.0 || pageSize > 92.0 ? (pageSize < 92.0 || pageSize > 99.0 ? (pageSize < 99.0 || pageSize > 110.0 ? 13 : 12) : 11) : 10) : 9;
                 Font font1 = new Font("ARIAL", (float)checked(emSize + 2), FontStyle.Bold, GraphicsUnit.Pixel);
                 Font font2 = new Font("ARIAL", (float)emSize, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -1271,16 +1271,16 @@ namespace ClubCompFS
                 StringFormat format2 = new StringFormat(StringFormatFlags.NoClip);
                 format1.Alignment = StringAlignment.Center;
                 format2.Alignment = StringAlignment.Near;
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg1);
+                    str = Program.FormShortDate(Program.Datum.Seg1);
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    str = Module1.FormShortDate(Module1.Datum.Seg2);
+                    str = Program.FormShortDate(Program.Datum.Seg2);
                 e.Graphics.DrawString("WARMUP GROUPS", font1, Brushes.Black, (float)pageLeftMargin, pageTopMargin, new StringFormat());
                 float y1 = (float)((double)pageTopMargin + (double)font1.GetHeight(e.Graphics) + 5.0);
-                e.Graphics.DrawString("COMPETITION: " + Module1.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
+                e.Graphics.DrawString("COMPETITION: " + Program.Competition.Name, font1, Brushes.Black, (float)pageLeftMargin, y1, new StringFormat());
                 float y2 = y1 + font1.GetHeight(e.Graphics);
-                e.Graphics.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment), font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
+                e.Graphics.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment), font1, Brushes.Black, (float)pageLeftMargin, y2, new StringFormat());
                 float y3 = y2 + font1.GetHeight(e.Graphics);
                 e.Graphics.DrawString("DATE: " + str, font1, Brushes.Black, (float)pageLeftMargin, y3, new StringFormat());
                 float y4 = (float)((double)y3 + (double)font1.GetHeight(e.Graphics) + 10.0);
@@ -1324,7 +1324,7 @@ namespace ClubCompFS
                 }
                 dataGridView1?.Dispose();
                 float y5 = y4 + 20f;
-                e.Graphics.DrawString("Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y5, new StringFormat());
+                e.Graphics.DrawString("Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now), font4, Brushes.Black, (float)pageLeftMargin, y5, new StringFormat());
                 goto label_29;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1350,7 +1350,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_24;
@@ -1417,7 +1417,7 @@ namespace ClubCompFS
 
         private void CREATEPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            if (!Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 return;
             int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
         }
@@ -1436,7 +1436,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 PdfDocument pdfDocument = new PdfDocument();
-                pdfDocument.Info.Subject = Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment);
+                pdfDocument.Info.Subject = Program.Category.Name + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment);
                 pdfDocument.Info.Author = "ClubCompFS Single ver. 10.0.6, 2019-01-12";
                 PdfPage page = pdfDocument.AddPage();
                 page.Size = PageSize.A4;
@@ -1472,15 +1472,15 @@ namespace ClubCompFS
                 xgraphics1.DrawString("WARMUP GROUPS", font1, (XBrush)XBrushes.Black, new XRect((double)num4, (double)y1, (double)width1, (double)height1), XStringFormats.TopLeft);
                 int y2 = checked(y1 + height1 + 5);
                 int height2 = checked((int)Math.Round(font2.GetHeight()));
-                xgraphics1.DrawString("COMPETITION: " + Module1.Competition.Name, font2, (XBrush)XBrushes.Black, new XRect((double)num4, (double)y2, (double)width1, (double)height2), XStringFormats.TopLeft);
+                xgraphics1.DrawString("COMPETITION: " + Program.Competition.Name, font2, (XBrush)XBrushes.Black, new XRect((double)num4, (double)y2, (double)width1, (double)height2), XStringFormats.TopLeft);
                 int y3 = checked(y2 + height2);
-                xgraphics1.DrawString("CATEGORY: " + Module1.Category.Name + Module1.SubCat() + ", " + Module1.GetSegTxt(Module1.Segment), font2, (XBrush)XBrushes.Black, new XRect((double)num4, (double)y3, (double)width1, (double)height2), XStringFormats.TopLeft);
+                xgraphics1.DrawString("CATEGORY: " + Program.Category.Name + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment), font2, (XBrush)XBrushes.Black, new XRect((double)num4, (double)y3, (double)width1, (double)height2), XStringFormats.TopLeft);
                 int y4 = checked(y3 + height2);
-                string segment = Module1.Segment;
+                string segment = Program.Segment;
                 if (Operators.CompareString(segment, "Seg1", false) == 0)
-                    str1 = "DATE: " + Module1.FormShortDate(Module1.Datum.Seg1);
+                    str1 = "DATE: " + Program.FormShortDate(Program.Datum.Seg1);
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                    str1 = "DATE: " + Module1.FormShortDate(Module1.Datum.Seg2);
+                    str1 = "DATE: " + Program.FormShortDate(Program.Datum.Seg2);
                 XGraphics xgraphics2 = xgraphics1;
                 string str2 = str1;
                 XFont xfont5 = font2;
@@ -1640,7 +1640,7 @@ namespace ClubCompFS
                 }
                 int y5 = checked(num7 + height3);
                 XGraphics xgraphics10 = xgraphics1;
-                string str11 = "Figure Skating Italia | Created: " + Module1.DateTimeToStr(DateTime.Now);
+                string str11 = "Figure Skating Italia | Created: " + Program.DateTimeToStr(DateTime.Now);
                 XFont xfont14 = xfont4;
                 XSolidBrush black9 = XBrushes.Black;
                 XRect xrect9 = new XRect((double)num4, (double)y5, (double)width1, (double)height3);
@@ -1685,22 +1685,22 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_13;
                 }
                 else
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        if (!Conversions.ToBoolean(Module1.CreatePath("Segment_1", ref Path)))
+                        if (!Conversions.ToBoolean(Program.CreatePath("Segment_1", ref Path)))
                             goto label_13;
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        if (!Conversions.ToBoolean(Module1.CreatePath("Segment_2", ref Path)))
+                        if (!Conversions.ToBoolean(Program.CreatePath("Segment_2", ref Path)))
                             goto label_13;
                     }
                     this.ExportDataToPDFTable1(Path + "_Warmup.pdf", 1);
@@ -1789,13 +1789,13 @@ namespace ClubCompFS
 
         private void StartlistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+            if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             else
             {
-                if (!Module1.TestStart())
+                if (!Program.TestStart())
                     return;
                 MyProject.Forms.StartListForm.CreateStartListPDF(1);
             }
@@ -1810,26 +1810,26 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 string Path = "";
-                if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
+                if (Program.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 {
                     int num3 = (int)Interaction.MsgBox((object)"Please close the Dialog!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     goto label_14;
                 }
                 else
                 {
-                    string segment = Module1.Segment;
+                    string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                     {
-                        if (!Conversions.ToBoolean(Module1.CreatePath("Segment_1", ref Path)))
+                        if (!Conversions.ToBoolean(Program.CreatePath("Segment_1", ref Path)))
                             goto label_14;
                     }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
                     {
-                        if (!Conversions.ToBoolean(Module1.CreatePath("Segment_2", ref Path)))
+                        if (!Conversions.ToBoolean(Program.CreatePath("Segment_2", ref Path)))
                             goto label_14;
                     }
                     this.ExportDataToPDFTable1(Path + "_Warmup.pdf", 0);
-                    if (Module1.TestStart())
+                    if (Program.TestStart())
                     {
                         MyProject.Forms.StartListForm.CreateStartListPDF(2);
                         goto label_14;

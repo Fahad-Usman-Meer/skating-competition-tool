@@ -849,12 +849,12 @@ namespace ClubCompFS
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.Top = MyProject.Forms.StartListForm.Top;
             this.TopMost = true;
-            Module1.IndTA = (Module1.IndTA_Type[])null;
-            Module1.IndTA = new Module1.IndTA_Type[501];
+            Program.IndTA = (Program.IndTA_Type[])null;
+            Program.IndTA = new Program.IndTA_Type[501];
             this.txtNoIndTA.Text = "";
-            this.txtCategory.Text = Module1.Category.Name;
-            this.txtSubcategory.Text = Module1.SubCategory;
-            this.txtNoOfParticipants.Text = Conversions.ToString(Module1.TNop);
+            this.txtCategory.Text = Program.Category.Name;
+            this.txtSubcategory.Text = Program.SubCategory;
+            this.txtNoOfParticipants.Text = Conversions.ToString(Program.TNop);
             this.IndTA_DB = false;
             this.ShowDatagrid1();
             this.LoadIndTAXMLfile(ref this.IndTA_DB);
@@ -884,7 +884,7 @@ namespace ClubCompFS
                 dataGridView1.Columns[8].HeaderText = "Club ID";
                 dataGridView1.Width = 1215;
                 this.DGW1width = dataGridView1.Width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
                 dataGridView1.Columns[0].Width = 110;
                 dataGridView1.Columns[1].Width = 150;
                 dataGridView1.Columns[2].Width = 150;
@@ -931,8 +931,8 @@ namespace ClubCompFS
                     string str;
                     if (Operators.CompareString(this.txtIndTAGet.Text, "2", false) == 0)
                     {
-                        strArray = Strings.UCase(Module1.IndTA[index2].Klass).Split(' ');
-                        str = Strings.UCase(Module1.Category.Name);
+                        strArray = Strings.UCase(Program.IndTA[index2].Klass).Split(' ');
+                        str = Strings.UCase(Program.Category.Name);
                     }
                     else
                     {
@@ -943,31 +943,31 @@ namespace ClubCompFS
                     {
                         if (No >= 0)
                             dataGridView1.Rows.Add();
-                        dataGridView1.Rows[index1].Cells[0].Value = (object)Module1.IndTA[index2].Discipline;
-                        dataGridView1.Rows[index1].Cells[1].Value = (object)Module1.IndTA[index2].Klass;
-                        dataGridView1.Rows[index1].Cells[2].Value = (object)Module1.IndTA[index2].FirstName;
-                        dataGridView1.Rows[index1].Cells[3].Value = (object)Module1.IndTA[index2].Surname;
-                        dataGridView1.Rows[index1].Cells[4].Value = (object)Module1.IndTA[index2].Club;
-                        dataGridView1.Rows[index1].Cells[5].Value = (object)Module1.IndTA[index2].PPC_S1;
-                        dataGridView1.Rows[index1].Cells[6].Value = (object)Module1.IndTA[index2].PPC_S2;
-                        dataGridView1.Rows[index1].Cells[7].Value = (object)Module1.IndTA[index2].Participant_ID;
-                        dataGridView1.Rows[index1].Cells[8].Value = (object)Module1.IndTA[index2].Club_ID;
+                        dataGridView1.Rows[index1].Cells[0].Value = (object)Program.IndTA[index2].Discipline;
+                        dataGridView1.Rows[index1].Cells[1].Value = (object)Program.IndTA[index2].Klass;
+                        dataGridView1.Rows[index1].Cells[2].Value = (object)Program.IndTA[index2].FirstName;
+                        dataGridView1.Rows[index1].Cells[3].Value = (object)Program.IndTA[index2].Surname;
+                        dataGridView1.Rows[index1].Cells[4].Value = (object)Program.IndTA[index2].Club;
+                        dataGridView1.Rows[index1].Cells[5].Value = (object)Program.IndTA[index2].PPC_S1;
+                        dataGridView1.Rows[index1].Cells[6].Value = (object)Program.IndTA[index2].PPC_S2;
+                        dataGridView1.Rows[index1].Cells[7].Value = (object)Program.IndTA[index2].Participant_ID;
+                        dataGridView1.Rows[index1].Cells[8].Value = (object)Program.IndTA[index2].Club_ID;
                         checked { ++index1; }
                     }
                     checked { ++index2; }
                 }
-                this.F12Height = checked(this.DataGridView1.RowCount * 22 + this.DataGridView1.ColumnHeadersHeight + this.DataGridView1.Location.Y + Module1.HC);
+                this.F12Height = checked(this.DataGridView1.RowCount * 22 + this.DataGridView1.ColumnHeadersHeight + this.DataGridView1.Location.Y + Program.HC);
                 if (this.F12Height < checked(Screen.PrimaryScreen.WorkingArea.Height - 100))
                 {
                     this.Height = this.F12Height;
                     this.DataGridView1.Width = this.DGW1width;
-                    this.Width = checked(this.DGW1width + Module1.WC);
+                    this.Width = checked(this.DGW1width + Program.WC);
                 }
                 else
                 {
                     this.Height = checked(Screen.PrimaryScreen.WorkingArea.Height - 100);
-                    this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                    this.Width = checked(this.DGW1width + Module1.WC2);
+                    this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                    this.Width = checked(this.DGW1width + Program.WC2);
                 }
                 dataGridView1.ClearSelection();
                 this.LoadedGrid = true;
@@ -1133,13 +1133,13 @@ namespace ClubCompFS
                 return;
             if (this.Height < this.F12Height)
             {
-                this.DataGridView1.Width = checked(this.DGW1width + Module1.WC1);
-                this.Width = checked(this.DGW1width + Module1.WC2);
+                this.DataGridView1.Width = checked(this.DGW1width + Program.WC1);
+                this.Width = checked(this.DGW1width + Program.WC2);
             }
             else
             {
                 this.DataGridView1.Width = this.DGW1width;
-                this.Width = checked(this.DGW1width + Module1.WC);
+                this.Width = checked(this.DGW1width + Program.WC);
             }
         }
 
@@ -1183,25 +1183,25 @@ namespace ClubCompFS
                 string[] strArray1 = new string[16];
                 char[] chArray1 = new char[1] { '/' };
                 string[] strArray2 = attribute1.Split(chArray1);
-                Module1.Competition.ID = strArray2[1];
+                Program.Competition.ID = strArray2[1];
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("CompetitionName");
                 this.MyCompetitionName = MyReader.ReadString();
                 MyReader.ReadToFollowing("CompetitionDate");
                 MyReader.ReadString();
                 MyReader.ReadToFollowing("CompetitionType");
-                Module1.Competition.Type = MyReader.ReadString();
-                this.Text = "IndTA Entries: " + this.MyCompetitionName + ", ID: " + Module1.Competition.ID + " - " + Module1.Competition.Type;
+                Program.Competition.Type = MyReader.ReadString();
+                this.Text = "IndTA Entries: " + this.MyCompetitionName + ", ID: " + Program.Competition.ID + " - " + Program.Competition.Type;
                 MyReader.ReadToFollowing("CompetitionOrganization");
                 MyReader.MoveToAttribute(0);
                 string attribute2 = MyReader.GetAttribute(0);
                 string[] strArray3 = new string[16];
                 char[] chArray2 = new char[1] { '/' };
                 string[] strArray4 = attribute2.Split(chArray2);
-                Module1.Organizer.ID = strArray4[1];
+                Program.Organizer.ID = strArray4[1];
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("OrganizationName");
-                Module1.Organizer.Name = MyReader.ReadString();
+                Program.Organizer.Name = MyReader.ReadString();
                 goto label_7;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -1268,7 +1268,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.IndTA_Type[] indTa = Module1.IndTA;
+                Program.IndTA_Type[] indTa = Program.IndTA;
                 int index = ind;
                 indTa[index].Discipline = pmyDiscipline;
                 indTa[index].Klass = pmyClass;
@@ -1313,7 +1313,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Module1.IndTA_Type[] indTa = Module1.IndTA;
+                Program.IndTA_Type[] indTa = Program.IndTA;
                 int index = ind;
                 MyReader.ReadToFollowing("Type");
                 string Left = MyReader.ReadString();
@@ -1373,8 +1373,8 @@ namespace ClubCompFS
                         case 3:
                         case 4:
                             flag = true;
-                            int num4 = Module1.IndexEmptyRow();
-                            Module1.TNop = num4;
+                            int num4 = Program.IndexEmptyRow();
+                            Program.TNop = num4;
                             int num5 = checked(dataGridView1.Rows.Count - 1);
                             int index1 = 0;
                             while (index1 <= num5)
@@ -1383,17 +1383,17 @@ namespace ClubCompFS
                                 {
                                     if (num4 < 42)
                                     {
-                                        Module1.Vek[checked(num4 + 1)].Name.FName = this.Get_Cell(index1, 2);
-                                        Module1.Vek[checked(num4 + 1)].Name.LName = this.Get_Cell(index1, 3);
-                                        Module1.Vek[checked(num4 + 1)].Name.ID = this.Get_Cell(index1, 7);
-                                        Module1.Vek[checked(num4 + 1)].Club = this.Get_Cell(index1, 4);
-                                        Module1.Vek[checked(num4 + 1)].ClubID = this.Get_Cell(index1, 8);
-                                        Module1.Category.IndTADiscipline = this.Get_Cell(index1, 0);
-                                        Module1.Category.IndTAClass = this.Get_Cell(index1, 1);
+                                        Program.Vek[checked(num4 + 1)].Name.FName = this.Get_Cell(index1, 2);
+                                        Program.Vek[checked(num4 + 1)].Name.LName = this.Get_Cell(index1, 3);
+                                        Program.Vek[checked(num4 + 1)].Name.ID = this.Get_Cell(index1, 7);
+                                        Program.Vek[checked(num4 + 1)].Club = this.Get_Cell(index1, 4);
+                                        Program.Vek[checked(num4 + 1)].ClubID = this.Get_Cell(index1, 8);
+                                        Program.Category.IndTADiscipline = this.Get_Cell(index1, 0);
+                                        Program.Category.IndTAClass = this.Get_Cell(index1, 1);
                                         string cell1 = this.Get_Cell(index1, 5);
                                         string cell2 = this.Get_Cell(index1, 6);
-                                        Module1.Vek[checked(num4 + 1)].SSS_Seg1 = (string[])null;
-                                        Module1.Vek[checked(num4 + 1)].SSS_Seg1 = new string[16];
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg1 = (string[])null;
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg1 = new string[16];
                                         if (Strings.Len(cell1) > 0)
                                         {
                                             string[] strArray1 = new string[16];
@@ -1402,12 +1402,12 @@ namespace ClubCompFS
                                             int index2 = 0;
                                             while (index2 <= num6)
                                             {
-                                                Module1.Vek[checked(num4 + 1)].SSS_Seg1[checked(index2 + 1)] = strArray2[index2];
+                                                Program.Vek[checked(num4 + 1)].SSS_Seg1[checked(index2 + 1)] = strArray2[index2];
                                                 checked { ++index2; }
                                             }
                                         }
-                                        Module1.Vek[checked(num4 + 1)].SSS_Seg2 = (string[])null;
-                                        Module1.Vek[checked(num4 + 1)].SSS_Seg2 = new string[16];
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg2 = (string[])null;
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg2 = new string[16];
                                         if (Strings.Len(cell2) > 0)
                                         {
                                             string[] strArray3 = new string[16];
@@ -1416,11 +1416,11 @@ namespace ClubCompFS
                                             int index3 = 0;
                                             while (index3 <= num7)
                                             {
-                                                Module1.Vek[checked(num4 + 1)].SSS_Seg2[checked(index3 + 1)] = strArray4[index3];
+                                                Program.Vek[checked(num4 + 1)].SSS_Seg2[checked(index3 + 1)] = strArray4[index3];
                                                 checked { ++index3; }
                                             }
                                         }
-                                        checked { ++Module1.TNop; }
+                                        checked { ++Program.TNop; }
                                         checked { ++num4; }
                                     }
                                     else
@@ -1431,7 +1431,7 @@ namespace ClubCompFS
                                 }
                                 checked { ++index1; }
                             }
-                            MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
+                            MyProject.Forms.MainForm.txtParticipants.Text = Conversions.ToString(Program.TNop);
                             goto label_25;
                         default:
                             flag = false;
@@ -1503,14 +1503,14 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    if (Strings.Len(Module1.Vek[index1].SSS_Seg1[index2]) > 0)
-                        str = str + Module1.Vek[index1].SSS_Seg1[index2] + ";";
+                    if (Strings.Len(Program.Vek[index1].SSS_Seg1[index2]) > 0)
+                        str = str + Program.Vek[index1].SSS_Seg1[index2] + ";";
                     checked { ++index2; }
                 }
                 while (index2 <= 15);
-                if (Strings.Len(Module1.Vek[index1].Name.FName) > 0)
+                if (Strings.Len(Program.Vek[index1].Name.FName) > 0)
                 {
-                    int num = (int)Interaction.MsgBox((object)(Module1.Vek[index1].Name.FName + " " + Module1.Vek[index1].Name.LName + " - " + str));
+                    int num = (int)Interaction.MsgBox((object)(Program.Vek[index1].Name.FName + " " + Program.Vek[index1].Name.LName + " - " + str));
                 }
                 checked { ++index1; }
             }
@@ -1522,14 +1522,14 @@ namespace ClubCompFS
             if (!this.AddToStartList())
                 return;
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
                 MyProject.Forms.StartListForm.WillExitStartListForm = true;
                 MyProject.Forms.StartListForm.Close();
             }
-            if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
+            if (Operators.CompareString(this.MyCompetitionName, Program.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
-                Module1.Competition.Name = this.MyCompetitionName;
+                Program.Competition.Name = this.MyCompetitionName;
                 MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
             MyProject.Forms.StartListForm.TopMost = true;
@@ -1539,7 +1539,7 @@ namespace ClubCompFS
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
                 MyProject.Forms.StartListForm.WillExitStartListForm = true;
                 MyProject.Forms.StartListForm.Close();
@@ -1553,13 +1553,13 @@ namespace ClubCompFS
         private void UpdateMainForm()
         {
             MainForm mainForm = MyProject.Forms.MainForm;
-            mainForm.txtOrganizerName.Text = Module1.Organizer.Name;
-            mainForm.txtOrganizerID.Text = Module1.Organizer.ID;
-            mainForm.txtCompetitionID.Text = Module1.Competition.ID;
-            mainForm.txtType.Text = Module1.Competition.Type;
-            mainForm.txtCategoryID.Text = Module1.Category.ID;
-            mainForm.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
-            mainForm.txtIndTAClass.Text = Module1.Category.IndTAClass;
+            mainForm.txtOrganizerName.Text = Program.Organizer.Name;
+            mainForm.txtOrganizerID.Text = Program.Organizer.ID;
+            mainForm.txtCompetitionID.Text = Program.Competition.ID;
+            mainForm.txtType.Text = Program.Competition.Type;
+            mainForm.txtCategoryID.Text = Program.Category.ID;
+            mainForm.txtIndTADiscipline.Text = Program.Category.IndTADiscipline;
+            mainForm.txtIndTAClass.Text = Program.Category.IndTAClass;
         }
 
         public void Sort_IndTA_Klass(int No)
@@ -1574,22 +1574,22 @@ namespace ClubCompFS
                 int index1 = 0;
                 while (index1 <= num3)
                 {
-                    Module1.IndTA_Type indTaType = Module1.IndTA[index1];
+                    Program.IndTA_Type indTaType = Program.IndTA[index1];
                     int index2 = index1;
                     int num4 = checked(index1 + 1);
                     int num5 = No;
                     int index3 = num4;
                     while (index3 <= num5)
                     {
-                        if (Operators.CompareString(Module1.IndTA[index3].Klass, indTaType.Klass, false) < 0)
+                        if (Operators.CompareString(Program.IndTA[index3].Klass, indTaType.Klass, false) < 0)
                         {
-                            indTaType = Module1.IndTA[index3];
+                            indTaType = Program.IndTA[index3];
                             index2 = index3;
                         }
                         checked { ++index3; }
                     }
-                    Module1.IndTA[index2] = Module1.IndTA[index1];
-                    Module1.IndTA[index1] = indTaType;
+                    Program.IndTA[index2] = Program.IndTA[index1];
+                    Program.IndTA[index1] = indTaType;
                     checked { ++index1; }
                 }
                 goto label_14;
@@ -1617,17 +1617,17 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string klass = Module1.IndTA[0].Klass;
+                string klass = Program.IndTA[0].Klass;
                 int start = 0;
                 int num3 = checked(No + 1);
                 int index = 1;
                 while (index <= num3)
                 {
-                    if (Operators.CompareString(klass, Module1.IndTA[index].Klass, false) != 0)
+                    if (Operators.CompareString(klass, Program.IndTA[index].Klass, false) != 0)
                     {
                         int stopp = checked(index - 1);
                         this.Sort_IndTA_Club(start, stopp);
-                        klass = Module1.IndTA[index].Klass;
+                        klass = Program.IndTA[index].Klass;
                         start = index;
                     }
                     checked { ++index; }
@@ -1662,22 +1662,22 @@ namespace ClubCompFS
                 int index1 = num3;
                 while (index1 <= num4)
                 {
-                    Module1.IndTA_Type indTaType = Module1.IndTA[index1];
+                    Program.IndTA_Type indTaType = Program.IndTA[index1];
                     int index2 = index1;
                     int num5 = checked(index1 + 1);
                     int num6 = stopp;
                     int index3 = num5;
                     while (index3 <= num6)
                     {
-                        if (Operators.CompareString(Module1.IndTA[index3].Club, indTaType.Club, false) < 0)
+                        if (Operators.CompareString(Program.IndTA[index3].Club, indTaType.Club, false) < 0)
                         {
-                            indTaType = Module1.IndTA[index3];
+                            indTaType = Program.IndTA[index3];
                             index2 = index3;
                         }
                         checked { ++index3; }
                     }
-                    Module1.IndTA[index2] = Module1.IndTA[index1];
-                    Module1.IndTA[index1] = indTaType;
+                    Program.IndTA[index2] = Program.IndTA[index1];
+                    Program.IndTA[index1] = indTaType;
                     checked { ++index1; }
                 }
                 goto label_14;
@@ -1705,19 +1705,19 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string klass = Module1.IndTA[0].Klass;
-                string club = Module1.IndTA[0].Club;
+                string klass = Program.IndTA[0].Klass;
+                string club = Program.IndTA[0].Club;
                 int start = 0;
                 int num3 = checked(no + 1);
                 int index = 1;
                 while (index <= num3)
                 {
-                    if (Operators.CompareString(klass, Module1.IndTA[index].Klass, false) != 0 | Operators.CompareString(club, Module1.IndTA[index].Club, false) != 0)
+                    if (Operators.CompareString(klass, Program.IndTA[index].Klass, false) != 0 | Operators.CompareString(club, Program.IndTA[index].Club, false) != 0)
                     {
                         int stopp = checked(index - 1);
                         this.Sort_IndTA_Surname(start, stopp);
-                        klass = Module1.IndTA[index].Klass;
-                        club = Module1.IndTA[index].Club;
+                        klass = Program.IndTA[index].Klass;
+                        club = Program.IndTA[index].Club;
                         start = index;
                     }
                     checked { ++index; }
@@ -1747,17 +1747,17 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                string club = Module1.IndTA[0].Club;
+                string club = Program.IndTA[0].Club;
                 int start = 0;
                 int num3 = checked(No + 1);
                 int index = 1;
                 while (index <= num3)
                 {
-                    if (Operators.CompareString(club, Module1.IndTA[index].Club, false) != 0)
+                    if (Operators.CompareString(club, Program.IndTA[index].Club, false) != 0)
                     {
                         int stopp = checked(index - 1);
                         this.Sort_IndTA_Surname(start, stopp);
-                        club = Module1.IndTA[index].Club;
+                        club = Program.IndTA[index].Club;
                         start = index;
                     }
                     checked { ++index; }
@@ -1792,22 +1792,22 @@ namespace ClubCompFS
                 int index1 = num3;
                 while (index1 <= num4)
                 {
-                    Module1.IndTA_Type indTaType = Module1.IndTA[index1];
+                    Program.IndTA_Type indTaType = Program.IndTA[index1];
                     int index2 = index1;
                     int num5 = checked(index1 + 1);
                     int num6 = stopp;
                     int index3 = num5;
                     while (index3 <= num6)
                     {
-                        if (Operators.CompareString(Module1.IndTA[index3].Surname, indTaType.Surname, false) < 0)
+                        if (Operators.CompareString(Program.IndTA[index3].Surname, indTaType.Surname, false) < 0)
                         {
-                            indTaType = Module1.IndTA[index3];
+                            indTaType = Program.IndTA[index3];
                             index2 = index3;
                         }
                         checked { ++index3; }
                     }
-                    Module1.IndTA[index2] = Module1.IndTA[index1];
-                    Module1.IndTA[index1] = indTaType;
+                    Program.IndTA[index2] = Program.IndTA[index1];
+                    Program.IndTA[index1] = indTaType;
                     checked { ++index1; }
                 }
                 goto label_14;
@@ -1866,14 +1866,14 @@ namespace ClubCompFS
             if (!this.AddToStartList())
                 return;
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+            if (Program.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
                 MyProject.Forms.StartListForm.WillExitStartListForm = true;
                 MyProject.Forms.StartListForm.Close();
             }
-            if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
+            if (Operators.CompareString(this.MyCompetitionName, Program.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
-                Module1.Competition.Name = this.MyCompetitionName;
+                Program.Competition.Name = this.MyCompetitionName;
                 MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
             MyProject.Forms.StartListForm.TopMost = true;
