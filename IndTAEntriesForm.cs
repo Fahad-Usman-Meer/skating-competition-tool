@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form12
+// Type: ClubCompFS.IndTAEntriesForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -19,7 +19,7 @@ using System.Xml;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form12 : Form
+    public class IndTAEntriesForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("MenuStrip1")]
@@ -106,11 +106,11 @@ namespace ClubCompFS
         private int No_Of_IndTA_Skaters;
         private bool LoadedGrid;
 
-        public Form12()
+        public IndTAEntriesForm()
         {
-            this.SizeChanged += new EventHandler(this.Form12_SizeChanged);
-            this.FormClosing += new FormClosingEventHandler(this.Form12_FormClosing);
-            this.Load += new EventHandler(this.Form12_Load);
+            this.SizeChanged += new EventHandler(this.IndTAEntriesForm_SizeChanged);
+            this.FormClosing += new FormClosingEventHandler(this.IndTAEntriesForm_Closing);
+            this.Load += new EventHandler(this.IndTAEntriesForm_Load);
             this.IndTA_DB = false;
             this.widthcorr = false;
             this.MyCompetitionName = "";
@@ -150,7 +150,7 @@ namespace ClubCompFS
             DataGridViewCellStyle gridViewCellStyle10 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle11 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle12 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form12));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(IndTAEntriesForm));
             this.MenuStrip1 = new MenuStrip();
             this.ExitToolStripMenuItem = new ToolStripMenuItem();
             this.SORTERAToolStripMenuItem = new ToolStripMenuItem();
@@ -505,7 +505,7 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.MenuStrip1);
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
-            this.Name = nameof(Form12);
+            this.Name = nameof(IndTAEntriesForm);
             this.Text = "IndTA Entries";
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
@@ -841,9 +841,9 @@ namespace ClubCompFS
             set => this._txtIndTAGet = value;
         }
 
-        private void Form12_FormClosing(object sender, FormClosingEventArgs e) => MyProject.Forms.Form2.TopMost = true;
+        private void IndTAEntriesForm_Closing(object sender, FormClosingEventArgs e) => MyProject.Forms.Form2.TopMost = true;
 
-        private void Form12_Load(object sender, EventArgs e)
+        private void IndTAEntriesForm_Load(object sender, EventArgs e)
         {
             this.Width = 1150;
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
@@ -1127,7 +1127,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void Form12_SizeChanged(object sender, EventArgs e)
+        private void IndTAEntriesForm_SizeChanged(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;
@@ -1641,7 +1641,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form12.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1731,7 +1731,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form12.Sort_IndTA_Klass_Club_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1771,7 +1771,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form12.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1819,7 +1819,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num7 = (int)Interaction.MsgBox((object)("Form12.Sort_IndTA_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num7 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_14:
             if (num2 == 0)

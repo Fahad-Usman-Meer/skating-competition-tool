@@ -83,7 +83,7 @@ namespace ClubCompFS.My
             public MainForm m_MainForm;
             public PrinterForm m_PrinterForm;
             public PrinterMessageForm m_PrinterMessageForm;
-            public Form12 m_Form12;
+            public IndTAEntriesForm m_IndTAEntriesForm;
             public Form13 m_Form13;
             public Form2 m_Form2;
             public Form3 m_Form3;
@@ -317,20 +317,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form12 Form12
+            public IndTAEntriesForm IndTAEntriesForm
             {
                 get
                 {
-                    this.m_Form12 = MyProject.MyForms.Create__Instance__<Form12>(this.m_Form12);
-                    return this.m_Form12;
+                    this.m_IndTAEntriesForm = MyProject.MyForms.Create__Instance__<IndTAEntriesForm>(this.m_IndTAEntriesForm);
+                    return this.m_IndTAEntriesForm;
                 }
                 set
                 {
-                    if (value == this.m_Form12)
+                    if (value == this.m_IndTAEntriesForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form12>(ref this.m_Form12);
+                    this.Dispose__Instance__<IndTAEntriesForm>(ref this.m_IndTAEntriesForm);
                 }
             }
 
