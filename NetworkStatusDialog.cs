@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog2
+// Type: ClubCompFS.NetworkStatusDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -16,7 +16,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog2 : Form
+    public class NetworkStatusDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -136,9 +136,9 @@ namespace ClubCompFS
         [AccessedThroughProperty("TextBox4")]
         private TextBox _TextBox4;
 
-        public Dialog2()
+        public NetworkStatusDialog()
         {
-            this.Load += new EventHandler(this.Dialog2_Load);
+            this.Load += new EventHandler(this.NetworkStatusDialog_Load);
             this.InitializeComponent();
         }
 
@@ -915,7 +915,7 @@ namespace ClubCompFS
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog2);
+            this.Name = nameof(NetworkStatusDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "NETWORK STATUS";
@@ -1346,7 +1346,7 @@ namespace ClubCompFS
             this.Close();
         }
 
-        private void Dialog2_Load(object sender, EventArgs e)
+        private void NetworkStatusDialog_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.Form1.Top;
             this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
