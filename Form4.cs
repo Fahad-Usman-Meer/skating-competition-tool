@@ -699,7 +699,7 @@ namespace ClubCompFS
             }
             else
             {
-                MyProject.Forms.Dialog10.Close();
+                MyProject.Forms.InputJudgesDataDialog.Close();
                 MyProject.Forms.Dialog11.Close();
                 Module1.ScanJudges = 0;
                 this.Timer1.Enabled = false;
@@ -1962,7 +1962,7 @@ namespace ClubCompFS
                     case 1:
                     case 3:
                         this.WillExitForm4 = true;
-                        MyProject.Forms.Dialog10.Close();
+                        MyProject.Forms.InputJudgesDataDialog.Close();
                         MyProject.Forms.Dialog11.Close();
                         this.Timer1.Enabled = false;
                         this.Close();
@@ -1977,7 +1977,7 @@ namespace ClubCompFS
                         else
                             goto label_18;
                         this.Timer1.Enabled = false;
-                        MyProject.Forms.Dialog10.Close();
+                        MyProject.Forms.InputJudgesDataDialog.Close();
                         MyProject.Forms.Dialog11.Close();
                         this.Close();
                         if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
@@ -2043,7 +2043,7 @@ namespace ClubCompFS
                         case 1:
                         case 3:
                             this.WillExitForm4 = true;
-                            MyProject.Forms.Dialog10.Close();
+                            MyProject.Forms.InputJudgesDataDialog.Close();
                             MyProject.Forms.Dialog11.Close();
                             this.Timer1.Enabled = false;
                             this.Close();
@@ -2053,7 +2053,7 @@ namespace ClubCompFS
                             if (Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
                             {
                                 this.WillExitForm4 = true;
-                                MyProject.Forms.Dialog10.Close();
+                                MyProject.Forms.InputJudgesDataDialog.Close();
                                 MyProject.Forms.Dialog11.Close();
                                 this.Timer1.Enabled = false;
                                 this.Close();
@@ -2181,9 +2181,9 @@ namespace ClubCompFS
                     int num3 = checked(this.DataGridView1.CurrentCellAddress.X - 5);
                     if (num3 > 0 & num3 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num3 == 7)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog10))
-                            MyProject.Forms.Dialog10.Close();
-                        Dialog10 dialog10 = MyProject.Forms.Dialog10;
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+                            MyProject.Forms.InputJudgesDataDialog.Close();
+                        InputJudgesDataDialog dialog10 = MyProject.Forms.InputJudgesDataDialog;
                         dialog10.txtPno.Text = Conversions.ToString(Module1.PNo);
                         dialog10.txtJudgeNo.Text = Conversions.ToString(num3);
                         int num4 = (int)dialog10.ShowDialog((IWin32Window)this);
@@ -2319,9 +2319,9 @@ namespace ClubCompFS
                                     int num5 = checked(e.ColumnIndex - 5);
                                     if (num5 > 0 & num5 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num5 == 7)
                                     {
-                                        if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog10))
-                                            MyProject.Forms.Dialog10.Close();
-                                        Dialog10 dialog10 = MyProject.Forms.Dialog10;
+                                        if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
+                                            MyProject.Forms.InputJudgesDataDialog.Close();
+                                        InputJudgesDataDialog dialog10 = MyProject.Forms.InputJudgesDataDialog;
                                         dialog10.txtPno.Text = Conversions.ToString(Module1.PNo);
                                         dialog10.txtJudgeNo.Text = Conversions.ToString(num5);
                                         int num6 = (int)dialog10.ShowDialog((IWin32Window)this);
