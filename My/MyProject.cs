@@ -90,7 +90,7 @@ namespace ClubCompFS.My
             public JudgesDetailsForm m_JudgesDetailsForm;
             public ElementInputForm m_ElementInputForm;
             public ResultsForm m_ResultsForm;
-            public Form7 m_Form7;
+            public WarmupGroupsForm m_WarmupGroupsForm;
             public Form8 m_Form8;
             public Form9 m_Form9;
             [ThreadStatic]
@@ -436,20 +436,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form7 Form7
+            public WarmupGroupsForm WarmupGroupsForm
             {
                 get
                 {
-                    this.m_Form7 = MyProject.MyForms.Create__Instance__<Form7>(this.m_Form7);
-                    return this.m_Form7;
+                    this.m_WarmupGroupsForm = MyProject.MyForms.Create__Instance__<WarmupGroupsForm>(this.m_WarmupGroupsForm);
+                    return this.m_WarmupGroupsForm;
                 }
                 set
                 {
-                    if (value == this.m_Form7)
+                    if (value == this.m_WarmupGroupsForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form7>(ref this.m_Form7);
+                    this.Dispose__Instance__<WarmupGroupsForm>(ref this.m_WarmupGroupsForm);
                 }
             }
 

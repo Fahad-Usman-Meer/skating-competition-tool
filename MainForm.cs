@@ -4111,8 +4111,8 @@ namespace ClubCompFS
                 MyProject.Forms.ElementInputForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                 MyProject.Forms.ResultsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
-                MyProject.Forms.Form7.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                MyProject.Forms.WarmupGroupsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
                 MyProject.Forms.Form8.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
@@ -6049,8 +6049,8 @@ namespace ClubCompFS
                     }
                     else if (num4 >= 40 && num4 <= 49)
                     {
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
-                            MyProject.Forms.Form7.Close();
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                            MyProject.Forms.WarmupGroupsForm.Close();
                         int num8 = checked(num3 - 40);
                         int num9 = 1;
                         while (num9 <= num8)
@@ -6062,7 +6062,7 @@ namespace ClubCompFS
                                     Module1.Datum.Seg1Start = Conversions.ToString(1E-05);
                                 int DNSnono = 0;
                                 MyProject.Forms.StartListForm.SortWSListSeg1(Module1.TNop, ref DNSnono);
-                                MyProject.Forms.Form7.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNSnono));
+                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNSnono));
                             }
                             else if (Operators.CompareString(segment, "Seg2", false) == 0)
                             {
@@ -6071,12 +6071,12 @@ namespace ClubCompFS
                                 int DNS_Seg1 = 0;
                                 int DNSnono = 0;
                                 MyProject.Forms.StartListForm.SortWSListSeg2(Module1.TNop, ref DNS_Seg1, ref DNSnono);
-                                MyProject.Forms.Form7.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNS_Seg1 - DNSnono));
+                                MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(checked(Module1.TNop - DNS_Seg1 - DNSnono));
                             }
-                            MyProject.Forms.Form7.txtPar.Text = Conversions.ToString(3);
-                            MyProject.Forms.Form7.CreateWarmUp();
-                            MyProject.Forms.Form7.txtPar.Text = Conversions.ToString(30);
-                            MyProject.Forms.Form7.PRINTToolStripMenuItem.PerformClick();
+                            MyProject.Forms.WarmupGroupsForm.txtPar.Text = Conversions.ToString(3);
+                            MyProject.Forms.WarmupGroupsForm.CreateWarmUp();
+                            MyProject.Forms.WarmupGroupsForm.txtPar.Text = Conversions.ToString(30);
+                            MyProject.Forms.WarmupGroupsForm.PRINTToolStripMenuItem.PerformClick();
                             checked { ++num9; }
                         }
                     }
@@ -6966,7 +6966,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;

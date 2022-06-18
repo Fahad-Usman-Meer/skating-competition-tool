@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form7
+// Type: ClubCompFS.WarmupGroupsForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -22,7 +22,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form7 : Form
+    public class WarmupGroupsForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("MenuStrip1")]
@@ -73,10 +73,10 @@ namespace ClubCompFS
         private int DGW1width;
         private bool widthcorr;
 
-        public Form7()
+        public WarmupGroupsForm()
         {
-            this.SizeChanged += new EventHandler(this.Form7_SizeChanged);
-            this.Load += new EventHandler(this.Form7_Load);
+            this.SizeChanged += new EventHandler(this.WarmupGroupsForm_SizeChanged);
+            this.Load += new EventHandler(this.WarmupGroupsForm_Load);
             this.Warr = new object[101, 7];
             this.widthcorr = false;
             this.InitializeComponent();
@@ -107,7 +107,7 @@ namespace ClubCompFS
             DataGridViewCellStyle gridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle7 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form7));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(WarmupGroupsForm));
             this.MenuStrip1 = new MenuStrip();
             this.ExitToolStripMenuItem = new ToolStripMenuItem();
             this.PRINTToolStripMenuItem = new ToolStripMenuItem();
@@ -300,7 +300,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form7);
+            this.Name = nameof(WarmupGroupsForm);
             this.Text = "WARMUP GROUPS";
             this.TopMost = true;
             this.MenuStrip1.ResumeLayout(false);
@@ -520,7 +520,7 @@ namespace ClubCompFS
             }
         }
 
-        private void Form7_Load(object sender, EventArgs e)
+        private void WarmupGroupsForm_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.MainForm.Top;
             if (Operators.CompareString(this.txtPar.Text, "3", false) == 0)
@@ -946,7 +946,7 @@ namespace ClubCompFS
             this.widthcorr = true;
         }
 
-        private void Form7_SizeChanged(object sender, EventArgs e)
+        private void WarmupGroupsForm_SizeChanged(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;
@@ -1397,7 +1397,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num6 = (int)Interaction.MsgBox((object)("Form7, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num6 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_29:
             if (num2 == 0)
@@ -1470,7 +1470,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num5 = (int)Interaction.MsgBox((object)("Form7, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num5 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_24:
             if (num2 == 0)
@@ -1734,7 +1734,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num11 = (int)Interaction.MsgBox((object)("Form7, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
+                int num11 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
             }
             label_48:
             if (num2 == 0)
@@ -1780,7 +1780,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form7, WarmupGroupsToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, WarmupGroupsToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_13:
             if (num2 == 0)
@@ -1845,7 +1845,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form7, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, PRINTToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_22:
             if (num2 == 0)
@@ -1911,7 +1911,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form7, CREATETWOPDFToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("WarmupGroupsForm, CREATETWOPDFToolStripMenuItem_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_14:
             if (num2 == 0)

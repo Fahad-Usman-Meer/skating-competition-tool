@@ -1442,8 +1442,8 @@ namespace ClubCompFS
                 MyProject.Forms.ElementInputForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
                 MyProject.Forms.ResultsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
-                MyProject.Forms.Form7.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                MyProject.Forms.WarmupGroupsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
                 MyProject.Forms.Form8.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
@@ -3608,18 +3608,18 @@ namespace ClubCompFS
         public void WarmUpSheet(int PartNo, int par)
         {
             this.TopMost = false;
-            MyProject.Forms.Form7.txtPartNo.Text = Conversions.ToString(PartNo);
-            MyProject.Forms.Form7.txtPar.Text = Conversions.ToString(par);
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
-                MyProject.Forms.Form7.Close();
+            MyProject.Forms.WarmupGroupsForm.txtPartNo.Text = Conversions.ToString(PartNo);
+            MyProject.Forms.WarmupGroupsForm.txtPar.Text = Conversions.ToString(par);
+            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                MyProject.Forms.WarmupGroupsForm.Close();
             if (par != 3)
             {
-                MyProject.Forms.Form7.Show();
+                MyProject.Forms.WarmupGroupsForm.Show();
             }
             else
             {
-                MyProject.Forms.Form7.CreateWarmUp();
-                MyProject.Forms.Form7.PRINTToolStripMenuItem.PerformClick();
+                MyProject.Forms.WarmupGroupsForm.CreateWarmUp();
+                MyProject.Forms.WarmupGroupsForm.PRINTToolStripMenuItem.PerformClick();
             }
         }
 
@@ -4481,7 +4481,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the DIALOG!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -5078,8 +5078,8 @@ namespace ClubCompFS
         {
             if (!this.MenuPossibleStartListForm())
                 return;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
-                MyProject.Forms.Form7.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.WarmupGroupsForm))
+                MyProject.Forms.WarmupGroupsForm.Close();
             this.Schedule(1);
         }
 

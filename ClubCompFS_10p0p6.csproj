@@ -126,7 +126,7 @@
     <Compile Include="ResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="WarmupGroupsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form8.cs">
@@ -167,7 +167,7 @@
     <EmbeddedResource Include="JudgesDetailsForm.resx" />
     <EmbeddedResource Include="ElementInputForm.resx" />
     <EmbeddedResource Include="ResultsForm.resx" />
-    <EmbeddedResource Include="Form7.resx" />
+    <EmbeddedResource Include="WarmupGroupsForm.resx" />
     <EmbeddedResource Include="Form8.resx" />
     <EmbeddedResource Include="Form9.resx" />
     <EmbeddedResource Include="Resources.resx" />
