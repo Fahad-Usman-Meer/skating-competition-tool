@@ -5318,8 +5318,8 @@ namespace ClubCompFS
             if (!(num > 0 & num < 10))
                 return;
             this.Qprint.Enqueue(checked(10 + num));
-            MyProject.Forms.Form10.txtPrint.Text = "Head Page!";
-            MyProject.Forms.Form10.Show();
+            MyProject.Forms.PrinterForm.txtPrint.Text = "Head Page!";
+            MyProject.Forms.PrinterForm.Show();
             this.BGW();
         }
 
@@ -5350,8 +5350,8 @@ namespace ClubCompFS
                     return;
                 this.DisableMenu();
                 this.Qprint.Enqueue(checked(30 + num));
-                MyProject.Forms.Form10.txtPrint.Text = "Start List!";
-                MyProject.Forms.Form10.Show();
+                MyProject.Forms.PrinterForm.txtPrint.Text = "Start List!";
+                MyProject.Forms.PrinterForm.Show();
                 this.BGW();
             }
             else
@@ -5490,8 +5490,8 @@ namespace ClubCompFS
             if (!(num > 0 & num < 10))
                 return;
             this.Qprint.Enqueue(checked(20 + num));
-            MyProject.Forms.Form10.txtPrint.Text = "Entries!";
-            MyProject.Forms.Form10.Show();
+            MyProject.Forms.PrinterForm.txtPrint.Text = "Entries!";
+            MyProject.Forms.PrinterForm.Show();
             this.BGW();
         }
 
@@ -5522,8 +5522,8 @@ namespace ClubCompFS
                 {
                     case 2:
                     case 3:
-                        MyProject.Forms.Form10.txtPrint.Text = "All Result Documents / Category!";
-                        MyProject.Forms.Form10.Show();
+                        MyProject.Forms.PrinterForm.txtPrint.Text = "All Result Documents / Category!";
+                        MyProject.Forms.PrinterForm.Show();
                         int num2 = num1;
                         int num3 = 1;
                         while (num3 <= num2)
@@ -5670,8 +5670,8 @@ namespace ClubCompFS
                     if (!(num1 > 0 & num1 < 10))
                         break;
                     this.Qprint.Enqueue(checked(800 + num1));
-                    MyProject.Forms.Form10.txtPrint.Text = "Results!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "Results!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                     break;
             }
@@ -5769,8 +5769,8 @@ namespace ClubCompFS
             if (this.MaxStartNo() > 0)
             {
                 this.Qprint.Enqueue(400);
-                MyProject.Forms.Form10.txtPrint.Text = "The TC Cards for the TC!";
-                MyProject.Forms.Form10.Show();
+                MyProject.Forms.PrinterForm.txtPrint.Text = "The TC Cards for the TC!";
+                MyProject.Forms.PrinterForm.Show();
                 this.BGW();
             }
             else
@@ -5786,8 +5786,8 @@ namespace ClubCompFS
             if (this.MaxStartNo() > 0)
             {
                 this.Qprint.Enqueue(500);
-                MyProject.Forms.Form10.txtPrint.Text = "The TC/TS Cards for both TC and TS!";
-                MyProject.Forms.Form10.Show();
+                MyProject.Forms.PrinterForm.txtPrint.Text = "The TC/TS Cards for both TC and TS!";
+                MyProject.Forms.PrinterForm.Show();
                 this.BGW();
             }
             else
@@ -5830,8 +5830,8 @@ namespace ClubCompFS
                 {
                     int num2 = checked(num1 + 600);
                     this.Qprint.Enqueue(num2);
-                    MyProject.Forms.Form10.txtPrint.Text = "The TC/TS Cards for skater number " + Conversions.ToString(checked(num2 - 600)) + "!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "The TC/TS Cards for skater number " + Conversions.ToString(checked(num2 - 600)) + "!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                 }
                 else
@@ -5856,8 +5856,8 @@ namespace ClubCompFS
                 {
                     int num2 = checked(200 + num1);
                     this.Qprint.Enqueue(num2);
-                    MyProject.Forms.Form10.txtPrint.Text = "The Judge cards for Judge number " + Conversions.ToString(checked(num2 - 200)) + "!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "The Judge cards for Judge number " + Conversions.ToString(checked(num2 - 200)) + "!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                 }
                 else
@@ -5882,8 +5882,8 @@ namespace ClubCompFS
                 {
                     int num2 = checked(num1 + 300);
                     this.Qprint.Enqueue(num2);
-                    MyProject.Forms.Form10.txtPrint.Text = "The Judge cards for skater number " + Conversions.ToString(checked(num2 - 300)) + "!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "The Judge cards for skater number " + Conversions.ToString(checked(num2 - 300)) + "!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                 }
                 else
@@ -5906,8 +5906,8 @@ namespace ClubCompFS
                 if (checked(Module1.NoJ_GOE + Module1.NoTrj) > 0)
                 {
                     this.Qprint.Enqueue(100);
-                    MyProject.Forms.Form10.txtPrint.Text = "The Judge cards for all skaters!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "The Judge cards for all skaters!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                 }
                 else
@@ -6377,8 +6377,8 @@ namespace ClubCompFS
             if (Module1.WorkMode == 1)
                 this.EnableTextboxes(true);
             this.completed5 = true;
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form10))
-                MyProject.Forms.Form10.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.PrinterForm))
+                MyProject.Forms.PrinterForm.Close();
             if (!Module1.IsFormOpen((Form)MyProject.Forms.Form11))
                 return;
             MyProject.Forms.Form11.Close();
@@ -6468,8 +6468,8 @@ namespace ClubCompFS
                     case 2:
                     case 3:
                         this.Qprint.Enqueue(checked(900 + num1));
-                        MyProject.Forms.Form10.txtPrint.Text = "Judges Details with Tr. Judge and Referee!";
-                        MyProject.Forms.Form10.Show();
+                        MyProject.Forms.PrinterForm.txtPrint.Text = "Judges Details with Tr. Judge and Referee!";
+                        MyProject.Forms.PrinterForm.Show();
                         this.BGW();
                         break;
                 }
@@ -6510,8 +6510,8 @@ namespace ClubCompFS
                     case 2:
                     case 3:
                         this.Qprint.Enqueue(checked(910 + num1));
-                        MyProject.Forms.Form10.txtPrint.Text = "Judges Details without Tr. Judge and Referee!";
-                        MyProject.Forms.Form10.Show();
+                        MyProject.Forms.PrinterForm.txtPrint.Text = "Judges Details without Tr. Judge and Referee!";
+                        MyProject.Forms.PrinterForm.Show();
                         this.BGW();
                         break;
                 }
@@ -6986,8 +6986,8 @@ namespace ClubCompFS
                     if (!(num > 0 & num < 10))
                         return;
                     this.Qprint.Enqueue(checked(40 + num));
-                    MyProject.Forms.Form10.txtPrint.Text = "Warmup Groups!";
-                    MyProject.Forms.Form10.Show();
+                    MyProject.Forms.PrinterForm.txtPrint.Text = "Warmup Groups!";
+                    MyProject.Forms.PrinterForm.Show();
                     this.BGW();
                 }
                 else
@@ -8278,8 +8278,8 @@ namespace ClubCompFS
                     case 2:
                     case 3:
                         this.Qprint.Enqueue(checked(920 + num1));
-                        MyProject.Forms.Form10.txtPrint.Text = "Judges Details without Tr. Judge and Referee!";
-                        MyProject.Forms.Form10.Show();
+                        MyProject.Forms.PrinterForm.txtPrint.Text = "Judges Details without Tr. Judge and Referee!";
+                        MyProject.Forms.PrinterForm.Show();
                         this.BGW();
                         break;
                 }

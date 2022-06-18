@@ -82,7 +82,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ConnectionManager.cs" />
-    <Compile Include="Form10.cs">
+    <Compile Include="PrinterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form11.cs">
@@ -142,7 +142,7 @@
     <EmbeddedResource Include="IceResurfacingMealBreakDialog.resx" />
     <EmbeddedResource Include="HeadPageDialog.resx" />
     <EmbeddedResource Include="MainForm.resx" />
-    <EmbeddedResource Include="Form10.resx" />
+    <EmbeddedResource Include="PrinterForm.resx" />
     <EmbeddedResource Include="Form11.resx" />
     <EmbeddedResource Include="Form12.resx" />
     <EmbeddedResource Include="Form13.resx" />
