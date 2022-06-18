@@ -841,13 +841,13 @@ namespace ClubCompFS
             set => this._txtIndTAGet = value;
         }
 
-        private void IndTAEntriesForm_Closing(object sender, FormClosingEventArgs e) => MyProject.Forms.Form2.TopMost = true;
+        private void IndTAEntriesForm_Closing(object sender, FormClosingEventArgs e) => MyProject.Forms.StartListForm.TopMost = true;
 
         private void IndTAEntriesForm_Load(object sender, EventArgs e)
         {
             this.Width = 1150;
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
-            this.Top = MyProject.Forms.Form2.Top;
+            this.Top = MyProject.Forms.StartListForm.Top;
             this.TopMost = true;
             Module1.IndTA = (Module1.IndTA_Type[])null;
             Module1.IndTA = new Module1.IndTA_Type[501];
@@ -1522,32 +1522,32 @@ namespace ClubCompFS
             if (!this.AddToStartList())
                 return;
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
-                MyProject.Forms.Form2.WillExitForm2 = true;
-                MyProject.Forms.Form2.Close();
+                MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                MyProject.Forms.StartListForm.Close();
             }
             if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
                 Module1.Competition.Name = this.MyCompetitionName;
                 MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
-            MyProject.Forms.Form2.TopMost = true;
-            MyProject.Forms.Form2.Show();
+            MyProject.Forms.StartListForm.TopMost = true;
+            MyProject.Forms.StartListForm.Show();
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
-                MyProject.Forms.Form2.WillExitForm2 = true;
-                MyProject.Forms.Form2.Close();
+                MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                MyProject.Forms.StartListForm.Close();
             }
             MainForm form1 = MyProject.Forms.MainForm;
             this.UpdateMainForm();
-            MyProject.Forms.Form2.TopMost = true;
-            MyProject.Forms.Form2.Show();
+            MyProject.Forms.StartListForm.TopMost = true;
+            MyProject.Forms.StartListForm.Show();
         }
 
         private void UpdateMainForm()
@@ -1601,7 +1601,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num6 = (int)Interaction.MsgBox((object)(" Form2.Sort_Start - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num6 = (int)Interaction.MsgBox((object)(" StartListForm.Sort_Start - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_14:
             if (num2 == 0)
@@ -1689,7 +1689,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num7 = (int)Interaction.MsgBox((object)("Form2.Sort_IndTA_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num7 = (int)Interaction.MsgBox((object)("StartListForm.Sort_IndTA_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_14:
             if (num2 == 0)
@@ -1866,18 +1866,18 @@ namespace ClubCompFS
             if (!this.AddToStartList())
                 return;
             this.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
             {
-                MyProject.Forms.Form2.WillExitForm2 = true;
-                MyProject.Forms.Form2.Close();
+                MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                MyProject.Forms.StartListForm.Close();
             }
             if (Operators.CompareString(this.MyCompetitionName, Module1.Competition.Name, false) != 0 && Interaction.MsgBox((object)"Do you want to change the Competition name?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
             {
                 Module1.Competition.Name = this.MyCompetitionName;
                 MyProject.Forms.MainForm.txtCompetitionName.Text = this.MyCompetitionName;
             }
-            MyProject.Forms.Form2.TopMost = true;
-            MyProject.Forms.Form2.Show();
+            MyProject.Forms.StartListForm.TopMost = true;
+            MyProject.Forms.StartListForm.Show();
         }
     }
 }

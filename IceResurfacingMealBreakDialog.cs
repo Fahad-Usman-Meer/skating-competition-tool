@@ -781,8 +781,8 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                this.Top = MyProject.Forms.Form2.Top;
-                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form2.Left + (double)MyProject.Forms.Form2.Width / 2.0 - (double)this.Width / 2.0)));
+                this.Top = MyProject.Forms.StartListForm.Top;
+                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.StartListForm.Left + (double)MyProject.Forms.StartListForm.Width / 2.0 - (double)this.Width / 2.0)));
                 this.TopMost = true;
                 int index = 1;
                 do
@@ -945,7 +945,7 @@ namespace ClubCompFS
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
                 MyProject.Forms.Form7.Close();
-                MyProject.Forms.Form2.TopMost = true;
+                MyProject.Forms.StartListForm.TopMost = true;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {

@@ -91,8 +91,8 @@ namespace ClubCompFS
             this.txtSurname = new TextBox();
             this.Label4 = new Label();
             this.txtClub = new TextBox();
-            this.txtIndForm2 = new TextBox();
-            this.txtFuncForm2 = new TextBox();
+            this.txtIndStartListForm = new TextBox();
+            this.txtFuncStartListForm = new TextBox();
             this.TxtClubID = new TextBox();
             this.Label5 = new Label();
             this.txtID = new TextBox();
@@ -207,24 +207,24 @@ namespace ClubCompFS
             Size size12 = size1;
             txtClub.Size = size12;
             this.txtClub.TabIndex = 3;
-            this.txtIndForm2.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtIndForm2.Location = new Point(157, 179);
-            this.txtIndForm2.Name = "txtIndForm2";
-            TextBox txtIndForm2 = this.txtIndForm2;
+            this.txtIndStartListForm.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.txtIndStartListForm.Location = new Point(157, 179);
+            this.txtIndStartListForm.Name = "txtIndForm2";
+            TextBox txtIndForm2 = this.txtIndStartListForm;
             size1 = new Size(71, 20);
             Size size13 = size1;
             txtIndForm2.Size = size13;
-            this.txtIndForm2.TabIndex = 9;
-            this.txtIndForm2.Visible = false;
-            this.txtFuncForm2.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtFuncForm2.Location = new Point(239, 179);
-            this.txtFuncForm2.Name = "txtFuncForm2";
-            TextBox txtFuncForm2 = this.txtFuncForm2;
+            this.txtIndStartListForm.TabIndex = 9;
+            this.txtIndStartListForm.Visible = false;
+            this.txtFuncStartListForm.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.txtFuncStartListForm.Location = new Point(239, 179);
+            this.txtFuncStartListForm.Name = "txtFuncForm2";
+            TextBox txtFuncForm2 = this.txtFuncStartListForm;
             size1 = new Size(71, 20);
             Size size14 = size1;
             txtFuncForm2.Size = size14;
-            this.txtFuncForm2.TabIndex = 10;
-            this.txtFuncForm2.Visible = false;
+            this.txtFuncStartListForm.TabIndex = 10;
+            this.txtFuncStartListForm.Visible = false;
             this.TxtClubID.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.TxtClubID.Location = new Point(12, 179);
             this.TxtClubID.Name = "TxtClubID";
@@ -272,8 +272,8 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.Label6);
             this.Controls.Add((Control)this.TxtClubID);
             this.Controls.Add((Control)this.Label5);
-            this.Controls.Add((Control)this.txtFuncForm2);
-            this.Controls.Add((Control)this.txtIndForm2);
+            this.Controls.Add((Control)this.txtFuncStartListForm);
+            this.Controls.Add((Control)this.txtIndStartListForm);
             this.Controls.Add((Control)this.Label4);
             this.Controls.Add((Control)this.txtClub);
             this.Controls.Add((Control)this.Label3);
@@ -428,14 +428,14 @@ namespace ClubCompFS
             }
         }
 
-        internal virtual TextBox txtIndForm2
+        internal virtual TextBox txtIndStartListForm
         {
             get => this._txtIndForm2;
             [MethodImpl(MethodImplOptions.Synchronized)]
             set => this._txtIndForm2 = value;
         }
 
-        internal virtual TextBox txtFuncForm2
+        internal virtual TextBox txtFuncStartListForm
         {
             get => this._txtFuncForm2;
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -496,10 +496,10 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                int integer = Conversions.ToInteger(this.txtIndForm2.Text);
+                int integer = Conversions.ToInteger(this.txtIndStartListForm.Text);
                 if (Strings.Len(Strings.Trim(this.txtFirstName.Text)) > 0)
                 {
-                    DataGridView dataGridView1 = MyProject.Forms.Form2.DataGridView1;
+                    DataGridView dataGridView1 = MyProject.Forms.StartListForm.DataGridView1;
                     string segment = Module1.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                         Module1.Vek[checked(integer + 1)].Startno_Seg1 = Strings.Len(this.txtStartNo.Text) <= 0 ? 0 : Conversions.ToInteger(this.txtStartNo.Text);
@@ -510,15 +510,15 @@ namespace ClubCompFS
                     Module1.Vek[checked(integer + 1)].Name.ID = this.txtID.Text;
                     Module1.Vek[checked(integer + 1)].Club = this.txtClub.Text;
                     Module1.Vek[checked(integer + 1)].ClubID = this.TxtClubID.Text;
-                    string text = this.txtFuncForm2.Text;
+                    string text = this.txtFuncStartListForm.Text;
                     if (Operators.CompareString(text, "New", false) == 0)
                         checked { ++Module1.TNop; }
                     else if (Operators.CompareString(text, "Edit", false) == 0)
                         Module1.TNop = Module1.TNop;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                    MyProject.Forms.Form2.TopMost = true;
-                    MyProject.Forms.Form2.CreateStartList(Module1.TNop);
+                    MyProject.Forms.StartListForm.TopMost = true;
+                    MyProject.Forms.StartListForm.CreateStartList(Module1.TNop);
                     if (Module1.WorkMode == 1)
                     {
                         Module1.SaveCategoryFile(Module1.CategoryFileName);
@@ -552,7 +552,7 @@ namespace ClubCompFS
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-            MyProject.Forms.Form2.TopMost = true;
+            MyProject.Forms.StartListForm.TopMost = true;
         }
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
@@ -604,8 +604,8 @@ namespace ClubCompFS
 
         private void ParticipantInputDialog_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form2.Top;
-            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form2.Left + (double)MyProject.Forms.Form2.Width / 2.0 - (double)this.Width / 2.0)));
+            this.Top = MyProject.Forms.StartListForm.Top;
+            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.StartListForm.Left + (double)MyProject.Forms.StartListForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = true;
         }
 

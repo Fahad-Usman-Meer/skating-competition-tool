@@ -703,7 +703,7 @@ namespace ClubCompFS
                 MyProject.Forms.DeductionsDialog.Close();
                 Module1.ScanJudges = 0;
                 this.Timer1.Enabled = false;
-                MyProject.Forms.Form2.TopMost = true;
+                MyProject.Forms.StartListForm.TopMost = true;
             }
         }
 
@@ -2014,15 +2014,15 @@ namespace ClubCompFS
                         MyProject.Forms.InputJudgesDataDialog.Close();
                         MyProject.Forms.DeductionsDialog.Close();
                         this.Close();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                         {
-                            MyProject.Forms.Form2.WillExitForm2 = true;
-                            MyProject.Forms.Form2.Close();
+                            MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                            MyProject.Forms.StartListForm.Close();
                         }
-                        MyProject.Forms.Form2.Show();
+                        MyProject.Forms.StartListForm.Show();
                         break;
                 }
-                MyProject.Forms.Form2.TopMost = true;
+                MyProject.Forms.StartListForm.TopMost = true;
                 goto label_18;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -2081,7 +2081,7 @@ namespace ClubCompFS
                             MyProject.Forms.DeductionsDialog.Close();
                             this.Timer1.Enabled = false;
                             this.Close();
-                            MyProject.Forms.Form2.ElementInput(4);
+                            MyProject.Forms.StartListForm.ElementInput(4);
                             goto label_11;
                         case 2:
                             if (Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
@@ -2091,7 +2091,7 @@ namespace ClubCompFS
                                 MyProject.Forms.DeductionsDialog.Close();
                                 this.Timer1.Enabled = false;
                                 this.Close();
-                                MyProject.Forms.Form2.ElementInput(4);
+                                MyProject.Forms.StartListForm.ElementInput(4);
                                 goto label_11;
                             }
                             else
@@ -2162,11 +2162,11 @@ namespace ClubCompFS
                                 Module1.SaveCategoryFile(Module1.CategoryFileName);
                                 this.ExitForm4();
                             }
-                            MyProject.Forms.Form2.WillExitForm2 = true;
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
-                                MyProject.Forms.Form2.Close();
-                            MyProject.Forms.Form2.Show();
-                            MyProject.Forms.Form2.Top = -1;
+                            MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                            if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
+                                MyProject.Forms.StartListForm.Close();
+                            MyProject.Forms.StartListForm.Show();
+                            MyProject.Forms.StartListForm.Top = -1;
                             goto label_26;
                         }
                         else

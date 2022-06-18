@@ -530,7 +530,7 @@ namespace ClubCompFS
             }
             else
             {
-                this.Left = checked(MyProject.Forms.Form2.Left + 55);
+                this.Left = checked(MyProject.Forms.StartListForm.Left + 55);
                 this.CREATETWOPDFToolStripMenuItem.Visible = true;
             }
             this.CreateWarmUp();
@@ -1232,13 +1232,13 @@ namespace ClubCompFS
                 if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                     MyProject.Forms.IceResurfacingMealBreakDialog.Close();
                 this.Close();
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Form2))
+                if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 {
-                    MyProject.Forms.Form2.WillExitForm2 = true;
-                    MyProject.Forms.Form2.Close();
+                    MyProject.Forms.StartListForm.WillExitStartListForm = true;
+                    MyProject.Forms.StartListForm.Close();
                 }
-                MyProject.Forms.Form2.TopMost = true;
-                MyProject.Forms.Form2.Show();
+                MyProject.Forms.StartListForm.TopMost = true;
+                MyProject.Forms.StartListForm.Show();
             }
         }
 
@@ -1797,7 +1797,7 @@ namespace ClubCompFS
             {
                 if (!Module1.TestStart())
                     return;
-                MyProject.Forms.Form2.CreateStartListPDF(1);
+                MyProject.Forms.StartListForm.CreateStartListPDF(1);
             }
         }
 
@@ -1831,7 +1831,7 @@ namespace ClubCompFS
                     this.ExportDataToPDFTable1(Path + "_Warmup.pdf", 0);
                     if (Module1.TestStart())
                     {
-                        MyProject.Forms.Form2.CreateStartListPDF(2);
+                        MyProject.Forms.StartListForm.CreateStartListPDF(2);
                         goto label_14;
                     }
                     else
