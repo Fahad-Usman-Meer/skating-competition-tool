@@ -1454,8 +1454,8 @@ namespace ClubCompFS
                 MyProject.Forms.JudgesSetupDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                 MyProject.Forms.ConfigurationDataDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
-                MyProject.Forms.Dialog5.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                MyProject.Forms.ParticipantInputDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form12))
                 MyProject.Forms.Form12.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog7))
@@ -4402,7 +4402,7 @@ namespace ClubCompFS
                     if (num3 <= 41)
                     {
                         this.TopMost = false;
-                        Dialog5 dialog5 = MyProject.Forms.Dialog5;
+                        ParticipantInputDialog dialog5 = MyProject.Forms.ParticipantInputDialog;
                         dialog5.txtIndForm2.Text = Conversions.ToString(num3);
                         dialog5.txtFuncForm2.Text = "New";
                         dialog5.txtStartNo.Text = "";
@@ -4412,9 +4412,9 @@ namespace ClubCompFS
                         dialog5.txtClub.Text = "";
                         dialog5.TxtClubID.Text = "";
                         dialog5.txtFirstName.Select();
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
-                            MyProject.Forms.Dialog5.Close();
-                        int num4 = (int)MyProject.Forms.Dialog5.ShowDialog();
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                            MyProject.Forms.ParticipantInputDialog.Close();
+                        int num4 = (int)MyProject.Forms.ParticipantInputDialog.ShowDialog();
                         MyProject.Forms.Form1.txtParticipants.Text = Conversions.ToString(Module1.IndexEmptyRow());
                         goto label_12;
                     }
@@ -4457,7 +4457,7 @@ namespace ClubCompFS
                     {
                         if (y >= 0 & y <= 42)
                         {
-                            Dialog5 dialog5 = MyProject.Forms.Dialog5;
+                            ParticipantInputDialog dialog5 = MyProject.Forms.ParticipantInputDialog;
                             dialog5.txtIndForm2.Text = Conversions.ToString(y);
                             dialog5.txtFuncForm2.Text = "Edit";
                             string segment = Module1.Segment;
@@ -4471,9 +4471,9 @@ namespace ClubCompFS
                             dialog5.txtClub.Text = Module1.Vek[checked(y + 1)].Club;
                             dialog5.TxtClubID.Text = Module1.Vek[checked(y + 1)].ClubID;
                             dialog5.txtFirstName.Select();
-                            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
-                                MyProject.Forms.Dialog5.Close();
-                            int num3 = (int)MyProject.Forms.Dialog5.ShowDialog();
+                            if (Module1.IsFormOpen((Form)MyProject.Forms.ParticipantInputDialog))
+                                MyProject.Forms.ParticipantInputDialog.Close();
+                            int num3 = (int)MyProject.Forms.ParticipantInputDialog.ShowDialog();
                             goto label_17;
                         }
                         else
