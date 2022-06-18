@@ -4117,8 +4117,8 @@ namespace ClubCompFS
                 MyProject.Forms.Form8.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.CategoryDialog))
                 MyProject.Forms.CategoryDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog2))
-                MyProject.Forms.Dialog2.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
+                MyProject.Forms.NetworkStatusDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog4))
                 MyProject.Forms.Dialog4.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog3))
@@ -6615,20 +6615,20 @@ namespace ClubCompFS
                     string key3 = "txtStat" + Conversions.ToString(index);
                     string key4 = "txtJno" + Conversions.ToString(index);
                     string key5 = "txtDelay" + Conversions.ToString(index);
-                    MyProject.Forms.Dialog2.Controls[key2].Text = strArray2[index];
-                    MyProject.Forms.Dialog2.Controls[key3].Text = strArray1[index];
-                    MyProject.Forms.Dialog2.Controls[key5].Text = strArray3[index];
+                    MyProject.Forms.NetworkStatusDialog.Controls[key2].Text = strArray2[index];
+                    MyProject.Forms.NetworkStatusDialog.Controls[key3].Text = strArray1[index];
+                    MyProject.Forms.NetworkStatusDialog.Controls[key5].Text = strArray3[index];
                     if (index <= 7)
                     {
-                        MyProject.Forms.Dialog2.Controls[key1].Text = Conversions.ToString(index);
-                        MyProject.Forms.Dialog2.Controls[key4].Text = strArray4[index];
+                        MyProject.Forms.NetworkStatusDialog.Controls[key1].Text = Conversions.ToString(index);
+                        MyProject.Forms.NetworkStatusDialog.Controls[key4].Text = strArray4[index];
                     }
                     checked { ++index; }
                 }
                 while (index <= 11);
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog2))
-                    MyProject.Forms.Dialog2.Close();
-                int num3 = (int)MyProject.Forms.Dialog2.ShowDialog();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
+                    MyProject.Forms.NetworkStatusDialog.Close();
+                int num3 = (int)MyProject.Forms.NetworkStatusDialog.ShowDialog();
                 goto label_19;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)

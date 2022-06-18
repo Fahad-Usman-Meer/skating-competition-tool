@@ -74,7 +74,7 @@ namespace ClubCompFS.My
             public CategoryDialog m_CategoryDialog;
             public Dialog10 m_Dialog10;
             public Dialog11 m_Dialog11;
-            public Dialog2 m_Dialog2;
+            public NetworkStatusDialog m_NetworkStatusDialog;
             public Dialog3 m_Dialog3;
             public Dialog4 m_Dialog4;
             public Dialog5 m_Dialog5;
@@ -164,20 +164,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Dialog2 Dialog2
+            public NetworkStatusDialog NetworkStatusDialog
             {
                 get
                 {
-                    this.m_Dialog2 = MyProject.MyForms.Create__Instance__<Dialog2>(this.m_Dialog2);
-                    return this.m_Dialog2;
+                    this.m_NetworkStatusDialog = MyProject.MyForms.Create__Instance__<NetworkStatusDialog>(this.m_NetworkStatusDialog);
+                    return this.m_NetworkStatusDialog;
                 }
                 set
                 {
-                    if (value == this.m_Dialog2)
+                    if (value == this.m_NetworkStatusDialog)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Dialog2>(ref this.m_Dialog2);
+                    this.Dispose__Instance__<NetworkStatusDialog>(ref this.m_NetworkStatusDialog);
                 }
             }
 

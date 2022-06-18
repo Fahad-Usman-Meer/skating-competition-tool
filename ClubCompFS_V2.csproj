@@ -60,7 +60,7 @@
     <Compile Include="CustDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog2.cs">
+    <Compile Include="NetworkStatusDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog3.cs">
@@ -135,7 +135,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog10.resx" />
     <EmbeddedResource Include="Dialog11.resx" />
-    <EmbeddedResource Include="Dialog2.resx" />
+    <EmbeddedResource Include="NetworkStatusDialog.resx" />
     <EmbeddedResource Include="Dialog3.resx" />
     <EmbeddedResource Include="Dialog4.resx" />
     <EmbeddedResource Include="Dialog5.resx" />
