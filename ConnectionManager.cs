@@ -192,10 +192,10 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        MyProject.Forms.Form4.completed2 = false;
+                        MyProject.Forms.JudgesDetailsForm.completed2 = false;
                         int integer = Conversions.ToInteger(str.Split(';')[2]);
                         Module1.UpdStr[integer] = str;
-                        MyProject.Forms.Form4.completed2 = true;
+                        MyProject.Forms.JudgesDetailsForm.completed2 = true;
                     }
                 }
                 goto label_18;

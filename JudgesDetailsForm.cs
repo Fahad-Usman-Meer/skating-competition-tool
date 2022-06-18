@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form4
+// Type: ClubCompFS.JudgesDetailsForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form4 : Form
+    public class JudgesDetailsForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("DataGridView1")]
@@ -95,7 +95,7 @@ namespace ClubCompFS
         private int[] ErrCount5;
         private string[,] JDarr1;
         private string[,] JDded;
-        public bool WillExitForm4;
+        public bool WillExitJudgesDetailsForm;
         private int F4arrRows;
         private int mRow;
         private bool newpage;
@@ -103,17 +103,17 @@ namespace ClubCompFS
         private bool Completed1;
         public bool completed2;
 
-        public Form4()
+        public JudgesDetailsForm()
         {
-            this.FormClosing += new FormClosingEventHandler(this.Form4_FormClosing);
-            this.KeyDown += new KeyEventHandler(this.Form4_KeyDown);
-            this.Load += new EventHandler(this.Form4_Load);
+            this.FormClosing += new FormClosingEventHandler(this.JudgesDetailsForm_Closing);
+            this.KeyDown += new KeyEventHandler(this.JudgesDetailsForm_KeyDown);
+            this.Load += new EventHandler(this.JudgesDetailsForm_Load);
             this.t = new Timer();
             this.ErrCount13 = new int[8];
             this.ErrCount5 = new int[8];
             this.JDarr1 = new string[51, 15];
             this.JDded = new string[2, 3];
-            this.WillExitForm4 = false;
+            this.WillExitJudgesDetailsForm = false;
             this.mRow = 1;
             this.newpage = true;
             this.CreateMenu = "Gray";
@@ -144,7 +144,7 @@ namespace ClubCompFS
             DataGridViewCellStyle gridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form4));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(JudgesDetailsForm));
             DataGridViewCellStyle gridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle5 = new DataGridViewCellStyle();
             this.DataGridView1 = new DataGridView();
@@ -385,7 +385,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = nameof(Form4);
+            this.Name = nameof(JudgesDetailsForm);
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "JUDGES DETAILS";
             this.TopMost = true;
@@ -691,9 +691,9 @@ namespace ClubCompFS
             set => this._BackgroundWorker1 = value;
         }
 
-        private void Form4_FormClosing(object sender, FormClosingEventArgs e)
+        private void JudgesDetailsForm_Closing(object sender, FormClosingEventArgs e)
         {
-            if (Module1.ScanJudges > 0 & !this.WillExitForm4 && Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
+            if (Module1.ScanJudges > 0 & !this.WillExitJudgesDetailsForm && Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.No)
             {
                 e.Cancel = true;
             }
@@ -707,7 +707,7 @@ namespace ClubCompFS
             }
         }
 
-        private void Form4_KeyDown(object sender, KeyEventArgs e)
+        private void JudgesDetailsForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (Module1.WorkMode != 2 || (-(e.KeyValue == 112 ? 1 : 0) | 113 | 114 | 115 | 116 | 117 | 118 | 119 | 120 | 121 | 122 | 123) == 0)
                 return;
@@ -722,7 +722,7 @@ namespace ClubCompFS
             MyProject.Forms.MainForm.SendMessage(Module1.LastOutTxt);
         }
 
-        private void Form4_Load(object sender, EventArgs e)
+        private void JudgesDetailsForm_Load(object sender, EventArgs e)
         {
             Module1.IPar.EE = (string[])null;
             Module1.IPar.EE = new string[16];
@@ -735,7 +735,7 @@ namespace ClubCompFS
             this.Top = 0;
             this.CREATERESULTSToolStripMenuItem.BackColor = SystemColors.Control;
             this.CreateMenu = "Gray";
-            this.WillExitForm4 = false;
+            this.WillExitJudgesDetailsForm = false;
             switch (Module1.WorkMode)
             {
                 case 1:
@@ -1451,7 +1451,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num13 = (int)Interaction.MsgBox((object)("Form4, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num13 = (int)Interaction.MsgBox((object)("JudgesDetailsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_46:
             if (num2 == 0)
@@ -1459,7 +1459,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void EXITToolStripMenuItem_Click(object sender, EventArgs e) => this.ExitForm4();
+        private void EXITToolStripMenuItem_Click(object sender, EventArgs e) => this.ExitJudgesDetailsForm();
 
         public void CreateJD_PDFfile(int msg)
         {
@@ -1562,7 +1562,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num9 = (int)Interaction.MsgBox((object)("Form4, CreateJD_PDFfile - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num9 = (int)Interaction.MsgBox((object)("JudgesDetailsForm, CreateJD_PDFfile - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_29:
             if (num2 == 0)
@@ -1839,7 +1839,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num12 = (int)Interaction.MsgBox((object)("Form4, PrintDocument2_PrintPage - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num12 = (int)Interaction.MsgBox((object)("JudgesDetailsForm, PrintDocument2_PrintPage - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_44:
             if (num2 == 0)
@@ -1940,7 +1940,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num9 = (int)Interaction.MsgBox((object)("Form4, CreateJDAllSkaters - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num9 = (int)Interaction.MsgBox((object)("JudgesDetailsForm, CreateJDAllSkaters - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_28:
             if (num2 == 0)
@@ -1948,7 +1948,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void ExitForm4()
+        private void ExitJudgesDetailsForm()
         {
             int num1 = 0;
             int num2 = 0;
@@ -1956,12 +1956,12 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.WillExitForm4 = false;
+                this.WillExitJudgesDetailsForm = false;
                 switch (Module1.WorkMode)
                 {
                     case 1:
                     case 3:
-                        this.WillExitForm4 = true;
+                        this.WillExitJudgesDetailsForm = true;
                         MyProject.Forms.InputJudgesDataDialog.Close();
                         MyProject.Forms.DeductionsDialog.Close();
                         this.Timer1.Enabled = false;
@@ -1969,11 +1969,11 @@ namespace ClubCompFS
                         break;
                     case 2:
                         if (Module1.ScanJudges == 1 & this.Timer1.Enabled & Operators.CompareString(this.CreateMenu, "LightYellow", false) == 0)
-                            this.WillExitForm4 = true;
+                            this.WillExitJudgesDetailsForm = true;
                         else if (Module1.ScanJudges == 0)
-                            this.WillExitForm4 = true;
+                            this.WillExitJudgesDetailsForm = true;
                         else if (Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
-                            this.WillExitForm4 = true;
+                            this.WillExitJudgesDetailsForm = true;
                         else
                             goto label_18;
                         this.Timer1.Enabled = false;
@@ -1998,7 +1998,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("ExitForm4 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("ExitJudgesDetailsForm - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_18:
             if (num2 == 0)
@@ -2006,7 +2006,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        public bool MenuPossibleForm4()
+        public bool MenuPossibleJudgesDetailsForm()
         {
             bool flag = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
@@ -2035,14 +2035,14 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm4())
+                if (this.MenuPossibleJudgesDetailsForm())
                 {
-                    this.WillExitForm4 = false;
+                    this.WillExitJudgesDetailsForm = false;
                     switch (Module1.WorkMode)
                     {
                         case 1:
                         case 3:
-                            this.WillExitForm4 = true;
+                            this.WillExitJudgesDetailsForm = true;
                             MyProject.Forms.InputJudgesDataDialog.Close();
                             MyProject.Forms.DeductionsDialog.Close();
                             this.Timer1.Enabled = false;
@@ -2052,7 +2052,7 @@ namespace ClubCompFS
                         case 2:
                             if (Interaction.MsgBox((object)"Do you really want to disable the ongoing Judges' Input?", MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
                             {
-                                this.WillExitForm4 = true;
+                                this.WillExitJudgesDetailsForm = true;
                                 MyProject.Forms.InputJudgesDataDialog.Close();
                                 MyProject.Forms.DeductionsDialog.Close();
                                 this.Timer1.Enabled = false;
@@ -2092,7 +2092,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm4())
+                if (this.MenuPossibleJudgesDetailsForm())
                 {
                     bool flag = true;
                     int num3 = 1;
@@ -2126,7 +2126,7 @@ namespace ClubCompFS
                             if (Strings.Len(Module1.CategoryFileName) > 1)
                             {
                                 Module1.SaveCategoryFile(Module1.CategoryFileName);
-                                this.ExitForm4();
+                                this.ExitJudgesDetailsForm();
                             }
                             MyProject.Forms.StartListForm.WillExitStartListForm = true;
                             if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
@@ -2176,7 +2176,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (this.MenuPossibleForm4())
+                if (this.MenuPossibleJudgesDetailsForm())
                 {
                     int num3 = checked(this.DataGridView1.CurrentCellAddress.X - 5);
                     if (num3 > 0 & num3 <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & num3 == 7)
@@ -2298,7 +2298,7 @@ namespace ClubCompFS
                     if (e.Button == MouseButtons.Right)
                     {
                         this.DataGridView1.CurrentCell = this.DataGridView1[e.ColumnIndex, e.RowIndex];
-                        if (this.MenuPossibleForm4())
+                        if (this.MenuPossibleJudgesDetailsForm())
                         {
                             switch (e.RowIndex)
                             {

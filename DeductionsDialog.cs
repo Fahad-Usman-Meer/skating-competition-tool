@@ -1046,7 +1046,7 @@ namespace ClubCompFS
 
         private void DeductionsDialog_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form4.Top;
+            this.Top = MyProject.Forms.JudgesDetailsForm.Top;
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.TopMost = true;
             if (!(Module1.PNo > 0 & Module1.PNo <= Module1.TNop))
@@ -1222,8 +1222,8 @@ namespace ClubCompFS
                     }
                     int rowDed = 0;
                     Module1.CreateJudgesDetails(0, ref rowDed);
-                    MyProject.Forms.Form4.ShowJD(rowDed);
-                    MyProject.Forms.Form4.Show();
+                    MyProject.Forms.JudgesDetailsForm.ShowJD(rowDed);
+                    MyProject.Forms.JudgesDetailsForm.Show();
                     Module1.SaveCategoryFile(Module1.CategoryFileName);
                     break;
             }

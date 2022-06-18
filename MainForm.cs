@@ -4097,7 +4097,7 @@ namespace ClubCompFS
         private void CloseFormsDialogs()
         {
             MyProject.Forms.StartListForm.WillExitStartListForm = true;
-            MyProject.Forms.Form4.WillExitForm4 = true;
+            MyProject.Forms.JudgesDetailsForm.WillExitJudgesDetailsForm = true;
             MyProject.Forms.Form5.WillExit = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 MyProject.Forms.StartListForm.Close();
@@ -4105,8 +4105,8 @@ namespace ClubCompFS
                 MyProject.Forms.DBForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementDBDisplayForm))
                 MyProject.Forms.ElementDBDisplayForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
-                MyProject.Forms.Form4.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
+                MyProject.Forms.JudgesDetailsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
                 MyProject.Forms.Form5.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
@@ -5634,8 +5634,8 @@ namespace ClubCompFS
                         return;
                     }
                     this.CloseFormsDialogs();
-                    MyProject.Forms.Form4.txtPrint.Text = "0";
-                    MyProject.Forms.Form4.CreateJD_PDFfile(1);
+                    MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
+                    MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(1);
                 }
             }
             else
@@ -5711,8 +5711,8 @@ namespace ClubCompFS
                         if (!this.OnlyDNSSeg1())
                         {
                             MyProject.Forms.Form6.CreateResultsPDF("Seg1", 0);
-                            MyProject.Forms.Form4.txtPrint.Text = "0";
-                            MyProject.Forms.Form4.CreateJD_PDFfile(2);
+                            MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
+                            MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(2);
                         }
                         else
                             MyProject.Forms.Form6.CreateResultsPDF("Seg1", 2);
@@ -5726,8 +5726,8 @@ namespace ClubCompFS
                             MyProject.Forms.Form6.CreateResultsPDF("Seg2", 0);
                             if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
                                 MyProject.Forms.Form6.CreateResultsPDF("Final", 0);
-                            MyProject.Forms.Form4.txtPrint.Text = "0";
-                            MyProject.Forms.Form4.CreateJD_PDFfile(2);
+                            MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
+                            MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(2);
                         }
                         else if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
                         {
@@ -6324,34 +6324,34 @@ namespace ClubCompFS
                     {
                         this.CloseFormsDialogs();
                         Module1.JDperPage = 2;
-                        MyProject.Forms.Form4.txtNoOfCopies.Text = "0";
-                        MyProject.Forms.Form4.txtPrint.Text = "1";
-                        MyProject.Forms.Form4.CreateJDAllSkaters(0);
-                        MyProject.Forms.Form4.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 900));
-                        MyProject.Forms.Form4.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Form4.PrintDocument2.Print();
+                        MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
+                        MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "1";
+                        MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 900));
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.Print();
                     }
                     else if (num4 >= 910 && num4 <= 919)
                     {
                         this.CloseFormsDialogs();
                         Module1.JDperPage = 2;
-                        MyProject.Forms.Form4.txtNoOfCopies.Text = "0";
-                        MyProject.Forms.Form4.txtPrint.Text = "0";
-                        MyProject.Forms.Form4.CreateJDAllSkaters(0);
-                        MyProject.Forms.Form4.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 910));
-                        MyProject.Forms.Form4.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Form4.PrintDocument2.Print();
+                        MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
+                        MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
+                        MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 910));
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.Print();
                     }
                     else if (num4 >= 920 && num4 <= 929)
                     {
                         this.CloseFormsDialogs();
                         Module1.JDperPage = 1;
-                        MyProject.Forms.Form4.txtNoOfCopies.Text = "0";
-                        MyProject.Forms.Form4.txtPrint.Text = "0";
-                        MyProject.Forms.Form4.CreateJDAllSkaters(0);
-                        MyProject.Forms.Form4.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 920));
-                        MyProject.Forms.Form4.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
-                        MyProject.Forms.Form4.PrintDocument2.Print();
+                        MyProject.Forms.JudgesDetailsForm.txtNoOfCopies.Text = "0";
+                        MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
+                        MyProject.Forms.JudgesDetailsForm.CreateJDAllSkaters(0);
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrinterSettings.Copies = checked((short)(num3 - 920));
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.PrintController = (PrintController)new StandardPrintController();
+                        MyProject.Forms.JudgesDetailsForm.PrintDocument2.Print();
                     }
                 }
                 goto label_148;
@@ -6976,7 +6976,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the JUDGES DETAILS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
