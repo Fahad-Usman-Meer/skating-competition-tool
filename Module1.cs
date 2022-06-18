@@ -2096,7 +2096,7 @@ namespace ClubCompFS
             MyProject.Forms.ElementDBDisplayForm.Close();
             MyProject.Forms.JudgesDetailsForm.Close();
             MyProject.Forms.ElementInputForm.Close();
-            MyProject.Forms.Form6.Close();
+            MyProject.Forms.ResultsForm.Close();
             MyProject.Forms.Form7.Close();
             MyProject.Forms.CategoryDialog.Close();
             MyProject.Forms.JudgesSetupDialog.Close();

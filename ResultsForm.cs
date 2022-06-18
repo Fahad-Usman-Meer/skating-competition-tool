@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form6
+// Type: ClubCompFS.ResultsForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form6 : Form
+    public class ResultsForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("DataGridView1")]
@@ -68,10 +68,10 @@ namespace ClubCompFS
         private bool widthcorr;
         public string printSeg;
 
-        public Form6()
+        public ResultsForm()
         {
-            this.Load += new EventHandler(this.Form6_Load);
-            this.SizeChanged += new EventHandler(this.Form6_SizeChanged);
+            this.Load += new EventHandler(this.ResultsForm_Load);
+            this.SizeChanged += new EventHandler(this.ResultsForm_SizeChanged);
             this.TDA = new object[51, 9];
             this.widthcorr = false;
             this.InitializeComponent();
@@ -100,7 +100,7 @@ namespace ClubCompFS
             DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle5 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form6));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ResultsForm));
             this.DataGridView1 = new DataGridView();
             this.Column1 = new DataGridViewTextBoxColumn();
             this.Column2 = new DataGridViewTextBoxColumn();
@@ -280,7 +280,7 @@ namespace ClubCompFS
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form6);
+            this.Name = nameof(ResultsForm);
             this.Text = "RESULTS";
             this.TopMost = true;
             ((ISupportInitialize)this.DataGridView1).EndInit();
@@ -486,7 +486,7 @@ namespace ClubCompFS
             }
         }
 
-        private void Form6_Load(object sender, EventArgs e)
+        private void ResultsForm_Load(object sender, EventArgs e)
         {
             this.Top = MyProject.Forms.MainForm.Top;
             this.Left = MyProject.Forms.MainForm.Left;
@@ -670,7 +670,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form6, CreateSeg1Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg1Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_33:
             if (num2 == 0)
@@ -894,7 +894,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form6, CreateSeg2Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg2Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_59:
             if (num2 == 0)
@@ -902,7 +902,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        private void Form6_SizeChanged(object sender, EventArgs e)
+        private void ResultsForm_SizeChanged(object sender, EventArgs e)
         {
             if (!this.widthcorr)
                 return;
@@ -1059,7 +1059,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form6, CreateFinalResult - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateFinalResult - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_33:
             if (num2 == 0)
@@ -1496,7 +1496,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num12 = (int)Interaction.MsgBox((object)("Form6, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
+                int num12 = (int)Interaction.MsgBox((object)("ResultsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
             }
             label_63:
             if (num2 == 0)
@@ -1654,7 +1654,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num5 = (int)Interaction.MsgBox((object)("Form6, CreateSeg1PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num5 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg1PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_42:
             if (num2 == 0)
@@ -1920,7 +1920,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num8 = (int)Interaction.MsgBox((object)("Form6, CreateSeg2PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num8 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg2PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_78:
             if (num2 == 0)
@@ -2059,7 +2059,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Form6, CreateFinalPDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("ResultsForm, CreateFinalPDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_39:
             if (num2 == 0)
@@ -2106,7 +2106,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form6, PRINTToolStripMenuItem1_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("ResultsForm, PRINTToolStripMenuItem1_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_7:
             if (num2 == 0)

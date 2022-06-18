@@ -4109,8 +4109,8 @@ namespace ClubCompFS
                 MyProject.Forms.JudgesDetailsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 MyProject.Forms.ElementInputForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
-                MyProject.Forms.Form6.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                MyProject.Forms.ResultsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
                 MyProject.Forms.Form7.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
@@ -5408,8 +5408,8 @@ namespace ClubCompFS
                             this.GetInputMainForm();
                             Module1.SaveCategoryFile(Module1.CategoryFileName);
                         }
-                        if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
-                            MyProject.Forms.Form6.Close();
+                        if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                            MyProject.Forms.ResultsForm.Close();
                         if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                             MyProject.Forms.StartListForm.Close();
                         if (Module1.WorkMode == 2)
@@ -5588,7 +5588,7 @@ namespace ClubCompFS
                 string segment2 = Module1.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
-                    MyProject.Forms.Form6.CreateResultsPDF("Seg1", 1);
+                    MyProject.Forms.ResultsForm.CreateResultsPDF("Seg1", 1);
                 }
                 else
                 {
@@ -5596,11 +5596,11 @@ namespace ClubCompFS
                         return;
                     if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FS", false) == 0)
                     {
-                        MyProject.Forms.Form6.CreateResultsPDF("Seg2", 0);
-                        MyProject.Forms.Form6.CreateResultsPDF("Final", 2);
+                        MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
+                        MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 2);
                     }
                     else
-                        MyProject.Forms.Form6.CreateResultsPDF("Seg2", 1);
+                        MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 1);
                 }
             }
         }
@@ -5710,12 +5710,12 @@ namespace ClubCompFS
                     {
                         if (!this.OnlyDNSSeg1())
                         {
-                            MyProject.Forms.Form6.CreateResultsPDF("Seg1", 0);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Seg1", 0);
                             MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
                             MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(2);
                         }
                         else
-                            MyProject.Forms.Form6.CreateResultsPDF("Seg1", 2);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Seg1", 2);
                     }
                     else
                     {
@@ -5723,19 +5723,19 @@ namespace ClubCompFS
                             return;
                         if (!this.OnlyDNSSeg2())
                         {
-                            MyProject.Forms.Form6.CreateResultsPDF("Seg2", 0);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
                             if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
-                                MyProject.Forms.Form6.CreateResultsPDF("Final", 0);
+                                MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 0);
                             MyProject.Forms.JudgesDetailsForm.txtPrint.Text = "0";
                             MyProject.Forms.JudgesDetailsForm.CreateJD_PDFfile(2);
                         }
                         else if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
                         {
-                            MyProject.Forms.Form6.CreateResultsPDF("Seg2", 0);
-                            MyProject.Forms.Form6.CreateResultsPDF("Final", 2);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 0);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Final", 2);
                         }
                         else
-                            MyProject.Forms.Form6.CreateResultsPDF("Seg2", 2);
+                            MyProject.Forms.ResultsForm.CreateResultsPDF("Seg2", 2);
                     }
                 }
             }
@@ -5756,9 +5756,9 @@ namespace ClubCompFS
             else
             {
                 this.CloseFormsDialogs();
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
-                    MyProject.Forms.Form6.Close();
-                MyProject.Forms.Form6.Show();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                    MyProject.Forms.ResultsForm.Close();
+                MyProject.Forms.ResultsForm.Show();
             }
         }
 
@@ -6300,23 +6300,23 @@ namespace ClubCompFS
                         string segment = Module1.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
-                            MyProject.Forms.Form6.printSeg = "Seg1";
-                            MyProject.Forms.Form6.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
-                            MyProject.Forms.Form6.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-                            MyProject.Forms.Form6.PrintDocument1.Print();
+                            MyProject.Forms.ResultsForm.printSeg = "Seg1";
+                            MyProject.Forms.ResultsForm.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
+                            MyProject.Forms.ResultsForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+                            MyProject.Forms.ResultsForm.PrintDocument1.Print();
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0)
                         {
-                            MyProject.Forms.Form6.printSeg = "Seg2";
-                            MyProject.Forms.Form6.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
-                            MyProject.Forms.Form6.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-                            MyProject.Forms.Form6.PrintDocument1.Print();
+                            MyProject.Forms.ResultsForm.printSeg = "Seg2";
+                            MyProject.Forms.ResultsForm.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
+                            MyProject.Forms.ResultsForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+                            MyProject.Forms.ResultsForm.PrintDocument1.Print();
                             if (Operators.CompareString(Module1.GetSeg(), "SF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "FF", false) == 0 | Operators.CompareString(Module1.GetSeg(), "SS", false) == 0)
                             {
-                                MyProject.Forms.Form6.printSeg = "Final";
-                                MyProject.Forms.Form6.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
-                                MyProject.Forms.Form6.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
-                                MyProject.Forms.Form6.PrintDocument1.Print();
+                                MyProject.Forms.ResultsForm.printSeg = "Final";
+                                MyProject.Forms.ResultsForm.PrintDocument1.PrinterSettings.Copies = checked((short)num23);
+                                MyProject.Forms.ResultsForm.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
+                                MyProject.Forms.ResultsForm.PrintDocument1.Print();
                             }
                         }
                     }
