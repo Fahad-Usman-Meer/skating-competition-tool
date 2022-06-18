@@ -2539,7 +2539,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num11 = (int)Interaction.MsgBox((object)("Form6, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
+                int num11 = (int)Interaction.MsgBox((object)("ResultsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
             }
             label_24:
             if (num2 == 0)

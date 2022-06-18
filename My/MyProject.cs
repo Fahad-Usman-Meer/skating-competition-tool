@@ -89,7 +89,7 @@ namespace ClubCompFS.My
             public DBForm m_DBForm;
             public JudgesDetailsForm m_JudgesDetailsForm;
             public ElementInputForm m_ElementInputForm;
-            public Form6 m_Form6;
+            public ResultsForm m_ResultsForm;
             public Form7 m_Form7;
             public Form8 m_Form8;
             public Form9 m_Form9;
@@ -419,20 +419,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form6 Form6
+            public ResultsForm ResultsForm
             {
                 get
                 {
-                    this.m_Form6 = MyProject.MyForms.Create__Instance__<Form6>(this.m_Form6);
-                    return this.m_Form6;
+                    this.m_ResultsForm = MyProject.MyForms.Create__Instance__<ResultsForm>(this.m_ResultsForm);
+                    return this.m_ResultsForm;
                 }
                 set
                 {
-                    if (value == this.m_Form6)
+                    if (value == this.m_ResultsForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form6>(ref this.m_Form6);
+                    this.Dispose__Instance__<ResultsForm>(ref this.m_ResultsForm);
                 }
             }
 

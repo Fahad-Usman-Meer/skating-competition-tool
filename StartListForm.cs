@@ -1440,8 +1440,8 @@ namespace ClubCompFS
                 MyProject.Forms.JudgesDetailsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 MyProject.Forms.ElementInputForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
-                MyProject.Forms.Form6.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ResultsForm))
+                MyProject.Forms.ResultsForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
                 MyProject.Forms.Form7.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form8))
@@ -4264,7 +4264,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num15 = (int)Interaction.MsgBox((object)("Form6, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num15 = (int)Interaction.MsgBox((object)("ResultsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_39:
             if (num2 == 0)
