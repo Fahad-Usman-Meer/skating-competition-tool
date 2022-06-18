@@ -1438,8 +1438,8 @@ namespace ClubCompFS
                 MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                 MyProject.Forms.JudgesDetailsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
-                MyProject.Forms.Form5.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                MyProject.Forms.ElementInputForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
                 MyProject.Forms.Form6.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
@@ -2607,8 +2607,8 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
-                    MyProject.Forms.Form5.Close();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                    MyProject.Forms.ElementInputForm.Close();
                 int index = checked(this.DataGridView1.CurrentCellAddress.Y + 1);
                 if (index > 0)
                 {
@@ -2672,9 +2672,9 @@ namespace ClubCompFS
                     if (Module1.WorkMode == 2 & par == 2)
                         this.ClearData(Module1.PNo);
                     this.TopMost = false;
-                    MyProject.Forms.Form5.OpName.Text = Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
-                    MyProject.Forms.Form5.OpClub.Text = Module1.Vek[Module1.PNo].Club;
-                    MyProject.Forms.Form5.Show();
+                    MyProject.Forms.ElementInputForm.OpName.Text = Module1.Vek[Module1.PNo].Name.FName + " " + Module1.Vek[Module1.PNo].Name.LName;
+                    MyProject.Forms.ElementInputForm.OpClub.Text = Module1.Vek[Module1.PNo].Club;
+                    MyProject.Forms.ElementInputForm.Show();
                     goto label_30;
                 }
                 else
@@ -4486,7 +4486,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;

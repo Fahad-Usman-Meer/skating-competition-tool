@@ -2085,7 +2085,7 @@ namespace ClubCompFS
             MyProject.Forms.DBForm.Close();
             MyProject.Forms.ElementDBDisplayForm.Close();
             MyProject.Forms.JudgesDetailsForm.Close();
-            MyProject.Forms.Form5.Close();
+            MyProject.Forms.ElementInputForm.Close();
             MyProject.Forms.Form6.Close();
             MyProject.Forms.Form7.Close();
             MyProject.Forms.CategoryDialog.Close();
@@ -2152,7 +2152,7 @@ namespace ClubCompFS
                     judgesDetailsForm_1.INPUTELEMENTToolStripMenuItem.Visible = false;
                     judgesDetailsForm_1.CREATERESULTSToolStripMenuItem.Visible = false;
                     judgesDetailsForm_1.EDITJUDGEDATAToolStripMenuItem.Visible = false;
-                    MyProject.Forms.Form5.Panel1.Visible = false;
+                    MyProject.Forms.ElementInputForm.Panel1.Visible = false;
                     break;
                 case 2:
                     Module1.WorkMode = 2;
@@ -2202,7 +2202,7 @@ namespace ClubCompFS
                     judgesDetailsForm_2.INPUTELEMENTToolStripMenuItem.Visible = true;
                     judgesDetailsForm_2.CREATERESULTSToolStripMenuItem.Visible = true;
                     judgesDetailsForm_2.EDITJUDGEDATAToolStripMenuItem.Visible = false;
-                    MyProject.Forms.Form5.Panel1.Visible = true;
+                    MyProject.Forms.ElementInputForm.Panel1.Visible = true;
                     break;
                 case 3:
                     Module1.WorkMode = 3;
@@ -2251,7 +2251,7 @@ namespace ClubCompFS
                     judgesDetailsForm_3.INPUTELEMENTToolStripMenuItem.Visible = true;
                     judgesDetailsForm_3.CREATERESULTSToolStripMenuItem.Visible = true;
                     judgesDetailsForm_3.EDITJUDGEDATAToolStripMenuItem.Visible = true;
-                    MyProject.Forms.Form5.Panel1.Visible = true;
+                    MyProject.Forms.ElementInputForm.Panel1.Visible = true;
                     break;
             }
         }

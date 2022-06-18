@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form5
+// Type: ClubCompFS.ElementInputForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -20,7 +20,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form5 : Form
+    public class ElementInputForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("OpStop")]
@@ -323,10 +323,10 @@ namespace ClubCompFS
         public bool WillExit;
         private ArrayList CtlArray;
 
-        public Form5()
+        public ElementInputForm()
         {
-            this.FormClosing += new FormClosingEventHandler(this.Form5_FormClosing);
-            this.Load += new EventHandler(this.Form5_Load);
+            this.FormClosing += new FormClosingEventHandler(this.ElementInputForm_Closing);
+            this.Load += new EventHandler(this.ElementInputForm_Load);
             this.Jarr = new string[61];
             this.WillExit = false;
             this.CtlArray = new ArrayList();
@@ -356,7 +356,7 @@ namespace ClubCompFS
             DataGridViewCellStyle gridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle gridViewCellStyle4 = new DataGridViewCellStyle();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form5));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(ElementInputForm));
             this.OpStop = new Button();
             this.OpName = new TextBox();
             this.OpClub = new TextBox();
@@ -2203,7 +2203,7 @@ namespace ClubCompFS
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
             this.MaximizeBox = false;
-            this.Name = nameof(Form5);
+            this.Name = nameof(ElementInputForm);
             this.Text = "Element Input";
             this.TopMost = false;
             ((ISupportInitialize)this.DataGridView1).EndInit();
@@ -4233,14 +4233,14 @@ namespace ClubCompFS
             set => this._Label2 = value;
         }
 
-        private void Form5_FormClosing(object sender, FormClosingEventArgs e)
+        private void ElementInputForm_Closing(object sender, FormClosingEventArgs e)
         {
             if (this.WillExit || Interaction.MsgBox((object)"Do you really want to exit?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.No)
                 return;
             e.Cancel = true;
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        private void ElementInputForm_Load(object sender, EventArgs e)
         {
             this.Left = checked((int)Math.Round(unchecked((double)checked(Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2.0)));
             this.Top = 0;

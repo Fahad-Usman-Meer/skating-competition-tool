@@ -4098,7 +4098,7 @@ namespace ClubCompFS
         {
             MyProject.Forms.StartListForm.WillExitStartListForm = true;
             MyProject.Forms.JudgesDetailsForm.WillExitJudgesDetailsForm = true;
-            MyProject.Forms.Form5.WillExit = true;
+            MyProject.Forms.ElementInputForm.WillExit = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.StartListForm))
                 MyProject.Forms.StartListForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.DBForm))
@@ -4107,8 +4107,8 @@ namespace ClubCompFS
                 MyProject.Forms.ElementDBDisplayForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesDetailsForm))
                 MyProject.Forms.JudgesDetailsForm.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
-                MyProject.Forms.Form5.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
+                MyProject.Forms.ElementInputForm.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
                 MyProject.Forms.Form6.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Form7))
@@ -6940,7 +6940,7 @@ namespace ClubCompFS
             bool flag = false;
             if (Module1.TestStart())
             {
-                if (Module1.ScanJudges == 0 & !Module1.IsFormOpen((Form)MyProject.Forms.StartListForm) & !Module1.IsFormOpen((Form)MyProject.Forms.Form5))
+                if (Module1.ScanJudges == 0 & !Module1.IsFormOpen((Form)MyProject.Forms.StartListForm) & !Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                 {
                     flag = true;
                 }
@@ -6971,7 +6971,7 @@ namespace ClubCompFS
                 int num = (int)Interaction.MsgBox((object)"Please close the WARMUP GROUPS!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
             }
-            else if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
+            else if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
             {
                 int num = (int)Interaction.MsgBox((object)"Please close the ELEMENT INPUT!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 flag = false;
@@ -8196,7 +8196,7 @@ namespace ClubCompFS
                         if (judgeNo <= checked(Module1.NoJ_GOE + Module1.NoTrj) | Module1.JudgeSel == 1 & judgeNo == 7)
                         {
                             MyProject.Forms.StartListForm.Panel1.Controls[key4].Visible = true;
-                            MyProject.Forms.Form5.Panel1.Controls[key4].Visible = true;
+                            MyProject.Forms.ElementInputForm.Panel1.Controls[key4].Visible = true;
                         }
                         if (Strings.Len(Module1.IPArr[Module1.JudgeCompNo[index]]) > 3)
                         {
@@ -8204,7 +8204,7 @@ namespace ClubCompFS
                             MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Green;
                             MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Green;
                             MyProject.Forms.StartListForm.Panel1.Controls[key4].BackColor = Color.Green;
-                            MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Green;
+                            MyProject.Forms.ElementInputForm.Panel1.Controls[key4].BackColor = Color.Green;
                         }
                         else
                         {
@@ -8212,7 +8212,7 @@ namespace ClubCompFS
                             MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Red;
                             MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Red;
                             MyProject.Forms.StartListForm.Panel1.Controls[key4].BackColor = Color.Red;
-                            MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Red;
+                            MyProject.Forms.ElementInputForm.Panel1.Controls[key4].BackColor = Color.Red;
                         }
                     }
                     checked { ++index; }
@@ -8223,40 +8223,40 @@ namespace ClubCompFS
                     this.lblCC_El.Visible = true;
                     this.lblCC_El.ForeColor = Color.Green;
                     MyProject.Forms.StartListForm.txtEl.BackColor = Color.Green;
-                    MyProject.Forms.Form5.txtEl.BackColor = Color.Green;
+                    MyProject.Forms.ElementInputForm.txtEl.BackColor = Color.Green;
                 }
                 else
                 {
                     this.lblCC_El.ForeColor = Color.Red;
                     MyProject.Forms.StartListForm.txtEl.BackColor = Color.Red;
-                    MyProject.Forms.Form5.txtEl.BackColor = Color.Red;
+                    MyProject.Forms.ElementInputForm.txtEl.BackColor = Color.Red;
                 }
                 if (Strings.Len(Module1.IPArr[10]) > 3 & Module1.WorkMode >= 2)
                 {
                     this.lblCC_Info.Visible = true;
                     this.lblCC_Info.ForeColor = Color.Green;
                     MyProject.Forms.StartListForm.txtInfo.BackColor = Color.Green;
-                    MyProject.Forms.Form5.txtInfo.BackColor = Color.Green;
+                    MyProject.Forms.ElementInputForm.txtInfo.BackColor = Color.Green;
                 }
                 else
                 {
                     this.lblCC_Info.ForeColor = Color.Red;
                     MyProject.Forms.StartListForm.txtInfo.BackColor = Color.Red;
-                    MyProject.Forms.Form5.txtInfo.BackColor = Color.Red;
+                    MyProject.Forms.ElementInputForm.txtInfo.BackColor = Color.Red;
                 }
                 if (Strings.Len(Module1.IPArr[11]) > 3 & Module1.WorkMode >= 2)
                 {
                     this.lblCC_MP.Visible = true;
                     this.lblCC_MP.ForeColor = Color.Green;
                     MyProject.Forms.StartListForm.txtMP.BackColor = Color.Green;
-                    MyProject.Forms.Form5.txtInfo2.BackColor = Color.Green;
+                    MyProject.Forms.ElementInputForm.txtInfo2.BackColor = Color.Green;
                     goto label_23;
                 }
                 else
                 {
                     this.lblCC_MP.ForeColor = Color.Red;
                     MyProject.Forms.StartListForm.txtMP.BackColor = Color.Red;
-                    MyProject.Forms.Form5.txtInfo2.BackColor = Color.Red;
+                    MyProject.Forms.ElementInputForm.txtInfo2.BackColor = Color.Red;
                     goto label_23;
                 }
             }
