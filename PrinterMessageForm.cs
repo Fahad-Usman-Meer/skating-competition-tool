@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form11
+// Type: ClubCompFS.PrinterMessageForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form11 : Form
+    public class PrinterMessageForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("Button1")]
@@ -23,9 +23,9 @@ namespace ClubCompFS
         [AccessedThroughProperty("Label1")]
         private Label _Label1;
 
-        public Form11()
+        public PrinterMessageForm()
         {
-            this.Load += new EventHandler(this.Form11_Load);
+            this.Load += new EventHandler(this.PrinterMessageForm_Load);
             this.InitializeComponent();
         }
 
@@ -77,7 +77,7 @@ namespace ClubCompFS
             this.ControlBox = false;
             this.Controls.Add((Control)this.Label1);
             this.Controls.Add((Control)this.Button1);
-            this.Name = nameof(Form11);
+            this.Name = nameof(PrinterMessageForm);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -112,6 +112,6 @@ namespace ClubCompFS
 
         private void Button1_Click(object sender, EventArgs e) => this.Close();
 
-        private void Form11_Load(object sender, EventArgs e) => this.TopMost = true;
+        private void PrinterMessageForm_Load(object sender, EventArgs e) => this.TopMost = true;
     }
 }

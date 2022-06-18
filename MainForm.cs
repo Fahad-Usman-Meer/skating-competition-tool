@@ -6379,9 +6379,9 @@ namespace ClubCompFS
             this.completed5 = true;
             if (Module1.IsFormOpen((Form)MyProject.Forms.PrinterForm))
                 MyProject.Forms.PrinterForm.Close();
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.Form11))
+            if (!Module1.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
                 return;
-            MyProject.Forms.Form11.Close();
+            MyProject.Forms.PrinterMessageForm.Close();
         }
 
         public void BGW()
