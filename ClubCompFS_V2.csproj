@@ -66,7 +66,7 @@
     <Compile Include="ConfigurationDataDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog4.cs">
+    <Compile Include="JudgesSetupDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog5.cs">
@@ -137,7 +137,7 @@
     <EmbeddedResource Include="Dialog11.resx" />
     <EmbeddedResource Include="NetworkStatusDialog.resx" />
     <EmbeddedResource Include="ConfigurationDataDialog.resx" />
-    <EmbeddedResource Include="Dialog4.resx" />
+    <EmbeddedResource Include="JudgesSetupDialog.resx" />
     <EmbeddedResource Include="Dialog5.resx" />
     <EmbeddedResource Include="Dialog7.resx" />
     <EmbeddedResource Include="Dialog8.resx" />
