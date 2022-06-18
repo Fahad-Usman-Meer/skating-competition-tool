@@ -82,7 +82,7 @@ namespace ClubCompFS.My
             public HeadPageDialog m_HeadPageDialog;
             public MainForm m_MainForm;
             public PrinterForm m_PrinterForm;
-            public Form11 m_Form11;
+            public PrinterMessageForm m_PrinterMessageForm;
             public Form12 m_Form12;
             public Form13 m_Form13;
             public Form2 m_Form2;
@@ -300,20 +300,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Form11 Form11
+            public PrinterMessageForm PrinterMessageForm
             {
                 get
                 {
-                    this.m_Form11 = MyProject.MyForms.Create__Instance__<Form11>(this.m_Form11);
-                    return this.m_Form11;
+                    this.m_PrinterMessageForm = MyProject.MyForms.Create__Instance__<PrinterMessageForm>(this.m_PrinterMessageForm);
+                    return this.m_PrinterMessageForm;
                 }
                 set
                 {
-                    if (value == this.m_Form11)
+                    if (value == this.m_PrinterMessageForm)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Form11>(ref this.m_Form11);
+                    this.Dispose__Instance__<PrinterMessageForm>(ref this.m_PrinterMessageForm);
                 }
             }
 

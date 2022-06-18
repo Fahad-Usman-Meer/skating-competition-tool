@@ -9222,9 +9222,9 @@ namespace ClubCompFS
 
         public static void PrinterMessage()
         {
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Form11))
+            if (Module1.IsFormOpen((Form)MyProject.Forms.PrinterMessageForm))
                 return;
-            MyProject.Forms.Form11.Show();
+            MyProject.Forms.PrinterMessageForm.Show();
         }
 
         public static string GetSeg1()
