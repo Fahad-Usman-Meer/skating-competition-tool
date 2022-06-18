@@ -1198,14 +1198,14 @@ namespace ClubCompFS
             switch (Module1.WorkMode)
             {
                 case 1:
-                    MyProject.Forms.Form5.Show();
+                    MyProject.Forms.ElementInputForm.Show();
                     break;
                 case 2:
                 case 3:
-                    if (Module1.IsFormOpen((Form)MyProject.Forms.Form5))
+                    if (Module1.IsFormOpen((Form)MyProject.Forms.ElementInputForm))
                     {
-                        MyProject.Forms.Form5.Falls_out.Text = "FALLS  " + this.Falls;
-                        MyProject.Forms.Form5.TopMost = true;
+                        MyProject.Forms.ElementInputForm.Falls_out.Text = "FALLS  " + this.Falls;
+                        MyProject.Forms.ElementInputForm.TopMost = true;
                         Module1.SaveCategoryFile(Module1.CategoryFileName);
                         break;
                     }
