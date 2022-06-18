@@ -1464,9 +1464,9 @@ namespace ClubCompFS
                 MyProject.Forms.Dialog8.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                 MyProject.Forms.InputJudgesDataDialog.Close();
-            if (!Module1.IsFormOpen((Form)MyProject.Forms.Dialog11))
+            if (!Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))
                 return;
-            MyProject.Forms.Dialog11.Close();
+            MyProject.Forms.DeductionsDialog.Close();
         }
 
         private void StartList_Load(object sender, EventArgs e)
