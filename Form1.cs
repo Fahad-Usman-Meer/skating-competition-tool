@@ -4119,8 +4119,8 @@ namespace ClubCompFS
                 MyProject.Forms.CategoryDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.NetworkStatusDialog))
                 MyProject.Forms.NetworkStatusDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog4))
-                MyProject.Forms.Dialog4.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
+                MyProject.Forms.JudgesSetupDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.ConfigurationDataDialog))
                 MyProject.Forms.ConfigurationDataDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog5))
@@ -4606,9 +4606,9 @@ namespace ClubCompFS
             }
             else
             {
-                if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog4))
-                    MyProject.Forms.Dialog4.Close();
-                int num = (int)MyProject.Forms.Dialog4.ShowDialog();
+                if (Module1.IsFormOpen((Form)MyProject.Forms.JudgesSetupDialog))
+                    MyProject.Forms.JudgesSetupDialog.Close();
+                int num = (int)MyProject.Forms.JudgesSetupDialog.ShowDialog();
             }
         }
 
@@ -8201,16 +8201,16 @@ namespace ClubCompFS
                         if (Strings.Len(Module1.IPArr[Module1.JudgeCompNo[index]]) > 3)
                         {
                             this.Controls[key1].ForeColor = Color.Green;
-                            MyProject.Forms.Dialog4.Controls[key3].BackColor = Color.Green;
-                            MyProject.Forms.Dialog4.Controls[key2].BackColor = Color.Green;
+                            MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Green;
+                            MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Green;
                             MyProject.Forms.Form2.Panel1.Controls[key4].BackColor = Color.Green;
                             MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Green;
                         }
                         else
                         {
                             this.Controls[key1].ForeColor = Color.Red;
-                            MyProject.Forms.Dialog4.Controls[key3].BackColor = Color.Red;
-                            MyProject.Forms.Dialog4.Controls[key2].BackColor = Color.Red;
+                            MyProject.Forms.JudgesSetupDialog.Controls[key3].BackColor = Color.Red;
+                            MyProject.Forms.JudgesSetupDialog.Controls[key2].BackColor = Color.Red;
                             MyProject.Forms.Form2.Panel1.Controls[key4].BackColor = Color.Red;
                             MyProject.Forms.Form5.Panel1.Controls[key4].BackColor = Color.Red;
                         }

@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Dialog4
+// Type: ClubCompFS.JudgesSetupDialog
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: F1E583B2-A781-4EC4-B47C-BA3F451903AE
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\programmaLibertas_openNEW\ClubCompFS_10p0p6.exe
@@ -17,7 +17,7 @@ using System.Windows.Forms;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Dialog4 : Form
+    public class JudgesSetupDialog : Form
     {
         private IContainer components;
         [AccessedThroughProperty("TableLayoutPanel1")]
@@ -92,9 +92,9 @@ namespace ClubCompFS
         private int btnON;
         private bool MeLoad;
 
-        public Dialog4()
+        public JudgesSetupDialog()
         {
-            this.Load += new EventHandler(this.Dialog4_Load);
+            this.Load += new EventHandler(this.JudgesSetupDialog_Load);
             this.btnON = 1;
             this.MeLoad = true;
             this.InitializeComponent();
@@ -587,7 +587,7 @@ namespace ClubCompFS
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = nameof(Dialog4);
+            this.Name = nameof(JudgesSetupDialog);
             this.ShowInTaskbar = false;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "JUDGES SETUP";
@@ -1001,7 +1001,7 @@ namespace ClubCompFS
             set => this._Label6 = value;
         }
 
-        private void Dialog4_Load(object sender, EventArgs e)
+        private void JudgesSetupDialog_Load(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
@@ -1065,7 +1065,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Dialog4_Load - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("JudgesSetupDialog_Load - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_15:
             if (num2 == 0)
