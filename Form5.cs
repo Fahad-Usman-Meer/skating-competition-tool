@@ -4170,7 +4170,7 @@ namespace ClubCompFS
                             MyProject.Forms.Form4.ShowJD(rowDed1);
                             MyProject.Forms.Form4.Show();
                             MyProject.Forms.Form4.TopMost = false; // true;
-                            MyProject.Forms.Form1.MakeJudgeTxtFile(-1);
+                            MyProject.Forms.MainForm.MakeJudgeTxtFile(-1);
                             break;
                         case 3:
                             if (Module1.IsFormOpen((Form)MyProject.Forms.Form4))
@@ -5043,7 +5043,7 @@ namespace ClubCompFS
                 if (Module1.WorkMode != 2)
                     return;
                 this.UpdateVek();
-                MyProject.Forms.Form1.MakeJudgeTxtFile(0);
+                MyProject.Forms.MainForm.MakeJudgeTxtFile(0);
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -5934,7 +5934,7 @@ namespace ClubCompFS
         {
             if (value != Keys.F12)
                 return;
-            MyProject.Forms.Form1.SendMessage(Module1.LastOutTxt);
+            MyProject.Forms.MainForm.SendMessage(Module1.LastOutTxt);
         }
 
         private void DataGridView1_KeyPress(object sender, KeyPressEventArgs e)
@@ -6572,7 +6572,7 @@ namespace ClubCompFS
                 if (Module1.WorkMode == 2)
                 {
                     Module1.Get_CC_Time();
-                    MyProject.Forms.Form1.MakeJudgeTxtFile(0);
+                    MyProject.Forms.MainForm.MakeJudgeTxtFile(0);
                 }
                 this.OpListaSet();
                 goto label_52;

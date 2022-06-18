@@ -1495,7 +1495,7 @@ namespace ClubCompFS
             Module1.ScoreBoardDelay = !(Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 0M) < 0 | Decimal.Compare(Convert.ToDecimal(this.txtDelay.Text), 60M) > 0) ? Convert.ToInt32(Conversions.ToDecimal(this.txtDelay.Text)) : this.OldScoreboardDelay;
             Module1.PortNo = Conversions.ToInteger(this.txtPort.Text);
             Module1.PingClients = Conversions.ToInteger(this.txtPingClients.Text);
-            MyProject.Forms.Form1.Timer3.Enabled = Module1.PingClients == 1;
+            MyProject.Forms.MainForm.Timer3.Enabled = Module1.PingClients == 1;
             Module1.PingTimeout = Conversions.ToInteger(this.txtPingTimeout.Text);
             if (Module1.PingTimeout < 500 | Module1.PingTimeout > 1500)
                 Module1.PingTimeout = 1000;
@@ -1516,8 +1516,8 @@ namespace ClubCompFS
 
         private void ConfigurationDataDialog_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form1.Top;
-            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
+            this.Top = MyProject.Forms.MainForm.Top;
+            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = true;
             this.txtComp.Text = Module1.PathCompFile;
             this.txtResults.Text = Module1.PathResultsFile;

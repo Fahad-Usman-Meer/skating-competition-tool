@@ -1257,8 +1257,8 @@ namespace ClubCompFS
 
         private void HeadPageDialog_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form1.Top;
-            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
+            this.Top = MyProject.Forms.MainForm.Top;
+            this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
             this.TopMost = false;
             this.CreateHeadPage();
         }

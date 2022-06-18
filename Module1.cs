@@ -58,7 +58,7 @@ namespace ClubCompFS
         public static int JDperPage = 2;
         public static int CreateScoreBoard = 0;
         public static int ScoreBoardDelay = 0;
-        public static bool Form1_TxtBoxEnabled = true;
+        public static bool MainForm_TxtBoxEnabled = true;
         public static bool RemWarmupTimeSeg1 = false;
         public static bool RemWarmupTimeSeg2 = false;
         public static bool CategoryFileSaved = true;
@@ -180,7 +180,7 @@ namespace ClubCompFS
         private static string BC;
         public static int MakesScoreBoard_StNo;
 
-        public static void CreateForm1()
+        public static void CreateMainForm()
         {
             int num1 = 0;
             int num2 = 0;
@@ -188,18 +188,18 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                Form1 form1 = MyProject.Forms.Form1;
-                form1.txtOrganizerName.Text = Module1.Organizer.Name;
-                form1.txtOrganizerID.Text = Module1.Organizer.ID;
-                form1.txtCompetitionName.Text = Module1.Competition.Name;
-                form1.txtCompetitionID.Text = Module1.Competition.ID;
-                form1.txtType.Text = Module1.Competition.Type;
-                form1.txtCategory.Text = Module1.Category.Name;
-                form1.txtCategoryID.Text = Module1.Category.ID;
-                form1.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
-                form1.txtIndTAClass.Text = Module1.Category.IndTAClass;
-                form1.txtSubcategory.Text = Module1.SubCategory;
-                form1.txtParticipants.Text = Conversions.ToString(Module1.TNop);
+                MainForm mainForm = MyProject.Forms.MainForm;
+                mainForm.txtOrganizerName.Text = Module1.Organizer.Name;
+                mainForm.txtOrganizerID.Text = Module1.Organizer.ID;
+                mainForm.txtCompetitionName.Text = Module1.Competition.Name;
+                mainForm.txtCompetitionID.Text = Module1.Competition.ID;
+                mainForm.txtType.Text = Module1.Competition.Type;
+                mainForm.txtCategory.Text = Module1.Category.Name;
+                mainForm.txtCategoryID.Text = Module1.Category.ID;
+                mainForm.txtIndTADiscipline.Text = Module1.Category.IndTADiscipline;
+                mainForm.txtIndTAClass.Text = Module1.Category.IndTAClass;
+                mainForm.txtSubcategory.Text = Module1.SubCategory;
+                mainForm.txtParticipants.Text = Conversions.ToString(Module1.TNop);
                 if (Strings.Len(Module1.WarmUpTime) < 3)
                 {
                     Module1.CalcPCindex();
@@ -209,35 +209,35 @@ namespace ClubCompFS
                 string segment1 = Module1.Segment;
                 if (Operators.CompareString(segment1, "Seg1", false) == 0)
                 {
-                    form1.txtSegment.Text = Module1.GetSeg1();
-                    form1.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg1);
-                    form1.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg1);
-                    form1.lblDate.Top = 122;
-                    form1.txtDate.Top = 138;
-                    form1.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg1);
-                    form1.lblStart.Top = 122;
-                    form1.txtStartTime.Top = 138;
-                    form1.txtStartTime.Text = Module1.Datum.Seg1Start;
+                    mainForm.txtSegment.Text = Module1.GetSeg1();
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg1);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg1);
+                    mainForm.lblDate.Top = 122;
+                    mainForm.txtDate.Top = 138;
+                    mainForm.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg1);
+                    mainForm.lblStart.Top = 122;
+                    mainForm.txtStartTime.Top = 138;
+                    mainForm.txtStartTime.Text = Module1.Datum.Seg1Start;
                 }
                 else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                 {
-                    form1.txtSegment.Text = Module1.GetSeg2();
-                    form1.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg2);
-                    form1.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg2);
-                    form1.lblDate.Top = 172;
-                    form1.txtDate.Top = 188;
-                    form1.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg2);
-                    form1.lblStart.Top = 172;
-                    form1.txtStartTime.Top = 188;
-                    form1.txtStartTime.Text = Module1.Datum.Seg2Start;
+                    mainForm.txtSegment.Text = Module1.GetSeg2();
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_Seg2);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrJ_Seg2);
+                    mainForm.lblDate.Top = 172;
+                    mainForm.txtDate.Top = 188;
+                    mainForm.txtDate.Text = Module1.FormShortDate(Module1.Datum.Seg2);
+                    mainForm.lblStart.Top = 172;
+                    mainForm.txtStartTime.Top = 188;
+                    mainForm.txtStartTime.Text = Module1.Datum.Seg2Start;
                 }
                 else
                 {
-                    form1.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_GOE);
-                    form1.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrj);
-                    form1.btnSeg1.Visible = false;
-                    form1.btnSeg2.Visible = false;
-                    form1.txtSegment.Text = "";
+                    mainForm.txtNoOfJudges.Text = Conversions.ToString(Module1.NoJ_GOE);
+                    mainForm.txtNoOfTrJ.Text = Conversions.ToString(Module1.NoTrj);
+                    mainForm.btnSeg1.Visible = false;
+                    mainForm.btnSeg2.Visible = false;
+                    mainForm.txtSegment.Text = "";
                 }
                 switch (Module1.JudgeSel)
                 {
@@ -245,48 +245,48 @@ namespace ClubCompFS
                         int index1 = 1;
                         while (Module1.JudgeCompFunc[index1] != 1)
                         {
-                            form1.txtNonJudgingReferee.Text = "Referee not selected!";
-                            form1.txtNonJudgingReferee.ForeColor = Color.Red;
+                            mainForm.txtNonJudgingReferee.Text = "Referee not selected!";
+                            mainForm.txtNonJudgingReferee.ForeColor = Color.Red;
                             checked { ++index1; }
                             if (index1 > 7)
                                 goto label_15;
                         }
-                        form1.txtNonJudgingReferee.Text = "Referee and Judge no. " + Strings.Trim(Conversions.ToString(index1)) + " for Scores";
-                        form1.txtNonJudgingReferee.ForeColor = Color.Black;
+                        mainForm.txtNonJudgingReferee.Text = "Referee and Judge no. " + Strings.Trim(Conversions.ToString(index1)) + " for Scores";
+                        mainForm.txtNonJudgingReferee.ForeColor = Color.Black;
                         break;
                     case 1:
-                        form1.txtNonJudgingReferee.Text = "Non-judging Referee as Judge no. 7";
-                        form1.txtNonJudgingReferee.ForeColor = Color.Black;
+                        mainForm.txtNonJudgingReferee.Text = "Non-judging Referee as Judge no. 7";
+                        mainForm.txtNonJudgingReferee.ForeColor = Color.Black;
                         break;
                 }
                 label_15:
                 string segment2 = Module1.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
-                    form1.TechSpecName.Text = Module1.Techspec.Seg1.Name;
-                    form1.TechSpecClub.Text = Module1.Techspec.Seg1.Club;
-                    form1.ControllerName.Text = Module1.Controller.Seg1.Name;
-                    form1.ControllerClub.Text = Module1.Controller.Seg1.Club;
-                    form1.RefereeName.Text = Module1.Referee.Seg1.Name;
-                    form1.RefereeClub.Text = Module1.Referee.Seg1.Club;
+                    mainForm.TechSpecName.Text = Module1.Techspec.Seg1.Name;
+                    mainForm.TechSpecClub.Text = Module1.Techspec.Seg1.Club;
+                    mainForm.ControllerName.Text = Module1.Controller.Seg1.Name;
+                    mainForm.ControllerClub.Text = Module1.Controller.Seg1.Club;
+                    mainForm.RefereeName.Text = Module1.Referee.Seg1.Name;
+                    mainForm.RefereeClub.Text = Module1.Referee.Seg1.Club;
                 }
                 else if (Operators.CompareString(segment2, "Seg2", false) == 0)
                 {
-                    form1.TechSpecName.Text = Module1.Techspec.Seg2.Name;
-                    form1.TechSpecClub.Text = Module1.Techspec.Seg2.Club;
-                    form1.ControllerName.Text = Module1.Controller.Seg2.Name;
-                    form1.ControllerClub.Text = Module1.Controller.Seg2.Club;
-                    form1.RefereeName.Text = Module1.Referee.Seg2.Name;
-                    form1.RefereeClub.Text = Module1.Referee.Seg2.Club;
+                    mainForm.TechSpecName.Text = Module1.Techspec.Seg2.Name;
+                    mainForm.TechSpecClub.Text = Module1.Techspec.Seg2.Club;
+                    mainForm.ControllerName.Text = Module1.Controller.Seg2.Name;
+                    mainForm.ControllerClub.Text = Module1.Controller.Seg2.Club;
+                    mainForm.RefereeName.Text = Module1.Referee.Seg2.Name;
+                    mainForm.RefereeClub.Text = Module1.Referee.Seg2.Club;
                 }
                 else
                 {
-                    form1.TechSpecName.Text = "";
-                    form1.TechSpecClub.Text = "";
-                    form1.ControllerName.Text = "";
-                    form1.ControllerClub.Text = "";
-                    form1.RefereeName.Text = "";
-                    form1.RefereeClub.Text = "";
+                    mainForm.TechSpecName.Text = "";
+                    mainForm.TechSpecClub.Text = "";
+                    mainForm.ControllerName.Text = "";
+                    mainForm.ControllerClub.Text = "";
+                    mainForm.RefereeName.Text = "";
+                    mainForm.RefereeClub.Text = "";
                 }
                 int index2 = 1;
                 do
@@ -298,49 +298,49 @@ namespace ClubCompFS
                         string segment3 = Module1.Segment;
                         if (Operators.CompareString(segment3, "Seg1", false) == 0)
                         {
-                            form1.Controls[key1].Text = Module1.Judge[index2].Seg1.Name;
-                            form1.Controls[key1].Visible = true;
-                            form1.Controls[key2].Text = Module1.Judge[index2].Seg1.Club;
-                            form1.Controls[key2].Visible = true;
+                            mainForm.Controls[key1].Text = Module1.Judge[index2].Seg1.Name;
+                            mainForm.Controls[key1].Visible = true;
+                            mainForm.Controls[key2].Text = Module1.Judge[index2].Seg1.Club;
+                            mainForm.Controls[key2].Visible = true;
                         }
                         else if (Operators.CompareString(segment3, "Seg2", false) == 0)
                         {
-                            form1.Controls[key1].Text = Module1.Judge[index2].Seg2.Name;
-                            form1.Controls[key1].Visible = true;
-                            form1.Controls[key2].Text = Module1.Judge[index2].Seg2.Club;
-                            form1.Controls[key2].Visible = true;
+                            mainForm.Controls[key1].Text = Module1.Judge[index2].Seg2.Name;
+                            mainForm.Controls[key1].Visible = true;
+                            mainForm.Controls[key2].Text = Module1.Judge[index2].Seg2.Club;
+                            mainForm.Controls[key2].Visible = true;
                         }
                         else
                         {
-                            form1.Controls[key1].Text = "";
-                            form1.Controls[key1].Visible = true;
-                            form1.Controls[key2].Text = "";
-                            form1.Controls[key2].Visible = true;
+                            mainForm.Controls[key1].Text = "";
+                            mainForm.Controls[key1].Visible = true;
+                            mainForm.Controls[key2].Text = "";
+                            mainForm.Controls[key2].Visible = true;
                         }
                     }
                     else
                     {
-                        form1.Controls[key1].Visible = false;
-                        form1.Controls[key2].Visible = false;
+                        mainForm.Controls[key1].Visible = false;
+                        mainForm.Controls[key2].Visible = false;
                     }
                     string key3 = "lblJ" + Conversions.ToString(index2);
                     if (index2 <= Module1.NoJ_GOE)
                     {
-                        form1.Controls[key3].Text = "Judge " + Strings.Trim(Conversions.ToString(index2));
-                        form1.Controls[key3].Visible = true;
+                        mainForm.Controls[key3].Text = "Judge " + Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Visible = true;
                     }
                     else if (index2 > Module1.NoJ_GOE & index2 <= checked(Module1.NoJ_GOE + Module1.NoTrj))
                     {
-                        form1.Controls[key3].Text = "Tr. Judge " + Strings.Trim(Conversions.ToString(index2));
-                        form1.Controls[key3].Visible = true;
+                        mainForm.Controls[key3].Text = "Tr. Judge " + Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Visible = true;
                     }
                     else if (index2 == checked(Module1.JudgeSel * 7))
                     {
-                        form1.Controls[key3].Text = "Non J. Ref. " + Strings.Trim(Conversions.ToString(index2));
-                        form1.Controls[key3].Visible = true;
+                        mainForm.Controls[key3].Text = "Non J. Ref. " + Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Visible = true;
                     }
                     else
-                        form1.Controls[key3].Visible = false;
+                        mainForm.Controls[key3].Visible = false;
                     checked { ++index2; }
                 }
                 while (index2 <= 7);
@@ -351,9 +351,9 @@ namespace ClubCompFS
                     do
                     {
                         string key4 = "DVOName" + Strings.Trim(Conversions.ToString(index3));
-                        form1.Controls[key4].Text = Module1.DVO[index3].Seg1.Name;
+                        mainForm.Controls[key4].Text = Module1.DVO[index3].Seg1.Name;
                         string key5 = "DVOClub" + Strings.Trim(Conversions.ToString(index3));
-                        form1.Controls[key5].Text = Module1.DVO[index3].Seg1.Club;
+                        mainForm.Controls[key5].Text = Module1.DVO[index3].Seg1.Club;
                         checked { ++index3; }
                     }
                     while (index3 <= 3);
@@ -364,31 +364,31 @@ namespace ClubCompFS
                     do
                     {
                         string key6 = "DVOName" + Strings.Trim(Conversions.ToString(index4));
-                        form1.Controls[key6].Text = Module1.DVO[index4].Seg2.Name;
+                        mainForm.Controls[key6].Text = Module1.DVO[index4].Seg2.Name;
                         string key7 = "DVOClub" + Strings.Trim(Conversions.ToString(index4));
-                        form1.Controls[key7].Text = Module1.DVO[index4].Seg2.Club;
+                        mainForm.Controls[key7].Text = Module1.DVO[index4].Seg2.Club;
                         checked { ++index4; }
                     }
                     while (index4 <= 3);
                 }
-                form1.txtCompetitionName.Select();
+                mainForm.txtCompetitionName.Select();
                 if (Module1.WorkMode == 1)
                 {
                     string seg = Module1.GetSeg();
                     if (Operators.CompareString(seg, "SS", false) == 0 || Operators.CompareString(seg, "SF", false) == 0 || Operators.CompareString(seg, "FF", false) == 0 || Operators.CompareString(seg, "FS", false) == 0)
                     {
-                        form1.COPYOFFICIALSToolStripMenuItem.Visible = true;
+                        mainForm.COPYOFFICIALSToolStripMenuItem.Visible = true;
                         goto label_52;
                     }
                     else
                     {
-                        form1.COPYOFFICIALSToolStripMenuItem.Visible = false;
+                        mainForm.COPYOFFICIALSToolStripMenuItem.Visible = false;
                         goto label_52;
                     }
                 }
                 else
                 {
-                    form1.COPYOFFICIALSToolStripMenuItem.Visible = false;
+                    mainForm.COPYOFFICIALSToolStripMenuItem.Visible = false;
                     goto label_52;
                 }
             }
@@ -399,7 +399,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("CreateForm1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("CreateMainForm - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_52:
             if (num2 == 0)
@@ -414,8 +414,8 @@ namespace ClubCompFS
             if (Operators.CompareString(Nu, Right, false) <= 0)
                 return;
             int num = (int)Interaction.MsgBox((object)Prompt, MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
-            MyProject.Forms.Form1.WillExit = true;
-            MyProject.Forms.Form1.Close();
+            MyProject.Forms.MainForm.WillExit = true;
+            MyProject.Forms.MainForm.Close();
         }
 
         public static string encode(object instring)
@@ -1250,7 +1250,7 @@ namespace ClubCompFS
                 {
                     if (Interaction.MsgBox((object)"The Competition or Category is new or has been changed!\r\n\r\nDo you want to save the file?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
                     {
-                        MyProject.Forms.Form1.SaveCategoryDB_As();
+                        MyProject.Forms.MainForm.SaveCategoryDB_As();
                     }
                     else
                     {
@@ -2109,12 +2109,12 @@ namespace ClubCompFS
             {
                 case 0:
                     Module1.WorkMode = 0;
-                    MyProject.Forms.Form1.Mode.Text = "";
+                    MyProject.Forms.MainForm.Mode.Text = "";
                     MyProject.Forms.Form2.Mode.Text = "";
                     break;
                 case 1:
                     Module1.WorkMode = 1;
-                    Form1 form1_1 = MyProject.Forms.Form1;
+                    MainForm form1_1 = MyProject.Forms.MainForm;
                     form1_1.Mode.Text = "Prepare mode";
                     form1_1.ClearDataToolStripMenuItem.Visible = true;
                     form1_1.CategorySelectionToolStripMenuItem.Visible = true;
@@ -2166,8 +2166,8 @@ namespace ClubCompFS
                     break;
                 case 2:
                     Module1.WorkMode = 2;
-                    MyProject.Forms.Form1.Mode.Text = "Network mode";
-                    Form1 form1_2 = MyProject.Forms.Form1;
+                    MyProject.Forms.MainForm.Mode.Text = "Network mode";
+                    MainForm form1_2 = MyProject.Forms.MainForm;
                     form1_2.StartServer();
                     form1_2.Mode.Text = "Network mode";
                     form1_2.ClearDataToolStripMenuItem.Visible = false;
@@ -2216,8 +2216,8 @@ namespace ClubCompFS
                     break;
                 case 3:
                     Module1.WorkMode = 3;
-                    MyProject.Forms.Form1.Mode.Text = "Manual mode";
-                    Form1 form1_3 = MyProject.Forms.Form1;
+                    MyProject.Forms.MainForm.Mode.Text = "Manual mode";
+                    MainForm form1_3 = MyProject.Forms.MainForm;
                     form1_3.Mode.Text = "Manual mode";
                     form1_3.ClearDataToolStripMenuItem.Visible = false;
                     form1_3.CategorySelectionToolStripMenuItem.Visible = false;
@@ -5164,18 +5164,18 @@ namespace ClubCompFS
                     htmFile = Module1.MakeResultHTM(Module1.BC, StNo, Row, row);
                     htmFile = Module1.MakeSpeakerHTM(Module1.BC, StNo, Row, row);
                 }
-                if (Module1.CreateScoreBoard <= 0 || !MyProject.Forms.Form1.completed10)
+                if (Module1.CreateScoreBoard <= 0 || !MyProject.Forms.MainForm.completed10)
                     return htmFile;
                 if (Module1.ScoreBoardDelay <= 0)
                 {
                     Module1.MakesScoreBoard_StNo = StNo;
-                    MyProject.Forms.Form1.Timer10.Interval = 10;
-                    MyProject.Forms.Form1.Timer10.Enabled = true;
+                    MyProject.Forms.MainForm.Timer10.Interval = 10;
+                    MyProject.Forms.MainForm.Timer10.Enabled = true;
                     return htmFile;
                 }
                 Module1.MakesScoreBoard_StNo = StNo;
-                MyProject.Forms.Form1.Timer10.Interval = checked(Module1.ScoreBoardDelay * 1000);
-                MyProject.Forms.Form1.Timer10.Enabled = true;
+                MyProject.Forms.MainForm.Timer10.Interval = checked(Module1.ScoreBoardDelay * 1000);
+                MyProject.Forms.MainForm.Timer10.Enabled = true;
                 return htmFile;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -9106,7 +9106,7 @@ namespace ClubCompFS
 
         public static bool TestStart()
         {
-            Module1.Competition.Name = MyProject.Forms.Form1.txtCompetitionName.Text;
+            Module1.Competition.Name = MyProject.Forms.MainForm.txtCompetitionName.Text;
             bool flag;
             if (Strings.Len(Module1.Category.Name) < 1 | Strings.Len(Module1.Competition.Name) < 1 | Module1.PcIndex < 0)
             {

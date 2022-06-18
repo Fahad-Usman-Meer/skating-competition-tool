@@ -147,7 +147,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Form1, DoWork - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("MainForm, DoWork - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_34:
             if (num2 == 0)

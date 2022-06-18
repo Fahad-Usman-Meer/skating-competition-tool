@@ -1009,8 +1009,8 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.Top = MyProject.Forms.Form1.Top;
-                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.Form1.Left + (double)MyProject.Forms.Form1.Width / 2.0 - (double)this.Width / 2.0)));
+                this.Top = MyProject.Forms.MainForm.Top;
+                this.Left = checked((int)Math.Round(unchecked((double)MyProject.Forms.MainForm.Left + (double)MyProject.Forms.MainForm.Width / 2.0 - (double)this.Width / 2.0)));
                 this.TopMost = true;
                 this.NumericUpDown1.Maximum = 7M;
                 this.NumericUpDown1.Increment = 1M;
@@ -1187,13 +1187,13 @@ namespace ClubCompFS
                     this.GetJudgeComp();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
-                    Module1.CreateForm1();
+                    Module1.CreateMainForm();
                     Module1.SaveIniData("CLUBCOMP.INI");
                     if (Strings.Len(Module1.Competition.Name) > 0)
                         Module1.SaveCategoryFile(Module1.CategoryFileName);
                     if (Module1.WorkMode == 1)
                     {
-                        MyProject.Forms.Form1.SendFunc();
+                        MyProject.Forms.MainForm.SendFunc();
                         goto label_36;
                     }
                     else

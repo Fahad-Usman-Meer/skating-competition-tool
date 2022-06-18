@@ -333,8 +333,8 @@ namespace ClubCompFS
 
         private void Form13_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form1.Top;
-            this.Left = MyProject.Forms.Form1.Left;
+            this.Top = MyProject.Forms.MainForm.Top;
+            this.Left = MyProject.Forms.MainForm.Left;
             this.CereateElementDBDisplay();
         }
 

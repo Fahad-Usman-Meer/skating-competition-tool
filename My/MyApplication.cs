@@ -39,6 +39,6 @@ namespace ClubCompFS.My
         }
 
         [DebuggerStepThrough]
-        protected override void OnCreateMainForm() => this.MainForm = (Form)MyProject.Forms.Form1;
+        protected override void OnCreateMainForm() => this.MainForm = (Form)MyProject.Forms.MainForm;
     }
 }

@@ -1,5 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
-// Type: ClubCompFS.Form1
+// Type: ClubCompFS.MainForm
 // Assembly: ClubCompFS_10p0p6, Version=1.0.0.6, Culture=neutral, PublicKeyToken=null
 // MVID: 18AFA868-014F-449A-91A2-9536DA06DEFC
 // Assembly location: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe
@@ -25,7 +25,7 @@ using System.Xml;
 namespace ClubCompFS
 {
     [DesignerGenerated]
-    public class Form1 : Form
+    public class MainForm : Form
     {
         private IContainer components;
         [AccessedThroughProperty("MenuStrip1")]
@@ -353,11 +353,11 @@ namespace ClubCompFS
         private bool Loading;
         public bool completed10;
 
-        public Form1()
+        public MainForm()
         {
-            this.KeyDown += new KeyEventHandler(this.Form1_KeyDown);
-            this.FormClosing += new FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new EventHandler(this.Form1_Load);
+            this.KeyDown += new KeyEventHandler(this.MainForm_KeyDown);
+            this.FormClosing += new FormClosingEventHandler(this.MainForm_Closing);
+            this.Load += new EventHandler(this.MainForm_Load);
             this.completed1 = true;
             this.Qout = new Queue<int>();
             this.Qprint = new Queue<int>();
@@ -390,7 +390,7 @@ namespace ClubCompFS
         private void InitializeComponent()
         {
             this.components = (IContainer)new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(Form1));
+            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(MainForm));
             this.MenuStrip1 = new MenuStrip();
             this.ToolStripMenuItem1 = new ToolStripMenuItem();
             this.LoadCategoryToolStripMenuItem = new ToolStripMenuItem();
@@ -1959,7 +1959,7 @@ namespace ClubCompFS
             this.KeyPreview = true;
             this.MainMenuStrip = this.MenuStrip1;
             this.MaximizeBox = false;
-            this.Name = nameof(Form1);
+            this.Name = nameof(MainForm);
             this.StartPosition = FormStartPosition.Manual;
             this.Text = "ClubCompFS";
             this.MenuStrip1.ResumeLayout(false);
@@ -4001,7 +4001,7 @@ namespace ClubCompFS
             set => this._txtIndTAClass = value;
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_Closing(object sender, FormClosingEventArgs e)
         {
             if (!Module1.CategoryFileSaved | !this.completed5)
             {
@@ -4031,7 +4031,7 @@ namespace ClubCompFS
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             Module1.Vek = new Module1.Participant[43];
             Application.CurrentCulture = new CultureInfo("sv-SE");
@@ -4068,7 +4068,7 @@ namespace ClubCompFS
             if (Module1.GetIniData("CLUBCOMP.INI"))
             {
                 this.InitVariables();
-                Module1.CreateForm1();
+                Module1.CreateMainForm();
                 Module1.LoadOpenDB("OpenDB.xml");
                 this.LoadElementDB("ElementDB.xml");
                 Module1.SetWorkMode(2);
@@ -4216,7 +4216,7 @@ namespace ClubCompFS
                             else if (Operators.CompareString(seg, "F0", false) == 0)
                                 Module1.Segment = "Seg1";
                             Module1.SetNoJ();
-                            Module1.CreateForm1();
+                            Module1.CreateMainForm();
                             this.btnSeg1Seg2();
                             if (Module1.CreateTEScores > 0)
                             {
@@ -4270,7 +4270,7 @@ namespace ClubCompFS
 
         public void EnableTextboxes(bool blnLock)
         {
-            Module1.Form1_TxtBoxEnabled = blnLock;
+            Module1.MainForm_TxtBoxEnabled = blnLock;
             int num1 = 1;
             do
             {
@@ -4320,7 +4320,7 @@ namespace ClubCompFS
                 this.EnableTextboxes(false);
                 if (Module1.WorkMode == 1)
                 {
-                    this.GetInputForm1();
+                    this.GetInputMainForm();
                     Module1.SaveCategoryFile(Module1.CategoryFileName);
                 }
                 Module1.SetWorkMode(2);
@@ -4360,7 +4360,7 @@ namespace ClubCompFS
                 this.EnableTextboxes(false);
                 if (Module1.WorkMode == 1)
                 {
-                    this.GetInputForm1();
+                    this.GetInputMainForm();
                     Module1.SaveCategoryFile(Module1.CategoryFileName);
                 }
                 Module1.SetWorkMode(3);
@@ -4652,7 +4652,7 @@ namespace ClubCompFS
                                 stream.Close();
                             }
                             if (Module1.WorkMode == 1)
-                                this.GetInputForm1();
+                                this.GetInputMainForm();
                             Module1.CreateCategoryFile(Module1.CategoryFileName);
                             goto label_17;
                         }
@@ -4756,7 +4756,7 @@ namespace ClubCompFS
             if (!this.MenuPossible() || !Module1.TestStart() || Interaction.MsgBox((object)"Do you want to save everything in the the database?", MsgBoxStyle.YesNo | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
                 return;
             if (Module1.WorkMode == 1)
-                this.GetInputForm1();
+                this.GetInputMainForm();
             Module1.SaveCategoryFile(Module1.CategoryFileName);
         }
 
@@ -5059,7 +5059,7 @@ namespace ClubCompFS
             }
         }
 
-        private void GetInputForm1()
+        private void GetInputMainForm()
         {
             int num1 = 0;
             int num2 = 0;
@@ -5109,7 +5109,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("GetInputForm1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("GetInputMainForm - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_13:
             if (num2 == 0)
@@ -5301,13 +5301,13 @@ namespace ClubCompFS
             if (!this.MenuPossible() || Module1.WorkMode != 1)
                 return;
             Module1.ClearOfficials();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
         }
 
         public void ClearOff()
         {
             Module1.ClearOfficials();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
         }
 
         private void HeadPageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5405,7 +5405,7 @@ namespace ClubCompFS
                     {
                         if (Module1.WorkMode == 1)
                         {
-                            this.GetInputForm1();
+                            this.GetInputMainForm();
                             Module1.SaveCategoryFile(Module1.CategoryFileName);
                         }
                         if (Module1.IsFormOpen((Form)MyProject.Forms.Form6))
@@ -5463,7 +5463,7 @@ namespace ClubCompFS
         private void BackgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
             if (Module1.WorkMode == 1)
-                this.GetInputForm1();
+                this.GetInputMainForm();
             Module1.SaveCategoryFile(Module1.CategoryFileName);
         }
 
@@ -6363,7 +6363,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num24 = (int)Interaction.MsgBox((object)("Form1, BackgroundWorker5_DoWork - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num24 = (int)Interaction.MsgBox((object)("MainForm, BackgroundWorker5_DoWork - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_148:
             if (num2 == 0)
@@ -6522,7 +6522,7 @@ namespace ClubCompFS
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyValue)
             {
@@ -6761,7 +6761,7 @@ namespace ClubCompFS
                 Module1.Segment = "Seg1";
             }
             Module1.SetNoJ();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
         }
 
         private void btnSeg2_1()
@@ -6797,12 +6797,12 @@ namespace ClubCompFS
                 }
             }
             Module1.SetNoJ();
-            Module1.CreateForm1();
+            Module1.CreateMainForm();
         }
 
         public void btnSeg1Seg2()
         {
-            Form1 form1 = this;
+            MainForm form1 = this;
             if (Module1.PcIndex >= 0)
             {
                 string seg = Module1.GetSeg();
@@ -7032,14 +7032,14 @@ namespace ClubCompFS
 
         private void LeavedCompetition()
         {
-            if (Module1.WorkMode != 1 || this.Loading | this.WillExit | !Module1.Form1_TxtBoxEnabled)
+            if (Module1.WorkMode != 1 || this.Loading | this.WillExit | !Module1.MainForm_TxtBoxEnabled)
                 return;
             if (!this.Loading & Strings.Len(Module1.Category.Name) > 0)
             {
                 string str = Module1.StrConv(Module1.Competition.Name + "_" + Module1.Category.Name + Module1.SubCat_() + ".xml");
                 if (Module1.CategoryFileName.Contains(str))
                     return;
-                this.GetInputForm1();
+                this.GetInputMainForm();
                 Module1.SaveCategoryFile(Module1.CategoryFileName);
             }
             else
@@ -7133,9 +7133,9 @@ namespace ClubCompFS
 
         private void Leaved()
         {
-            if (!Module1.Form1_TxtBoxEnabled || !(Module1.WorkMode == 1 & !this.Loading & Strings.Len(Module1.CategoryFileName) > 0))
+            if (!Module1.MainForm_TxtBoxEnabled || !(Module1.WorkMode == 1 & !this.Loading & Strings.Len(Module1.CategoryFileName) > 0))
                 return;
-            this.GetInputForm1();
+            this.GetInputMainForm();
             Module1.SaveCategoryFile(Module1.CategoryFileName);
         }
 
@@ -8048,11 +8048,11 @@ namespace ClubCompFS
         {
             if (e.Error != null)
             {
-                int num1 = (int)Interaction.MsgBox((object)("Form1, BackgroundWorker1_RunWorkerCompleted - exception was thrown. " + e.Error.Message), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num1 = (int)Interaction.MsgBox((object)("MainForm, BackgroundWorker1_RunWorkerCompleted - exception was thrown. " + e.Error.Message), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             else if (e.Cancelled)
             {
-                int num2 = (int)Interaction.MsgBox((object)"Form1, BackgroundWorker1_RunWorkerCompleted - Canceled", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num2 = (int)Interaction.MsgBox((object)"MainForm, BackgroundWorker1_RunWorkerCompleted - Canceled", MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             else
                 this.completed1 = true;
@@ -8122,7 +8122,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("Form1, Timer2_Tick -  " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("MainForm, Timer2_Tick -  " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_8:
             if (num2 == 0)

@@ -522,10 +522,10 @@ namespace ClubCompFS
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            this.Top = MyProject.Forms.Form1.Top;
+            this.Top = MyProject.Forms.MainForm.Top;
             if (Operators.CompareString(this.txtPar.Text, "3", false) == 0)
             {
-                this.Left = MyProject.Forms.Form1.Left;
+                this.Left = MyProject.Forms.MainForm.Left;
                 this.CREATETWOPDFToolStripMenuItem.Visible = false;
             }
             else
