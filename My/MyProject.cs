@@ -79,7 +79,7 @@ namespace ClubCompFS.My
             public JudgesSetupDialog m_JudgesSetupDialog;
             public ParticipantInputDialog m_ParticipantInputDialog;
             public IceResurfacingMealBreakDialog m_IceResurfacingMealBreakDialog;
-            public Dialog8 m_Dialog8;
+            public HeadPageDialog m_HeadPageDialog;
             public Form1 m_Form1;
             public Form10 m_Form10;
             public Form11 m_Form11;
@@ -249,20 +249,20 @@ namespace ClubCompFS.My
                 }
             }
 
-            public Dialog8 Dialog8
+            public HeadPageDialog HeadPageDialog
             {
                 get
                 {
-                    this.m_Dialog8 = MyProject.MyForms.Create__Instance__<Dialog8>(this.m_Dialog8);
-                    return this.m_Dialog8;
+                    this.m_HeadPageDialog = MyProject.MyForms.Create__Instance__<HeadPageDialog>(this.m_HeadPageDialog);
+                    return this.m_HeadPageDialog;
                 }
                 set
                 {
-                    if (value == this.m_Dialog8)
+                    if (value == this.m_HeadPageDialog)
                         return;
                     if (value != null)
                         throw new ArgumentException("Property can only be set to Nothing");
-                    this.Dispose__Instance__<Dialog8>(ref this.m_Dialog8);
+                    this.Dispose__Instance__<HeadPageDialog>(ref this.m_HeadPageDialog);
                 }
             }
 

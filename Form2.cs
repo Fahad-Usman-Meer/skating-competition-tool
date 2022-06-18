@@ -1460,8 +1460,8 @@ namespace ClubCompFS
                 MyProject.Forms.Form12.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.IceResurfacingMealBreakDialog))
                 MyProject.Forms.IceResurfacingMealBreakDialog.Close();
-            if (Module1.IsFormOpen((Form)MyProject.Forms.Dialog8))
-                MyProject.Forms.Dialog8.Close();
+            if (Module1.IsFormOpen((Form)MyProject.Forms.HeadPageDialog))
+                MyProject.Forms.HeadPageDialog.Close();
             if (Module1.IsFormOpen((Form)MyProject.Forms.InputJudgesDataDialog))
                 MyProject.Forms.InputJudgesDataDialog.Close();
             if (!Module1.IsFormOpen((Form)MyProject.Forms.DeductionsDialog))

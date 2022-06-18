@@ -2094,7 +2094,7 @@ namespace ClubCompFS
             MyProject.Forms.ParticipantInputDialog.Close();
             MyProject.Forms.Form12.Close();
             MyProject.Forms.IceResurfacingMealBreakDialog.Close();
-            MyProject.Forms.Dialog8.Close();
+            MyProject.Forms.HeadPageDialog.Close();
             switch (mode)
             {
                 case 0:
