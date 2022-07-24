@@ -265,6 +265,8 @@ namespace ClubCompFS
         private Timer _Timer1;
         [AccessedThroughProperty("OpExcl")]
         private Button _OpExcl;
+        [AccessedThroughProperty("OpFigure")]
+        private Button _OpFigure;
         [AccessedThroughProperty("Spin_V")]
         private Button _Spin_V;
         [AccessedThroughProperty("opREP")]
@@ -469,6 +471,7 @@ namespace ClubCompFS
             this.Time = new Button();
             this.Timer1 = new Timer(this.components);
             this.OpExcl = new Button();
+            this.OpFigure = new Button();
             this.Spin_V = new Button();
             this.opREP = new Button();
             this.PictureBox13 = new PictureBox();
@@ -1678,17 +1681,30 @@ namespace ClubCompFS
             this.Time.TabIndex = 122;
             this.Time.UseVisualStyleBackColor = false;
             this.Timer1.Interval = 1000;
+
             this.OpExcl.BackColor = SystemColors.Control;
             this.OpExcl.Font = new Font("Microsoft Sans Serif", 20f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.OpExcl.Location = new Point(526, 1);
             this.OpExcl.Name = "OpExcl";
             Button opExcl = this.OpExcl;
-            size1 = new Size(55, 37);
+            size1 = new Size(27, 37);
             Size size107 = size1;
             opExcl.Size = size107;
             this.OpExcl.TabIndex = 123;
             this.OpExcl.Text = "!";
             this.OpExcl.UseVisualStyleBackColor = false;
+            
+            this.OpFigure.BackColor = Color.Yellow;
+            this.OpFigure.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.OpFigure.Location = new Point(554, 1);
+            this.OpFigure.Name = "OpFigure";
+            Button opFigure = this.OpFigure;
+            size1 = new Size(27, 37);
+            opFigure.Size = size1;
+            this.OpFigure.TabIndex = 123;
+            this.OpFigure.Text = "F";
+            this.OpFigure.UseVisualStyleBackColor = false;
+
             this.Spin_V.BackColor = Color.FromArgb(128, (int)byte.MaxValue, (int)byte.MaxValue);
             this.Spin_V.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.Spin_V.Location = new Point(806, 76);
@@ -2081,6 +2097,7 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.opREP);
             this.Controls.Add((Control)this.Spin_V);
             this.Controls.Add((Control)this.OpExcl);
+            this.Controls.Add((Control)this.OpFigure);
             this.Controls.Add((Control)this.Time);
             this.Controls.Add((Control)this.DataGridView1);
             this.Controls.Add((Control)this.ColorBox);
@@ -3995,6 +4012,22 @@ namespace ClubCompFS
             }
         }
 
+        internal virtual Button OpFigure
+        {
+            get => this._OpFigure;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                EventHandler eventHandler = new EventHandler(this.OpFigure_Click);
+                if (this._OpFigure != null)
+                    this._OpFigure.Click -= eventHandler;
+                this._OpFigure = value;
+                if (this._OpFigure == null)
+                    return;
+                this._OpFigure.Click += eventHandler;
+            }
+        }
+
         internal virtual Button Spin_V
         {
             get => this._Spin_V;
@@ -4591,8 +4624,18 @@ namespace ClubCompFS
                                                       (object) new Font("Microsoft Sans Serif", (float) emSize4, FontStyle.Bold)
                                                                                                         }, (string[])null, (System.Type[])null, false, true);
                                                                                                     }
+                                                                                                    else if (Conversions.ToBoolean(Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Zero", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"OpFigure", false)) ? (object)true : (object)false))
+                                                                                                        {
+                                                                                                            num3 = 105;
+                                                                                                            NewLateBinding.LateSetComplex(this.CtlArray[index1], (System.Type)null, "font", new object[1]
+                                                                                                            {
+                                                      (object) new Font("Microsoft Sans Serif", (float) emSize4, FontStyle.Bold)
+                                                                                                            }, (string[])null, (System.Type[])null, false, true);
+                                                                                                        }
                                                                                                     else
                                                                                                     {
+
+
                                                                                                         num3 = 106;
                                                                                                         if (Conversions.ToBoolean(Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"ChSq1", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"NoLevel", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Set0", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Set1", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Set2", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Set3", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Set4", false)) ? (object)true : (object)false))
                                                                                                         {
@@ -5704,6 +5747,25 @@ namespace ClubCompFS
                     {
                         num3 = 7;
                         str = " !";
+                    }
+                    else
+                    {
+                        num3 = 9;
+                        if (Operators.CompareString(edge, "REP", false) == 0)
+                        {
+                            num3 = 10;
+                            str = " REP";
+                        }
+                        else
+                        {
+                            num3 = 13;
+                            str = "";
+                        }
+                    }
+                    if (Operators.CompareString(edge, "F", false) == 0)
+                    {
+                        num3 = 7;
+                        str = " F";
                     }
                     else
                     {
@@ -7644,6 +7706,7 @@ namespace ClubCompFS
                     this.OpUR.Visible = true;
                     this.Edge.Visible = true;
                     this.OpExcl.Visible = true;
+                    this.OpFigure.Visible = true;
                     this.Zero.Visible = true;
                     this.Review.Visible = true;
                     this.Falls_out.Text = "FALLS  " + Conversions.ToString(this.NoFalls());
@@ -7686,6 +7749,7 @@ namespace ClubCompFS
                     this.OpUR.Visible = false;
                     this.Edge.Visible = false;
                     this.OpExcl.Visible = false;
+                    this.OpFigure.Visible = false;
                     this.HalfTime.Visible = false;
                     this.StartHT.Visible = false;
                     this.StopHT.Visible = false;
@@ -7718,6 +7782,12 @@ namespace ClubCompFS
                     if (num3 > 0)
                     {
                         str1 += "!";
+                        str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
+                    }
+                    num3 = Microsoft.VisualBasic.Strings.InStr(1, str2, " F", CompareMethod.Text);
+                    if (num3 > 0)
+                    {
+                        str1 += "F";
                         str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
                     }
                     Program.OpArr[index].element = str2;
@@ -8984,6 +9054,16 @@ namespace ClubCompFS
                         this.OplistaSelect();
                         goto label_43;
                     }
+                    else if (!this.TstJump(str3) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "F", false) == 0 | !this.Tst_Lz_or_F(str3))
+                    {
+                        Interaction.Beep();
+                        if (Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "F", false) == 0)
+                        {
+                            int num3 = (int)Interaction.MsgBox((object)"Please remove the 'F' sign!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        }
+                        this.OplistaSelect();
+                        goto label_43;
+                    }
                     else
                     {
                         if (str3.Contains("+"))
@@ -9227,7 +9307,7 @@ namespace ClubCompFS
                     {
                         num3 = 10;
                         num3 = 11;
-                        int num4 = (int)Interaction.MsgBox((object)("Max no. of Bonus = " + Conversions.ToString(9) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        int num4 = (int)Interaction.MsgBox((object)($"Max no. of Bonus = {Conversions.ToString(9)} !"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     }
                 }
                 else
@@ -9247,7 +9327,7 @@ namespace ClubCompFS
                         {
                             num3 = 19;
                             num3 = 20;
-                            int num5 = (int)Interaction.MsgBox((object)("Max no. of Bonus = " + Conversions.ToString(9) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            int num5 = (int)Interaction.MsgBox((object)($"Max no. of Bonus = {Conversions.ToString(9)} !"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                         }
                     }
                 }
@@ -9449,7 +9529,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    int num4 = (int)Interaction.MsgBox((object)("Max no. of Falls = " + Conversions.ToString(19) + "!"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num4 = (int)Interaction.MsgBox((object)($"Max no. of Falls = {Conversions.ToString(19)} !"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 }
                 this.OplistaSelect();
                 goto label_14;
@@ -9629,6 +9709,94 @@ namespace ClubCompFS
             if (num1 == 2)
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpExcl_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+            }
+            label_25:
+            if (num2 == 0)
+                return;
+            ProjectData.ClearProjectError();
+        }
+        
+        private void OpFigure_Click(object sender, EventArgs e)
+        {
+            int num1 = 0;
+            int num2 = 0;
+            try
+            {
+                ProjectData.ClearProjectError();
+                num1 = 2;
+                this.index = this.DataGridView1.CurrentCellAddress.Y;
+                if (this.index > -1)
+                {
+                    string str = Program.OpArr[checked(this.index + 1)].element;
+                    if (Microsoft.VisualBasic.Strings.Len(str) > 0)
+                    {
+                        if (str.Contains("+SEQ"))
+                        {
+                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+SEQ", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+SEQ");
+                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        else if (str.Contains("+COMBO"))
+                        {
+                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 6), "+COMBO", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+COMBO");
+                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        else if (str.Contains("+REP"))
+                        {
+                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+REP", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+REP");
+                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
+                            Interaction.Beep();
+                        else
+                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "F";
+                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
+                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
+                        goto label_25;
+                    }
+                    else
+                        goto label_25;
+                }
+                else
+                {
+                    this.OplistaSelect();
+                    goto label_25;
+                }
+            }
+            catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
+            {
+                ProjectData.SetProjectError(ex);
+            }
+            num2 = -1;
+            if (num1 == 2)
+            {
+                int num3 = (int)Interaction.MsgBox((object)("OpFigure_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_25:
             if (num2 == 0)

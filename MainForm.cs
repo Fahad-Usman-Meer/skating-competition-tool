@@ -7723,6 +7723,11 @@ namespace ClubCompFS
                     int num4 = Strings.InStr(1, str1, " !", CompareMethod.Text);
                     if (num4 > 0)
                         str1 = Strings.Left(str1, checked(num4 - 1));
+                    
+                    num4 = Strings.InStr(1, str1, " F", CompareMethod.Text);
+                    if (num4 > 0)
+                        str1 = Strings.Left(str1, checked(num4 - 1));
+
                     string str2 = Program.Test_SEQ_COMBO_REP(str1);
                     if (Strings.Len(str2) >= 1)
                     {
