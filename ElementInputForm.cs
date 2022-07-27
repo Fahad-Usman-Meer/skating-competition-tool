@@ -1702,7 +1702,7 @@ namespace ClubCompFS
             size1 = new Size(27, 37);
             opFallinElement.Size = size1;
             this.OpFallinElement.TabIndex = 123;
-            this.OpFallinElement.Text = "F";
+            this.OpFallinElement.Text = "f";
             this.OpFallinElement.UseVisualStyleBackColor = false;
 
             this.Spin_V.BackColor = Color.FromArgb(128, (int)byte.MaxValue, (int)byte.MaxValue);
@@ -5083,7 +5083,7 @@ namespace ClubCompFS
                 strArray2[1] = "A";
                 strArray2[2] = "T";
                 strArray2[3] = "Lo";
-                strArray2[4] = "F";
+                strArray2[4] = "F"; //Flips
                 strArray2[5] = "Lz";
                 strArray2[6] = "S";
                 int ind = 1;
@@ -5748,24 +5748,10 @@ namespace ClubCompFS
                         num3 = 7;
                         str = " !";
                     }
-                    else
-                    {
-                        num3 = 9;
-                        if (Operators.CompareString(edge, "REP", false) == 0)
-                        {
-                            num3 = 10;
-                            str = " REP";
-                        }
-                        else
-                        {
-                            num3 = 13;
-                            str = "";
-                        }
-                    }
-                    if (Operators.CompareString(edge, "F", false) == 0)
+                    else if (Operators.CompareString(edge, "f", false) == 0)
                     {
                         num3 = 7;
-                        str = " F";
+                        str = " f";
                     }
                     else
                     {
@@ -5781,6 +5767,8 @@ namespace ClubCompFS
                             str = "";
                         }
                     }
+                    
+                    
                     num3 = 15;
                     string segment = Program.Segment;
                     num3 = 18;
@@ -7784,10 +7772,10 @@ namespace ClubCompFS
                         str1 += "!";
                         str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
                     }
-                    num3 = Microsoft.VisualBasic.Strings.InStr(1, str2, " F", CompareMethod.Text);
+                    num3 = Microsoft.VisualBasic.Strings.InStr(1, str2, " f", CompareMethod.Text);
                     if (num3 > 0)
                     {
-                        str1 += "F";
+                        str1 += "f";
                         str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
                     }
                     Program.OpArr[index].element = str2;
@@ -9054,16 +9042,6 @@ namespace ClubCompFS
                         this.OplistaSelect();
                         goto label_43;
                     }
-                    else if (!this.TstJump(str3) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "F", false) == 0 | !this.Tst_Lz_or_F(str3))
-                    {
-                        Interaction.Beep();
-                        if (Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "F", false) == 0)
-                        {
-                            int num3 = (int)Interaction.MsgBox((object)"Please remove the 'F' sign!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                        }
-                        this.OplistaSelect();
-                        goto label_43;
-                    }
                     else
                     {
                         if (str3.Contains("+"))
@@ -9788,7 +9766,7 @@ namespace ClubCompFS
                         }
                         else
                         {
-                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "F";
+                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "f";
 
                             if (!string.IsNullOrWhiteSpace(Program.OpArr[checked(this.index + 1)].edge))
                             {
@@ -9820,7 +9798,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num3 = (int)Interaction.MsgBox((object)("OpFigure_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num3 = (int)Interaction.MsgBox((object)("OpFallinElement_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_25:
             if (num2 == 0)

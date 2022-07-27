@@ -7724,7 +7724,7 @@ namespace ClubCompFS
                     if (num4 > 0)
                         str1 = Strings.Left(str1, checked(num4 - 1));
                     
-                    num4 = Strings.InStr(1, str1, " F", CompareMethod.Text);
+                    num4 = Strings.InStr(1, str1, " f", CompareMethod.Text);
                     if (num4 > 0)
                         str1 = Strings.Left(str1, checked(num4 - 1));
 

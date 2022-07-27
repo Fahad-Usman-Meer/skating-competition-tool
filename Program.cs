@@ -2508,8 +2508,8 @@ namespace ClubCompFS
                 string str = !strArray[0].Contains("*") ? strArray[0] : Microsoft.VisualBasic.Strings.Replace(strArray[0], "*", "");
                 if (str.Contains("!"))
                     str = Microsoft.VisualBasic.Strings.Replace(str, " !", "");
-                if (str.Contains("F"))
-                    str = Microsoft.VisualBasic.Strings.Replace(str, " F", "");
+                else if (str.Contains("f"))
+                    str = Microsoft.VisualBasic.Strings.Replace(str, " f", "");
                 flag = false;
                 int jumpmin = Program.Jumpmin;
                 int jumpMax = Program.JumpMax;
@@ -2597,7 +2597,7 @@ namespace ClubCompFS
                         if (num7 > 0)
                             str1 = Microsoft.VisualBasic.Strings.Left(str1, checked(num7 - 1));
 
-                        num7 = Microsoft.VisualBasic.Strings.InStr(1, str1, " F", CompareMethod.Text);
+                        num7 = Microsoft.VisualBasic.Strings.InStr(1, str1, " f", CompareMethod.Text);
                         if (num7 > 0)
                             str1 = Microsoft.VisualBasic.Strings.Left(str1, checked(num7 - 1));
 
@@ -3604,16 +3604,16 @@ namespace ClubCompFS
                             Program.JDarr[checked(R + index + 8), 3] = "e";
                         else if (str.Contains("<< !"))
                             Program.JDarr[checked(R + index + 8), 3] = "<<!";
-                        else if (str.Contains("<< F"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<<F";
+                        else if (str.Contains("<< f"))
+                            Program.JDarr[checked(R + index + 8), 3] = "<<f";
                         else if (str.Contains("< !"))
                             Program.JDarr[checked(R + index + 8), 3] = "<!";
-                        else if (str.Contains("< F"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<F";
+                        else if (str.Contains("< f"))
+                            Program.JDarr[checked(R + index + 8), 3] = "<f";
                         else if (str.Contains(" !"))
                             Program.JDarr[checked(R + index + 8), 3] = "!";
-                        else if (str.Contains(" F"))
-                            Program.JDarr[checked(R + index + 8), 3] = "F";
+                        else if (str.Contains(" f"))
+                            Program.JDarr[checked(R + index + 8), 3] = "f";
                         else if (str.Contains("<<"))
                             Program.JDarr[checked(R + index + 8), 3] = "<<";
                         else if (str.Contains("<"))
@@ -3624,7 +3624,7 @@ namespace ClubCompFS
                         if (num5 > 0)
                             str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
                         
-                        num5 = Microsoft.VisualBasic.Strings.InStr(1, str, " F", CompareMethod.Text);
+                        num5 = Microsoft.VisualBasic.Strings.InStr(1, str, " f", CompareMethod.Text);
                         if (num5 > 0)
                             str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
 
