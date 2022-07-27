@@ -200,7 +200,7 @@ namespace ClubCompFS
                 mainForm.txtIndTAClass.Text = Program.Category.IndTAClass;
                 mainForm.txtSubcategory.Text = Program.SubCategory;
                 mainForm.txtParticipants.Text = Conversions.ToString(Program.TNop);
-                if (Microsoft.VisualBasic.Strings.Len(Program.WarmUpTime) < 3)
+                if (Strings.Len(Program.WarmUpTime) < 3)
                 {
                     Program.CalcPCindex();
                     if (Program.PcIndex > -1)
@@ -251,7 +251,7 @@ namespace ClubCompFS
                             if (index1 > 7)
                                 goto label_15;
                         }
-                        mainForm.txtNonJudgingReferee.Text = "Referee and Judge no. " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index1)) + " for Scores";
+                        mainForm.txtNonJudgingReferee.Text = "Referee and Judge no. " + Strings.Trim(Conversions.ToString(index1)) + " for Scores";
                         mainForm.txtNonJudgingReferee.ForeColor = Color.Black;
                         break;
                     case 1:
@@ -291,8 +291,8 @@ namespace ClubCompFS
                 int index2 = 1;
                 do
                 {
-                    string key1 = "JudgeName" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index2));
-                    string key2 = "JudgeClub" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index2));
+                    string key1 = "JudgeName" + Strings.Trim(Conversions.ToString(index2));
+                    string key2 = "JudgeClub" + Strings.Trim(Conversions.ToString(index2));
                     if (index2 <= checked(Program.NoJ_GOE + Program.NoTrj) | index2 == checked(Program.JudgeSel * 7))
                     {
                         string segment3 = Program.Segment;
@@ -326,17 +326,17 @@ namespace ClubCompFS
                     string key3 = "lblJ" + Conversions.ToString(index2);
                     if (index2 <= Program.NoJ_GOE)
                     {
-                        mainForm.Controls[key3].Text = "Judge " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Text = "Judge " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
                     }
                     else if (index2 > Program.NoJ_GOE & index2 <= checked(Program.NoJ_GOE + Program.NoTrj))
                     {
-                        mainForm.Controls[key3].Text = "Tr. Judge " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Text = "Tr. Judge " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
                     }
                     else if (index2 == checked(Program.JudgeSel * 7))
                     {
-                        mainForm.Controls[key3].Text = "Non J. Ref. " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index2));
+                        mainForm.Controls[key3].Text = "Non J. Ref. " + Strings.Trim(Conversions.ToString(index2));
                         mainForm.Controls[key3].Visible = true;
                     }
                     else
@@ -350,9 +350,9 @@ namespace ClubCompFS
                     int index3 = 1;
                     do
                     {
-                        string key4 = "DVOName" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index3));
+                        string key4 = "DVOName" + Strings.Trim(Conversions.ToString(index3));
                         mainForm.Controls[key4].Text = Program.DVO[index3].Seg1.Name;
-                        string key5 = "DVOClub" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index3));
+                        string key5 = "DVOClub" + Strings.Trim(Conversions.ToString(index3));
                         mainForm.Controls[key5].Text = Program.DVO[index3].Seg1.Club;
                         checked { ++index3; }
                     }
@@ -363,9 +363,9 @@ namespace ClubCompFS
                     int index4 = 1;
                     do
                     {
-                        string key6 = "DVOName" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index4));
+                        string key6 = "DVOName" + Strings.Trim(Conversions.ToString(index4));
                         mainForm.Controls[key6].Text = Program.DVO[index4].Seg2.Name;
-                        string key7 = "DVOClub" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index4));
+                        string key7 = "DVOClub" + Strings.Trim(Conversions.ToString(index4));
                         mainForm.Controls[key7].Text = Program.DVO[index4].Seg2.Club;
                         checked { ++index4; }
                     }
@@ -539,10 +539,10 @@ namespace ClubCompFS
                 MyReader.ReadToFollowing("Date");
                 MyReader.MoveToAttribute(0);
                 string attribute1 = MyReader.GetAttribute(0);
-                Program.Datum.Seg1 = Microsoft.VisualBasic.Strings.Len(attribute1) <= 1 ? DateTime.Today : Conversions.ToDate(attribute1);
+                Program.Datum.Seg1 = Strings.Len(attribute1) <= 1 ? DateTime.Today : Conversions.ToDate(attribute1);
                 MyReader.MoveToAttribute(1);
                 string attribute2 = MyReader.GetAttribute(1);
-                Program.Datum.Seg2 = Microsoft.VisualBasic.Strings.Len(attribute2) <= 1 ? DateTime.Today : Conversions.ToDate(attribute2);
+                Program.Datum.Seg2 = Strings.Len(attribute2) <= 1 ? DateTime.Today : Conversions.ToDate(attribute2);
                 MyReader.MoveToElement();
                 Program.TimeLimit(Program.Datum.Seg1.ToString("yyyy-MM-dd"));
                 Program.TimeLimit(Program.Datum.Seg2.ToString("yyyy-MM-dd"));
@@ -662,11 +662,11 @@ namespace ClubCompFS
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("IceCondition");
                 string Expression1 = MyReader.ReadString();
-                if (Microsoft.VisualBasic.Strings.Len(Expression1) > 1)
+                if (Strings.Len(Expression1) > 1)
                     Program.IceCondition = Expression1;
                 MyReader.ReadToFollowing("IceArea");
                 string Expression2 = MyReader.ReadString();
-                if (Microsoft.VisualBasic.Strings.Len(Expression2) > 1)
+                if (Strings.Len(Expression2) > 1)
                 {
                     Program.IceArea = Expression2;
                     goto label_33;
@@ -702,31 +702,31 @@ namespace ClubCompFS
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
                     string attribute1 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute1) > 0)
+                    if (Strings.Len(attribute1) > 0)
                         Program.Techspec.Seg1.Name = attribute1;
                     MyReader.MoveToAttribute(1);
                     string attribute2 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute2) > 0)
+                    if (Strings.Len(attribute2) > 0)
                         Program.Techspec.Seg1.Club = attribute2;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
                     string attribute3 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute3) > 0)
+                    if (Strings.Len(attribute3) > 0)
                         Program.Controller.Seg1.Name = attribute3;
                     MyReader.MoveToAttribute(1);
                     string attribute4 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute4) > 0)
+                    if (Strings.Len(attribute4) > 0)
                         Program.Controller.Seg1.Club = attribute4;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
                     string attribute5 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute5) > 0)
+                    if (Strings.Len(attribute5) > 0)
                         Program.Referee.Seg1.Name = attribute5;
                     MyReader.MoveToAttribute(1);
                     string attribute6 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute6) > 0)
+                    if (Strings.Len(attribute6) > 0)
                         Program.Referee.Seg1.Club = attribute6;
                     MyReader.MoveToElement();
                     int index1 = 1;
@@ -736,11 +736,11 @@ namespace ClubCompFS
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
                         string attribute7 = MyReader.GetAttribute(0);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute7) > 0)
+                        if (Strings.Len(attribute7) > 0)
                             Program.Judge[index1].Seg1.Name = attribute7;
                         MyReader.MoveToAttribute(1);
                         string attribute8 = MyReader.GetAttribute(1);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute8) > 0)
+                        if (Strings.Len(attribute8) > 0)
                             Program.Judge[index1].Seg1.Club = attribute8;
                         MyReader.MoveToElement();
                         checked { ++index1; }
@@ -753,11 +753,11 @@ namespace ClubCompFS
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
                         string attribute9 = MyReader.GetAttribute(0);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute9) > 0)
+                        if (Strings.Len(attribute9) > 0)
                             Program.DVO[index2].Seg1.Name = attribute9;
                         MyReader.MoveToAttribute(1);
                         string attribute10 = MyReader.GetAttribute(1);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute10) > 0)
+                        if (Strings.Len(attribute10) > 0)
                             Program.DVO[index2].Seg1.Club = attribute10;
                         MyReader.MoveToElement();
                         checked { ++index2; }
@@ -842,31 +842,31 @@ namespace ClubCompFS
                     MyReader.ReadToFollowing("TechSpec");
                     MyReader.MoveToAttribute(0);
                     string attribute1 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute1) > 0)
+                    if (Strings.Len(attribute1) > 0)
                         Program.Techspec.Seg2.Name = attribute1;
                     MyReader.MoveToAttribute(1);
                     string attribute2 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute2) > 0)
+                    if (Strings.Len(attribute2) > 0)
                         Program.Techspec.Seg2.Club = attribute2;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Controller");
                     MyReader.MoveToAttribute(0);
                     string attribute3 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute3) > 0)
+                    if (Strings.Len(attribute3) > 0)
                         Program.Controller.Seg2.Name = attribute3;
                     MyReader.MoveToAttribute(1);
                     string attribute4 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute4) > 0)
+                    if (Strings.Len(attribute4) > 0)
                         Program.Controller.Seg2.Club = attribute4;
                     MyReader.MoveToElement();
                     MyReader.ReadToFollowing("Referee");
                     MyReader.MoveToAttribute(0);
                     string attribute5 = MyReader.GetAttribute(0);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute5) > 0)
+                    if (Strings.Len(attribute5) > 0)
                         Program.Referee.Seg2.Name = attribute5;
                     MyReader.MoveToAttribute(1);
                     string attribute6 = MyReader.GetAttribute(1);
-                    if (Microsoft.VisualBasic.Strings.Len(attribute6) > 0)
+                    if (Strings.Len(attribute6) > 0)
                         Program.Referee.Seg2.Club = attribute6;
                     MyReader.MoveToElement();
                     int index1 = 1;
@@ -876,11 +876,11 @@ namespace ClubCompFS
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
                         string attribute7 = MyReader.GetAttribute(0);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute7) > 0)
+                        if (Strings.Len(attribute7) > 0)
                             Program.Judge[index1].Seg2.Name = attribute7;
                         MyReader.MoveToAttribute(1);
                         string attribute8 = MyReader.GetAttribute(1);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute8) > 0)
+                        if (Strings.Len(attribute8) > 0)
                             Program.Judge[index1].Seg2.Club = attribute8;
                         MyReader.MoveToElement();
                         checked { ++index1; }
@@ -893,11 +893,11 @@ namespace ClubCompFS
                         MyReader.ReadToFollowing(name);
                         MyReader.MoveToAttribute(0);
                         string attribute9 = MyReader.GetAttribute(0);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute9) > 0)
+                        if (Strings.Len(attribute9) > 0)
                             Program.DVO[index2].Seg2.Name = attribute9;
                         MyReader.MoveToAttribute(1);
                         string attribute10 = MyReader.GetAttribute(1);
-                        if (Microsoft.VisualBasic.Strings.Len(attribute10) > 0)
+                        if (Strings.Len(attribute10) > 0)
                             Program.DVO[index2].Seg2.Club = attribute10;
                         MyReader.MoveToElement();
                         checked { ++index2; }
@@ -979,29 +979,29 @@ namespace ClubCompFS
                 num1 = 2;
                 MyReader.ReadToFollowing("Organizer");
                 MyReader.MoveToAttribute(0);
-                Program.Organizer.Name = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(0));
+                Program.Organizer.Name = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Program.Organizer.ID = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(1));
+                Program.Organizer.ID = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Competition");
                 MyReader.MoveToAttribute(0);
-                Program.Competition.Name = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(0));
+                Program.Competition.Name = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Program.Competition.Type = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(1));
+                Program.Competition.Type = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Program.Competition.ID = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(2));
+                Program.Competition.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Category");
-                Program.Category.Name = Microsoft.VisualBasic.Strings.Trim(MyReader.ReadString());
+                Program.Category.Name = Strings.Trim(MyReader.ReadString());
                 MyReader.ReadToFollowing("Subcategory");
-                Program.SubCategory = Microsoft.VisualBasic.Strings.Trim(MyReader.ReadString());
+                Program.SubCategory = Strings.Trim(MyReader.ReadString());
                 MyReader.ReadToFollowing("IndTA");
                 MyReader.MoveToAttribute(0);
-                Program.Category.IndTADiscipline = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(0));
+                Program.Category.IndTADiscipline = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Program.Category.IndTAClass = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(1));
+                Program.Category.IndTAClass = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Program.Category.ID = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(2));
+                Program.Category.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 goto label_7;
             }
@@ -1042,17 +1042,17 @@ namespace ClubCompFS
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Skater");
                 MyReader.MoveToAttribute(0);
-                Program.Vek[i].Name.FName = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(0));
+                Program.Vek[i].Name.FName = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Program.Vek[i].Name.LName = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(1));
+                Program.Vek[i].Name.LName = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToAttribute(2);
-                Program.Vek[i].Name.ID = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(2));
+                Program.Vek[i].Name.ID = Strings.Trim(MyReader.GetAttribute(2));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Club");
                 MyReader.MoveToAttribute(0);
-                Program.Vek[i].Club = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(0));
+                Program.Vek[i].Club = Strings.Trim(MyReader.GetAttribute(0));
                 MyReader.MoveToAttribute(1);
-                Program.Vek[i].ClubID = Microsoft.VisualBasic.Strings.Trim(MyReader.GetAttribute(1));
+                Program.Vek[i].ClubID = Strings.Trim(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Seg1");
                 MyReader.MoveToAttribute(0);
@@ -1117,7 +1117,7 @@ namespace ClubCompFS
                 int index3 = 1;
                 do
                 {
-                    string name = "JEESeg1_" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index3));
+                    string name = "JEESeg1_" + Strings.Trim(Conversions.ToString(index3));
                     MyReader.ReadToFollowing(name);
                     string[] strArray3 = MyReader.ReadString().Split('|');
                     int index4 = 1;
@@ -1133,7 +1133,7 @@ namespace ClubCompFS
                 int index5 = 1;
                 do
                 {
-                    string name = "JEESeg2_" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index5));
+                    string name = "JEESeg2_" + Strings.Trim(Conversions.ToString(index5));
                     MyReader.ReadToFollowing(name);
                     string[] strArray4 = MyReader.ReadString().Split('|');
                     int index6 = 1;
@@ -1149,7 +1149,7 @@ namespace ClubCompFS
                 int index7 = 1;
                 do
                 {
-                    string name = "JPCSeg1_" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index7));
+                    string name = "JPCSeg1_" + Strings.Trim(Conversions.ToString(index7));
                     MyReader.ReadToFollowing(name);
                     string[] strArray5 = MyReader.ReadString().Split('|');
                     int index8 = 1;
@@ -1165,7 +1165,7 @@ namespace ClubCompFS
                 int index9 = 1;
                 do
                 {
-                    string name = "JPCSeg2_" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(index9));
+                    string name = "JPCSeg2_" + Strings.Trim(Conversions.ToString(index9));
                     MyReader.ReadToFollowing(name);
                     string[] strArray6 = MyReader.ReadString().Split('|');
                     int index10 = 1;
@@ -1181,11 +1181,11 @@ namespace ClubCompFS
                 MyReader.ReadToFollowing("Deductions");
                 MyReader.MoveToAttribute(0);
                 string attribute1 = MyReader.GetAttribute(0);
-                if (Microsoft.VisualBasic.Strings.Len(attribute1) > 0)
+                if (Strings.Len(attribute1) > 0)
                     Program.Vek[i].Deductions_Seg1 = Conversions.ToLong(attribute1);
                 MyReader.MoveToAttribute(1);
                 string attribute2 = MyReader.GetAttribute(1);
-                if (Microsoft.VisualBasic.Strings.Len(attribute2) > 0)
+                if (Strings.Len(attribute2) > 0)
                     Program.Vek[i].Deductions_Seg2 = Conversions.ToLong(attribute2);
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("MajDeductions");
@@ -1211,11 +1211,11 @@ namespace ClubCompFS
                 MyReader.ReadToFollowing("Falls");
                 MyReader.MoveToAttribute(0);
                 string attribute3 = MyReader.GetAttribute(0);
-                if (Microsoft.VisualBasic.Strings.Len(attribute3) > 0)
+                if (Strings.Len(attribute3) > 0)
                     Program.Vek[i].Falls_seg1 = Conversions.ToInteger(attribute3);
                 MyReader.MoveToAttribute(1);
                 string attribute4 = MyReader.GetAttribute(1);
-                if (Microsoft.VisualBasic.Strings.Len(attribute4) > 0)
+                if (Strings.Len(attribute4) > 0)
                     Program.Vek[i].Falls_seg2 = Conversions.ToInteger(attribute4);
                 MyReader.MoveToElement();
                 MyReader.ReadToFollowing("Bonus");
@@ -1243,10 +1243,10 @@ namespace ClubCompFS
 
         public static void SaveCategoryFile(string MySender)
         {
-            if (Microsoft.VisualBasic.Strings.Len(Program.Competition.Name) > 0)
+            if (Strings.Len(Program.Competition.Name) > 0)
             {
-                string str = Microsoft.VisualBasic.Strings.UCase(Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_()));
-                if (!Microsoft.VisualBasic.Strings.UCase(MySender).Contains(str))
+                string str = Strings.UCase(Program.StrConv(Program.Competition.Name + "_" + Program.Category.Name + Program.SubCat_()));
+                if (!Strings.UCase(MySender).Contains(str))
                 {
                     if (Interaction.MsgBox((object)"The Competition or Category is new or has been changed!\r\n\r\nDo you want to save the file?", MsgBoxStyle.YesNo | MsgBoxStyle.Question | MsgBoxStyle.SystemModal, (object)"Susanne SW") == MsgBoxResult.Yes)
                     {
@@ -1259,7 +1259,7 @@ namespace ClubCompFS
                 }
                 else
                 {
-                    if (Microsoft.VisualBasic.Strings.Len(MySender) <= 1)
+                    if (Strings.Len(MySender) <= 1)
                         return;
                     Program.CreateCategoryFile(MySender);
                 }
@@ -1985,8 +1985,8 @@ namespace ClubCompFS
                 Program.OpenDB[i].Warmup = MyReader.ReadString();
                 MyReader.ReadToFollowing("Segments");
                 string[] strArray1 = MyReader.ReadString().Split('|');
-                Program.OpenDB[i].Segment_1 = Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.UCase(strArray1[0]));
-                Program.OpenDB[i].Segment_2 = Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.UCase(strArray1[1]));
+                Program.OpenDB[i].Segment_1 = Strings.Trim(Strings.UCase(strArray1[0]));
+                Program.OpenDB[i].Segment_2 = Strings.Trim(Strings.UCase(strArray1[1]));
                 MyReader.ReadToFollowing("TimeValues");
                 string[] strArray2 = MyReader.ReadString().Split('|');
                 Program.OpenDB[i].Seg1Time = strArray2[0];
@@ -2463,14 +2463,14 @@ namespace ClubCompFS
                 str1 = El;
                 if (El.Contains("+SEQ") & El.Contains("+REP"))
                 {
-                    int num3 = Microsoft.VisualBasic.Strings.InStr(El, "+SEQ");
-                    str1 = Microsoft.VisualBasic.Strings.Left(El, checked(num3 - 1)) + "+REP";
+                    int num3 = Strings.InStr(El, "+SEQ");
+                    str1 = Strings.Left(El, checked(num3 - 1)) + "+REP";
                     goto label_9;
                 }
                 else if (El.Contains("+COMBO") & El.Contains("+REP"))
                 {
-                    int num4 = Microsoft.VisualBasic.Strings.InStr(El, "+COMBO");
-                    str1 = Microsoft.VisualBasic.Strings.Left(El, checked(num4 - 1)) + "+REP";
+                    int num4 = Strings.InStr(El, "+COMBO");
+                    str1 = Strings.Left(El, checked(num4 - 1)) + "+REP";
                     goto label_9;
                 }
                 else
@@ -2505,11 +2505,11 @@ namespace ClubCompFS
                 Program.ElArr = (Program.El_type[])null;
                 Program.ElArr = new Program.El_type[31];
                 string[] strArray = StringEl.Split('+');
-                string str = !strArray[0].Contains("*") ? strArray[0] : Microsoft.VisualBasic.Strings.Replace(strArray[0], "*", "");
+                string str = !strArray[0].Contains("*") ? strArray[0] : Strings.Replace(strArray[0], "*", "");
                 if (str.Contains("!"))
-                    str = Microsoft.VisualBasic.Strings.Replace(str, " !", "");
+                    str = Strings.Replace(str, " !", "");
                 else if (str.Contains("f"))
-                    str = Microsoft.VisualBasic.Strings.Replace(str, " f", "");
+                    str = Strings.Replace(str, " f", "");
                 flag = false;
                 int jumpmin = Program.Jumpmin;
                 int jumpMax = Program.JumpMax;
@@ -2593,29 +2593,29 @@ namespace ClubCompFS
                             str1 = Program.Vek[Program.PNo].SSS_Seg1[ind];
                         else if (Operators.CompareString(segment1, "Seg2", false) == 0)
                             str1 = Program.Vek[Program.PNo].SSS_Seg2[ind];
-                        int num7 = Microsoft.VisualBasic.Strings.InStr(1, str1, " !", CompareMethod.Text);
+                        int num7 = Strings.InStr(1, str1, " !", CompareMethod.Text);
                         if (num7 > 0)
-                            str1 = Microsoft.VisualBasic.Strings.Left(str1, checked(num7 - 1));
+                            str1 = Strings.Left(str1, checked(num7 - 1));
 
-                        num7 = Microsoft.VisualBasic.Strings.InStr(1, str1, " f", CompareMethod.Text);
+                        num7 = Strings.InStr(1, str1, " f", CompareMethod.Text);
                         if (num7 > 0)
-                            str1 = Microsoft.VisualBasic.Strings.Left(str1, checked(num7 - 1));
+                            str1 = Strings.Left(str1, checked(num7 - 1));
 
                         string str2 = Program.Test_SEQ_COMBO_REP(str1);
-                        if (Microsoft.VisualBasic.Strings.Len(str2) >= 1)
+                        if (Strings.Len(str2) >= 1)
                         {
-                            int num8 = Microsoft.VisualBasic.Strings.InStr(1, str2, "+COMBO", CompareMethod.Text);
+                            int num8 = Strings.InStr(1, str2, "+COMBO", CompareMethod.Text);
                             if (num8 > 0)
-                                str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num8 - 1));
+                                str2 = Strings.Left(str2, checked(num8 - 1));
                             string segment2 = Program.Segment;
                             double Right1 = Operators.CompareString(segment2, "Seg1", false) != 0 ? (Operators.CompareString(segment2, "Seg2", false) != 0 ? 1.0 : (!(ind >= Program.Vek[Program.PNo].HTIndSeg2 & Program.Vek[Program.PNo].HTIndSeg2 != 0) ? 1.0 : (numArray5[ind] == 0 ? 1.0 : 1.1))) : (!(ind >= Program.Vek[Program.PNo].HTIndSeg1 & Program.Vek[Program.PNo].HTIndSeg1 != 0) ? 1.0 : (numArray5[ind] <= 0 ? 1.0 : 1.1));
                             int Eno = 0;
                             Program.El_type elType;
-                            if (Microsoft.VisualBasic.Strings.InStr(1, str2, "+SEQ", CompareMethod.Text) > 0)
+                            if (Strings.InStr(1, str2, "+SEQ", CompareMethod.Text) > 0)
                             {
                                 double Right2 = 0.0;
-                                int num9 = Microsoft.VisualBasic.Strings.InStr(str2, "+SEQ");
-                                Program.FindJumpEl1(Microsoft.VisualBasic.Strings.Left(str2, checked(num9 - 1)), ref Eno);
+                                int num9 = Strings.InStr(str2, "+SEQ");
+                                Program.FindJumpEl1(Strings.Left(str2, checked(num9 - 1)), ref Eno);
                                 int num10 = checked(Eno - 1);
                                 int index2 = 1;
                                 while (index2 <= num10)
@@ -2681,7 +2681,7 @@ namespace ClubCompFS
                                     numArray1[ind] = Expression;
                                     if (C_JDA > 0)
                                     {
-                                        Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)Expression, "0.00");
+                                        Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)Expression, "0.00");
                                         if (Right1 > 1.0)
                                             Program.JDarr[checked(R + ind + 8), 5] = "x";
                                     }
@@ -2730,18 +2730,18 @@ namespace ClubCompFS
                                 {
                                     numArray1[ind] = 0.0;
                                     if (C_JDA > 0)
-                                        Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)numArray1[ind], "0.00");
+                                        Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     numArray2[ind] = 0.0;
                                     if (C_JDA > 0)
                                         Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
-                            else if (Microsoft.VisualBasic.Strings.InStr(1, str2, "+REP", CompareMethod.Text) > 0)
+                            else if (Strings.InStr(1, str2, "+REP", CompareMethod.Text) > 0)
                             {
                                 double num16 = 0.0;
                                 double Right3 = 0.0;
-                                int num17 = Microsoft.VisualBasic.Strings.InStr(str2, "+REP");
-                                Program.FindJumpEl1(Microsoft.VisualBasic.Strings.Left(str2, checked(num17 - 1)), ref Eno);
+                                int num17 = Strings.InStr(str2, "+REP");
+                                Program.FindJumpEl1(Strings.Left(str2, checked(num17 - 1)), ref Eno);
                                 int num18 = checked(Eno - 1);
                                 int index13 = 1;
                                 while (index13 <= num18)
@@ -2793,7 +2793,7 @@ namespace ClubCompFS
                                 numArray1[ind] = num16;
                                 if (C_JDA > 0)
                                 {
-                                    Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     if (Right1 > 1.0)
                                         Program.JDarr[checked(R + ind + 8), 5] = "x";
                                 }
@@ -2838,7 +2838,7 @@ namespace ClubCompFS
                                         Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
-                            else if (str2.Contains("Sp") & Microsoft.VisualBasic.Strings.Len(str2) >= 1)
+                            else if (str2.Contains("Sp") & Strings.Len(str2) >= 1)
                             {
                                 double Left1 = 0.0;
                                 double Right4 = 0.0;
@@ -2872,7 +2872,7 @@ namespace ClubCompFS
                                 }
                                 numArray1[ind] = Left1;
                                 if (C_JDA > 0)
-                                    Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                 int noJGoe5 = Program.NoJ_GOE;
                                 int index24 = 1;
                                 while (index24 <= noJGoe5)
@@ -2919,7 +2919,7 @@ namespace ClubCompFS
                                         Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
-                            else if (Microsoft.VisualBasic.Strings.InStr(1, str2, "+", CompareMethod.Text) > 0 & !str2.Contains("+V"))
+                            else if (Strings.InStr(1, str2, "+", CompareMethod.Text) > 0 & !str2.Contains("+V"))
                             {
                                 double num23 = 0.0;
                                 double Right5 = 0.0;
@@ -2975,7 +2975,7 @@ namespace ClubCompFS
                                 numArray1[ind] = num23;
                                 if (C_JDA > 0)
                                 {
-                                    Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                     if (Right1 > 1.0)
                                         Program.JDarr[checked(R + ind + 8), 5] = "x";
                                 }
@@ -3020,7 +3020,7 @@ namespace ClubCompFS
                                         Program.JDarr[checked(R + ind + 8), 6] = Conversions.ToString(numArray2[ind]);
                                 }
                             }
-                            else if (Microsoft.VisualBasic.Strings.InStr(1, str2, "+", CompareMethod.Text) == 0 & Microsoft.VisualBasic.Strings.Len(str2) >= 1)
+                            else if (Strings.InStr(1, str2, "+", CompareMethod.Text) == 0 & Strings.Len(str2) >= 1)
                             {
                                 double Left3 = 0.0;
                                 double Right6 = 0.0;
@@ -3075,7 +3075,7 @@ namespace ClubCompFS
                                 }
                                 numArray1[ind] = Left3;
                                 if (C_JDA > 0)
-                                    Program.JDarr[checked(R + ind + 8), 4] = Microsoft.VisualBasic.Strings.Format((object)numArray1[ind], "0.00");
+                                    Program.JDarr[checked(R + ind + 8), 4] = Strings.Format((object)numArray1[ind], "0.00");
                                 int noJGoe9 = Program.NoJ_GOE;
                                 int index41 = 1;
                                 while (index41 <= noJGoe9)
@@ -3126,11 +3126,11 @@ namespace ClubCompFS
                         numArray1[ind] = Conversion.Int(100.0 * numArray1[ind] + 0.5000001) / 100.0;
                         numArray2[ind] = numArray2[ind] <= 0.0 ? -Conversion.Int(-100.0 * numArray2[ind] + 0.5000001) / 100.0 : Conversion.Int(100.0 * numArray2[ind] + 0.5000001) / 100.0;
                         if (C_JDA > 0)
-                            Program.JDarr[checked(R + ind + 8), 6] = Microsoft.VisualBasic.Strings.Format((object)numArray2[ind], "0.00");
+                            Program.JDarr[checked(R + ind + 8), 6] = Strings.Format((object)numArray2[ind], "0.00");
                         numArray3[ind] = numArray1[ind] + numArray2[ind];
                         numArray3[ind] = Conversion.Int(100.0 * numArray3[ind] + 0.5000001) / 100.0;
                         if (C_JDA > 0)
-                            Program.JDarr[checked(R + ind + 8), 14] = Microsoft.VisualBasic.Strings.Format((object)numArray3[ind], "0.00");
+                            Program.JDarr[checked(R + ind + 8), 14] = Strings.Format((object)numArray3[ind], "0.00");
                         num6 += numArray3[ind];
                         checked { ++ind; }
                     }
@@ -3160,8 +3160,8 @@ namespace ClubCompFS
         public static string GetSpin(string El)
         {
             string spin = El;
-            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(El, 1), "V", false) == 0)
-                spin = Microsoft.VisualBasic.Strings.Trim(El.Remove(checked(El.Length - 1)));
+            if (Operators.CompareString(Strings.Right(El, 1), "V", false) == 0)
+                spin = Strings.Trim(El.Remove(checked(El.Length - 1)));
             return spin;
         }
 
@@ -3391,14 +3391,14 @@ namespace ClubCompFS
                             numArray[nr] = Conversion.Int(100.0 * numArray[nr] + 0.5000001) / 100.0;
                             num4 += Conversion.Int(numArray[nr] * 100.0 * Program.PC_Factor(nr) + 0.5000001) / 100.0;
                             if (C_JDA > 0)
-                                Program.JDarr[checked(R + nr), 14] = Microsoft.VisualBasic.Strings.Format((object)numArray[nr], "0.00");
+                                Program.JDarr[checked(R + nr), 14] = Strings.Format((object)numArray[nr], "0.00");
                         }
                         checked { ++nr; }
                     }
                     while (nr <= 5);
                     double Expression = Conversion.Int(1000.0 * num4 + 0.5000001) / 1000.0;
                     if (C_JDA > 0)
-                        Program.JDarr[checked(R + 6), 14] = Microsoft.VisualBasic.Strings.Format((object)Expression, "0.00");
+                        Program.JDarr[checked(R + 6), 14] = Strings.Format((object)Expression, "0.00");
                     string segment1 = Program.Segment;
                     if (Operators.CompareString(segment1, "Seg1", false) == 0)
                         Program.Vek[Program.PNo].Finished_Seg1 = Expression <= 0.0 ? 0 : 1;
@@ -3470,8 +3470,8 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 Program.JDarr[checked(R + 1), 2] = Program.Competition.Name;
-                Program.JDarr[checked(R + 2), 2] = Microsoft.VisualBasic.Strings.UCase(Program.Category.Name) + Program.SubCat();
-                Program.JDarr[checked(R + 3), 2] = Microsoft.VisualBasic.Strings.UCase(Program.GetProgType(Program.Segment)) + " PROGRAM";
+                Program.JDarr[checked(R + 2), 2] = Strings.UCase(Program.Category.Name) + Program.SubCat();
+                Program.JDarr[checked(R + 3), 2] = Strings.UCase(Program.GetProgType(Program.Segment)) + " PROGRAM";
                 int num3 = 4;
                 Program.JDarr[checked(R + num3), 1] = "Pl.";
                 Program.JDarr[checked(R + num3), 2] = "NAME";
@@ -3520,7 +3520,7 @@ namespace ClubCompFS
                 int Number1 = 1;
                 while (Number1 <= noJGoe)
                 {
-                    Program.JDarr[checked(R + num7), checked(6 + Number1)] = "J" + Microsoft.VisualBasic.Strings.Right(Conversion.Str((object)Number1), 1);
+                    Program.JDarr[checked(R + num7), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
                     checked { ++Number1; }
                 }
                 if (Program.NoJ_GOE <= 6 & Program.WOR == 0 && Program.JudgeSel > 0)
@@ -3532,7 +3532,7 @@ namespace ClubCompFS
                     int Number2 = num8;
                     while (Number2 <= num9)
                     {
-                        Program.JDarr[checked(R + num7), checked(6 + Number2)] = "Tr. J" + Microsoft.VisualBasic.Strings.Trim(Conversion.Str((object)Number2));
+                        Program.JDarr[checked(R + num7), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
                         checked { ++Number2; }
                     }
                 }
@@ -3554,11 +3554,11 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        public static string GetCat() => Microsoft.VisualBasic.Strings.Len(Program.SubCategory) == 0 ? Program.Category.Name : Program.Category.Name + ", " + Program.SubCategory;
+        public static string GetCat() => Strings.Len(Program.SubCategory) == 0 ? Program.Category.Name : Program.Category.Name + ", " + Program.SubCategory;
 
-        public static string SubCat() => Operators.CompareString(Microsoft.VisualBasic.Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : ", " + Program.SubCategory;
+        public static string SubCat() => Operators.CompareString(Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : ", " + Program.SubCategory;
 
-        public static string SubCat_() => Operators.CompareString(Microsoft.VisualBasic.Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : "_" + Program.SubCategory;
+        public static string SubCat_() => Operators.CompareString(Strings.Trim(Program.SubCategory), "", false) == 0 ? "" : "_" + Program.SubCategory;
 
         public static int B_SSS_data(int R)
         {
@@ -3620,13 +3620,13 @@ namespace ClubCompFS
                             Program.JDarr[checked(R + index + 8), 3] = "<";
                         else if (!str.Contains("Sq") && str.Contains("q")) // Exclude Sequence Element (Sq)
                             Program.JDarr[checked(R + index + 8), 3] = "q";
-                        int num5 = Microsoft.VisualBasic.Strings.InStr(1, str, " !", CompareMethod.Text);
+                        int num5 = Strings.InStr(1, str, " !", CompareMethod.Text);
                         if (num5 > 0)
-                            str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
+                            str = Strings.Left(str, checked(num5 - 1));
                         
-                        num5 = Microsoft.VisualBasic.Strings.InStr(1, str, " f", CompareMethod.Text);
+                        num5 = Strings.InStr(1, str, " f", CompareMethod.Text);
                         if (num5 > 0)
-                            str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
+                            str = Strings.Left(str, checked(num5 - 1));
 
                         if (Operators.CompareString(str, "", false) != 0)
                         {
@@ -3732,7 +3732,7 @@ namespace ClubCompFS
                 int Number1 = 1;
                 while (Number1 <= noJGoe)
                 {
-                    Program.JDarr[checked(R + row + 1), checked(6 + Number1)] = "J" + Microsoft.VisualBasic.Strings.Right(Conversion.Str((object)Number1), 1);
+                    Program.JDarr[checked(R + row + 1), checked(6 + Number1)] = "J" + Strings.Right(Conversion.Str((object)Number1), 1);
                     checked { ++Number1; }
                 }
                 if (Program.NoTrj > 0 & Program.WOR == 0)
@@ -3742,7 +3742,7 @@ namespace ClubCompFS
                     int Number2 = num3;
                     while (Number2 <= num4)
                     {
-                        Program.JDarr[checked(R + row + 1), checked(6 + Number2)] = "Tr. J" + Microsoft.VisualBasic.Strings.Trim(Conversion.Str((object)Number2));
+                        Program.JDarr[checked(R + row + 1), checked(6 + Number2)] = "Tr. J" + Strings.Trim(Conversion.Str((object)Number2));
                         checked { ++Number2; }
                     }
                 }
@@ -3797,10 +3797,10 @@ namespace ClubCompFS
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
                             if (Conversions.ToInteger(Program.JDarr[checked(R + num6), 4]) > 0)
-                                Program.JDarr[checked(R + num6), checked(6 + index)] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num6 - row + 1), index], "0.00");
+                                Program.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num6 - row + 1), index], "0.00");
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Program.JDarr[checked(R + num6), 4]) > 0)
-                            Program.JDarr[checked(R + num6), checked(6 + index)] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num6 - row + 1), index], "0.00");
+                            Program.JDarr[checked(R + num6), checked(6 + index)] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num6 - row + 1), index], "0.00");
                         checked { ++index; }
                     }
                     checked { ++num6; }
@@ -3816,10 +3816,10 @@ namespace ClubCompFS
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
                             if (Conversions.ToInteger(Program.JDarr[checked(R + num10), 4]) > 0)
-                                Program.JDarr[checked(R + num10), 13] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num10 - row + 1), 7], "0.00");
+                                Program.JDarr[checked(R + num10), 13] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg1.PC[checked(num10 - row + 1), 7], "0.00");
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0 && Conversions.ToInteger(Program.JDarr[checked(R + num10), 4]) > 0)
-                            Program.JDarr[checked(R + num10), 13] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num10 - row + 1), 7], "0.00");
+                            Program.JDarr[checked(R + num10), 13] = Strings.Format((object)Program.Vek[Program.PNo].J_Seg2.PC[checked(num10 - row + 1), 7], "0.00");
                         checked { ++num10; }
                     }
                     goto label_26;
@@ -3861,8 +3861,8 @@ namespace ClubCompFS
                     Expression2 += Conversions.ToDouble(Program.JDarr[index, 14]);
                     checked { ++index; }
                 }
-                Program.JDarr[checked(R + row + 1), 4] = Microsoft.VisualBasic.Strings.Format((object)Expression1, "0.00");
-                Program.JDarr[checked(R + row + 1), 14] = Microsoft.VisualBasic.Strings.Format((object)Expression2, "0.00");
+                Program.JDarr[checked(R + row + 1), 4] = Strings.Format((object)Expression1, "0.00");
+                Program.JDarr[checked(R + row + 1), 14] = Strings.Format((object)Expression2, "0.00");
                 goto label_10;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -4030,7 +4030,7 @@ namespace ClubCompFS
                 }
                 while (index <= 10);
                 string Expression = Conversions.ToString(DedLong);
-                int num3 = Microsoft.VisualBasic.Strings.Len(Expression);
+                int num3 = Strings.Len(Expression);
                 int startIndex = checked(num3 - 1);
                 while (startIndex >= 0)
                 {
@@ -4065,7 +4065,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 int num3 = 3;
-                if (Microsoft.VisualBasic.Strings.Len(str1) == 0)
+                if (Strings.Len(str1) == 0)
                 {
                     num3 = 4;
                     str1 = NewStr + Conversions.ToString(d) + "        ";
@@ -4073,7 +4073,7 @@ namespace ClubCompFS
                 else
                 {
                     num3 = 7;
-                    if (Microsoft.VisualBasic.Strings.Len(str1) < 200)
+                    if (Strings.Len(str1) < 200)
                     {
                         num3 = 8;
                         str1 = str1 + NewStr + Conversions.ToString(d) + "        ";
@@ -4081,7 +4081,7 @@ namespace ClubCompFS
                     else
                     {
                         num3 = 11;
-                        if (Microsoft.VisualBasic.Strings.Len(str1) > 200 & Microsoft.VisualBasic.Strings.Len(str2) == 0)
+                        if (Strings.Len(str1) > 200 & Strings.Len(str2) == 0)
                         {
                             num3 = 12;
                             str2 = NewStr + Conversions.ToString(d) + "        ";
@@ -4089,7 +4089,7 @@ namespace ClubCompFS
                         else
                         {
                             num3 = 15;
-                            if (Microsoft.VisualBasic.Strings.Len(str2) > 0)
+                            if (Strings.Len(str2) > 0)
                             {
                                 num3 = 16;
                                 str2 = str2 + NewStr + Conversions.ToString(d) + "        ";
@@ -4231,10 +4231,10 @@ namespace ClubCompFS
                 {
                     if (Program.Vek[Program.PNo].Finished_Seg1 == 1)
                     {
-                        Program.JDarr[checked(R + 7), 8] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].Score_Seg1, "0.00");
-                        Program.JDarr[checked(R + 7), 10] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].TES_Seg1, "0.00");
-                        Program.JDarr[checked(R + 7), 11] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg1, "0.00");
-                        Program.JDarr[checked(R + 7), 14] = Microsoft.VisualBasic.Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
+                        Program.JDarr[checked(R + 7), 8] = Strings.Format((object)Program.Vek[Program.PNo].Score_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 10] = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 11] = Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg1, "0.00");
+                        Program.JDarr[checked(R + 7), 14] = Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
                         goto label_12;
                     }
                     else
@@ -4244,10 +4244,10 @@ namespace ClubCompFS
                 {
                     if (Program.Vek[Program.PNo].Finished_Seg2 == 1)
                     {
-                        Program.JDarr[checked(R + 7), 8] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].Score_Seg2, "0.00");
-                        Program.JDarr[checked(R + 7), 10] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].TES_Seg2, "0.00");
-                        Program.JDarr[checked(R + 7), 11] = Microsoft.VisualBasic.Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg2, "0.00");
-                        Program.JDarr[checked(R + 7), 14] = Microsoft.VisualBasic.Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
+                        Program.JDarr[checked(R + 7), 8] = Strings.Format((object)Program.Vek[Program.PNo].Score_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 10] = Strings.Format((object)Program.Vek[Program.PNo].TES_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 11] = Strings.Format((object)Program.Vek[Program.PNo].PCS_Seg2, "0.00");
+                        Program.JDarr[checked(R + 7), 14] = Strings.Format((object)Program.DedSeg1Seg2(Program.PNo, Program.Segment));
                         goto label_12;
                     }
                     else
@@ -4300,8 +4300,8 @@ namespace ClubCompFS
                 Program.GetArr(ref myarr, DedLong);
                 double num8 = (double)myarr[1];
                 double num9 = num7 + num8 + (double)myarr[2];
-                double num10 = (!Microsoft.VisualBasic.Strings.UCase(Program.Category.Name).Contains("ARTISTISK") ? num9 + (double)checked(myarr[3] * 2) : num9 + (double)myarr[3]) + (double)myarr[4] * num6 + (double)myarr[5] + (double)myarr[6];
-                if (Microsoft.VisualBasic.Strings.UCase(Program.Category.Name).Contains("SENIOR A") | Microsoft.VisualBasic.Strings.UCase(Program.Category.Name).Contains("SENIORER A"))
+                double num10 = (!Strings.UCase(Program.Category.Name).Contains("ARTISTISK") ? num9 + (double)checked(myarr[3] * 2) : num9 + (double)myarr[3]) + (double)myarr[4] * num6 + (double)myarr[5] + (double)myarr[6];
+                if (Strings.UCase(Program.Category.Name).Contains("SENIOR A") | Strings.UCase(Program.Category.Name).Contains("SENIORER A"))
                 {
                     switch (num4)
                     {
@@ -4461,15 +4461,15 @@ namespace ClubCompFS
                 if (Operators.CompareString(Elin, "", false) != 0)
                 {
                     string str = Elin;
-                    if (Microsoft.VisualBasic.Strings.UCase(Elin).Contains("+COMBO"))
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("+COMBO", ""));
-                    if (Microsoft.VisualBasic.Strings.UCase(Elin).Contains("+SEQ"))
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("+SEQ", ""));
-                    if (Microsoft.VisualBasic.Strings.UCase(Elin).Contains("+REP"))
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("+REP", ""));
+                    if (Strings.UCase(Elin).Contains("+COMBO"))
+                        str = Strings.Trim(str.Replace("+COMBO", ""));
+                    if (Strings.UCase(Elin).Contains("+SEQ"))
+                        str = Strings.Trim(str.Replace("+SEQ", ""));
+                    if (Strings.UCase(Elin).Contains("+REP"))
+                        str = Strings.Trim(str.Replace("+REP", ""));
                     if (Elin.Contains("Sp") && Elin.Contains("+V"))
                         str = Program.GetSpin(Elin);
-                    if (Microsoft.VisualBasic.Strings.InStr(1, str, "+", CompareMethod.Text) > 0)
+                    if (Strings.InStr(1, str, "+", CompareMethod.Text) > 0)
                     {
                         string[] strArray = str.Split('+');
                         int num3 = checked(strArray.Length - 1);
@@ -4530,7 +4530,7 @@ namespace ClubCompFS
                 else
                 {
                     flag = false;
-                    if (Microsoft.VisualBasic.Strings.Len(Elin) > 0)
+                    if (Strings.Len(Elin) > 0)
                     {
                         string str = Elin;
                         if (str.Contains("+V"))
@@ -4539,10 +4539,10 @@ namespace ClubCompFS
                         }
                         else
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "e", false) == 0)
-                                str = Microsoft.VisualBasic.Strings.Trim(str.Replace("e", ""));
+                            if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
+                                str = Strings.Trim(str.Replace("e", ""));
                             if (str.Contains("<"))
-                                str = Microsoft.VisualBasic.Strings.Trim(str.Replace("<", ""));
+                                str = Strings.Trim(str.Replace("<", ""));
                         }
                         int elDbmax = Program.ElDBmax;
                         int index = 0;
@@ -4822,22 +4822,22 @@ namespace ClubCompFS
                 {
                     string str1 = FileSystem.LineInput(FileNumber);
                     checked { ++num3; }
-                    string str2 = Microsoft.VisualBasic.Strings.Trim(str1);
+                    string str2 = Strings.Trim(str1);
                     if (!str2.StartsWith("'"))
                     {
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMP_FOLDER="))
+                        if (Strings.UCase(str2).Contains("COMP_FOLDER="))
                         {
-                            Program.PathCompFile = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
+                            Program.PathCompFile = Strings.Trim(str2.Split('=')[1]);
                             Program.PathCompFile = Program.PathCompFile.Replace("/", "\\");
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("RESULTS_FOLDER="))
+                        if (Strings.UCase(str2).Contains("RESULTS_FOLDER="))
                         {
-                            Program.PathResultsFile = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
+                            Program.PathResultsFile = Strings.Trim(str2.Split('=')[1]);
                             Program.PathResultsFile = Program.PathResultsFile.Replace("/", "\\");
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("RESULTSPHONE="))
+                        if (Strings.UCase(str2).Contains("RESULTSPHONE="))
                         {
-                            Program.CreateResultsPhone = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.CreateResultsPhone = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             switch (Program.CreateResultsPhone)
                             {
                                 case 0:
@@ -4848,9 +4848,9 @@ namespace ClubCompFS
                                     break;
                             }
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("TESCORES="))
+                        if (Strings.UCase(str2).Contains("TESCORES="))
                         {
-                            Program.CreateTEScores = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.CreateTEScores = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             switch (Program.CreateTEScores)
                             {
                                 case 0:
@@ -4861,17 +4861,17 @@ namespace ClubCompFS
                                     break;
                             }
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("ICELEAVETIME="))
-                            Program.IceLeaveTime = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("RESURFACINGTIME"))
-                            Program.ResurfacingTime = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("LUNCHTIME="))
-                            Program.LunchTime = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("SHOW_JUDGE_DED="))
-                            Program.ShowJudgeDed = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("TRIMMED_MV="))
+                        if (Strings.UCase(str2).Contains("ICELEAVETIME="))
+                            Program.IceLeaveTime = Strings.Trim(str2.Split('=')[1]);
+                        if (Strings.UCase(str2).Contains("RESURFACINGTIME"))
+                            Program.ResurfacingTime = Strings.Trim(str2.Split('=')[1]);
+                        if (Strings.UCase(str2).Contains("LUNCHTIME="))
+                            Program.LunchTime = Strings.Trim(str2.Split('=')[1]);
+                        if (Strings.UCase(str2).Contains("SHOW_JUDGE_DED="))
+                            Program.ShowJudgeDed = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                        if (Strings.UCase(str2).Contains("TRIMMED_MV="))
                         {
-                            Program.NoJudgeTMV = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.NoJudgeTMV = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             switch (Program.NoJudgeTMV)
                             {
                                 case 0:
@@ -4886,9 +4886,9 @@ namespace ClubCompFS
                                     break;
                             }
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("SCOREBOARD="))
+                        if (Strings.UCase(str2).Contains("SCOREBOARD="))
                         {
-                            Program.CreateScoreBoard = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.CreateScoreBoard = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             switch (Program.CreateScoreBoard)
                             {
                                 case 0:
@@ -4902,18 +4902,18 @@ namespace ClubCompFS
                                     break;
                             }
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("SCOREBOARD DELAY="))
+                        if (Strings.UCase(str2).Contains("SCOREBOARD DELAY="))
                         {
-                            Program.ScoreBoardDelay = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.ScoreBoardDelay = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             int pageLeftMargin = Program.Page_Left_Margin;
                             if (pageLeftMargin < 0 || pageLeftMargin > 60)
                                 Program.ScoreBoardDelay = 0;
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("PORT_NO="))
-                            Program.PortNo = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("PING CLIENTS="))
+                        if (Strings.UCase(str2).Contains("PORT_NO="))
+                            Program.PortNo = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
+                        if (Strings.UCase(str2).Contains("PING CLIENTS="))
                         {
-                            Program.PingClients = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.PingClients = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             switch (Program.PingClients)
                             {
                                 case 0:
@@ -4924,77 +4924,77 @@ namespace ClubCompFS
                                     break;
                             }
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("PING TIMEOUT="))
+                        if (Strings.UCase(str2).Contains("PING TIMEOUT="))
                         {
-                            Program.PingTimeout = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.PingTimeout = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             if (Program.PingTimeout < 500 & Program.PingTimeout > 1500)
                                 Program.PingTimeout = 1000;
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("PAGE SIZE="))
+                        if (Strings.UCase(str2).Contains("PAGE SIZE="))
                         {
-                            Program.Page_Size = (double)Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.Page_Size = (double)Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             double pageSize = Program.Page_Size;
                             if (pageSize < 75.0 || pageSize > 125.0)
                                 Program.Page_Size = 100.0;
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("LEFT MARGIN="))
+                        if (Strings.UCase(str2).Contains("LEFT MARGIN="))
                         {
-                            Program.Page_Left_Margin = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.Page_Left_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             int pageLeftMargin = Program.Page_Left_Margin;
                             if (pageLeftMargin < 0 || pageLeftMargin > 100)
                                 Program.Page_Left_Margin = 40;
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("TOP MARGIN="))
+                        if (Strings.UCase(str2).Contains("TOP MARGIN="))
                         {
-                            Program.Page_Top_Margin = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                            Program.Page_Top_Margin = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                             int pageTopMargin = Program.Page_Top_Margin;
                             if (pageTopMargin < 0 || pageTopMargin > 100)
                                 Program.Page_Top_Margin = 60;
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO1="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO1="))
                         {
-                            string str3 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[1] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str3, 1));
-                            Program.JudgeCompFunc[1] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str3, 1));
+                            string str3 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[1] = Conversions.ToInteger(Strings.Left(str3, 1));
+                            Program.JudgeCompFunc[1] = Conversions.ToInteger(Strings.Right(str3, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO2="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO2="))
                         {
-                            string str4 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[2] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str4, 1));
-                            Program.JudgeCompFunc[2] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str4, 1));
+                            string str4 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[2] = Conversions.ToInteger(Strings.Left(str4, 1));
+                            Program.JudgeCompFunc[2] = Conversions.ToInteger(Strings.Right(str4, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO3="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO3="))
                         {
-                            string str5 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[3] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str5, 1));
-                            Program.JudgeCompFunc[3] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str5, 1));
+                            string str5 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[3] = Conversions.ToInteger(Strings.Left(str5, 1));
+                            Program.JudgeCompFunc[3] = Conversions.ToInteger(Strings.Right(str5, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO4="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO4="))
                         {
-                            string str6 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[4] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str6, 1));
-                            Program.JudgeCompFunc[4] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str6, 1));
+                            string str6 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[4] = Conversions.ToInteger(Strings.Left(str6, 1));
+                            Program.JudgeCompFunc[4] = Conversions.ToInteger(Strings.Right(str6, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO5="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO5="))
                         {
-                            string str7 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[5] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str7, 1));
-                            Program.JudgeCompFunc[5] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str7, 1));
+                            string str7 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[5] = Conversions.ToInteger(Strings.Left(str7, 1));
+                            Program.JudgeCompFunc[5] = Conversions.ToInteger(Strings.Right(str7, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO6="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO6="))
                         {
-                            string str8 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[6] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str8, 1));
-                            Program.JudgeCompFunc[6] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str8, 1));
+                            string str8 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[6] = Conversions.ToInteger(Strings.Left(str8, 1));
+                            Program.JudgeCompFunc[6] = Conversions.ToInteger(Strings.Right(str8, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("COMPUTERNO7="))
+                        if (Strings.UCase(str2).Contains("COMPUTERNO7="))
                         {
-                            string str9 = Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]);
-                            Program.JudgeCompNo[7] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Left(str9, 1));
-                            Program.JudgeCompFunc[7] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(str9, 1));
+                            string str9 = Strings.Trim(str2.Split('=')[1]);
+                            Program.JudgeCompNo[7] = Conversions.ToInteger(Strings.Left(str9, 1));
+                            Program.JudgeCompFunc[7] = Conversions.ToInteger(Strings.Right(str9, 1));
                         }
-                        if (Microsoft.VisualBasic.Strings.UCase(str2).Contains("ADJUSTTOSCREEN="))
-                            Program.AdjustToScreen = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Trim(str2.Split('=')[1]));
+                        if (Strings.UCase(str2).Contains("ADJUSTTOSCREEN="))
+                            Program.AdjustToScreen = Conversions.ToInteger(Strings.Trim(str2.Split('=')[1]));
                     }
                 }
                 flag = true;
@@ -5045,48 +5045,48 @@ namespace ClubCompFS
                 streamWriter.Write("'\r\n");
                 streamWriter.Write("Comp_folder= " + Program.PathCompFile + "\r\n");
                 streamWriter.Write("Results_folder= " + Program.PathResultsFile + "\r\n");
-                streamWriter.Write("ResultsPhone= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.CreateResultsPhone)) + "\r\n");
-                streamWriter.Write("TEScores= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.CreateTEScores)) + "\r\n");
+                streamWriter.Write("ResultsPhone= " + Strings.Trim(Conversions.ToString(Program.CreateResultsPhone)) + "\r\n");
+                streamWriter.Write("TEScores= " + Strings.Trim(Conversions.ToString(Program.CreateTEScores)) + "\r\n");
                 streamWriter.Write("'\r\n");
                 streamWriter.Write("WarmUpTime= " + Program.WarmUpTime + "\r\n");
                 streamWriter.Write("IceLeaveTime= " + Program.IceLeaveTime + "\r\n");
                 streamWriter.Write("ResurfacingTime= " + Program.ResurfacingTime + "\r\n");
                 streamWriter.Write("LunchTime= " + Program.LunchTime + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("SHOW_JUDGE_DED= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.ShowJudgeDed)) + "\r\n");
+                streamWriter.Write("SHOW_JUDGE_DED= " + Strings.Trim(Conversions.ToString(Program.ShowJudgeDed)) + "\r\n");
                 streamWriter.Write("'\r\n");
                 switch (Program.NoJudgeTMV)
                 {
                     case 0:
                     case 9:
-                        streamWriter.Write("TRIMMED_MV= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(0)) + "\r\n");
+                        streamWriter.Write("TRIMMED_MV= " + Strings.Trim(Conversions.ToString(0)) + "\r\n");
                         break;
                     default:
-                        streamWriter.Write("TRIMMED_MV= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.NoJudgeTMV)) + "\r\n");
+                        streamWriter.Write("TRIMMED_MV= " + Strings.Trim(Conversions.ToString(Program.NoJudgeTMV)) + "\r\n");
                         break;
                 }
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("SCOREBOARD= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.CreateScoreBoard)) + "\r\n");
-                streamWriter.Write("SCOREBOARD DELAY= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.ScoreBoardDelay)) + "\r\n");
+                streamWriter.Write("SCOREBOARD= " + Strings.Trim(Conversions.ToString(Program.CreateScoreBoard)) + "\r\n");
+                streamWriter.Write("SCOREBOARD DELAY= " + Strings.Trim(Conversions.ToString(Program.ScoreBoardDelay)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("Port_No= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.PortNo)) + "\r\n");
-                streamWriter.Write("Ping Clients= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.PingClients)) + "\r\n");
-                streamWriter.Write("Ping Timeout= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.PingTimeout)) + "\r\n");
+                streamWriter.Write("Port_No= " + Strings.Trim(Conversions.ToString(Program.PortNo)) + "\r\n");
+                streamWriter.Write("Ping Clients= " + Strings.Trim(Conversions.ToString(Program.PingClients)) + "\r\n");
+                streamWriter.Write("Ping Timeout= " + Strings.Trim(Conversions.ToString(Program.PingTimeout)) + "\r\n");
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("Page Size= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.Page_Size)) + "\r\n");
-                streamWriter.Write("Left Margin= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.Page_Left_Margin)) + "\r\n");
-                streamWriter.Write("Top Margin= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.Page_Top_Margin)) + "\r\n");
+                streamWriter.Write("Page Size= " + Strings.Trim(Conversions.ToString(Program.Page_Size)) + "\r\n");
+                streamWriter.Write("Left Margin= " + Strings.Trim(Conversions.ToString(Program.Page_Left_Margin)) + "\r\n");
+                streamWriter.Write("Top Margin= " + Strings.Trim(Conversions.ToString(Program.Page_Top_Margin)) + "\r\n");
                 streamWriter.Write("'\r\n");
                 streamWriter.Write("' Setup of the Judges Computers, Judge no ; Function\r\n");
                 int index = 1;
                 do
                 {
-                    streamWriter.Write("ComputerNo" + Conversions.ToString(index) + "=" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.JudgeCompNo[index])) + ";" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.JudgeCompFunc[index])) + "\r\n");
+                    streamWriter.Write("ComputerNo" + Conversions.ToString(index) + "=" + Strings.Trim(Conversions.ToString(Program.JudgeCompNo[index])) + ";" + Strings.Trim(Conversions.ToString(Program.JudgeCompFunc[index])) + "\r\n");
                     checked { ++index; }
                 }
                 while (index <= 7);
                 streamWriter.Write("'\r\n");
-                streamWriter.Write("AdjustToScreen= " + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.AdjustToScreen)) + "\r\n");
+                streamWriter.Write("AdjustToScreen= " + Strings.Trim(Conversions.ToString(Program.AdjustToScreen)) + "\r\n");
                 streamWriter.Close();
                 streamWriter.Dispose();
                 goto label_12;
@@ -5608,7 +5608,7 @@ namespace ClubCompFS
                             break;
                     }
                 }
-                string str5 = Microsoft.VisualBasic.Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
+                string str5 = Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
                 streamWriter.Write("<tr>\r\n");
                 string str6 = "<b>" + str5 + "</b>";
                 string str7 = "<td align='center' width='480'><font size='3'" + str2 + ">" + str6 + "</td>";
@@ -5638,7 +5638,7 @@ namespace ClubCompFS
                         while (index2 <= num4)
                         {
                             string str8 = Conversions.ToString(objArray2[index1, index2]);
-                            if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index1, index2])) < 1)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index1, index2])) < 1)
                                 str8 = "&nbsp;";
                             string str9 = "<b>" + str8 + "</b>";
                             string str10 = "<td align='left' width=" + strArray[index2] + "><font size='3'" + str2 + ">" + str9 + "</td>";
@@ -5831,11 +5831,11 @@ namespace ClubCompFS
                                 case 3:
                                 case 4:
                                 case 5:
-                                    str11 = Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.00");
+                                    str11 = Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.00");
                                     break;
                                 case 6:
                                 case 7:
-                                    str11 = Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.0");
+                                    str11 = Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.0");
                                     break;
                                 default:
                                     str11 = Conversions.ToString(objArray2[index3, index4]);
@@ -5861,7 +5861,7 @@ namespace ClubCompFS
                                 str12 = " align='left'";
                                 break;
                         }
-                        if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index3, index4])) < 1)
+                        if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index3, index4])) < 1)
                             str11 = "&nbsp;";
                         string str13 = "<b>" + str11 + "</b>";
                         string str14 = " width=" + strArray1[index4];
@@ -5890,8 +5890,8 @@ namespace ClubCompFS
                 int index6 = 1;
                 while (index6 <= num7)
                 {
-                    string str16 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) ? Conversions.ToString(objArray2[index5, index6]) : (index6 != 2 ? Conversions.ToString(objArray2[index5, index6]) : Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index5, index6]), "#0.00"));
-                    if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) < 1)
+                    string str16 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) ? Conversions.ToString(objArray2[index5, index6]) : (index6 != 2 ? Conversions.ToString(objArray2[index5, index6]) : Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index5, index6]), "#0.00"));
+                    if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) < 1)
                         str16 = "&nbsp;";
                     string str17 = "<b>" + str16 + "</b>";
                     string str18 = "<td align='left' width=" + strArray2[index6] + "><font size='3'" + str2 + ">" + str17 + "</td>";
@@ -5947,7 +5947,7 @@ namespace ClubCompFS
                         while (index9 <= num10)
                         {
                             string str19 = Conversions.ToString(objArray2[index8, index9]);
-                            if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index8, index9])) < 1)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index8, index9])) < 1)
                                 str19 = "&nbsp;";
                             string str20 = "<b>" + str19 + "</b>";
                             string str21 = "<td align='left' width=" + strArray3[index9] + "><font size='3'" + str2 + ">" + str20 + "</td>";
@@ -6042,7 +6042,7 @@ namespace ClubCompFS
                             break;
                     }
                 }
-                string str5 = Microsoft.VisualBasic.Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
+                string str5 = Strings.UCase(Program.GetCat() + ", " + Program.GetSegTxt(Program.Segment));
                 streamWriter.Write("<tr>\r\n");
                 string str6 = "<b>" + str5 + "</b>";
                 string str7 = "<td align='center' width='410'><font size='3'" + str2 + ">" + str6 + "</td>";
@@ -6069,7 +6069,7 @@ namespace ClubCompFS
                         while (index2 <= num4)
                         {
                             string str8 = Conversions.ToString(objArray2[index1, index2]);
-                            if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index1, index2])) < 1)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index1, index2])) < 1)
                                 str8 = "&nbsp;";
                             string str9 = "<b>" + str8 + "</b>";
                             string str10 = "<td align='left' width=" + strArray[index2] + "><font size='3'" + str2 + ">" + str9 + "</td>";
@@ -6261,11 +6261,11 @@ namespace ClubCompFS
                                 case 3:
                                 case 4:
                                 case 5:
-                                    str11 = Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.00");
+                                    str11 = Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.00");
                                     break;
                                 case 6:
                                 case 7:
-                                    str11 = Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.0");
+                                    str11 = Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index3, index4]), "#0.0");
                                     break;
                                 default:
                                     str11 = Conversions.ToString(objArray2[index3, index4]);
@@ -6291,7 +6291,7 @@ namespace ClubCompFS
                                 str12 = " align='left'";
                                 break;
                         }
-                        if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index3, index4])) < 1)
+                        if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index3, index4])) < 1)
                             str11 = "&nbsp;";
                         string str13 = "<b>" + str11 + "</b>";
                         string str14 = " width=" + strArray1[index4];
@@ -6319,8 +6319,8 @@ namespace ClubCompFS
                 int index6 = 1;
                 while (index6 <= num7)
                 {
-                    string str16 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) ? Conversions.ToString(objArray2[index5, index6]) : (index6 != 2 ? Conversions.ToString(objArray2[index5, index6]) : Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index5, index6]), "#0.00"));
-                    if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) < 1)
+                    string str16 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) ? Conversions.ToString(objArray2[index5, index6]) : (index6 != 2 ? Conversions.ToString(objArray2[index5, index6]) : Strings.Format(RuntimeHelpers.GetObjectValue(objArray2[index5, index6]), "#0.00"));
+                    if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index5, index6])) < 1)
                         str16 = "&nbsp;";
                     string str17 = "<b>" + str16 + "</b>";
                     string str18 = "<td align='left' width=" + strArray2[index6] + "><font size='3'" + str2 + ">" + str17 + "</td>";
@@ -6374,7 +6374,7 @@ namespace ClubCompFS
                         while (index9 <= num10)
                         {
                             string str19 = Conversions.ToString(objArray2[index8, index9]);
-                            if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index8, index9])) < 1)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(objArray2[index8, index9])) < 1)
                                 str19 = "&nbsp;";
                             string str20 = "<b>" + str19 + "</b>";
                             string str21 = "<td align='left' width=" + strArray3[index9] + "><font size='3'" + str2 + ">" + str20 + "</td>";
@@ -6950,7 +6950,7 @@ namespace ClubCompFS
                                         }
                                         while (index <= 6);
                                         num3 = 44;
-                                        if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
+                                        if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
                                         {
                                             num3 = 45;
                                             Program.TArrNext[row, 3] = (object)"WARM UP";
@@ -7031,7 +7031,7 @@ namespace ClubCompFS
                                                 }
                                                 while (index <= 6);
                                                 num3 = 83;
-                                                if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
+                                                if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
                                                 {
                                                     num3 = 84;
                                                     Program.TArrNext[row, 3] = (object)"WARM UP";
@@ -7101,7 +7101,7 @@ namespace ClubCompFS
                                                     }
                                                     while (index <= 6);
                                                     num3 = 115;
-                                                    if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
+                                                    if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[row, 3])) < 1)
                                                     {
                                                         num3 = 116;
                                                         Program.TArrNext[row, 3] = (object)"WARM UP";
@@ -7298,11 +7298,11 @@ namespace ClubCompFS
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
                 if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
-                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
                 else
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Program.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
-                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Program.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
                 if (Program.Bonus_Sel(Program.Segment))
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[9] + "><font size='3'><b>"), Program.TArrLive[1, 9]), (object)"</b>"), (object)"</td>"), (object)"\r\n"));
@@ -7331,11 +7331,11 @@ namespace ClubCompFS
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
                     if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
-                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
+                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
                     else
                         streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Program.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
-                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
                     streamWriter.Write("</table><br />\r\n");
                 }
                 if (Program.TNop > 0)
@@ -7393,9 +7393,9 @@ namespace ClubCompFS
                         int index3 = 2;
                         while (index3 <= num4)
                         {
-                            string str1 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5])) ? Conversions.ToString(Program.TArrResult[index3, 5]) : Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5]), "0.00");
+                            string str1 = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5])) ? Conversions.ToString(Program.TArrResult[index3, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index3, 5]), "0.00");
                             streamWriter.Write("<tr>\r\n");
-                            string str2 = Operators.CompareString(Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(StNo)), Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.TArrResult[index3, 2])), false) != 0 ? "" : BC;
+                            string str2 = Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Program.TArrResult[index3, 2])), false) != 0 ? "" : BC;
                             streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[1] + "><font size='3'>"), Program.TArrResult[index3, 1]), (object)"</td>"), (object)"\r\n"));
                             streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[2] + "><font size='3'>"), Program.TArrResult[index3, 2]), (object)"</td>"), (object)"\r\n"));
                             streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + str2 + strArray2[3] + "><font size='3'>"), Program.TArrResult[index3, 3]), (object)"</td>"), (object)"\r\n"));
@@ -7434,7 +7434,7 @@ namespace ClubCompFS
                         int index4 = 2;
                         while (index4 <= num5)
                         {
-                            if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 1])) > 0 | Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 3])) > 0)
+                            if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index4, 3])) > 0)
                             {
                                 streamWriter.Write("<tr>\r\n");
                                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Program.TArrNext[index4, 1]), (object)"</td>"), (object)"\r\n"));
@@ -7563,10 +7563,10 @@ namespace ClubCompFS
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[2] + "><font size='3'>"), Program.TArrLive[1, 2]), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[1, 3]), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[1, 4]), (object)"</td>"), (object)"\r\n"));
-                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
-                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 6]), "#0.00") + "</td>\r\n");
+                streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 7]), "#0.00") + "</td>\r\n");
                 if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
-                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5]), "#0.00") + "</td>\r\n");
                 else
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[6] + "><font size='3'>"), Program.TArrLive[1, 5]), (object)"</td>"), (object)"\r\n"));
                 streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[8] + "><font size='3'>"), Program.TArrLive[1, 8]), (object)"</td>"), (object)"\r\n"));
@@ -7597,11 +7597,11 @@ namespace ClubCompFS
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[3] + "><font size='3'>"), Program.TArrLive[2, 3]), (object)"</td>"), (object)"\r\n"));
                     streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + BC + strArray2[4] + "><font size='3'>"), Program.TArrLive[2, 4]), (object)"</td>"), (object)"\r\n"));
                     if (Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrLive[1, 5])))
-                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
+                        streamWriter.Write("<td align='center'" + BC + strArray2[5] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 5]), "#0.00") + "</td>\r\n");
                     else
                         streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='center'" + BC + strArray2[5] + "><font size='3'>"), Program.TArrLive[2, 5]), (object)"</td>"), (object)"\r\n"));
-                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
-                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[6] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 6]), "#0.00") + "</td>\r\n");
+                    streamWriter.Write("<td align='center'" + BC + strArray2[7] + "><font size='3'>" + Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrLive[2, 7]), "#0.00") + "</td>\r\n");
                     streamWriter.Write("</table><br />\r\n");
                 }
                 if (Program.TNop > 0 && rowRemain > 1)
@@ -7618,7 +7618,7 @@ namespace ClubCompFS
                     int index3 = 2;
                     while (index3 <= num4)
                     {
-                        if (Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 1])) > 0 | Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 3])) > 0)
+                        if (Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 1])) > 0 | Strings.Len(RuntimeHelpers.GetObjectValue(Program.TArrNext[index3, 3])) > 0)
                         {
                             streamWriter.Write("<tr>\r\n");
                             streamWriter.Write(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject((object)("<td align='left'" + strArray2[1] + "><font size='3'>"), Program.TArrNext[index3, 1]), (object)"</td>"), (object)"\r\n"));
@@ -7803,9 +7803,9 @@ namespace ClubCompFS
                         int index = 2;
                         while (index <= num3)
                         {
-                            string str = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5])) ? Conversions.ToString(Program.TArrResult[index, 5]) : Microsoft.VisualBasic.Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5]), "0.00");
+                            string str = !Versioned.IsNumeric(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5])) ? Conversions.ToString(Program.TArrResult[index, 5]) : Strings.Format(RuntimeHelpers.GetObjectValue(Program.TArrResult[index, 5]), "0.00");
                             streamWriter.Write("<!-- Skater info -->\r\n");
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(StNo)), Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(Program.TArrResult[index, 2])), false) == 0)
+                            if (Operators.CompareString(Strings.Trim(Conversions.ToString(StNo)), Strings.Trim(Conversions.ToString(Program.TArrResult[index, 2])), false) == 0)
                             {
                                 string Left2 = BC;
                                 if (Operators.CompareString(Left2, " bgcolor='FFFF99'", false) == 0)
@@ -9091,10 +9091,10 @@ namespace ClubCompFS
                 string pathCompFile = Program.PathCompFile;
                 if (Operators.CompareString(pathCompFile, "", false) != 0)
                 {
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.PathCompFile, 1), "\\", false) != 0)
+                    if (Operators.CompareString(Strings.Right(Program.PathCompFile, 1), "\\", false) != 0)
                         pathCompFile += "\\";
                     Path = Program.StrConv(pathCompFile + Program.Competition.Name + "\\html\\");
-                    Path = Microsoft.VisualBasic.Strings.Len(Program.SubCategory) <= 0 ? Program.StrConv(Path + Program.Category.Name) + "\\" : Program.StrConv(Path + Program.Category.Name + "_" + Program.SubCategory) + "\\";
+                    Path = Strings.Len(Program.SubCategory) <= 0 ? Program.StrConv(Path + Program.Category.Name) + "\\" : Program.StrConv(Path + Program.Category.Name + "_" + Program.SubCategory) + "\\";
                     if (!MyProject.Computer.FileSystem.DirectoryExists(Path))
                     {
                         if (Interaction.MsgBox((object)("The folder:\r\n" + Path + "\r\ndoes not exist!\r\nDo you want to create it?"), MsgBoxStyle.YesNo | MsgBoxStyle.DefaultButton2 | MsgBoxStyle.SystemModal, (object)"Susanne SW") != MsgBoxResult.Yes)
@@ -9109,13 +9109,13 @@ namespace ClubCompFS
                             int Length;
                             do
                             {
-                                Length = Microsoft.VisualBasic.Strings.InStr(Start, Path, "\\");
-                                string str = Microsoft.VisualBasic.Strings.Left(Path, Length);
+                                Length = Strings.InStr(Start, Path, "\\");
+                                string str = Strings.Left(Path, Length);
                                 if (Length > Start & !MyProject.Computer.FileSystem.DirectoryExists(str))
                                     FileSystem.MkDir(str);
                                 Start = checked(Length + 1);
                             }
-                            while (!(Length == 0 | Start > Microsoft.VisualBasic.Strings.Len(Path)));
+                            while (!(Length == 0 | Start > Strings.Len(Path)));
                             flag = true;
                             goto label_17;
                         }
@@ -9156,7 +9156,7 @@ namespace ClubCompFS
                 if (Operators.CompareString(Left, "Segment_1", false) == 0 || Operators.CompareString(Left, "Segment_2", false) == 0 || Operators.CompareString(Left, "Final", false) == 0 || Operators.CompareString(Left, "HeadPage", false) == 0)
                 {
                     string str;
-                    if (Microsoft.VisualBasic.Strings.Len(Program.SubCategory) > 0)
+                    if (Strings.Len(Program.SubCategory) > 0)
                         str = Program.Category.Name + "_" + Program.StrConv3(Program.SubCategory) + "_" + par;
                     else
                         str = Program.Category.Name + "_" + par;
@@ -9164,7 +9164,7 @@ namespace ClubCompFS
                 }
                 else if (Operators.CompareString(Left, "", false) == 0)
                 {
-                    string str = Microsoft.VisualBasic.Strings.Len(Program.SubCategory) <= 0 ? Program.Category.Name : Program.Category.Name + "_" + Program.StrConv3(Program.SubCategory);
+                    string str = Strings.Len(Program.SubCategory) <= 0 ? Program.Category.Name : Program.Category.Name + "_" + Program.StrConv3(Program.SubCategory);
                     Path1 += str;
                 }
                 Path = Program.StrConv(Path1);
@@ -9183,16 +9183,16 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 1;
                 txt1 = (string)null;
-                int num3 = Microsoft.VisualBasic.Strings.Len(txt);
+                int num3 = Strings.Len(txt);
                 int Start = 1;
                 while (Start <= num3)
                 {
-                    string Left = Microsoft.VisualBasic.Strings.Mid(txt, Start, 1);
+                    string Left = Strings.Mid(txt, Start, 1);
                     if (Operators.CompareString(Left, "&", false) == 0 || Operators.CompareString(Left, "<", false) == 0 || Operators.CompareString(Left, ">", false) == 0 || Operators.CompareString(Left, ";", false) == 0)
                         ++Start;
                     else if (Operators.CompareString(Left, " ", false) != 0)
                     {
-                        txt1 += Microsoft.VisualBasic.Strings.Mid(txt, Start, 1);
+                        txt1 += Strings.Mid(txt, Start, 1);
                         ++Start;
                     }
                     else
@@ -9230,12 +9230,12 @@ namespace ClubCompFS
                 int num3 = 2;
                 flag = true;
                 num3 = 3;
-                int Length = Microsoft.VisualBasic.Strings.InStr(1, txt, "_-");
+                int Length = Strings.InStr(1, txt, "_-");
                 num3 = 4;
-                if (Length > 1 & checked(Microsoft.VisualBasic.Strings.Len(txt) - Length - 1) > 0)
+                if (Length > 1 & checked(Strings.Len(txt) - Length - 1) > 0)
                 {
                     num3 = 5;
-                    txt = Microsoft.VisualBasic.Strings.Left(txt, Length) + Microsoft.VisualBasic.Strings.Right(txt, checked(Microsoft.VisualBasic.Strings.Len(txt) - Length - 1));
+                    txt = Strings.Left(txt, Length) + Strings.Right(txt, checked(Strings.Len(txt) - Length - 1));
                     num3 = 6;
                     flag = false;
                 }
@@ -9263,12 +9263,12 @@ namespace ClubCompFS
                 int num3 = 2;
                 flag = true;
                 num3 = 3;
-                int Length = Microsoft.VisualBasic.Strings.InStr(1, txt, "__");
+                int Length = Strings.InStr(1, txt, "__");
                 num3 = 4;
-                if (Length > 1 & checked(Microsoft.VisualBasic.Strings.Len(txt) - Length - 1) > 0)
+                if (Length > 1 & checked(Strings.Len(txt) - Length - 1) > 0)
                 {
                     num3 = 5;
-                    txt = Microsoft.VisualBasic.Strings.Left(txt, Length) + Microsoft.VisualBasic.Strings.Right(txt, checked(Microsoft.VisualBasic.Strings.Len(txt) - Length - 1));
+                    txt = Strings.Left(txt, Length) + Strings.Right(txt, checked(Strings.Len(txt) - Length - 1));
                     num3 = 6;
                     flag = false;
                 }
@@ -9296,12 +9296,12 @@ namespace ClubCompFS
                 int num3 = 2;
                 str1 = (string)null;
                 num3 = 3;
-                int num4 = Microsoft.VisualBasic.Strings.Len(txt);
+                int num4 = Strings.Len(txt);
                 int Start = 1;
                 while (Start <= num4)
                 {
                     num3 = 4;
-                    string Left = Microsoft.VisualBasic.Strings.Mid(txt, Start, 1);
+                    string Left = Strings.Mid(txt, Start, 1);
                     num3 = 7;
                     if (Operators.CompareString(Left, "\\", false) == 0)
                     {
@@ -9327,7 +9327,7 @@ namespace ClubCompFS
                             else
                             {
                                 num3 = 17;
-                                str1 += Microsoft.VisualBasic.Strings.Mid(txt, Start, 1);
+                                str1 += Strings.Mid(txt, Start, 1);
                             }
                         }
                     }
@@ -9370,7 +9370,7 @@ namespace ClubCompFS
                     while (index3 <= num6)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.UCase(Program.Vek[index3].Name.LName), Microsoft.VisualBasic.Strings.UCase(participant.Name.LName), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Name.LName), Strings.UCase(participant.Name.LName), false) < 0)
                         {
                             num3 = 7;
                             participant = Program.Vek[index3];
@@ -9397,7 +9397,7 @@ namespace ClubCompFS
                 while (index4 <= num7)
                 {
                     num3 = 17;
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.UCase(Program.Vek[index4].Name.LName), Microsoft.VisualBasic.Strings.UCase(Program.Vek[checked(index4 + 1)].Name.LName), false) == 0)
+                    if (Operators.CompareString(Strings.UCase(Program.Vek[index4].Name.LName), Strings.UCase(Program.Vek[checked(index4 + 1)].Name.LName), false) == 0)
                     {
                         num3 = 18;
                         if (StartIndex == 0)
@@ -9466,7 +9466,7 @@ namespace ClubCompFS
                     while (index3 <= num7)
                     {
                         num3 = 6;
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.UCase(Program.Vek[index3].Name.FName), Microsoft.VisualBasic.Strings.UCase(participant.Name.FName), false) < 0)
+                        if (Operators.CompareString(Strings.UCase(Program.Vek[index3].Name.FName), Strings.UCase(participant.Name.FName), false) < 0)
                         {
                             num3 = 7;
                             participant = Program.Vek[index3];
@@ -9497,7 +9497,7 @@ namespace ClubCompFS
         {
             DataGridView dataGridView1 = MyProject.Forms.StartListForm.DataGridView1;
             int index = 0;
-            while (!(Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[0].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[1].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[2].Value)) == 0 & Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[3].Value)) == 0))
+            while (!(Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[0].Value)) == 0 & Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[1].Value)) == 0 & Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[2].Value)) == 0 & Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[index].Cells[3].Value)) == 0))
             {
                 checked { ++index; }
                 if (index > 41)
@@ -9542,7 +9542,7 @@ namespace ClubCompFS
         {
             Program.Competition.Name = MyProject.Forms.MainForm.txtCompetitionName.Text;
             bool flag;
-            if (Microsoft.VisualBasic.Strings.Len(Program.Category.Name) < 1 | Microsoft.VisualBasic.Strings.Len(Program.Competition.Name) < 1 | Program.PcIndex < 0)
+            if (Strings.Len(Program.Category.Name) < 1 | Strings.Len(Program.Competition.Name) < 1 | Program.PcIndex < 0)
             {
                 flag = false;
                 int num = (int)Interaction.MsgBox((object)"Please load a Competition-DB or\r\nselect a Category, input the Name\r\nof the Competition etc!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
@@ -9848,12 +9848,12 @@ namespace ClubCompFS
         public static string GetPath(string pathfile)
         {
             int Length = pathfile.LastIndexOf("\\");
-            return Microsoft.VisualBasic.Strings.Left(pathfile, Length);
+            return Strings.Left(pathfile, Length);
         }
 
-        public static string DateTimeToStr(DateTime Datum) => Microsoft.VisualBasic.Strings.Format((object)Datum, "Short Date") + ", " + Microsoft.VisualBasic.Strings.Format((object)Datum, "Long Time");
+        public static string DateTimeToStr(DateTime Datum) => Strings.Format((object)Datum, "Short Date") + ", " + Strings.Format((object)Datum, "Long Time");
 
-        public static string FormShortDate(DateTime Datum) => Microsoft.VisualBasic.Strings.Format((object)Datum, "Short Date");
+        public static string FormShortDate(DateTime Datum) => Strings.Format((object)Datum, "Short Date");
 
         public struct DateType
         {

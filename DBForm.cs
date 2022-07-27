@@ -436,7 +436,7 @@ namespace ClubCompFS
             dataGridView1.Columns[13].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.Columns[14].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             int index1 = 0;
-            while (Microsoft.VisualBasic.Strings.Len(Program.OpenDB[index1].Category) > 2)
+            while (Strings.Len(Program.OpenDB[index1].Category) > 2)
             {
                 dataGridView1.Rows[index1].Cells[0].Value = (object)Program.OpenDB[index1].Category;
                 dataGridView1.Rows[index1].Cells[1].Value = (object)Program.OpenDB[index1].Segment_1;
@@ -795,7 +795,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
 
-        public string DateToStr(DateTime Datum) => Microsoft.VisualBasic.Strings.Format((object)Datum, "Short Date");
+        public string DateToStr(DateTime Datum) => Strings.Format((object)Datum, "Short Date");
 
         public string Get_Cell(int index, int col) => Conversions.ToString(this.DataGridView1.Rows[index].Cells[col].Value);
 

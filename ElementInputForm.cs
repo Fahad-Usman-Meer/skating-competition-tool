@@ -4956,25 +4956,25 @@ namespace ClubCompFS
                 do
                 {
                     string str = Program.OpArr[ind].element;
-                    if (Microsoft.VisualBasic.Strings.Len(str) != 0)
+                    if (Strings.Len(str) != 0)
                     {
-                        if (Microsoft.VisualBasic.Strings.InStr(1, str, "+COMBO", CompareMethod.Text) > 0)
-                            str = Microsoft.VisualBasic.Strings.Replace(str, "+COMBO", "");
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str, "+SEQ", CompareMethod.Text) > 0)
+                        if (Strings.InStr(1, str, "+COMBO", CompareMethod.Text) > 0)
+                            str = Strings.Replace(str, "+COMBO", "");
+                        else if (Strings.InStr(1, str, "+SEQ", CompareMethod.Text) > 0)
                         {
-                            this.FindAxelEl(Microsoft.VisualBasic.Strings.Replace(str, "+SEQ", ""), ind, ref Axel);
+                            this.FindAxelEl(Strings.Replace(str, "+SEQ", ""), ind, ref Axel);
                             goto label_14;
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str, "+REP", CompareMethod.Text) > 0)
+                        else if (Strings.InStr(1, str, "+REP", CompareMethod.Text) > 0)
                         {
-                            this.FindAxelEl(Microsoft.VisualBasic.Strings.Replace(str, "+REP", ""), ind, ref Axel);
+                            this.FindAxelEl(Strings.Replace(str, "+REP", ""), ind, ref Axel);
                             goto label_14;
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(2, str, "Sp", CompareMethod.Text) > 1)
+                        else if (Strings.InStr(2, str, "Sp", CompareMethod.Text) > 1)
                             goto label_14;
-                        if (Microsoft.VisualBasic.Strings.InStr(1, str, "+", CompareMethod.Text) > 0)
+                        if (Strings.InStr(1, str, "+", CompareMethod.Text) > 0)
                             this.FindAxelEl(str, ind, ref Axel);
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str, "+", CompareMethod.Text) == 0 & Microsoft.VisualBasic.Strings.Len(str) >= 1)
+                        else if (Strings.InStr(1, str, "+", CompareMethod.Text) == 0 & Strings.Len(str) >= 1)
                             this.FindAxelEl(str, ind, ref Axel);
                     }
                     label_14:
@@ -5026,11 +5026,11 @@ namespace ClubCompFS
                 int index = 0;
                 while (index <= num5)
                 {
-                    string str = Operators.CompareString(Microsoft.VisualBasic.Strings.Right(strArray[index], 1), "*", false) != 0 ? strArray[index] : Microsoft.VisualBasic.Strings.Trim(strArray[index].Replace("*", ""));
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "e", false) == 0)
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("e", ""));
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "<", false) == 0)
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("<", ""));
+                    string str = Operators.CompareString(Strings.Right(strArray[index], 1), "*", false) != 0 ? strArray[index] : Strings.Trim(strArray[index].Replace("*", ""));
+                    if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
+                        str = Strings.Trim(str.Replace("e", ""));
+                    if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
+                        str = Strings.Trim(str.Replace("<", ""));
                     string Left = str;
                     if (Operators.CompareString(Left, "A", false) == 0 || Operators.CompareString(Left, "1A", false) == 0 || Operators.CompareString(Left, "2A", false) == 0 || Operators.CompareString(Left, "3A", false) == 0 || Operators.CompareString(Left, "4A", false) == 0)
                         Axel = true;
@@ -5090,24 +5090,24 @@ namespace ClubCompFS
                 do
                 {
                     string str1 = Program.OpArr[ind].element;
-                    if (Microsoft.VisualBasic.Strings.Len(str1) != 0 && !(Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str1, 1), "*", false) == 0 & !str1.Contains("+")))
+                    if (Strings.Len(str1) != 0 && !(Operators.CompareString(Strings.Right(str1, 1), "*", false) == 0 & !str1.Contains("+")))
                     {
                         int NoOfAst = 0;
-                        if (Microsoft.VisualBasic.Strings.InStr(1, str1, "+COMBO", CompareMethod.Text) > 0)
+                        if (Strings.InStr(1, str1, "+COMBO", CompareMethod.Text) > 0)
                         {
-                            Microsoft.VisualBasic.Strings.InStr(1, str1, "+COMBO", CompareMethod.Text);
-                            str1 = Microsoft.VisualBasic.Strings.Replace(str1, "+COMBO", "");
-                            if (Microsoft.VisualBasic.Strings.InStr(str1, "+REP") > 0)
-                                str1 = Microsoft.VisualBasic.Strings.Replace(str1, "+REP", "");
+                            Strings.InStr(1, str1, "+COMBO", CompareMethod.Text);
+                            str1 = Strings.Replace(str1, "+COMBO", "");
+                            if (Strings.InStr(str1, "+REP") > 0)
+                                str1 = Strings.Replace(str1, "+REP", "");
                             if (!str1.Contains("+"))
                                 checked { ++index1; }
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str1, "+SEQ", CompareMethod.Text) > 0)
+                        else if (Strings.InStr(1, str1, "+SEQ", CompareMethod.Text) > 0)
                         {
-                            Microsoft.VisualBasic.Strings.InStr(1, str1, "+SEQ", CompareMethod.Text);
-                            string str2 = Microsoft.VisualBasic.Strings.Replace(str1, "+SEQ", "");
-                            if (Microsoft.VisualBasic.Strings.InStr(str2, "+REP") > 0)
-                                str2 = Microsoft.VisualBasic.Strings.Replace(str2, "+REP", "");
+                            Strings.InStr(1, str1, "+SEQ", CompareMethod.Text);
+                            string str2 = Strings.Replace(str1, "+SEQ", "");
+                            if (Strings.InStr(str2, "+REP") > 0)
+                                str2 = Strings.Replace(str2, "+REP", "");
                             int Eno = 0;
                             this.FindJumpEl(str2, ind, ref Eno, ref Jnr, ref Jump, ref NoOfAst);
                             if (Eno > 0 & Jump)
@@ -5118,11 +5118,11 @@ namespace ClubCompFS
                             else
                                 goto label_39;
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str1, "+REP", CompareMethod.Text) > 0)
+                        else if (Strings.InStr(1, str1, "+REP", CompareMethod.Text) > 0)
                         {
-                            Microsoft.VisualBasic.Strings.InStr(1, str1, "+REP", CompareMethod.Text);
+                            Strings.InStr(1, str1, "+REP", CompareMethod.Text);
                             int Eno = 0;
-                            this.FindJumpEl(Microsoft.VisualBasic.Strings.Replace(str1, "+REP", ""), ind, ref Eno, ref Jnr, ref Jump, ref NoOfAst);
+                            this.FindJumpEl(Strings.Replace(str1, "+REP", ""), ind, ref Eno, ref Jnr, ref Jump, ref NoOfAst);
                             if (Eno > 1 & Jump)
                                 checked { ++index1; }
                             if (Eno == 1)
@@ -5133,7 +5133,7 @@ namespace ClubCompFS
                             else
                                 goto label_39;
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(2, str1, "Sp", CompareMethod.Text) > 1)
+                        else if (Strings.InStr(2, str1, "Sp", CompareMethod.Text) > 1)
                         {
                             string spin = Program.GetSpin(str1);
                             int spinMin = Program.SpinMin;
@@ -5150,7 +5150,7 @@ namespace ClubCompFS
                             }
                             goto label_39;
                         }
-                        if (Microsoft.VisualBasic.Strings.InStr(1, str1, "+", CompareMethod.Text) > 0)
+                        if (Strings.InStr(1, str1, "+", CompareMethod.Text) > 0)
                         {
                             int Eno = 0;
                             this.FindJumpEl(str1, ind, ref Eno, ref Jnr, ref Jump, ref NoOfAst);
@@ -5160,14 +5160,14 @@ namespace ClubCompFS
                                 numArray6[index1] = Eno;
                             }
                         }
-                        else if (Microsoft.VisualBasic.Strings.InStr(1, str1, "+", CompareMethod.Text) == 0 & Microsoft.VisualBasic.Strings.Len(str1) >= 1)
+                        else if (Strings.InStr(1, str1, "+", CompareMethod.Text) == 0 & Strings.Len(str1) >= 1)
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str1, 1), "e", false) == 0)
-                                str1 = Microsoft.VisualBasic.Strings.Trim(str1.Remove(checked(Microsoft.VisualBasic.Strings.Len(str1) - 1)));
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str1, 2), "<<", false) == 0)
-                                str1 = Microsoft.VisualBasic.Strings.Trim(str1.Remove(checked(Microsoft.VisualBasic.Strings.Len(str1) - 2)));
-                            else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str1, 1), "<", false) == 0)
-                                str1 = Microsoft.VisualBasic.Strings.Trim(str1.Remove(checked(Microsoft.VisualBasic.Strings.Len(str1) - 1)));
+                            if (Operators.CompareString(Strings.Right(str1, 1), "e", false) == 0)
+                                str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
+                            if (Operators.CompareString(Strings.Right(str1, 2), "<<", false) == 0)
+                                str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 2)));
+                            else if (Operators.CompareString(Strings.Right(str1, 1), "<", false) == 0)
+                                str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
                             int jumpmin = Program.Jumpmin;
                             int jumpMax = Program.JumpMax;
                             int index3 = jumpmin;
@@ -5197,7 +5197,7 @@ namespace ClubCompFS
                         int index5 = 1;
                         while (index5 <= num7)
                         {
-                            if (Microsoft.VisualBasic.Strings.InStr(1, this.Jarr[index5], "1" + strArray2[index4]) >= 1)
+                            if (Strings.InStr(1, this.Jarr[index5], "1" + strArray2[index4]) >= 1)
                                 numArray4[index4] = checked(numArray4[index4] + 1);
                             checked { ++index5; }
                         }
@@ -5225,7 +5225,7 @@ namespace ClubCompFS
                         int index8 = 1;
                         while (index8 <= num9)
                         {
-                            if (Microsoft.VisualBasic.Strings.InStr(1, this.Jarr[index8], "2" + strArray2[index7]) >= 1)
+                            if (Strings.InStr(1, this.Jarr[index8], "2" + strArray2[index7]) >= 1)
                                 numArray5[index7] = checked(numArray5[index7] + 1);
                             checked { ++index8; }
                         }
@@ -5274,7 +5274,7 @@ namespace ClubCompFS
                     int index11 = 1;
                     while (index11 <= num15)
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(this.Jarr[index11], 1), "*", false) != 0 && !((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index11]))
+                        if (Operators.CompareString(Strings.Right(this.Jarr[index11], 1), "*", false) != 0 && !((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index11]))
                         {
                             int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB[Program.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index11]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             flag = false;
@@ -5326,7 +5326,7 @@ namespace ClubCompFS
                 while (index <= num)
                 {
                     if (!strArray[index].Contains("*"))
-                        Expression = Microsoft.VisualBasic.Strings.Len(Expression) != 0 ? Expression + "+" + strArray[index] : strArray[index];
+                        Expression = Strings.Len(Expression) != 0 ? Expression + "+" + strArray[index] : strArray[index];
                     checked { ++index; }
                 }
             }
@@ -5364,17 +5364,17 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     string str;
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(strArray[index1], 1), "*", false) == 0)
+                    if (Operators.CompareString(Strings.Right(strArray[index1], 1), "*", false) == 0)
                     {
-                        str = Microsoft.VisualBasic.Strings.Trim(strArray[index1].Replace("*", ""));
+                        str = Strings.Trim(strArray[index1].Replace("*", ""));
                         checked { ++NoOfAst; }
                     }
                     else
                         str = strArray[index1];
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "e", false) == 0)
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("e", ""));
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "<", false) == 0)
-                        str = Microsoft.VisualBasic.Strings.Trim(str.Replace("<", ""));
+                    if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
+                        str = Strings.Trim(str.Replace("e", ""));
+                    if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
+                        str = Strings.Trim(str.Replace("<", ""));
                     int jumpmin = Program.Jumpmin;
                     int jumpMax = Program.JumpMax;
                     int index2 = jumpmin;
@@ -5426,7 +5426,7 @@ namespace ClubCompFS
                 int index = 1;
                 do
                 {
-                    if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) > 0 && !Program.TstElPP(Program.OpArr[index].element))
+                    if (Strings.Len(Program.OpArr[index].element) > 0 && !Program.TstElPP(Program.OpArr[index].element))
                     {
                         flag = false;
                         ElNo = index;
@@ -5470,7 +5470,7 @@ namespace ClubCompFS
                     string Right1 = "F" + el;
                     string Right2 = "C" + el;
                     string Right3 = "FC" + el;
-                    if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
@@ -5502,16 +5502,16 @@ namespace ClubCompFS
                     else
                     {
                         this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
-                        int Length = !(Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(ElOut, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(ElOut, 1), "B", false) == 0) ? Microsoft.VisualBasic.Strings.Len(ElOut) : checked(Microsoft.VisualBasic.Strings.Len(ElOut) - 1);
-                        string Left = Microsoft.VisualBasic.Strings.Left(ElOut, Length);
+                        int Length = !(Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0) ? Strings.Len(ElOut) : checked(Strings.Len(ElOut) - 1);
+                        string Left = Strings.Left(ElOut, Length);
                         if (Operators.CompareString(Left, el, false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? el + Lev : el + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? el + Lev : el + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right1, false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? Right1 + Lev : Right1 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right1 + Lev : Right1 + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right2, false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? Right2 + Lev : Right2 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right2 + Lev : Right2 + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, Right3, false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? Right3 + Lev : Right3 + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Right3 + Lev : Right3 + Lev + "+" + txt;
                         else
                             this.WrongEl();
                         this.OpLista(indin, Program.OpArr[index].element);
@@ -5548,7 +5548,7 @@ namespace ClubCompFS
                 if (index > -1)
                 {
                     string str = el + Lev;
-                    if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         // ISSUE: explicit reference operation
                         Program.OpArr[index].element += str;
@@ -5557,8 +5557,8 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        int Length = Microsoft.VisualBasic.Strings.Len(el);
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(Program.OpArr[index].element, Length), el, false) == 0)
+                        int Length = Strings.Len(el);
+                        if (Operators.CompareString(Strings.Left(Program.OpArr[index].element, Length), el, false) == 0)
                         {
                             Program.OpArr[index].element = str;
                             this.OpLista(indin, Program.OpArr[index].element);
@@ -5602,7 +5602,7 @@ namespace ClubCompFS
                 int index = checked(indin + 1);
                 if (index > -1)
                 {
-                    if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         {
@@ -5634,8 +5634,8 @@ namespace ClubCompFS
                     else
                     {
                         this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
-                        int Length = !(Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(ElOut, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(ElOut, 1), "B", false) == 0) ? Microsoft.VisualBasic.Strings.Len(ElOut) : checked(Microsoft.VisualBasic.Strings.Len(ElOut) - 1);
-                        string Left = Microsoft.VisualBasic.Strings.Left(ElOut, Length);
+                        int Length = !(Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0) ? Strings.Len(ElOut) : checked(Strings.Len(ElOut) - 1);
+                        string Left = Strings.Left(ElOut, Length);
                         if (Operators.CompareString(Left, "CoSp", false) == 0)
                             Program.OpArr[index].element = "CoSp" + Lev;
                         else if (Operators.CompareString(Left, "CCoSp", false) == 0)
@@ -5645,21 +5645,21 @@ namespace ClubCompFS
                         else if (Operators.CompareString(Left, "FCCoSp", false) == 0)
                             Program.OpArr[index].element = "FCCoSp" + Lev;
                         else if (Operators.CompareString(Left, "CoSp2p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "CoSp2p" + Lev : "CoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp2p" + Lev : "CoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CoSp3p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "CoSp3p" + Lev : "CoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CoSp3p" + Lev : "CoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCoSp2p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FCoSp2p" + Lev : "FCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp2p" + Lev : "FCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCoSp3p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FCoSp3p" + Lev : "FCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCoSp3p" + Lev : "FCoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CCoSp2p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "CCoSp2p" + Lev : "CCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp2p" + Lev : "CCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "CCoSp3p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "CCoSp3p" + Lev : "CCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "CCoSp3p" + Lev : "CCoSp3p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCCoSp2p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FCCoSp2p" + Lev : "FCCoSp2p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp2p" + Lev : "FCCoSp2p" + Lev + "+" + txt;
                         else if (Operators.CompareString(Left, "FCCoSp3p", false) == 0)
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FCCoSp3p" + Lev : "FCCoSp3p" + Lev + "+" + txt;
+                            Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FCCoSp3p" + Lev : "FCCoSp3p" + Lev + "+" + txt;
                         else
                             this.WrongEl();
                         this.OpLista(indin, Program.OpArr[index].element);
@@ -5820,10 +5820,10 @@ namespace ClubCompFS
                     num3 = 6;
                     this.SpinEl(Program.OpArr[index].element, ref element, ref txt);
                     num3 = 7;
-                    if (Microsoft.VisualBasic.Strings.Len(element) > 0 & this.SeqSpin(element))
+                    if (Strings.Len(element) > 0 & this.SeqSpin(element))
                     {
                         num3 = 8;
-                        string Left1 = Microsoft.VisualBasic.Strings.Right(element, 2);
+                        string Left1 = Strings.Right(element, 2);
                         num3 = 11;
                         if (Operators.CompareString(Left1, "2p", false) == 0 || Operators.CompareString(Left1, "3p", false) == 0)
                         {
@@ -5831,7 +5831,7 @@ namespace ClubCompFS
                             if (this.SeqSpin(element + Lev))
                             {
                                 num3 = 13;
-                                if (Microsoft.VisualBasic.Strings.Len(txt) > 0)
+                                if (Strings.Len(txt) > 0)
                                 {
                                     num3 = 14;
                                     Program.OpArr[index].element = element + Lev + "+" + txt;
@@ -5847,24 +5847,24 @@ namespace ClubCompFS
                         else
                         {
                             num3 = 22;
-                            string Left2 = Microsoft.VisualBasic.Strings.Right(element, 1);
+                            string Left2 = Strings.Right(element, 1);
                             num3 = 25;
                             if (Operators.CompareString(Left2, "B", false) == 0 || Operators.CompareString(Left2, "0", false) == 0 || Operators.CompareString(Left2, "1", false) == 0 || Operators.CompareString(Left2, "2", false) == 0 || Operators.CompareString(Left2, "3", false) == 0 || Operators.CompareString(Left2, "4", false) == 0)
                             {
                                 num3 = 26;
-                                if (this.SeqSpin(Microsoft.VisualBasic.Strings.Left(element, checked(Microsoft.VisualBasic.Strings.Len(element) - 1)) + Lev))
+                                if (this.SeqSpin(Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev))
                                 {
                                     num3 = 27;
-                                    if (Microsoft.VisualBasic.Strings.Len(txt) > 0)
+                                    if (Strings.Len(txt) > 0)
                                     {
                                         num3 = 28;
-                                        Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Left(element, checked(Microsoft.VisualBasic.Strings.Len(element) - 1)) + Lev + txt;
+                                        Program.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev + txt;
                                     }
                                     else
                                     {
                                         num3 = 30;
                                         num3 = 31;
-                                        Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Left(element, checked(Microsoft.VisualBasic.Strings.Len(element) - 1)) + Lev;
+                                        Program.OpArr[index].element = Strings.Left(element, checked(Strings.Len(element) - 1)) + Lev;
                                     }
                                 }
                             }
@@ -5874,7 +5874,7 @@ namespace ClubCompFS
                                 if (this.SeqSpin(element + Lev))
                                 {
                                     num3 = 37;
-                                    if (Microsoft.VisualBasic.Strings.Len(txt) > 0)
+                                    if (Strings.Len(txt) > 0)
                                     {
                                         num3 = 38;
                                         Program.OpArr[index].element = element + Lev + txt;
@@ -5916,7 +5916,7 @@ namespace ClubCompFS
                 int num3 = 2;
                 flag = false;
                 num3 = 3;
-                if (Microsoft.VisualBasic.Strings.Len(txt) != 0)
+                if (Strings.Len(txt) != 0)
                 {
                     num3 = 6;
                     int jumpMax = Program.JumpMax;
@@ -5961,7 +5961,7 @@ namespace ClubCompFS
                 if (index > -1)
                 {
                     num3 = 4;
-                    if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                    if (Strings.Len(Program.OpArr[index].element) == 0)
                     {
                         num3 = 5;
                         if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0) & this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
@@ -6012,7 +6012,7 @@ namespace ClubCompFS
             int index = checked(indin + 1);
             if (index <= 0)
                 return;
-            if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
             {
                 // ISSUE: explicit reference operation
                 Program.OpArr[index].element += el;
@@ -6025,9 +6025,9 @@ namespace ClubCompFS
         private void ElDef2(int indin, string el)
         {
             int index = checked(indin + 1);
-            if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
                 this.ElDef(indin, el);
-            else if (Microsoft.VisualBasic.Strings.InStr(1, Program.OpArr[index].element, el) > 0)
+            else if (Strings.InStr(1, Program.OpArr[index].element, el) > 0)
                 this.ElSet(indin, "");
             else
                 this.OplistaSelect();
@@ -6038,9 +6038,9 @@ namespace ClubCompFS
             int index = checked(indin + 1);
             if (indin <= -1)
                 return;
-            if (Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+            if (Strings.Len(Program.OpArr[index].element) == 0)
                 this.ElDef1(indin, el);
-            else if (Microsoft.VisualBasic.Strings.InStr(1, Program.OpArr[index].element, el) > 0)
+            else if (Strings.InStr(1, Program.OpArr[index].element, el) > 0)
                 this.ElSet(indin, "");
             else
                 this.OplistaSelect();
@@ -6056,9 +6056,9 @@ namespace ClubCompFS
                 num1 = 2;
                 int index = checked(indin + 1);
                 string str = el;
-                int num3 = Microsoft.VisualBasic.Strings.InStr(1, Program.OpArr[index].element, "COMBO", CompareMethod.Text);
-                int num4 = Microsoft.VisualBasic.Strings.InStr(1, Program.OpArr[index].element, "SEQ", CompareMethod.Text);
-                int num5 = Microsoft.VisualBasic.Strings.InStr(1, Program.OpArr[index].element, "REP", CompareMethod.Text);
+                int num3 = Strings.InStr(1, Program.OpArr[index].element, "COMBO", CompareMethod.Text);
+                int num4 = Strings.InStr(1, Program.OpArr[index].element, "SEQ", CompareMethod.Text);
+                int num5 = Strings.InStr(1, Program.OpArr[index].element, "REP", CompareMethod.Text);
                 if ((num3 > 0 | num4 > 0 | num5 > 0) & this.TstStSp((object)Program.OpArr[index].element))
                 {
                     this.WrongEl();
@@ -6072,7 +6072,7 @@ namespace ClubCompFS
                         str += "*";
                     if (index > -1)
                     {
-                        Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) != 0 ? Program.OpArr[index].element + "+" + str : Program.OpArr[index].element + str;
+                        Program.OpArr[index].element = Strings.Len(Program.OpArr[index].element) != 0 ? Program.OpArr[index].element + "+" + str : Program.OpArr[index].element + str;
                         this.OpLista(indin, Program.OpArr[index].element);
                         goto label_12;
                     }
@@ -6177,14 +6177,14 @@ namespace ClubCompFS
                     this.SpinBackcolor();
                     ElOut = element;
                 }
-                int num3 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                if (num3 > 1 & !Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Left(ElOut, 1)) & Program.WorkMode > 1)
+                int num3 = Strings.Len(ElOut);
+                if (num3 > 1 & !Versioned.IsNumeric((object)Strings.Left(ElOut, 1)) & Program.WorkMode > 1)
                 {
                     int col = this.FindCol(ElOut);
                     obj1 = RuntimeHelpers.GetObjectValue(Program.ColArr[col]);
                     if (col <= 16)
                     {
-                        if (Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(ElOut, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(ElOut, 1), "B", false) == 0)
+                        if (Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0)
                         {
                             this.ColorBox.Visible = false;
                         }
@@ -6258,19 +6258,19 @@ namespace ClubCompFS
                 num1 = 1;
                 int num4 = 2;
                 int Length;
-                if (Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(el, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(el, 1), "B", false) == 0)
+                if (Versioned.IsNumeric((object)Strings.Right(el, 1)) | Operators.CompareString(Strings.Right(el, 1), "B", false) == 0)
                 {
                     num4 = 3;
-                    Length = checked(Microsoft.VisualBasic.Strings.Len(el) - 1);
+                    Length = checked(Strings.Len(el) - 1);
                 }
                 else
                 {
                     num4 = 5;
                     num4 = 6;
-                    Length = Microsoft.VisualBasic.Strings.Len(el);
+                    Length = Strings.Len(el);
                 }
                 num4 = 8;
-                string Left = Microsoft.VisualBasic.Strings.Left(el, Length);
+                string Left = Strings.Left(el, Length);
                 num4 = 11;
                 if (Operators.CompareString(Left, "SSp", false) == 0 || Operators.CompareString(Left, "CSSp", false) == 0 || Operators.CompareString(Left, "FSSp", false) == 0 || Operators.CompareString(Left, "FCSSp", false) == 0)
                 {
@@ -6426,7 +6426,7 @@ namespace ClubCompFS
                 num3 = 3;
                 object obj1 = (object)Color.FromArgb((int)byte.MaxValue, 0, 0);
                 num3 = 4;
-                string Left1 = Microsoft.VisualBasic.Strings.Right(el, 1);
+                string Left1 = Strings.Right(el, 1);
                 num3 = 7;
                 string str1;
                 string str2;
@@ -6435,7 +6435,7 @@ namespace ClubCompFS
                     num3 = 8;
                     str1 = "0";
                     num3 = 9;
-                    str2 = Microsoft.VisualBasic.Strings.Left(el, checked(Microsoft.VisualBasic.Strings.Len(el) - 1));
+                    str2 = Strings.Left(el, checked(Strings.Len(el) - 1));
                 }
                 else
                 {
@@ -6443,9 +6443,9 @@ namespace ClubCompFS
                     if (Operators.CompareString(Left1, "0", false) == 0 || Operators.CompareString(Left1, "1", false) == 0 || Operators.CompareString(Left1, "2", false) == 0 || Operators.CompareString(Left1, "3", false) == 0 || Operators.CompareString(Left1, "4", false) == 0)
                     {
                         num3 = 12;
-                        str1 = Microsoft.VisualBasic.Strings.Right(el, 1);
+                        str1 = Strings.Right(el, 1);
                         num3 = 13;
-                        str2 = Microsoft.VisualBasic.Strings.Left(el, checked(Microsoft.VisualBasic.Strings.Len(el) - 1));
+                        str2 = Strings.Left(el, checked(Strings.Len(el) - 1));
                     }
                     else
                     {
@@ -6460,7 +6460,7 @@ namespace ClubCompFS
                 do
                 {
                     num3 = 20;
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Trim(Conversion.Str((object)Number)), str1, false) == 0)
+                    if (Operators.CompareString(Strings.Trim(Conversion.Str((object)Number)), str1, false) == 0)
                     {
                         num3 = 21;
                         objArray[Number] = RuntimeHelpers.GetObjectValue(obj1);
@@ -6519,7 +6519,7 @@ namespace ClubCompFS
                 Color color5 = obj8 != null ? (Color)obj8 : antiqueWhite;
                 set4.BackColor = color5;
                 num3 = 38;
-                if (Microsoft.VisualBasic.Strings.Len(str1) > 0)
+                if (Strings.Len(str1) > 0)
                 {
                     num3 = 39;
                     string Left2 = str2;
@@ -6707,7 +6707,7 @@ namespace ClubCompFS
 
         private void SetFlying(string El)
         {
-            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(El, 1), "F", false) != 0)
+            if (Operators.CompareString(Strings.Left(El, 1), "F", false) != 0)
                 this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
             else
                 this.OpFlying.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
@@ -6724,19 +6724,19 @@ namespace ClubCompFS
                 num1 = 1;
                 int num3 = 2;
                 int Length;
-                if (Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(El, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(El, 1), "B", false) == 0)
+                if (Versioned.IsNumeric((object)Strings.Right(El, 1)) | Operators.CompareString(Strings.Right(El, 1), "B", false) == 0)
                 {
                     num3 = 3;
-                    Length = checked(Microsoft.VisualBasic.Strings.Len(El) - 1);
+                    Length = checked(Strings.Len(El) - 1);
                 }
                 else
                 {
                     num3 = 5;
                     num3 = 6;
-                    Length = Microsoft.VisualBasic.Strings.Len(El);
+                    Length = Strings.Len(El);
                 }
                 num3 = 8;
-                string Left = Microsoft.VisualBasic.Strings.Left(El, Length);
+                string Left = Strings.Left(El, Length);
                 num3 = 11;
                 if (Operators.CompareString(Left, "CSSp", false) == 0 || Operators.CompareString(Left, "CLSp", false) == 0 || Operators.CompareString(Left, "CUSp", false) == 0 || Operators.CompareString(Left, "CCSp", false) == 0 || Operators.CompareString(Left, "CCoSp", false) == 0 || Operators.CompareString(Left, "FCSSp", false) == 0 || Operators.CompareString(Left, "FCLSp", false) == 0 || Operators.CompareString(Left, "FCUSp", false) == 0 || Operators.CompareString(Left, "FCCSp", false) == 0 || Operators.CompareString(Left, "FCCoSp", false) == 0 || Operators.CompareString(Left, "CCoSp2p", false) == 0 || Operators.CompareString(Left, "CCoSp3p", false) == 0 || Operators.CompareString(Left, "FCCoSp2p", false) == 0 || Operators.CompareString(Left, "FCCoSp3p", false) == 0)
                 {
@@ -6811,12 +6811,12 @@ namespace ClubCompFS
                     do
                     {
                         num3 = 6;
-                        str = this.CustomInputBox(intxt, Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(checked(y + 1))));
+                        str = this.CustomInputBox(intxt, Strings.Trim(Conversions.ToString(checked(y + 1))));
                         num3 = 7;
-                        if (Microsoft.VisualBasic.Strings.Len(str) != 0)
+                        if (Strings.Len(str) != 0)
                         {
                             num3 = 10;
-                            if (Microsoft.VisualBasic.Strings.InStr(1, str, "|", CompareMethod.Text) > 0 | Microsoft.VisualBasic.Strings.InStr(1, str, ";", CompareMethod.Text) > 0)
+                            if (Strings.InStr(1, str, "|", CompareMethod.Text) > 0 | Strings.InStr(1, str, ";", CompareMethod.Text) > 0)
                             {
                                 num3 = 11;
                                 int num4 = (int)Interaction.MsgBox((object)"Wrong input!, a '|' or a ';' is not allowed!", MsgBoxStyle.SystemModal, (object)"Tomten");
@@ -6826,9 +6826,9 @@ namespace ClubCompFS
                         else
                             break;
                     }
-                    while (!(Microsoft.VisualBasic.Strings.InStr(1, str, "|", CompareMethod.Text) == 0 & Microsoft.VisualBasic.Strings.InStr(1, str, ";", CompareMethod.Text) == 0));
+                    while (!(Strings.InStr(1, str, "|", CompareMethod.Text) == 0 & Strings.InStr(1, str, ";", CompareMethod.Text) == 0));
                     num3 = 14;
-                    if (Microsoft.VisualBasic.Strings.Len(str) > 0)
+                    if (Strings.Len(str) > 0)
                     {
                         num3 = 15;
                         if (Program.TstElPP(str))
@@ -7603,7 +7603,7 @@ namespace ClubCompFS
                 Program.DoHTrun = false;
                 this.HideNum();
                 this.InitColArr();
-                this.Text = "ELEMENT INPUT: " + Microsoft.VisualBasic.Strings.UCase(Program.Category.Name) + Program.SubCat() + ": " + Microsoft.VisualBasic.Strings.UCase(Program.GetSegTxt(Program.Segment));
+                this.Text = "ELEMENT INPUT: " + Strings.UCase(Program.Category.Name) + Program.SubCat() + ": " + Strings.UCase(Program.GetSegTxt(Program.Segment));
                 this.ButtonBackColor();
                 this.SpinBackcolor();
                 this.BackColor_V();
@@ -7766,17 +7766,17 @@ namespace ClubCompFS
                         str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2[index];
                     if (str2.Contains(" e"))
                         str1 = "e";
-                    int num3 = Microsoft.VisualBasic.Strings.InStr(1, str2, " !", CompareMethod.Text);
+                    int num3 = Strings.InStr(1, str2, " !", CompareMethod.Text);
                     if (num3 > 0)
                     {
                         str1 += "!";
-                        str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
+                        str2 = Strings.Left(str2, checked(num3 - 1));
                     }
-                    num3 = Microsoft.VisualBasic.Strings.InStr(1, str2, " f", CompareMethod.Text);
+                    num3 = Strings.InStr(1, str2, " f", CompareMethod.Text);
                     if (num3 > 0)
                     {
                         str1 += "f";
-                        str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(num3 - 1));
+                        str2 = Strings.Left(str2, checked(num3 - 1));
                     }
                     Program.OpArr[index].element = str2;
                     Program.OpArr[index].edge = str1;
@@ -7941,7 +7941,7 @@ namespace ClubCompFS
                 int num3 = 2;
                 flag = false;
                 num3 = 3;
-                if (Microsoft.VisualBasic.Strings.Len(txt) != 0)
+                if (Strings.Len(txt) != 0)
                 {
                     num3 = 6;
                     int spinMin = Program.SpinMin;
@@ -7975,9 +7975,9 @@ namespace ClubCompFS
         public void SpinEl(string ElIn, ref string ElOut, ref string txt)
         {
             ElOut = ElIn;
-            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(ElIn, 1), "V", false) != 0)
+            if (Operators.CompareString(Strings.Right(ElIn, 1), "V", false) != 0)
                 return;
-            ElOut = Microsoft.VisualBasic.Strings.Trim(ElOut.Remove(checked(ElOut.Length - 1)));
+            ElOut = Strings.Trim(ElOut.Remove(checked(ElOut.Length - 1)));
             txt = "V";
         }
 
@@ -7993,7 +7993,7 @@ namespace ClubCompFS
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 int index = checked(this.index + 1);
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[index].element) == 0)
                 {
                     if (this.OpChange.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
@@ -8005,78 +8005,78 @@ namespace ClubCompFS
                 else
                 {
                     this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
-                    if (Microsoft.VisualBasic.Strings.Len(txt) > 0)
+                    if (Strings.Len(txt) > 0)
                         txt = txt;
                     if (this.F_Spin(ElOut))
                     {
                         int Length;
                         string str1;
-                        if (Versioned.IsNumeric((object)Microsoft.VisualBasic.Strings.Right(ElOut, 1)) | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(ElOut, 1), "B", false) == 0)
+                        if (Versioned.IsNumeric((object)Strings.Right(ElOut, 1)) | Operators.CompareString(Strings.Right(ElOut, 1), "B", false) == 0)
                         {
-                            Length = checked(Microsoft.VisualBasic.Strings.Len(ElOut) - 1);
-                            str1 = Microsoft.VisualBasic.Strings.Right(ElOut, 1);
+                            Length = checked(Strings.Len(ElOut) - 1);
+                            str1 = Strings.Right(ElOut, 1);
                         }
                         else
                         {
-                            Length = Microsoft.VisualBasic.Strings.Len(ElOut);
+                            Length = Strings.Len(ElOut);
                             str1 = "";
                         }
-                        string str2 = Microsoft.VisualBasic.Strings.Left(ElOut, Length);
+                        string str2 = Strings.Left(ElOut, Length);
                         string Left1 = str2;
                         if (Operators.CompareString(Left1, "SSp", false) == 0 || Operators.CompareString(Left1, "LSp", false) == 0 || Operators.CompareString(Left1, "USp", false) == 0 || Operators.CompareString(Left1, "CSp", false) == 0 || Operators.CompareString(Left1, "CoSp", false) == 0)
                         {
-                            Program.OpArr[index].element = !this.Spin_Change("C" + str2) ? "C" + ElOut : (Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "C" + ElOut : "C" + ElOut + txt);
+                            Program.OpArr[index].element = !this.Spin_Change("C" + str2) ? "C" + ElOut : (Strings.Len(txt) <= 0 ? "C" + ElOut : "C" + ElOut + txt);
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
                         else if (Operators.CompareString(Left1, "FSSp", false) == 0 || Operators.CompareString(Left1, "FLSp", false) == 0 || Operators.CompareString(Left1, "FUSp", false) == 0 || Operators.CompareString(Left1, "FCSp", false) == 0 || Operators.CompareString(Left1, "FCoSp", false) == 0)
                         {
-                            int num3 = Microsoft.VisualBasic.Strings.Len(str2);
-                            if (this.Spin_Change("FC" + Microsoft.VisualBasic.Strings.Right(str2, checked(num3 - 1))))
+                            int num3 = Strings.Len(str2);
+                            if (this.Spin_Change("FC" + Strings.Right(str2, checked(num3 - 1))))
                             {
-                                int num4 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FC" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num4 - 1)) : "FC" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num4 - 1)) + txt;
+                                int num4 = Strings.Len(ElOut);
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num4 - 1)) : "FC" + Strings.Right(ElOut, checked(num4 - 1)) + txt;
                             }
                             else
                             {
-                                int num5 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "FC" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num5 - 1)) : "FC" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num5 - 1)) + txt;
+                                int num5 = Strings.Len(ElOut);
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "FC" + Strings.Right(ElOut, checked(num5 - 1)) : "FC" + Strings.Right(ElOut, checked(num5 - 1)) + txt;
                             }
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
                         else if (Operators.CompareString(Left1, "CSSp", false) == 0 || Operators.CompareString(Left1, "CLSp", false) == 0 || Operators.CompareString(Left1, "CUSp", false) == 0 || Operators.CompareString(Left1, "CCSp", false) == 0 || Operators.CompareString(Left1, "CCoSp", false) == 0)
                         {
-                            int num6 = Microsoft.VisualBasic.Strings.Len(str2);
-                            if (this.Spin_Change(Microsoft.VisualBasic.Strings.Right(str2, checked(num6 - 1))))
+                            int num6 = Strings.Len(str2);
+                            if (this.Spin_Change(Strings.Right(str2, checked(num6 - 1))))
                             {
-                                int num7 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? Microsoft.VisualBasic.Strings.Right(ElOut, checked(num7 - 1)) : Microsoft.VisualBasic.Strings.Right(ElOut, checked(num7 - 1)) + txt;
+                                int num7 = Strings.Len(ElOut);
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? Strings.Right(ElOut, checked(num7 - 1)) : Strings.Right(ElOut, checked(num7 - 1)) + txt;
                             }
                             else
                             {
-                                int num8 = Microsoft.VisualBasic.Strings.Len(ElOut);
+                                int num8 = Strings.Len(ElOut);
                                 this.BackColor_V();
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Right(ElOut, checked(num8 - 1));
+                                Program.OpArr[index].element = Strings.Right(ElOut, checked(num8 - 1));
                             }
                             this.OpChange.BackColor = Color.FromArgb(236, 233, 216);
                         }
                         else if (Operators.CompareString(Left1, "FCSSp", false) == 0 || Operators.CompareString(Left1, "FCLSp", false) == 0 || Operators.CompareString(Left1, "FCUSp", false) == 0 || Operators.CompareString(Left1, "FCCSp", false) == 0 || Operators.CompareString(Left1, "FCCoSp", false) == 0)
                         {
-                            int num9 = Microsoft.VisualBasic.Strings.Len(str2);
-                            if (this.Spin_Change("F" + Microsoft.VisualBasic.Strings.Right(str2, checked(num9 - 2))))
+                            int num9 = Strings.Len(str2);
+                            if (this.Spin_Change("F" + Strings.Right(str2, checked(num9 - 2))))
                             {
-                                int num10 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "F" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num10 - 2)) : "F" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num10 - 2)) + txt;
+                                int num10 = Strings.Len(ElOut);
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num10 - 2)) : "F" + Strings.Right(ElOut, checked(num10 - 2)) + txt;
                             }
                             else
                             {
-                                int num11 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                                Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "F" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num11 - 2)) : "F" + Microsoft.VisualBasic.Strings.Right(ElOut, checked(num11 - 2)) + txt;
+                                int num11 = Strings.Len(ElOut);
+                                Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + Strings.Right(ElOut, checked(num11 - 2)) : "F" + Strings.Right(ElOut, checked(num11 - 2)) + txt;
                             }
                             this.OpChange.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                         }
                         else if (Operators.CompareString(Left1, "CoSp2p", false) == 0 || Operators.CompareString(Left1, "CoSp3p", false) == 0)
                         {
-                            string Left2 = Microsoft.VisualBasic.Strings.Right(str2, 2);
+                            string Left2 = Strings.Right(str2, 2);
                             if (Operators.CompareString(Left2, "2p", false) == 0)
                             {
                                 this.BackColor_V();
@@ -8093,7 +8093,7 @@ namespace ClubCompFS
                         }
                         else if (Operators.CompareString(Left1, "CCoSp2p", false) == 0 || Operators.CompareString(Left1, "CCoSp3p", false) == 0)
                         {
-                            string Left3 = Microsoft.VisualBasic.Strings.Right(str2, 2);
+                            string Left3 = Strings.Right(str2, 2);
                             if (Operators.CompareString(Left3, "2p", false) == 0)
                             {
                                 this.BackColor_V();
@@ -8110,7 +8110,7 @@ namespace ClubCompFS
                         }
                         else if (Operators.CompareString(Left1, "FCCoSp2p", false) == 0 || Operators.CompareString(Left1, "FCCoSp3p", false) == 0)
                         {
-                            string Left4 = Microsoft.VisualBasic.Strings.Right(str2, 2);
+                            string Left4 = Strings.Right(str2, 2);
                             if (Operators.CompareString(Left4, "2p", false) == 0)
                             {
                                 this.BackColor_V();
@@ -8127,7 +8127,7 @@ namespace ClubCompFS
                         }
                         else if (Operators.CompareString(Left1, "FCoSp2p", false) == 0 || Operators.CompareString(Left1, "FCoSp3p", false) == 0)
                         {
-                            string Left5 = Microsoft.VisualBasic.Strings.Right(str2, 2);
+                            string Left5 = Strings.Right(str2, 2);
                             if (Operators.CompareString(Left5, "2p", false) == 0)
                             {
                                 this.BackColor_V();
@@ -8180,7 +8180,7 @@ namespace ClubCompFS
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 int index = checked(this.index + 1);
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[index].element) == 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[index].element) == 0)
                 {
                     if (this.OpFlying.BackColor == Color.FromArgb((int)byte.MaxValue, 0, 0))
                         this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
@@ -8192,26 +8192,26 @@ namespace ClubCompFS
                 this.SpinEl(Program.OpArr[index].element, ref ElOut, ref txt);
                 if (this.F_Spin(ElOut))
                 {
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(ElOut, 1), "F", false) != 0)
+                    if (Operators.CompareString(Strings.Left(ElOut, 1), "F", false) != 0)
                     {
-                        Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Len(txt) <= 0 ? "F" + ElOut : "F" + ElOut + txt;
+                        Program.OpArr[index].element = Strings.Len(txt) <= 0 ? "F" + ElOut : "F" + ElOut + txt;
                         this.OpFlying.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
                     }
                     else
                     {
-                        int num3 = Microsoft.VisualBasic.Strings.Len(ElOut);
-                        if (!this.Spin_Change(Microsoft.VisualBasic.Strings.Right(ElOut, checked(num3 - 1))))
+                        int num3 = Strings.Len(ElOut);
+                        if (!this.Spin_Change(Strings.Right(ElOut, checked(num3 - 1))))
                         {
                             this.BackColor_V();
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Right(ElOut, checked(num3 - 1));
+                            Program.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
                         }
-                        else if (Microsoft.VisualBasic.Strings.Len(txt) > 0)
+                        else if (Strings.Len(txt) > 0)
                         {
-                            Program.OpArr[index].element = Operators.CompareString(txt, "V", false) != 0 ? Microsoft.VisualBasic.Strings.Right(ElOut, checked(num3 - 1)) : Microsoft.VisualBasic.Strings.Right(ElOut, checked(num3 - 1)) + txt;
+                            Program.OpArr[index].element = Operators.CompareString(txt, "V", false) != 0 ? Strings.Right(ElOut, checked(num3 - 1)) : Strings.Right(ElOut, checked(num3 - 1)) + txt;
                         }
                         else
                         {
-                            Program.OpArr[index].element = Microsoft.VisualBasic.Strings.Right(ElOut, checked(num3 - 1));
+                            Program.OpArr[index].element = Strings.Right(ElOut, checked(num3 - 1));
                             this.BackColor_V();
                         }
                         this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
@@ -8495,13 +8495,13 @@ namespace ClubCompFS
                 flag = false;
                 string str = !ElIn.Contains("+") ? ElIn : ElIn.Substring(checked(ElIn.LastIndexOf("+") + 1));
                 if (str.Contains("*"))
-                    str = Microsoft.VisualBasic.Strings.Replace(str, "*", "");
-                if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 1), "e", false) == 0)
-                    str = Microsoft.VisualBasic.Strings.Trim(str.Remove(checked(str.Length - 1)));
-                if (Microsoft.VisualBasic.Strings.Len(str) <= 7)
+                    str = Strings.Replace(str, "*", "");
+                if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
+                    str = Strings.Trim(str.Remove(checked(str.Length - 1)));
+                if (Strings.Len(str) <= 7)
                 {
                     if (str.Contains("<"))
-                        str = Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Replace(str, "<", ""));
+                        str = Strings.Trim(Strings.Replace(str, "<", ""));
                     int jumpmin = Program.Jumpmin;
                     int jumpMax = Program.JumpMax;
                     int index = jumpmin;
@@ -8566,11 +8566,11 @@ namespace ClubCompFS
                     if (str.Contains("SEQ"))
                     {
                         num4 = 1;
-                        int num5 = Microsoft.VisualBasic.Strings.InStr(1, str, "+SEQ", CompareMethod.Text);
+                        int num5 = Strings.InStr(1, str, "+SEQ", CompareMethod.Text);
                         if (num5 > 1)
-                            str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
+                            str = Strings.Left(str, checked(num5 - 1));
                     }
-                    if (Microsoft.VisualBasic.Strings.Len(str) == 0 | num3 > 0 | !this.TstJump(str))
+                    if (Strings.Len(str) == 0 | num3 > 0 | !this.TstJump(str))
                     {
                         Interaction.Beep();
                         this.OplistaSelect();
@@ -8623,11 +8623,11 @@ namespace ClubCompFS
                     if (str.Contains("COMBO"))
                     {
                         num3 = 1;
-                        int num5 = Microsoft.VisualBasic.Strings.InStr(1, str, "+COMBO", CompareMethod.Text);
+                        int num5 = Strings.InStr(1, str, "+COMBO", CompareMethod.Text);
                         if (num5 > 1)
-                            str = Microsoft.VisualBasic.Strings.Left(str, checked(num5 - 1));
+                            str = Strings.Left(str, checked(num5 - 1));
                     }
-                    if (Microsoft.VisualBasic.Strings.Len(str) == 0 | num4 > 0 | !this.TstJump(str))
+                    if (Strings.Len(str) == 0 | num4 > 0 | !this.TstJump(str))
                     {
                         Interaction.Beep();
                         this.OplistaSelect();
@@ -8672,55 +8672,55 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 1 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 1 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
                     string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+SEQ", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
                         {
                             str1 = "+SEQ";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+COMBO"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 6), "+COMBO", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 6), "+COMBO", false) == 0)
                         {
                             str1 = "+COMBO";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 6));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 6));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+REP"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+REP", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+REP", false) == 0)
                         {
                             str1 = "+REP";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), "<<", false) == 0 | Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "<< e", false) == 0 | !this.TstJump(str2))
+                    if (Operators.CompareString(Strings.Right(str2, 2), "<<", false) == 0 | Operators.CompareString(Strings.Right(str2, 4), "<< e", false) == 0 | !this.TstJump(str2))
                     {
                         Interaction.Beep();
                         this.OplistaSelect();
@@ -8728,7 +8728,7 @@ namespace ClubCompFS
                     }
                     else
                     {
-                        Program.OpArr[checked(this.index + 1)].element = Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 1), "<", false) != 0 ? (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "< e", false) != 0 ? (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), " e", false) != 0 ? (flag ? str1 + "+" + str2 + "<" : str2 + "<" + str1) : (flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2))) + "< e" : Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2))) + "< e" + str1)) : (flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 3)) + " e" : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 3)) + " e" + str1)) : (flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1)) : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1)) + str1);
+                        Program.OpArr[checked(this.index + 1)].element = Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0 ? (Operators.CompareString(Strings.Right(str2, 2), " e", false) != 0 ? (flag ? str1 + "+" + str2 + "<" : str2 + "<" + str1) : (flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "< e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1)) : (flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1);
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_23;
                     }
@@ -8766,63 +8766,63 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
                     string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+SEQ", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
                         {
                             str1 = "+SEQ";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+COMBO"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 6), "+COMBO", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 6), "+COMBO", false) == 0)
                         {
                             str1 = "+COMBO";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 6));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 6));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+REP"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+REP", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+REP", false) == 0)
                         {
                             str1 = "+REP";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     if (this.TstJump(str2))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), "<<", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2)) : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2)) + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "<< e", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4)) + " e" : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4)) + " e" + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2))) + "<< e" : Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 2))) + "<< e" + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "< e", false) != 0)
+                        if (Operators.CompareString(Strings.Right(str2, 2), "<<", false) == 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 2)) : Strings.Left(str2, checked(Strings.Len(str2) - 2)) + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 4), "<< e", false) == 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 4)) + " e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 2))) + "<< e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
                             Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "<<" : str2 + "<<" + str1;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_31;
@@ -8867,63 +8867,63 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
                     string str2 = Program.OpArr[checked(this.index + 1)].element;
                     if (str2.Contains("+SEQ"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+SEQ", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
                         {
                             str1 = "+SEQ";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+COMBO"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 6), "+COMBO", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 6), "+COMBO", false) == 0)
                         {
                             str1 = "+COMBO";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 6));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 6));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str2.Contains("+REP"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 4), "+REP", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str2, 4), "+REP", false) == 0)
                         {
                             str1 = "+REP";
-                            str2 = Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 4));
+                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
                         }
                         else
                         {
                             int Length = str2.LastIndexOf("+");
-                            str1 = Microsoft.VisualBasic.Strings.Left(str2, Length);
-                            str2 = Microsoft.VisualBasic.Strings.Right(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - Length - 1));
+                            str1 = Strings.Left(str2, Length);
+                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
                             flag = true;
                         }
                     }
                     if (this.TstJump(str2))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 1), "q", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1)) : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1)) + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "q e", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 3)) + " e" : Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 3)) + " e" + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1))) + "q e" : Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str2, checked(Microsoft.VisualBasic.Strings.Len(str2) - 1))) + "q e" + str1;
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 3), "< e", false) != 0)
+                        if (Operators.CompareString(Strings.Right(str2, 1), "q", false) == 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 3), "q e", false) == 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" + str1;
+                        else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
                             Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "q" : str2 + "q" + str1;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_31;
@@ -8969,66 +8969,66 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Microsoft.VisualBasic.Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
                 {
                     string str3 = Program.OpArr[checked(this.index + 1)].element;
                     if (str3.Contains("+SEQ"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str3, 4), "+SEQ", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str3, 4), "+SEQ", false) == 0)
                         {
                             str2 = "+SEQ";
-                            str3 = Microsoft.VisualBasic.Strings.Left(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - 4));
+                            str3 = Strings.Left(str3, checked(Strings.Len(str3) - 4));
                             if (str3.Contains("*"))
                             {
                                 str2 = "*+SEQ";
-                                str3 = Microsoft.VisualBasic.Strings.Replace(str3, "*", "");
+                                str3 = Strings.Replace(str3, "*", "");
                             }
                         }
                         else
                         {
                             int Length = str3.LastIndexOf("+");
-                            str2 = Microsoft.VisualBasic.Strings.Left(str3, Length);
-                            str3 = Microsoft.VisualBasic.Strings.Right(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - Length - 1));
+                            str2 = Strings.Left(str3, Length);
+                            str3 = Strings.Right(str3, checked(Strings.Len(str3) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str3.Contains("+COMBO"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str3, 6), "+COMBO", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str3, 6), "+COMBO", false) == 0)
                         {
                             str2 = "+COMBO";
-                            str3 = Microsoft.VisualBasic.Strings.Left(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - 6));
+                            str3 = Strings.Left(str3, checked(Strings.Len(str3) - 6));
                             if (str3.Contains("*"))
                             {
                                 str2 = "*+COMBO";
-                                str3 = Microsoft.VisualBasic.Strings.Replace(str3, "*", "");
+                                str3 = Strings.Replace(str3, "*", "");
                             }
                         }
                         else
                         {
                             int Length = str3.LastIndexOf("+");
-                            str2 = Microsoft.VisualBasic.Strings.Left(str3, Length);
-                            str3 = Microsoft.VisualBasic.Strings.Right(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - Length - 1));
+                            str2 = Strings.Left(str3, Length);
+                            str3 = Strings.Right(str3, checked(Strings.Len(str3) - Length - 1));
                             flag = true;
                         }
                     }
                     else if (str3.Contains("+REP"))
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str3, 4), "+REP", false) == 0)
+                        if (Operators.CompareString(Strings.Right(str3, 4), "+REP", false) == 0)
                         {
                             str2 = "+REP";
-                            str3 = Microsoft.VisualBasic.Strings.Left(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - 4));
+                            str3 = Strings.Left(str3, checked(Strings.Len(str3) - 4));
                             if (str3.Contains("*"))
                             {
                                 str2 = "*+REP";
-                                str3 = Microsoft.VisualBasic.Strings.Replace(str3, "*", "");
+                                str3 = Strings.Replace(str3, "*", "");
                             }
                         }
                         else
                         {
                             int Length = str3.LastIndexOf("+");
-                            str2 = Microsoft.VisualBasic.Strings.Left(str3, Length);
-                            str3 = Microsoft.VisualBasic.Strings.Right(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - Length - 1));
+                            str2 = Strings.Left(str3, Length);
+                            str3 = Strings.Right(str3, checked(Strings.Len(str3) - Length - 1));
                             flag = true;
                         }
                     }
@@ -9053,7 +9053,9 @@ namespace ClubCompFS
                             while (index1 <= num4)
                             {
                                 if (this.Tst_Lz_F(Program.ElArr[index1].Elstr))
-                                    Program.ElArr[index1].Elstr = Operators.CompareString(Microsoft.VisualBasic.Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0 ? Program.ElArr[index1].Elstr + " e" : Microsoft.VisualBasic.Strings.Trim(Program.ElArr[index1].Elstr.Remove(checked(Program.ElArr[index1].Elstr.Length - 1)));
+                                {
+                                    Program.ElArr[index1].Elstr = Operators.CompareString(Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0 ? Program.ElArr[index1].Elstr + " e" : Strings.Trim(Program.ElArr[index1].Elstr.Remove(checked(Program.ElArr[index1].Elstr.Length - 1)));
+                                }
                                 checked { ++index1; }
                             }
                             Program.OpArr[checked(this.index + 1)].edge = "";
@@ -9068,9 +9070,9 @@ namespace ClubCompFS
                             }
                             Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str1 : str1 + str2;
                         }
-                        else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str3, 1), nameof(e), false) == 0)
+                        else if (Operators.CompareString(Strings.Right(str3, 1), nameof(e), false) == 0)
                         {
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - 1))) : Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(str3, checked(Microsoft.VisualBasic.Strings.Len(str3) - 1))) + str2;
+                            Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) : Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) + str2;
                             Program.OpArr[checked(this.index + 1)].edge = "";
                         }
                         else
@@ -9116,16 +9118,16 @@ namespace ClubCompFS
                 string element = Program.OpArr[checked(this.index + 1)].element;
                 if (this.index > -1)
                 {
-                    if (Microsoft.VisualBasic.Strings.Len(element) > 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Microsoft.VisualBasic.Strings.Right(element, 3), "REP", false) != 0)
+                    if (Strings.Len(element) > 0 & Operators.CompareString(Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "REP", false) != 0)
                     {
-                        if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(element, 1), "*", false) != 0)
+                        if (Operators.CompareString(Strings.Right(element, 1), "*", false) != 0)
                         {
                             Program.OpArr[checked(this.index + 1)].element = element + "*";
                         }
                         else
                         {
-                            int num3 = Microsoft.VisualBasic.Strings.Len(element);
-                            Program.OpArr[checked(this.index + 1)].element = Microsoft.VisualBasic.Strings.Left(element, checked(num3 - 1));
+                            int num3 = Strings.Len(element);
+                            Program.OpArr[checked(this.index + 1)].element = Strings.Left(element, checked(num3 - 1));
                         }
                     }
                     else
@@ -9234,9 +9236,9 @@ namespace ClubCompFS
                     num3 = 5;
                     this.StartHT.BackColor = Color.FromArgb(236, 233, 216);
                     num3 = 6;
-                    string str1 = Microsoft.VisualBasic.Strings.LTrim(Conversion.Str((object)Conversion.Int((double)this.Tid / 60.0)));
+                    string str1 = Strings.LTrim(Conversion.Str((object)Conversion.Int((double)this.Tid / 60.0)));
                     num3 = 7;
-                    string str2 = Microsoft.VisualBasic.Strings.LTrim(Conversion.Str((object)((double)this.Tid - Conversion.Int((double)this.Tid / 60.0) * 60.0)));
+                    string str2 = Strings.LTrim(Conversion.Str((object)((double)this.Tid - Conversion.Int((double)this.Tid / 60.0) * 60.0)));
                     num3 = 8;
                     this.Time.Text = str1 + " m " + str2 + " s";
                 }
@@ -9455,10 +9457,10 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                if (Microsoft.VisualBasic.Strings.Len(tid) > 1)
+                if (Strings.Len(tid) > 1)
                 {
                     num2 = 0;
-                    int integer = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Right(tid, 2));
+                    int integer = Conversions.ToInteger(Strings.Right(tid, 2));
                     num2 = checked((int)Math.Round(unchecked((double)checked(60 * Conversions.ToInteger(tid.Substring(3, 2)) + integer) / 2.0)));
                     goto label_8;
                 }
@@ -9628,48 +9630,48 @@ namespace ClubCompFS
                 if (this.index > -1)
                 {
                     string str = Program.OpArr[checked(this.index + 1)].element;
-                    if (Microsoft.VisualBasic.Strings.Len(str) > 0)
+                    if (Strings.Len(str) > 0)
                     {
                         if (str.Contains("+SEQ"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+SEQ", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 4), "+SEQ", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+SEQ");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         else if (str.Contains("+COMBO"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 6), "+COMBO", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 6), "+COMBO", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+COMBO");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         else if (str.Contains("+REP"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+REP", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 4), "+REP", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+REP");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
@@ -9716,48 +9718,48 @@ namespace ClubCompFS
                 if (this.index > -1)
                 {
                     string str = Program.OpArr[checked(this.index + 1)].element;
-                    if (Microsoft.VisualBasic.Strings.Len(str) > 0)
+                    if (Strings.Len(str) > 0)
                     {
                         if (str.Contains("+SEQ"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+SEQ", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 4), "+SEQ", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+SEQ");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         else if (str.Contains("+COMBO"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 6), "+COMBO", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 6), "+COMBO", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+COMBO");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         else if (str.Contains("+REP"))
                         {
-                            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str, 4), "+REP", false) == 0)
+                            if (Operators.CompareString(Strings.Right(str, 4), "+REP", false) == 0)
                             {
                                 int Length = str.LastIndexOf("+REP");
-                                str = Microsoft.VisualBasic.Strings.Left(str, Length);
+                                str = Strings.Left(str, Length);
                             }
                             else
                             {
                                 int Length = str.LastIndexOf("+");
-                                Microsoft.VisualBasic.Strings.Left(str, Length);
-                                str = Microsoft.VisualBasic.Strings.Right(str, checked(Microsoft.VisualBasic.Strings.Len(str) - Length - 1));
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
                         if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
@@ -9810,15 +9812,15 @@ namespace ClubCompFS
         {
             string spin = Program.GetSpin(Elin);
             bool flag = true;
-            if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(spin, 5), "FCoSp", false) == 0)
+            if (Operators.CompareString(Strings.Left(spin, 5), "FCoSp", false) == 0)
                 flag = false;
-            else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(spin, 4), "CoSp", false) == 0)
+            else if (Operators.CompareString(Strings.Left(spin, 4), "CoSp", false) == 0)
             {
                 flag = false;
             }
             else
             {
-                string Left = Microsoft.VisualBasic.Strings.Left(spin, 3);
+                string Left = Strings.Left(spin, 3);
                 if (Operators.CompareString(Left, "SSp", false) == 0 || Operators.CompareString(Left, "USp", false) == 0 || Operators.CompareString(Left, "LSp", false) == 0 || Operators.CompareString(Left, "CSp", false) == 0)
                     flag = false;
             }
@@ -9837,14 +9839,14 @@ namespace ClubCompFS
                 flag = false;
                 string str1 = ElIn;
                 if (str1.Contains("+"))
-                    str1 = Microsoft.VisualBasic.Strings.Left(str1, str1.LastIndexOf("+"));
-                if (Microsoft.VisualBasic.Strings.Len(str1) <= 7)
+                    str1 = Strings.Left(str1, str1.LastIndexOf("+"));
+                if (Strings.Len(str1) <= 7)
                 {
-                    string str2 = Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str1, 1), "e", false) != 0 ? str1 : Microsoft.VisualBasic.Strings.Trim(str1.Remove(checked(str1.Length - 1)));
-                    if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 2), "<<", false) == 0)
-                        str2 = Microsoft.VisualBasic.Strings.Trim(str2.Remove(checked(str2.Length - 2)));
-                    else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(str2, 1), "<", false) == 0)
-                        str2 = Microsoft.VisualBasic.Strings.Trim(str2.Remove(checked(str2.Length - 1)));
+                    string str2 = Operators.CompareString(Strings.Right(str1, 1), "e", false) != 0 ? str1 : Strings.Trim(str1.Remove(checked(str1.Length - 1)));
+                    if (Operators.CompareString(Strings.Right(str2, 2), "<<", false) == 0)
+                        str2 = Strings.Trim(str2.Remove(checked(str2.Length - 2)));
+                    else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) == 0)
+                        str2 = Strings.Trim(str2.Remove(checked(str2.Length - 1)));
                     int jumpmin = Program.Jumpmin;
                     int jumpMax = Program.JumpMax;
                     int index = jumpmin;
@@ -9889,7 +9891,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 flag = false;
-                if (Microsoft.VisualBasic.Strings.Len(El) > 2)
+                if (Strings.Len(El) > 2)
                 {
                     string spin = Program.GetSpin(El);
                     int spinMin = Program.SpinMin;
@@ -9942,9 +9944,9 @@ namespace ClubCompFS
                     if (str.Contains("REP"))
                     {
                         flag = true;
-                        int num3 = Microsoft.VisualBasic.Strings.InStr(1, str, "+REP", CompareMethod.Text);
+                        int num3 = Strings.InStr(1, str, "+REP", CompareMethod.Text);
                         if (num3 > 1)
-                            str = Microsoft.VisualBasic.Strings.Left(str, checked(num3 - 1));
+                            str = Strings.Left(str, checked(num3 - 1));
                     }
                     Program.OpArr[checked(this.index + 1)].element = !flag ? str + "+REP" : str;
                     this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
@@ -9983,12 +9985,12 @@ namespace ClubCompFS
                 if (this.index > -1)
                 {
                     string element = Program.OpArr[checked(this.index + 1)].element;
-                    if (Microsoft.VisualBasic.Strings.Len(element) < 2 | !this.Sp_V(element))
+                    if (Strings.Len(element) < 2 | !this.Sp_V(element))
                     {
                         Interaction.Beep();
                         int num3 = (int)Interaction.MsgBox((object)"Not possible for this element!", MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     }
-                    else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Right(element, 1), "*", false) == 0)
+                    else if (Operators.CompareString(Strings.Right(element, 1), "*", false) == 0)
                     {
                         Interaction.Beep();
                         goto label_18;
@@ -9997,9 +9999,9 @@ namespace ClubCompFS
                     {
                         if (element.Contains("V"))
                         {
-                            int num4 = Microsoft.VisualBasic.Strings.Len(Program.OpArr[checked(this.index + 1)].element);
+                            int num4 = Strings.Len(Program.OpArr[checked(this.index + 1)].element);
                             this.Spin_V.BackColor = Color.FromArgb(128, (int)byte.MaxValue, (int)byte.MaxValue);
-                            Program.OpArr[checked(this.index + 1)].element = Microsoft.VisualBasic.Strings.Trim(Microsoft.VisualBasic.Strings.Left(element, checked(num4 - 1)));
+                            Program.OpArr[checked(this.index + 1)].element = Strings.Trim(Strings.Left(element, checked(num4 - 1)));
                         }
                         else
                         {
@@ -10034,7 +10036,7 @@ namespace ClubCompFS
 
         public bool Sp_Change(string Elin)
         {
-            string Left = Microsoft.VisualBasic.Strings.Left(Program.GetSpin(Elin), 4);
+            string Left = Strings.Left(Program.GetSpin(Elin), 4);
             return Operators.CompareString(Left, "CSSp", false) == 0 || Operators.CompareString(Left, "CLSp", false) == 0 || Operators.CompareString(Left, "CUSp", false) == 0 || Operators.CompareString(Left, "CCSp", false) == 0 || Operators.CompareString(Left, "CCoS", false) == 0;
         }
 
@@ -10042,23 +10044,23 @@ namespace ClubCompFS
         {
             string spin = Program.GetSpin(Elin);
             bool flag = false;
-            string Left1 = Microsoft.VisualBasic.Strings.Left(spin, 4);
+            string Left1 = Strings.Left(spin, 4);
             if (Operators.CompareString(Left1, "FUSp", false) == 0 || Operators.CompareString(Left1, "FLSp", false) == 0 || Operators.CompareString(Left1, "FCSp", false) == 0 || Operators.CompareString(Left1, "FSSp", false) == 0 || Operators.CompareString(Left1, "CoSp", false) == 0 || Operators.CompareString(Left1, "CSSp", false) == 0 || Operators.CompareString(Left1, "CCSp", false) == 0 || Operators.CompareString(Left1, "CUSp", false) == 0 || Operators.CompareString(Left1, "CLSp", false) == 0)
             {
                 flag = true;
             }
             else
             {
-                string Left2 = Microsoft.VisualBasic.Strings.Left(spin, 5);
+                string Left2 = Strings.Left(spin, 5);
                 if (Operators.CompareString(Left2, "FCUSp", false) == 0 || Operators.CompareString(Left2, "FCLSp", false) == 0 || Operators.CompareString(Left2, "FCCSp", false) == 0 || Operators.CompareString(Left2, "FCSSp", false) == 0 || Operators.CompareString(Left2, "FCoSp", false) == 0 || Operators.CompareString(Left2, "CCoSp", false) == 0)
                     flag = true;
-                else if (Operators.CompareString(Microsoft.VisualBasic.Strings.Left(spin, 6), "FCCoSp", false) == 0)
+                else if (Operators.CompareString(Strings.Left(spin, 6), "FCCoSp", false) == 0)
                     flag = true;
             }
             return flag;
         }
 
-        public bool Sp_Flying(string Elin) => Operators.CompareString(Microsoft.VisualBasic.Strings.Left(Program.GetSpin(Elin), 1), "F", false) == 0;
+        public bool Sp_Flying(string Elin) => Operators.CompareString(Strings.Left(Program.GetSpin(Elin), 1), "F", false) == 0;
 
         private void btnDED_Click(object sender, EventArgs e)
         {

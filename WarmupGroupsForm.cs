@@ -549,7 +549,7 @@ namespace ClubCompFS
                 int num4;
                 int integer1;
                 int integer2;
-                if (Microsoft.VisualBasic.Strings.Len(time) == 5)
+                if (Strings.Len(time) == 5)
                 {
                     num4 = 0;
                     integer1 = Conversions.ToInteger(time.Substring(3, 2));
@@ -587,9 +587,9 @@ namespace ClubCompFS
             if (time == 0)
                 str = "00";
             if (time < 10)
-                str = "0" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(time));
+                str = "0" + Strings.Trim(Conversions.ToString(time));
             if (time >= 10)
-                str = Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(time));
+                str = Strings.Trim(Conversions.ToString(time));
             return str;
         }
 
@@ -894,7 +894,7 @@ namespace ClubCompFS
 
         private void ShowWarmUp_1(int TNoP, int norows)
         {
-            this.Text = "WARMUP GROUPS: " + Microsoft.VisualBasic.Strings.UCase(Program.Category.Name) + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment);
+            this.Text = "WARMUP GROUPS: " + Strings.UCase(Program.Category.Name) + Program.SubCat() + ", " + Program.GetSegTxt(Program.Segment);
             DataGridView dataGridView1 = this.DataGridView1;
             dataGridView1.Rows.Clear();
             dataGridView1.RowCount = norows;
@@ -1029,13 +1029,13 @@ namespace ClubCompFS
                                 if (num5 <= 7)
                                 {
                                     num3 = 28;
-                                    key = "Ice" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(num5));
+                                    key = "Ice" + Strings.Trim(Conversions.ToString(num5));
                                 }
                                 else
                                 {
                                     num3 = 30;
                                     num3 = 31;
-                                    key = "M" + Microsoft.VisualBasic.Strings.Trim(Conversions.ToString(num5));
+                                    key = "M" + Strings.Trim(Conversions.ToString(num5));
                                 }
                                 num3 = 33;
                                 if (num5 <= 7)
@@ -1257,11 +1257,11 @@ namespace ClubCompFS
                             int num3 = (int)Interaction.MsgBox((object)"Wrong selection of warmup group size!", MsgBoxStyle.YesNo, (object)"Susanne SW");
                             goto label_15;
                     }
-                    int num4 = Microsoft.VisualBasic.Strings.Len(str);
+                    int num4 = Strings.Len(str);
                     int Start = 1;
                     while (Start <= num4)
                     {
-                        gr[Start] = Conversions.ToInteger(Microsoft.VisualBasic.Strings.Mid(str, Start, 1));
+                        gr[Start] = Conversions.ToInteger(Strings.Mid(str, Start, 1));
                         checked { ++Start; }
                     }
                     goto label_15;
@@ -1424,7 +1424,7 @@ namespace ClubCompFS
                     if (Operators.CompareString(this.txtPar.Text, "30", false) == 0)
                     {
                         this.mlastRow = checked(dataGridView1.RowCount - 1);
-                        while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                        while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                             checked { this.mlastRow += -1; }
                         checked { ++this.mlastRow; }
                         this.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
@@ -1436,7 +1436,7 @@ namespace ClubCompFS
                     else if (Operators.CompareString(this.txtPar.Text, "3", false) == 0)
                     {
                         this.mlastRow = checked(dataGridView1.RowCount - 1);
-                        while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                        while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                             checked { this.mlastRow += -1; }
                         checked { ++this.mlastRow; }
                         this.PrintDialog1.Document = this.PrintDocument1;
@@ -1453,7 +1453,7 @@ namespace ClubCompFS
                     else
                     {
                         this.mlastRow = checked(dataGridView1.RowCount - 1);
-                        while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                        while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                             checked { this.mlastRow += -1; }
                         checked { ++this.mlastRow; }
                         this.PrintPreviewDialog1.TopMost = true;
@@ -1572,7 +1572,7 @@ namespace ClubCompFS
                     foreach (DataGridViewCell cell in (BaseCollection)row.Cells)
                     {
                         int width2 = checked((int)Math.Round(unchecked((double)numArray[cell.ColumnIndex] * (double)width1 / 100.0)));
-                        string str3 = Microsoft.VisualBasic.Strings.Left(dataGridView1.Rows[cell.RowIndex].Cells[cell.ColumnIndex].FormattedValue.ToString(), Length);
+                        string str3 = Strings.Left(dataGridView1.Rows[cell.RowIndex].Cells[cell.ColumnIndex].FormattedValue.ToString(), Length);
                         switch (cell.ColumnIndex)
                         {
                             case 0:
@@ -1800,7 +1800,7 @@ namespace ClubCompFS
                 if (Operators.CompareString(this.txtPar.Text, "30", false) == 0)
                 {
                     this.mlastRow = checked(dataGridView1.RowCount - 1);
-                    while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                    while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                         checked { this.mlastRow += -1; }
                     checked { ++this.mlastRow; }
                     this.PrintDocument1.PrintController = (PrintController)new StandardPrintController();
@@ -1812,7 +1812,7 @@ namespace ClubCompFS
                 else if (Operators.CompareString(this.txtPar.Text, "3", false) == 0)
                 {
                     this.mlastRow = checked(dataGridView1.RowCount - 1);
-                    while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                    while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                         checked { this.mlastRow += -1; }
                     checked { ++this.mlastRow; }
                     this.PrintDialog1.Document = this.PrintDocument1;
@@ -1829,7 +1829,7 @@ namespace ClubCompFS
                 else
                 {
                     this.mlastRow = checked(dataGridView1.RowCount - 1);
-                    while (this.mlastRow >= 0 && Microsoft.VisualBasic.Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
+                    while (this.mlastRow >= 0 && Strings.Len(RuntimeHelpers.GetObjectValue(dataGridView1.Rows[this.mlastRow].Cells[1].Value)) <= 0)
                         checked { this.mlastRow += -1; }
                     checked { ++this.mlastRow; }
                     this.PrintPreviewDialog1.TopMost = true;
