@@ -265,8 +265,8 @@ namespace ClubCompFS
         private Timer _Timer1;
         [AccessedThroughProperty("OpExcl")]
         private Button _OpExcl;
-        [AccessedThroughProperty("OpFigure")]
-        private Button _OpFigure;
+        [AccessedThroughProperty("OpFallinElement")]
+        private Button _OpFallinElement;
         [AccessedThroughProperty("Spin_V")]
         private Button _Spin_V;
         [AccessedThroughProperty("opREP")]
@@ -471,7 +471,7 @@ namespace ClubCompFS
             this.Time = new Button();
             this.Timer1 = new Timer(this.components);
             this.OpExcl = new Button();
-            this.OpFigure = new Button();
+            this.OpFallinElement = new Button();
             this.Spin_V = new Button();
             this.opREP = new Button();
             this.PictureBox13 = new PictureBox();
@@ -1694,16 +1694,16 @@ namespace ClubCompFS
             this.OpExcl.Text = "!";
             this.OpExcl.UseVisualStyleBackColor = false;
             
-            this.OpFigure.BackColor = Color.Yellow;
-            this.OpFigure.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.OpFigure.Location = new Point(554, 1);
-            this.OpFigure.Name = "OpFigure";
-            Button opFigure = this.OpFigure;
+            this.OpFallinElement.BackColor = Color.Yellow;
+            this.OpFallinElement.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.OpFallinElement.Location = new Point(554, 1);
+            this.OpFallinElement.Name = "OpFallinElement";
+            Button opFallinElement = this.OpFallinElement;
             size1 = new Size(27, 37);
-            opFigure.Size = size1;
-            this.OpFigure.TabIndex = 123;
-            this.OpFigure.Text = "F";
-            this.OpFigure.UseVisualStyleBackColor = false;
+            opFallinElement.Size = size1;
+            this.OpFallinElement.TabIndex = 123;
+            this.OpFallinElement.Text = "F";
+            this.OpFallinElement.UseVisualStyleBackColor = false;
 
             this.Spin_V.BackColor = Color.FromArgb(128, (int)byte.MaxValue, (int)byte.MaxValue);
             this.Spin_V.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -2097,7 +2097,7 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.opREP);
             this.Controls.Add((Control)this.Spin_V);
             this.Controls.Add((Control)this.OpExcl);
-            this.Controls.Add((Control)this.OpFigure);
+            this.Controls.Add((Control)this.OpFallinElement);
             this.Controls.Add((Control)this.Time);
             this.Controls.Add((Control)this.DataGridView1);
             this.Controls.Add((Control)this.ColorBox);
@@ -4012,19 +4012,19 @@ namespace ClubCompFS
             }
         }
 
-        internal virtual Button OpFigure
+        internal virtual Button OpFallinElement
         {
-            get => this._OpFigure;
+            get => this._OpFallinElement;
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                EventHandler eventHandler = new EventHandler(this.OpFigure_Click);
-                if (this._OpFigure != null)
-                    this._OpFigure.Click -= eventHandler;
-                this._OpFigure = value;
-                if (this._OpFigure == null)
+                EventHandler eventHandler = new EventHandler(this.OpFallinElement_Click);
+                if (this._OpFallinElement != null)
+                    this._OpFallinElement.Click -= eventHandler;
+                this._OpFallinElement = value;
+                if (this._OpFallinElement == null)
                     return;
-                this._OpFigure.Click += eventHandler;
+                this._OpFallinElement.Click += eventHandler;
             }
         }
 
@@ -4624,7 +4624,7 @@ namespace ClubCompFS
                                                       (object) new Font("Microsoft Sans Serif", (float) emSize4, FontStyle.Bold)
                                                                                                         }, (string[])null, (System.Type[])null, false, true);
                                                                                                     }
-                                                                                                    else if (Conversions.ToBoolean(Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Zero", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"OpFigure", false)) ? (object)true : (object)false))
+                                                                                                    else if (Conversions.ToBoolean(Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Zero", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"OpFallinElement", false)) ? (object)true : (object)false))
                                                                                                         {
                                                                                                             num3 = 105;
                                                                                                             NewLateBinding.LateSetComplex(this.CtlArray[index1], (System.Type)null, "font", new object[1]
@@ -7706,7 +7706,7 @@ namespace ClubCompFS
                     this.OpUR.Visible = true;
                     this.Edge.Visible = true;
                     this.OpExcl.Visible = true;
-                    this.OpFigure.Visible = true;
+                    this.OpFallinElement.Visible = true;
                     this.Zero.Visible = true;
                     this.Review.Visible = true;
                     this.Falls_out.Text = "FALLS  " + Conversions.ToString(this.NoFalls());
@@ -7749,7 +7749,7 @@ namespace ClubCompFS
                     this.OpUR.Visible = false;
                     this.Edge.Visible = false;
                     this.OpExcl.Visible = false;
-                    this.OpFigure.Visible = false;
+                    this.OpFallinElement.Visible = false;
                     this.HalfTime.Visible = false;
                     this.StartHT.Visible = false;
                     this.StopHT.Visible = false;
@@ -9511,6 +9511,11 @@ namespace ClubCompFS
 
         private void Falls_Click(object sender, EventArgs e)
         {
+            IncrementFalls();
+        }
+
+        private void IncrementFalls()
+        {
             int num1 = 0;
             int num2 = 0;
             try
@@ -9543,13 +9548,18 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("Falls_Plus_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_14:
+        label_14:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
         }
 
         private void Falls_minus_Click(object sender, EventArgs e)
+        {
+            DecrementFalls();
+        }
+
+        private void DecrementFalls()
         {
             int num1 = 0;
             int num2 = 0;
@@ -9577,9 +9587,9 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("Falls_minus_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("DecrementFalls - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_13:
+        label_13:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9716,7 +9726,7 @@ namespace ClubCompFS
             ProjectData.ClearProjectError();
         }
         
-        private void OpFigure_Click(object sender, EventArgs e)
+        private void OpFallinElement_Click(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
@@ -9773,9 +9783,23 @@ namespace ClubCompFS
                             }
                         }
                         if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
+                        {
                             Interaction.Beep();
+                        }
                         else
+                        {
                             Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "F";
+
+                            if (!string.IsNullOrWhiteSpace(Program.OpArr[checked(this.index + 1)].edge))
+                            {
+                                IncrementFalls();
+                            }
+                            else
+                            {
+                                DecrementFalls();
+                            }
+                        }
+
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_25;
