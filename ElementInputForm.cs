@@ -22,6 +22,7 @@ namespace ClubCompFS
     [DesignerGenerated]
     public class ElementInputForm : Form
     {
+        #region Private Properties
         private IContainer components;
         [AccessedThroughProperty("OpStop")]
         private Button _OpStop;
@@ -324,6 +325,8 @@ namespace ClubCompFS
         private string[] Jarr;
         public bool WillExit;
         private ArrayList CtlArray;
+
+        #endregion // end - Private Properties
 
         public ElementInputForm()
         {
@@ -9058,27 +9061,27 @@ namespace ClubCompFS
                                 }
                                 checked { ++index1; }
                             }
-                            Program.OpArr[checked(this.index + 1)].edge = "";
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("e", "");
                             int num5 = checked(Eno - 1);
                             int index2 = 1;
                             while (index2 <= num5)
                             {
-                                if (Program.ElArr[index2].Elstr.Contains(nameof(e)))
-                                    Program.OpArr[checked(this.index + 1)].edge = nameof(e);
+                                if (Program.ElArr[index2].Elstr.Contains("e"))
+                                    Program.OpArr[checked(this.index + 1)].edge += "e";
                                 str1 = index2 >= checked(Eno - 1) ? str1 + Program.ElArr[index2].Elstr : str1 + Program.ElArr[index2].Elstr + "+";
                                 checked { ++index2; }
                             }
                             Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str1 : str1 + str2;
                         }
-                        else if (Operators.CompareString(Strings.Right(str3, 1), nameof(e), false) == 0)
+                        else if (Operators.CompareString(Strings.Right(str3, 1), "e", false) == 0)
                         {
                             Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) : Strings.Trim(Strings.Left(str3, checked(Strings.Len(str3) - 1))) + str2;
-                            Program.OpArr[checked(this.index + 1)].edge = "";
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("e", "");
                         }
                         else
                         {
                             Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str3 + " e" : str3 + " e" + str2;
-                            Program.OpArr[checked(this.index + 1)].edge = nameof(e);
+                            Program.OpArr[checked(this.index + 1)].edge += "e";
                         }
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
@@ -9674,10 +9677,18 @@ namespace ClubCompFS
                                 str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
-                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
+                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Program.OpArr[checked(this.index + 1)].edge.Contains("e"))
+                        {
                             Interaction.Beep();
+                        }
+                        else if(Program.OpArr[checked(this.index + 1)].edge.Contains("!"))
+                        {
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("!", "");
+                        }
                         else
-                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "!";
+                        {
+                            Program.OpArr[checked(this.index + 1)].edge += "!";
+                        }
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_25;
@@ -9762,24 +9773,21 @@ namespace ClubCompFS
                                 str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
                             }
                         }
-                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, nameof(e), false) == 0)
+                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str))
                         {
                             Interaction.Beep();
                         }
+                        else if(Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
+                        {
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("f", "");
+                            DecrementFalls(); // decrement general falls count
+                        }
                         else
                         {
-                            Program.OpArr[checked(this.index + 1)].edge = Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "", false) != 0 ? "" : "f";
-
-                            if (!string.IsNullOrWhiteSpace(Program.OpArr[checked(this.index + 1)].edge))
-                            {
-                                IncrementFalls();
-                            }
-                            else
-                            {
-                                DecrementFalls();
-                            }
+                            Program.OpArr[checked(this.index + 1)].edge += "f";
+                            IncrementFalls(); // increment general falls count
                         }
-
+                        
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_25;

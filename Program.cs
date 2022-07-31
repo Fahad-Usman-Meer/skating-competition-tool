@@ -259,7 +259,7 @@ namespace ClubCompFS
                         mainForm.txtNonJudgingReferee.ForeColor = Color.Black;
                         break;
                 }
-                label_15:
+            label_15:
                 string segment2 = Program.Segment;
                 if (Operators.CompareString(segment2, "Seg1", false) == 0)
                 {
@@ -401,7 +401,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("CreateMainForm - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_52:
+        label_52:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -478,6 +478,7 @@ namespace ClubCompFS
                                     vek[index].J_Seg2.PC = new double[16, 8];
                                     vek[index].J_Seg1.Deduction = new long[8];
                                     vek[index].J_Seg2.Deduction = new long[8];
+                                    //TODO: edges: initialize here
                                     vek[index].SSS_Seg1 = new string[16];
                                     vek[index].SSS_Seg2 = new string[16];
                                     Program.ParsePerson(MyReader, i);
@@ -504,7 +505,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("LoadXML_DB - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_28:
+        label_28:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -683,7 +684,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseSegment - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_33:
+        label_33:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -823,7 +824,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOfficials - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_35:
+        label_35:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -963,7 +964,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOfficials2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_35:
+        label_35:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1014,7 +1015,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseCompetitionHeader - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1096,6 +1097,7 @@ namespace ClubCompFS
                 MyReader.MoveToAttribute(1);
                 Program.Vek[i].HTIndSeg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
+                //TODO: Edges: read from DB File here
                 MyReader.ReadToFollowing("ElSeg1");
                 string[] strArray1 = MyReader.ReadString().Split('|');
                 int index1 = 1;
@@ -1235,7 +1237,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParsePerson - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_39:
+        label_39:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1456,7 +1458,7 @@ namespace ClubCompFS
                     Program.CategoryFileSaved = true;
                     goto case 2;
             }
-            label_47:
+        label_47:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1516,7 +1518,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1560,7 +1562,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1589,7 +1591,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode3 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1618,7 +1620,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode4 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1706,7 +1708,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode5 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1828,6 +1830,7 @@ namespace ClubCompFS
                 writer.WriteAttributeString("Seg1", pHindSeg1);
                 writer.WriteAttributeString("Seg2", pHindSeg2);
                 writer.WriteEndElement();
+                //TODO: Edges: write Edges in DB File here
                 writer.WriteElementString("ElSeg1", pElSeg1);
                 writer.WriteElementString("ElSeg2", pElSeg2);
                 writer.WriteElementString("JEESeg1_1", pJEESeg1_1);
@@ -1886,7 +1889,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("createNode6 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1938,7 +1941,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("LoadOpenDB - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_18:
+        label_18:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1965,7 +1968,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOpenDBVersion - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2056,7 +2059,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ParseOpenDBCategory - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2285,7 +2288,7 @@ namespace ClubCompFS
                 ProjectData.SetProjectError(ex);
             }
             int num4 = (int)Interaction.MsgBox((object)("ParseOpenDBCategory - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2365,7 +2368,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("CreateJudgesDetails - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_20:
+        label_20:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2445,7 +2448,7 @@ namespace ClubCompFS
             {
                 int num9 = (int)Interaction.MsgBox((object)("A_Calc_Sum - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2485,7 +2488,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("Test_SEQ_COMBO_REP - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_9:
+        label_9:
             string str2 = str1;
             if (num2 == 0)
                 return str2;
@@ -2534,7 +2537,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindJumpEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -3149,7 +3152,7 @@ namespace ClubCompFS
             {
                 int num30 = (int)Interaction.MsgBox((object)("A_Calc_BV_GOE - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_225:
+        label_225:
             double num31 = num2;
             if (num3 == 0)
                 return num31;
@@ -3282,7 +3285,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindJumpEl1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3326,7 +3329,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("A_CalcNoOfEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_14:
+        label_14:
             int num5 = num2;
             if (num3 == 0)
                 return num5;
@@ -3419,7 +3422,7 @@ namespace ClubCompFS
             {
                 int num7 = (int)Interaction.MsgBox((object)("A_CalcPC - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_34:
+        label_34:
             double num8 = num2;
             if (num3 == 0)
                 return num8;
@@ -3548,7 +3551,7 @@ namespace ClubCompFS
             {
                 int num10 = (int)Interaction.MsgBox((object)("B_Init_SheetText - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_25:
+        label_25:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3591,39 +3594,61 @@ namespace ClubCompFS
                             Program.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
                             str = Program.Vek[Program.PNo].SSS_Seg2[index];
                         }
+
+                        string edgesSignsColumn = "";// Program.JDarr[checked(R + index + 8), 3];
                         //TODO: character combinations to add in excel sheet
                         if (str.Contains("*"))
-                            Program.JDarr[checked(R + index + 8), 3] = "*";
+                            edgesSignsColumn = "*";
                         else if (str.Contains("V"))
-                            Program.JDarr[checked(R + index + 8), 3] = "V";
+                            edgesSignsColumn = "V";
                         else if (str.Contains("<< e"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<<e";
+                            edgesSignsColumn = "<<e";
                         else if (str.Contains("< e"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<e";
+                            edgesSignsColumn = "<e";
                         else if (str.Contains(" e"))
-                            Program.JDarr[checked(R + index + 8), 3] = "e";
+                            edgesSignsColumn = "e";
                         else if (str.Contains("<< !"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<<!";
+                            edgesSignsColumn = "<<!";
                         else if (str.Contains("<< f"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<<f";
+                            edgesSignsColumn = "<<f";
                         else if (str.Contains("< !"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<!";
+                            edgesSignsColumn = "<!";
                         else if (str.Contains("< f"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<f";
+                            edgesSignsColumn = "<f";
                         else if (str.Contains(" !"))
-                            Program.JDarr[checked(R + index + 8), 3] = "!";
+                            edgesSignsColumn = "!";
                         else if (str.Contains(" f"))
-                            Program.JDarr[checked(R + index + 8), 3] = "f";
+                            edgesSignsColumn = "f";
                         else if (str.Contains("<<"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<<";
+                            edgesSignsColumn = "<<";
                         else if (str.Contains("<"))
-                            Program.JDarr[checked(R + index + 8), 3] = "<";
+                            edgesSignsColumn = "<";
                         else if (!str.Contains("Sq") && str.Contains("q")) // Exclude Sequence Element (Sq)
-                            Program.JDarr[checked(R + index + 8), 3] = "q";
+                            edgesSignsColumn = "q";
+                        string tempSigns = edgesSignsColumn;
+                        if (!string.IsNullOrWhiteSpace(Program.OpArr[index].edge))
+                        {
+                            if (!string.IsNullOrWhiteSpace(edgesSignsColumn))
+                            {
+                                foreach (char ch in edgesSignsColumn)
+                                {
+                                    if (Program.OpArr[index].edge.Contains(ch))
+                                    {
+                                        tempSigns = tempSigns.Replace(ch.ToString(), Program.OpArr[index].edge);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                tempSigns = Program.OpArr[index].edge;
+                            }
+                        }
+
+                        Program.JDarr[checked(R + index + 8), 3] = tempSigns;
                         int num5 = Strings.InStr(1, str, " !", CompareMethod.Text);
                         if (num5 > 0)
                             str = Strings.Left(str, checked(num5 - 1));
-                        
+
                         num5 = Strings.InStr(1, str, " f", CompareMethod.Text);
                         if (num5 > 0)
                             str = Strings.Left(str, checked(num5 - 1));
@@ -3651,7 +3676,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("B_SSS_data - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_38:
+        label_38:
             int num7 = num2;
             if (num3 == 0)
                 return num7;
@@ -3712,7 +3737,7 @@ namespace ClubCompFS
             {
                 int num9 = (int)Interaction.MsgBox((object)("B_Show_GOEdata - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_24:
+        label_24:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3769,7 +3794,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("B_Show_PCfactors - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3836,7 +3861,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("B_Show_PCdata - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_26:
+        label_26:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -3874,7 +3899,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("B_Calc_BaseSum - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4008,7 +4033,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("B_Show_Deductions - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_52:
+        label_52:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4048,7 +4073,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("GetArr - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_11:
+        label_11:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4149,7 +4174,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("MV_Ded - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             long num7 = num2;
             if (num3 == 0)
                 return num7;
@@ -4210,7 +4235,7 @@ namespace ClubCompFS
             {
                 int num7 = (int)Interaction.MsgBox((object)("JDED - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             int num8 = num2;
             if (num3 == 0)
                 return num8;
@@ -4265,7 +4290,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("B_Show_Scores - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4346,7 +4371,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("DedSeg1Seg2 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             double num12 = num2;
             if (num3 == 0)
                 return num12;
@@ -4442,7 +4467,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("SetDed - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_34:
+        label_34:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4505,7 +4530,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("TstElPP - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_22:
+        label_22:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -4573,7 +4598,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("TstOneEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_20:
+        label_20:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -5011,7 +5036,7 @@ namespace ClubCompFS
                 flag = false;
                 int num4 = (int)Interaction.MsgBox((object)("GetIniData - Error reading CLUBCOMP.INI!" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_70:
+        label_70:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -5100,7 +5125,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("SaveIniData - Error exporting " + IniFile + "\r\nDescription : " + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5214,7 +5239,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("PCSel -Description : " + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_28:
+        label_28:
             string str2 = str1;
             if (num2 == 0)
                 return str2;
@@ -5540,7 +5565,7 @@ namespace ClubCompFS
             {
                 ProjectData.SetProjectError(ex);
             }
-            label_17:
+        label_17:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -5975,7 +6000,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("MakeScoreBoard_12 - " + Information.Err().Description + "\r\n"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_105:
+        label_105:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -6402,7 +6427,7 @@ namespace ClubCompFS
             {
                 int num11 = (int)Interaction.MsgBox((object)("MakeScoreBoard_34 - " + Information.Err().Description + "\r\n"), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_105:
+        label_105:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -6488,7 +6513,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("MakeTEScore - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -7466,7 +7491,7 @@ namespace ClubCompFS
                 flag = false;
                 int num6 = (int)Interaction.MsgBox((object)("MakeResultHTM - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_66:
+        label_66:
             int num7 = flag ? 1 : 0;
             if (num2 == 0)
                 return num7 != 0;
@@ -7649,7 +7674,7 @@ namespace ClubCompFS
                 flag = false;
                 int num5 = (int)Interaction.MsgBox((object)("MakeSpeakerHTM - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_36:
+        label_36:
             int num6 = flag ? 1 : 0;
             if (num2 == 0)
                 return num6 != 0;
@@ -7909,7 +7934,7 @@ namespace ClubCompFS
                 flag = false;
                 int num5 = (int)Interaction.MsgBox((object)("MakeCSS - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_60:
+        label_60:
             int num6 = flag ? 1 : 0;
             if (num2 == 0)
                 return num6 != 0;
@@ -9138,7 +9163,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("MakeDir - Error in the folder or file name!\r\n" + Path + "\r\n" + Information.Err().Description), MsgBoxStyle.Critical | MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_17:
+        label_17:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -9773,7 +9798,7 @@ namespace ClubCompFS
                 }
                 judgeNo = index;
             }
-            label_5:
+        label_5:
             return judgeNo;
         }
 
@@ -9968,8 +9993,13 @@ namespace ClubCompFS
             public int Startno_Seg2;
             public int WarmUp_Seg1;
             public int WarmUp_Seg2;
+            /// <summary>
+            /// TODO: new Edges lists are "SSS_Seg1_edges", "SSS_Seg2_edges"
+            /// </summary>
             public string[] SSS_Seg1;
+            public string[] SSS_Seg1_edges;
             public string[] SSS_Seg2;
+            public string[] SSS_Seg2_edges;
             public int DNS_Seg1;
             public int DNS_Seg2;
             public double TES_Seg1;
