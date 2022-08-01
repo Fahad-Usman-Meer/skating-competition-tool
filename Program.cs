@@ -478,9 +478,11 @@ namespace ClubCompFS
                                     vek[index].J_Seg2.PC = new double[16, 8];
                                     vek[index].J_Seg1.Deduction = new long[8];
                                     vek[index].J_Seg2.Deduction = new long[8];
-                                    //TODO: edges: initialize here
+                                    //TODO: Edges: initialize here
                                     vek[index].SSS_Seg1 = new string[16];
+                                    vek[index].SSS_Seg1_edges = new string[16];
                                     vek[index].SSS_Seg2 = new string[16];
+                                    vek[index].SSS_Seg2_edges = new string[16];
                                     Program.ParsePerson(MyReader, i);
                                     checked { ++i; }
                                 }
@@ -1097,7 +1099,6 @@ namespace ClubCompFS
                 MyReader.MoveToAttribute(1);
                 Program.Vek[i].HTIndSeg2 = Conversions.ToInteger(MyReader.GetAttribute(1));
                 MyReader.MoveToElement();
-                //TODO: Edges: read from DB File here
                 MyReader.ReadToFollowing("ElSeg1");
                 string[] strArray1 = MyReader.ReadString().Split('|');
                 int index1 = 1;
@@ -1107,6 +1108,18 @@ namespace ClubCompFS
                     checked { ++index1; }
                 }
                 while (index1 <= 15);
+
+                //TODO: Edges: read edges from DB File here
+                MyReader.ReadToFollowing("ElSeg1Edges");
+                string[] strArray1Edges = MyReader.ReadString().Split('|');
+                int index1Edges = 1;
+                do
+                {
+                    Program.Vek[i].SSS_Seg1_edges[index1Edges] = strArray1Edges[checked(index1Edges - 1)];
+                    checked { ++index1Edges; }
+                }
+                while (index1Edges <= 15);
+
                 MyReader.ReadToFollowing("ElSeg2");
                 string[] strArray2 = MyReader.ReadString().Split('|');
                 int index2 = 1;
@@ -1116,6 +1129,17 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 while (index2 <= 15);
+                
+                MyReader.ReadToFollowing("ElSeg2Edges");
+                string[] strArray2Edges = MyReader.ReadString().Split('|');
+                int index2Edges = 1;
+                do
+                {
+                    Program.Vek[i].SSS_Seg2_edges[index2Edges] = strArray2Edges[checked(index2Edges - 1)];
+                    checked { ++index2Edges; }
+                }
+                while (index2Edges <= 15);
+
                 int index3 = 1;
                 do
                 {
@@ -1361,17 +1385,29 @@ namespace ClubCompFS
                     {
                         Program.Participant[] vek = Program.Vek;
                         int index2 = num3;
+                        //TODO: Edges: Set edges data to save in DB
                         string pElSeg1 = "";
+                        string pElSeg1Edges = "";
                         string pElSeg2 = "";
+                        string pElSeg2Edges = "";
                         int index3 = 1;
                         do
                         {
                             pElSeg1 += vek[index2].SSS_Seg1[index3];
+                            pElSeg1Edges += vek[index2].SSS_Seg1_edges[index3];
                             if (index3 < 15)
+                            {
                                 pElSeg1 += "|";
+                                pElSeg1Edges += "|";
+                            }
+
                             pElSeg2 += vek[index2].SSS_Seg2[index3];
+                            pElSeg2Edges += vek[index2].SSS_Seg2_edges[index3];
                             if (index3 < 15)
+                            {
                                 pElSeg2 += "|";
+                                pElSeg2Edges += "|";
+                            }
                             checked { ++index3; }
                         }
                         while (index3 <= 15);
@@ -1432,7 +1468,7 @@ namespace ClubCompFS
                             checked { ++index8; }
                         }
                         while (index8 <= 7);
-                        Program.createNode6(Conversions.ToString(vek[index2].Startno_Seg1), Conversions.ToString(vek[index2].Startno_Seg2), Conversions.ToString(vek[index2].WarmUp_Seg1), Conversions.ToString(vek[index2].WarmUp_Seg2), vek[index2].Name.FName, vek[index2].Name.LName, vek[index2].Name.ID, vek[index2].Club, vek[index2].ClubID, Conversions.ToString(vek[index2].TES_Seg1), Conversions.ToString(vek[index2].PCS_Seg1), Conversions.ToString(vek[index2].Score_Seg1), Conversions.ToString(vek[index2].TES_Seg2), Conversions.ToString(vek[index2].PCS_Seg2), Conversions.ToString(vek[index2].Score_Seg2), Conversions.ToString(vek[index2].Score_Total), Conversions.ToString(vek[index2].Finished_Seg1), Conversions.ToString(vek[index2].Finished_Seg2), Conversions.ToString(vek[index2].Place_Seg1), Conversions.ToString(vek[index2].Place_Seg2), Conversions.ToString(vek[index2].Place), Conversions.ToString(vek[index2].DNS_Seg1), Conversions.ToString(vek[index2].DNS_Seg2), Conversions.ToString(vek[index2].HTIndSeg1), Conversions.ToString(vek[index2].HTIndSeg2), pElSeg1, pElSeg2, strArray5[1], strArray5[2], strArray5[3], strArray5[4], strArray5[5], strArray5[6], strArray5[7], strArray6[1], strArray6[2], strArray6[3], strArray6[4], strArray6[5], strArray6[6], strArray6[7], strArray7[1], strArray7[2], strArray7[3], strArray7[4], strArray7[5], strArray7[6], strArray7[7], strArray8[1], strArray8[2], strArray8[3], strArray8[4], strArray8[5], strArray8[6], strArray8[7], Conversions.ToString(vek[index2].Deductions_Seg1), Conversions.ToString(vek[index2].Deductions_Seg2), pMajSeg1, pMajSeg2, Conversions.ToString(vek[index2].Falls_seg1), Conversions.ToString(vek[index2].Falls_seg2), Conversions.ToString(vek[index2].Bonus_Seg1), Conversions.ToString(vek[index2].Bonus_Seg2), writer);
+                        Program.createNode6(Conversions.ToString(vek[index2].Startno_Seg1), Conversions.ToString(vek[index2].Startno_Seg2), Conversions.ToString(vek[index2].WarmUp_Seg1), Conversions.ToString(vek[index2].WarmUp_Seg2), vek[index2].Name.FName, vek[index2].Name.LName, vek[index2].Name.ID, vek[index2].Club, vek[index2].ClubID, Conversions.ToString(vek[index2].TES_Seg1), Conversions.ToString(vek[index2].PCS_Seg1), Conversions.ToString(vek[index2].Score_Seg1), Conversions.ToString(vek[index2].TES_Seg2), Conversions.ToString(vek[index2].PCS_Seg2), Conversions.ToString(vek[index2].Score_Seg2), Conversions.ToString(vek[index2].Score_Total), Conversions.ToString(vek[index2].Finished_Seg1), Conversions.ToString(vek[index2].Finished_Seg2), Conversions.ToString(vek[index2].Place_Seg1), Conversions.ToString(vek[index2].Place_Seg2), Conversions.ToString(vek[index2].Place), Conversions.ToString(vek[index2].DNS_Seg1), Conversions.ToString(vek[index2].DNS_Seg2), Conversions.ToString(vek[index2].HTIndSeg1), Conversions.ToString(vek[index2].HTIndSeg2), pElSeg1, pElSeg1Edges, pElSeg2, pElSeg2Edges, strArray5[1], strArray5[2], strArray5[3], strArray5[4], strArray5[5], strArray5[6], strArray5[7], strArray6[1], strArray6[2], strArray6[3], strArray6[4], strArray6[5], strArray6[6], strArray6[7], strArray7[1], strArray7[2], strArray7[3], strArray7[4], strArray7[5], strArray7[6], strArray7[7], strArray8[1], strArray8[2], strArray8[3], strArray8[4], strArray8[5], strArray8[6], strArray8[7], Conversions.ToString(vek[index2].Deductions_Seg1), Conversions.ToString(vek[index2].Deductions_Seg2), pMajSeg1, pMajSeg2, Conversions.ToString(vek[index2].Falls_seg1), Conversions.ToString(vek[index2].Falls_seg2), Conversions.ToString(vek[index2].Bonus_Seg1), Conversions.ToString(vek[index2].Bonus_Seg2), writer);
                         checked { ++num3; }
                     }
                     writer.WriteEndElement();
@@ -1741,7 +1777,9 @@ namespace ClubCompFS
           string pHindSeg1,
           string pHindSeg2,
           string pElSeg1,
+          string pElSeg1Edges,
           string pElSeg2,
+          string pElSeg2Edges,
           string pJEESeg1_1,
           string pJEESeg1_2,
           string pJEESeg1_3,
@@ -1832,7 +1870,9 @@ namespace ClubCompFS
                 writer.WriteEndElement();
                 //TODO: Edges: write Edges in DB File here
                 writer.WriteElementString("ElSeg1", pElSeg1);
+                writer.WriteElementString("ElSeg1Edges", pElSeg1Edges);
                 writer.WriteElementString("ElSeg2", pElSeg2);
+                writer.WriteElementString("ElSeg2Edges", pElSeg2Edges);
                 writer.WriteElementString("JEESeg1_1", pJEESeg1_1);
                 writer.WriteElementString("JEESeg1_2", pJEESeg1_2);
                 writer.WriteElementString("JEESeg1_3", pJEESeg1_3);
@@ -9994,7 +10034,7 @@ namespace ClubCompFS
             public int WarmUp_Seg1;
             public int WarmUp_Seg2;
             /// <summary>
-            /// TODO: new Edges lists are "SSS_Seg1_edges", "SSS_Seg2_edges"
+            /// TODO: Edges: new Edges lists are "SSS_Seg1_edges", "SSS_Seg2_edges"
             /// </summary>
             public string[] SSS_Seg1;
             public string[] SSS_Seg1_edges;

@@ -5751,11 +5751,6 @@ namespace ClubCompFS
                         num3 = 7;
                         str = " !";
                     }
-                    else if (Operators.CompareString(edge, "f", false) == 0)
-                    {
-                        num3 = 7;
-                        str = " f";
-                    }
                     else
                     {
                         num3 = 9;
@@ -5779,6 +5774,7 @@ namespace ClubCompFS
                     {
                         num3 = 19;
                         Program.Vek[Program.PNo].SSS_Seg1[index] = Program.OpArr[index].element + str;
+                        Program.Vek[Program.PNo].SSS_Seg1_edges[index] = Program.OpArr[index].edge;
                     }
                     else
                     {
@@ -5787,6 +5783,7 @@ namespace ClubCompFS
                         {
                             num3 = 22;
                             Program.Vek[Program.PNo].SSS_Seg2[index] = Program.OpArr[index].element + str;
+                            Program.Vek[Program.PNo].SSS_Seg2_edges[index] = Program.OpArr[index].edge;
                         }
                     }
                     num3 = 24;
@@ -7764,21 +7761,26 @@ namespace ClubCompFS
                     string str2 = "";
                     string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
+                    {
                         str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg1[index];
+                        str1 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg1_edges[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg1_edges[index];
+                    }
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
+                    {
                         str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2[index];
-                    if (str2.Contains(" e"))
-                        str1 = "e";
+                        str1 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2_edges[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2_edges[index];
+                    }
+                    
                     int num3 = Strings.InStr(1, str2, " !", CompareMethod.Text);
                     if (num3 > 0)
                     {
-                        str1 += "!";
+                        //str1 += "!";
                         str2 = Strings.Left(str2, checked(num3 - 1));
                     }
                     num3 = Strings.InStr(1, str2, " f", CompareMethod.Text);
                     if (num3 > 0)
                     {
-                        str1 += "f";
+                        //str1 += "f";
                         str2 = Strings.Left(str2, checked(num3 - 1));
                     }
                     Program.OpArr[index].element = str2;
@@ -9035,7 +9037,7 @@ namespace ClubCompFS
                             flag = true;
                         }
                     }
-                    if (!this.TstJump(str3) | Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "!", false) == 0 | !this.Tst_Lz_or_F(str3))
+                    if (!this.TstJump(str3) | Program.OpArr[checked(this.index + 1)].edge.Contains("!") | !this.Tst_Lz_or_F(str3))
                     {
                         Interaction.Beep();
                         if (Operators.CompareString(Program.OpArr[checked(this.index + 1)].edge, "!", false) == 0)
@@ -9057,7 +9059,15 @@ namespace ClubCompFS
                             {
                                 if (this.Tst_Lz_F(Program.ElArr[index1].Elstr))
                                 {
-                                    Program.ElArr[index1].Elstr = Operators.CompareString(Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0 ? Program.ElArr[index1].Elstr + " e" : Strings.Trim(Program.ElArr[index1].Elstr.Remove(checked(Program.ElArr[index1].Elstr.Length - 1)));
+                                    if (Operators.CompareString(Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0)
+                                    {
+                                        Program.ElArr[index1].Elstr = Program.ElArr[index1].Elstr + " e";
+                                        //break;
+                                    }
+                                    else
+                                    {
+                                        Program.ElArr[index1].Elstr = Strings.Trim(Program.ElArr[index1].Elstr.Remove(checked(Program.ElArr[index1].Elstr.Length - 1)));
+                                    }
                                 }
                                 checked { ++index1; }
                             }
@@ -9066,7 +9076,7 @@ namespace ClubCompFS
                             int index2 = 1;
                             while (index2 <= num5)
                             {
-                                if (Program.ElArr[index2].Elstr.Contains("e"))
+                                if (Program.ElArr[index2].Elstr.Contains("e") && !Program.OpArr[checked(this.index + 1)].edge.Contains("e"))
                                     Program.OpArr[checked(this.index + 1)].edge += "e";
                                 str1 = index2 >= checked(Eno - 1) ? str1 + Program.ElArr[index2].Elstr : str1 + Program.ElArr[index2].Elstr + "+";
                                 checked { ++index2; }
@@ -9083,6 +9093,7 @@ namespace ClubCompFS
                             Program.OpArr[checked(this.index + 1)].element = flag ? str2 + "+" + str3 + " e" : str3 + " e" + str2;
                             Program.OpArr[checked(this.index + 1)].edge += "e";
                         }
+                        //Program.OpArr[checked(this.index + 1)].edge = string.Join("", Program.OpArr[checked(this.index + 1)].edge?.ToCharArray().Distinct());
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
                         goto label_43;
