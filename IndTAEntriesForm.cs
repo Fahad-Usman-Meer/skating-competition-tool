@@ -1392,8 +1392,9 @@ namespace ClubCompFS
                                         Program.Category.IndTAClass = this.Get_Cell(index1, 1);
                                         string cell1 = this.Get_Cell(index1, 5);
                                         string cell2 = this.Get_Cell(index1, 6);
-                                        Program.Vek[checked(num4 + 1)].SSS_Seg1 = (string[])null;
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg1 = Program.Vek[checked(num4 + 1)].SSS_Seg1_edges = (string[])null;
                                         Program.Vek[checked(num4 + 1)].SSS_Seg1 = new string[16];
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg1_edges = new string[16];
                                         if (Strings.Len(cell1) > 0)
                                         {
                                             string[] strArray1 = new string[16];
@@ -1402,12 +1403,14 @@ namespace ClubCompFS
                                             int index2 = 0;
                                             while (index2 <= num6)
                                             {
+                                                //TODO: Edges: Need to handle edges here
                                                 Program.Vek[checked(num4 + 1)].SSS_Seg1[checked(index2 + 1)] = strArray2[index2];
                                                 checked { ++index2; }
                                             }
                                         }
-                                        Program.Vek[checked(num4 + 1)].SSS_Seg2 = (string[])null;
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg2 = Program.Vek[checked(num4 + 1)].SSS_Seg2_edges = (string[])null;
                                         Program.Vek[checked(num4 + 1)].SSS_Seg2 = new string[16];
+                                        Program.Vek[checked(num4 + 1)].SSS_Seg2_edges = new string[16];
                                         if (Strings.Len(cell2) > 0)
                                         {
                                             string[] strArray3 = new string[16];
@@ -1416,6 +1419,7 @@ namespace ClubCompFS
                                             int index3 = 0;
                                             while (index3 <= num7)
                                             {
+                                                //TODO: Edges: Need to handle edges here
                                                 Program.Vek[checked(num4 + 1)].SSS_Seg2[checked(index3 + 1)] = strArray4[index3];
                                                 checked { ++index3; }
                                             }

@@ -5233,9 +5233,13 @@ namespace ClubCompFS
                 Program.Vek[index].J_Seg1.Deduction = new long[8];
                 Program.Vek[index].J_Seg2.Deduction = new long[8];
                 Program.Vek[index].SSS_Seg1 = (string[])null;
+                Program.Vek[index].SSS_Seg1_edges = (string[])null;
                 Program.Vek[index].SSS_Seg1 = new string[16];
+                Program.Vek[index].SSS_Seg1_edges = new string[16];
                 Program.Vek[index].SSS_Seg2 = (string[])null;
+                Program.Vek[index].SSS_Seg2_edges = (string[])null;
                 Program.Vek[index].SSS_Seg2 = new string[16];
+                Program.Vek[index].SSS_Seg2_edges = new string[16];
                 Program.Vek[index].Falls_seg1 = 0;
                 Program.Vek[index].Falls_seg2 = 0;
                 checked { ++index; }

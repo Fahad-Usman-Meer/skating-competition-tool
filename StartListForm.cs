@@ -4704,9 +4704,13 @@ namespace ClubCompFS
                     while (index3 <= 42)
                     {
                         Program.Vek[index3].SSS_Seg1 = (string[])null;
+                        Program.Vek[index3].SSS_Seg1_edges = (string[])null;
                         Program.Vek[index3].SSS_Seg1 = new string[16];
+                        Program.Vek[index3].SSS_Seg1_edges = new string[16];
                         Program.Vek[index3].SSS_Seg2 = (string[])null;
+                        Program.Vek[index3].SSS_Seg2_edges = (string[])null;
                         Program.Vek[index3].SSS_Seg2 = new string[16];
+                        Program.Vek[index3].SSS_Seg2_edges = new string[16];
                         checked { ++index3; }
                     }
                     this.CreateStartList(Program.TNop);
