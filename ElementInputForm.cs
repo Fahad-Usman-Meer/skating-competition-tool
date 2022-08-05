@@ -1659,14 +1659,14 @@ namespace ClubCompFS
             this.Column2.HeaderText = "Column2";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 205;
+            this.Column2.Width = 195;
             gridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             gridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Column3.DefaultCellStyle = gridViewCellStyle3;
             this.Column3.HeaderText = "Column3";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 20;
+            this.Column3.Width = 30;
             gridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Column4.DefaultCellStyle = gridViewCellStyle4;
             this.Column4.HeaderText = "Column4";
@@ -2559,7 +2559,6 @@ namespace ClubCompFS
                 this._OpQ.Click += eventHandler;
             }
         }
-
 
         internal virtual Button Edge
         {
@@ -7770,19 +7769,21 @@ namespace ClubCompFS
                         str2 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2[index];
                         str1 = Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2_edges[index], (string)null, false) == 0 ? "" : Program.Vek[Program.PNo].SSS_Seg2_edges[index];
                     }
-                    
+
+                    if (str2.Contains(" e") && string.IsNullOrWhiteSpace(str1))
+                    {
+                        str1 = "e";
+                    }
+
                     int num3 = Strings.InStr(1, str2, " !", CompareMethod.Text);
-                    if (num3 > 0)
+                    if (num3 > 0 )
                     {
-                        //str1 += "!";
+                        if(string.IsNullOrWhiteSpace(str1))
+                            str1 += "!";
+
                         str2 = Strings.Left(str2, checked(num3 - 1));
                     }
-                    num3 = Strings.InStr(1, str2, " f", CompareMethod.Text);
-                    if (num3 > 0)
-                    {
-                        //str1 += "f";
-                        str2 = Strings.Left(str2, checked(num3 - 1));
-                    }
+
                     Program.OpArr[index].element = str2;
                     Program.OpArr[index].edge = str1;
                     checked { ++index; }
@@ -8860,91 +8861,86 @@ namespace ClubCompFS
                 return;
             ProjectData.ClearProjectError();
         }
-
+        
         private void OpQ_Click(object sender, EventArgs e)
         {
             int num1 = 0;
             int num2 = 0;
             try
             {
-                string str1 = "";
-                bool flag = false;
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                if (this.index > -1 & Strings.Len(Program.OpArr[checked(this.index + 1)].element) > 0 & Operators.CompareString(Strings.Right(Program.OpArr[checked(this.index + 1)].element, 1), "*", false) != 0)
+                if (this.index > -1)
                 {
-                    string str2 = Program.OpArr[checked(this.index + 1)].element;
-                    if (str2.Contains("+SEQ"))
+                    string str = Program.OpArr[checked(this.index + 1)].element;
+                    if (Strings.Len(str) > 0)
                     {
-                        if (Operators.CompareString(Strings.Right(str2, 4), "+SEQ", false) == 0)
+                        if (str.Contains("+SEQ"))
                         {
-                            str1 = "+SEQ";
-                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
+                            if (Operators.CompareString(Strings.Right(str, 4), "+SEQ", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+SEQ");
+                                str = Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        else if (str.Contains("+COMBO"))
+                        {
+                            if (Operators.CompareString(Strings.Right(str, 6), "+COMBO", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+COMBO");
+                                str = Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        else if (str.Contains("+REP"))
+                        {
+                            if (Operators.CompareString(Strings.Right(str, 4), "+REP", false) == 0)
+                            {
+                                int Length = str.LastIndexOf("+REP");
+                                str = Strings.Left(str, Length);
+                            }
+                            else
+                            {
+                                int Length = str.LastIndexOf("+");
+                                Strings.Left(str, Length);
+                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                            }
+                        }
+                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str))// | Program.OpArr[checked(this.index + 1)].edge.Contains("e"))
+                        {
+                            Interaction.Beep();
+                        }
+                        else if (Program.OpArr[checked(this.index + 1)].edge.Contains("q"))
+                        {
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("q", "");
                         }
                         else
                         {
-                            int Length = str2.LastIndexOf("+");
-                            str1 = Strings.Left(str2, Length);
-                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
-                            flag = true;
+                            Program.OpArr[checked(this.index + 1)].edge += "q";
                         }
-                    }
-                    else if (str2.Contains("+COMBO"))
-                    {
-                        if (Operators.CompareString(Strings.Right(str2, 6), "+COMBO", false) == 0)
-                        {
-                            str1 = "+COMBO";
-                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 6));
-                        }
-                        else
-                        {
-                            int Length = str2.LastIndexOf("+");
-                            str1 = Strings.Left(str2, Length);
-                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
-                            flag = true;
-                        }
-                    }
-                    else if (str2.Contains("+REP"))
-                    {
-                        if (Operators.CompareString(Strings.Right(str2, 4), "+REP", false) == 0)
-                        {
-                            str1 = "+REP";
-                            str2 = Strings.Left(str2, checked(Strings.Len(str2) - 4));
-                        }
-                        else
-                        {
-                            int Length = str2.LastIndexOf("+");
-                            str1 = Strings.Left(str2, Length);
-                            str2 = Strings.Right(str2, checked(Strings.Len(str2) - Length - 1));
-                            flag = true;
-                        }
-                    }
-                    if (this.TstJump(str2))
-                    {
-                        if (Operators.CompareString(Strings.Right(str2, 1), "q", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 1)) : Strings.Left(str2, checked(Strings.Len(str2) - 1)) + str1;
-                        else if (Operators.CompareString(Strings.Right(str2, 3), "q e", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" : Strings.Left(str2, checked(Strings.Len(str2) - 3)) + " e" + str1;
-                        else if (Operators.CompareString(Strings.Right(str2, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" : Strings.Trim(Strings.Left(str2, checked(Strings.Len(str2) - 1))) + "q e" + str1;
-                        else if (Operators.CompareString(Strings.Right(str2, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(str2, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + str2 + "q" : str2 + "q" + str1;
+                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
-                        goto label_31;
+                        goto label_25;
                     }
                     else
-                    {
-                        Interaction.Beep();
-                        this.OplistaSelect();
-                        goto label_31;
-                    }
+                        goto label_25;
                 }
                 else
                 {
-                    Interaction.Beep();
                     this.OplistaSelect();
-                    goto label_31;
+                    goto label_25;
                 }
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -8956,7 +8952,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpQ_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_31:
+        label_25:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();

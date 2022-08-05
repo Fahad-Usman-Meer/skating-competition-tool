@@ -3657,14 +3657,15 @@ namespace ClubCompFS
                             edgesSignsColumn = "<f";
                         else if (str.Contains(" !"))
                             edgesSignsColumn = "!";
+                        else if (str.Contains(" q"))
+                            edgesSignsColumn = "q";
                         else if (str.Contains(" f"))
                             edgesSignsColumn = "f";
                         else if (str.Contains("<<"))
                             edgesSignsColumn = "<<";
                         else if (str.Contains("<"))
                             edgesSignsColumn = "<";
-                        else if (!str.Contains("Sq") && str.Contains("q")) // Exclude Sequence Element (Sq)
-                            edgesSignsColumn = "q";
+                        
                         string tempSigns = edgesSignsColumn;
                         if (!string.IsNullOrWhiteSpace(Program.OpArr[index].edge))
                         {
