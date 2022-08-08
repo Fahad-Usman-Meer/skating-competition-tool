@@ -4783,7 +4783,7 @@ namespace ClubCompFS
                 case '!':
                 case '"':
                 case '&':
-                case '\'':
+                //case '\'':  // enable apostrophe for Competition name
                 case '*':
                 case '+':
                 case ',':
@@ -4805,33 +4805,17 @@ namespace ClubCompFS
 
         private void txtType_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
         private void ControllerName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4845,17 +4829,9 @@ namespace ClubCompFS
 
         private void TechSpecName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4869,17 +4845,9 @@ namespace ClubCompFS
 
         private void RefereeName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4893,17 +4861,9 @@ namespace ClubCompFS
 
         private void JudgeName1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4917,17 +4877,9 @@ namespace ClubCompFS
 
         private void JudgeName2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4941,17 +4893,9 @@ namespace ClubCompFS
 
         private void JudgeName3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4965,17 +4909,9 @@ namespace ClubCompFS
 
         private void JudgeName4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -4989,17 +4925,9 @@ namespace ClubCompFS
 
         private void JudgeName5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -5013,17 +4941,9 @@ namespace ClubCompFS
 
         private void JudgeName6_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -5037,17 +4957,9 @@ namespace ClubCompFS
 
         private void JudgeName7_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
@@ -7107,7 +7019,7 @@ namespace ClubCompFS
                 case '!':
                 case '"':
                 case '&':
-                case '\'':
+                //case '\'':   // enable apostrophe for Organizer name
                 case '*':
                 case '+':
                 case ',':

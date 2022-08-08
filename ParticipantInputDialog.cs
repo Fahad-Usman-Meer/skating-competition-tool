@@ -557,33 +557,17 @@ namespace ClubCompFS
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 
         private void txtSurname_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForClubName(e.KeyChar))
             {
-                case '"':
-                case '&':
-                case '\'':
-                case ':':
-                case ';':
-                case '<':
-                case '>':
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
         }
 

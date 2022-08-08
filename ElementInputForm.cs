@@ -8508,7 +8508,7 @@ namespace ClubCompFS
                     str = Strings.Replace(str, "*", "");
                 if (str.Contains("!"))
                     str = Strings.Replace(str, "!", "");
-                if (str.Contains(" q")) // TODO: here "_q"
+                if (str.Contains(" q"))
                     str = Strings.Replace(str, " q", "");
                 if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
                     str = Strings.Trim(str.Remove(checked(str.Length - 1)));

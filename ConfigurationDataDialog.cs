@@ -1569,7 +1569,7 @@ namespace ClubCompFS
                 case '!':
                 case '"':
                 case '&':
-                case '\'':
+                //case '\'':   // enable apostrophe for Competition name
                 case '*':
                 case '+':
                 case ',':
@@ -1595,7 +1595,7 @@ namespace ClubCompFS
                 case '!':
                 case '"':
                 case '&':
-                case '\'':
+                //case '\'':   // enable apostrophe for Results name
                 case '*':
                 case '+':
                 case ',':

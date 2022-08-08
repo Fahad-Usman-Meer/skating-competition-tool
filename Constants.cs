@@ -9,7 +9,7 @@
             {
                 case '"':
                 case '&':
-                //case '\'': // enable apostrophe for club name
+                //case '\'': //TODO: enable apostrophe for club name
                 case ':':
                 case ';':
                 case '<':
