@@ -4609,6 +4609,10 @@ namespace ClubCompFS
                                 str = Strings.Trim(str.Replace("e", ""));
                             if (str.Contains("<"))
                                 str = Strings.Trim(str.Replace("<", ""));
+                            if (str.Contains("!"))
+                                str = Strings.Trim(str.Replace("!", ""));
+                            if (str.Contains(" q"))
+                                str = Strings.Trim(str.Replace(" q", ""));
                         }
                         int elDbmax = Program.ElDBmax;
                         int index = 0;

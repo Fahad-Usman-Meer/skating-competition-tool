@@ -5366,7 +5366,7 @@ namespace ClubCompFS
                 while (index1 <= num4)
                 {
                     string str;
-                    if (Operators.CompareString(Strings.Right(strArray[index1], 1), "*", false) == 0)
+                    if (strArray[index1].Contains("*"))
                     {
                         str = Strings.Trim(strArray[index1].Replace("*", ""));
                         checked { ++NoOfAst; }
@@ -5377,6 +5377,10 @@ namespace ClubCompFS
                         str = Strings.Trim(str.Replace("e", ""));
                     if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
                         str = Strings.Trim(str.Replace("<", ""));
+                    if (str.Contains("!"))
+                        str = Strings.Trim(str.Replace("!", ""));
+                    if (str.Contains(" q"))
+                        str = Strings.Trim(str.Replace(" q", ""));
                     int jumpmin = Program.Jumpmin;
                     int jumpMax = Program.JumpMax;
                     int index2 = jumpmin;
@@ -5745,12 +5749,12 @@ namespace ClubCompFS
                     string edge = Program.OpArr[index].edge;
                     num3 = 6;
                     string str;
-                    if (Operators.CompareString(edge, "!", false) == 0)
-                    {
-                        num3 = 7;
-                        str = " !";
-                    }
-                    else
+                    //if (Operators.CompareString(edge, "!", false) == 0)
+                    //{
+                    //    num3 = 7;
+                    //    str = " !";
+                    //}
+                    //else
                     {
                         num3 = 9;
                         if (Operators.CompareString(edge, "REP", false) == 0)
@@ -8502,6 +8506,10 @@ namespace ClubCompFS
                 string str = !ElIn.Contains("+") ? ElIn : ElIn.Substring(checked(ElIn.LastIndexOf("+") + 1));
                 if (str.Contains("*"))
                     str = Strings.Replace(str, "*", "");
+                if (str.Contains("!"))
+                    str = Strings.Replace(str, "!", "");
+                if (str.Contains(" q")) // TODO: here "_q"
+                    str = Strings.Replace(str, " q", "");
                 if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
                     str = Strings.Trim(str.Remove(checked(str.Length - 1)));
                 if (Strings.Len(str) <= 7)
@@ -8925,10 +8933,12 @@ namespace ClubCompFS
                         else if (Program.OpArr[checked(this.index + 1)].edge.Contains("q"))
                         {
                             Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("q", "");
+                            Program.OpArr[checked(this.index + 1)].element = Program.OpArr[checked(this.index + 1)].element?.Replace(" q", "");
                         }
                         else
                         {
                             Program.OpArr[checked(this.index + 1)].edge += "q";
+                            Program.OpArr[checked(this.index + 1)].element += " q";
                         }
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
@@ -9690,11 +9700,13 @@ namespace ClubCompFS
                         }
                         else if(Program.OpArr[checked(this.index + 1)].edge.Contains("!"))
                         {
-                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("!", "");
+                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge?.Replace("!", "");
+                            Program.OpArr[checked(this.index + 1)].element = Program.OpArr[checked(this.index + 1)].element?.Replace("!", "");
                         }
                         else
                         {
                             Program.OpArr[checked(this.index + 1)].edge += "!";
+                            Program.OpArr[checked(this.index + 1)].element += "!";
                         }
                         this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
                         this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
