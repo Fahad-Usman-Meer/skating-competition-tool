@@ -1696,7 +1696,7 @@ namespace ClubCompFS
             this.OpExcl.TabIndex = 123;
             this.OpExcl.Text = "!";
             this.OpExcl.UseVisualStyleBackColor = false;
-            
+
             this.OpFallinElement.BackColor = Color.Yellow;
             this.OpFallinElement.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.OpFallinElement.Location = new Point(554, 1);
@@ -4627,13 +4627,13 @@ namespace ClubCompFS
                                                                                                         }, (string[])null, (System.Type[])null, false, true);
                                                                                                     }
                                                                                                     else if (Conversions.ToBoolean(Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"Zero", false)) || Conversions.ToBoolean(Operators.CompareObjectEqual(Left2, (object)"OpFallinElement", false)) ? (object)true : (object)false))
+                                                                                                    {
+                                                                                                        num3 = 105;
+                                                                                                        NewLateBinding.LateSetComplex(this.CtlArray[index1], (System.Type)null, "font", new object[1]
                                                                                                         {
-                                                                                                            num3 = 105;
-                                                                                                            NewLateBinding.LateSetComplex(this.CtlArray[index1], (System.Type)null, "font", new object[1]
-                                                                                                            {
                                                       (object) new Font("Microsoft Sans Serif", (float) emSize4, FontStyle.Bold)
-                                                                                                            }, (string[])null, (System.Type[])null, false, true);
-                                                                                                        }
+                                                                                                        }, (string[])null, (System.Type[])null, false, true);
+                                                                                                    }
                                                                                                     else
                                                                                                     {
 
@@ -4870,7 +4870,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("OpStop_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_31:
+        label_31:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -4935,7 +4935,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("AllowedSpins - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_18:
+        label_18:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -4979,7 +4979,7 @@ namespace ClubCompFS
                         else if (Strings.InStr(1, str, "+", CompareMethod.Text) == 0 & Strings.Len(str) >= 1)
                             this.FindAxelEl(str, ind, ref Axel);
                     }
-                    label_14:
+                label_14:
                     checked { ++ind; }
                 }
                 while (ind <= 15);
@@ -5001,7 +5001,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("Find_Axel - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_21:
+        label_21:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -5049,7 +5049,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("FindAxelEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_17:
+        label_17:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5186,7 +5186,7 @@ namespace ClubCompFS
                             }
                         }
                     }
-                    label_39:
+                label_39:
                     checked { ++ind; }
                 }
                 while (ind <= 15);
@@ -5308,7 +5308,7 @@ namespace ClubCompFS
             {
                 int num18 = (int)Interaction.MsgBox((object)("Calc_El - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_87:
+        label_87:
             int num19 = flag ? 1 : 0;
             if (num2 == 0)
                 return num19 != 0;
@@ -5379,6 +5379,8 @@ namespace ClubCompFS
                         str = Strings.Trim(str.Replace("<", ""));
                     if (str.Contains("!"))
                         str = Strings.Trim(str.Replace("!", ""));
+                    if (str.Contains("f"))
+                        str = Strings.Trim(str.Replace("f", ""));
                     if (str.Contains(" q"))
                         str = Strings.Trim(str.Replace(" q", ""));
                     int jumpmin = Program.Jumpmin;
@@ -5413,7 +5415,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("FindJumpEl - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_26:
+        label_26:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5452,7 +5454,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("ElementTst - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_9:
+        label_9:
             int num5 = flag ? 1 : 0;
             if (num2 == 0)
                 return num5 != 0;
@@ -5536,7 +5538,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ElSel - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_26:
+        label_26:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5589,7 +5591,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ElSel1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5684,7 +5686,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ElSel - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_42:
+        label_42:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -5768,8 +5770,8 @@ namespace ClubCompFS
                             str = "";
                         }
                     }
-                    
-                    
+
+
                     num3 = 15;
                     string segment = Program.Segment;
                     num3 = 18;
@@ -6092,7 +6094,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("Jsel - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -6244,7 +6246,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("OpListaSet - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_26:
+        label_26:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -7780,9 +7782,9 @@ namespace ClubCompFS
                     }
 
                     int num3 = Strings.InStr(1, str2, " !", CompareMethod.Text);
-                    if (num3 > 0 )
+                    if (num3 > 0)
                     {
-                        if(string.IsNullOrWhiteSpace(str1))
+                        if (string.IsNullOrWhiteSpace(str1))
                             str1 += "!";
 
                         str2 = Strings.Left(str2, checked(num3 - 1));
@@ -7811,7 +7813,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("InitOpForm - Max pno=" + Conversions.ToString(42) + "   i =" + Conversions.ToString(this.index)), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_52:
+        label_52:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8172,7 +8174,7 @@ namespace ClubCompFS
             {
                 int num12 = (int)Interaction.MsgBox((object)("OpChange_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_64:
+        label_64:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8353,7 +8355,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("OpInsert_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8419,7 +8421,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("OpDeleteRow_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_14:
+        label_14:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8508,6 +8510,8 @@ namespace ClubCompFS
                     str = Strings.Replace(str, "*", "");
                 if (str.Contains("!"))
                     str = Strings.Replace(str, "!", "");
+                if (str.Contains("f"))
+                    str = Strings.Replace(str, "f", "");
                 if (str.Contains(" q"))
                     str = Strings.Replace(str, " q", "");
                 if (Operators.CompareString(Strings.Right(str, 1), "e", false) == 0)
@@ -8542,7 +8546,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("TstJump - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_17:
+        label_17:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -8612,7 +8616,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("OpSEQ_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8669,7 +8673,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("OpCOMBO_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_16:
+        label_16:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8763,7 +8767,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpUR_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_23:
+        label_23:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -8864,12 +8868,12 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpDG_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_31:
+        label_31:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
         }
-        
+
         private void OpQ_Click(object sender, EventArgs e)
         {
             int num1 = 0;
@@ -8878,70 +8882,86 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                this.index = this.DataGridView1.CurrentCellAddress.Y;
+                index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Program.OpArr[checked(this.index + 1)].element;
-                    if (Strings.Len(str) > 0)
+                    string element = Program.OpArr[checked(index + 1)].element ?? "";
+                    string lastElement = element;
+                    int elemLength = Strings.Len(element);
+
+                    if (elemLength > 0)
                     {
-                        if (str.Contains("+SEQ"))
+                        if (lastElement.Contains("+SEQ"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 4), "+SEQ", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+SEQ", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+SEQ");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+SEQ");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        else if (str.Contains("+COMBO"))
+                        else if (lastElement.Contains("+COMBO"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 6), "+COMBO", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 6), "+COMBO", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+COMBO");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+COMBO");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        else if (str.Contains("+REP"))
+                        else if (lastElement.Contains("+REP"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 4), "+REP", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+REP", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+REP");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+REP");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str))// | Program.OpArr[checked(this.index + 1)].edge.Contains("e"))
+
+
+                        if (!this.TstJump(lastElement)) // to check that it is valid jump or not
                         {
                             Interaction.Beep();
                         }
-                        else if (Program.OpArr[checked(this.index + 1)].edge.Contains("q"))
+                        else if (elemLength > 1 && element.Substring(elemLength - 2, 2).Equals(" q")) // check last 2 chars are ' q' or not
                         {
-                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("q", "");
-                            Program.OpArr[checked(this.index + 1)].element = Program.OpArr[checked(this.index + 1)].element?.Replace(" q", "");
+                            int Length = element.LastIndexOf(" q"); // for removing ' q' from last
+                            element = Strings.Left(element, Length);
+
+                            if (!element.Contains(" q"))
+                            {
+                                Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("q", "");
+                            }
                         }
                         else
                         {
-                            Program.OpArr[checked(this.index + 1)].edge += "q";
-                            Program.OpArr[checked(this.index + 1)].element += " q";
+                            element += " q";
+                            if (!Program.OpArr[checked(this.index + 1)].edge.Contains("q"))
+                            {
+                                Program.OpArr[checked(index + 1)].edge += "q";
+                            }
                         }
-                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
-                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
+
+                        Program.OpArr[checked(index + 1)].element = element;
+
+                        DataGridView1.Rows[index].Cells[2].Value = (object)Program.OpArr[checked(index + 1)].edge;
+                        OpLista(index, element);
                         goto label_25;
                     }
                     else
@@ -9120,7 +9140,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("Edge_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_43:
+        label_43:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9170,7 +9190,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("Zero_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_14:
+        label_14:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9204,7 +9224,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("HalfTime_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_11:
+        label_11:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9462,7 +9482,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("Timer1_Tick - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_10:
+        label_10:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9499,7 +9519,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("CalcHalfTime - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_8:
+        label_8:
             int num5 = num2;
             if (num3 == 0)
                 return num5;
@@ -9698,7 +9718,7 @@ namespace ClubCompFS
                         {
                             Interaction.Beep();
                         }
-                        else if(Program.OpArr[checked(this.index + 1)].edge.Contains("!"))
+                        else if (Program.OpArr[checked(this.index + 1)].edge.Contains("!"))
                         {
                             Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge?.Replace("!", "");
                             Program.OpArr[checked(this.index + 1)].element = Program.OpArr[checked(this.index + 1)].element?.Replace("!", "");
@@ -9730,12 +9750,12 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpExcl_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_25:
+        label_25:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
         }
-        
+
         private void OpFallinElement_Click(object sender, EventArgs e)
         {
             int num1 = 0;
@@ -9747,68 +9767,81 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string str = Program.OpArr[checked(this.index + 1)].element;
-                    if (Strings.Len(str) > 0)
+                    string element = Program.OpArr[checked(index + 1)].element ?? "";
+                    string lastElement = element;
+                    int elemLength = Strings.Len(element);
+
+                    if (Strings.Len(lastElement) > 0)
                     {
-                        if (str.Contains("+SEQ"))
+                        if (lastElement.Contains("+SEQ"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 4), "+SEQ", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+SEQ", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+SEQ");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+SEQ");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        else if (str.Contains("+COMBO"))
+                        else if (lastElement.Contains("+COMBO"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 6), "+COMBO", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 6), "+COMBO", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+COMBO");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+COMBO");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        else if (str.Contains("+REP"))
+                        else if (lastElement.Contains("+REP"))
                         {
-                            if (Operators.CompareString(Strings.Right(str, 4), "+REP", false) == 0)
+                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+REP", false) == 0)
                             {
-                                int Length = str.LastIndexOf("+REP");
-                                str = Strings.Left(str, Length);
+                                int Length = lastElement.LastIndexOf("+REP");
+                                lastElement = Strings.Left(lastElement, Length);
                             }
                             else
                             {
-                                int Length = str.LastIndexOf("+");
-                                Strings.Left(str, Length);
-                                str = Strings.Right(str, checked(Strings.Len(str) - Length - 1));
+                                int Length = lastElement.LastIndexOf("+");
+                                Strings.Left(lastElement, Length);
+                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
                             }
                         }
-                        if (!this.TstJump(str) | !this.Tst_Lz_or_F(str))
+                        if (!this.TstJump(lastElement)) // | !this.Tst_Lz_or_F(lastElement))
                         {
                             Interaction.Beep();
                         }
-                        else if(Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
+                        else if (elemLength > 0 && element.Substring(elemLength - 1, 1).Equals("f")) // check last char is 'f' or not
                         {
-                            Program.OpArr[checked(this.index + 1)].edge = Program.OpArr[checked(this.index + 1)].edge.Replace("f", "");
-                            DecrementFalls(); // decrement general falls count
+                            int Length = element.LastIndexOf("f"); // for removing 'f' from last
+                            element = Strings.Left(element, Length);
+
+                            if (!element.Contains("f"))
+                            {
+                                Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("f", "");
+                            }
                         }
                         else
                         {
-                            Program.OpArr[checked(this.index + 1)].edge += "f";
-                            IncrementFalls(); // increment general falls count
+                            element += "f";
+                            if (!Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
+                            {
+                                Program.OpArr[checked(index + 1)].edge += "f";
+                            }
                         }
-                        
-                        this.DataGridView1.Rows[this.index].Cells[2].Value = (object)Program.OpArr[checked(this.index + 1)].edge;
-                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
+
+                        Program.OpArr[checked(index + 1)].element = element;
+
+                        DataGridView1.Rows[index].Cells[2].Value = (object)Program.OpArr[checked(index + 1)].edge;
+                        OpLista(index, element);
                         goto label_25;
                     }
                     else
@@ -9829,7 +9862,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("OpFallinElement_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_25:
+        label_25:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -9900,7 +9933,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindJump - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_17:
+        label_17:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -9947,7 +9980,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("FindSpin - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_11:
+        label_11:
             int num4 = flag ? 1 : 0;
             if (num2 == 0)
                 return num4 != 0;
@@ -9994,7 +10027,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("opREP_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_12:
+        label_12:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -10055,7 +10088,7 @@ namespace ClubCompFS
             {
                 int num6 = (int)Interaction.MsgBox((object)("Spin_V1_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_18:
+        label_18:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();

@@ -2550,9 +2550,11 @@ namespace ClubCompFS
                 string[] strArray = StringEl.Split('+');
                 string str = !strArray[0].Contains("*") ? strArray[0] : Strings.Replace(strArray[0], "*", "");
                 if (str.Contains("!"))
-                    str = Strings.Replace(str, " !", "");
+                    str = Strings.Replace(str, "!", "");
                 else if (str.Contains("f"))
-                    str = Strings.Replace(str, " f", "");
+                    str = Strings.Replace(str, "f", "");
+                else if (str.Contains(" q"))
+                    str = Strings.Replace(str, " q", "");
                 flag = false;
                 int jumpmin = Program.Jumpmin;
                 int jumpMax = Program.JumpMax;
@@ -2675,6 +2677,13 @@ namespace ClubCompFS
                                         int jumpmin = Program.Jumpmin;
                                         int jumpMax = Program.JumpMax;
                                         int index3 = jumpmin;
+
+                                        elstr = Strings.Replace(elstr, "*", "");
+                                        elstr = Strings.Replace(elstr, " !", "");
+                                        elstr = Strings.Replace(elstr, "!", "");
+                                        elstr = Strings.Replace(elstr, "f", "");
+                                        elstr = Strings.Replace(elstr, " q", "");
+
                                         while (index3 <= jumpMax)
                                         {
                                             if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index3, 0], false))
@@ -2801,6 +2810,13 @@ namespace ClubCompFS
                                         int jumpmin = Program.Jumpmin;
                                         int jumpMax = Program.JumpMax;
                                         int index14 = jumpmin;
+
+                                        elstr = Strings.Replace(elstr, "*", "");
+                                        elstr = Strings.Replace(elstr, " !", "");
+                                        elstr = Strings.Replace(elstr, "!", "");
+                                        elstr = Strings.Replace(elstr, "f", "");
+                                        elstr = Strings.Replace(elstr, " q", "");
+
                                         while (index14 <= jumpMax)
                                         {
                                             if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index14, 0], false))
@@ -2983,6 +2999,20 @@ namespace ClubCompFS
                                         int jumpmin = Program.Jumpmin;
                                         int jumpMax = Program.JumpMax;
                                         int index30 = jumpmin;
+                                        
+                                        if (elstr.Contains("*"))
+                                            elstr = Strings.Trim(elstr.Replace("*", ""));
+                                        if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
+                                            elstr = Strings.Trim(elstr.Replace("e", ""));
+                                        if (Operators.CompareString(Strings.Right(elstr, 1), "<", false) == 0)
+                                            elstr = Strings.Trim(elstr.Replace("<", ""));
+                                        if (elstr.Contains("!"))
+                                            elstr = Strings.Trim(elstr.Replace("!", ""));
+                                        if (elstr.Contains("f"))
+                                            elstr = Strings.Trim(elstr.Replace("f", ""));
+                                        if (elstr.Contains(" q"))
+                                            elstr = Strings.Trim(elstr.Replace(" q", ""));
+
                                         while (index30 <= jumpMax)
                                         {
                                             if (Operators.ConditionalCompareObjectEqual((object)elstr, Program.ElDB[index30, 0], false))
@@ -3649,17 +3679,17 @@ namespace ClubCompFS
                             edgesSignsColumn = "e";
                         else if (str.Contains("<< !"))
                             edgesSignsColumn = "<<!";
-                        else if (str.Contains("<< f"))
+                        else if (str.Contains("<<f"))
                             edgesSignsColumn = "<<f";
                         else if (str.Contains("< !"))
                             edgesSignsColumn = "<!";
-                        else if (str.Contains("< f"))
+                        else if (str.Contains("<f"))
                             edgesSignsColumn = "<f";
                         else if (str.Contains(" !"))
                             edgesSignsColumn = "!";
                         else if (str.Contains(" q"))
                             edgesSignsColumn = "q";
-                        else if (str.Contains(" f"))
+                        else if (str.Contains("f"))
                             edgesSignsColumn = "f";
                         else if (str.Contains("<<"))
                             edgesSignsColumn = "<<";
@@ -3686,15 +3716,8 @@ namespace ClubCompFS
                         }
 
                         Program.JDarr[checked(R + index + 8), 3] = tempSigns;
-                        int num5 = Strings.InStr(1, str, " !", CompareMethod.Text);
-                        if (num5 > 0)
-                            str = Strings.Left(str, checked(num5 - 1));
-
-                        num5 = Strings.InStr(1, str, " f", CompareMethod.Text);
-                        if (num5 > 0)
-                            str = Strings.Left(str, checked(num5 - 1));
-
-                        if (Operators.CompareString(str, "", false) != 0)
+                        
+                        if (!string.IsNullOrWhiteSpace(str))
                         {
                             Program.JDarr[checked(R + index + 8), 2] = str;
                             num4 = checked(index + 8);
@@ -4611,6 +4634,8 @@ namespace ClubCompFS
                                 str = Strings.Trim(str.Replace("<", ""));
                             if (str.Contains("!"))
                                 str = Strings.Trim(str.Replace("!", ""));
+                            if (str.Contains("f"))
+                                str = Strings.Trim(str.Replace("f", ""));
                             if (str.Contains(" q"))
                                 str = Strings.Trim(str.Replace(" q", ""));
                         }
