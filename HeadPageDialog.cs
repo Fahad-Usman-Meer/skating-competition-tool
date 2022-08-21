@@ -184,11 +184,11 @@ namespace ClubCompFS
             this.Label8 = new Label();
             this.Label9 = new Label();
             this.Label10 = new Label();
-            this.Label11 = new Label();
-            this.Label12 = new Label();
+            //this.Label11 = new Label();
+            //this.Label12 = new Label();
             this.txtSkatingSkills1 = new TextBox();
-            this.txtTransitions1 = new TextBox();
-            this.txtPerformance1 = new TextBox();
+            this.txtComposition1 = new TextBox();
+            this.txtPresentation1 = new TextBox();
             this.txtChoreo1 = new TextBox();
             this.txtInterpretation1 = new TextBox();
             this.Label1 = new Label();
@@ -203,8 +203,8 @@ namespace ClubCompFS
             this.txtPerformance2 = new TextBox();
             this.txtTransitions2 = new TextBox();
             this.txtSkatingSkills2 = new TextBox();
-            this.lbl27 = new Label();
-            this.lbl26 = new Label();
+            //this.lbl27 = new Label();
+            //this.lbl26 = new Label();
             this.lbl25 = new Label();
             this.lbl24 = new Label();
             this.lbl23 = new Label();
@@ -416,7 +416,7 @@ namespace ClubCompFS
             Size size21 = size1;
             label9.Size = size21;
             this.Label9.TabIndex = 15;
-            this.Label9.Text = "Transitions";
+            this.Label9.Text = "Composition";
             this.Label10.AutoSize = true;
             this.Label10.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.Label10.Location = new Point(185, 288);
@@ -426,27 +426,27 @@ namespace ClubCompFS
             Size size22 = size1;
             label10.Size = size22;
             this.Label10.TabIndex = 16;
-            this.Label10.Text = "Performance";
-            this.Label11.AutoSize = true;
-            this.Label11.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.Label11.Location = new Point(185, 308);
-            this.Label11.Name = "Label11";
-            Label label11 = this.Label11;
-            size1 = new Size(75, 13);
-            Size size23 = size1;
-            label11.Size = size23;
-            this.Label11.TabIndex = 17;
-            this.Label11.Text = "Composition";
-            this.Label12.AutoSize = true;
-            this.Label12.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.Label12.Location = new Point(185, 328);
-            this.Label12.Name = "Label12";
-            Label label12 = this.Label12;
-            size1 = new Size(83, 13);
-            Size size24 = size1;
-            label12.Size = size24;
-            this.Label12.TabIndex = 18;
-            this.Label12.Text = "Interpretation";
+            this.Label10.Text = "Presentation";
+            //this.Label11.AutoSize = true;
+            //this.Label11.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.Label11.Location = new Point(185, 308);
+            //this.Label11.Name = "Label11";
+            //Label label11 = this.Label11;
+            //size1 = new Size(75, 13);
+            //Size size23 = size1;
+            //label11.Size = size23;
+            //this.Label11.TabIndex = 17;
+            //this.Label11.Text = "Composition";
+            //this.Label12.AutoSize = true;
+            //this.Label12.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.Label12.Location = new Point(185, 328);
+            //this.Label12.Name = "Label12";
+            //Label label12 = this.Label12;
+            //size1 = new Size(83, 13);
+            //Size size24 = size1;
+            //label12.Size = size24;
+            //this.Label12.TabIndex = 18;
+            //this.Label12.Text = "Interpretation";
             this.txtSkatingSkills1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.txtSkatingSkills1.Location = new Point(371, 245);
             this.txtSkatingSkills1.Name = "txtSkatingSkills1";
@@ -457,26 +457,26 @@ namespace ClubCompFS
             txtSkatingSkills1.Size = size25;
             this.txtSkatingSkills1.TabIndex = 19;
             this.txtSkatingSkills1.TextAlign = HorizontalAlignment.Center;
-            this.txtTransitions1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtTransitions1.Location = new Point(371, 265);
-            this.txtTransitions1.Name = "txtTransitions1";
-            this.txtTransitions1.ReadOnly = true;
-            TextBox txtTransitions1 = this.txtTransitions1;
+            this.txtComposition1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.txtComposition1.Location = new Point(371, 265);
+            this.txtComposition1.Name = "txtTransitions1";
+            this.txtComposition1.ReadOnly = true;
+            TextBox txtComposition1 = this.txtComposition1;
             size1 = new Size(58, 20);
             Size size26 = size1;
-            txtTransitions1.Size = size26;
-            this.txtTransitions1.TabIndex = 20;
-            this.txtTransitions1.TextAlign = HorizontalAlignment.Center;
-            this.txtPerformance1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtPerformance1.Location = new Point(371, 285);
-            this.txtPerformance1.Name = "txtPerformance1";
-            this.txtPerformance1.ReadOnly = true;
-            TextBox txtPerformance1 = this.txtPerformance1;
+            txtComposition1.Size = size26;
+            this.txtComposition1.TabIndex = 20;
+            this.txtComposition1.TextAlign = HorizontalAlignment.Center;
+            this.txtPresentation1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.txtPresentation1.Location = new Point(371, 285);
+            this.txtPresentation1.Name = "txtPerformance1";
+            this.txtPresentation1.ReadOnly = true;
+            TextBox txtPresentation1 = this.txtPresentation1;
             size1 = new Size(58, 20);
             Size size27 = size1;
-            txtPerformance1.Size = size27;
-            this.txtPerformance1.TabIndex = 21;
-            this.txtPerformance1.TextAlign = HorizontalAlignment.Center;
+            txtPresentation1.Size = size27;
+            this.txtPresentation1.TabIndex = 21;
+            this.txtPresentation1.TextAlign = HorizontalAlignment.Center;
             this.txtChoreo1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.txtChoreo1.Location = new Point(371, 305);
             this.txtChoreo1.Name = "txtChoreo1";
@@ -625,28 +625,28 @@ namespace ClubCompFS
             this.txtSkatingSkills2.TabIndex = 38;
             this.txtSkatingSkills2.TextAlign = HorizontalAlignment.Center;
             this.txtSkatingSkills2.Visible = false;
-            this.lbl27.AutoSize = true;
-            this.lbl27.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.lbl27.Location = new Point(187, 486);
-            this.lbl27.Name = "lbl27";
-            Label lbl27 = this.lbl27;
-            size1 = new Size(83, 13);
-            Size size42 = size1;
-            lbl27.Size = size42;
-            this.lbl27.TabIndex = 37;
-            this.lbl27.Text = "Interpretation";
-            this.lbl27.Visible = false;
-            this.lbl26.AutoSize = true;
-            this.lbl26.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.lbl26.Location = new Point(187, 466);
-            this.lbl26.Name = "lbl26";
-            Label lbl26 = this.lbl26;
-            size1 = new Size(75, 13);
-            Size size43 = size1;
-            lbl26.Size = size43;
-            this.lbl26.TabIndex = 36;
-            this.lbl26.Text = "Composition";
-            this.lbl26.Visible = false;
+            //this.lbl27.AutoSize = true;
+            //this.lbl27.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.lbl27.Location = new Point(187, 486);
+            //this.lbl27.Name = "lbl27";
+            //Label lbl27 = this.lbl27;
+            //size1 = new Size(83, 13);
+            //Size size42 = size1;
+            //lbl27.Size = size42;
+            //this.lbl27.TabIndex = 37;
+            //this.lbl27.Text = "Interpretation";
+            //this.lbl27.Visible = false;
+            //this.lbl26.AutoSize = true;
+            //this.lbl26.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.lbl26.Location = new Point(187, 466);
+            //this.lbl26.Name = "lbl26";
+            //Label lbl26 = this.lbl26;
+            //size1 = new Size(75, 13);
+            //Size size43 = size1;
+            //lbl26.Size = size43;
+            //this.lbl26.TabIndex = 36;
+            //this.lbl26.Text = "Composition";
+            //this.lbl26.Visible = false;
             this.lbl25.AutoSize = true;
             this.lbl25.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.lbl25.Location = new Point(185, 446);
@@ -656,7 +656,7 @@ namespace ClubCompFS
             Size size44 = size1;
             lbl25.Size = size44;
             this.lbl25.TabIndex = 35;
-            this.lbl25.Text = "Performance";
+            this.lbl25.Text = "Presentation";
             this.lbl25.Visible = false;
             this.lbl24.AutoSize = true;
             this.lbl24.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -667,7 +667,7 @@ namespace ClubCompFS
             Size size45 = size1;
             lbl24.Size = size45;
             this.lbl24.TabIndex = 34;
-            this.lbl24.Text = "Transitions";
+            this.lbl24.Text = "Composition";
             this.lbl24.Visible = false;
             this.lbl23.AutoSize = true;
             this.lbl23.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -787,8 +787,8 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.txtPerformance2);
             this.Controls.Add((Control)this.txtTransitions2);
             this.Controls.Add((Control)this.txtSkatingSkills2);
-            this.Controls.Add((Control)this.lbl27);
-            this.Controls.Add((Control)this.lbl26);
+            //this.Controls.Add((Control)this.lbl27);
+            //this.Controls.Add((Control)this.lbl26);
             this.Controls.Add((Control)this.lbl25);
             this.Controls.Add((Control)this.lbl24);
             this.Controls.Add((Control)this.lbl23);
@@ -803,11 +803,11 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.Label1);
             this.Controls.Add((Control)this.txtInterpretation1);
             this.Controls.Add((Control)this.txtChoreo1);
-            this.Controls.Add((Control)this.txtPerformance1);
-            this.Controls.Add((Control)this.txtTransitions1);
+            this.Controls.Add((Control)this.txtPresentation1);
+            this.Controls.Add((Control)this.txtComposition1);
             this.Controls.Add((Control)this.txtSkatingSkills1);
-            this.Controls.Add((Control)this.Label12);
-            this.Controls.Add((Control)this.Label11);
+            //this.Controls.Add((Control)this.Label12);
+            //this.Controls.Add((Control)this.Label11);
             this.Controls.Add((Control)this.Label10);
             this.Controls.Add((Control)this.Label9);
             this.Controls.Add((Control)this.Label8);
@@ -1026,19 +1026,19 @@ namespace ClubCompFS
             set => this._Label10 = value;
         }
 
-        internal virtual Label Label11
-        {
-            get => this._Label11;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._Label11 = value;
-        }
+        //internal virtual Label Label11
+        //{
+        //    get => this._Label11;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._Label11 = value;
+        //}
 
-        internal virtual Label Label12
-        {
-            get => this._Label12;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._Label12 = value;
-        }
+        //internal virtual Label Label12
+        //{
+        //    get => this._Label12;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._Label12 = value;
+        //}
 
         internal virtual TextBox txtSkatingSkills1
         {
@@ -1047,14 +1047,14 @@ namespace ClubCompFS
             set => this._txtSkatingSkills1 = value;
         }
 
-        internal virtual TextBox txtTransitions1
+        internal virtual TextBox txtComposition1
         {
             get => this._txtTransitions1;
             [MethodImpl(MethodImplOptions.Synchronized)]
             set => this._txtTransitions1 = value;
         }
 
-        internal virtual TextBox txtPerformance1
+        internal virtual TextBox txtPresentation1
         {
             get => this._txtPerformance1;
             [MethodImpl(MethodImplOptions.Synchronized)]
@@ -1159,19 +1159,19 @@ namespace ClubCompFS
             set => this._txtSkatingSkills2 = value;
         }
 
-        internal virtual Label lbl27
-        {
-            get => this._lbl27;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._lbl27 = value;
-        }
+        //internal virtual Label lbl27
+        //{
+        //    get => this._lbl27;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._lbl27 = value;
+        //}
 
-        internal virtual Label lbl26
-        {
-            get => this._lbl26;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._lbl26 = value;
-        }
+        //internal virtual Label lbl26
+        //{
+        //    get => this._lbl26;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._lbl26 = value;
+        //}
 
         internal virtual Label lbl25
         {
@@ -1324,8 +1324,8 @@ namespace ClubCompFS
                 dialog8.txtNoParticipants.Text = Conversions.ToString(Program.TNop);
                 dialog8.txtDuration1.Text = Program.OpenDB[Program.PcIndex].Seg1Time;
                 dialog8.txtSkatingSkills1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1]);
-                dialog8.txtTransitions1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
-                dialog8.txtPerformance1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
+                dialog8.txtComposition1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
+                dialog8.txtPresentation1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
                 dialog8.txtChoreo1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
                 dialog8.txtInterpretation1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
                 dialog8.lblOpenDB.Top = checked(dialog8.txtInterpretation1.Top + 29);
@@ -1355,8 +1355,8 @@ namespace ClubCompFS
                 dialog8.lblProg1.Text = "SEGMENT 2 - " + Strings.UCase(str);
                 dialog8.txtDuration1.Text = Program.OpenDB[Program.PcIndex].Seg2Time;
                 dialog8.txtSkatingSkills1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1]);
-                dialog8.txtTransitions1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
-                dialog8.txtPerformance1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
+                dialog8.txtComposition1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
+                dialog8.txtPresentation1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
                 dialog8.txtChoreo1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
                 dialog8.txtInterpretation1.Text = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
                 dialog8.lblOpenDB.Top = checked(dialog8.txtInterpretation1.Top + 29);
@@ -1385,8 +1385,8 @@ namespace ClubCompFS
                 dialog8.lbl23.Visible = true;
                 dialog8.lbl24.Visible = true;
                 dialog8.lbl25.Visible = true;
-                dialog8.lbl26.Visible = true;
-                dialog8.lbl27.Visible = true;
+                //dialog8.lbl26.Visible = true;
+                //dialog8.lbl27.Visible = true;
                 dialog8.Height = 682;
                 dialog8.txtDate2.Text = Program.FormShortDate(Program.Datum.Seg2);
                 dialog8.txtDuration2.Text = Program.OpenDB[Program.PcIndex].Seg2Time;
@@ -1504,28 +1504,28 @@ namespace ClubCompFS
                     float y10 = y9 + height3;
                     float x10 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x10, y10, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x10 + (float)(200.0 * num3), y10, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y11 = y10 + height3;
                     float x11 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x11, y11, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x11 + (float)(200.0 * num3), y11, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y12 = y11 + height3;
-                    float x12 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x12, y12, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x12 + (float)(200.0 * num3), y12, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y12 + height3;
-                    float x13 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x13, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    x2 = x13 + (float)(200.0 * num3);
-                    layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y12 = y11 + height3;
+                    //float x12 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x12, y12, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x12 + (float)(200.0 * num3), y12, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
+                    y3 = y11 + height3;
+                    //float x13 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x13, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    x2 = (float)(x1 + 200.0 * num3); //x13 + (float)(200.0 * num3);
+                    //layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 if (Operators.CompareString(Program.GetSeg(), "F0", false) == 0)
                 {
@@ -1535,7 +1535,7 @@ namespace ClubCompFS
                     layoutRectangle = new RectangleF(x14, y3, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Program.FormShortDate(Program.Datum.Seg1), font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x14 + (float)(200.0 * num3), y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Fres skating", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Free skating", font3, Brushes.Black, layoutRectangle, format);
                     float y13 = y3 + (height3 + 10f);
                     float x15 = (float)x1;
                     layoutRectangle = new RectangleF(x15, y13, (float)(200.0 * num3), height3);
@@ -1575,28 +1575,28 @@ namespace ClubCompFS
                     float y19 = y18 + height3;
                     float x21 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x21, y19, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x21 + (float)(200.0 * num3), y19, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y20 = y19 + height3;
                     float x22 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x22, y20, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x22 + (float)(200.0 * num3), y20, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y21 = y20 + height3;
-                    float x23 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x23, y21, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x23 + (float)(200.0 * num3), y21, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y21 + height3;
-                    float x24 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x24, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    x2 = x24 + (float)(200.0 * num3);
-                    layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y21 = y20 + height3;
+                    //float x23 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x23, y21, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x23 + (float)(200.0 * num3), y21, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
+                    y3 = y20 + height3;
+                    //float x24 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x24, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    x2 = (float)(x1 + 200.0 * num3);// = x24 + (float)(200.0 * num3);
+                    //layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 if (Operators.CompareString(Program.GetSeg(), "0F", false) == 0)
                 {
@@ -1646,28 +1646,28 @@ namespace ClubCompFS
                     float y28 = y27 + height3;
                     float x32 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x32, y28, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x32 + (float)(200.0 * num3), y28, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y29 = y28 + height3;
                     float x33 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x33, y29, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x33 + (float)(200.0 * num3), y29, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y30 = y29 + height3;
-                    float x34 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x34, y30, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x34 + (float)(200.0 * num3), y30, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y30 + height3;
-                    float x35 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x35, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    x2 = x35 + (float)(200.0 * num3);
-                    layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y30 = y29 + height3;
+                    //float x34 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x34, y30, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x34 + (float)(200.0 * num3), y30, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
+                    y3 = y29 + height3;
+                    //float x35 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x35, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    x2 = (float)(x1 + 200.0 * num3); ; // = x35 + (float)(200.0 * num3);
+                    //layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 if (Operators.CompareString(Program.GetSeg(), "SF", false) == 0)
                 {
@@ -1723,28 +1723,28 @@ namespace ClubCompFS
                     float y38 = y37 + height3;
                     float x44 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x44, y38, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x44 + (float)(200.0 * num3), y38, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y39 = y38 + height3;
                     float x45 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x45, y39, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x45 + (float)(200.0 * num3), y39, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y40 = y39 + height3;
-                    float x46 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x46, y40, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x46 + (float)(200.0 * num3), y40, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
-                    float y41 = y40 + height3;
-                    float x47 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x47, y41, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x47 + (float)(200.0 * num3), y41, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
-                    float y42 = y41 + (height3 + 10f);
+                    //float y40 = y39 + height3;
+                    //float x46 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x46, y40, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x46 + (float)(200.0 * num3), y40, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y41 = y40 + height3;
+                    //float x47 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x47, y41, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x47 + (float)(200.0 * num3), y41, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
+                    float y42 = y39 + (height3 + 10f);
                     layoutRectangle = new RectangleF((float)x1, y42, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("FREE SKATING", font2, Brushes.Black, layoutRectangle, format);
                     float y43 = y42 + height3;
@@ -1765,28 +1765,28 @@ namespace ClubCompFS
                     float y45 = y44 + height3;
                     float x51 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x51, y45, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x51 + (float)(200.0 * num3), y45, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y46 = y45 + height3;
                     float x52 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x52, y46, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x52 + (float)(200.0 * num3), y46, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y47 = y46 + height3;
-                    float x53 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x53, y47, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x53 + (float)(200.0 * num3), y47, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y47 + height3;
-                    float x54 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x54, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    x2 = x54 + (float)(200.0 * num3);
-                    layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y47 = y46 + height3;
+                    //float x53 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x53, y47, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x53 + (float)(200.0 * num3), y47, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
+                    //y3 = y47 + height3;
+                    //float x54 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x54, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    //x2 = x54 + (float)(200.0 * num3);
+                    //layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 if (Operators.CompareString(Program.GetSeg(), "FF", false) == 0)
                 {
@@ -1842,28 +1842,28 @@ namespace ClubCompFS
                     float y55 = y54 + height3;
                     float x63 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x63, y55, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x63 + (float)(200.0 * num3), y55, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y56 = y55 + height3;
                     float x64 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x64, y56, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x64 + (float)(200.0 * num3), y56, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y57 = y56 + height3;
-                    float x65 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x65, y57, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x65 + (float)(200.0 * num3), y57, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
-                    float y58 = y57 + height3;
-                    float x66 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x66, y58, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x66 + (float)(200.0 * num3), y58, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
-                    float y59 = y58 + (height3 + 10f);
+                    //float y57 = y56 + height3;
+                    //float x65 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x65, y57, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x65 + (float)(200.0 * num3), y57, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y58 = y57 + height3;
+                    //float x66 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x66, y58, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x66 + (float)(200.0 * num3), y58, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
+                    float y59 = y56 + (height3 + 10f);
                     layoutRectangle = new RectangleF((float)x1, y59, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("FREE SKATING", font2, Brushes.Black, layoutRectangle, format);
                     float y60 = y59 + height3;
@@ -1884,28 +1884,28 @@ namespace ClubCompFS
                     float y62 = y61 + height3;
                     float x70 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x70, y62, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x70 + (float)(200.0 * num3), y62, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y63 = y62 + height3;
                     float x71 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x71, y63, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x71 + (float)(200.0 * num3), y63, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y64 = y63 + height3;
-                    float x72 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x72, y64, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x72 + (float)(200.0 * num3), y64, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y64 + height3;
-                    float x73 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x73, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    x2 = x73 + (float)(200.0 * num3);
-                    layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y64 = y63 + height3;
+                    //float x72 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x72, y64, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x72 + (float)(200.0 * num3), y64, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
+                    y3 = y63 + height3;
+                    //float x73 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x73, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    x2 = (float)(x1 + 200.0 * num3); // = x73 + (float)(200.0 * num3);
+                    //layoutRectangle = new RectangleF(x2, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 if (Operators.CompareString(Program.GetSeg(), "SS", false) == 0)
                 {
@@ -1961,28 +1961,28 @@ namespace ClubCompFS
                     float y72 = y71 + height3;
                     float x82 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x82, y72, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x82 + (float)(200.0 * num3), y72, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y73 = y72 + height3;
                     float x83 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x83, y73, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x83 + (float)(200.0 * num3), y73, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y74 = y73 + height3;
-                    float x84 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x84, y74, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x84 + (float)(200.0 * num3), y74, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
-                    float y75 = y74 + height3;
-                    float x85 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x85, y75, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x85 + (float)(200.0 * num3), y75, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
-                    float y76 = y75 + (height3 + 10f);
+                    //float y74 = y73 + height3;
+                    //float x84 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x84, y74, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x84 + (float)(200.0 * num3), y74, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y75 = y74 + height3;
+                    //float x85 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x85, y75, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x85 + (float)(200.0 * num3), y75, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]), font3, Brushes.Black, layoutRectangle, format);
+                    float y76 = y73 + (height3 + 10f);
                     layoutRectangle = new RectangleF((float)x1, y76, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString("SHORT PROGRAM", font2, Brushes.Black, layoutRectangle, format);
                     float y77 = y76 + height3;
@@ -2003,27 +2003,27 @@ namespace ClubCompFS
                     float y79 = y78 + height3;
                     float x89 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x89, y79, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Transitions", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x89 + (float)(200.0 * num3), y79, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]), font3, Brushes.Black, layoutRectangle, format);
                     float y80 = y79 + height3;
                     float x90 = (float)(x1 + 200.0 * num3);
                     layoutRectangle = new RectangleF(x90, y80, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Performance", font3, Brushes.Black, layoutRectangle, format);
+                    e.Graphics.DrawString("Presentation", font3, Brushes.Black, layoutRectangle, format);
                     layoutRectangle = new RectangleF(x90 + (float)(200.0 * num3), y80, (float)(200.0 * num3), height3);
                     e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]), font3, Brushes.Black, layoutRectangle, format);
-                    float y81 = y80 + height3;
-                    float x91 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x91, y81, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x91 + (float)(200.0 * num3), y81, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
-                    y3 = y81 + height3;
-                    float x92 = (float)(x1 + 200.0 * num3);
-                    layoutRectangle = new RectangleF(x92, y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
-                    layoutRectangle = new RectangleF(x92 + (float)(200.0 * num3), y3, (float)(200.0 * num3), height3);
-                    e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
+                    //float y81 = y80 + height3;
+                    //float x91 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x91, y81, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Composition", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x91 + (float)(200.0 * num3), y81, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]), font3, Brushes.Black, layoutRectangle, format);
+                    y3 = y80 + height3;
+                    //float x92 = (float)(x1 + 200.0 * num3);
+                    //layoutRectangle = new RectangleF(x92, y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString("Interpretation", font3, Brushes.Black, layoutRectangle, format);
+                    //layoutRectangle = new RectangleF(x92 + (float)(200.0 * num3), y3, (float)(200.0 * num3), height3);
+                    //e.Graphics.DrawString(Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]), font3, Brushes.Black, layoutRectangle, format);
                 }
                 float y82 = y3 + (height3 + (float)checked((int)Math.Round(unchecked(40.0 * num3))));
                 layoutRectangle = new RectangleF((float)x1, y82, (float)(200.0 * num3), height3);
@@ -2585,20 +2585,20 @@ namespace ClubCompFS
                 this.HDA[index12, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1]);
                 int index13 = checked(index12 + 1);
                 this.HDA[index13, 0] = "";
-                this.HDA[index13, 1] = "Transitions";
+                this.HDA[index13, 1] = "Composition";
                 this.HDA[index13, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
                 int index14 = checked(index13 + 1);
                 this.HDA[index14, 0] = "";
-                this.HDA[index14, 1] = "Performance";  
+                this.HDA[index14, 1] = "Presentation";  
                 this.HDA[index14, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
-                int index15 = checked(index14 + 1);
-                this.HDA[index15, 0] = "";
-                this.HDA[index15, 1] = "Composition";
-                this.HDA[index15, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
-                index1 = checked(index15 + 1);
-                this.HDA[index1, 0] = "";
-                this.HDA[index1, 1] = "Interpretation";
-                this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
+                //int index15 = checked(index14 + 1);
+                //this.HDA[index15, 0] = "";
+                //this.HDA[index15, 1] = "Composition";
+                //this.HDA[index15, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
+                //index1 = checked(index15 + 1);
+                //this.HDA[index1, 0] = "";
+                //this.HDA[index1, 1] = "Interpretation";
+                //this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
             }
             else if (Operators.CompareString(seg, "0F", false) == 0)
             {
@@ -2648,20 +2648,20 @@ namespace ClubCompFS
                 this.HDA[index26, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1]);
                 int index27 = checked(index26 + 1);
                 this.HDA[index27, 0] = "";
-                this.HDA[index27, 1] = "Transitions";
+                this.HDA[index27, 1] = "Composition";
                 this.HDA[index27, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
                 int index28 = checked(index27 + 1);
                 this.HDA[index28, 0] = "";
-                this.HDA[index28, 1] = "Performance";
+                this.HDA[index28, 1] = "Presentation";
                 this.HDA[index28, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
-                int index29 = checked(index28 + 1);
-                this.HDA[index29, 0] = "";
-                this.HDA[index29, 1] = "Composition";
-                this.HDA[index29, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
-                index1 = checked(index29 + 1);
-                this.HDA[index1, 0] = "";
-                this.HDA[index1, 1] = "Interpretation";
-                this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
+                //int index29 = checked(index28 + 1);
+                //this.HDA[index29, 0] = "";
+                //this.HDA[index29, 1] = "Composition";
+                //this.HDA[index29, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
+                index1 = index28;
+                //this.HDA[index1, 0] = "";
+                //this.HDA[index1, 1] = "Interpretation";
+                //this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "SF", false) == 0)
             {
@@ -2715,21 +2715,21 @@ namespace ClubCompFS
                 this.HDA[index41, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1]);
                 int index42 = checked(index41 + 1);
                 this.HDA[index42, 0] = "";
-                this.HDA[index42, 1] = "Transitions";
+                this.HDA[index42, 1] = "Composition";
                 this.HDA[index42, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
                 int index43 = checked(index42 + 1);
                 this.HDA[index43, 0] = "";
-                this.HDA[index43, 1] = "Performance";
+                this.HDA[index43, 1] = "Presentation";
                 this.HDA[index43, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
-                int index44 = checked(index43 + 1);
-                this.HDA[index44, 0] = "";
-                this.HDA[index44, 1] = "Composition";
-                this.HDA[index44, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
-                int index45 = checked(index44 + 1);
-                this.HDA[index45, 0] = "";
-                this.HDA[index45, 1] = "Interpretation";
-                this.HDA[index45, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
-                int index46 = checked(index45 + 1);
+                //int index44 = checked(index43 + 1);
+                //this.HDA[index44, 0] = "";
+                //this.HDA[index44, 1] = "Composition";
+                //this.HDA[index44, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
+                //int index45 = checked(index44 + 1);
+                //this.HDA[index45, 0] = "";
+                //this.HDA[index45, 1] = "Interpretation";
+                //this.HDA[index45, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
+                int index46 = checked(index43 + 1);
                 int index47 = 0;
                 do
                 {
@@ -2751,20 +2751,20 @@ namespace ClubCompFS
                 this.HDA[index50, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1]);
                 int index51 = checked(index50 + 1);
                 this.HDA[index51, 0] = "";
-                this.HDA[index51, 1] = "Transitions";
+                this.HDA[index51, 1] = "Composition";
                 this.HDA[index51, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
                 int index52 = checked(index51 + 1);
                 this.HDA[index52, 0] = "";
-                this.HDA[index52, 1] = "Performance";
+                this.HDA[index52, 1] = "Presentation";
                 this.HDA[index52, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
-                int index53 = checked(index52 + 1);
-                this.HDA[index53, 0] = "";
-                this.HDA[index53, 1] = "Composition";
-                this.HDA[index53, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
-                index1 = checked(index53 + 1);
-                this.HDA[index1, 0] = "";
-                this.HDA[index1, 1] = "Interpretation";
-                this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
+                //int index53 = checked(index52 + 1);
+                //this.HDA[index53, 0] = "";
+                //this.HDA[index53, 1] = "Composition";
+                //this.HDA[index53, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
+                index1 = index52;
+                //this.HDA[index1, 0] = "";
+                //this.HDA[index1, 1] = "Interpretation";
+                //this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "FF", false) == 0)
             {
@@ -2818,21 +2818,21 @@ namespace ClubCompFS
                 this.HDA[index65, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1]);
                 int index66 = checked(index65 + 1);
                 this.HDA[index66, 0] = "";
-                this.HDA[index66, 1] = "Transitions";
+                this.HDA[index66, 1] = "Composition";
                 this.HDA[index66, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
                 int index67 = checked(index66 + 1);
                 this.HDA[index67, 0] = "";
-                this.HDA[index67, 1] = "Performance";
+                this.HDA[index67, 1] = "Presentation";
                 this.HDA[index67, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
-                int index68 = checked(index67 + 1);
-                this.HDA[index68, 0] = "";
-                this.HDA[index68, 1] = "Composition";
-                this.HDA[index68, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
-                int index69 = checked(index68 + 1);
-                this.HDA[index69, 0] = "";
-                this.HDA[index69, 1] = "Interpretation";
-                this.HDA[index69, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
-                int index70 = checked(index69 + 1);
+                //int index68 = checked(index67 + 1);
+                //this.HDA[index68, 0] = "";
+                //this.HDA[index68, 1] = "Composition";
+                //this.HDA[index68, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
+                //int index69 = checked(index68 + 1);
+                //this.HDA[index69, 0] = "";
+                //this.HDA[index69, 1] = "Interpretation";
+                //this.HDA[index69, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
+                int index70 = checked(index67 + 1);
                 int index71 = 0;
                 do
                 {
@@ -2854,20 +2854,20 @@ namespace ClubCompFS
                 this.HDA[index74, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1]);
                 int index75 = checked(index74 + 1);
                 this.HDA[index75, 0] = "";
-                this.HDA[index75, 1] = "Transitions";
+                this.HDA[index75, 1] = "Composition";
                 this.HDA[index75, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
                 int index76 = checked(index75 + 1);
                 this.HDA[index76, 0] = "";
-                this.HDA[index76, 1] = "Performance";
+                this.HDA[index76, 1] = "Presentation";
                 this.HDA[index76, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
-                int index77 = checked(index76 + 1);
-                this.HDA[index77, 0] = "";
-                this.HDA[index77, 1] = "Composition";
-                this.HDA[index77, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
-                index1 = checked(index77 + 1);
-                this.HDA[index1, 0] = "";
-                this.HDA[index1, 1] = "Interpretation";
-                this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
+                //int index77 = checked(index76 + 1);
+                //this.HDA[index77, 0] = "";
+                //this.HDA[index77, 1] = "Composition";
+                //this.HDA[index77, 2] = Conversions.ToString(Program.OpenDB//[Program.PcIndex].PCFactorsSeg2[4]);
+                index1 = index76; // checked(index77 + 1);
+                //this.HDA[index1, 0] = "";
+                //this.HDA[index1, 1] = "Interpretation";
+                //this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
             }
             else if (Operators.CompareString(seg, "SS", false) == 0)
             {
@@ -2921,21 +2921,21 @@ namespace ClubCompFS
                 this.HDA[index89, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[1]);
                 int index90 = checked(index89 + 1);
                 this.HDA[index90, 0] = "";
-                this.HDA[index90, 1] = "Transitions";
+                this.HDA[index90, 1] = "Composition";
                 this.HDA[index90, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[2]);
                 int index91 = checked(index90 + 1);
                 this.HDA[index91, 0] = "";
-                this.HDA[index91, 1] = "Performance";
+                this.HDA[index91, 1] = "Presentation";
                 this.HDA[index91, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3]);
-                int index92 = checked(index91 + 1);
-                this.HDA[index92, 0] = "";
-                this.HDA[index92, 1] = "Composition";
-                this.HDA[index92, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4]);
-                int index93 = checked(index92 + 1);
-                this.HDA[index93, 0] = "";
-                this.HDA[index93, 1] = "Interpretation";
-                this.HDA[index93, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
-                int index94 = checked(index93 + 1);
+                //int index92 = checked(index91 + 1);
+                //this.HDA[index92, 0] = "";
+                //this.HDA[index92, 1] = "Composition";
+                //this.HDA[index92, 2] = Conversions.ToString(Program.OpenDB//[Program.PcIndex].PCFactorsSeg1[4]);
+                //int index93 = checked(index92 + 1);
+                //this.HDA[index93, 0] = "";
+                //this.HDA[index93, 1] = "Interpretation";
+                //this.HDA[index93, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5]);
+                int index94 = checked(index91 + 1);
                 int index95 = 0;
                 do
                 {
@@ -2957,20 +2957,20 @@ namespace ClubCompFS
                 this.HDA[index98, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[1]);
                 int index99 = checked(index98 + 1);
                 this.HDA[index99, 0] = "";
-                this.HDA[index99, 1] = "Transitions";
+                this.HDA[index99, 1] = "Composition";
                 this.HDA[index99, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[2]);
                 int index100 = checked(index99 + 1);
                 this.HDA[index100, 0] = "";
-                this.HDA[index100, 1] = "Performance";
+                this.HDA[index100, 1] = "Presentation";
                 this.HDA[index100, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3]);
-                int index101 = checked(index100 + 1);
-                this.HDA[index101, 0] = "";
-                this.HDA[index101, 1] = "Composition";
-                this.HDA[index101, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4]);
-                index1 = checked(index101 + 1);
-                this.HDA[index1, 0] = "";
-                this.HDA[index1, 1] = "Interpretation";
-                this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
+                //int index101 = checked(index100 + 1);
+                //this.HDA[index101, 0] = "";
+                //this.HDA[index101, 1] = "Composition";
+                //this.HDA[index101, 2] = Conversions.ToString(Program.OpenDB//[Program.PcIndex].PCFactorsSeg2[4]);
+                index1 = index100; // checked(index101 + 1);
+                //this.HDA[index1, 0] = "";
+                //this.HDA[index1, 1] = "Interpretation";
+                //this.HDA[index1, 2] = Conversions.ToString(Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5]);
             }
             int index102 = checked(index1 + 1);
             int index103 = 0;

@@ -2,6 +2,8 @@
 {
     public static class Constants
     {
+        public const int TOTAL_COMPONENTS_COUNT = 3; // "Skating Skills", "Composition", "Presentation"
+
         public static bool IsValidCharForClubName(char keyChar)
         {
             bool isValidCharForClubName = true;

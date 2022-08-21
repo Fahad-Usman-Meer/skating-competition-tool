@@ -1184,7 +1184,7 @@ namespace ClubCompFS
                         Program.Vek[i].J_Seg1.PC[index8, index7] = Conversions.ToDouble(strArray5[checked(index8 - 1)]);
                         checked { ++index8; }
                     }
-                    while (index8 <= 5);
+                    while (index8 <= Constants.TOTAL_COMPONENTS_COUNT);
                     checked { ++index7; }
                 }
                 while (index7 <= 7);
@@ -1200,7 +1200,7 @@ namespace ClubCompFS
                         Program.Vek[i].J_Seg2.PC[index10, index9] = Conversions.ToDouble(strArray6[checked(index10 - 1)]);
                         checked { ++index10; }
                     }
-                    while (index10 <= 5);
+                    while (index10 <= Constants.TOTAL_COMPONENTS_COUNT);
                     checked { ++index9; }
                 }
                 while (index9 <= 7);
@@ -2046,7 +2046,7 @@ namespace ClubCompFS
                     Program.OpenDB[i].PCFactorsSeg1[index1] = Conversions.ToDouble(strArray3[checked(index1 - 1)]);
                     checked { ++index1; }
                 }
-                while (index1 <= 5);
+                while (index1 <= Constants.TOTAL_COMPONENTS_COUNT);
                 MyReader.ReadToFollowing("PCFactorsSeg2");
                 string[] strArray4 = MyReader.ReadString().Split('|');
                 int index2 = 1;
@@ -2055,7 +2055,7 @@ namespace ClubCompFS
                     Program.OpenDB[i].PCFactorsSeg2[index2] = Conversions.ToDouble(strArray4[checked(index2 - 1)]);
                     checked { ++index2; }
                 }
-                while (index2 <= 5);
+                while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
                 MyReader.ReadToFollowing("DedFall");
                 Program.OpenDB[i].DedFall = Conversions.ToDouble(MyReader.ReadString());
                 MyReader.ReadToFollowing("DedInter");
@@ -3468,7 +3468,7 @@ namespace ClubCompFS
                         }
                         checked { ++nr; }
                     }
-                    while (nr <= 5);
+                    while (nr <= Constants.TOTAL_COMPONENTS_COUNT);
                     double Expression = Conversion.Int(1000.0 * num4 + 0.5000001) / 1000.0;
                     if (C_JDA > 0)
                         Program.JDarr[checked(R + 6), 14] = Strings.Format((object)Expression, "0.00");
@@ -3835,18 +3835,19 @@ namespace ClubCompFS
                         checked { ++Number2; }
                     }
                 }
+                //TODO: show only 3 components
                 if (Program.NoJ_GOE <= 6 & Program.WOR == 0 && Program.JudgeSel > 0)
                     Program.JDarr[checked(R + row + 1), 13] = "Ref";
                 Program.JDarr[checked(R + row + 2), 2] = "Skating Skills";
                 Program.JDarr[checked(R + row + 2), 4] = Conversions.ToString(Program.PC_Factor(1));
-                Program.JDarr[checked(R + row + 3), 2] = "Transitions";
+                Program.JDarr[checked(R + row + 3), 2] = "Composition";
                 Program.JDarr[checked(R + row + 3), 4] = Conversions.ToString(Program.PC_Factor(2));
-                Program.JDarr[checked(R + row + 4), 2] = "Performance";
+                Program.JDarr[checked(R + row + 4), 2] = "Presentation";///Execution";
                 Program.JDarr[checked(R + row + 4), 4] = Conversions.ToString(Program.PC_Factor(3));
-                Program.JDarr[checked(R + row + 5), 2] = "Composition";
-                Program.JDarr[checked(R + row + 5), 4] = Conversions.ToString(Program.PC_Factor(4));
-                Program.JDarr[checked(R + row + 6), 2] = "Interpretation";
-                Program.JDarr[checked(R + row + 6), 4] = Conversions.ToString(Program.PC_Factor(5));
+                //Program.JDarr[checked(R + row + 5), 2] = "Composition";
+                //Program.JDarr[checked(R + row + 5), 4] = Conversions.ToString(Program.PC_Factor(4));
+                //Program.JDarr[checked(R + row + 6), 2] = "Interpretation";
+                //Program.JDarr[checked(R + row + 6), 4] = Conversions.ToString(Program.PC_Factor(5));
                 goto label_16;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -5743,7 +5744,7 @@ namespace ClubCompFS
                         streamWriter.Write("</tr>\r\n");
                         checked { ++index1; }
                     }
-                    while (index1 <= 5);
+                    while (index1 <= Constants.TOTAL_COMPONENTS_COUNT);
                     streamWriter.Write("</table>\r\n");
                 }
                 objArray2[6, 4] = (object)"TES";

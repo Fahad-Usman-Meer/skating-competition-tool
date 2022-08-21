@@ -68,10 +68,10 @@ namespace ClubCompFS
         private TextBox _txtPC2;
         [AccessedThroughProperty("txtPC3")]
         private TextBox _txtPC3;
-        [AccessedThroughProperty("txtPC4")]
-        private TextBox _txtPC4;
-        [AccessedThroughProperty("txtPC5")]
-        private TextBox _txtPC5;
+        //[AccessedThroughProperty("txtPC4")]
+        //private TextBox _txtPC4;
+        //[AccessedThroughProperty("txtPC5")]
+        //private TextBox _txtPC5;
         [AccessedThroughProperty("txtDed1")]
         private TextBox _txtDed1;
         [AccessedThroughProperty("txtDed2")]
@@ -114,10 +114,10 @@ namespace ClubCompFS
         private TextBox _PC2;
         [AccessedThroughProperty("PC3")]
         private TextBox _PC3;
-        [AccessedThroughProperty("PC4")]
-        private TextBox _PC4;
-        [AccessedThroughProperty("PC5")]
-        private TextBox _PC5;
+        //[AccessedThroughProperty("PC4")]
+        //private TextBox _PC4;
+        //[AccessedThroughProperty("PC5")]
+        //private TextBox _PC5;
         [AccessedThroughProperty("chD1")]
         private CheckBox _chD1;
         [AccessedThroughProperty("chD2")]
@@ -132,6 +132,7 @@ namespace ClubCompFS
         private Label _lblJno;
         private int NoEl;
 
+        
         public InputJudgesDataDialog()
         {
             this.Load += new EventHandler(this.InputJudgesDataDialog_Load);
@@ -181,8 +182,8 @@ namespace ClubCompFS
             this.txtPC1 = new TextBox();
             this.txtPC2 = new TextBox();
             this.txtPC3 = new TextBox();
-            this.txtPC4 = new TextBox();
-            this.txtPC5 = new TextBox();
+            //this.txtPC4 = new TextBox();
+            //this.txtPC5 = new TextBox();
             this.txtDed1 = new TextBox();
             this.txtDed2 = new TextBox();
             this.txtDed3 = new TextBox();
@@ -204,8 +205,8 @@ namespace ClubCompFS
             this.PC1 = new TextBox();
             this.PC2 = new TextBox();
             this.PC3 = new TextBox();
-            this.PC4 = new TextBox();
-            this.PC5 = new TextBox();
+            //this.PC4 = new TextBox();
+            //this.PC5 = new TextBox();
             this.chD1 = new CheckBox();
             this.chD2 = new CheckBox();
             this.chD3 = new CheckBox();
@@ -485,7 +486,7 @@ namespace ClubCompFS
             Size size24 = size1;
             txtPc2.Size = size24;
             this.txtPC2.TabIndex = 20;
-            this.txtPC2.Text = "Transistion";
+            this.txtPC2.Text = "Composition";
             this.txtPC3.BackColor = Color.White;
             this.txtPC3.Enabled = false;
             this.txtPC3.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -497,31 +498,31 @@ namespace ClubCompFS
             Size size25 = size1;
             txtPc3.Size = size25;
             this.txtPC3.TabIndex = 21;
-            this.txtPC3.Text = "Performance/Execution";
-            this.txtPC4.BackColor = Color.FromArgb(224, 224, 224);
-            this.txtPC4.Enabled = false;
-            this.txtPC4.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtPC4.Location = new Point(299, 85);
-            this.txtPC4.Name = "txtPC4";
-            this.txtPC4.ReadOnly = true;
-            TextBox txtPc4 = this.txtPC4;
-            size1 = new Size(232, 20);
-            Size size26 = size1;
-            txtPc4.Size = size26;
-            this.txtPC4.TabIndex = 22;
-            this.txtPC4.Text = "Composition";
-            this.txtPC5.BackColor = Color.White;
-            this.txtPC5.Enabled = false;
-            this.txtPC5.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.txtPC5.Location = new Point(299, 105);
-            this.txtPC5.Name = "txtPC5";
-            this.txtPC5.ReadOnly = true;
-            TextBox txtPc5 = this.txtPC5;
-            size1 = new Size(232, 20);
-            Size size27 = size1;
-            txtPc5.Size = size27;
-            this.txtPC5.TabIndex = 23;
-            this.txtPC5.Text = "Interpretation";
+            this.txtPC3.Text = "Presentation";
+            //this.txtPC4.BackColor = Color.FromArgb(224, 224, 224);
+            //this.txtPC4.Enabled = false;
+            //this.txtPC4.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.txtPC4.Location = new Point(299, 85);
+            //this.txtPC4.Name = "txtPC4";
+            //this.txtPC4.ReadOnly = true;
+            //TextBox txtPc4 = this.txtPC4;
+            //size1 = new Size(232, 20);
+            //Size size26 = size1;
+            //txtPc4.Size = size26;
+            //this.txtPC4.TabIndex = 22;
+            //this.txtPC4.Text = "Composition";
+            //this.txtPC5.BackColor = Color.White;
+            //this.txtPC5.Enabled = false;
+            //this.txtPC5.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.txtPC5.Location = new Point(299, 105);
+            //this.txtPC5.Name = "txtPC5";
+            //this.txtPC5.ReadOnly = true;
+            //TextBox txtPc5 = this.txtPC5;
+            //size1 = new Size(232, 20);
+            //Size size27 = size1;
+            //txtPc5.Size = size27;
+            //this.txtPC5.TabIndex = 23;
+            //this.txtPC5.Text = "Interpretation";
             this.txtDed1.BackColor = Color.White;
             this.txtDed1.Enabled = false;
             this.txtDed1.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -759,25 +760,25 @@ namespace ClubCompFS
             pc3.Size = size48;
             this.PC3.TabIndex = 18;
             this.PC3.TextAlign = HorizontalAlignment.Center;
-            this.PC4.BackColor = Color.FromArgb(224, 224, 224);
-            this.PC4.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.PC4.Location = new Point(537, 85);
-            this.PC4.Name = "PC4";
-            TextBox pc4 = this.PC4;
-            size1 = new Size(50, 20);
-            Size size49 = size1;
-            pc4.Size = size49;
-            this.PC4.TabIndex = 19;
-            this.PC4.TextAlign = HorizontalAlignment.Center;
-            this.PC5.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.PC5.Location = new Point(537, 105);
-            this.PC5.Name = "PC5";
-            TextBox pc5 = this.PC5;
-            size1 = new Size(50, 20);
-            Size size50 = size1;
-            pc5.Size = size50;
-            this.PC5.TabIndex = 20;
-            this.PC5.TextAlign = HorizontalAlignment.Center;
+            //this.PC4.BackColor = Color.FromArgb(224, 224, 224);
+            //this.PC4.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.PC4.Location = new Point(537, 85);
+            //this.PC4.Name = "PC4";
+            //TextBox pc4 = this.PC4;
+            //size1 = new Size(50, 20);
+            //Size size49 = size1;
+            //pc4.Size = size49;
+            //this.PC4.TabIndex = 19;
+            //this.PC4.TextAlign = HorizontalAlignment.Center;
+            //this.PC5.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            //this.PC5.Location = new Point(537, 105);
+            //this.PC5.Name = "PC5";
+            //TextBox pc5 = this.PC5;
+            //size1 = new Size(50, 20);
+            //Size size50 = size1;
+            //pc5.Size = size50;
+            //this.PC5.TabIndex = 20;
+            //this.PC5.TextAlign = HorizontalAlignment.Center;
             this.chD1.AutoSize = true;
             this.chD1.Location = new Point(550, 168);
             this.chD1.Name = "chD1";
@@ -847,8 +848,8 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.chD3);
             this.Controls.Add((Control)this.chD2);
             this.Controls.Add((Control)this.chD1);
-            this.Controls.Add((Control)this.PC5);
-            this.Controls.Add((Control)this.PC4);
+            //this.Controls.Add((Control)this.PC5);
+            //this.Controls.Add((Control)this.PC4);
             this.Controls.Add((Control)this.PC3);
             this.Controls.Add((Control)this.PC2);
             this.Controls.Add((Control)this.PC1);
@@ -870,8 +871,8 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.txtDed3);
             this.Controls.Add((Control)this.txtDed2);
             this.Controls.Add((Control)this.txtDed1);
-            this.Controls.Add((Control)this.txtPC5);
-            this.Controls.Add((Control)this.txtPC4);
+            //this.Controls.Add((Control)this.txtPC5);
+            //this.Controls.Add((Control)this.txtPC4);
             this.Controls.Add((Control)this.txtPC3);
             this.Controls.Add((Control)this.txtPC2);
             this.Controls.Add((Control)this.txtPC1);
@@ -1094,19 +1095,19 @@ namespace ClubCompFS
             set => this._txtPC3 = value;
         }
 
-        internal virtual TextBox txtPC4
-        {
-            get => this._txtPC4;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._txtPC4 = value;
-        }
+        //internal virtual TextBox txtPC4
+        //{
+        //    get => this._txtPC4;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._txtPC4 = value;
+        //}
 
-        internal virtual TextBox txtPC5
-        {
-            get => this._txtPC5;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set => this._txtPC5 = value;
-        }
+        //internal virtual TextBox txtPC5
+        //{
+        //    get => this._txtPC5;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set => this._txtPC5 = value;
+        //}
 
         internal virtual TextBox txtDed1
         {
@@ -1417,37 +1418,37 @@ namespace ClubCompFS
             }
         }
 
-        internal virtual TextBox PC4
-        {
-            get => this._PC4;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                EventHandler eventHandler = new EventHandler(this.PC4_Leave);
-                if (this._PC4 != null)
-                    this._PC4.Leave -= eventHandler;
-                this._PC4 = value;
-                if (this._PC4 == null)
-                    return;
-                this._PC4.Leave += eventHandler;
-            }
-        }
+        //internal virtual TextBox PC4
+        //{
+        //    get => this._PC4;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set
+        //    {
+        //        EventHandler eventHandler = new EventHandler(this.PC4_Leave);
+        //        if (this._PC4 != null)
+        //            this._PC4.Leave -= eventHandler;
+        //        this._PC4 = value;
+        //        if (this._PC4 == null)
+        //            return;
+        //        this._PC4.Leave += eventHandler;
+        //    }
+        //}
 
-        internal virtual TextBox PC5
-        {
-            get => this._PC5;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                EventHandler eventHandler = new EventHandler(this.PC5_Leave);
-                if (this._PC5 != null)
-                    this._PC5.Leave -= eventHandler;
-                this._PC5 = value;
-                if (this._PC5 == null)
-                    return;
-                this._PC5.Leave += eventHandler;
-            }
-        }
+        //internal virtual TextBox PC5
+        //{
+        //    get => this._PC5;
+        //    [MethodImpl(MethodImplOptions.Synchronized)]
+        //    set
+        //    {
+        //        EventHandler eventHandler = new EventHandler(this.PC5_Leave);
+        //        if (this._PC5 != null)
+        //            this._PC5.Leave -= eventHandler;
+        //        this._PC5 = value;
+        //        if (this._PC5 == null)
+        //            return;
+        //        this._PC5.Leave += eventHandler;
+        //    }
+        //}
 
         internal virtual CheckBox chD1
         {
@@ -1593,7 +1594,7 @@ namespace ClubCompFS
                     }
                     checked { ++index2; }
                 }
-                while (index2 <= 5);
+                while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
                 string segment4 = Program.Segment;
                 if (Operators.CompareString(segment4, "Seg1", false) == 0)
                     num3 = checked((int)Program.Vek[Program.PNo].J_Seg1.Deduction[Conversions.ToInteger(this.txtJudgeNo.Text)]);
@@ -1673,7 +1674,7 @@ namespace ClubCompFS
                         Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
                     checked { ++index2; }
                 }
-                while (index2 <= 5);
+                while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
                 int num3 = !this.chD1.Checked ? 0 : 1;
                 int num4 = !this.chD2.Checked ? 0 : 2;
                 string segment1 = Program.Segment;
@@ -2093,34 +2094,34 @@ namespace ClubCompFS
             }
         }
 
-        private void PC4_Leave(object sender, EventArgs e)
-        {
-            string Expression = this.PC4.Text.Replace(".", ",");
-            if (!Versioned.IsNumeric((object)Expression))
-            {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                this.PC4.Text = "0";
-            }
-            else
-            {
-                this.PC4.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(4);
-            }
-        }
+        //private void PC4_Leave(object sender, EventArgs e)
+        //{
+        //    string Expression = this.PC4.Text.Replace(".", ",");
+        //    if (!Versioned.IsNumeric((object)Expression))
+        //    {
+        //        int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+        //        this.PC4.Text = "0";
+        //    }
+        //    else
+        //    {
+        //        this.PC4.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+        //        this.PCtest(4);
+        //    }
+        //}
 
-        private void PC5_Leave(object sender, EventArgs e)
-        {
-            string Expression = this.PC5.Text.Replace(".", ",");
-            if (!Versioned.IsNumeric((object)Expression))
-            {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                this.PC5.Text = "0";
-            }
-            else
-            {
-                this.PC5.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(5);
-            }
-        }
+        //private void PC5_Leave(object sender, EventArgs e)
+        //{
+        //    string Expression = this.PC5.Text.Replace(".", ",");
+        //    if (!Versioned.IsNumeric((object)Expression))
+        //    {
+        //        int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+        //        this.PC5.Text = "0";
+        //    }
+        //    else
+        //    {
+        //        this.PC5.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+        //        this.PCtest(5);
+        //    }
+        //}
     }
 }
