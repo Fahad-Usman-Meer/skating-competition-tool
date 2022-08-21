@@ -1109,7 +1109,6 @@ namespace ClubCompFS
                 }
                 while (index1 <= 15);
 
-                //TODO: Edges: read edges from DB File here
                 MyReader.ReadToFollowing("ElSeg1Edges");
                 string[] strArray1Edges = MyReader.ReadString().Split('|');
                 int index1Edges = 1;
@@ -1385,7 +1384,6 @@ namespace ClubCompFS
                     {
                         Program.Participant[] vek = Program.Vek;
                         int index2 = num3;
-                        //TODO: Edges: Set edges data to save in DB
                         string pElSeg1 = "";
                         string pElSeg1Edges = "";
                         string pElSeg2 = "";
@@ -1868,7 +1866,6 @@ namespace ClubCompFS
                 writer.WriteAttributeString("Seg1", pHindSeg1);
                 writer.WriteAttributeString("Seg2", pHindSeg2);
                 writer.WriteEndElement();
-                //TODO: Edges: write Edges in DB File here
                 writer.WriteElementString("ElSeg1", pElSeg1);
                 writer.WriteElementString("ElSeg1Edges", pElSeg1Edges);
                 writer.WriteElementString("ElSeg2", pElSeg2);
@@ -10064,9 +10061,6 @@ namespace ClubCompFS
             public int Startno_Seg2;
             public int WarmUp_Seg1;
             public int WarmUp_Seg2;
-            /// <summary>
-            /// TODO: Edges: new Edges lists are "SSS_Seg1_edges", "SSS_Seg2_edges"
-            /// </summary>
             public string[] SSS_Seg1;
             public string[] SSS_Seg1_edges;
             public string[] SSS_Seg2;
