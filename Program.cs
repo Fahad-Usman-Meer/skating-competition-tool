@@ -3121,6 +3121,12 @@ namespace ClubCompFS
                                 }
                                 else
                                 {
+                                    Left4 = Strings.Replace(Left4, "*", "");
+                                    Left4 = Strings.Replace(Left4, " !", "");
+                                    Left4 = Strings.Replace(Left4, "!", "");
+                                    Left4 = Strings.Replace(Left4, "f", "");
+                                    Left4 = Strings.Replace(Left4, " q", "");
+
                                     do
                                     {
                                         if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[index39, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left4, Program.ElDB[index39, 0], false))
