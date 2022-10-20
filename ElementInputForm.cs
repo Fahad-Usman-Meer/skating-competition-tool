@@ -5166,10 +5166,15 @@ namespace ClubCompFS
                         {
                             if (Operators.CompareString(Strings.Right(str1, 1), "e", false) == 0)
                                 str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
-                            if (Operators.CompareString(Strings.Right(str1, 2), "<<", false) == 0)
-                                str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 2)));
-                            else if (Operators.CompareString(Strings.Right(str1, 1), "<", false) == 0)
-                                str1 = Strings.Trim(str1.Remove(checked(Strings.Len(str1) - 1)));
+                            if (str1.Contains("<"))
+                                str1 = Strings.Trim(str1.Replace("<",""));
+                            if (str1.Contains("!"))
+                                str1 = Strings.Trim(str1.Replace("!", ""));
+                            if (str1.Contains("f"))
+                                str1 = Strings.Trim(str1.Replace("f", ""));
+                            if (str1.Contains(" q"))
+                                str1 = Strings.Trim(str1.Replace(" q", ""));
+
                             int jumpmin = Program.Jumpmin;
                             int jumpMax = Program.JumpMax;
                             int index3 = jumpmin;
