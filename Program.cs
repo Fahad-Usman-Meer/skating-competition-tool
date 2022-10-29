@@ -1128,7 +1128,7 @@ namespace ClubCompFS
                     checked { ++index2; }
                 }
                 while (index2 <= 15);
-                
+
                 MyReader.ReadToFollowing("ElSeg2Edges");
                 string[] strArray2Edges = MyReader.ReadString().Split('|');
                 int index2Edges = 1;
@@ -2996,7 +2996,7 @@ namespace ClubCompFS
                                         int jumpmin = Program.Jumpmin;
                                         int jumpMax = Program.JumpMax;
                                         int index30 = jumpmin;
-                                        
+
                                         if (elstr.Contains("*"))
                                             elstr = Strings.Trim(elstr.Replace("*", ""));
                                         if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
@@ -3170,7 +3170,7 @@ namespace ClubCompFS
                                     while (index42 <= noJGoe10)
                                     {
                                         int index43 = checked(6 - Program.J_GOE[index42]);
-                                        Right6 = index43 != 6 ? (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
+                                        Right6 += index43 != 6 ? (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
                                         checked { ++index42; }
                                     }
                                     if (Program.NoJ_GOE != 0)
@@ -3698,7 +3698,7 @@ namespace ClubCompFS
                             edgesSignsColumn = "<<";
                         else if (str.Contains("<"))
                             edgesSignsColumn = "<";
-                        
+
                         string tempSigns = edgesSignsColumn;
                         if (!string.IsNullOrWhiteSpace(Program.OpArr[index].edge))
                         {
@@ -3719,7 +3719,7 @@ namespace ClubCompFS
                         }
 
                         Program.JDarr[checked(R + index + 8), 3] = tempSigns;
-                        
+
                         if (!string.IsNullOrWhiteSpace(str))
                         {
                             Program.JDarr[checked(R + index + 8), 2] = str;
