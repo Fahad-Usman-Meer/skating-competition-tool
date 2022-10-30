@@ -2726,7 +2726,8 @@ namespace ClubCompFS
                                 double num14 = Program.ElArr[2].row != 0 ? Program.ElArr[2].Value : 0.0;
                                 if (row > 0)
                                 {
-                                    double Expression = Conversion.Int(100.0 * (num14 + Program.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right1;
+                                    //double Expression = Conversion.Int(100.0 * (num14 + Program.ElArr[1].Value) * 0.8 + 0.5000001) / 100.0 * Right1;
+                                    double Expression = Conversion.Int(100.0 * (num14 + Program.ElArr[1].Value)) / 100.0 * Right1;
                                     numArray1[ind] = Expression;
                                     if (C_JDA > 0)
                                     {
@@ -3170,7 +3171,17 @@ namespace ClubCompFS
                                     while (index42 <= noJGoe10)
                                     {
                                         int index43 = checked(6 - Program.J_GOE[index42]);
-                                        Right6 += index43 != 6 ? (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
+                                        if (index43 != 6 && (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res)) )
+                                        {
+                                            Right6 += res;
+                                        }
+                                        //else
+                                        //{
+                                        //    Right6 = 0.0 + Right6;
+                                        //}
+
+                                        //Right6 += index43 != 6 ? (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res) ? res : 0.0 + Right6) : 0.0 + Right6;
+
                                         checked { ++index42; }
                                     }
                                     if (Program.NoJ_GOE != 0)
