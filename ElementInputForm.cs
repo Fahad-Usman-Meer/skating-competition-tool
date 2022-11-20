@@ -1482,7 +1482,7 @@ namespace ClubCompFS
             this.OpExcl.Location = new Point(526, 1);
             this.OpExcl.Name = "OpExcl";
             Button opExcl = this.OpExcl;
-            size1 = new Size(55, 37);
+            size1 = new Size(27, 37);
             Size size91 = size1;
             opExcl.Size = size91;
             this.OpExcl.TabIndex = 123;
