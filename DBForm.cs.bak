@@ -455,7 +455,7 @@ namespace ClubCompFS
                         Left1 += " ";
                     checked { ++index2; }
                 }
-                while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
+                while (index2 <= 5);
                 dataGridView1.Rows[index1].Cells[8].Value = (object)Left1;
                 if (Operators.CompareString(Left1, "0 0 0 0 0", false) != 0)
                 {
@@ -471,7 +471,7 @@ namespace ClubCompFS
                         Left2 += " ";
                     checked { ++index3; }
                 }
-                while (index3 <= Constants.TOTAL_COMPONENTS_COUNT);
+                while (index3 <= 5);
                 dataGridView1.Rows[index1].Cells[9].Value = (object)Left2;
                 if (Operators.CompareString(Left2, "0 0 0 0 0", false) != 0)
                 {

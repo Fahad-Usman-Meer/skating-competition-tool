@@ -213,7 +213,7 @@ namespace ClubCompFS
             {
                 case '"':
                 case '&':
-                //case '\'':   // enable apostrophe for Input name
+                case '\'':
                 case ':':
                 case ';':
                 case '>':
