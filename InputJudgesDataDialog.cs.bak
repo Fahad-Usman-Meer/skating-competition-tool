@@ -1401,21 +1401,21 @@ namespace ClubCompFS
             }
         }
 
-        //internal virtual TextBox PC3
-        //{
-        //    get => this._PC3;
-        //    [MethodImpl(MethodImplOptions.Synchronized)]
-        //    set
-        //    {
-        //        EventHandler eventHandler = new EventHandler(this.PC3_Leave);
-        //        if (this._PC3 != null)
-        //            this._PC3.Leave -= eventHandler;
-        //        this._PC3 = value;
-        //        if (this._PC3 == null)
-        //            return;
-        //        this._PC3.Leave += eventHandler;
-        //    }
-        //}
+        internal virtual TextBox PC3
+        {
+            get => this._PC3;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                EventHandler eventHandler = new EventHandler(this.PC3_Leave);
+                if (this._PC3 != null)
+                    this._PC3.Leave -= eventHandler;
+                this._PC3 = value;
+                if (this._PC3 == null)
+                    return;
+                this._PC3.Leave += eventHandler;
+            }
+        }
 
         //internal virtual TextBox PC4
         //{
@@ -2056,6 +2056,8 @@ namespace ClubCompFS
                     this.Controls["PC1"].Text = "";
                     this.Controls["PC1"].Select();
                 }
+                //this.PC1.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+                //this.PCtest(1);
             }
         }
 
