@@ -139,7 +139,9 @@
     <EmbeddedResource Include="InputJudgesDataDialog.resx" />
     <EmbeddedResource Include="DeductionsDialog.resx" />
     <EmbeddedResource Include="NetworkStatusDialog.resx" />
-    <EmbeddedResource Include="ConfigurationDataDialog.resx" />
+    <EmbeddedResource Include="ConfigurationDataDialog.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="JudgesSetupDialog.resx" />
     <EmbeddedResource Include="ParticipantInputDialog.resx" />
     <EmbeddedResource Include="IceResurfacingMealBreakDialog.resx" />

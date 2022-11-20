@@ -489,7 +489,7 @@ namespace ClubCompFS
                                         int num27 = 150;
                                         layoutRectangle = new RectangleF(x10, y5, (float)num27 * (float)num3, height5);
                                         e.Graphics.DrawRectangle(Pens.Black, layoutRectangle.Left, layoutRectangle.Top, layoutRectangle.Width, layoutRectangle.Height);
-                                        e.Graphics.DrawString("\r\nPerformance/Execution", font2, Brushes.Black, layoutRectangle, format2);
+                                        e.Graphics.DrawString("\r\nPresentation", font2, Brushes.Black, layoutRectangle, format2);
                                         
                                         //int num25 = 140;
                                         //layoutRectangle = new RectangleF(x10, y5, (float)num25 * (float)num3, height5);

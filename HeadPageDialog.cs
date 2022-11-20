@@ -576,10 +576,10 @@ namespace ClubCompFS
             this.txtPresentation2.Location = new Point(373, 443);
             this.txtPresentation2.Name = "txtPresentation2";
             this.txtPresentation2.ReadOnly = true;
-            TextBox txtPerformance2 = this.txtPresentation2;
+            TextBox _txtPresentation2 = this.txtPresentation2;
             size1 = new Size(58, 20);
             Size size39 = size1;
-            txtPerformance2.Size = size39;
+            _txtPresentation2.Size = size39;
             this.txtPresentation2.TabIndex = 40;
             this.txtPresentation2.TextAlign = HorizontalAlignment.Center;
             this.txtPresentation2.Visible = false;
