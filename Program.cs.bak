@@ -9666,9 +9666,7 @@ namespace ClubCompFS
             public int WarmUp_Seg1;
             public int WarmUp_Seg2;
             public string[] SSS_Seg1;
-            public string[] SSS_Seg1_edges;
             public string[] SSS_Seg2;
-            public string[] SSS_Seg2_edges;
             public int DNS_Seg1;
             public int DNS_Seg2;
             public double TES_Seg1;
