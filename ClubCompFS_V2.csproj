@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!--Project was exported from assembly: E:\zz Personal_Doc\Personal\Cinzia\ClubCompFS_Version2_Oct2020_NEW3\ClubCompFS_NEW2.exe-->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,8 +7,9 @@
     <ProjectGuid>{48507ACC-3EA9-4BED-BDCD-36558CBD2455}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AssemblyName>ClubCompFS_10p0p6</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <ApplicationVersion>1.0.0.6</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>ClubCompFS</RootNamespace>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>thumb_cns_libertas_logo.ico</ApplicationIcon>
@@ -157,10 +160,13 @@
     <EmbeddedResource Include="Resources.resx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\compulsory\CLUBCOMP.INI" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\compulsory\ElementDB.xml" />
+    <Content Include="Resources\compulsory\FSI_Logo_HD.png" />
+    <Content Include="Resources\compulsory\Icon.ico" />
     <Content Include="Resources\compulsory\IE_Logo_HD.png" />
     <Content Include="Resources\compulsory\OpenDB.xml" />
     <Content Include="thumb_cns_libertas_logo.ico" />
