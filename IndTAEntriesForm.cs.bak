@@ -1395,7 +1395,6 @@ namespace ClubCompFS
                                         Program.Vek[checked(num4 + 1)].SSS_Seg1 = Program.Vek[checked(num4 + 1)].SSS_Seg1_edges = (string[])null;
                                         Program.Vek[checked(num4 + 1)].SSS_Seg1 = new string[16];
                                         Program.Vek[checked(num4 + 1)].SSS_Seg1_edges = new string[16];
-                                        
                                         if (Strings.Len(cell1) > 0)
                                         {
                                             string[] strArray1 = new string[16];
@@ -1646,7 +1645,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("IndTAEntriesForm.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1736,7 +1735,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("IndTAEntriesForm.Sort_IndTA_Klass_Club_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1776,7 +1775,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num4 = (int)Interaction.MsgBox((object)("IndTAEntriesForm.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num4 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Klass_Club - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_11:
             if (num2 == 0)
@@ -1824,7 +1823,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num7 = (int)Interaction.MsgBox((object)("IndTAEntriesForm.Sort_IndTA_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num7 = (int)Interaction.MsgBox((object)("IndTAEntries.Sort_IndTA_Surname - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_14:
             if (num2 == 0)

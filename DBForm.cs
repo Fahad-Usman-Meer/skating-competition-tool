@@ -451,7 +451,7 @@ namespace ClubCompFS
                 do
                 {
                     Left1 += Conversions.ToString(Program.OpenDB[index1].PCFactorsSeg1[index2]);
-                    if (index2 < 5)
+                    if (index2 < Constants.TOTAL_COMPONENTS_COUNT)
                         Left1 += " ";
                     checked { ++index2; }
                 }

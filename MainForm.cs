@@ -356,7 +356,7 @@ namespace ClubCompFS
         public MainForm()
         {
             this.KeyDown += new KeyEventHandler(this.MainForm_KeyDown);
-            this.FormClosing += new FormClosingEventHandler(this.MainForm_FormClosing);
+            this.FormClosing += new FormClosingEventHandler(this.MainForm_Closing);
             this.Load += new EventHandler(this.MainForm_Load);
             this.completed1 = true;
             this.Qout = new Queue<int>();
@@ -4001,7 +4001,7 @@ namespace ClubCompFS
             set => this._txtIndTAClass = value;
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_Closing(object sender, FormClosingEventArgs e)
         {
             if (!Program.CategoryFileSaved | !this.completed5)
             {

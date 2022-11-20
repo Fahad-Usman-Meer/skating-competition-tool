@@ -16,55 +16,55 @@ using System.Threading;
 
 namespace ClubCompFS.My
 {
-  [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
-  [EditorBrowsable(EditorBrowsableState.Advanced)]
-  [CompilerGenerated]
-  internal sealed class MySettings : ApplicationSettingsBase
-  {
-    private static MySettings defaultInstance = (MySettings) SettingsBase.Synchronized((SettingsBase) new MySettings());
-    private static object addedHandlerLockObject = RuntimeHelpers.GetObjectValue(new object());
-    private static bool addedHandler;
-
+    [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
     [EditorBrowsable(EditorBrowsableState.Advanced)]
-    [DebuggerNonUserCode]
-    private static void AutoSaveSettings(object sender, EventArgs e)
+    [CompilerGenerated]
+    internal sealed class MySettings : ApplicationSettingsBase
     {
-      if (!MyProject.Application.SaveMySettingsOnExit)
-        return;
-      MySettingsProperty.Settings.Save();
-    }
+        private static MySettings defaultInstance = (MySettings)SettingsBase.Synchronized((SettingsBase)new MySettings());
+        private static object addedHandlerLockObject = RuntimeHelpers.GetObjectValue(new object());
+        private static bool addedHandler;
 
-    public static MySettings Default
-    {
-      get
-      {
-        if (!MySettings.addedHandler)
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DebuggerNonUserCode]
+        private static void AutoSaveSettings(object sender, EventArgs e)
         {
-          object handlerLockObject = MySettings.addedHandlerLockObject;
-          ObjectFlowControl.CheckForSyncLockOnValueType(handlerLockObject);
-          bool lockTaken = false;
-          try
-          {
-            Monitor.Enter(handlerLockObject, ref lockTaken);
-            if (!MySettings.addedHandler)
-            {
-              MyProject.Application.Shutdown += (ShutdownEventHandler) ((sender, e) =>
-              {
-                if (!MyProject.Application.SaveMySettingsOnExit)
-                  return;
-                MySettingsProperty.Settings.Save();
-              });
-              MySettings.addedHandler = true;
-            }
-          }
-          finally
-          {
-            if (lockTaken)
-              Monitor.Exit(handlerLockObject);
-          }
+            if (!MyProject.Application.SaveMySettingsOnExit)
+                return;
+            MySettingsProperty.Settings.Save();
         }
-        return MySettings.defaultInstance;
-      }
+
+        public static MySettings Default
+        {
+            get
+            {
+                if (!MySettings.addedHandler)
+                {
+                    object handlerLockObject = MySettings.addedHandlerLockObject;
+                    ObjectFlowControl.CheckForSyncLockOnValueType(handlerLockObject);
+                    bool lockTaken = false;
+                    try
+                    {
+                        Monitor.Enter(handlerLockObject, ref lockTaken);
+                        if (!MySettings.addedHandler)
+                        {
+                            MyProject.Application.Shutdown += (ShutdownEventHandler)((sender, e) =>
+                            {
+                                if (!MyProject.Application.SaveMySettingsOnExit)
+                                    return;
+                                MySettingsProperty.Settings.Save();
+                            });
+                            MySettings.addedHandler = true;
+                        }
+                    }
+                    finally
+                    {
+                        if (lockTaken)
+                            Monitor.Exit(handlerLockObject);
+                    }
+                }
+                return MySettings.defaultInstance;
+            }
+        }
     }
-  }
 }

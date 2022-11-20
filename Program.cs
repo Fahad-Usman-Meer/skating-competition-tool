@@ -428,7 +428,7 @@ namespace ClubCompFS
             object[] Arguments = objArray;
             bool[] flagArray;
             bool[] CopyBack = flagArray = new bool[1] { true };
-            object inArray = NewLateBinding.LateGet((object)Instance, (System.Type)null, "GetBytes", Arguments, (string[])null, (System.Type[])null, CopyBack);
+            object inArray = NewLateBinding.LateGet((object)Instance, (Type)null, "GetBytes", Arguments, (string[])null, (Type[])null, CopyBack);
             if (flagArray[0])
                 instring = RuntimeHelpers.GetObjectValue(objArray[0]);
             return Convert.ToBase64String((byte[])inArray);
@@ -1956,8 +1956,8 @@ namespace ClubCompFS
                             {
                                 Program.OpenDBType[] openDb = Program.OpenDB;
                                 int index = i;
-                                openDb[index].PCFactorsSeg1 = new double[6];
-                                openDb[index].PCFactorsSeg2 = new double[6];
+                                openDb[index].PCFactorsSeg1 = new double[4];
+                                openDb[index].PCFactorsSeg2 = new double[4];
                                 openDb[index].HT_Bonus_Calc = new int[3];
                                 openDb[index].ElementTest = new int[8];
                                 Program.ParseOpenDBCategory(MyReader, i);
@@ -5294,10 +5294,10 @@ namespace ClubCompFS
                         checked { num3 += 2; }
                     if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[3] > 0.0)
                         checked { num3 += 4; }
-                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4] > 0.0)
-                        checked { num3 += 8; }
-                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5] > 0.0)
-                        checked { num3 += 16; }
+                    //if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[4] > 0.0)
+                    //    checked { num3 += 8; }
+                    //if (Program.OpenDB[Program.PcIndex].PCFactorsSeg1[5] > 0.0)
+                    //    checked { num3 += 16; }
                 }
                 else if (Operators.CompareString(segment, "Seg2", false) == 0)
                 {
@@ -5307,10 +5307,10 @@ namespace ClubCompFS
                         checked { num3 += 2; }
                     if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[3] > 0.0)
                         checked { num3 += 4; }
-                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4] > 0.0)
-                        checked { num3 += 8; }
-                    if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5] > 0.0)
-                        checked { num3 += 16; }
+                    //if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[4] > 0.0)
+                    //    checked { num3 += 8; }
+                    //if (Program.OpenDB[Program.PcIndex].PCFactorsSeg2[5] > 0.0)
+                    //    checked { num3 += 16; }
                 }
                 str1 = Conversions.ToString(num3);
                 goto label_28;

@@ -594,12 +594,12 @@ namespace ClubCompFS
             //this.txtChoreo2.Visible = false;
             this.txtPresentation2.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.txtPresentation2.Location = new Point(373, 443);
-            this.txtPresentation2.Name = "txtPresentation2";
+            this.txtPresentation2.Name = "txtPerformance2";
             this.txtPresentation2.ReadOnly = true;
-            TextBox _txtPresentation2 = this.txtPresentation2;
+            TextBox txtPerformance2 = this.txtPresentation2;
             size1 = new Size(58, 20);
             Size size39 = size1;
-            _txtPresentation2.Size = size39;
+            txtPerformance2.Size = size39;
             this.txtPresentation2.TabIndex = 40;
             this.txtPresentation2.TextAlign = HorizontalAlignment.Center;
             this.txtPresentation2.Visible = false;
@@ -2737,7 +2737,7 @@ namespace ClubCompFS
                     this.HDA[index46, index47] = " ";
                     checked { ++index47; }
                 }
-                while (index47 <= 2);
+                while (index47 < Constants.TOTAL_COMPONENTS_COUNT);
                 int index48 = checked(index46 + 1);
                 this.HDA[index48, 0] = "FREE SKATING";
                 this.HDA[index48, 1] = "";
@@ -2840,7 +2840,7 @@ namespace ClubCompFS
                     this.HDA[index70, index71] = " ";
                     checked { ++index71; }
                 }
-                while (index71 <= 2);
+                while (index71 < Constants.TOTAL_COMPONENTS_COUNT);
                 int index72 = checked(index70 + 1);
                 this.HDA[index72, 0] = "FREE SKATING";
                 this.HDA[index72, 1] = "";
@@ -2887,7 +2887,7 @@ namespace ClubCompFS
                     this.HDA[index80, index81] = " ";
                     checked { ++index81; }
                 }
-                while (index81 <= 2);
+                while (index81 < Constants.TOTAL_COMPONENTS_COUNT);
                 int index82 = checked(index80 + 1);
                 this.HDA[index82, 0] = "Size of Skating Area:";
                 this.HDA[index82, 1] = this.IceArea;

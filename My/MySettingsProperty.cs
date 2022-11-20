@@ -12,13 +12,13 @@ using System.Runtime.CompilerServices;
 
 namespace ClubCompFS.My
 {
-  [CompilerGenerated]
-  [StandardModule]
-  [HideModuleName]
-  [DebuggerNonUserCode]
-  internal sealed class MySettingsProperty
-  {
-    [HelpKeyword("My.Settings")]
-    internal static MySettings Settings => MySettings.Default;
-  }
+    [CompilerGenerated]
+    [StandardModule]
+    [HideModuleName]
+    [DebuggerNonUserCode]
+    internal sealed class MySettingsProperty
+    {
+        [HelpKeyword("My.Settings")]
+        internal static MySettings Settings => MySettings.Default;
+    }
 }

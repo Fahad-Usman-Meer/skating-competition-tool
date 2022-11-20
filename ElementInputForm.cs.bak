@@ -9093,6 +9093,7 @@ namespace ClubCompFS
                                     if (Operators.CompareString(Strings.Right(Program.ElArr[index1].Elstr, 1), nameof(e), false) != 0)
                                     {
                                         Program.ElArr[index1].Elstr = Program.ElArr[index1].Elstr + " e";
+                                        //break;
                                     }
                                     else
                                     {

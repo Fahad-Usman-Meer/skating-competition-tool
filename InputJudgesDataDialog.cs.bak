@@ -132,6 +132,7 @@ namespace ClubCompFS
         private Label _lblJno;
         private int NoEl;
 
+        
         public InputJudgesDataDialog()
         {
             this.Load += new EventHandler(this.InputJudgesDataDialog_Load);

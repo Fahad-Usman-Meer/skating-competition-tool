@@ -14,31 +14,31 @@ using System.Windows.Forms;
 
 namespace ClubCompFS.My
 {
-  [GeneratedCode("MyTemplate", "10.0.0.0")]
-  [EditorBrowsable(EditorBrowsableState.Never)]
-  internal class MyApplication : WindowsFormsApplicationBase
-  {
-    [EditorBrowsable(EditorBrowsableState.Advanced)]
-    [DebuggerHidden]
-    [STAThread]
-    [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-    internal static void Main(string[] Args)
+    [GeneratedCode("MyTemplate", "10.0.0.0")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    internal class MyApplication : WindowsFormsApplicationBase
     {
-      Application.SetCompatibleTextRenderingDefault(WindowsFormsApplicationBase.UseCompatibleTextRendering);
-      MyProject.Application.Run(Args);
-    }
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [DebuggerHidden]
+        [STAThread]
+        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+        internal static void Main(string[] Args)
+        {
+            Application.SetCompatibleTextRenderingDefault(WindowsFormsApplicationBase.UseCompatibleTextRendering);
+            MyProject.Application.Run(Args);
+        }
 
-    [DebuggerStepThrough]
-    public MyApplication()
-      : base(AuthenticationMode.Windows)
-    {
-      this.IsSingleInstance = true;
-      this.EnableVisualStyles = true;
-      this.SaveMySettingsOnExit = true;
-      this.ShutdownStyle = ShutdownMode.AfterMainFormCloses;
-    }
+        [DebuggerStepThrough]
+        public MyApplication()
+          : base(AuthenticationMode.Windows)
+        {
+            this.IsSingleInstance = true;
+            this.EnableVisualStyles = true;
+            this.SaveMySettingsOnExit = true;
+            this.ShutdownStyle = ShutdownMode.AfterMainFormCloses;
+        }
 
-    [DebuggerStepThrough]
-    protected override void OnCreateMainForm() => this.MainForm = (Form) MyProject.Forms.MainForm;
-  }
+        [DebuggerStepThrough]
+        protected override void OnCreateMainForm() => this.MainForm = (Form)MyProject.Forms.MainForm;
+    }
 }
