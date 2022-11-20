@@ -2,6 +2,8 @@
 {
     public static class Constants
     {
+        public const int TOTAL_COMPONENTS_COUNT = 2; // "Skating Skills", "Presentation"
+
         public static bool IsValidCharForClubName(char keyChar)
         {
             bool isValidCharForClubName = true;
@@ -9,7 +11,7 @@
             {
                 case '"':
                 case '&':
-                //case '\'': // enable apostrophe for club name
+                //case '\'': //TODO: enable apostrophe for club name
                 case ':':
                 case ';':
                 case '<':
