@@ -1100,7 +1100,7 @@ namespace ClubCompFS
                 pdfDocument.Info.Author = "ClubCompFS Single ver. 10.0.6, 2019-01-12";
                 PdfPage page = pdfDocument.AddPage();
                 page.Size = PageSize.A4;
-                int width1 = checked((int)Math.Round(unchecked(page.Width.Point - (double)x1 - (double)num4)));
+                int width1 = checked((int)Math.Round(unchecked(page.Width.Point - (double)x1 - (double)width1)));
                 float[] numArray = new float[15]
                 {
           0.0f,
@@ -1427,7 +1427,7 @@ namespace ClubCompFS
                         string str15 = "Attenzione, il seguente \"Judges details\" non è confrontabile con quelli delle gare di fascia silver, gold, elite o internazionali. "; // "Attenzione, il seguente \"Judges details\" non è confrontabile con quelli delle gare di fascia (interregionale, nazionale ed elite) o internazionali,"
                         XFont xfont17 = xfont2;
                         XSolidBrush black12 = XBrushes.Black;
-                        XRect xrect12 = new XRect((double)x1, (double)num6 + 5.0, (double)checked(x1 + width1), (double)num6 + 7.0);
+                        XRect xrect12 = new XRect((double)x1, (double)num6 + 5.0, (double)checked(x1 + width2), (double)num6 + 7.0);
                         XStringFormat topLeft8 = XStringFormats.TopLeft;
                         string text12 = str15;
                         XFont font13 = xfont17;
@@ -1439,7 +1439,7 @@ namespace ClubCompFS
                         string str16 = "";// "in quanto è stata utilizzata la tabella dei valori delle gare Intersociali.";
                         XFont xfont18 = xfont2;
                         XSolidBrush black13 = XBrushes.Black;
-                        XRect xrect13 = new XRect((double)x1, (double)num6 + 13.0, (double)checked(x1 + width1), (double)num6 + 15.0);
+                        XRect xrect13 = new XRect((double)x1, (double)num6 + 13.0, (double)checked(x1 + width2), (double)num6 + 15.0);
                         XStringFormat topLeft9 = XStringFormats.TopLeft;
                         string text13 = str16;
                         XFont font14 = xfont18;
@@ -1447,7 +1447,7 @@ namespace ClubCompFS
                         XRect layoutRectangle13 = xrect13;
                         XStringFormat format13 = topLeft9;
                         xgraphics14.DrawString(text13, font14, (XBrush)brush13, layoutRectangle13, format13);
-                        int num19 = checked(y3 + height);
+                        int num9 = checked(y3 + height);
                     }
                     while (!(num7 == 2 | index1 >= norow | (double)integer2 != Conversions.ToDouble(Program.F4arr[checked(index1 + 1), 0])));
                     XGraphics xgraphics15 = xgraphics1;
