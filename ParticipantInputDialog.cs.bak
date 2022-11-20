@@ -577,7 +577,7 @@ namespace ClubCompFS
                 return;
             e.KeyChar = char.MinValue;
         }
-
+        
         private void txtClub_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Constants.IsValidCharForClubName(e.KeyChar))
