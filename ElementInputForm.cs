@@ -4377,8 +4377,11 @@ namespace ClubCompFS
                     if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
                         str = Strings.Trim(str.Replace("<", ""));
                     string Left = str;
-                    if (Operators.CompareString(Left, "A", false) == 0 || Operators.CompareString(Left, "1A", false) == 0 || Operators.CompareString(Left, "2A", false) == 0 || Operators.CompareString(Left, "3A", false) == 0 || Operators.CompareString(Left, "4A", false) == 0)
+                    //if (Operators.CompareString(Left, "A", false) == 0 || Operators.CompareString(Left, "1A", false) == 0 || Operators.CompareString(Left, "2A", false) == 0 || Operators.CompareString(Left, "3A", false) == 0 || Operators.CompareString(Left, "4A", false) == 0)
+                    if (Left.Contains("A"))
+                    {
                         Axel = true;
+                    }
                     checked { ++index; }
                 }
                 goto label_17;
