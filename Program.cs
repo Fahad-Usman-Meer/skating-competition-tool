@@ -3438,7 +3438,9 @@ namespace ClubCompFS
                     int nr = 1;
                     do
                     {
-                        if (Program.PC_Factor(nr) > 0.0)
+                        //TODO: here to store and add "factor" in sheet
+                        double currentPCFactor = Program.PC_Factor(nr);
+                        if (currentPCFactor > 0.0) 
                         {
                             double num5 = 0.0;
                             int noJGoe1 = Program.NoJ_GOE;
@@ -3461,7 +3463,7 @@ namespace ClubCompFS
                                     num5 += Program.J_PC[index2];
                                     checked { ++index2; }
                                 }
-                                numArray[nr] = num5 / (double)Program.NoJ_GOE;
+                                numArray[nr] = (num5 / (double)Program.NoJ_GOE) * currentPCFactor;
                             }
                             else
                             {
@@ -3476,7 +3478,7 @@ namespace ClubCompFS
                                 numArray[nr] = num5 / (double)checked(Program.NoJ_GOE - 2);
                             }
                             numArray[nr] = Conversion.Int(100.0 * numArray[nr] + 0.5000001) / 100.0;
-                            num4 += Conversion.Int(numArray[nr] * 100.0 * Program.PC_Factor(nr) + 0.5000001) / 100.0;
+                            num4 += Conversion.Int(numArray[nr] * 100.0 * currentPCFactor + 0.5000001) / 100.0;
                             if (C_JDA > 0)
                                 Program.JDarr[checked(R + nr), 14] = Strings.Format((object)numArray[nr], "0.00");
                         }
