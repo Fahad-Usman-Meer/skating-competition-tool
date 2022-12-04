@@ -8565,8 +8565,10 @@ namespace ClubCompFS
         {
             string str = !El.Contains("+") ? El : El.Substring(checked(El.LastIndexOf("+") + 1));
             bool flag = false;
-            if (str.Contains("Lz") | str.Contains("F"))
+            if (Tst_Lz_or_F(str))
+            {
                 flag = true;
+            }
             return flag;
         }
 
@@ -9779,70 +9781,63 @@ namespace ClubCompFS
 
                     if (Strings.Len(lastElement) > 0)
                     {
-                        if (lastElement.Contains("+SEQ"))
+                        if (Strings.Len(element) > 0 & Operators.CompareString(Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "REP", false) != 0)
                         {
-                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+SEQ", false) == 0)
+                            if (elemLength > 0 && element.Substring(elemLength - 1, 1).Equals("f")) // check last char is 'f' or not
                             {
-                                int Length = lastElement.LastIndexOf("+SEQ");
-                                lastElement = Strings.Left(lastElement, Length);
-                            }
-                            else
-                            {
-                                int Length = lastElement.LastIndexOf("+");
-                                Strings.Left(lastElement, Length);
-                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
-                            }
-                        }
-                        else if (lastElement.Contains("+COMBO"))
-                        {
-                            if (Operators.CompareString(Strings.Right(lastElement, 6), "+COMBO", false) == 0)
-                            {
-                                int Length = lastElement.LastIndexOf("+COMBO");
-                                lastElement = Strings.Left(lastElement, Length);
-                            }
-                            else
-                            {
-                                int Length = lastElement.LastIndexOf("+");
-                                Strings.Left(lastElement, Length);
-                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
-                            }
-                        }
-                        else if (lastElement.Contains("+REP"))
-                        {
-                            if (Operators.CompareString(Strings.Right(lastElement, 4), "+REP", false) == 0)
-                            {
-                                int Length = lastElement.LastIndexOf("+REP");
-                                lastElement = Strings.Left(lastElement, Length);
-                            }
-                            else
-                            {
-                                int Length = lastElement.LastIndexOf("+");
-                                Strings.Left(lastElement, Length);
-                                lastElement = Strings.Right(lastElement, checked(Strings.Len(lastElement) - Length - 1));
-                            }
-                        }
-                        if (!this.TstJump(lastElement)) // | !this.Tst_Lz_or_F(lastElement))
-                        {
-                            Interaction.Beep();
-                        }
-                        else if (elemLength > 0 && element.Substring(elemLength - 1, 1).Equals("f")) // check last char is 'f' or not
-                        {
-                            int Length = element.LastIndexOf("f"); // for removing 'f' from last
-                            element = Strings.Left(element, Length);
+                                int Length = element.LastIndexOf("f"); // for removing 'f' from last
+                                element = Strings.Left(element, Length);
 
-                            if (!element.Contains("f"))
-                            {
-                                Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("f", "");
+                                if (!element.Contains("f"))
+                                {
+                                    Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("f", "");
+                                }
                             }
+                            else
+                            {
+                                element += "f";
+                                if (!Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
+                                {
+                                    Program.OpArr[checked(index + 1)].edge += "f";
+                                }
+                            }
+
+                            //if (Operators.CompareString(Strings.Right(element, 1), "*", false) != 0)
+                            //{
+                            //    Program.OpArr[checked(this.index + 1)].element = element + "*";
+                            //}
+                            //else
+                            //{
+                            //    int num3 = Strings.Len(element);
+                            //    Program.OpArr[checked(this.index + 1)].element = Strings.Left(element, checked(num3 - 1));
+                            //}
                         }
                         else
                         {
-                            element += "f";
-                            if (!Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
-                            {
-                                Program.OpArr[checked(index + 1)].edge += "f";
-                            }
+                            Interaction.Beep();
                         }
+                        //if (!this.TstJump(lastElement))// && !FindSpin(lastElement)) // | !this.Tst_Lz_or_F(lastElement))
+                        //{
+                        //    Interaction.Beep();
+                        //}
+                        //else if (elemLength > 0 && element.Substring(elemLength - 1, 1).Equals("f")) // check last char is 'f' or not
+                        //{
+                        //    int Length = element.LastIndexOf("f"); // for removing 'f' from last
+                        //    element = Strings.Left(element, Length);
+                        //
+                        //    if (!element.Contains("f"))
+                        //    {
+                        //        Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("f", "");
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    element += "f";
+                        //    if (!Program.OpArr[checked(this.index + 1)].edge.Contains("f"))
+                        //    {
+                        //        Program.OpArr[checked(index + 1)].edge += "f";
+                        //    }
+                        //}
 
                         Program.OpArr[checked(index + 1)].element = element;
 
@@ -9959,6 +9954,10 @@ namespace ClubCompFS
                 flag = false;
                 if (Strings.Len(El) > 2)
                 {
+                    El = !El.Contains("+") ? El : El.Substring(checked(El.LastIndexOf("+") + 1));
+                    if (El.Contains("f"))
+                        El = Strings.Replace(El, "f", "");
+                    
                     string spin = Program.GetSpin(El);
                     int spinMin = Program.SpinMin;
                     int spinmax = Program.Spinmax;
