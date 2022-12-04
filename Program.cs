@@ -2914,6 +2914,7 @@ namespace ClubCompFS
                                 }
                                 else
                                 {
+                                    Left2 = Strings.Replace(Left2, "f", "");
                                     do
                                     {
                                         if (Operators.ConditionalCompareObjectNotEqual(Program.ElDB[spinMin, 0], (object)"", false) && Operators.ConditionalCompareObjectEqual((object)Left2, Program.ElDB[spinMin, 0], false))
