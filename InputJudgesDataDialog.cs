@@ -1131,17 +1131,39 @@ namespace ClubCompFS
 
         internal virtual TextBox JI1
         {
+            //get => this._JI1;
+            //[MethodImpl(MethodImplOptions.Synchronized)]
+            //set
+            //{
+            //    KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI1_KeyPress);
+            //    if (this._JI1 != null)
+            //        this._JI1.KeyPress -= pressEventHandler;
+            //    this._JI1 = value;
+            //    if (this._JI1 == null)
+            //        return;
+            //    this._JI1.KeyPress += pressEventHandler;
+            //}
+
             get => this._JI1;
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI1_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
                 if (this._JI1 != null)
-                    this._JI1.KeyPress -= pressEventHandler;
+                this._JI1.KeyPress -= pressEventHandler;
+                this._JI1 = value;
+                if (this._JI1 == null)
+                return;
+                this._JI1.KeyPress += pressEventHandler;
+
+
+                EventHandler eventHandler = new EventHandler(this.JI1_Leave);
+                if (this._JI1 != null)
+                    this._JI1.Leave -= eventHandler;
                 this._JI1 = value;
                 if (this._JI1 == null)
                     return;
-                this._JI1.KeyPress += pressEventHandler;
+                this._JI1.Leave += eventHandler;
             }
         }
 
@@ -1151,13 +1173,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI2_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI2_Leave);
                 if (this._JI2 != null)
+                {
                     this._JI2.KeyPress -= pressEventHandler;
+                    this._JI2.Leave -= eventHandler;
+                }
                 this._JI2 = value;
                 if (this._JI2 == null)
                     return;
                 this._JI2.KeyPress += pressEventHandler;
+                this._JI2.Leave += eventHandler;
             }
         }
 
@@ -1167,13 +1194,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI3_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI3_Leave);
                 if (this._JI3 != null)
+                {
                     this._JI3.KeyPress -= pressEventHandler;
+                    this._JI3.Leave -= eventHandler;
+                }
                 this._JI3 = value;
                 if (this._JI3 == null)
                     return;
                 this._JI3.KeyPress += pressEventHandler;
+                this._JI3.Leave += eventHandler;
             }
         }
 
@@ -1183,13 +1215,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI4_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI4_Leave);
                 if (this._JI4 != null)
+                {
                     this._JI4.KeyPress -= pressEventHandler;
+                    this._JI4.Leave -= eventHandler;
+                }
                 this._JI4 = value;
                 if (this._JI4 == null)
                     return;
                 this._JI4.KeyPress += pressEventHandler;
+                this._JI4.Leave += eventHandler;
             }
         }
 
@@ -1199,13 +1236,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI5_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI5_Leave);
                 if (this._JI5 != null)
+                {
                     this._JI5.KeyPress -= pressEventHandler;
+                    this._JI5.Leave -= eventHandler;
+                }
                 this._JI5 = value;
                 if (this._JI5 == null)
                     return;
                 this._JI5.KeyPress += pressEventHandler;
+                this._JI5.Leave += eventHandler;
             }
         }
 
@@ -1215,13 +1257,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI6_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI6_Leave);
                 if (this._JI6 != null)
+                {
                     this._JI6.KeyPress -= pressEventHandler;
+                    this._JI6.Leave -= eventHandler;
+                }
                 this._JI6 = value;
                 if (this._JI6 == null)
                     return;
                 this._JI6.KeyPress += pressEventHandler;
+                this._JI6.Leave += eventHandler;
             }
         }
 
@@ -1231,13 +1278,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI7_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI7_Leave);
                 if (this._JI7 != null)
+                {
                     this._JI7.KeyPress -= pressEventHandler;
+                    this._JI7.Leave -= eventHandler;
+                }
                 this._JI7 = value;
                 if (this._JI7 == null)
                     return;
                 this._JI7.KeyPress += pressEventHandler;
+                this._JI7.Leave += eventHandler;
             }
         }
 
@@ -1247,13 +1299,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI8_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI8_Leave);
                 if (this._JI8 != null)
+                {
                     this._JI8.KeyPress -= pressEventHandler;
+                    this._JI8.Leave -= eventHandler;
+                }
                 this._JI8 = value;
                 if (this._JI8 == null)
                     return;
                 this._JI8.KeyPress += pressEventHandler;
+                this._JI8.Leave += eventHandler;
             }
         }
 
@@ -1263,13 +1320,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI9_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI9_Leave);
                 if (this._JI9 != null)
+                {
                     this._JI9.KeyPress -= pressEventHandler;
+                    this._JI9.Leave -= eventHandler;
+                }
                 this._JI9 = value;
                 if (this._JI9 == null)
                     return;
                 this._JI9.KeyPress += pressEventHandler;
+                this._JI9.Leave += eventHandler;
             }
         }
 
@@ -1279,13 +1341,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI10_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI10_Leave);
                 if (this._JI10 != null)
+                {
                     this._JI10.KeyPress -= pressEventHandler;
+                    this._JI10.Leave -= eventHandler;
+                }
                 this._JI10 = value;
                 if (this._JI10 == null)
                     return;
                 this._JI10.KeyPress += pressEventHandler;
+                this._JI10.Leave += eventHandler;
             }
         }
 
@@ -1295,13 +1362,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI11_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI11_Leave);
                 if (this._JI11 != null)
+                {
                     this._JI11.KeyPress -= pressEventHandler;
+                    this._JI11.Leave -= eventHandler;
+                }
                 this._JI11 = value;
                 if (this._JI11 == null)
                     return;
                 this._JI11.KeyPress += pressEventHandler;
+                this._JI11.Leave += eventHandler;
             }
         }
 
@@ -1311,13 +1383,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI12_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI12_Leave);
                 if (this._JI12 != null)
+                {
                     this._JI12.KeyPress -= pressEventHandler;
+                    this._JI12.Leave -= eventHandler;
+                }
                 this._JI12 = value;
                 if (this._JI12 == null)
                     return;
                 this._JI12.KeyPress += pressEventHandler;
+                this._JI12.Leave += eventHandler;
             }
         }
 
@@ -1327,13 +1404,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI13_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI13_Leave);
                 if (this._JI13 != null)
+                {
                     this._JI13.KeyPress -= pressEventHandler;
+                    this._JI13.Leave -= eventHandler;
+                }
                 this._JI13 = value;
                 if (this._JI13 == null)
                     return;
                 this._JI13.KeyPress += pressEventHandler;
+                this._JI13.Leave += eventHandler;
             }
         }
 
@@ -1343,13 +1425,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI14_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI14_Leave);
                 if (this._JI14 != null)
+                {
                     this._JI14.KeyPress -= pressEventHandler;
+                    this._JI14.Leave -= eventHandler;
+                }
                 this._JI14 = value;
                 if (this._JI14 == null)
                     return;
                 this._JI14.KeyPress += pressEventHandler;
+                this._JI14.Leave += eventHandler;
             }
         }
 
@@ -1359,13 +1446,18 @@ namespace ClubCompFS
             [MethodImpl(MethodImplOptions.Synchronized)]
             set
             {
-                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JI15_KeyPress);
+                KeyPressEventHandler pressEventHandler = new KeyPressEventHandler(this.JudgeInput_KeyPress);
+                EventHandler eventHandler = new EventHandler(this.JI15_Leave);
                 if (this._JI15 != null)
+                {
                     this._JI15.KeyPress -= pressEventHandler;
+                    this._JI15.Leave -= eventHandler;
+                }
                 this._JI15 = value;
                 if (this._JI15 == null)
                     return;
                 this._JI15.KeyPress += pressEventHandler;
+                this._JI15.Leave += eventHandler;
             }
         }
 
@@ -1648,7 +1740,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                InputJudgesDataDialog dialog10 = this;
+                InputJudgesDataDialog inputJudgesDataDialog = this;
                 int noEl = this.NoEl;
                 int index1 = 1;
                 while (index1 <= noEl)
@@ -1656,17 +1748,26 @@ namespace ClubCompFS
                     string str = "EL" + Strings.Trim(Conversions.ToString(index1));
                     string key = "JI" + Strings.Trim(Conversions.ToString(index1));
                     string segment = Program.Segment;
+
+                    if(double.TryParse(inputJudgesDataDialog.Controls[key].Text, out var res) )
+                    {
+                        if (res != -1 && res != 0 && res != 1)
+                        {
+                            throw new Exception($"You cannot insert '{inputJudgesDataDialog.Controls[key].Text}' because allowed values are only -1 , 0 or +1");
+                        }
+                    }
+
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(inputJudgesDataDialog.Controls[key].Text);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(inputJudgesDataDialog.Controls[key].Text);
                     checked { ++index1; }
                 }
                 int index2 = 1;
                 do
                 {
                     string key = "PC" + Strings.Trim(Conversions.ToString(index2));
-                    var eneteredValue = dialog10.Controls[key].Text.Replace(".", ",");
+                    var eneteredValue = inputJudgesDataDialog.Controls[key].Text.Replace(".", ",");
                     string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
                         Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(eneteredValue);
@@ -1703,7 +1804,7 @@ namespace ClubCompFS
             num2 = -1;
             if (num1 == 2)
             {
-                int num5 = (int)Interaction.MsgBox((object)("InputJudgesDataDialog, JudgeManualInput - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num5 = (int)Interaction.MsgBox((object)("InputJudgesDataDialog, OK_Button_Click() - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
             label_25:
             if (num2 == 0)
@@ -1717,304 +1818,127 @@ namespace ClubCompFS
             this.Close();
         }
 
-        private void JI1_KeyPress(object sender, KeyPressEventArgs e)
+        private void JudgeInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (e.KeyChar)
+            if (!Constants.IsValidCharForJudgeInput(e.KeyChar))
             {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
+                e.Handled = true;
             }
+
+            //switch (e.KeyChar)
+            //{
+            //    case '\b':
+            //    case '-':
+            //    case '0':
+            //    case '1':
+            //    case '2':
+            //    case '3':
+            //    case '4':
+            //    case '5':
+            //        e.Handled = false;
+            //        break;
+            //    default:
+            //        e.Handled = true;
+            //        break;
+            //}
         }
 
-        private void JI2_KeyPress(object sender, KeyPressEventArgs e)
+        private void JI1_Leave(object sender, EventArgs e)
         {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
+            IsValidJudgeInputValue("JI1");
+        }
+        
+        private void JI2_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI2");
+        }
+        
+        private void JI3_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI3");
+        }
+        
+        private void JI4_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI4");
+        }
+        
+        private void JI5_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI5");
+        }
+        
+        private void JI6_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI6");
+        }
+        
+        private void JI7_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI7");
+        }
+        
+        private void JI8_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI8");
+        }
+        
+        private void JI9_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI9");
+        }
+        
+        private void JI10_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI10");
+        }
+        
+        private void JI11_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI11");
+        }
+        
+        private void JI12_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI12");
+        }
+        
+        private void JI13_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI13");
+        }
+        
+        private void JI14_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI14");
+        }
+        
+        private void JI15_Leave(object sender, EventArgs e)
+        {
+            IsValidJudgeInputValue("JI15");
         }
 
-        private void JI3_KeyPress(object sender, KeyPressEventArgs e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fieldName">i.e., JI1 , JI2 ... JI15 </param>
+        /// <returns></returns>
+        private bool IsValidJudgeInputValue(string fieldName)
         {
-            switch (e.KeyChar)
+            //if (int.TryParse(this.Controls["JI1"].Text, out var res))
+            if ( !string.IsNullOrWhiteSpace(fieldName) && double.TryParse(this.Controls[fieldName].Text, out var res))
             {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
+                if (res == -1 || res == 0 || res == 1)
+                {
+                    return true;
+                }
             }
-        }
 
-        private void JI4_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI5_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI6_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI7_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI8_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI9_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI10_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI11_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI12_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI13_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI14_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
-        }
-
-        private void JI15_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                case '\b':
-                case '-':
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                    e.Handled = false;
-                    break;
-                default:
-                    e.Handled = true;
-                    break;
-            }
+            int num = (int)Interaction.MsgBox((object)$"You cannot insert '{this.Controls[fieldName].Text}' because allowed values are only -1, 0 or +1", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+            
+            this.Controls[fieldName].Text = "0";
+            this.Controls[fieldName].Select();
+            return false;
         }
 
         //private void PCtest(int no)

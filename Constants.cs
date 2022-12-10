@@ -22,6 +22,26 @@
             return isValidCharForClubName;
         }
 
+        public static bool IsValidCharForJudgeInput(char keyChar)
+        {
+            bool isValidCharForJudgeName = false;
+            switch (keyChar)
+            {
+                case '\b':
+                case '-':
+                case '+':
+                case '0':
+                case '1':
+                //case '2':
+                //case '3':
+                //case '4':
+                //case '5':
+                    isValidCharForJudgeName = true;
+                    break;
+            }
+            return isValidCharForJudgeName;
+        }
+
         public static bool IsValidProgramComponentValueV2(double enteredValue)
         {
             if (enteredValue < 0.25 || enteredValue > 3)
