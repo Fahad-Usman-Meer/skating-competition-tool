@@ -10,7 +10,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1,20|1,20|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|2</HalfTimeCalc>
@@ -25,7 +25,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1,20|1,20|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -40,7 +40,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1,20|1,20|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -55,7 +55,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1,20|1,20|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -70,7 +70,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1|1|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -85,7 +85,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1|1|0|0|0</PCFactorsSeg2>
         <DedFall>0,50</DedFall>
         <DedInter>0,50</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -100,7 +100,7 @@
         <TimeValues>00:00:00|00:01:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1,20|0|1,20|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1,20|1,20|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -115,7 +115,7 @@
         <TimeValues>00:00:00|00:02:00|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1|1|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -130,7 +130,7 @@
         <TimeValues>00:00:00|00:02:00|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>1|0|1|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>1|1|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -145,7 +145,7 @@
         <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>3,3|3,3|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -160,7 +160,7 @@
         <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>3,3|3,3|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -176,7 +176,7 @@
         <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>3,3|3,3|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -191,7 +191,7 @@
         <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>3,3|0|3,3|0|0</PCFactorsSeg2>
+        <PCFactorsSeg2>3,3|3,3|0|0|0</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
@@ -206,7 +206,7 @@
         <TimeValues>00:00:00|00:02:30|00:00:00|00:00:30</TimeValues>
         <GrSize>68</GrSize>
         <PCFactorsSeg1>0|0|0|0|0</PCFactorsSeg1>
-        <PCFactorsSeg2>3,3|0|3,3|0|1</PCFactorsSeg2>
+        <PCFactorsSeg2>3,3|3,3|0|0|1</PCFactorsSeg2>
         <DedFall>0,5</DedFall>
         <DedInter>0,5</DedInter>
         <HalfTimeCalc>0|0</HalfTimeCalc>
