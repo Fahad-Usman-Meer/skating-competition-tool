@@ -740,7 +740,7 @@ namespace ClubCompFS
             pc1.Size = size46;
             this.PC1.TabIndex = 16;
             this.PC1.TextAlign = HorizontalAlignment.Center;
-            this.PC2.BackColor = Color.FromArgb(224, 224, 224);
+            //this.PC2.BackColor = Color.FromArgb(224, 224, 224);
             this.PC2.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             this.PC2.Location = new Point(537, 45);
             this.PC2.Name = "PC2";
@@ -748,8 +748,8 @@ namespace ClubCompFS
             size1 = new Size(50, 20);
             Size size47 = size1;
             pc2.Size = size47;
-            //this.PC2.TabIndex = 17;
-            //this.PC2.TextAlign = HorizontalAlignment.Center;
+            this.PC2.TabIndex = 17;
+            this.PC2.TextAlign = HorizontalAlignment.Center;
             //this.PC3.Font = new Font("Microsoft Sans Serif", 8.25f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             //this.PC3.Location = new Point(537, 65);
             //this.PC3.Name = "PC3";
@@ -2017,42 +2017,43 @@ namespace ClubCompFS
             }
         }
 
-        private void PCtest(int no)
-        {
-            int num1 = 0;
-            int num2 = 0;
-            try
-            {
-                ProjectData.ClearProjectError();
-                num1 = 1;
-                InputJudgesDataDialog dialog10 = this;
-                string key = "PC" + Strings.Trim(Conversions.ToString(no));
-                if (!(!Versioned.IsNumeric((object)dialog10.Controls[key].Text) | Conversion.Val(dialog10.Controls[key].Text) < 0.0 | Conversion.Val(dialog10.Controls[key].Text) > 5.0))
-                    return;
-                int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                dialog10.Controls[key].Text = "";
-                dialog10.Controls[key].Select();
-            }
-            catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
-            {
-                ProjectData.SetProjectError(ex);
-            }
-        }
+        //private void PCtest(int no)
+        //{
+        //    int num1 = 0;
+        //    int num2 = 0;
+        //    try
+        //    {
+        //        ProjectData.ClearProjectError();
+        //        num1 = 1;
+        //        InputJudgesDataDialog dialog10 = this;
+        //        string key = "PC" + Strings.Trim(Conversions.ToString(no));
+        //        if (!(!Versioned.IsNumeric((object)dialog10.Controls[key].Text) | Conversion.Val(dialog10.Controls[key].Text) < 0.0 | Conversion.Val//(dialog10.Controls[key].Text) > 5.0))
+        //            return;
+        //        int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+        //        dialog10.Controls[key].Text = "";
+        //        dialog10.Controls[key].Select();
+        //    }
+        //    catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
+        //    {
+        //        ProjectData.SetProjectError(ex);
+        //    }
+        //}
 
         private void PC1_Leave(object sender, EventArgs e)
         {
             string Expression = this.PC1.Text.Replace(".", ",");
             if (!Versioned.IsNumeric((object)Expression))
             {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0.25 ~ 3.0", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 this.PC1.Text = "0";
             }
             else
             {
                 var enteredValue = Conversions.ToDouble(Expression);
-                if(enteredValue < 0 || enteredValue > 5)
+
+                if (!Constants.IsValidProgramComponentValueV2(enteredValue)) // enteredValue < 0 || enteredValue > 5)
                 {
-                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0.25 ~ 3.0", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     this.Controls["PC1"].Text = "";
                     this.Controls["PC1"].Select();
                 }
@@ -2064,15 +2065,15 @@ namespace ClubCompFS
             string Expression = this.PC2.Text.Replace(".", ",");
             if (!Versioned.IsNumeric((object)Expression))
             {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0.25 ~ 3.0", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                 this.PC2.Text = "0";
             }
             else
             {
                 var enteredValue = Conversions.ToDouble(Expression);
-                if (enteredValue < 0 || enteredValue > 5)
+                if (!Constants.IsValidProgramComponentValueV2(enteredValue)) // enteredValue < 0 || enteredValue > 5)
                 {
-                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0~5!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    int num3 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0.25 ~ 3.0", MsgBoxStyle.SystemModal, (object)"Susanne SW");
                     this.Controls["PC2"].Text = "";
                     this.Controls["PC2"].Select();
                 }

@@ -21,5 +21,14 @@
             }
             return isValidCharForClubName;
         }
+
+        public static bool IsValidProgramComponentValueV2(double enteredValue)
+        {
+            if (enteredValue < 0.25 || enteredValue > 3)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
