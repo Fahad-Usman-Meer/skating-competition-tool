@@ -2954,7 +2954,7 @@ namespace ClubCompFS
                                     while (index25 <= noJGoe6)
                                     {
                                         int index26 = checked(6 - Program.J_GOE[index25]);
-                                        Right4 = index26 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[index22, index26], (object)Right4)) : 0.0 + Right4;
+                                        Right4 += index26 != 6 ? Conversions.ToDouble(Operators.AddObject(Program.ElDB[index22, index26], (object)Right4)) : 0.0 + Right4;
                                         checked { ++index25; }
                                     }
                                     if (Program.NoJ_GOE != 0)
@@ -3481,10 +3481,10 @@ namespace ClubCompFS
                                     num5 += Program.J_PC[index3];
                                     checked { ++index3; }
                                 }
-                                numArray[nr] = num5 / (double)checked(Program.NoJ_GOE - 2);
+                                numArray[nr] = (num5 / (double)checked(Program.NoJ_GOE - 2)) * currentPCFactor;
                             }
                             numArray[nr] = Conversion.Int(100.0 * numArray[nr] + 0.5000001) / 100.0;
-                            num4 += Conversion.Int(numArray[nr] * 100.0 * currentPCFactor + 0.5000001) / 100.0;
+                            num4 += Conversion.Int(numArray[nr] * 100.0 + 0.5000001) / 100.0;
                             if (C_JDA > 0)
                                 Program.JDarr[checked(R + nr), 14] = Strings.Format((object)numArray[nr], "0.00");
                         }
