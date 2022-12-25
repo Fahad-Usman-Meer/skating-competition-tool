@@ -3670,6 +3670,7 @@ namespace ClubCompFS
                     do
                     {
                         string str = "";
+                        string strEdges = "";
                         string segment = Program.Segment;
                         if (Operators.CompareString(segment, "Seg1", false) == 0)
                         {
@@ -3677,12 +3678,14 @@ namespace ClubCompFS
                             {
                                 Program.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
                                 str = Program.Vek[Program.PNo].SSS_Seg1[index];
+                                strEdges = Program.Vek[Program.PNo].SSS_Seg1_edges[index];
                             }
                         }
                         else if (Operators.CompareString(segment, "Seg2", false) == 0 && Operators.CompareString(Program.Vek[Program.PNo].SSS_Seg2[index], "", false) != 0)
                         {
                             Program.JDarr[checked(R + index + 8), 1] = Conversions.ToString(index);
                             str = Program.Vek[Program.PNo].SSS_Seg2[index];
+                            strEdges = Program.Vek[Program.PNo].SSS_Seg2_edges[index];
                         }
 
                         string edgesSignsColumn = "";// Program.JDarr[checked(R + index + 8), 3];
@@ -3717,21 +3720,21 @@ namespace ClubCompFS
                             edgesSignsColumn = "<";
 
                         string tempSigns = edgesSignsColumn;
-                        if (!string.IsNullOrWhiteSpace(Program.OpArr[index].edge))
+                        if (!string.IsNullOrWhiteSpace(strEdges))
                         {
                             if (!string.IsNullOrWhiteSpace(edgesSignsColumn))
                             {
                                 foreach (char ch in edgesSignsColumn)
                                 {
-                                    if (Program.OpArr[index].edge.Contains(ch))
+                                    if (strEdges.Contains(ch))
                                     {
-                                        tempSigns = tempSigns.Replace(ch.ToString(), Program.OpArr[index].edge);
+                                        tempSigns = tempSigns.Replace(ch.ToString(), strEdges);
                                     }
                                 }
                             }
                             else
                             {
-                                tempSigns = Program.OpArr[index].edge;
+                                tempSigns = strEdges;
                             }
                         }
 
