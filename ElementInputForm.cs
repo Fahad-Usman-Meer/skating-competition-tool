@@ -7728,7 +7728,7 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
-                string element = Program.OpArr[checked(index + 1)].element ?? "";
+                string element = Program.OpArr[checked(index + 1)].element?.Trim() ?? "";
                 string lastElement = element;
                 int elemLength = Strings.Len(element);
 
@@ -7779,32 +7779,48 @@ namespace ClubCompFS
                             flag = true;
                         }
                     }
-                    if (this.TstJump(lastElement)) // to check that it is valid jump or not
-                    {
-                        if (Operators.CompareString(Strings.Right(element, 1), "q", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(element, checked(Strings.Len(element) - 1)) : Strings.Left(element, checked(Strings.Len(element) - 1)) + str1;
-                        else if (Operators.CompareString(Strings.Right(element, 3), " q e", false) == 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(element, checked(Strings.Len(element) - 3)) + " e" : Strings.Left(element, checked(Strings.Len(element) - 3)) + " e" + str1;
-                        else if (Operators.CompareString(Strings.Right(element, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(element, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(element, checked(Strings.Len(element) - 1))) + " q e" : Strings.Trim(Strings.Left(element, checked(Strings.Len(element) - 1))) + " q e" + str1;
-                        else if (Operators.CompareString(Strings.Right(element, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "< e", false) != 0)
-                            Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + element + " q" : element + " q" + str1;
-                        this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
-                        goto label_31;
-                    }
-                    else
+                    if (!this.TstJump(lastElement)) // to check that it is valid jump or not
                     {
                         Interaction.Beep();
                         this.OplistaSelect();
                         goto label_31;
                     }
+                    else if(elemLength > 1 && element.Substring(elemLength - 2, 2).Equals(" q")) // check last 2 chars are ' q' or not
+                    {
+                        int Length = element.LastIndexOf(" q"); // for removing ' q' from last
+                        element = Strings.Left(element, Length);
+
+                        if (!element.Contains(" q"))
+                        {
+                            Program.OpArr[checked(index + 1)].edge = Program.OpArr[checked(index + 1)].edge.Replace("q", "");
+                        }
+
+
+                        //if (Operators.CompareString(Strings.Right(element, 1), "q", false) == 0)
+                        //    Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(element, checked(Strings.Len(element) - /1)) : /Strings.Left(element, checked(Strings.Len(element) - 1)) + str1;
+                        //else if (Operators.CompareString(Strings.Right(element, 3), " q e", false) == 0)
+                        //    Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Left(element, checked(Strings.Len(element) - 3)) /+ /" e" : Strings.Left(element, checked(Strings.Len(element) - 3)) + " e" + str1;
+                        //else if (Operators.CompareString(Strings.Right(element, 2), " e", false) == 0 & Operators.CompareString(Strings.Right(element, /3), /"< e", false) != 0)
+                        //    Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + Strings.Trim(Strings.Left(element, checked(Strings.Len//(element) - 1))) + " q e" : Strings.Trim(Strings.Left(element, checked(Strings.Len(element) - 1))) + " q e" + str1;
+                        //else if (Operators.CompareString(Strings.Right(element, 1), "<", false) != 0 & Operators.CompareString(Strings.Right(element, 3), /"</ e", false) != 0)
+                        //    Program.OpArr[checked(this.index + 1)].element = flag ? str1 + "+" + element + " q" : element + " q" + str1;
+                        //this.OpLista(this.index, Program.OpArr[checked(this.index + 1)].element);
+                        //goto label_31;
+                    }
+                    else
+                    {
+                        element += " q";
+                        if (!Program.OpArr[checked(this.index + 1)].edge.Contains("q"))
+                        {
+                            Program.OpArr[checked(index + 1)].edge += "q";
+                        }
+                    }
                 }
-                else
-                {
-                    Interaction.Beep();
-                    this.OplistaSelect();
-                    goto label_31;
-                }
+
+                Program.OpArr[checked(index + 1)].element = element;
+                DataGridView1.Rows[index].Cells[2].Value = (object)Program.OpArr[checked(index + 1)].edge;
+                OpLista(index, element);
+                goto label_31;
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
             {
@@ -8531,7 +8547,7 @@ namespace ClubCompFS
                 this.index = this.DataGridView1.CurrentCellAddress.Y;
                 if (this.index > -1)
                 {
-                    string element = Program.OpArr[checked(index + 1)].element ?? "";
+                    string element = Program.OpArr[checked(index + 1)].element?.Trim() ?? "";
                     string lastElement = element;
                     int elemLength = Strings.Len(element);
 
