@@ -4630,15 +4630,33 @@ namespace ClubCompFS
                 {
                     int num15 = checked(Jnr - 1);
                     int index12 = 1;
+                    string unAllowedJumpsCSV = "";
+
                     while (index12 <= num15)
                     {
                         if (!((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index12]))
                         {
-                            int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB[Program.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index12]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                            flag = false;
-                            index12 = checked(num15 + 1);
+                            if(!string.IsNullOrWhiteSpace(unAllowedJumpsCSV))
+                            {
+                                unAllowedJumpsCSV += $", {Jarr[index12]}";
+                            }
+                            else
+                            {
+                                unAllowedJumpsCSV = Jarr[index12];
+                            }
+
+                            //int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB//[Program.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index12]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, //(object)"Susanne SW");
+                            //flag = false;
+                            //index12 = checked(num15 + 1);
                         }
                         checked { ++index12; }
+                    }
+
+                    if(!string.IsNullOrWhiteSpace(unAllowedJumpsCSV))
+                    {
+                        int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB[Program.PcIndex].AllowedJumps) + ", Entered: " + unAllowedJumpsCSV), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        flag = false;
+                        index12 = checked(num15 + 1);
                     }
                 }
                 if (Program.OpenDB[Program.PcIndex].AllowedSps.Length != 0 && Operators.CompareString(Program.OpenDB[Program.PcIndex].AllowedSps[0], "", false) != 0)
