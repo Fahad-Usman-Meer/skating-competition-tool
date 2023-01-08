@@ -4634,16 +4634,24 @@ namespace ClubCompFS
 
                     while (index12 <= num15)
                     {
-                        if (!((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(this.Jarr[index12]))
+                        string enteredJump = this.Jarr[index12];
+                        
+                        if (!string.IsNullOrWhiteSpace(enteredJump))
                         {
-                            if(!string.IsNullOrWhiteSpace(unAllowedJumpsCSV))
-                            {
-                                unAllowedJumpsCSV += $", {Jarr[index12]}";
-                            }
-                            else
-                            {
-                                unAllowedJumpsCSV = Jarr[index12];
-                            }
+                            if (Operators.CompareString(Strings.Right(enteredJump, 1), "e", false) == 0)
+                                enteredJump = Strings.Trim(enteredJump.Remove(checked(Strings.Len(enteredJump) - 1)));
+                            if (enteredJump.Contains("<"))
+                                enteredJump = Strings.Trim(enteredJump.Replace("<", ""));
+                            if (enteredJump.Contains("!"))
+                                enteredJump = Strings.Trim(enteredJump.Replace("!", ""));
+                            if (enteredJump.Contains("f"))
+                                enteredJump = Strings.Trim(enteredJump.Replace("f", ""));
+                            if (enteredJump.Contains(" q"))
+                                enteredJump = Strings.Trim(enteredJump.Replace(" q", ""));
+                        }
+                        if (!string.IsNullOrWhiteSpace(enteredJump) && !((IEnumerable<string>)Program.OpenDB[Program.PcIndex].AllowedJumps).Contains<string>(enteredJump))
+                        {
+                            unAllowedJumpsCSV += !string.IsNullOrWhiteSpace(unAllowedJumpsCSV) ? $", {Jarr[index12]}" : Jarr[index12];
 
                             //int num16 = (int)Interaction.MsgBox((object)("Unallowed jumps!\r\nAllowed: " + string.Join(", ", Program.OpenDB//[Program.PcIndex].AllowedJumps) + ", Entered: " + this.Jarr[index12]), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, //(object)"Susanne SW");
                             //flag = false;
