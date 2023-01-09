@@ -1767,12 +1767,19 @@ namespace ClubCompFS
                 do
                 {
                     string key = "PC" + Strings.Trim(Conversions.ToString(index2));
-                    var eneteredValue = inputJudgesDataDialog.Controls[key].Text.Replace(".", ",");
+                    var enteredValueStr = inputJudgesDataDialog.Controls[key].Text.Replace(".", ",");
                     string segment = Program.Segment;
+
+                    var enteredValue = Conversions.ToDouble(enteredValueStr);
+                    if (!Constants.IsValidProgramComponentValueV2(enteredValue))
+                    {
+                        throw new Exception($"You Must Enter a number between 0.25 ~ 3.0");
+                    }
+
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(eneteredValue);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = enteredValue;
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(eneteredValue);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = enteredValue;
                     checked { ++index2; }
                 }
                 while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
