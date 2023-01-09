@@ -50,5 +50,47 @@
             }
             return true;
         }
+
+        public enum SpinsAndSequences
+        {
+            #region Spins
+            /// <summary>
+            /// SitSpin = SSp
+            /// </summary>
+            SSp,
+
+            /// <summary>
+            /// UprightSpin = USp
+            /// </summary>
+            USp,
+
+            /// <summary>
+            /// Camel Spin
+            /// </summary>
+            CSp,
+
+            /// <summary>
+            /// Combo Spin-2  = CoSp2
+            /// or
+            /// Combo Spin-3  = CoSp3
+            /// </summary>
+            CoSp,
+
+            #endregion
+
+            #region Sequences
+
+            /// <summary>
+            /// Step Sequence
+            /// </summary>
+            StSq,
+
+            /// <summary>
+            /// Choreo Sequence
+            /// </summary>
+            ChSq,
+
+            #endregion
+        }
     }
 }
