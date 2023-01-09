@@ -5397,7 +5397,7 @@ namespace ClubCompFS
                     {
                         if (Operators.ConditionalCompareObjectEqual((object)str, Program.ElDB[index2, 0], false))
                         {
-                            this.Jarr[Jnr] = strArray[index1];
+                            this.Jarr[Jnr] = str;// strArray[index1];
                             checked { ++Jnr; }
                             break;
                         }
