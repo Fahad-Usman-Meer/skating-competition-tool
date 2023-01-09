@@ -1648,7 +1648,7 @@ namespace ClubCompFS
             {
                 ProjectData.ClearProjectError();
                 num1 = 2;
-                InputJudgesDataDialog dialog10 = this;
+                InputJudgesDataDialog inputJudgesDataDialog = this;
                 int noEl = this.NoEl;
                 int index1 = 1;
                 while (index1 <= noEl)
@@ -1657,9 +1657,9 @@ namespace ClubCompFS
                     string key = "JI" + Strings.Trim(Conversions.ToString(index1));
                     string segment = Program.Segment;
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(inputJudgesDataDialog.Controls[key].Text);
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.EE[index1, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToInteger(inputJudgesDataDialog.Controls[key].Text);
                     checked { ++index1; }
                 }
                 int index2 = 1;
@@ -1667,10 +1667,18 @@ namespace ClubCompFS
                 {
                     string key = "PC" + Strings.Trim(Conversions.ToString(index2));
                     string segment = Program.Segment;
+
+                    var enteredValueStr = inputJudgesDataDialog.Controls[key].Text.Replace(".", ",");
+                    var enteredValue = Conversions.ToDouble(enteredValueStr);
+                    if (!Constants.IsValidProgramComponentValue(enteredValue))
+                    {
+                        throw new Exception($"You Must Enter a number between 0.25 ~ 10.0");
+                    }
+
                     if (Operators.CompareString(segment, "Seg1", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg1.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = enteredValue;
                     else if (Operators.CompareString(segment, "Seg2", false) == 0)
-                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = Conversions.ToDouble(dialog10.Controls[key].Text);
+                        Program.Vek[Conversions.ToInteger(this.txtPno.Text)].J_Seg2.PC[index2, Conversions.ToInteger(this.txtJudgeNo.Text)] = enteredValue;
                     checked { ++index2; }
                 }
                 while (index2 <= Constants.TOTAL_COMPONENTS_COUNT);
