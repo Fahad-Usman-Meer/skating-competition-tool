@@ -2016,27 +2016,35 @@ namespace ClubCompFS
             }
         }
 
-        private void PCtest(int no)
+        private void PCtest(int no, TextBox PCn)
         {
             int num1 = 0;
             int num2 = 0;
             try
             {
+                string Expression = PCn?.Text?.Replace(".", ",");
+                
                 ProjectData.ClearProjectError();
                 num1 = 1;
-                int num3 = 2;
-                InputJudgesDataDialog dialog10 = this;
-                num3 = 3;
+                bool isValid = false;
                 string key = "PC" + Strings.Trim(Conversions.ToString(no));
-                num3 = 4;
-                if (!Versioned.IsNumeric((object)dialog10.Controls[key].Text) | Conversion.Val(dialog10.Controls[key].Text) < 0.0 | Conversion.Val(dialog10.Controls[key].Text) > 10.0)
+                if (Versioned.IsNumeric((object)Expression) )
                 {
-                    num3 = 5;
-                    int num4 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                    num3 = 6;
-                    dialog10.Controls[key].Text = "";
-                    num3 = 7;
-                    dialog10.Controls[key].Select();
+                    //PCn.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
+                    
+                    if(double.TryParse(Expression, out double enteredValue) && Constants.IsValidProgramComponentValue(enteredValue))
+                    {
+                        isValid = true;
+                        this.Controls[key].Text = Expression;
+                    }
+
+                }
+                
+                if(!isValid)
+                {
+                    int num4 = (int)Interaction.MsgBox((object)"You Must Enter a number between 0.25 ~ 10.0", MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                    this.Controls[key].Text = "";
+                    this.Controls[key].Select();
                 }
             }
             catch (Exception ex) when (ex != null & num1 != 0 & num2 == 0)
@@ -2049,48 +2057,18 @@ namespace ClubCompFS
         }
 
         private void PC1_Leave(object sender, EventArgs e)
-        {
-            string Expression = this.PC1.Text.Replace(".", ",");
-            if (!Versioned.IsNumeric((object)Expression))
-            {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                this.PC1.Text = "0";
-            }
-            else
-            {
-                this.PC1.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(1);
-            }
+        {            
+            PCtest(1, PC1);
         }
 
         private void PC2_Leave(object sender, EventArgs e)
         {
-            string Expression = this.PC2.Text.Replace(".", ",");
-            if (!Versioned.IsNumeric((object)Expression))
-            {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                this.PC2.Text = "0";
-            }
-            else
-            {
-                this.PC2.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(2);
-            }
+            PCtest(2, PC2);
         }
 
         private void PC3_Leave(object sender, EventArgs e)
         {
-            string Expression = this.PC3.Text.Replace(".", ",");
-            if (!Versioned.IsNumeric((object)Expression))
-            {
-                int num = (int)Interaction.MsgBox((object)"You Must Enter a number between 0-10!", MsgBoxStyle.SystemModal, (object)"Susanne SW");
-                this.PC3.Text = "0";
-            }
-            else
-            {
-                this.PC3.Text = Strings.Format((object)(Conversion.Int((Conversions.ToDouble(Expression) + 0.125) / 0.25) / 4.0), "0.00");
-                this.PCtest(3);
-            }
+                PCtest(3, PC3);
         }
 
         //private void PC4_Leave(object sender, EventArgs e)

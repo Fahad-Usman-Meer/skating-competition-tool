@@ -21,5 +21,19 @@
             }
             return isValidCharForClubName;
         }
+
+        /// <summary>
+        /// returns false if (enteredValue < 0.25 || enteredValue > 10)
+        /// </summary>
+        /// <param name="enteredValue"></param>
+        /// <returns></returns>
+        public static bool IsValidProgramComponentValue(double enteredValue)
+        {
+            if (enteredValue < 0.25 || enteredValue > 10)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
