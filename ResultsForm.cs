@@ -1221,26 +1221,26 @@ namespace ClubCompFS
                     int y5 = checked(num7 + 1);
                     int num10 = checked(nocol - 1);
 
-                    //if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows) // last 2 rows
-                    //{
-                    //    isLastRows = true;
-                    //    //TODO: Add logic to swap last 2 rows
-                    //
-                    //    for (int i = 0; i < 9; i++)
-                    //    {
-                    //        var val1 = this.TDA[index1 , i];
-                    //
-                    //        if (i == 0) // position # column
-                    //        {
-                    //            this.TDA[index1 + 1, i] = val1;
-                    //        }
-                    //        else  // swapping value
-                    //        {
-                    //            this.TDA[index1, i] = this.TDA[index1 + 1, i];
-                    //            this.TDA[index1 + 1, i] = val1;
-                    //        }
-                    //    }
-                    //}
+                    if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows) // last 2 rows
+                    {
+                        isLastRows = true;
+                        //TODO: Add logic to swap last 2 rows
+                    
+                        for (int i = 0; i < 9; i++)
+                        {
+                            var val1 = this.TDA[index1 , i];
+                    
+                            if (i == 0) // position # column
+                            {
+                                this.TDA[index1 + 1, i] = val1;
+                            }
+                            else  // swapping value
+                            {
+                                this.TDA[index1, i] = this.TDA[index1 + 1, i];
+                                this.TDA[index1 + 1, i] = val1;
+                            }
+                        }
+                    }
 
                     int index2 = 0;
                     while (index2 <= num10)
