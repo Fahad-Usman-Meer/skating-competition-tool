@@ -92,5 +92,19 @@
 
             #endregion
         }
+
+        public static int GetCategoryNumber(string categoryName)
+        {
+            int category = 0;
+            
+            if(!string.IsNullOrWhiteSpace(categoryName))
+            {
+                category = categoryName.ToUpper().Contains("Livello1".ToUpper()) ? 1 
+                    : categoryName.ToUpper().Contains("Livello2".ToUpper()) ? 2 
+                    : 0; 
+            }
+
+            return category;
+        }
     }
 }

@@ -1212,6 +1212,7 @@ namespace ClubCompFS
 
                 bool isLastRows = false; // to check last 2 same positions
                 int index1 = 0;
+                bool isCategory2 = Constants.GetCategoryNumber(Program.Category.Name) == 2 ? true : false;
                 while (index1 <= num8)
                 {
                     XFont xfont5 = index1 != 0 ? xfont1 : font2;
@@ -1221,10 +1222,11 @@ namespace ClubCompFS
                     int y5 = checked(num7 + 1);
                     int num10 = checked(nocol - 1);
 
-                    if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows) // last 2 rows
+                    //swap only if categroy is 1 (i.e., Livello1)
+                    if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows && !isCategory2) // last 2 rows
                     {
                         isLastRows = true;
-                        //TODO: Add logic to swap last 2 rows
+                        //TODO: logic to swap last 2 rows
                     
                         for (int i = 0; i < 9; i++)
                         {
