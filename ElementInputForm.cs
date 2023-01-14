@@ -4857,7 +4857,7 @@ namespace ClubCompFS
                             {
                                 flag = false;
                                 ElNo = index;
-                                int num3 = (int)Interaction.MsgBox((object)($"Element no. {Conversions.ToString(index)} of type '{enteredSpinOrSequence}' already exist!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                                int num3 = (int)Interaction.MsgBox((object)($"Element no. {index} of type '{enteredSpinOrSequence}' already exist!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
                             }
                         }
                     }

@@ -55,17 +55,17 @@
         {
             #region Spins
             /// <summary>
-            /// SitSpin = SSp
+            /// Sit Spin = SSp
             /// </summary>
             SSp,
 
             /// <summary>
-            /// UprightSpin = USp
+            /// Upright Spin = USp
             /// </summary>
             USp,
 
             /// <summary>
-            /// Camel Spin
+            /// Camel Spin = CSp
             /// </summary>
             CSp,
 
@@ -81,12 +81,12 @@
             #region Sequences
 
             /// <summary>
-            /// Step Sequence
+            /// Step Sequence = StSq
             /// </summary>
             StSq,
 
             /// <summary>
-            /// Choreo Sequence
+            /// Choreo Sequence = ChSq
             /// </summary>
             ChSq,
 
