@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using static ClubCompFS.Constants;
 
 namespace ClubCompFS
 {
@@ -5034,9 +5035,9 @@ namespace ClubCompFS
                     if (Operators.CompareString(Strings.Right(str, 1), "<", false) == 0)
                         str = Strings.Trim(str.Replace("<", ""));
                     string Left = str;
-                    
+
                     //if (Operators.CompareString(Left, "A", false) == 0 || Operators.CompareString(Left, "1A", false) == 0 || Operators.CompareString(Left, "2A", false) == 0 || Operators.CompareString(Left, "3A", false) == 0 || Operators.CompareString(Left, "4A", false) == 0)
-                    if(Left.Contains("A"))
+                    if (Left.Contains("A"))
                         Axel = true;
                     checked { ++index; }
                 }
@@ -5439,13 +5440,36 @@ namespace ClubCompFS
                 num1 = 2;
                 flag = true;
                 int index = 1;
+
+                Dictionary<string, int> spinsAndSequencesDict = new Dictionary<string, int>();
+                foreach (SpinsAndSequences spinAndSeq in Enum.GetValues(typeof(SpinsAndSequences)))
+                {
+                    spinsAndSequencesDict.Add(spinAndSeq.ToString(), 0);
+                }
+
                 do
                 {
-                    if (Strings.Len(Program.OpArr[index].element) > 0 && !Program.TstElPP(Program.OpArr[index].element))
+                    string currElement = Program.OpArr[index].element;
+                    if (!string.IsNullOrWhiteSpace(currElement))
                     {
-                        flag = false;
-                        ElNo = index;
-                        int num3 = (int)Interaction.MsgBox((object)("Element no. " + Conversions.ToString(index) + " is not correct!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        if (!Program.TstElPP(currElement))
+                        {
+                            flag = false;
+                            ElNo = index;
+                            int num3 = (int)Interaction.MsgBox((object)("Element no. " + Conversions.ToString(index) + " is not correct!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                        }
+                        else if (spinsAndSequencesDict.Any(x => currElement.Contains(x.Key))) // currElement.Contains("StSq"))
+                        {
+                            var enteredSpinOrSequence = spinsAndSequencesDict.Where(x => currElement.Contains(x.Key))?.FirstOrDefault().Key;
+                            spinsAndSequencesDict[enteredSpinOrSequence]++;
+
+                            if (spinsAndSequencesDict[enteredSpinOrSequence] > 1)
+                            {
+                                flag = false;
+                                ElNo = index;
+                                int num3 = (int)Interaction.MsgBox((object)($"Element no. {index} of type '{enteredSpinOrSequence}' already exist!"), MsgBoxStyle.Exclamation | MsgBoxStyle.SystemModal, (object)"Susanne SW");
+                            }
+                        }
                     }
                     checked { ++index; }
                 }
@@ -7796,7 +7820,7 @@ namespace ClubCompFS
 
                         str2 = Strings.Left(str2, checked(num3 - 1));
                     }
-                    
+
                     Program.OpArr[index].element = str2;
                     Program.OpArr[index].edge = str1;
                     checked { ++index; }
@@ -9957,7 +9981,7 @@ namespace ClubCompFS
                     El = !El.Contains("+") ? El : El.Substring(checked(El.LastIndexOf("+") + 1));
                     if (El.Contains("f"))
                         El = Strings.Replace(El, "f", "");
-                    
+
                     string spin = Program.GetSpin(El);
                     int spinMin = Program.SpinMin;
                     int spinmax = Program.Spinmax;
