@@ -85,6 +85,10 @@ namespace ClubCompFS
         private Button _OpSSp1;
         [AccessedThroughProperty("OpSSp0")]
         private Button _OpSSp0;
+        [AccessedThroughProperty("Layback")]
+        private Button _Layback;
+        [AccessedThroughProperty("OpLSp0")]
+        private Button _OpLSp0;
         [AccessedThroughProperty("OpUSp0")]
         private Button _OpUSp0;
         [AccessedThroughProperty("OpUSp4")]
@@ -356,6 +360,8 @@ namespace ClubCompFS
             this.OpSSp2 = new Button();
             this.OpSSp1 = new Button();
             this.OpSSp0 = new Button();
+            this.Layback = new Button();
+            this.OpLSp0 = new Button();
             this.OpUSp0 = new Button();
             this.OpUSp4 = new Button();
             this.OpUSp3 = new Button();
@@ -977,23 +983,42 @@ namespace ClubCompFS
             this.ComboSpin_3.TabIndex = 53;
             this.ComboSpin_3.Text = "COMBO SPIN-3\r\n(CoSp-3)";
             this.ComboSpin_3.UseVisualStyleBackColor = false;
+            //asdasd;
+            this.Layback.BackColor = Color.Goldenrod;
+            this.Layback.Font = new Font("Microsoft Sans Serif", 8f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.Layback.Location = new Point(587, 313);
+            this.Layback.Name = "Layback";
+            Button layback = this.Layback;
+            layback.Size = new Size(134, 25);
+            this.Layback.TabIndex = 54;
+            this.Layback.Text = "LAYBACK (LSp)";
+            this.Layback.UseVisualStyleBackColor = false;
+
+            this.OpLSp0.Font = new Font("Microsoft Sans Serif", 8f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            this.OpLSp0.Location = new Point(780, 313);
+            this.OpLSp0.Name = "OpLSp0";
+            this.OpLSp0.Size = new Size(30, 25);
+            this.OpLSp0.TabIndex = 55;
+            this.OpLSp0.Text = "B";
+            this.OpLSp0.UseVisualStyleBackColor = false;
+            
             this.OpChange.BackColor = Color.FromArgb(224, 224, 224);
-            this.OpChange.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.OpChange.Location = new Point(724, 315);
+            this.OpChange.Font = new Font("Microsoft Sans Serif", 7f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            this.OpChange.Location = new Point(724, 338);
             this.OpChange.Name = "OpChange";
             Button opChange = this.OpChange;
-            size1 = new Size(102, 38);
+            size1 = new Size(102, 20);
             Size size48 = size1;
             opChange.Size = size48;
             this.OpChange.TabIndex = 60;
             this.OpChange.Text = "CHANGE";
             this.OpChange.UseVisualStyleBackColor = true;
             this.OpFlying.BackColor = Color.FromArgb(224, 224, 224);
-            this.OpFlying.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.OpFlying.Location = new Point(832, 315);
+            this.OpFlying.Font = new Font("Microsoft Sans Serif", 7f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            this.OpFlying.Location = new Point(832, 338);
             this.OpFlying.Name = "OpFlying";
             Button opFlying = this.OpFlying;
-            size1 = new Size(102, 38);
+            size1 = new Size(102, 20);
             Size size49 = size1;
             opFlying.Size = size49;
             this.OpFlying.TabIndex = 61;
@@ -1972,6 +1997,8 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.OpSSp3);
             this.Controls.Add((Control)this.OpSSp2);
             this.Controls.Add((Control)this.OpSSp1);
+            this.Controls.Add((Control)this.Layback);
+            this.Controls.Add((Control)this.OpLSp0);
             this.Controls.Add((Control)this.PictureBox7);
             this.Controls.Add((Control)this.Sit);
             this.Controls.Add((Control)this.Zero);
@@ -2421,6 +2448,36 @@ namespace ClubCompFS
                 if (this._OpSSp0 == null)
                     return;
                 this._OpSSp0.Click += eventHandler;
+            }
+        }
+        internal virtual Button Layback
+        {
+            get => this._Layback;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                EventHandler eventHandler = new EventHandler(this.Layback_Click);
+                if (this._Layback != null)
+                    this._Layback.Click -= eventHandler;
+                this._Layback = value;
+                if (this._Layback == null)
+                    return;
+                this._Layback.Click += eventHandler;
+            }
+        }
+        internal virtual Button OpLSp0
+        {
+            get => this._OpLSp0;
+            [MethodImpl(MethodImplOptions.Synchronized)]
+            set
+            {
+                EventHandler eventHandler = new EventHandler(this.OpLSp0_Click);
+                if (this._OpLSp0 != null)
+                    this._OpLSp0.Click -= eventHandler;
+                this._OpLSp0 = value;
+                if (this._OpLSp0 == null)
+                    return;
+                this._OpLSp0.Click += eventHandler;
             }
         }
 
@@ -6412,6 +6469,11 @@ namespace ClubCompFS
             object obj38 = Program.ColArr[13];
             Color color38 = obj38 != null ? (Color)obj38 : aqua;
             opChSq1.BackColor = color38;
+            
+            Button opLsp0 = this.OpLSp0;
+            object obj39 = Program.ColArr[9];
+            Color color39 = obj39 != null ? (Color)obj39 : aqua;
+            opLsp0.BackColor = color39;
         }
 
         public void ButtonBackColor()
@@ -6512,6 +6574,7 @@ namespace ClubCompFS
                     this.OpStSq2.Visible = false;
                     this.OpStSq3.Visible = false;
                     this.OpStSq4.Visible = false;
+                    this.OpLSp0.Visible = false;
                     this.OpChSq0.Visible = false;
                     this.OpChSq1.Visible = false;
                     this.OpSSp0.Visible = false;
