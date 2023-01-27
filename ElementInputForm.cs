@@ -8648,7 +8648,8 @@ namespace ClubCompFS
 
                     if (Strings.Len(lastElement) > 0)
                     {
-                        if (Strings.Len(element) > 0 & Operators.CompareString(Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "REP", false) != 0)
+                        //if (Strings.Len(element) > 0 & Operators.CompareString(Strings.Right(element, 3), "SEQ", false) != 0 & Operators.CompareString(Strings.Right(element, 5), "COMBO", false) != 0 & Operators.CompareString(Strings.Right(element, 3), "REP", false) != 0)
+                        if (Strings.Len(element) > 0)
                         {
                             if (elemLength > 0 && element.Substring(elemLength - 1, 1).Equals("f")) // check last char is 'f' or not
                             {
