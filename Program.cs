@@ -3438,14 +3438,15 @@ namespace ClubCompFS
                 ProjectData.ClearProjectError();
                 num1 = 2;
                 num2 = 0.0;
+                double currentPCFactor = 0.0;
                 if (Program.NoJ_GOE != 0)
                 {
                     double num4 = 0.0;
                     int nr = 1;
                     do
                     {
-                        //TODO: here to store and add "factor" in sheet
-                        double currentPCFactor = Program.PC_Factor(nr);
+                        //TODO: here to store and add "factor" in sheet + Average calculation
+                        currentPCFactor = Program.PC_Factor(nr);
                         if (currentPCFactor > 0.0)
                         {
                             double num5 = 0.0;
@@ -3469,7 +3470,7 @@ namespace ClubCompFS
                                     num5 += Program.J_PC[index2];
                                     checked { ++index2; }
                                 }
-                                numArray[nr] = ( num5 / (double)Program.NoJ_GOE) * currentPCFactor;
+                                numArray[nr] = (num5 / (double)Program.NoJ_GOE);// * currentPCFactor;
                             }
                             else
                             {
@@ -3481,7 +3482,7 @@ namespace ClubCompFS
                                     num5 += Program.J_PC[index3];
                                     checked { ++index3; }
                                 }
-                                numArray[nr] = (num5 / (double)checked(Program.NoJ_GOE - 2)) * currentPCFactor;
+                                numArray[nr] = (num5 / (double)checked(Program.NoJ_GOE - 2));// * currentPCFactor;
                             }
                             numArray[nr] = Conversion.Int(100.0 * numArray[nr] + 0.5000001) / 100.0;
                             num4 += Conversion.Int(numArray[nr] * 100.0 + 0.5000001) / 100.0;
@@ -3491,7 +3492,7 @@ namespace ClubCompFS
                         checked { ++nr; }
                     }
                     while (nr <= Constants.TOTAL_COMPONENTS_COUNT);
-                    double Expression = Conversion.Int(1000.0 * num4 + 0.5000001) / 1000.0;
+                    double Expression = Conversion.Int(1000.0 * num4 * currentPCFactor + 0.5000001) / 1000.0;
                     if (C_JDA > 0)
                         Program.JDarr[checked(R + 6), 14] = Strings.Format((object)Expression, "0.00");
                     string segment1 = Program.Segment;
