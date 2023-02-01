@@ -155,8 +155,6 @@ namespace ClubCompFS
         private Label _Label1;
         [AccessedThroughProperty("Label3")]
         private Label _Label3;
-        [AccessedThroughProperty("ChSq0")]
-        private Button _ChSq0;
         [AccessedThroughProperty("ChSq1")]
         private Button _ChSq1;
         [AccessedThroughProperty("ChoreoSeq")]
@@ -419,7 +417,6 @@ namespace ClubCompFS
             this.OpFlying = new Button();
             this.Label1 = new Label();
             this.Label3 = new Label();
-            this.ChSq0 = new Button();
             this.ChSq1 = new Button();
             this.ChoreoSeq = new Button();
             this.OpStSq0 = new Button();
@@ -1097,23 +1094,13 @@ namespace ClubCompFS
             this.Label3.TabIndex = 64;
             this.Label3.Text = "SPINS";
             this.Label3.TextAlign = ContentAlignment.MiddleCenter;
-
-            this.ChSq0.Font = new Font("Microsoft Sans Serif", 16f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.ChSq0.Location = new Point(780, 430);
-            this.ChSq0.Name = "ChSq0";
-            //Button chSq0 = this.ChSq0;
-            ChSq0.Size = new Size(34, 38);
-            this.ChSq0.TabIndex = 68;
-            this.ChSq0.Text = "B";
-            //this.ChSq0.BackColor = Color.Yellow;
-            this.ChSq0.UseVisualStyleBackColor = true;
-
             this.ChSq1.Font = new Font("Microsoft Sans Serif", 16f, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            this.ChSq1.Location = new Point(780+34, 430);
+            this.ChSq1.Location = new Point(780, 430);
             this.ChSq1.Name = "ChSq1";
             Button chSq1 = this.ChSq1;
-            ChSq1.Size = new Size(30, 38);
+            size1 = new Size(64, 38);
             Size size55 = size1;
+            chSq1.Size = size55;
             this.ChSq1.TabIndex = 68;
             this.ChSq1.Text = "1";
             this.ChSq1.UseVisualStyleBackColor = true;
@@ -2166,7 +2153,6 @@ namespace ClubCompFS
             this.Controls.Add((Control)this.OpStSq1);
             this.Controls.Add((Control)this.PictureBox13);
             this.Controls.Add((Control)this.Straight);
-            this.Controls.Add((Control)this.ChSq0);
             this.Controls.Add((Control)this.ChSq1);
             this.Controls.Add((Control)this.ChoreoSeq);
             this.Controls.Add((Control)this.PictureBox12);
@@ -3180,22 +3166,6 @@ namespace ClubCompFS
                 if (this._ChSq1 == null)
                     return;
                 this._ChSq1.Click += eventHandler;
-            }
-        }
-
-        internal virtual Button ChSq0
-        {
-            get => this._ChSq0;
-            [MethodImpl(MethodImplOptions.Synchronized)]
-            set
-            {
-                EventHandler eventHandler = new EventHandler(this.ChSq0_Click);
-                if (this._ChSq0 != null)
-                    this._ChSq0.Click -= eventHandler;
-                this._ChSq0 = value;
-                if (this._ChSq0 == null)
-                    return;
-                this._ChSq0.Click += eventHandler;
             }
         }
 
@@ -6209,7 +6179,7 @@ namespace ClubCompFS
         private void Bonus_Click() => this.OplistaSelect();
 
         private void ChoreoSeq_Click(object sender, EventArgs e) => this.ElDef3(this.index, "ChSq");
-        private void ChSq0_Click(object sender, EventArgs e) => this.ElSel(this.index, "ChSq", "B");
+
         private void ChSq1_Click(object sender, EventArgs e) => this.ElSel(this.index, "ChSq", "1");
 
         private void OpListaSet()
@@ -6703,7 +6673,7 @@ namespace ClubCompFS
                     num3 = 74;
                     this.NoLevel.Visible = true;
                     num3 = 75;
-                    this.Set0.Visible = true;
+                    this.Set0.Visible = false;
                     num3 = 76;
                     this.Set1.Visible = true;
                     num3 = 77;
@@ -7513,7 +7483,6 @@ namespace ClubCompFS
 
         public void ButtonBackColor()
         {
-            //TODO: for button back colors 
             this.OpStop.BackColor = Color.FromArgb((int)byte.MaxValue, 0, 0);
             Button axel = this.Axel;
             object obj1 = Program.ColArr[2];
@@ -7647,7 +7616,6 @@ namespace ClubCompFS
             object obj32 = Program.ColArr[14];
             Color color32 = obj32 != null ? (Color)obj32 : aqua;
             chSq1.BackColor = color32;
-            ChSq0.BackColor = color32;
             this.OpFlying.BackColor = Color.FromArgb(236, 233, 216);
             this.OpNext1.BackColor = Color.FromArgb(236, 233, 216);
             this.OpInsert.BackColor = Color.FromArgb(254, 191, 40);
@@ -7677,7 +7645,6 @@ namespace ClubCompFS
                 this.BackColor_V();
                 if (Program.WorkMode < 2)
                 {
-                    this.ChSq0.Visible = false;
                     this.ChSq1.Visible = false;
                     this.OpStSq0.Visible = false;
                     this.OpStSq1.Visible = false;
