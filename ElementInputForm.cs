@@ -4504,8 +4504,8 @@ namespace ClubCompFS
                 this.Jarr = new string[61];
                 this.Sparr = (string[])null;
                 this.Sparr = new string[61];
-                string[] strArray2 = new string[7];
-                int[] numArray4 = new int[7];
+                string[] strArray2 = new string[8];
+                int[] numArray4 = new int[8];
                 int[] numArray5 = new int[7];
                 int[] numArray6 = new int[16];
                 int num3 = 0;
@@ -4521,6 +4521,7 @@ namespace ClubCompFS
                 strArray2[4] = "F"; //Flips
                 strArray2[5] = "Lz";
                 strArray2[6] = "S";
+                strArray2[7] = "W";
                 int ind = 1;
                 do
                 {
@@ -4645,7 +4646,7 @@ namespace ClubCompFS
                         }
                         checked { ++index5; }
                     }
-                    while (index5 <= 6);
+                    while (index5 <= strArray2.Length-1); // 7
                     int index7 = 1;
                     do
                     {
@@ -4656,7 +4657,7 @@ namespace ClubCompFS
                         }
                         checked { ++index7; }
                     }
-                    while (index7 <= 6);
+                    while (index7 <= numArray4.Length-1); // 7
                 }
                 if (Program.OpenDB[Program.PcIndex].ElementTest[6] > 0)
                 {
