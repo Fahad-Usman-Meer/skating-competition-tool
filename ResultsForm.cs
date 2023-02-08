@@ -1089,7 +1089,7 @@ namespace ClubCompFS
         }
 
         private void ExportDataToPDFTable1(
-          int norow,
+          int totalSkaters,
           int nocol,
           string txt,
           string pathfile,
@@ -1211,13 +1211,13 @@ namespace ClubCompFS
                 int num8 = norow;
 
                 bool isLastRows = false; // to check last 2 same positions
-                int index1 = 0;
+                int row = 0;
                 bool isCategory2 = Constants.GetCategoryNumber(Program.Category.Name) == 2 ? true : false;
-                while (index1 <= num8)
+                while (row <= totalSkaters)
                 {
-                    XFont xfont5 = index1 != 0 ? xfont1 : font2;
+                    XFont xfont5 = row != 0 ? xfont1 : font2;
                     int num9 = num3;
-                    if (index1 == 0)
+                    if (row == 0)
                         xgraphics1.DrawLine(XPens.Gray, num3, num7, checked(num3 + width1), num7);
                     int y5 = checked(num7 + 1);
                     int num10 = checked(nocol - 1);
@@ -1230,16 +1230,17 @@ namespace ClubCompFS
                     
                         for (int i = 0; i < 9; i++)
                         {
-                            var val1 = this.TDA[index1 , i];
+                            var val1 = this.TDA[row , i];
+                            //object[,] TDAsl = new object[4, 51as];
                     
                             if (i == 0) // position # column
                             {
-                                this.TDA[index1 + 1, i] = val1;
+                                this.TDA[row + 1, i] = val1;
                             }
                             else  // swapping value
                             {
-                                this.TDA[index1, i] = this.TDA[index1 + 1, i];
-                                this.TDA[index1 + 1, i] = val1;
+                                this.TDA[row, i] = this.TDA[row + 1, i];
+                                this.TDA[row + 1, i] = val1;
                             }
                         }
                     }
@@ -1248,12 +1249,12 @@ namespace ClubCompFS
                     while (index2 <= num10)
                     {
                         int width2 = checked((int)Math.Round(unchecked((double)numArray[index2] * (double)width1 / 100.0)));
-                        string str4 = Strings.Left(Strings.Len(RuntimeHelpers.GetObjectValue(this.TDA[index1, index2])) <= 0 ? " " : Conversions.ToString(this.TDA[index1, index2]), Length);
+                        string str4 = Strings.Left(Strings.Len(RuntimeHelpers.GetObjectValue(this.TDA[row, index2])) <= 0 ? " " : Conversions.ToString(this.TDA[row, index2]), Length);
 
                         switch (index2)
                         {
                             case 0:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics4 = xgraphics1;
                                 string str5 = str4;
@@ -1269,7 +1270,7 @@ namespace ClubCompFS
                                 xgraphics4.DrawString(text3, font5, (XBrush)brush3, layoutRectangle3, format3);
                                 break;
                             case 1:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics5 = xgraphics1;
                                 string str6 = str4;
@@ -1285,7 +1286,7 @@ namespace ClubCompFS
                                 xgraphics5.DrawString(text4, font6, (XBrush)brush4, layoutRectangle4, format4);
                                 break;
                             case 2:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics6 = xgraphics1;
                                 string str7 = str4;
@@ -1301,7 +1302,7 @@ namespace ClubCompFS
                                 xgraphics6.DrawString(text5, font7, (XBrush)brush5, layoutRectangle5, format5);
                                 break;
                             case 3:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics7 = xgraphics1;
                                 string str8 = str4;
@@ -1317,7 +1318,7 @@ namespace ClubCompFS
                                 xgraphics7.DrawString(text6, font8, (XBrush)brush6, layoutRectangle6, format6);
                                 break;
                             case 4:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics8 = xgraphics1;
                                 string str9 = str4;
@@ -1333,7 +1334,7 @@ namespace ClubCompFS
                                 xgraphics8.DrawString(text7, font9, (XBrush)brush7, layoutRectangle7, format7);
                                 break;
                             case 5:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics9 = xgraphics1;
                                 string str10 = str4;
@@ -1347,14 +1348,14 @@ namespace ClubCompFS
                                 XRect layoutRectangle8 = xrect8;
                                 XStringFormat format8 = center4;
                                 xgraphics9.DrawString(text8, font10, (XBrush)brush8, layoutRectangle8, format8);
-                                if (index1 == 0 & checked(nocol - 1) == 5)
+                                if (row == 0 & checked(nocol - 1) == 5)
                                 {
                                     xgraphics1.DrawLine(XPens.Gray, checked(num3 + width1), checked(y5 - 1), checked(num3 + width1), checked(y5 + height2 + 1));
                                     break;
                                 }
                                 break;
                             case 6:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics10 = xgraphics1;
                                 string str11 = str4;
@@ -1368,14 +1369,14 @@ namespace ClubCompFS
                                 XRect layoutRectangle9 = xrect9;
                                 XStringFormat format9 = center5;
                                 xgraphics10.DrawString(text9, font11, (XBrush)brush9, layoutRectangle9, format9);
-                                if (index1 == 0 & checked(nocol - 1) == 6)
+                                if (row == 0 & checked(nocol - 1) == 6)
                                 {
                                     xgraphics1.DrawLine(XPens.Gray, checked(num3 + width1), checked(y5 - 1), checked(num3 + width1), checked(y5 + height2 + 1));
                                     break;
                                 }
                                 break;
                             case 7:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics11 = xgraphics1;
                                 string str12 = str4;
@@ -1389,14 +1390,14 @@ namespace ClubCompFS
                                 XRect layoutRectangle10 = xrect10;
                                 XStringFormat format10 = center6;
                                 xgraphics11.DrawString(text10, font12, (XBrush)brush10, layoutRectangle10, format10);
-                                if (index1 == 0 & checked(nocol - 1) == 7)
+                                if (row == 0 & checked(nocol - 1) == 7)
                                 {
                                     xgraphics1.DrawLine(XPens.Gray, checked(num3 + width1), checked(y5 - 1), checked(num3 + width1), checked(y5 + height2 + 1));
                                     break;
                                 }
                                 break;
                             case 8:
-                                if (index1 == 0)
+                                if (row == 0)
                                     xgraphics1.DrawLine(XPens.Gray, num9, checked(y5 - 1), num9, checked(y5 + height2 + 1));
                                 XGraphics xgraphics12 = xgraphics1;
                                 string str13 = str4;
@@ -1410,7 +1411,7 @@ namespace ClubCompFS
                                 XRect layoutRectangle11 = xrect11;
                                 XStringFormat format11 = center7;
                                 xgraphics12.DrawString(text11, font13, (XBrush)brush11, layoutRectangle11, format11);
-                                if (index1 == 0 & checked(nocol - 1) == 8)
+                                if (row == 0 & checked(nocol - 1) == 8)
                                 {
                                     xgraphics1.DrawLine(XPens.Gray, checked(num3 + width1), checked(y5 - 1), checked(num3 + width1), checked(y5 + height2 + 1));
                                     break;
@@ -1421,9 +1422,9 @@ namespace ClubCompFS
                         checked { ++index2; }
                     }
                     num7 = checked(y5 + height2 + 1);
-                    if (index1 == 0)
+                    if (row == 0)
                         xgraphics1.DrawLine(XPens.Gray, num3, num7, checked(num3 + width1), num7);
-                    checked { ++index1; }
+                    checked { ++row; }
                 }
                 int y6 = checked(num7 + 2 * height2);
                 XGraphics xgraphics13 = xgraphics1;
