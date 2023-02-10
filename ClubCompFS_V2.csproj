@@ -97,6 +97,7 @@
     <Compile Include="ElementDBDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Skater.cs" />
     <Compile Include="StartListForm.cs">
       <SubType>Form</SubType>
     </Compile>

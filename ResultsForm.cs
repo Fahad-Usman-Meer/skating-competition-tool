@@ -11,10 +11,12 @@ using PdfSharp;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -672,7 +674,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg1Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_33:
+        label_33:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -896,7 +898,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg2Result - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_59:
+        label_59:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1061,7 +1063,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("ResultsForm, CreateFinalResult - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_33:
+        label_33:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1208,11 +1210,13 @@ namespace ClubCompFS
                         };
                         break;
                 }
-                int num8 = norow;
 
-                bool isLastRows = false; // to check last 2 same positions
+                bool areLastRowsSwapped = false; // to check last same positions
                 int row = 0;
                 bool isCategory2 = Constants.GetCategoryNumber(Program.Category.Name) == 2 ? true : false;
+
+                int skatersToSame = (int)Math.Ceiling((double)totalSkaters / 3);
+
                 while (row <= totalSkaters)
                 {
                     XFont xfont5 = row != 0 ? xfont1 : font2;
@@ -1222,26 +1226,97 @@ namespace ClubCompFS
                     int y5 = checked(num7 + 1);
                     int num10 = checked(nocol - 1);
 
-                    //swap only if categroy is 1 (i.e., Livello1)
-                    if ((index1 > 3) && (index1 > (norow - 2)) && !isLastRows && !isCategory2) // last 2 rows
+                    //i.e., for 11 athletes (11/3=3.6 that can be approximated to 4) so we need 4 athletes equal.
+
+                    // 1 skaters: =>  1/3 = 0.33 ~ last 1 same  =>  1
+                    // 2 skaters: =>  2/3 = 0.66 ~ last 1 same  =>  1,2
+                    // 3 skaters: =>  3/3 = 1.00 ~ last 1 same  =>  1,2,3
+                    // 4 skaters: =>  4/3 = 1.33 ~ last 2 same  =>  1,2,3,4
+                    //------------// apply swap logic on more than 4 skaters-----------
+                    // 5 skaters: =>  5/3 = 1.66 ~ last 2 same  =>  1,2,3,4,4
+                    // 6 skaters: =>  6/3 = 2.00 ~ last 2 same  =>  1,2,3,4,5,5
+                    // 7 skaters: =>  7/3 = 2.33 ~ last 3 same  =>  1,2,3,4,5,5,5
+                    // 8 skaters: =>  8/3 = 2.66 ~ last 3 same  =>  1,2,3,4,5,6,6,6
+                    // 9 skaters: =>  9/3 = 3.00 ~ last 3 same  =>  1,2,3,4,5,6,7,7,7
+                    //10 skaters: => 10/3 = 3.33 ~ last 4 same  =>  1,2,3,4,5,6,7,7,7,7
+                    //11 skaters: => 11/3 = 3.66 ~ last 4 same  =>  1,2,3,4,5,6,7,8,8,8,8
+
+                    // apply logic only if totalSkaters are more than 4
+                    // swap only if category is 1 (i.e., Livello1)
+                    if (!isCategory2
+                        && (totalSkaters > 4)
+                        && (row == (totalSkaters - skatersToSame) + 1)
+                        && !areLastRowsSwapped) // last rows swapped
                     {
-                        isLastRows = true;
-                        //TODO: logic to swap last 2 rows
-                    
-                        for (int i = 0; i < 9; i++)
+                        areLastRowsSwapped = true;
+                        var positionToSame = this.TDA[row, 0];
+                        //TODO: logic to swap last skaters rows
+
+                        List<Skater> startListTargetSkaters = new List<Skater>();
+
+                        for (int i = 1; i <= totalSkaters; i++)
                         {
-                            var val1 = this.TDA[row , i];
-                            //object[,] TDAsl = new object[4, 51as];
-                    
-                            if (i == 0) // position # column
+
+                            //to get Number and Name from Start List
+                            string name = Program.Vek[i].Name.FName + " " + Program.Vek[i].Name.LName;
+
+                            for (int j = row; j <= totalSkaters; j++) // to check only on last skaters
                             {
-                                this.TDA[row + 1, i] = val1;
+                                if (string.Equals(name, this.TDA[j, 1])) // only name column for pdf
+                                {
+                                    int sequenceNumber=0;
+                                    int segment = Constants.GetSegmentNumber();
+
+                                    if (segment == 1)
+                                    {
+                                        sequenceNumber = Program.Vek[i].Startno_Seg1;
+                                    }
+                                    else if(segment == 2)
+                                    {
+                                        sequenceNumber = Program.Vek[i].Startno_Seg2;
+                                    }
+
+                                    startListTargetSkaters.Add(new Skater(sequence: sequenceNumber, name: name));
+                                }
                             }
-                            else  // swapping value
+                        }
+
+                        startListTargetSkaters = startListTargetSkaters?.OrderBy(x => x.Sequence)?.ToList();
+
+                        for (int i = 0; i < startListTargetSkaters?.Count; i++)
+                        {
+                            string targetSkaterName = startListTargetSkaters.ElementAt(i).Name;
+                            int indexToSwap = 0;
+
+                            // Find the index of the target string
+                            for (int k = row+i; k <= totalSkaters; k++)
                             {
-                                this.TDA[row, i] = this.TDA[row + 1, i];
-                                this.TDA[row + 1, i] = val1;
+                                if (string.Equals(this.TDA[k, 1], targetSkaterName)) // match with skater's name column
+                                {
+                                    indexToSwap = k;
+                                    break;
+                                }
                             }
+
+                            if (indexToSwap > 0)
+                            {
+
+                                for (int col = 0; col < 9; col++)
+                                {
+                                    var val1 = this.TDA[row + i, col];
+
+                                    if (col == 0) // position # column
+                                    {
+                                        this.TDA[row + i, col] = positionToSame;
+                                    }
+                                    else  // swapping value
+                                    {
+                                        this.TDA[row + i, col] = this.TDA[indexToSwap, col];
+                                        this.TDA[indexToSwap, col] = val1;
+                                    }
+                                } 
+                            }
+                            
                         }
                     }
 
@@ -1505,7 +1580,7 @@ namespace ClubCompFS
             {
                 int num13 = (int)Interaction.MsgBox((object)("ResultsForm, ExportDataToPDFTable1 - \r\n" + Information.Err().Description), MsgBoxStyle.Critical, (object)"Susanne SW");
             }
-            label_63:
+        label_63:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1663,7 +1738,7 @@ namespace ClubCompFS
             {
                 int num5 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg1PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_42:
+        label_42:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -1929,7 +2004,7 @@ namespace ClubCompFS
             {
                 int num8 = (int)Interaction.MsgBox((object)("ResultsForm, CreateSeg2PDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_78:
+        label_78:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2068,7 +2143,7 @@ namespace ClubCompFS
             {
                 int num3 = (int)Interaction.MsgBox((object)("ResultsForm, CreateFinalPDF - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_39:
+        label_39:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2115,7 +2190,7 @@ namespace ClubCompFS
             {
                 int num4 = (int)Interaction.MsgBox((object)("ResultsForm, PRINTToolStripMenuItem1_Click - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_7:
+        label_7:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();
@@ -2736,7 +2811,7 @@ namespace ClubCompFS
             {
                 int num16 = (int)Interaction.MsgBox((object)("StartListForm, PrintDocument1_PrintPage_1 - " + Information.Err().Description), MsgBoxStyle.SystemModal, (object)"Susanne SW");
             }
-            label_154:
+        label_154:
             if (num2 == 0)
                 return;
             ProjectData.ClearProjectError();

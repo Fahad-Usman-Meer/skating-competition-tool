@@ -106,5 +106,22 @@
 
             return category;
         }
+
+        public static int GetSegmentNumber()
+        {
+            if (!string.IsNullOrWhiteSpace(Program.Segment))
+            {
+                if (Program.Segment.Contains("Seg1"))
+                {
+                    return 1;
+                }
+                else if (Program.Segment.Contains("Seg2"))
+                {
+                    return 2;
+                }
+            }
+            
+            return 0;
+        }
     }
 }
