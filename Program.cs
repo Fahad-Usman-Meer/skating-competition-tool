@@ -3006,10 +3006,10 @@ namespace ClubCompFS
 
                                         if (elstr.Contains("*"))
                                             elstr = Strings.Trim(elstr.Replace("*", ""));
-                                        if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
-                                            elstr = Strings.Trim(elstr.Replace("e", ""));
-                                        if (Operators.CompareString(Strings.Right(elstr, 1), "<", false) == 0)
-                                            elstr = Strings.Trim(elstr.Replace("<", ""));
+                                        //if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
+                                        //    elstr = Strings.Trim(elstr.Replace("e", ""));
+                                        //if (Operators.CompareString(Strings.Right(elstr, 1), "<", false) == 0)
+                                        //    elstr = Strings.Trim(elstr.Replace("<", ""));
                                         if (elstr.Contains("!"))
                                             elstr = Strings.Trim(elstr.Replace("!", ""));
                                         if (elstr.Contains("f"))
