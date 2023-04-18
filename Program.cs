@@ -3001,10 +3001,10 @@ namespace ClubCompFS
 
                                         if (elstr.Contains("*"))
                                             elstr = Strings.Trim(elstr.Replace("*", ""));
-                                        if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
-                                            elstr = Strings.Trim(elstr.Replace("e", ""));
-                                        if (Operators.CompareString(Strings.Right(elstr, 1), "<", false) == 0)
-                                            elstr = Strings.Trim(elstr.Replace("<", ""));
+                                        //if (Operators.CompareString(Strings.Right(elstr, 1), "e", false) == 0)
+                                        //    elstr = Strings.Trim(elstr.Replace("e", ""));
+                                        //if (Operators.CompareString(Strings.Right(elstr, 1), "<", false) == 0)
+                                        //    elstr = Strings.Trim(elstr.Replace("<", ""));
                                         if (elstr.Contains("!"))
                                             elstr = Strings.Trim(elstr.Replace("!", ""));
                                         if (elstr.Contains("f"))
@@ -3172,7 +3172,7 @@ namespace ClubCompFS
                                     while (index42 <= noJGoe10)
                                     {
                                         int index43 = checked(6 - Program.J_GOE[index42]);
-                                        if (index43 != 6 && (double.TryParse(Program.ElDB[index38, index43].ToString(), out double res)) )
+                                        if (index43 != 6 && double.TryParse(Program.ElDB[index38, index43].ToString(), out double res))
                                         {
                                             Right6 += res;
                                         }
@@ -3442,7 +3442,7 @@ namespace ClubCompFS
                     {
                         //TODO: here to store and add "factor" in sheet + Average calculation
                         currentPCFactor = Program.PC_Factor(nr);
-                        if (currentPCFactor > 0.0) 
+                        if (currentPCFactor > 0.0)
                         {
                             double num5 = 0.0;
                             int noJGoe1 = Program.NoJ_GOE;
